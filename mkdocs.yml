@@ -1,0 +1,178 @@
+
+
+# ------------------------------------------------------
+# Page tree
+# ------------------------------------------------------
+nav:
+
+  - 🎓  Getting Started:
+    - 🏠 Home: index.md
+    - Astra Core:
+      - Create Token: create-instance.md
+    - AstraDB:
+      - Create Database: create-instance.md
+      - Download SecureConnectBundle: create-instance.md
+      - Resume a database: create-instance.md
+      - Multi Regions: create-instance.md
+    - Astra Steaming:
+      - Create Astra Streaming Topic: create-instance.md
+
+  - 📥 Working with Data:
+    - Home: section-work-with-data.md
+    - Data Loading:
+      - Astra Data Loader: create-instance.md
+      - DSBulk: create-instance.md
+      - NoSQL Bench: create-instance.md
+    - Data Exploration:
+      - Cqlsh: create-instance.md
+      - Netflix Data Explorer 🚧: create-instance.md
+      - Datagrip: create-instance.md
+      - DBSchema: create-instance.md
+      - DBeaver: create-instance.md
+      - MindDB: create-instance.md
+      - TablePlus: create-instance.md
+    - Data Modelling:
+      - Kashliev KDM: http://kdm.kashliev.com/
+    - Infrastructure and Devops:
+      - CQL Proxy: create-instance.md
+      - Ansible: create-instance.md
+      - Terraform Provider: create-instance.md
+      
+  - 🛠️ Coding:
+    - Home: section-coding.md
+    - Stargate Apis:
+      - CQL Api: create-instance.md
+      - REST Api: create-instance.md
+      - Document Api: create-instance.md
+      - graphQL Api: create-instance.md
+      - gRPC Api: create-instance.md
+    - Coding with JAVA:
+      - Using Drivers: create-instance.md
+  
+  - 📦 Tools and Third-Party:
+    - Developers IDE:
+      - IntelliJ : create-instance.md
+      - Eclipse : create-instance.md
+      - VSCode : create-instance.md
+      - Gitpod : create-instance.md
+    - Notebooks:
+      - Jupyter Notebooks : create-instance.md
+      - DataStax Studio : create-instance.md
+      - Apache Zeppelin : create-instance.md
+    - Integration Middlewares:
+      - Apache Airflow : create-instance.md
+      - Apache Nifi : create-instance.md
+      - Apache Spark : create-instance.md
+      - Pentaho Data Integration : create-instance.md
+      - Temporal : create-instance.md
+      
+# ------------------------------------------------------
+# Settings
+# ------------------------------------------------------
+
+# Project information
+site_name: Awesome Astra
+site_url: https://example.com
+site_author: Cedrick Lunven
+site_description: >-
+ Your Wiki to implement Awesome Applications with Astra
+
+# Repository
+repo_name: awesome-astra/awesome-astra.github.io
+repo_url: https://github.com/awesome-astra/awesome-astra.github.io
+edit_uri: ""
+
+# Theme
+theme:
+ name: material
+ language: en
+ features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+ palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - scheme: default
+      primary: blue grey
+      accent: blue grey
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+ favicon: assets/favicon.png
+ icon:
+    logo: logo
+ 
+ include_search_page: false
+ search_index_only: true
+
+# Mardown Support
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  #- pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: G-ZMZXZME49E
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCAIQY251avaMv7bBv5PCo-A
+    - icon: fontawesome/brands/github
+      link: https://github.com/clun
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/clunven
+    - icon: fontawesome/brands/discord
+      link: https://dtsx.io/discord
+
+    
+            
