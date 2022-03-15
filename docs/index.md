@@ -10,7 +10,7 @@
 ----
 
 <p>
-Welcome to the <b>Awesome Astra</b> wiki! As the name stated it is an attempt to gather all information regarding Astra usage in a single place to help you in the development of your applications. It is a community and collaborative effort, if you have some inputs or correction please do so.
+Update test Welcome to the <b>Awesome Astra</b> wiki! As the name stated it is an attempt to gather all information regarding Astra usage in a single place to help you in the development of your applications. It is a community and collaborative effort, if you have some inputs or correction please do so.
 </p>
 
 <h2> 🛠️ Coding with Astra</h2>

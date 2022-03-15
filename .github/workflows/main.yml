@@ -2,7 +2,7 @@ name: Build and deploy mkdocs to github pages
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
