@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 nav:
 
-  - 🎓 Home:
+  - 🎓 AstraUI Tutorials:
     - 🏠 Home: index.md
     - Astra Core:
       - Create Token: astra-create-token.md
@@ -16,7 +16,8 @@ nav:
     - Astra Steaming:
       - Create Astra Streaming Topic: astra-create-topic.md
 
-  - 📥 Working with Data:
+  - 📥 Work with Data:
+    - 🏠 Home: section-work-with-data.md
     - Data Loading:
       - Astra Data Loader: todo.md
       - DSBulk: todo.md
@@ -36,8 +37,8 @@ nav:
       - Ansible: todo.md
       - Terraform Provider: todo.md
       
-  - 🛠️ Coding:
-    - 🏠 Home: section-coding.md
+  - 🛠️ Develop:
+    - 🏠 List: section-coding.md
     - Stargate Apis:
       - REST: todo.md
       - Document: todo.md
@@ -52,12 +53,13 @@ nav:
       - Scala: language-scala.md
       - Rust: language-rust.md
     - Frameworks:
-      - Spring: todo.md
-      - Quarkus: todo.md
-      - Micronaut: todo.md
+      - Spring: framework-spring.md
+      - Quarkus: framework-quarkus.md
+      - Micronaut: framework-micronaut.md
 
   
-  - 📦 Tools and Third-Party:
+  - 📦 Tools:
+    - 🏠 Home: section-tools.md
     - Developers IDE:
       - IntelliJ : todo.md
       - Eclipse : todo.md
