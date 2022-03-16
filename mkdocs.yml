@@ -6,18 +6,17 @@ nav:
   - 🎓 Home:
     - 🏠 Home: index.md
     - Astra Core:
-      - Create Token: todo.md
+      - Create Token: astra-create-token.md
     - AstraDB:
-      - Create Database: create-instance.md
-      - Download SecureConnectBundle:todo.md
-      - Resume a database: todo.md
-      - Multi Regions: todo.md
-      - FAQ: todo.md
+      - Create Database: astra-create-instance.md
+      - Download SecureConnectBundle: astra-download-scb.md
+      - Resume a database: astra-resume-db.md
+      - Multi Regions: astra-multi-regions.md
+      - FAQ: astra-faq.md
     - Astra Steaming:
-      - Create Astra Streaming Topic: todo.md
+      - Create Astra Streaming Topic: astra-create-topic.md
 
   - 📥 Working with Data:
-    - Home: section-work-with-data.md
     - Data Loading:
       - Astra Data Loader: todo.md
       - DSBulk: todo.md

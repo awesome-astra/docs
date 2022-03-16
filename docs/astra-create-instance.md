@@ -12,7 +12,7 @@ _Written by **Cedrick Lunven**, Last Update `2/10/2022`_
 
 ## C - Procedure
 
-### ✅ Step 1:Click the `sign-in` button to login or register.
+**✅ Step 1:Click the `sign-in` button to login or register.**
 
 You can use your `Github`, `Google` accounts or register with an `email`. With the latest make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character.
 
@@ -21,7 +21,7 @@ You can use your `Github`, `Google` accounts or register with an `email`. With t
 
 <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/astra-login.png?raw=true" />
 
-### ✅ Step 2: Complete the creation form
+**✅ Step 2: Complete the creation form**
 
 _As you create a new account, you will be prompted to create a database; you will see the same form if you simply
 hit the "Create database" button in your existing Astra account._
