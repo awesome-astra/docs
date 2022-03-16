@@ -11,7 +11,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://awesome-astra.github.io/create-instance/</loc>
+         <loc>https://awesome-astra.github.io/astra-create-instance/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-create-token/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-create-topic/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-download-scb/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-faq/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-multi-regions/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/astra-resume-db/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
