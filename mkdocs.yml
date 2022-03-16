@@ -12,18 +12,18 @@ nav:
       - Download SecureConnectBundle: astra-download-scb.md
       - Resume a database: astra-resume-db.md
       - Multi Regions: astra-multi-regions.md
-      - CQL Proxy: todo.md
+      - CQL Proxy: astra-cqlproxy.md
       - FAQ: astra-faq.md
     - Astra Steaming:
       - Create Astra Streaming Topic: astra-create-topic.md
    
   - 📥 Data Management:
     - 🏠 Home: section-work-with-data.md
-    - Data Loading:
-      - Astra Data Loader: todo.md
-      - DSBulk: todo.md
+    - Load Data:
+      - Astra Data Loader: data-astradataloader.md
+      - DSBulk: data-dsbulk.md
       - NoSQL Bench: todo.md
-    - Data Exploration:
+    - Explore You Data:
       - Cqlsh: todo.md
       - Netflix Data Explorer 🚧: todo.md
       - Datagrip: todo.md
