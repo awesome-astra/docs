@@ -1,6 +1,6 @@
 <p align="center">
-<img src="img/logo-awesome.png" height="40px"/>
-<img src="img/logo-astra.png" height="20px"/>
+<img src="img/astra/logo-awesome.png" height="40px"/>
+<img src="img/astra/logo-astra.png" height="20px"/>
 </p>
 <p align="center">
  <b>Your Wiki to implement Awesome Applications with <a href="https://astra.datastax.com">Astra</a></b>
