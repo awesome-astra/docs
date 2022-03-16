@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/tool-apache-airflow/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/img/google-cloud-functions-python-driver/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
