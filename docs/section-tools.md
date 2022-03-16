@@ -1,7 +1,5 @@
-### 📦 Tools List
-
 <ul>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Using-Airflow-with-Astra"><b>Apache Airflow</b></a>: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems</li>
+<li><a href="/tool-apache-airflow"><b>Apache Airflow</b></a>: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems</li>
 
 </ul>
 - **[Apache Nifi](https://github.com/datastaxdevs/awesome-astra/wiki/Using-Apache-Nifi-with-Astra)**: NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, we use it here to mean the automated and managed flow of information between systems.

@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 nav:
 
-  - 🎓 AstraUI Tutorials:
+  - 🎓 Astra Tutorials:
     - 🏠 Home: index.md
     - Astra Core:
       - Create Token: astra-create-token.md
@@ -12,11 +12,12 @@ nav:
       - Download SecureConnectBundle: astra-download-scb.md
       - Resume a database: astra-resume-db.md
       - Multi Regions: astra-multi-regions.md
+      - CQL Proxy: todo.md
       - FAQ: astra-faq.md
     - Astra Steaming:
       - Create Astra Streaming Topic: astra-create-topic.md
-
-  - 📥 Work with Data:
+   
+  - 📥 Data Management:
     - 🏠 Home: section-work-with-data.md
     - Data Loading:
       - Astra Data Loader: todo.md
@@ -32,10 +33,6 @@ nav:
       - TablePlus: todo.md
     - Data Modelling:
       - Kashliev KDM: http://kdm.kashliev.com/
-    - Infrastructure and Devops:
-      - CQL Proxy: todo.md
-      - Ansible: todo.md
-      - Terraform Provider: todo.md
       
   - 🛠️ Develop:
     - 🏠 List: section-coding.md
@@ -56,10 +53,9 @@ nav:
       - Spring: framework-spring.md
       - Quarkus: framework-quarkus.md
       - Micronaut: framework-micronaut.md
-
   
   - 📦 Tools:
-    - 🏠 Home: section-tools.md
+    - 📦 Tools List: section-tools.md
     - Developers IDE:
       - IntelliJ : todo.md
       - Eclipse : todo.md
@@ -70,7 +66,7 @@ nav:
       - DataStax Studio : todo.md
       - Apache Zeppelin : todo.md
     - Integration Middlewares:
-      - Apache Airflow : todo.md
+      - Apache Airflow : tool-apache-airflow.md
       - Apache Nifi : todo.md
       - Apache Spark : todo.md
       - Pentaho Data Integration : todo.md
