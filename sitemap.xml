@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/astra-cqlproxy/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/astra-create-instance/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
@@ -42,6 +47,16 @@
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-resume-db/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/data-astradataloader/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/data-dsbulk/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
