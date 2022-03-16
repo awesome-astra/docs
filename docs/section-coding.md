@@ -1,27 +1,35 @@
-# Coding
+### 🛠️ Coding with Astra
 
-
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Java">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-java.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Javascript">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-javascript.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Python">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-python.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Go">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-go.png?raw=true" height="130px" width="150px"/>
-</a>
-
-<p>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Scala">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-scala.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Rust">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-rust.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-CSharp">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-csharp.png?raw=true" height="130px" width="150px"/>
+<a href="../language-java">
+ <img src="../img/tile-java.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../language-javascript">
+<img src="../img/tile-javascript.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../language-python">
+<img src="../img/tile-python.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../language-go">
+<img src="../img/tile-go.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../language-csharp">
+<img src="../img/tile-csharp.png" height="130px" width="130px"/>
 </a>
 
+<p><br/>
+<a href="../language-scala">
+<img src="../img/tile-scala.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../language-rust">
+<img src="../img/tile-rust.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../framework-spring">
+<img src="../img/tile-spring.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../framework-quarkus">
+<img src="../img/tile-quarkus.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="../framework-micronaut">
+<img src="../img/tile-micronaut.png" height="130px" width="130px"/>
+</a>
+</p>

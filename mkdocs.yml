@@ -1,70 +1,79 @@
-
-
 # ------------------------------------------------------
 # Page tree
 # ------------------------------------------------------
 nav:
 
-  - 🎓  Getting Started:
+  - 🎓 Home:
     - 🏠 Home: index.md
     - Astra Core:
-      - Create Token: create-instance.md
+      - Create Token: todo.md
     - AstraDB:
       - Create Database: create-instance.md
-      - Download SecureConnectBundle: create-instance.md
-      - Resume a database: create-instance.md
-      - Multi Regions: create-instance.md
+      - Download SecureConnectBundle:todo.md
+      - Resume a database: todo.md
+      - Multi Regions: todo.md
+      - FAQ: todo.md
     - Astra Steaming:
-      - Create Astra Streaming Topic: create-instance.md
+      - Create Astra Streaming Topic: todo.md
 
   - 📥 Working with Data:
     - Home: section-work-with-data.md
     - Data Loading:
-      - Astra Data Loader: create-instance.md
-      - DSBulk: create-instance.md
-      - NoSQL Bench: create-instance.md
+      - Astra Data Loader: todo.md
+      - DSBulk: todo.md
+      - NoSQL Bench: todo.md
     - Data Exploration:
-      - Cqlsh: create-instance.md
-      - Netflix Data Explorer 🚧: create-instance.md
-      - Datagrip: create-instance.md
-      - DBSchema: create-instance.md
-      - DBeaver: create-instance.md
-      - MindDB: create-instance.md
-      - TablePlus: create-instance.md
+      - Cqlsh: todo.md
+      - Netflix Data Explorer 🚧: todo.md
+      - Datagrip: todo.md
+      - DBSchema: todo.md
+      - DBeaver: todo.md
+      - MindDB: todo.md
+      - TablePlus: todo.md
     - Data Modelling:
       - Kashliev KDM: http://kdm.kashliev.com/
     - Infrastructure and Devops:
-      - CQL Proxy: create-instance.md
-      - Ansible: create-instance.md
-      - Terraform Provider: create-instance.md
+      - CQL Proxy: todo.md
+      - Ansible: todo.md
+      - Terraform Provider: todo.md
       
   - 🛠️ Coding:
-    - Home: section-coding.md
+    - 🏠 Home: section-coding.md
     - Stargate Apis:
-      - CQL Api: create-instance.md
-      - REST Api: create-instance.md
-      - Document Api: create-instance.md
-      - graphQL Api: create-instance.md
-      - gRPC Api: create-instance.md
-    - Coding with JAVA:
-      - Using Drivers: create-instance.md
+      - REST: todo.md
+      - Document: todo.md
+      - graphQL: todo.md
+      - gRPC: todo.md
+    - Languages:
+      - Java: language-java.md
+      - Javascript: language-javascript.md
+      - Python: language-python.md
+      - GoLang: language-go.md
+      - CSharp: language-csharp.md
+      - Scala: language-scala.md
+      - Rust: language-rust.md
+    - Frameworks:
+      - Spring: todo.md
+      - Quarkus: todo.md
+      - Micronaut: todo.md
+
   
   - 📦 Tools and Third-Party:
     - Developers IDE:
-      - IntelliJ : create-instance.md
-      - Eclipse : create-instance.md
-      - VSCode : create-instance.md
-      - Gitpod : create-instance.md
+      - IntelliJ : todo.md
+      - Eclipse : todo.md
+      - VSCode : todo.md
+      - Gitpod : todo.md
     - Notebooks:
-      - Jupyter Notebooks : create-instance.md
-      - DataStax Studio : create-instance.md
-      - Apache Zeppelin : create-instance.md
+      - Jupyter Notebooks : todo.md
+      - DataStax Studio : todo.md
+      - Apache Zeppelin : todo.md
     - Integration Middlewares:
-      - Apache Airflow : create-instance.md
-      - Apache Nifi : create-instance.md
-      - Apache Spark : create-instance.md
-      - Pentaho Data Integration : create-instance.md
-      - Temporal : create-instance.md
+      - Apache Airflow : todo.md
+      - Apache Nifi : todo.md
+      - Apache Spark : todo.md
+      - Pentaho Data Integration : todo.md
+      - Temporal : todo.md
       
 # ------------------------------------------------------
 # Settings
@@ -72,14 +81,14 @@ nav:
 
 # Project information
 site_name: Awesome Astra
-site_url: https://example.com
+site_url: https://awesome-astra.github.io
 site_author: Cedrick Lunven
 site_description: >-
  Your Wiki to implement Awesome Applications with Astra
 
 # Repository
-repo_name: awesome-astra/awesome-astra.github.io
-repo_url: https://github.com/awesome-astra/awesome-astra.github.io
+repo_name: awesome-astra/docs
+repo_url: https://github.com/awesome-astra/docs
 edit_uri: ""
 
 # Theme
@@ -98,22 +107,22 @@ theme:
     - search.suggest
     - toc.follow
  palette:
-    - scheme: slate
+    - scheme: default
       primary: indigo
       accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-    - scheme: default
-      primary: blue grey
-      accent: blue grey
+    - scheme: slate
+      primary: teal
+      accent: teal
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
 
- favicon: assets/favicon.png
- icon:
-    logo: logo
+ #favicon: assets/favicon.png
+ #icon:
+ #   logo: docs/img/logo-go.png
  
  include_search_page: false
  search_index_only: true

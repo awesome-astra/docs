@@ -1,57 +1,68 @@
-
 <p align="center">
 <img src="https://raw.githubusercontent.com/datastaxdevs/awesome-astra/main/astra/img/logo-awesome.png" height="80px"/>
 <img src="https://raw.githubusercontent.com/datastaxdevs/awesome-astra/main/astra/img/logo-astra.png" height="40px"/>
 </p>
 <p align="center">
- <b>Your Wiki to implement Awesome Applications with <a href="astra.datastax.com">Astra</a></b>
+ <b>Your Wiki to implement Awesome Applications with <a href="https://astra.datastax.com">Astra</a></b>
 </p>
 
-----
+---
 
 <p>
-Update test Welcome to the <b>Awesome Astra</b> wiki! As the name stated it is an attempt to gather all information regarding Astra usage in a single place to help you in the development of your applications. It is a community and collaborative effort, if you have some inputs or correction please do so.
+Welcome to the <b>Awesome Astra</b> wiki! As the name stated it is an attempt to gather all information regarding Astra usage in a single place to help you in the development of your applications. It is a community and collaborative effort, if you have some inputs or correction please do so.
 </p>
 
-<h2> 🛠️ Coding with Astra</h2>
+### 🛠️ Coding with Astra
 
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Java">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-java.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Javascript">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-javascript.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Python">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-python.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Go">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-go.png?raw=true" height="130px" width="150px"/>
-</a>
-
-<p>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Scala">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-scala.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-Rust">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-rust.png?raw=true" height="130px" width="150px"/>
-</a>
-<a href="https://github.com/datastaxdevs/awesome-astra/wiki/Coding-with-CSharp">
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/_img/logo-csharp.png?raw=true" height="130px" width="150px"/>
+<a href="language-java">
+ <img src="img/tile-java.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="language-javascript">
+<img src="img/tile-javascript.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="language-python">
+<img src="img/tile-python.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="language-go">
+<img src="img/tile-go.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="language-csharp">
+<img src="img/tile-csharp.png" height="130px" width="130px"/>
 </a>
 
-<h2> 📦 Using Astra with </h2>
+<p><br/>
+<a href="language-scala">
+<img src="img/tile-scala.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="language-rust">
+<img src="img/tile-rust.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="framework-spring">
+<img src="img/tile-spring.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="framework-quarkus">
+<img src="img/tile-quarkus.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="framework-micronaut">
+<img src="img/tile-micronaut.png" height="130px" width="130px"/>
+</a>
+</p>
 
-- **[Apache Airflow](https://github.com/datastaxdevs/awesome-astra/wiki/Using-Airflow-with-Astra)**: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems
+### 📦 Tools List
 
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Using-Airflow-with-Astra"><b>Apache Airflow</b></a>: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems</li>
+
+</ul>
 - **[Apache Nifi](https://github.com/datastaxdevs/awesome-astra/wiki/Using-Apache-Nifi-with-Astra)**: NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, we use it here to mean the automated and managed flow of information between systems.
 
 - **[Apache Spark](https://github.com/datastaxdevs/awesome-astra/wiki/Apache-Spark-Integration):** Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
 
-- **[Cloud Functions (Python Driver)](https://github.com/datastaxdevs/awesome-astra/wiki/Cloud-Functions-(Python-Driver))**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
+- **[Cloud Functions (Python Driver)](<https://github.com/datastaxdevs/awesome-astra/wiki/Cloud-Functions-(Python-Driver)>)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
-- **[Cloud Functions (Python SDK)](https://github.com/datastaxdevs/awesome-astra/wiki/Cloud-Functions-(Python-SDK))**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
+- **[Cloud Functions (Python SDK)](<https://github.com/datastaxdevs/awesome-astra/wiki/Cloud-Functions-(Python-SDK)>)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
-- **[Cql Proxy](https://github.com/datastaxdevs/awesome-astra/wiki/CQL-Proxy)**: cql-proxy is designed to forward your application's CQL traffic to an appropriate database service. It listens on a local address and securely forwards that traffic. 
+- **[Cql Proxy](https://github.com/datastaxdevs/awesome-astra/wiki/CQL-Proxy)**: cql-proxy is designed to forward your application's CQL traffic to an appropriate database service. It listens on a local address and securely forwards that traffic.
 
 - **[Cql Shell](https://github.com/datastaxdevs/awesome-astra/wiki/Cql-Shell)**: the standalone CQLSH client is a separate, lightweight tool you can use to interact with your database.
 
@@ -72,5 +83,3 @@ Update test Welcome to the <b>Awesome Astra</b> wiki! As the name stated it is a
 - **[Pentaho Data Integration](https://github.com/datastaxdevs/awesome-astra/wiki/Pentaho-Data-Integration)**: Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
 - **[TablePlus](https://github.com/datastaxdevs/awesome-astra/wiki/TablePlus):** TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.
-
-
