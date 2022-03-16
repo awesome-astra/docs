@@ -1,0 +1,16 @@
+{
+  "host": "3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23-eu-west-1.db.astra.datastax.com",
+  "port": 29080,
+  "cql_port": 29042,
+  "keyspace": "spring_petclinic",
+  "localDC": "eu-west-1",
+  "caCertLocation": "./ca.crt",
+  "keyLocation": "./key",
+  "certLocation": "./cert",
+  "keyStoreLocation": "./identity.jks",
+  "keyStorePassword": "2SQoc4uzOUmw793KM",
+  "trustStoreLocation": "./trustStore.jks",
+  "trustStorePassword": "3A9D6prWbnT2OHs7l",
+  "csvLocation": "./data",
+  "pfxCertPassword": "1v9dNBkR83Ja7PsLK"
+}
