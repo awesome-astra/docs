@@ -46,6 +46,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/framework-micronaut/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/framework-quarkus/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/framework-spring/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/language-csharp/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
@@ -82,6 +97,11 @@
     </url>
     <url>
          <loc>https://awesome-astra.github.io/section-coding/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/section-tools/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
