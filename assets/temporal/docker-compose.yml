@@ -1,0 +1,53 @@
+version: "3.5"
+services:
+  temporal:
+    container_name: temporal
+    environment:
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development.yaml
+      - DB=cassandra
+      - SKIP_SCHEMA_SETUP=true
+      - CASSANDRA_SEEDS=3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23-eu-west-1.db.astra.datastax.com
+      - CASSANDRA_PORT=29042
+      - CASSANDRA_USER=TBD
+      - CASSANDRA_PASSWORD=TBD
+      - CASSANDRA_TLS_ENABLED=true
+      - CASSANDRA_TLS_DISABLE_HOST_VERIFICATION=true
+      - CASSANDRA_TLS_SERVER_NAME=3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23-eu-west-1.db.astra.datastax.com
+      - CASSANDRA_CERT=/etc/temporal/config/dynamicconfig/cert
+      - CASSANDRA_CERT_KEY=/etc/temporal/config/dynamicconfig/key
+      - CASSANDRA_CA=/etc/temporal/config/dynamicconfig/ca.crt
+      
+    image: temporalio/auto-setup:1.14.2
+    networks:
+      - temporal-network
+    ports:
+      - 7233:7233
+    volumes:
+      - ./dynamicconfig:/etc/temporal/config/dynamicconfig
+  temporal-admin-tools:
+    container_name: temporal-admin-tools
+    depends_on:
+      - temporal
+    environment:
+      - TEMPORAL_CLI_ADDRESS=temporal:7233
+    image: temporalio/admin-tools:1.14.2
+    networks:
+      - temporal-network
+    stdin_open: true
+    tty: true
+  temporal-web:
+    container_name: temporal-web
+    depends_on:
+      - temporal
+    environment:
+      - TEMPORAL_GRPC_ENDPOINT=temporal:7233
+      - TEMPORAL_PERMIT_WRITE_API=true
+    image: temporalio/web:1.13.0
+    networks:
+      - temporal-network
+    ports:
+      - 8088:8088
+networks:
+  temporal-network:
+    driver: bridge
+    name: temporal-network

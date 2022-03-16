@@ -1,0 +1,778 @@
+{
+	"info": {
+		"_postman_id": "b4af660e-c29c-4961-843d-bcc884da8e59",
+		"name": "Astra_Document_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "namespaces",
+			"item": [
+				{
+					"name": "[Namespace] - List Namespaces",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/schemas/namespaces/",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"schemas",
+								"namespaces",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Namespace] - Get Namespace Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/schemas/namespaces/{{namespace}}",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"schemas",
+								"namespaces",
+								"{{namespace}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Namespace] - Get Namespace Available Functions",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/schemas/namespaces/{{namespace}}/functions",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"schemas",
+								"namespaces",
+								"{{namespace}}",
+								"functions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "collections",
+			"item": [
+				{
+					"name": "[Collection] - List Collections in a namespace",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{namespace}}/collections",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{namespace}}",
+								"collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Collection] - Create a Collection",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n     \"name\": \"mynewcollection\"\n}"
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{namespace}}/collections/",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{namespace}}",
+								"collections",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Collection] - Upgrade a Collection",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"upgradeType\": \"SAI_INDEX_UPGRADE\"\n}"
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{namespace}}/collections/person/upgrade",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{namespace}}",
+								"collections",
+								"person",
+								"upgrade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Collection] - Delete a Collection",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{namespace}}/collections/person",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{namespace}}",
+								"collections",
+								"person"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "documents",
+			"item": [
+				{
+					"name": "[Document] - Create a document (no id)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Cedrick\", \n    \"lastname\": \"Loulou\",\n    \"age\":50,\n    \"contries\":[\"France\",\"USA\"],\n    \"address\": {\n        \"city\":\"Paris\",\n        \"zipCode\":75000\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Upsert a document (with id)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Cedrick\", \n    \"lastname\": \"Lunven\",\n    \"age\":38,\n    \"countries\":[\"France\",\"USA\"],\n    \"address\": {\n        \"street\":\"Gautier\",\n        \"zipcode\":53120\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Update a subpart",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"loulou\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Get a document by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1?raw=true",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1"
+							],
+							"query": [
+								{
+									"key": "raw",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Get a document SUBPART Object",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1/address?raw=true",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1",
+								"address"
+							],
+							"query": [
+								{
+									"key": "raw",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Get a document SUBPART List",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1/countries?raw=true",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1",
+								"countries"
+							],
+							"query": [
+								{
+									"key": "raw",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Get a document SUBPART Scalar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1/firstname?raw=true",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1",
+								"firstname"
+							],
+							"query": [
+								{
+									"key": "raw",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] -Update SUBPART",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-length": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"city\": \"city3\", \"zipCode\": 12 }"
+						},
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{namespace}}/collections/person/person1/address",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{namespace}}",
+								"collections",
+								"person",
+								"person1",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Delete a document by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person/person1",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person",
+								"person1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Document] - Search clause where",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cassandra-Token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{db}}-{{region}}.apps.astra.datastax.com/api/rest/v2/namespaces/{{keyspace}}/collections/person?page-size=20&where={\"age\": {\"$gte\": 40}}&sort=[\"lastname\"]",
+							"protocol": "https",
+							"host": [
+								"{{db}}-{{region}}",
+								"apps",
+								"astra",
+								"datastax",
+								"com"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v2",
+								"namespaces",
+								"{{keyspace}}",
+								"collections",
+								"person"
+							],
+							"query": [
+								{
+									"key": "page-size",
+									"value": "20"
+								},
+								{
+									"key": "where",
+									"value": "{\"age\": {\"$gte\": 40}}"
+								},
+								{
+									"key": "fields",
+									"value": "[\"age\",\"lastname\",\"firstname\",\"countries\"]",
+									"disabled": true
+								},
+								{
+									"key": "raw",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "[\"lastname\"]"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

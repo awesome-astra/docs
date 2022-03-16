@@ -1,0 +1,64 @@
+version: "3.5"
+services:
+  cql-proxy:
+    image: datastax/cql-proxy:v0.0.4
+    volumes:
+      - ./cql-proxy/secure-connect-temporal.zip:/tmp/scb.zip
+    networks:
+      - temporal-network
+    ports:
+      - 7001:7001
+      - 7199:7199
+      - 9042:9042
+      - 9160:9160
+    environment:
+      - BUNDLE=/tmp/scb.zip
+      - USERNAME=TBD
+      - PASSWORD=TBD 
+
+  temporal:
+    container_name: temporal
+    depends_on:
+      - cql-proxy
+    environment:
+      - CASSANDRA_SEEDS=cql-proxy
+      - CASSANDRA_KEYSPACE=temporal
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development.yaml
+      - CASSANDRA_USER=TBD
+      - CASSANDRA_PASSWORD=TBD
+      
+
+    image: temporalio/auto-setup:1.14.2
+    networks:
+      - temporal-network
+    ports:
+      - 7233:7233
+    volumes:
+      - ./dynamicconfig:/etc/temporal/config/dynamicconfig
+  temporal-admin-tools:
+    container_name: temporal-admin-tools
+    depends_on:
+      - temporal
+    environment:
+      - TEMPORAL_CLI_ADDRESS=temporal:7233
+    image: temporalio/admin-tools:1.14.2
+    networks:
+      - temporal-network
+    stdin_open: true
+    tty: true
+  temporal-web:
+    container_name: temporal-web
+    depends_on:
+      - temporal
+    environment:
+      - TEMPORAL_GRPC_ENDPOINT=temporal:7233
+      - TEMPORAL_PERMIT_WRITE_API=true
+    image: temporalio/web:1.13.0
+    networks:
+      - temporal-network
+    ports:
+      - 8088:8088
+networks:
+  temporal-network:
+    driver: bridge
+    name: temporal-network
