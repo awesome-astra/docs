@@ -12,21 +12,21 @@
         <meta name="author" content="Cedrick Lunven">
       
       
-        <link rel="canonical" href="https://awesome-astra.github.io/img/google-cloud-functions-python-sdk/">
+        <link rel="canonical" href="https://awesome-astra.github.io/todo/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
-        <title>Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console - Awesome Astra</title>
+        <title>Temporal - Awesome Astra</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -41,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -78,11 +78,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#connecting-to-astra-db-from-a-google-cloud-function-using-python-sdk-and-cloud-console" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Awesome Astra" class="md-header__button md-logo" aria-label="Awesome Astra" data-md-component="logo">
+    <a href=".." title="Awesome Astra" class="md-header__button md-logo" aria-label="Awesome Astra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -112,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console
+              Temporal
             
           </span>
         </div>
@@ -218,7 +213,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         🎓 Astra Tutorials
       </a>
     </li>
@@ -234,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../section-work-with-data/" class="md-tabs__link">
+      <a href="../section-work-with-data/" class="md-tabs__link">
         📥 Data Management
       </a>
     </li>
@@ -250,7 +245,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../section-coding/" class="md-tabs__link">
+      <a href="../section-coding/" class="md-tabs__link">
         🛠️ Develop
       </a>
     </li>
@@ -260,13 +255,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../section-tools/" class="md-tabs__link">
+      <a href="../section-tools/" class="md-tabs__link md-tabs__link--active">
         📦 Tools
       </a>
     </li>
@@ -294,7 +291,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Awesome Astra" class="md-nav__button md-logo" aria-label="Awesome Astra" data-md-component="logo">
+    <a href=".." title="Awesome Astra" class="md-nav__button md-logo" aria-label="Awesome Astra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -348,7 +345,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">🎓 Astra Tutorials</a>
+          <a href="..">🎓 Astra Tutorials</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -403,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-create-token/" class="md-nav__link">
+      <a href="../astra-create-token/" class="md-nav__link">
         Create Token
       </a>
     </li>
@@ -466,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-create-instance/" class="md-nav__link">
+      <a href="../astra-create-instance/" class="md-nav__link">
         Create Database
       </a>
     </li>
@@ -480,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-download-scb/" class="md-nav__link">
+      <a href="../astra-download-scb/" class="md-nav__link">
         Download SecureConnectBundle
       </a>
     </li>
@@ -494,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-resume-db/" class="md-nav__link">
+      <a href="../astra-resume-db/" class="md-nav__link">
         Resume a database
       </a>
     </li>
@@ -508,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-multi-regions/" class="md-nav__link">
+      <a href="../astra-multi-regions/" class="md-nav__link">
         Multi Regions
       </a>
     </li>
@@ -522,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-cqlproxy/" class="md-nav__link">
+      <a href="../astra-cqlproxy/" class="md-nav__link">
         CQL Proxy
       </a>
     </li>
@@ -536,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-faq/" class="md-nav__link">
+      <a href="../astra-faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -589,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../astra-create-topic/" class="md-nav__link">
+      <a href="../astra-create-topic/" class="md-nav__link">
         Create Astra Streaming Topic
       </a>
     </li>
@@ -654,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../section-work-with-data/" class="md-nav__link">
+      <a href="../section-work-with-data/" class="md-nav__link">
         🏠 Home
       </a>
     </li>
@@ -704,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-astradataloader/" class="md-nav__link">
+      <a href="../data-astradataloader/" class="md-nav__link">
         Astra Data Loader
       </a>
     </li>
@@ -718,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-dsbulk/" class="md-nav__link">
+      <a href="../data-dsbulk/" class="md-nav__link">
         DSBulk
       </a>
     </li>
@@ -732,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="../data-nosqlbench/" class="md-nav__link">
         NoSQL Bench
       </a>
     </li>
@@ -797,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Cqlsh
       </a>
     </li>
@@ -811,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Netflix Data Explorer 🚧
       </a>
     </li>
@@ -825,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Datagrip
       </a>
     </li>
@@ -839,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         DBSchema
       </a>
     </li>
@@ -853,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         DBeaver
       </a>
     </li>
@@ -867,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         MindDB
       </a>
     </li>
@@ -881,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         TablePlus
       </a>
     </li>
@@ -999,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../section-coding/" class="md-nav__link">
+      <a href="../section-coding/" class="md-nav__link">
         🏠 List
       </a>
     </li>
@@ -1051,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         REST
       </a>
     </li>
@@ -1065,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="../api-document/" class="md-nav__link">
         Document
       </a>
     </li>
@@ -1079,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         graphQL
       </a>
     </li>
@@ -1093,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         gRPC
       </a>
     </li>
@@ -1158,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-java/" class="md-nav__link">
+      <a href="../language-java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1172,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-javascript/" class="md-nav__link">
+      <a href="../language-javascript/" class="md-nav__link">
         Javascript
       </a>
     </li>
@@ -1186,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-python/" class="md-nav__link">
+      <a href="../language-python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1200,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-go/" class="md-nav__link">
+      <a href="../language-go/" class="md-nav__link">
         GoLang
       </a>
     </li>
@@ -1214,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-csharp/" class="md-nav__link">
+      <a href="../language-csharp/" class="md-nav__link">
         CSharp
       </a>
     </li>
@@ -1228,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-scala/" class="md-nav__link">
+      <a href="../language-scala/" class="md-nav__link">
         Scala
       </a>
     </li>
@@ -1242,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../language-rust/" class="md-nav__link">
+      <a href="../language-rust/" class="md-nav__link">
         Rust
       </a>
     </li>
@@ -1299,7 +1296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../framework-spring/" class="md-nav__link">
+      <a href="../framework-spring/" class="md-nav__link">
         Spring
       </a>
     </li>
@@ -1313,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../framework-quarkus/" class="md-nav__link">
+      <a href="../framework-quarkus/" class="md-nav__link">
         Quarkus
       </a>
     </li>
@@ -1327,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../framework-micronaut/" class="md-nav__link">
+      <a href="../framework-micronaut/" class="md-nav__link">
         Micronaut
       </a>
     </li>
@@ -1354,12 +1351,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -1392,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../section-tools/" class="md-nav__link">
+      <a href="../section-tools/" class="md-nav__link">
         📦 Tools List
       </a>
     </li>
@@ -1444,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         IntelliJ
       </a>
     </li>
@@ -1458,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Eclipse
       </a>
     </li>
@@ -1472,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         VSCode
       </a>
     </li>
@@ -1486,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Gitpod
       </a>
     </li>
@@ -1543,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Jupyter Notebooks
       </a>
     </li>
@@ -1557,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         DataStax Studio
       </a>
     </li>
@@ -1571,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Apache Zeppelin
       </a>
     </li>
@@ -1590,14 +1589,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
       
       
       
@@ -1632,7 +1633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-apache-airflow/" class="md-nav__link">
+      <a href="../tool-apache-airflow/" class="md-nav__link">
         Apache Airflow
       </a>
     </li>
@@ -1646,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Apache Nifi
       </a>
     </li>
@@ -1660,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Apache Spark
       </a>
     </li>
@@ -1674,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Pentaho Data Integration
       </a>
     </li>
@@ -1686,11 +1687,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../todo.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Temporal
       </a>
+      
     </li>
   
 
@@ -1716,87 +1725,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-google-cloud-function-to-access-astra-db-using-python-sdk-and-cloud-console" class="md-nav__link">
-    Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-create-a-function" class="md-nav__link">
-    ✅ Step 1: Create a function.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-deploy-the-function" class="md-nav__link">
-    ✅ Step 2: Deploy the function.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-test-the-function" class="md-nav__link">
-    ✅ Step 3: Test the function.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-view-logs" class="md-nav__link">
-    ✅ Step 4: View logs.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1804,117 +1732,9 @@
                 
 
 
-<h1 id="connecting-to-astra-db-from-a-google-cloud-function-using-python-sdk-and-cloud-console">Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console<a class="headerlink" href="#connecting-to-astra-db-from-a-google-cloud-function-using-python-sdk-and-cloud-console" title="Permanent link">&para;</a></h1>
-<p float="left">
-    <img src="img/gcf-logo.png" height="80px" />
-    <img src="img/python-logo.png" height="80px" />
-    <img src="img/astra-db-logo.png" height="80px" />
-</p>
+  <h1>Temporal</h1>
 
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><a href="https://cloud.google.com/functions">Cloud Functions</a> is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:
-- Extend Astra DB with additional data processing capabilities, such as aggregating, summarizing and validating data periodically;
-- Connect Astra DB with other cloud services into data pipelines that move, process and analyze data.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
-<li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first</li>
-</ul>
-<h2 id="creating-a-google-cloud-function-to-access-astra-db-using-python-sdk-and-cloud-console">Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console<a class="headerlink" href="#creating-a-google-cloud-function-to-access-astra-db-using-python-sdk-and-cloud-console" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-create-a-function">✅ Step 1: Create a function.<a class="headerlink" href="#step-1-create-a-function" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select a project that has Cloud Functions enabled, and click <strong>Create function</strong>.</li>
-<li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
-<li>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.</li>
-</ol>
-<p><img src="img/basics.png" /></p>
-<ol>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-<li>
-<p>Under the <strong>Runtime, build, connections and security settings</strong> section, customize additional settings and create these <strong>Runtime environment variables</strong>:</p>
-</li>
-<li>
-<p><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</p>
-</li>
-<li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
-<li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above). </li>
-</ol>
-<p><img src="img/runtime.png" /></p>
-<p>Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field. </p>
-<ol>
-<li>
-<p>Click <strong>Next</strong>.</p>
-</li>
-<li>
-<p>Select <strong>Python 3.7</strong> or your preferred version in the <strong>Runtime</strong> field.</p>
-</li>
-<li>
-<p>Select <strong>Inline Editor</strong> in the <strong>Source code</strong> field.</p>
-</li>
-<li>
-<p>Enter <strong>query_astra_db</strong> in the <strong>Entry point</strong> field.</p>
-</li>
-<li>
-<p>Add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the <code>requirements.txt</code> file.</p>
-</li>
-</ol>
-<p><img src="img/requirements_txt.png" /></p>
-<ol>
-<li>Replace the <code>main.py</code> content with:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">astrapy.rest</span> <span class="kn">import</span> <span class="n">create_client</span><span class="p">,</span> <span class="n">http_methods</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">os</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span> <span class="nf">query_astra_db</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">ASTRA_DB_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_ID&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">ASTRA_DB_REGION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_REGION&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">ASTRA_DB_APPLICATION_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_APPLICATION_TOKEN&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">astra_http_client</span> <span class="o">=</span> <span class="n">create_client</span><span class="p">(</span><span class="n">astra_database_id</span><span class="o">=</span><span class="n">ASTRA_DB_ID</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                      <span class="n">astra_database_region</span><span class="o">=</span><span class="n">ASTRA_DB_REGION</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                      <span class="n">astra_application_token</span><span class="o">=</span><span class="n">ASTRA_DB_APPLICATION_TOKEN</span><span class="p">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># Retrieve a row with primary key value &#39;local&#39;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="c1"># from table &#39;local&#39; in keyspace &#39;system&#39;</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">res</span> <span class="o">=</span> <span class="n">astra_http_client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="n">method</span><span class="o">=</span><span class="n">http_methods</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/api/rest/v2/keyspaces/system/local/local&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="p">)</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="c1"># Print the &#39;cql_version&#39; field value of the row</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cql_version&#39;</span><span class="p">])</span> 
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
-</code></pre></div>
-<p><img src="img/main_py.png" /></p>
-<p>You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
-<h3 id="step-2-deploy-the-function">✅ Step 2: Deploy the function.<a class="headerlink" href="#step-2-deploy-the-function" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Click <strong>Deploy</strong>. </p>
-</li>
-<li>
-<p>On the Cloud Functions Overview page, find the newly deployed function.</p>
-</li>
-</ol>
-<p><img src="img/deploy.png" /></p>
-<h3 id="step-3-test-the-function">✅ Step 3: Test the function.<a class="headerlink" href="#step-3-test-the-function" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Under <strong>Actions</strong>, select <strong>Test function</strong>.</li>
-</ol>
-<p><img src="img/test-function.png" /></p>
-<ol>
-<li>On the testing page, click <strong>Test the function</strong> and observe the output.</li>
-</ol>
-<p><img src="img/test-results.png" /></p>
-<p>Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
-<h3 id="step-4-view-logs">✅ Step 4: View logs.<a class="headerlink" href="#step-4-view-logs" title="Permanent link">&para;</a></h3>
-<p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.</p>
-<p><img src="img/logs.png" />
-<img src="img/logs-explorer.png" /></p>
+<p>Work in Progress</p>
 
               
             </article>
@@ -1929,6 +1749,26 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="./" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pentaho Data Integration" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Pentaho Data Integration
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1990,10 +1830,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
       
     
   </body>

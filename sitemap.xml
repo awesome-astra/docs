@@ -2,142 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://awesome-astra.github.io/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://awesome-astra.github.io/apache-airflow/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <loc>https://awesome-astra.github.io/api-document/</loc>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-cqlproxy/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-create-instance/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-create-token/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-create-topic/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-download-scb/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-faq/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-multi-regions/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/astra-resume-db/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/data-astradataloader/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/data-dsbulk/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/data-nosqlbench/</loc>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/framework-micronaut/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/framework-quarkus/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/framework-spring/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-csharp/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-go/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-java/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-javascript/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-python/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-rust/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/language-scala/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/section-coding/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/section-tools/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/section-work-with-data/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/todo/</loc>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/tool-apache-airflow/</loc>
-         <lastmod>2022-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://awesome-astra.github.io/img/google-cloud-functions-python-driver/</loc>
-         <lastmod>2022-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://awesome-astra.github.io/img/google-cloud-functions-python-sdk/</loc>
-         <lastmod>2022-03-16</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
