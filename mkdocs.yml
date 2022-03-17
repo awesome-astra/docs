@@ -22,7 +22,7 @@ nav:
     - Load Data:
       - Astra Data Loader: data-astradataloader.md
       - DSBulk: data-dsbulk.md
-      - NoSQL Bench: todo.md
+      - NoSQL Bench: data-nosqlbench.md
     - Explore You Data:
       - Cqlsh: todo.md
       - Netflix Data Explorer 🚧: todo.md
