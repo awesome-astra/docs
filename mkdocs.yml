@@ -38,7 +38,7 @@ nav:
     - 🏠 List: section-coding.md
     - Stargate Apis:
       - REST: todo.md
-      - Document: todo.md
+      - Document: api-document.md
       - graphQL: todo.md
       - gRPC: todo.md
     - Languages:
