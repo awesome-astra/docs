@@ -13,7 +13,7 @@ Tokens are the way to authenticate against Astra with any given Apis or Drivers.
 
 When you create a token you will select a `Role` that code a set of permissions. There you can limit the usage of your token for a particular database.
 
-<img src="/img/astra/role-users.png?raw=true" height="400px"/>
+<img src="../../../img/astra/role-users.png" height="400px"/>
 
 ## B - Prerequisites
 
@@ -25,31 +25,31 @@ When you create a token you will select a `Role` that code a set of permissions.
 
 On the top left hand corner locate the panel `Current Organization` with your email address. Use the chevron down **&#8964;** to open the menu and pick `Organizations Settings`
 
-<img src="/img/astra/astra-create-token-1.png?raw=true" />
+<img src="/docs/img/astra/astra-create-token-1.png" />
 
 **✅ Step 2: Open the token management page**
 
 On the new page, select `Token Management` in the menu. Then use the `Select Roles` combo to select `Organization Administrator` role. This is the administrator of your tenant with all permissions.
 
-<img src="/img/astra/astra-create-token-2.png" />
+<img src="/docs/img/astra/astra-create-token-2.png" />
 
 <details>
 <summary>
 💡 You can reach the Token Management page directly from the ellipsis menu next to your database in the main Astra dashboard. Expand to see how
 </summary>
-<img src="/img/astra/astra-create-token-alt.gif" />
+<img src="/docs/img/astra/astra-create-token-alt.gif" />
 </details>
 
 **✅ Step 3: Save the token as a CSV.**
 
 The values of `clientSecret` and `token` will not be shown to you later for security reasons. Do not share those values and never commit them on github.
 
-<img src="/img/astra/astra-create-token-3.png" />
+<img src="/docs/img/astra/astra-create-token-3.png" />
 
 **👁️ Walkthrough**
 
-<img src="/img/astra/astra-create-token.gif" />
+<img src="/docs/img/astra/astra-create-token.gif" />
 
 You can use the clipboard icons close to each parameter to clip them and copy them elsewhere.
 
-<img src="/img/astra/astra-create-token-4.png" />
+<img src="/docs/img/astra/astra-create-token-4.png" />
