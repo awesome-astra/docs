@@ -1,6 +1,10 @@
-> [Reference documentation](https://docs.datastax.com/en/dsbulk/doc/)
-
-> [Reference documentation with Astra](https://docs.datastax.com/en/astra/docs/loading-and-unloading-data-with-datastax-bulk-loader.html)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="https://docs.datastax.com/en/dsbulk/doc/"><b>📖  DSBulks Docs</b> - Reference documentation</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/loading-and-unloading-data-with-datastax-bulk-loader.html"><b>📖  Datastax Docs</b> - Reference Documentation</a>
+</ol>
+</details>
 
 ## A - Overview
 
@@ -44,7 +48,7 @@ This article was written for Datastax Bulk Loader version `1.8.0`.
 
 ## C - Installation
 
-### ✅ Step 1 : Download the archive and unzip locally
+**✅ Step 1 : Download the archive and unzip locally**
 
 ```bash
 curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
@@ -62,7 +66,7 @@ _it will take a few seconds (file is about 30M)..._
 
 ## D - Usage
 
-### Load Data into Astra (sample)
+### 📘 Load Data
 
 - Given a table
 
@@ -100,7 +104,7 @@ dsbulk load \
     -b secureBundle.zip
 ```
 
-### Dump Data from Astra
+### 📘 Export Data
 
 - Unloaded the same table with the following command:
 
@@ -115,7 +119,7 @@ dsbulk unload \
     > book_by_id_export.csv
 ```
 
-### Count Data in Astra
+### 📘 Count Table Records
 
 - Counted the rows in the table with the following command:
 

@@ -6,71 +6,71 @@ nav:
   - 🎓 Astra Tutorials:
     - 🏠 Home: index.md
     - Astra Core:
-      - Create Token: astra-create-token.md
+      - ‣ Create Token: pages/astra/create-token.md
     - AstraDB:
-      - Create Database: astra-create-instance.md
-      - Download SecureConnectBundle: astra-download-scb.md
-      - Resume a database: astra-resume-db.md
-      - Multi Regions: astra-multi-regions.md
-      - CQL Proxy: astra-cqlproxy.md
-      - FAQ: astra-faq.md
+      - ‣ Create Database: pages/astra/create-instance.md
+      - ‣ Secure Connect Bundle: pages/astra/download-scb.md
+      - ‣ Resume a database: pages/astra/resume-db.md
+      - ‣ Multi Regions: pages/astra/multi-regions.md
+      - ‣ CQL Proxy: pages/astra/cqlproxy.md
+      - ‣ FAQ: pages/astra/faq.md
     - Astra Steaming:
-      - Create Astra Streaming Topic: astra-create-topic.md
+      - ‣ Create Topic: pages/astra/create-topic.md
    
   - 📥 Data Management:
-    - 🏠 Home: section-work-with-data.md
+    - 🏠 Home: pages/data/data.md
     - Load Data:
-      - Astra Data Loader: data-astradataloader.md
-      - DSBulk: data-dsbulk.md
-      - NoSQL Bench: data-nosqlbench.md
+      - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
+      - ‣ DSBulk: pages/data/load/dsbulk.md
+      - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
     - Explore You Data:
-      - Cqlsh: todo.md
-      - Netflix Data Explorer 🚧: todo.md
-      - Datagrip: todo.md
-      - DBSchema: todo.md
-      - DBeaver: todo.md
-      - MindDB: todo.md
-      - TablePlus: todo.md
+      - ‣ Cqlsh: pages/data/explore/cqlsh.md
+      - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
+      - ‣ Datagrip: pages/data/explore/datagrip.md
+      - ‣ DBSchema: pages/data/explore/dbschema.md
+      - ‣ DBeaver: pages/data/explore/dbeaver.md
+      - ‣ MindDB: pages/data/explore/minddb.md
+      - ‣ TablePlus: pages/data/explore/tableplus.md
     - Data Modelling:
-      - Kashliev KDM: http://kdm.kashliev.com/
+      - ‣ Kashliev KDM: http://kdm.kashliev.com/
       
   - 🛠️ Develop:
     - 🏠 List: section-coding.md
     - Stargate Apis:
-      - REST: todo.md
-      - Document: api-document.md
-      - graphQL: todo.md
-      - gRPC: todo.md
+      - • REST: todo.md
+      - • Document: api-document.md
+      - • graphQL: todo.md
+      - • gRPC: todo.md
     - Languages:
-      - Java: language-java.md
-      - Javascript: language-javascript.md
-      - Python: language-python.md
-      - GoLang: language-go.md
-      - CSharp: language-csharp.md
-      - Scala: language-scala.md
-      - Rust: language-rust.md
+      - • Java: language-java.md
+      - • Javascript: language-javascript.md
+      - • Python: language-python.md
+      - • GoLang: language-go.md
+      - • CSharp: language-csharp.md
+      - • Scala: language-scala.md
+      - • Rust: language-rust.md
     - Frameworks:
-      - Spring: framework-spring.md
-      - Quarkus: framework-quarkus.md
-      - Micronaut: framework-micronaut.md
+      - • Spring: framework-spring.md
+      - • Quarkus: framework-quarkus.md
+      - • Micronaut: framework-micronaut.md
   
   - 📦 Tools:
     - 📦 Tools List: section-tools.md
     - Developers IDE:
-      - IntelliJ : todo.md
-      - Eclipse : todo.md
-      - VSCode : todo.md
-      - Gitpod : todo.md
+      - • IntelliJ : todo.md
+      - • Eclipse : todo.md
+      - • VSCode : todo.md
+      - • Gitpod : todo.md
     - Notebooks:
-      - Jupyter Notebooks : todo.md
-      - DataStax Studio : todo.md
-      - Apache Zeppelin : todo.md
+      - • Jupyter Notebooks : todo.md
+      - • DataStax Studio : todo.md
+      - • Apache Zeppelin : todo.md
     - Integration Middlewares:
-      - Apache Airflow : tool-apache-airflow.md
-      - Apache Nifi : todo.md
-      - Apache Spark : todo.md
-      - Pentaho Data Integration : todo.md
-      - Temporal : todo.md
+      - • Apache Airflow : tool-apache-airflow.md
+      - • Apache Nifi : todo.md
+      - • Apache Spark : todo.md
+      - • Pentaho Data Integration : todo.md
+      - • Temporal : todo.md
       
 # ------------------------------------------------------
 # Settings
@@ -181,4 +181,4 @@ extra:
       link: https://dtsx.io/discord
 
     
-            
+          

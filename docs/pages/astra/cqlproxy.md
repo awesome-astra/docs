@@ -1,4 +1,9 @@
-> 📘 This content has been retrieved from [Reference Documentation ](https://github.com/datastax/cql-proxy)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="https://github.com/datastax/cql-proxy"><b>📖 Github Repository</b> - Reference Documentation</a>
+</ol>
+</details>
 
 ## A - Overview
 

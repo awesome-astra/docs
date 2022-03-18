@@ -1,4 +1,10 @@
-> The Astra token creation procedure is also described in the [reference documentation](https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="ttps://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html"><b>📖  Astra Docs</b> - Download Cloud Secure Bundle</a>
+<li><a href="https://www.youtube.com/watch?v=PNQM-Bsyibg&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=7"><b>🎥 Youtube Video</b> - Walk through secure </a>
+</ol>
+</details>
 
 ## A - Overview
 
@@ -6,7 +12,7 @@ To initialize a **secured** 2-way TLS connection between clients and Astra x509 
 
 The configuration and required certificates are provided to user through a zip file called the **secure connect bundle** that can be downloaded for each **DATABASE REGION**. Meaning a database deployed across multiple regions will have one secure connect bundle per region. _(1 region = 1 underlying Apache Cassandra™ datacenter)_
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/secureconnectbundle-doc.png?raw=true" height="300px" />
+<img src="/img/astra/secureconnectbundle-doc.png" height="300px" />
 
 ## B - Prerequisites
 
@@ -23,7 +29,7 @@ Once signed in Astra the list of available databases is located in the menu on t
 
 - Click on the TAB `CONNECT` or the big blue button `[CONNECT]` on the top right hand corner.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/secureconnectbundle-db.png?raw=true" />
+<img src="/img/astra/secureconnectbundle-db.png" />
 
 **✅ Step 2 : Download the ZIP**
 
@@ -33,7 +39,7 @@ Once signed in Astra the list of available databases is located in the menu on t
 
 - Click on target region to be able to copy the link locally.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/secureconnectbundle-regions.png?raw=true" />
+<img src="/img/astra/secureconnectbundle-regions.png" />
 
 #### Remarks
 
@@ -42,7 +48,3 @@ Once signed in Astra the list of available databases is located in the menu on t
 
 - The generated link to the bundle zipfile will expire a few minutes after it is generated. If you download the bundle **much later** after you have reached the "Connect" page,
   you might end up with a faulty bundle. As a check, make sure the zipfile you downloaded is around 12-13 KiB in size.
-
-## D - Extra Resources
-
-- Video on [How to use the Secure Connect Bundle](https://www.youtube.com/watch?v=PNQM-Bsyibg&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=7)

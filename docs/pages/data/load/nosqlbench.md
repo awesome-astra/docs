@@ -1,12 +1,10 @@
-> [Reference documentation](https://docs.nosqlbench.io/docs/nosqlbench/introduction/)
-
-> [Reference documentation with Astra](https://docs.datastax.com/en/astra/docs/test-loading-data-with-nosqlbench.html)
-
-**📋 On this page**
-- [A - Overview](#a---overview)
-- [B - Prerequisites](#b---prerequisites)
-- [C - Installation](#c---installation)
-- [D - Usage](#d---usage)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="https://docs.nosqlbench.io/docs/nosqlbench/introduction/"><b>📖  NoSQLBench Docs</b> - Reference documentation</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/test-loading-data-with-nosqlbench.html"><b>📖  Astra Docs</b> - Reference Documentation</a>
+</ol>
+</details>
 
 ## A - Overview
 
@@ -28,7 +26,7 @@ At the heart of NoSQLBench are a few principles:
 - workloads are reproducible down to the individual statement (no "actual randomness" involved);
 - reliable performance timing, i.e. care is taken on the client side to avoid unexpected JVM pauses.
 
-### 📘  NoSQLBench and Astra DB
+### 📘 NoSQLBench and Astra DB
 
 NoSQLBench uses the (CQL-based) Cassandra Java Drivers, which mean that it
 supports Astra DB natively with its drivers. The only care is in providing
@@ -53,7 +51,7 @@ The following installation instructions are taken from
 [the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
-### ✅ Step 1 : Download the binaries
+**✅ Step 1 : Download the binaries**
 
 Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
 and download the latest version.
@@ -63,7 +61,7 @@ here we assume the Linux binary is used, please see the
 [NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
 for more on using the JAR.
 
-### ✅ Step 2 : Make executable and put in search path
+**✅ Step 2 : Make executable and put in search path**
 
 Once the file is downloaded, make it executable with `chmod +x nb`
 and put it (or make a symlink) somewhere in your system's search path,
@@ -73,9 +71,9 @@ As a quick test, try the command `nb --version`.
 
 ## D - Usage
 
-### If you already use NoSQLBench
+### Command
 
-... then all you need to know is that invocations should include the following
+If you already use NoSQLBench... then all you need to know is that invocations should include the following
 parameters to locate an Astra DB instance and authenticate to it:
 
 ```
@@ -100,7 +98,7 @@ with the name of an existing one. Please inspect the contents of your
 workload `yaml` file more closely for more details on the keyspace name used
 by default.
 
-### A quick-start for beginners
+### Quick-start
 
 There is a comprehensive [Getting Started page](https://docs.nosqlbench.io/docs/getting_started/01-example-commands/)
 on NoSQLBench documentation, so here only a couple of sample full commands will be given.
@@ -112,7 +110,7 @@ A quick way to get started is to launch those workloads with the
 "workload scenario" syntax (where the 'scenario' specifies that you are
 targeting an Astra DB instance).
 
-#### "cql-keyvalue" workload
+**"cql-keyvalue" workload**
 
 The following will run the "cql-keyvalue" workload, specifically its "astra" scenario,
 on an Astra DB instance:
@@ -178,7 +176,7 @@ cqlkeyvalue_astra_schema.tokenfiller
 You may want to check that at this point a new table has been created,
 if it did not exist yet, in the keyspace.
 
-#### "cql-iot" workload
+**"cql-iot" workload**
 
 Similar to the above for the "cql-iot" workload, aimed at emulating
 time-series-based reads and writes for a hypothetical IoT system:
@@ -191,7 +189,7 @@ nb cql-iot astra                                     \
   keyspace=KEYSPACE_NAME
 ```
 
-#### Other workloads
+**Other workloads**
 
 You can inspect all available workloads with:
 

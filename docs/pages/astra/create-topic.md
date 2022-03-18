@@ -1,4 +1,14 @@
-> [Reference documentation](https://docs.datastax.com/en/astra-streaming/docs/astream-quick-start.html)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="- [Reference documentation](https://docs.datastax.com/en/astra-streaming/docs/astream-quick-start.html)
+"><b>📖  Astra Docs</b> - Reference documentation</a>
+<li><a href="https://www.youtube.com/watch?v=MCj58S56Z2U&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=14"><b>🎥 Youtube Video</b> - Astra Streaming demo</a>
+<li><a href="https://pulsar.apache.org/docs/en/standalone/"><b>🎥 Pulsar Documentation</b> - Getting Starter</a>
+</ol>
+</details>
+
+- [Apache Pulsar documentation]()
 
 ## A - Overview
 
@@ -48,7 +58,7 @@ dispatch messages.
 
 **👁️ Walkthrough for topic creation**
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/astra-create-streaming-topic.gif?raw=true" />
+<img src="/img/astra/astra-create-streaming-topic.gif" />
 
 **✅ Step 4: retrieve the Broker URL**
 
@@ -84,10 +94,4 @@ icon to copy it.
 
 **👁️ Screenshot for the connection parameters**
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/astra-streaming-secrets.png?raw=true" />
-
-## D - Extra Resources
-
-- [Apache Pulsar documentation](https://pulsar.apache.org/docs/en/standalone/)
-
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki)
+<img src="/img/astra/astra-streaming-secrets.png" />

@@ -1,6 +1,10 @@
-_Written by **Cedrick Lunven**, Last Update `2/10/2022`_
-
-> [Reference documentation](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html)
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html"><b>📖  Astra Docs</b> - The Astra database creation procedure</a>
+<li><a href="https://www.youtube.com/watch?v=hzZ3nVrsEpM&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=2"><b>🎥 Youtube Video</b> - Walk through instance creation</a>
+</ol>
+</details>
 
 ## A - Overview
 
@@ -19,14 +23,14 @@ You can use your `Github`, `Google` accounts or register with an `email`. With t
 > If you already have an Astra account, skip this step, locate and click the "Create Database" button on the left-side navigation bar
 > of your Astra UI, and read next step.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/astra-login.png?raw=true" />
+<img src="/img/astra/astra-login.png" />
 
 **✅ Step 2: Complete the creation form**
 
 _As you create a new account, you will be prompted to create a database; you will see the same form if you simply
 hit the "Create database" button in your existing Astra account._
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/astra/img/astra-create-db-1.png?raw=true" />
+<img src="/img/astra/astra-create-db-1.png" />
 
 - **ℹ️ Fields Description**
 
@@ -40,8 +44,8 @@ hit the "Create database" button in your existing Astra account._
 
 - ℹ️ You will see your new database `pending` in the Dashboard.The status will change to `Active` when the database is ready, this will only take 2-3 minutes. You will also receive an email when it is ready.
 
-<img src="img/astra-create-db-pending.png" />
+<img src="/img/astra/astra-create-db-pending.png" />
 
 **👁️ Walkthrough**
 
-<img src="img/astra-create-db.gif" />
+<img src="/img/astra/astra-create-db.gif" />
