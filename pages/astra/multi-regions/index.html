@@ -1905,7 +1905,7 @@
 
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><code>AstraDB</code> allows you to replicate data across multiple regions to maintain data availability for multi-region application architectures. Configuring multiple regions can also satisfy data locality requirements with the added value of cost savings.</p>
-<p><img src="/img/astra/astra-multiregions.png" height="400px"/></p>
+<p><img src="../../../img/astra/astra-multiregions.png" height="400px"/></p>
 <h3 id="eventual-consistency">🔄 Eventual Consistency<a class="headerlink" href="#eventual-consistency" title="Permanent link">&para;</a></h3>
 <p>Apache Cassandra® and DataStax Astra DB follow the eventual consistency model. As a result, data written to one datacenter/region may not be immediately accessible in other datacenters/regions in the same database cluster. The time span is normally within a few minutes to fully replicate the data. However, it could take longer, and possibly span one or more days. There are several contributing factors to the latter scenario, such as the workload volume, the number of regions, the process that runs data repair operations, and network resources.</p>
 <h3 id="data-sovereignty">⚖️ Data sovereignty<a class="headerlink" href="#data-sovereignty" title="Permanent link">&para;</a></h3>
@@ -1926,22 +1926,22 @@
 <p>You should have enter a <strong>CREDIT CARD</strong> in the system <strong>OR/AND</strong> get <strong>MORE THAN 25$</strong> in Astra Credits.</p>
 </li>
 </ul>
-<p><img src="/img/astra/multi-regions-1.png" width="400px"/></p>
+<p><img src="../../../img/astra/multi-regions-1.png" width="400px"/></p>
 <h2 id="c-create-a-new-region">C - Create a new Region<a class="headerlink" href="#c-create-a-new-region" title="Permanent link">&para;</a></h2>
 <p><strong>✅ Step 1: Click the <code>Add Region</code> Button</strong></p>
 <ul>
 <li>Select the database to show the Dashboard, select <code>Add Region.</code></li>
 </ul>
-<p><img src="/img/astra/multi-regions-2.png"/></p>
+<p><img src="../../../img/astra/multi-regions-2.png"/></p>
 <p><strong>✅ Step 2: Select your region</strong></p>
 <ul>
 <li>Select your desired region from the dropdown menu of available.</li>
 </ul>
-<p><img src="/img/astra/multi-regions-3.png"/></p>
+<p><img src="../../../img/astra/multi-regions-3.png"/></p>
 <ul>
 <li>You can review your selected region and its cost below the dropdown menu. You can add only a single region at one time.</li>
 </ul>
-<p><img src="/img/astra/multi-regions-4.png"/></p>
+<p><img src="../../../img/astra/multi-regions-4.png"/></p>
 <p><strong>✅ Step 3: Validate your region</strong></p>
 <ul>
 <li>
@@ -1951,30 +1951,30 @@
 <p>The database switch in maintenance status. Do not worry the existing regions remain active and available for operations there is no downtime.</p>
 </li>
 </ul>
-<p><img src="/img/astra/multi-regions-5.png"/></p>
+<p><img src="../../../img/astra/multi-regions-5.png"/></p>
 <p>After you add the new region, your new region will show up in the list of regions on your database Dashboard.</p>
-<p><img src="/img/astra/multi-regions-6.png"/></p>
+<p><img src="../../../img/astra/multi-regions-6.png"/></p>
 <p>Finally after the initialization you got:</p>
-<p><img src="/img/astra/multi-regions-7.png"/></p>
+<p><img src="../../../img/astra/multi-regions-7.png"/></p>
 <h2 id="d-delete-a-new-region">D - Delete a new Region<a class="headerlink" href="#d-delete-a-new-region" title="Permanent link">&para;</a></h2>
 <p><strong>✅ Step 1: Select Region to delete</strong></p>
 <ul>
 <li>From you database Dashboard, select the overflow menu for the database you want to delete, Select Delete. You can notice that you CANNOT delete the original main region, the delete is not available in the menu</li>
 </ul>
-<p><img src="/img/astra/delete-region-1.png"/></p>
+<p><img src="../../../img/astra/delete-region-1.png"/></p>
 <p><strong>✅ Step 2: Validate your action</strong></p>
 <ul>
 <li>Removing a region is not reversible. Proceed with caution. A pop-up will ask you to validate this operation by entering the <code>delete</code> word.</li>
 </ul>
-<p><img src="/img/astra/delete-region-2.png"/></p>
+<p><img src="../../../img/astra/delete-region-2.png"/></p>
 <ul>
 <li>The database will switch in maintenance mode. After a few seconds you will see the status of the deleted regions change from <code>Active</code> to <code>Offline</code></li>
 </ul>
-<p><img src="/img/astra/delete-region-3.png"/></p>
+<p><img src="../../../img/astra/delete-region-3.png"/></p>
 <ul>
 <li>Finally the region will not be visible on screen</li>
 </ul>
-<p><img src="/img/astra/delete-region-4.png"/></p>
+<p><img src="../../../img/astra/delete-region-4.png"/></p>
 
               
             </article>
