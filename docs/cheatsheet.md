@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 ## CheatSheet
 
 ### Mermaid
@@ -24,3 +26,7 @@ graph LR
     schema-->Request
     Request-- invoke -->cassandra
 ```
+
+### Font Awesome
+
+<i class="fa fa-camera-retro fa-lg"></i> fa-lg

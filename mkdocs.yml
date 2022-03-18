@@ -131,6 +131,7 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
+  - fontawesome_markdown
   - meta
   - md_in_html
   - toc:
