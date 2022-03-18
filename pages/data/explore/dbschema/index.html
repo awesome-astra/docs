@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#a-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -781,14 +786,14 @@
       
       
         <label class="md-nav__link" for="__nav_2_3">
-          Explore You Data
+          Explore Data
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Explore You Data" data-md-level="2">
+      <nav class="md-nav" aria-label="Explore Data" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
-          Explore You Data
+          Explore Data
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -847,9 +852,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ‣ DBSchema
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         ‣ DBSchema
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1725,6 +1773,51 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1734,7 +1827,104 @@
 
   <h1>‣ DBSchema</h1>
 
+<details>
+<summary><b> 📖 Reference Documentations and resources</b></summary>
+<ol>
+<li><a href="https://docs.datastax.com/en/astra/docs/db-integration-dbschema.html"><b>📖 Astra Docs</b> - Reference documentation</a>
+<li><a href="https://www.sestevez.com/astra-datagrip/">Instructions described in **Sebastian Estevez Blog post**</a>
+</ol>
+</details>
 
+<p><img src="/img/dbschema/download.png" /></p>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<p>DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.</p>
+<ul>
+<li>ℹ️ <a href="https://dbschema.com/features.html">Introduction to DBSchema</a></li>
+<li>📥 <a href="https://dbschema.com/download.html">DBSchema Installation</a></li>
+</ul>
+<p>DBSchema uses the <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your secure connect bundle ZIP</a></li>
+</ul>
+<p>This article assumes you have installed the latest version of DBSchema on your laptop or PC.</p>
+<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
+<p><strong>✅ Step 1: JDBC Driver</strong></p>
+<p>Download the JDBC driver from the DataStax website:</p>
+<ol>
+<li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
+<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
+<li>Select <strong>JDBC 4.2.</strong></li>
+<li>Read the license terms and accept it (click the checkbox).</li>
+<li>Hit the blue <strong>Download</strong> button.</li>
+<li>Once the download completes, unzip the downloaded file.</li>
+</ol>
+<p><strong>✅ Step 2: Establish the Connection</strong></p>
+<ol>
+<li>Open <a href="https://dbschema.com/">DB Schema</a></li>
+<li>Select <strong>Connect to the Database</strong></li>
+<li>Select <strong>Start</strong></li>
+</ol>
+<p><img src="/img/dbschema/dbschema-start.png"/></p>
+<ol>
+<li>
+<p>In the <strong>Choose your database</strong> menu, select Cassandra.</p>
+</li>
+<li>
+<p>Select <strong>Next.</strong></p>
+</li>
+</ol>
+<p><img src="/img/dbschema-cass-sel.png" /></p>
+<ol>
+<li>Select <strong>JDBC Driver</strong> edit option.</li>
+</ol>
+<p><img src="/img/dbschema/dbschema-connection-d.png" /></p>
+<ol>
+<li>In the JDBC Driver Manager, select <strong>New</strong>.</li>
+<li>In the Add RDBMS window, enter <strong>Astra</strong> and select <strong>OK</strong></li>
+</ol>
+<p><img src="/img/dbschema/dbschema-driver-manager.png" /></p>
+<ol>
+<li>Select <strong>OK</strong> in the confirmation message.</li>
+</ol>
+<p><img src="/img/dbschema/dbschema-connection.png" /></p>
+<ol>
+<li>Upload the Simba JDBC Driver.</li>
+<li>Select <strong>Open</strong></li>
+</ol>
+<p><img src="/img/dbschema/dbschema-simba-driver.png" /></p>
+<ol>
+<li>Once you upload the Simba JDBC Driver, you will see <strong>Astra</strong> in the <strong>Choose your Database **window. Select **Next</strong>.</li>
+</ol>
+<p><img src="/img/dbschema/dbschema-astra.png" height="500px" /></p>
+<ol>
+<li>
+<p>In the Astra Connection Dialog, add JDBC URL as
+    <code>jdbc:cassandra://;AuthMech=&lt;2&gt;;UID=token;PWD=&lt;ApplicationToken&gt;;SecureConnectionBundlePath=&lt;PATH TO YOUR SECURE CONNECT BUNDLE&gt;;TunableConsistency=&lt;6&gt;</code> with the following variables:</p>
+</li>
+<li>
+<p><strong>AuthMech:</strong> Specifies whether the driver connects to a Cassandra or Astra DB database and whether the driver authenticates the connection.</p>
+</li>
+<li><strong>ApplicationToken:</strong> Generated from Astra DB console. See <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Manage application tokens.</a></li>
+<li><strong>SecureConnectionBundlePath:</strong> Path to where your downloaded Secure Connect Bundle is located. See <a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html">Get secure connect bundle.</a></li>
+<li>
+<p><strong>TunableConsistency:</strong> Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.</p>
+</li>
+<li>
+<p>Select <strong>Connect</strong></p>
+</li>
+</ol>
+<p><img src="/img/dbschema/dbschema-url.png" height="500px" /></p>
+<ol>
+<li>In the <strong>Select Schemas/Catalogs</strong>, select the keyspace to which you want to connect.</li>
+<li>Select <strong>OK.</strong></li>
+</ol>
+<p><img src="/img/dbschema/dbschema-connetion-established.png" height="500px" /></p>
+<p><strong>✅ Step 4: Final Test</strong></p>
+<p>Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.</p>
+<p>To learn more about DBSchema, see <a href="https://dbschema.com/tutorials.html">Quick start with DBSchema</a></p>
 
               
             </article>
