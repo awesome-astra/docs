@@ -6,7 +6,7 @@
 </ol>
 </details>
 
-<img src="https://raw.githubusercontent.com/datastaxdevs/awesome-astra/main/datagrip/logo-datagrip.png" height="100px" />
+<img src="../../../../img/datagrip/logo-datagrip.png" height="100px" />
 
 ## A - Overview
 
@@ -34,7 +34,7 @@ Download the JDBC driver from the DataStax website:
 5. Hit the blue **Download** button.
 6. Once the download completes, **unzip** the downloaded file.
 
-<img src="https://raw.githubusercontent.com/datastaxdevs/awesome-astra/main/pentaho-data-integration/img/download-drivers.png" />
+<img src="../../../../img/pentaho-data-integration/download-drivers.png" />
 
 **✅ Step 2: Download `Settings.zip`**
 
@@ -52,17 +52,17 @@ Download the JDBC driver from the DataStax website:
 
 You will see a new database connection type called Astra: Simba Cassandra JDBC 4.2 driver shown.
 
-<img src="/img/datagrip/pic1.png" />
+<img src="../../../../img/datagrip/pic1.png" />
 
 - Go to the Advanced Settings to confirm the VM home path is set to Default. VM home path is set to a value named Default.
 
-<img src="/img/datagrip/pic2.png" />
+<img src="../../../../img/datagrip/pic2.png" />
 
 **✅ Step 4: Establish the connection**
 
 When you create your connection, the URL will look like this: `jdbc:cassandra://;AuthMech=<2>;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;TunableConsistency=<6>`
 
-<img src="v/img/datagrip/pic3.png" />
+<img src="../../../../img/datagrip/pic3.png" />
 
 URL in the screenshot shows the format described in the previous sentence.
 
