@@ -1,9 +1,8 @@
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
-<li><a href="- This page is a copy of the [AstraDB doc page](https://docs.datastax.com/en/astra/docs/db-integration-datagrip.html)
-"><b>📖 Astra Docs</b> - Reference documentation</a>
-<li><a href="https://www.sestevez.com/astra-datagrip/">You can found another version on the Sebastian Estevez Blog post</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/db-integration-datagrip.html"><b>📖 Astra Docs</b> - Reference documentation</a>
+<li><a href="https://www.sestevez.com/astra-datagrip/">Instructions described in **Sebastian Estevez Blog post**</a>
 </ol>
 </details>
 

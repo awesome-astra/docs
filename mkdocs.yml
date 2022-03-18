@@ -23,7 +23,7 @@ nav:
       - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
       - ‣ DSBulk: pages/data/load/dsbulk.md
       - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
-    - Explore You Data:
+    - Explore Data:
       - ‣ Cqlsh: pages/data/explore/cqlsh.md
       - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
       - ‣ Datagrip: pages/data/explore/datagrip.md
