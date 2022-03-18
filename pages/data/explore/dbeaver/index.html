@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#a-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -861,9 +866,86 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ‣ DBeaver
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         ‣ DBeaver
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-jdbc-driver" class="md-nav__link">
+    ✅ Step 1: JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-import-driver" class="md-nav__link">
+    ✅ Step 2: Import Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-new-connection" class="md-nav__link">
+    ✅ Step 3: Create New Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-test" class="md-nav__link">
+    ✅ Step 4: Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -876,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minddb.md" class="md-nav__link">
+      <a href="../minddb/" class="md-nav__link">
         ‣ MindDB
       </a>
     </li>
@@ -1725,6 +1807,85 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-jdbc-driver" class="md-nav__link">
+    ✅ Step 1: JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-import-driver" class="md-nav__link">
+    ✅ Step 2: Import Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-new-connection" class="md-nav__link">
+    ✅ Step 3: Create New Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-test" class="md-nav__link">
+    ✅ Step 4: Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1734,7 +1895,87 @@
 
   <h1>‣ DBeaver</h1>
 
-
+<ul>
+<li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12287/how-to-connect-to-astra-db-from-dbeaver.html">DataStax Community</a></em></li>
+</ul>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" /></p>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<p>DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.</p>
+<ul>
+<li>ℹ️ <a href="https://dbeaver.com/docs/wiki/Application-Window-Overview">Introduction to DBeaver</a></li>
+<li>📥 <a href="https://dbeaver.com/docs/wiki/Installation">DBeaver Download Link</a></li>
+</ul>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your secure connect bundle ZIP</a></li>
+</ul>
+<p>This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.</p>
+<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-jdbc-driver">✅ Step 1: JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
+<p>Download the JDBC driver from the DataStax website:</p>
+<ol>
+<li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
+<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
+<li>Select <strong>JDBC 4.2.</strong></li>
+<li>Read the license terms and accept it (click the checkbox).</li>
+<li>Hit the blue <strong>Download</strong> button.</li>
+<li>Once the download completes, unzip the downloaded file.</li>
+</ol>
+<h3 id="step-2-import-driver">✅ Step 2: Import Driver<a class="headerlink" href="#step-2-import-driver" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to the <strong>Driver Manager.</strong></li>
+<li>Click the <strong>New</strong> button.</li>
+<li>In the <strong>Libraries</strong> tab, click the <strong>Add File</strong> button.</li>
+<li>Locate the directory where you unzipped the driver download and add the <code>CassandraJDBC42.jar</code> file.</li>
+<li>Click the Find Class button which should identify the driver class as <code>com.simba.cassandra.jdbc42.Driver</code>.</li>
+<li>
+<p>In the <strong>Settings</strong> tab, set the following:</p>
+</li>
+<li>
+<p>Driver Name: <code>Astra DB</code></p>
+</li>
+<li>Driver Type: <code>Generic</code></li>
+<li>
+<p>Class Name: <code>com.simba.cassandra.jdbc42.Driver</code>
+  <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2385-dbeaver-01-create-driver.png" height="350px" /></p>
+</li>
+<li>
+<p>Click the <strong>OK</strong> button to save the driver</p>
+</li>
+</ol>
+<p>At this point, you should see <strong>Astra DB</strong> as one of the drivers on the list:</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" /></p>
+<h3 id="step-3-create-new-connection">✅ Step 3: Create New Connection<a class="headerlink" href="#step-3-create-new-connection" title="Permanent link">&para;</a></h3>
+<p>Connect to your Astra DB in DBeaver:</p>
+<ol>
+<li>Open the <strong>New Database Connection</strong> dialog box.</li>
+<li>Select <strong>Astra DB</strong> from the list of drivers.</li>
+<li>In the <strong>Main</strong> tab, set the <strong>JDBC URL</strong> to:
+   <code>jdbc:cassandra://;AuthMech=2;TunableConsistency=6;SecureConnectionBundlePath=/path/to/secure-connect-dbeaver.zip</code>
+   <strong>Note</strong> That you will need to specify the full path to <em>your</em> secure bundle.</li>
+<li>In the <strong>Username</strong> field, enter the string <code>token</code></li>
+<li>
+<p>In the <strong>Password</strong> field, paste the value of the token you created in the <strong>Prerequisites</strong> section above. The token looks like <code>AstraCS:AbC...XYz:123...edf0</code>.
+   <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2374-dbeaver-03-new-connection.png" height="350px" /></p>
+</li>
+<li>
+<p>Click on the <strong>Connection details</strong> button</p>
+</li>
+<li>In <strong>Connection name</strong> field, give your DB connection a name:</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2402-dbeaver-04-connection-details.png" height="350px" /></p>
+<ol>
+<li>Click the <strong>Finish</strong> button</li>
+<li>Click on the <strong>Test Connection</strong> button to confirm that the driver configuration is working:</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" /></p>
+<h3 id="step-4-final-test">✅ Step 4: Final Test<a class="headerlink" href="#step-4-final-test" title="Permanent link">&para;</a></h3>
+<p>Connect to your Astra DB. If the connection was successful, you should be able to explore the keyspaces and tables in your DB on the left-hand side of the UI.</p>
+<p>Here's an example output:</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2396-dbeaver-06-explore.png" height="350px" /></p>
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to HOME</a></p>
 
               
             </article>
@@ -1769,13 +2010,13 @@
       
       
         
-        <a href="../tableplus/" class="md-footer__link md-footer__link--next" aria-label="Next: ‣ TablePlus" rel="next">
+        <a href="../minddb/" class="md-footer__link md-footer__link--next" aria-label="Next: ‣ MindDB" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ‣ TablePlus
+              ‣ MindDB
             </div>
           </div>
           <div class="md-footer__button md-icon">
