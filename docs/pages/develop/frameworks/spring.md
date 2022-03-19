@@ -2,7 +2,7 @@
 
 <img src="https://github.com/datastaxdevs/awesome-astra/raw/main/_img/tile-spring.png?raw=true" align="left" height="180px"/>
 
-Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](spring.io).
+Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](https://spring.io).
 
 Spring applications are packaged as standalone using [`Spring Boot`](https://spring.io/projects/spring-boot). To add capabilities to applications multiple `starters` are provided by Spring. In the current page we will details which are the starters needed to interact Astra interfaces. Datastax team also implemented a dedicated `astra-spring-boot-starter` to help you with the boiler plate code.
 
@@ -38,7 +38,7 @@ mvn -version
 
 #### 📦. Setup Project
 
-- Create your project with [Spring Initializr](start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.6&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
+- Create your project with [Spring Initializr](https://start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.6&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
 
 |    Property    |          Value          |     Property     |                    Value                     |
 | :------------: | :---------------------: | :--------------: | :------------------------------------------: |

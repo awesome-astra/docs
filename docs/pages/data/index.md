@@ -36,18 +36,6 @@
 
 ### 📋 Data Modelling
 
-<a href="../section-work-with-data/">
- <img src="../../../img/tile.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="../section-work-with-data/">
- <img src="../../../img/tile.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="../section-work-with-data/">
- <img src="../../../img/tile.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="../section-work-with-data/">
- <img src="../../../img/tile.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="../section-work-with-data/">
+<a href="http://kdm.kashliev.com/">
  <img src="../../../img/tile.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
