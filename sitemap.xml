@@ -186,12 +186,77 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/develop/platform/google-cloud-function/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/</loc>
          <lastmod>2022-03-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://awesome-astra.github.io/pages/tools/workflows/apache-airflow/</loc>
+         <loc>https://awesome-astra.github.io/pages/tools/databases/janusgraph/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/ide/eclipse/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/ide/gitpod/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/ide/intellij/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/ide/vscode/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/apache-airflow/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/apache-nifi/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/apache-spark/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/pentaho/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/temporal/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/notebooks/datastax-studio/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/notebooks/jupyter/</loc>
+         <lastmod>2022-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://awesome-astra.github.io/pages/tools/notebooks/zeppelin/</loc>
          <lastmod>2022-03-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
