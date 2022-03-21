@@ -1,5 +1,7 @@
 ### 📥 Load and Export
 
+In this section are listed third party tools that will help you import or export data from your databases. They are designed for bulk operations.
+
 <a href="load/astra-data-loader">
  <img src="../../img/data/tile-data-loader.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
@@ -11,6 +13,8 @@
 </a>&nbsp;&nbsp;
 
 ### 🔍 Browse
+
+In this section are listed third party tools that will help you browse your data. You will find listed keyspaces, tables and will be able to edit the values.
 
 <a href="explore/cqlsh">
  <img src="../../img/data/tile-cqlsh.png" height="130px" width="130px"/>
@@ -37,5 +41,5 @@
 ### 📋 Data Modelling
 
 <a href="http://kdm.kashliev.com/" >
- <img src="../../img/tile.png" height="130px" width="130px"/>
+ <img src="../../img/data/tile-kdm.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
