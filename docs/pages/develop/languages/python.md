@@ -1,6 +1,6 @@
 ### 1. Overview
 
-<img src="../img/tile-python.png" align="left" height="180px"/>
+<img src="../../../../img/tile-python.png" align="left" height="180px"/>
 
 Astra provides include **multiple services** (Database, Streaming), and, for each, there are **multiple Api and interfaces**. Frameworks and tools to connect to Astra are related to the Apis you choose.
 
