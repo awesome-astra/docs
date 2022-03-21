@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#a-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1699,9 +1704,119 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Apache Nifi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Apache Nifi
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="A - Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-nifi" class="md-nav__link">
+    📘 What is NiFi?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-astra-nifi-templates" class="md-nav__link">
+    📘 My Astra NiFi Templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-log-ingestion-to-astra-with-nifi" class="md-nav__link">
+    C - Log Ingestion to Astra with NiFi
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Log Ingestion to Astra with NiFi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-get-nifi-authorized-for-astra-calls" class="md-nav__link">
+    ✅ Step 1 : Get NiFi Authorized for Astra Calls
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 1 : Get NiFi Authorized for Astra Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getauthtoken" class="md-nav__link">
+    GetAuthToken
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-data-flow-for-log-ingestion" class="md-nav__link">
+    ✅ Step 2 : Create Data Flow for Log Ingestion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-log-data-with-cql-console" class="md-nav__link">
+    ✅ Step 3 : Verify Log Data With Cql Console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What’s Next
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1823,6 +1938,118 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="A - Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-nifi" class="md-nav__link">
+    📘 What is NiFi?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-astra-nifi-templates" class="md-nav__link">
+    📘 My Astra NiFi Templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-log-ingestion-to-astra-with-nifi" class="md-nav__link">
+    C - Log Ingestion to Astra with NiFi
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Log Ingestion to Astra with NiFi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-get-nifi-authorized-for-astra-calls" class="md-nav__link">
+    ✅ Step 1 : Get NiFi Authorized for Astra Calls
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 1 : Get NiFi Authorized for Astra Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getauthtoken" class="md-nav__link">
+    GetAuthToken
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-data-flow-for-log-ingestion" class="md-nav__link">
+    ✅ Step 2 : Create Data Flow for Log Ingestion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-log-data-with-cql-console" class="md-nav__link">
+    ✅ Step 3 : Verify Log Data With Cql Console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What’s Next
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1832,7 +2059,115 @@
 
   <h1>• Apache Nifi</h1>
 
-
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to home</a> | <em>Written by <strong>Cedrick Lunven</strong>, Last Update <code>2/11/2022</code></em></p>
+<blockquote>
+<p>This is an adaptation of the <a href="https://ds-steven-matison.github.io/astra/nifi/">Steven Matison Blogpost</a></p>
+</blockquote>
+<p><strong>📋 On this page</strong></p>
+<ul>
+<li><a href="#a---overview">A - Overview</a></li>
+<li><a href="#b---prerequisites">B - Prerequisites</a></li>
+<li><a href="#c---log-ingestion-to-astra-with-nifi">C - Log Ingestion to Astra with Stargate Document Api</a></li>
+</ul>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-nifi">📘 What is NiFi?<a class="headerlink" href="#what-is-nifi" title="Permanent link">&para;</a></h3>
+<p><a href="http://nifi.apache.org/">Apache NiFi</a> is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It is super powerful tool I have been using for a few years to develop data flows and data pipelines. With NiFi I can do just about anything without writing a single line of code.</p>
+<p>You can use NiFi’s <code>invokeHttp processor</code> for any Astra API calls.</p>
+<p>You can also use native <a href="https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-cassandra-nar/1.5.0/org.apache.nifi.processors.cassandra.QueryCassandra/index.html">NiFi Cassandra Processors</a>:</p>
+<ul>
+<li>QueryCassandraRecord</li>
+<li>PutCassandraRecord</li>
+<li>and PutCassandraQL against Astra.</li>
+</ul>
+<h3 id="my-astra-nifi-templates">📘 My Astra NiFi Templates<a class="headerlink" href="#my-astra-nifi-templates" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>You can find my official NiFi Astra Cassandra templates <a href="https://github.com/ds-steven-matison/NiFi-Templates">here</a></p>
+</li>
+<li>
+<p>You can also find templates from my previous life <a href="https://github.com/steven-matison/NiFi-Templates">here</a></p>
+</li>
+</ul>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
+<li>You should install a <code>Java JDK 1.8+</code> and <a href="https://maven.apache.org/">Apache Maven</a></li>
+<li><a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi">Download and install Apache Nifi</a></li>
+</ul>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/nifi-flow-authenticated.png?raw=true" height="400px"/></p>
+<ul>
+<li>You should add <code>invokeHttp</code> and <code>Cassandra</code> <a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor">processors</a></li>
+</ul>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/add-processor.png?raw=true" height="400px"/></p>
+<h2 id="c-log-ingestion-to-astra-with-nifi">C - Log Ingestion to Astra with NiFi<a class="headerlink" href="#c-log-ingestion-to-astra-with-nifi" title="Permanent link">&para;</a></h2>
+<p>In this blog I am going to show you how to ingest raw log data into cassandra using NiFi and Astra. With NiFi ingesting data from any source is super easy. With Astra and Cassandra ingesting raw data can be a challenge due to data model constraints (primary keys and clustering columns).</p>
+<p>In this demo I am going to remove that constraint and ingest all raw data using Astra &amp; Stargate Document API which is accepting of schemaless JSON data. Although not a focus off this blog, it is fully possible to build a cassandra data model and do this log ingestion using NiFi Cassandra Processors or Astra REST API against standard cassandra database tables.</p>
+<p>In this demo we are going to communicate with Astra via <strong>Stargate’s Documement APIs.</strong></p>
+<h3 id="step-1-get-nifi-authorized-for-astra-calls">✅ Step 1 : Get NiFi Authorized for Astra Calls<a class="headerlink" href="#step-1-get-nifi-authorized-for-astra-calls" title="Permanent link">&para;</a></h3>
+<h4 id="getauthtoken">GetAuthToken<a class="headerlink" href="#getauthtoken" title="Permanent link">&para;</a></h4>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/get-auth-token.png?raw=true" height="600px"/></p>
+<ul>
+<li>Upload and add Get <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_GetAuthToken.xml">Astra Get Auth Token Template</a> to your canvas. Record the Process Group Id for later.</li>
+<li>Collect Astra details needed: astra databaseid, region, api url, username, password.</li>
+<li>Update Process Group variables with API url, process Group Id, Username and Password.</li>
+<li>Configure and Enable SSL Context Services. For simple demo purposes we use java cacerts and in my environment I have copied ca certs to local path /nifi/ssl/cacerts. You will need to locate your path to cacerts and adjust. The cacerts password is “changeit”. You can also use Astra Secure Bundle and keystore/trustore found within that bundled zip file.</li>
+<li>Confirm NiFi host:port in the Blue InvokeHTTP Processors.</li>
+<li>Play the data flow and confirm variable astraToken is filled with authorization token.</li>
+</ul>
+<blockquote>
+<p>ℹ️ <strong>Things to Note:</strong></p>
+</blockquote>
+<ul>
+<li>Top of flow (GenerateFlowFile) will kick off the auth process every 30 minutes.</li>
+<li>For sake of this demo, all variables are included in GetAuthToken Process Group. In production or in your data flow you will want those variables in the parent location. Adjust your own flow accordingly.</li>
+<li>For demo purposes failure routes are visible. In production, these may be auto terminated or routed to exception handling.</li>
+</ul>
+<h3 id="step-2-create-data-flow-for-log-ingestion">✅ Step 2 : Create Data Flow for Log Ingestion<a class="headerlink" href="#step-2-create-data-flow-for-log-ingestion" title="Permanent link">&para;</a></h3>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/apache_log_flow.png?raw=true" height="600px"/></p>
+<p>In this first example, we are going to ingest apache log data from a custom log file. Reference the template Astra Apache Logs to <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_Apache_Logs_to_Cassandra_with_Stargate.xml">Cassandra with Stargate for this data flow</a>. This log data happens to be on the same NiFi host in the normal /var/log/httpd/ location. The custom apache log file is in the format of:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;IfModule</span> <span class="err">log_config_module</span><span class="nt">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    LogFormat &quot;%&gt;s  %U  %h  %{%Y-%m-%d %H:%M:%S}t&quot; urlsdetails
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        CustomLog &quot;/var/log/httpd/access-file-details.log&quot; urlsdetails
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">&lt;/IfModule&gt;</span>
+</code></pre></div>
+<p>The CSVReader Schema used in QueryRecord is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apache_logs&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;record&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http_status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;access_url&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ip&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apachetime&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>And the output of the JSON Writer is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;http_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;access_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/INTROV8.mp3&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;115.164.45.55&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;apachetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-26 14:16:58&quot;</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>⚠️ Notice this JSON structure is exactly what we need to insert into Astra. We do not have to create the collection or schema ahead of time. This collection creation will automatically happen with the delivery of the first document. 💡</p>
+<blockquote>
+<p>ℹ️ <strong>Things to Note:</strong></p>
+</blockquote>
+<ul>
+<li>For portability of the log data flow template, the SSL Context Service is duplicated. You can adjust your flow to use a single context service at the root canvas level.</li>
+<li>Some of the NiFi Variables from above template are referenced in this template. Adjust your flow accordingly with root level variables or import this template into same Process Group above.</li>
+</ul>
+<h3 id="step-3-verify-log-data-with-cql-console">✅ Step 3 : Verify Log Data With Cql Console<a class="headerlink" href="#step-3-verify-log-data-with-cql-console" title="Permanent link">&para;</a></h3>
+<p>Login to the Astra and navigate to your Cql Consoe and execute the following query:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">apache_log</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>⚠️ For this demo it is not important to look at the data, only important to verify results are in Astra. In future updates I will go into Postman and show how to access the data in a meaningful manner. For now, let us just bask in the glory of being able to ingest log data to cassandra without data modeling. <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:" /> :collision: <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:" /></p>
+<h3 id="whats-next">What’s Next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h3>
+<p>We can now use Stargate Document API to query this data source and even search into the JSON Object. We can have conversations about the raw data, build cassandra data models, and investigate how this log data can be used downtream from cassandra. Stay tuned as I add other Log Ingestion Use Cases, a UUID Generator, and more Astra NiFi content here.</p>
 
               
             </article>

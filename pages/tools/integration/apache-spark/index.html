@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#a-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1713,9 +1718,65 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Apache Spark
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Apache Spark
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    ✅ Steps:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1823,6 +1884,64 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-and-setup" class="md-nav__link">
+    C - Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    ✅ Steps:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1832,7 +1951,83 @@
 
   <h1>• Apache Spark</h1>
 
-
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to HOME</a></p>
+<ul>
+<li><em>Last Update <code>2/10/2022</code></em></li>
+<li><em>This article includes information that was originally written by <strong>Arpan Patel</strong> on <a href="https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md">Anant Github</a> and Astra DataStax</em></li>
+</ul>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache-spark/img/Apache_Spark_logo.png" height="180px" /></p>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<p>Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.</p>
+<ul>
+<li>ℹ️ <a href="https://aws.amazon.com/big-data/what-is-spark/">Introduction to Apache Spark</a></li>
+<li>📥 <a href="https://spark.apache.org/downloads.html">Apache Spark Download Link</a></li>
+</ul>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a> (RO User is needed for this example)</li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your secure connect bundle ZIP</a></li>
+<li>Download and install the latest version of <a href="https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector">Spark Cassandra Connector</a> that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility <a href="https://github.com/datastax/spark-cassandra-connector#version-compatibility">here.</a></li>
+</ul>
+<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
+<p>These steps assume you will be using Apache Spark in local mode. For help using Spark cluster mode click the chat button on the bottom of the screen.</p>
+<h3 id="steps">✅ Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Expand the downloaded Apache Spark package into a directory, and assign the directory name to <code>$SPARK_HOME</code>.</p>
+</li>
+<li>
+<p>Navigate to this directory using <code>cd $SPARK_HOME</code></p>
+</li>
+<li>
+<p>Append the following lines at the end of a file called <code>$SPARK_HOME/conf/spark-defaults.conf</code> (you may be able to find a template under $SPARK_HOME/conf directory), and replace the second column (value) with the first four lines:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">spark.files $SECURE_CONNECT_BUNDLE_FILE_PATH/secure-connect-astraiscool.zip</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">spark.cassandra.connection.config.cloud.path secure-connect-astraiscool.zip</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">spark.cassandra.auth.username &lt;&lt;CLIENT ID&gt;&gt;</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">spark.cassandra.auth.password &lt;&lt;CLIENT SECRET&gt;&gt;</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">spark.dse.continuousPagingEnabled false</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>Launch spark-shell and enter the following scala commands:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">datastax</span><span class="p">.</span><span class="nn">spark</span><span class="p">.</span><span class="nn">connector</span><span class="p">.</span><span class="n">_</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span> <span class="nn">org</span><span class="p">.</span><span class="nn">apache</span><span class="p">.</span><span class="nn">spark</span><span class="p">.</span><span class="nn">sql</span><span class="p">.</span><span class="nn">cassandra</span><span class="p">.</span><span class="n">_</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">cassandraFormat</span><span class="p">(</span><span class="s">&quot;tables&quot;</span><span class="p">,</span> <span class="s">&quot;system_schema&quot;</span><span class="p">).</span><span class="n">load</span><span class="p">().</span><span class="n">count</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>You should expect to see the following output:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ bin/spark-shell
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Using Spark<span class="s1">&#39;s default log4j profile: org/apache/spark/log4j-defaults.properties</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s1">Setting default log level to &quot;WARN&quot;.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">Spark context Web UI available at http://localhost:4040</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">Spark context available as &#39;</span>sc<span class="s1">&#39; (master = local[*], app id = local-1608781805157).</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">Spark session available as &#39;</span>spark<span class="s1">&#39;.</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1">Welcome to</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">      ____              __</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1">     / __/__  ___ _____/ /__</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1">    _\ \/ _ \/ _ `/ __/  &#39;</span>_/
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   /___/ .__/<span class="se">\_</span>,_/_/ /_/<span class="se">\_\ </span>  version <span class="m">3</span>.0.1
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>      /_/
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Using Scala version <span class="m">2</span>.12.10 <span class="o">(</span>OpenJDK <span class="m">64</span>-Bit Server VM, Java <span class="m">11</span>.0.9.1<span class="o">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Type <span class="k">in</span> expressions to have them evaluated.
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>Type :help <span class="k">for</span> more information.
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>scala&gt; import com.datastax.spark.connector._
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>import com.datastax.spark.connector._
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>scala&gt; import org.apache.spark.sql.cassandra._
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>import org.apache.spark.sql.cassandra._
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>scala&gt; spark.read.cassandraFormat<span class="o">(</span><span class="s2">&quot;tables&quot;</span>, <span class="s2">&quot;system_schema&quot;</span><span class="o">)</span>.load<span class="o">()</span>.count<span class="o">()</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>res0: <span class="nv">Long</span> <span class="o">=</span> <span class="m">25</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>scala&gt; :quit
+</code></pre></div>
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to HOME</a></p>
 
               
             </article>

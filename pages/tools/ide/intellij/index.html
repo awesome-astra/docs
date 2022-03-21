@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#a-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1497,9 +1502,59 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • IntelliJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • IntelliJ
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-guide" class="md-nav__link">
+    C - Installation Guide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1823,6 +1878,58 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-installation-guide" class="md-nav__link">
+    C - Installation Guide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1832,7 +1939,80 @@
 
   <h1>• IntelliJ</h1>
 
-
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to home</a> | <em>Written by <strong>Cedrick Lunven</strong>, Last Update <code>2/18/2022</code></em></p>
+<ul>
+<li>This content has been built using <a href="https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer">Reference Documentation </a></li>
+</ul>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<p><img src="https://plugins.jetbrains.com/files/17013/screenshot_8180f398-3612-4990-9d5b-d1b3917c40fc" height="200px"/></p>
+<p><img src="https://plugins.jetbrains.com/files/17013/screenshot_04795b62-5479-42c8-b97d-04f0d5459e19" height="200px"/></p>
+<p>Astra DB is a serverless NoSQL database as a service, built on Apache Cassandra &trade;. Navigate, insert and edit data in your Astra DB without coding, directly in your favorite JetBrains IDE using this plugin from DataStax. This plugin also works with open source Apache Cassandra 4.0 once a Stargate Data API gateway has been configured.</p>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
+<li>You should download either Community or ultimate edition of intelliJ from <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
+</ul>
+<h2 id="c-installation-guide">C - Installation Guide<a class="headerlink" href="#c-installation-guide" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><em><a href="https://github.com/datastax/astra-ide-plugin/wiki/Getting-Started">Astra DB Explorer Installation Page</a></em></p>
+</blockquote>
+<ul>
+<li>Open the plugin panel and search for <code>astra</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>File &gt; Preferences &gt; Plugins
+</code></pre></div>
+<ul>
+<li>Click the <code>[INSTALL]</code> button</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin.png" /></p>
+<ul>
+<li>Once the plugin is downloaded and installed you will be asked to restart</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png" /></p>
+<ul>
+<li>During the first restart you will got an <code>IDE error occured</code> message it is expected we will now configure the plugin</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-restart-error.png" /></p>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-restart-error2.png" /></p>
+<ul>
+<li>
+<p>The plugin configuration is defined in a file on disk located at <code>${user.home}/.astra/config</code>. Fortunately you can do it directly in the IDE</p>
+</li>
+<li>
+<p>In the bottom left hand corner locate the panel <code>astra.explorer</code> and open it</p>
+</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png" /></p>
+<ul>
+<li>In the drop down menu select <code>Edit Profiles</code> the configuration file is referred as a profile</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-2.png" /></p>
+<ul>
+<li>You will be asked if you want to create the file, click <code>[CREATE]</code></li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-3.png" /></p>
+<ul>
+<li>Also pick the first option in the radio button <em>Edit this file anyway</em></li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-4.png" /></p>
+<ul>
+<li>The file open and the content should look like. Not that the value used for the <code>bearerToken</code> is the one starting by <code>AstraCS:....</code>. Save the file</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[astraProfileFile.profiles]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>default = &quot;AstraCS:XXXX&quot;
+</code></pre></div>
+<ul>
+<li>Now on the drop down menu select <code>Reload Profiles</code></li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-5.png" /></p>
+<ul>
+<li>Et voila you can now list databases on your Astra organization and for each you can see the different keyspaces</li>
+</ul>
+<p><img alt="my-pic" src="https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png" /></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p><img alt="my-pic" src="https://img.youtube.com/vi/d2a0rJd5fZg/maxresdefault.jpg" /></p>
 
               
             </article>

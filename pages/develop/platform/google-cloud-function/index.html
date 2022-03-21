@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#connecting-to-astra-db-from-a-google-cloud-function-using-python-driver-and-cloud-console" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1381,10 +1386,98 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Google Cloud Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         • Google Cloud Functions
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-creating-a-google-cloud-function-to-access-astra-db-using-python-driver-and-cloud-console" class="md-nav__link">
+    C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-secret-with-the-secure-connect-bundle-file" class="md-nav__link">
+    ✅ Step 1: Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-function" class="md-nav__link">
+    ✅ Step 2: Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deploy-the-function" class="md-nav__link">
+    ✅ Step 3: Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-test-the-function" class="md-nav__link">
+    ✅ Step 4: Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-view-logs" class="md-nav__link">
+    ✅ Step 5: View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1823,6 +1916,94 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-creating-a-google-cloud-function-to-access-astra-db-using-python-driver-and-cloud-console" class="md-nav__link">
+    C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-secret-with-the-secure-connect-bundle-file" class="md-nav__link">
+    ✅ Step 1: Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-function" class="md-nav__link">
+    ✅ Step 2: Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deploy-the-function" class="md-nav__link">
+    ✅ Step 3: Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-test-the-function" class="md-nav__link">
+    ✅ Step 4: Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-view-logs" class="md-nav__link">
+    ✅ Step 5: View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1830,9 +2011,256 @@
                 
 
 
-  <h1>• Google Cloud Functions</h1>
-
-
+<h1 id="connecting-to-astra-db-from-a-google-cloud-function-using-python-driver-and-cloud-console">Connecting to Astra DB from a Google Cloud Function using Python Driver and Cloud Console<a class="headerlink" href="#connecting-to-astra-db-from-a-google-cloud-function-using-python-driver-and-cloud-console" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to home</a> | *Written by <strong>Artem Chebotko*</strong></p>
+<p><strong>📋 On this page</strong></p>
+<ul>
+<li><a href="#A---Overview">A - Overview</a></li>
+<li><a href="#B---Prerequisites">B - Prerequisites</a></li>
+<li><a href="#C---Creating-a-Google-Cloud-Function-to-Access-Astra-DB-using-Python-Driver-and-Cloud-Console">C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console</a></li>
+</ul>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<p><a href="https://cloud.google.com/functions">Cloud Functions</a> is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:</p>
+<ul>
+<li>Extend Astra DB with additional data processing capabilities, such as aggregating, summarizing and validating data periodically;</li>
+<li>Connect Astra DB with other cloud services into data pipelines that move, process and analyze data.</li>
+</ul>
+<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download a Secure Connect Bundle</a></li>
+<li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first</li>
+</ul>
+<h2 id="c-creating-a-google-cloud-function-to-access-astra-db-using-python-driver-and-cloud-console">C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console<a class="headerlink" href="#c-creating-a-google-cloud-function-to-access-astra-db-using-python-driver-and-cloud-console" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-create-a-secret-with-the-secure-connect-bundle-file">✅ Step 1: Create a secret with the secure connect bundle file.<a class="headerlink" href="#step-1-create-a-secret-with-the-secure-connect-bundle-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</li>
+<li>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/create-secret.png" /></p>
+<ol>
+<li>
+<p>Click <strong>Create secret</strong>.</p>
+</li>
+<li>
+<p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.</p>
+</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/secret-manager.png" /></p>
+<h3 id="step-2-create-a-function">✅ Step 2: Create a function.<a class="headerlink" href="#step-2-create-a-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
+<li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
+<li>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/basics.png" /></p>
+<ol>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section, customize additional settings and create these <strong>Runtime environment variables</strong>:</p>
+</li>
+<li>
+<p><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</p>
+</li>
+<li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/runtime.png" /></p>
+<p>Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</p>
+<ol>
+<li>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/reference-secret.png" /></p>
+<p>Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
+<ol>
+<li>
+<p>Click <strong>Done</strong> and <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Python 3.7</strong> or your preferred version in the <strong>Runtime</strong> field.</p>
+</li>
+<li>
+<p>Select <strong>Inline Editor</strong> in the <strong>Source code</strong> field.</p>
+</li>
+<li>
+<p>Enter <strong>query_astra_db</strong> in the <strong>Entry point</strong> field.</p>
+</li>
+<li>
+<p>Add <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a>, a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>requirements.txt</code> file.</p>
+</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/requirements_txt.png" /></p>
+<ol>
+<li>Replace the <code>main.py</code> content with:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">cassandra.auth</span> <span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">query_astra_db</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="c1"># Copy the secure connect bundle file to the writable part of the file system /tmp</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">copyfile</span><span class="p">(</span><span class="s1">&#39;/secrets/secure-connect-secret&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/secure-connect-for-my-database.zip&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">ASTRA_DB_CLIENT_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_CLIENT_ID&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">ASTRA_DB_CLIENT_SECRET</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_CLIENT_SECRET&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">cloud_config</span><span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>          <span class="s1">&#39;secure_connect_bundle&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp/secure-connect-for-my-database.zip&#39;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">auth_provider</span> <span class="o">=</span> <span class="n">PlainTextAuthProvider</span><span class="p">(</span><span class="n">ASTRA_DB_CLIENT_ID</span><span class="p">,</span> <span class="n">ASTRA_DB_CLIENT_SECRET</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="n">cloud_config</span><span class="p">,</span> <span class="n">auth_provider</span><span class="o">=</span><span class="n">auth_provider</span><span class="p">,</span> <span class="n">protocol_version</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">session</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">row</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT cql_version FROM system.local WHERE key = &#39;local&#39;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/main_py.png" /></p>
+<p>You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a> documentation.</p>
+<h3 id="step-3-deploy-the-function">✅ Step 3: Deploy the function.<a class="headerlink" href="#step-3-deploy-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Deploy</strong>.</p>
+</li>
+<li>
+<p>On the Cloud Functions Overview page, find the newly deployed function.</p>
+</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/deploy.png" /></p>
+<h3 id="step-4-test-the-function">✅ Step 4: Test the function.<a class="headerlink" href="#step-4-test-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Under <strong>Actions</strong>, select <strong>Test function</strong>.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/test-function.png" /></p>
+<ol>
+<li>On the testing page, click <strong>Test the function</strong> and observe the output.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/test-results.png" /></p>
+<p>Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
+<h3 id="step-5-view-logs">✅ Step 5: View logs.<a class="headerlink" href="#step-5-view-logs" title="Permanent link">&para;</a></h3>
+<p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/logs.png" />
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/logs-explorer.png" /></p>
+<hr />
+<h1 id="connecting-to-astra-db-from-a-google-cloud-function-using-python-sdk-and-cloud-console">Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console<a class="headerlink" href="#connecting-to-astra-db-from-a-google-cloud-function-using-python-sdk-and-cloud-console" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/datastaxdevs/awesome-astra/wiki">🏠 Back to home</a> | *Written by <strong>Artem Chebotko*</strong></p>
+<p><strong>📋 On this page</strong></p>
+<ul>
+<li><a href="#A---Overview">A - Overview</a></li>
+<li><a href="#B---Prerequisites">B - Prerequisites</a></li>
+<li><a href="#C---Creating-a-Google-Cloud-Function-to-Access-Astra-DB-using-Python-SDK-and-Cloud-Console">C - Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console</a></li>
+</ul>
+<h2 id="a-overview_1">A - Overview<a class="headerlink" href="#a-overview_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://cloud.google.com/functions">Cloud Functions</a> is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:</p>
+<ul>
+<li>Extend Astra DB with additional data processing capabilities, such as aggregating, summarizing and validating data periodically;</li>
+<li>Connect Astra DB with other cloud services into data pipelines that move, process and analyze data.</li>
+</ul>
+<h2 id="b-prerequisites_1">B - Prerequisites<a class="headerlink" href="#b-prerequisites_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
+<li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first</li>
+</ul>
+<h2 id="c-creating-a-google-cloud-function-to-access-astra-db-using-python-sdk-and-cloud-console">C - Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console<a class="headerlink" href="#c-creating-a-google-cloud-function-to-access-astra-db-using-python-sdk-and-cloud-console" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-create-a-function">✅ Step 1: Create a function.<a class="headerlink" href="#step-1-create-a-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select a project that has Cloud Functions enabled, and click <strong>Create function</strong>.</li>
+<li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
+<li>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/basics.png" /></p>
+<ol>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section, customize additional settings and create these <strong>Runtime environment variables</strong>:</p>
+</li>
+<li>
+<p><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</p>
+</li>
+<li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
+<li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/runtime.png" /></p>
+<p>Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</p>
+<ol>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Python 3.7</strong> or your preferred version in the <strong>Runtime</strong> field.</p>
+</li>
+<li>
+<p>Select <strong>Inline Editor</strong> in the <strong>Source code</strong> field.</p>
+</li>
+<li>
+<p>Enter <strong>query_astra_db</strong> in the <strong>Entry point</strong> field.</p>
+</li>
+<li>
+<p>Add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the <code>requirements.txt</code> file.</p>
+</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/requirements_txt.png" /></p>
+<ol>
+<li>Replace the <code>main.py</code> content with:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">astrapy.rest</span> <span class="kn">import</span> <span class="n">create_client</span><span class="p">,</span> <span class="n">http_methods</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span> <span class="nf">query_astra_db</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">ASTRA_DB_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_ID&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">ASTRA_DB_REGION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_REGION&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">ASTRA_DB_APPLICATION_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ASTRA_DB_APPLICATION_TOKEN&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">astra_http_client</span> <span class="o">=</span> <span class="n">create_client</span><span class="p">(</span><span class="n">astra_database_id</span><span class="o">=</span><span class="n">ASTRA_DB_ID</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                      <span class="n">astra_database_region</span><span class="o">=</span><span class="n">ASTRA_DB_REGION</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                      <span class="n">astra_application_token</span><span class="o">=</span><span class="n">ASTRA_DB_APPLICATION_TOKEN</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># Retrieve a row with primary key value &#39;local&#39;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="c1"># from table &#39;local&#39; in keyspace &#39;system&#39;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">res</span> <span class="o">=</span> <span class="n">astra_http_client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">method</span><span class="o">=</span><span class="n">http_methods</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="n">path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/api/rest/v2/keyspaces/system/local/local&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="c1"># Print the &#39;cql_version&#39; field value of the row</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cql_version&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/main_py.png" /></p>
+<p>You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
+<h3 id="step-2-deploy-the-function">✅ Step 2: Deploy the function.<a class="headerlink" href="#step-2-deploy-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Deploy</strong>.</p>
+</li>
+<li>
+<p>On the Cloud Functions Overview page, find the newly deployed function.</p>
+</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/deploy.png" /></p>
+<h3 id="step-3-test-the-function">✅ Step 3: Test the function.<a class="headerlink" href="#step-3-test-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Under <strong>Actions</strong>, select <strong>Test function</strong>.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/test-function.png" /></p>
+<ol>
+<li>On the testing page, click <strong>Test the function</strong> and observe the output.</li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/test-results.png" /></p>
+<p>Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
+<h3 id="step-4-view-logs">✅ Step 4: View logs.<a class="headerlink" href="#step-4-view-logs" title="Permanent link">&para;</a></h3>
+<p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/logs.png" />
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/logs-explorer.png" /></p>
 
               
             </article>
