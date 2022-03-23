@@ -2,10 +2,11 @@
 # Page tree
 # ------------------------------------------------------
 nav:
-
-  - 🎓 Astra Tutorials:
-    - 🏠 Home: index.md
+  - index.md
+  - Getting Started:
+    - Getting Started With Astra: pages/astra/index.md
     - Astra Core:
+      - ‣ Create Account: pages/astra/create-account.md
       - ‣ Create Token: pages/astra/create-token.md
     - AstraDB:
       - ‣ Create Database: pages/astra/create-instance.md
@@ -17,25 +18,8 @@ nav:
     - Astra Steaming:
       - ‣ Create Topic: pages/astra/create-topic.md
    
-  - 📥 Data Management:
-    - 🏠 Home: pages/data/index.md
-    - Load Data:
-      - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
-      - ‣ DSBulk: pages/data/load/dsbulk.md
-      - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
-    - Explore Data:
-      - ‣ Cqlsh: pages/data/explore/cqlsh.md
-      - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
-      - ‣ Datagrip: pages/data/explore/datagrip.md
-      - ‣ DBSchema: pages/data/explore/dbschema.md
-      - ‣ DBeaver: pages/data/explore/dbeaver.md
-      - ‣ MindDB: pages/data/explore/minddb.md
-      - ‣ TablePlus: pages/data/explore/tableplus.md
-    - Data Modelling:
-      - ‣ Kashliev KDM: http://kdm.kashliev.com/
-      
-  - 🛠️ Develop:
-    - 🏠 List: pages/develop/index.md
+  - Develop with Astra:
+    - List: pages/develop/index.md
     - Stargate Apis:
       - • REST: pages/develop/api/rest.md
       - • Document: pages/develop/api/document.md
@@ -56,8 +40,25 @@ nav:
     - Platform:
       - • Google Cloud Functions: pages/develop/platform/google-cloud-function.md
   
-  - 📦 Tools:
-    - 📦 Tools List: pages/tools/index.md
+  - Data Management:
+    - Home: pages/data/index.md
+    - Load Data:
+      - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
+      - ‣ DSBulk: pages/data/load/dsbulk.md
+      - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
+    - Explore Data:
+      - ‣ Cqlsh: pages/data/explore/cqlsh.md
+      - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
+      - ‣ Datagrip: pages/data/explore/datagrip.md
+      - ‣ DBSchema: pages/data/explore/dbschema.md
+      - ‣ DBeaver: pages/data/explore/dbeaver.md
+      - ‣ MindDB: pages/data/explore/minddb.md
+      - ‣ TablePlus: pages/data/explore/tableplus.md
+    - Data Modelling:
+      - ‣ Kashliev KDM: http://kdm.kashliev.com/
+  
+  - Third-Party Tools:
+    - Tools List: pages/tools/index.md
     - Developers IDE:
       - • IntelliJ : pages/tools/ide/intellij.md
       - • Eclipse :  pages/tools/ide/eclipse.md
@@ -81,7 +82,7 @@ nav:
 # ------------------------------------------------------
 
 # Project information
-site_name: Awesome Astra
+site_name: Awesome-Astra
 site_url: https://awesome-astra.github.io
 site_author: Cedrick Lunven
 site_description: >-
@@ -96,6 +97,11 @@ edit_uri: ""
 theme:
  name: material
  language: en
+
+ favicon: img/favicon.svg
+ logo: img/favicon.ico
+ custom_dir: docs/overrides
+
  features:
     - content.code.annotate
     - navigation.indexes
@@ -121,12 +127,15 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
 
- #favicon: assets/favicon.png
- #icon:
- #   logo: docs/img/logo-go.png
+ #extra_javascript:
+ #  - js/carousel.js 
+
+ #extra_css:
+ #  - css/astra.css
  
  include_search_page: false
  search_index_only: true
+
 
 # Mardown Support
 markdown_extensions:
