@@ -1,4 +1,8 @@
+Dear <b>Developers</b> you do have a running database ... now what ? In this page we provide you the minimum code to use the solution with the language or the framework you prefer.
+
 ### 🛠️ Pick a language
+
+Select the language of you choice clicking the tile and learn how to interact with each interface exposed in Astra
 
 <a href="languages/java">
  <img src="../../img/tile-java.png" height="130px" width="130px"/>
