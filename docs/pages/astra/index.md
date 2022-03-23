@@ -5,7 +5,7 @@ Datastax company created **Astra** which provides Apache Cassandra databases in 
 A lot of efforts has been put to ease the usage of the database with some developer [friendly apis](../develop).
 
 <center>
-[![cql](https://dabuttonfactory.com/button.png?t=Start+now+and+create+you+Account&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=280&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](create-account)
+[![cql](https://dabuttonfactory.com/button.png?t=Start+now!+Create+your+Account&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=280&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](create-account)
 
 <img src="../../img/astra/dashboard.png"/>
 
