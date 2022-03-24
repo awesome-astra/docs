@@ -1,3 +1,5 @@
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+
 ## A - Overview
 
 <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/airflow/img/airflow-image.png?raw=true" height="100px" />

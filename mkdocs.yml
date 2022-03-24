@@ -52,7 +52,7 @@ nav:
       - ‣ Datagrip: pages/data/explore/datagrip.md
       - ‣ DBSchema: pages/data/explore/dbschema.md
       - ‣ DBeaver: pages/data/explore/dbeaver.md
-      - ‣ MindDB: pages/data/explore/minddb.md
+      - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
     - Data Modelling:
       - ‣ Kashliev KDM: http://kdm.kashliev.com/
@@ -136,7 +136,7 @@ theme:
  include_search_page: false
  search_index_only: true
 
-# Mardown Support
+# Markdown Support
 markdown_extensions:
   - abbr
   - admonition
