@@ -1976,15 +1976,15 @@
 
   <h1>‣ Create Token</h1>
 
-<details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
-<ol>
-<li><a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html"><b>📖  Astra Docs</b> - The Astra token creation procedure</a>
-<li><a href="https://www.youtube.com/watch?v=TUTCLsBuUd4"><b>🎥 Youtube Video</b> - Walk through token creation</a>
-<li><a href="https://youtu.be/k5b5TiafAAM?list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&t=81"><b>🎥 Youtube Video</b> - More about token and roles in Astra</a>
-</ol>
-</details>
-
+<p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
+<div class="admonition abstract">
+<p class="admonition-title">Reference Documentations and resources</p>
+<p><ol>
+    <li><i class="fa fa-book" ></i>&nbsp;<a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html"><b>Astra Docs</b> - The Astra token creation procedure</a>
+    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://www.youtube.com/watch?v=TUTCLsBuUd4"><b>Youtube Video</b> - Walk through token creation</a>
+    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://youtu.be/k5b5TiafAAM?list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&t=81"><b>Youtube Video</b> - More about token and roles in Astra</a>
+</ol></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>Tokens are the way to authenticate against Astra with any given Apis or Drivers. They are created at organization level and as such can be used with multiple Databases.</p>
 <p>When you create a token you will select a <code>Role</code> that code a set of permissions. There you can limit the usage of your token for a particular database.</p>
@@ -1994,26 +1994,35 @@
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
 </ul>
 <h2 id="c-procedure">C - Procedure<a class="headerlink" href="#c-procedure" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1 : Open the Organization settings panel</strong></p>
+<details class="note">
+<summary>1️⃣ Open the Organization settings panel</summary>
 <p>On the top left hand corner locate the panel <code>Current Organization</code> with your email address. Use the chevron down <strong>&#8964;</strong> to open the menu and pick <code>Organizations Settings</code></p>
 <p><img src="../../../img/astra/astra-create-token-1.png" /></p>
-<p><strong>✅ Step 2: Open the token management page</strong></p>
+</details>
+<details class="note">
+<summary>2️⃣ Open the token management page</summary>
 <p>On the new page, select <code>Token Management</code> in the menu. Then use the <code>Select Roles</code> combo to select <code>Organization Administrator</code> role. This is the administrator of your tenant with all permissions.</p>
 <p><img src="../../../img/astra/astra-create-token-2.png" /></p>
-<details>
-<summary>
-💡 You can reach the Token Management page directly from the ellipsis menu next to your database in the main Astra dashboard. Expand to see how
-</summary>
-<img src="../../../img/astra/astra-create-token-alt.gif" />
+<details class="tip">
+<summary>The same page can be accessed from the dashboard</summary>
+<p>You can reach the Token Management page directly from the ellipsis menu next to your database in the main Astra dashboard. Expand to see how</p>
+<p><img src="../../../img/astra/astra-create-token-alt.gif" /></p>
 </details>
-
-<p><strong>✅ Step 3: Save the token as a CSV.</strong></p>
+</details>
+<details class="note">
+<summary>3️⃣ Save the token as a CSV.</summary>
 <p>The values of <code>clientSecret</code> and <code>token</code> will not be shown to you later for security reasons. Do not share those values and never commit them on github.</p>
 <p><img src="../../../img/astra/astra-create-token-3.png" /></p>
-<p><strong>👁️ Walkthrough</strong></p>
+</details>
+<details class="note" open="open">
+<summary>4️⃣ Walkthough.</summary>
 <p><img src="../../../img/astra/astra-create-token.gif" /></p>
+</details>
+<details class="tip">
+<summary>Copy values in the clipboard</summary>
 <p>You can use the clipboard icons close to each parameter to clip them and copy them elsewhere.</p>
 <p><img src="../../../img/astra/astra-create-token-4.png" /></p>
+</details>
 
               
             </article>
