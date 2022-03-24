@@ -1,6 +1,5 @@
-[🏠 Back to HOME](https://github.com/datastaxdevs/awesome-astra/wiki)
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
-- _Last Update `2/10/2022`_
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 
 <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache-spark/img/Apache_Spark_logo.png" height="180px" />

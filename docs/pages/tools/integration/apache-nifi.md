@@ -1,4 +1,4 @@
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki) | _Written by **Cedrick Lunven**, Last Update `2/11/2022`_
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 > This is an adaptation of the [Steven Matison Blogpost](https://ds-steven-matison.github.io/astra/nifi/)
 
