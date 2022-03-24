@@ -14,12 +14,12 @@ As stated in the [Create Account](create-account) page the security token are as
 
 ```mermaid
   graph TD
-    USER(User) -->|many|ORG(Organizations)
-    ORG -->|many|DB(Dabatases)
-    ORG -->|many|TOKEN(Tokens)
-    ORG -->|many|STR(Streaming Tenants)
-    TOKEN-->|one|ROLE(role)
-    ROLE-->|many|PERMISSIONS(permissions)
+    USER(User) -->|1...n|ORG(Organizations)
+    ORG -->|1..n|DB(Dabatases)
+    ORG -->|1..n|TOKEN(Tokens)
+    ORG -->|1..n|STR(Streaming Tenants)
+    TOKEN-->|1:1|ROLE(role)
+    ROLE-->|1..n|PERMISSIONS(permissions)
 ```
 
 There are some predefined roles within an organizations associated with some default permissions. The full list of permissions per roles is available in [Astra Documentation](https://docs.datastax.com/en/astra/docs/user-permissions.html)
