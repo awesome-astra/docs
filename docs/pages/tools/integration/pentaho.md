@@ -1,6 +1,8 @@
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/logo-pentaho.png?raw=true" height="100px" />
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 _This article was originally written by **Erick Ramirez** on [community.datastax.com](https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html)_
+
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/logo-pentaho.png?raw=true" height="100px" />
 
 ## Overview
 
