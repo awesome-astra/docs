@@ -68,3 +68,35 @@ You can use your `Github`, `Google` accounts or register with an `email`.
 ??? success "5️⃣ You are redirected to the homepage"
 
     <img src="../../../img/astra/astra-signup-8.png" />
+
+## C - Users and Organizations
+
+### Personal Organizations (tenant)
+
+When you create an account your personal **Organization** is created, **this is your tenant**:
+
+- The name of the organization is your email address, _(1) in the picture below_
+- The unique identifier (GUID) is present in the URL on the dashboard. _(2) in the picture below_
+
+<img src="../../../img/astra/organization-1.png" />
+
+### Create Organizations
+
+You can create multiple organizations accessing the menu **`Managing Organizations`** and invite other users to join. It is usefule when the same database could be access by multiple users with different emails.
+
+<img src="../../../img/astra/organization-2.png" />
+
+As a consequence a user can be part of multiple organizations, his personal, the one he created and the one he got invited to.
+
+```mermaid
+  graph TD
+    USER(User) -->|own one| PORG(Personal Organization - registration)
+    USER -->|own many| CORG(Organizations he created)
+    USER -->|is member of many| IORG(Organizations he was invited to)
+```
+
+### Organizations and Databases
+
+Within one organization will live `Databases`, `Tenants` and `Security Tokens` as shown on the Organization Dashboard.
+
+<img src="../../../img/astra/organization-3.png" />

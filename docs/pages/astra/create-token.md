@@ -10,13 +10,40 @@
 
 ## A - Overview
 
-Tokens are the way to authenticate against Astra with any given Apis or Drivers. They are created at organization level and as such can be used with multiple Databases.
+As stated in the [Create Account](create-account) page the security token are associated to one and only one organization and only one role.
 
-When you create a token you will select a `Role` that code a set of permissions. There you can limit the usage of your token for a particular database.
+```mermaid
+  graph TD
+    USER(User) -->|many|ORG(Organizations)
+    ORG -->|many|DB(Dabatases)
+    ORG -->|many|TOKEN(Tokens)
+    ORG -->|many|STR(Streaming Tenants)
+    TOKEN-->|one|ROLE(role)
+    ROLE-->|many|PERMISSIONS(permissions)
+```
 
-<img src="../../../img/astra/role-users.png" height="400px"/>
+There are some predefined roles within an organizations associated with some default permissions. The full list of permissions per roles is available in [Astra Documentation](https://docs.datastax.com/en/astra/docs/user-permissions.html)
+
+<center>
+<img src="../../../img/astra/roles-1.png" />
+<br/><i>Figure 1: Default Roles</i>
+
+<p>
+<img src="../../../img/astra/roles-11.png" />
+<br/><i>Figure 2: Permissions for a role here `Database Administrator`</i>
+</p>
+</center>
+
+it is also possible to create a custom roles and associate fined grained permissions. (`Organizations Settings / Role Managennt`)
+
+<center>
+<img src="../../../img/astra/roles-2.png" />
+<br/><i>Figure 3: Custom Roles screen</i>
+</center>
 
 ## B - Prerequisites
+
+**To create a new token:**
 
 - You should have an [Astra account](http://astra.datastax.com/)
 
