@@ -516,6 +516,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#c-users-and-organizations" class="md-nav__link">
+    C - Users and Organizations
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Users and Organizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-organizations-tenant" class="md-nav__link">
+    Personal Organizations (tenant)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-organizations" class="md-nav__link">
+    Create Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations-and-databases" class="md-nav__link">
+    Organizations and Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2000,6 +2034,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#c-users-and-organizations" class="md-nav__link">
+    C - Users and Organizations
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Users and Organizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-organizations-tenant" class="md-nav__link">
+    Personal Organizations (tenant)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-organizations" class="md-nav__link">
+    Create Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations-and-databases" class="md-nav__link">
+    Organizations and Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2076,6 +2144,25 @@
 <summary>5️⃣ You are redirected to the homepage</summary>
 <p><img src="../../../img/astra/astra-signup-8.png" /></p>
 </details>
+<h2 id="c-users-and-organizations">C - Users and Organizations<a class="headerlink" href="#c-users-and-organizations" title="Permanent link">&para;</a></h2>
+<h3 id="personal-organizations-tenant">Personal Organizations (tenant)<a class="headerlink" href="#personal-organizations-tenant" title="Permanent link">&para;</a></h3>
+<p>When you create an account your personal <strong>Organization</strong> is created, <strong>this is your tenant</strong>:</p>
+<ul>
+<li>The name of the organization is your email address, <em>(1) in the picture below</em></li>
+<li>The unique identifier (GUID) is present in the URL on the dashboard. <em>(2) in the picture below</em></li>
+</ul>
+<p><img src="../../../img/astra/organization-1.png" /></p>
+<h3 id="create-organizations">Create Organizations<a class="headerlink" href="#create-organizations" title="Permanent link">&para;</a></h3>
+<p>You can create multiple organizations accessing the menu <strong><code>Managing Organizations</code></strong> and invite other users to join. It is usefule when the same database could be access by multiple users with different emails.</p>
+<p><img src="../../../img/astra/organization-2.png" /></p>
+<p>As a consequence a user can be part of multiple organizations, his personal, the one he created and the one he got invited to.</p>
+<pre class="mermaid"><code>  graph TD
+    USER(User) --&gt;|own one| PORG(Personal Organization - registration)
+    USER --&gt;|own many| CORG(Organizations he created)
+    USER --&gt;|is member of many| IORG(Organizations he was invited to)</code></pre>
+<h3 id="organizations-and-databases">Organizations and Databases<a class="headerlink" href="#organizations-and-databases" title="Permanent link">&para;</a></h3>
+<p>Within one organization will live <code>Databases</code>, <code>Tenants</code> and <code>Security Tokens</code> as shown on the Organization Dashboard.</p>
+<p><img src="../../../img/astra/organization-3.png" /></p>
 
               
             </article>
