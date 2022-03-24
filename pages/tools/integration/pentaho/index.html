@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/pentaho/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
     
     
       
@@ -78,6 +78,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -1778,9 +1783,86 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Pentaho Data Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Pentaho Data Integration
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-prerequisites" class="md-nav__link">
+    - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-jdbc-driver" class="md-nav__link">
+    ✅ Step 1: Download JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-import-driver-jar-in-pentaho" class="md-nav__link">
+    ✅ Step 2: Import Driver JAR in Pentaho
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-define-a-connection-in-pentaho" class="md-nav__link">
+    ✅ Step 3: Define a connection in Pentaho
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-test" class="md-nav__link">
+    ✅ Step 4: Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1874,6 +1956,85 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-prerequisites" class="md-nav__link">
+    - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-jdbc-driver" class="md-nav__link">
+    ✅ Step 1: Download JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-import-driver-jar-in-pentaho" class="md-nav__link">
+    ✅ Step 2: Import Driver JAR in Pentaho
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-define-a-connection-in-pentaho" class="md-nav__link">
+    ✅ Step 3: Define a connection in Pentaho
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-test" class="md-nav__link">
+    ✅ Step 4: Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1883,7 +2044,111 @@
 
   <h1>• Pentaho Data Integration</h1>
 
-
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/logo-pentaho.png?raw=true" height="100px" /></p>
+<p><em>This article was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html">community.datastax.com</a></em></p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/3e05907c0a194c92aa96cf88bb26dd1fcb57b2bb/pentaho-data-integration/img/pdi.png?raw=true" height="100px" /></p>
+<p>Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.</p>
+<ul>
+<li>ℹ️ <a href="https://blog.knoldus.com/introduction-to-pdi/">Introduction to PDI</a></li>
+<li>📥 <a href="https://sourceforge.net/projects/pentaho/">PDI Download Link</a></li>
+<li>📘 <a href="https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf">Installation Guide on Linux</a></li>
+<li>📘 <a href="https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf">Installation Guide on Windows</a></li>
+</ul>
+<h2 id="-prerequisites">- Prerequisites<a class="headerlink" href="#-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your Secure bundle</a></li>
+<li>You should <a href="https://sourceforge.net/projects/pentaho/">Download and install PDI</a></li>
+</ul>
+<p>This article was written for version <code>9.1</code> on <code>MacOS</code> but it should also work for the Windows version.</p>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-download-jdbc-driver">✅ Step 1: Download JDBC Driver<a class="headerlink" href="#step-1-download-jdbc-driver" title="Permanent link">&para;</a></h3>
+<p>Download the JDBC driver from the DataStax website:</p>
+<ol>
+<li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
+<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
+<li>Select <strong>JDBC 4.2.</strong></li>
+<li>Read the license terms and accept it <em>(click the checkbox).</em></li>
+<li>Hit the blue <strong>Download</strong> button.</li>
+<li>Once the download completes, <strong>unzip</strong> the downloaded file.</li>
+</ol>
+<h3 id="step-2-import-driver-jar-in-pentaho">✅ Step 2: Import Driver JAR in Pentaho<a class="headerlink" href="#step-2-import-driver-jar-in-pentaho" title="Permanent link">&para;</a></h3>
+<p>Deploy the Simba driver to Pentaho servers using the distribution tool:</p>
+<ol>
+<li>
+<p>On your laptop or PC, copy the Simba JAR to the JDBC distribution directory:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ cp CassandraJDBC42.jar pentaho/jdbc-distribution/
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the distribution tool (<code>distribute-files.bat</code> on Windows)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ <span class="nb">cd</span> /Applications/Pentaho/jdbc-distribution
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ ./distribute-files.sh CassandraJDBC42.jar
+</code></pre></div></p>
+</li>
+<li>
+<p>Verify that the JAR has been copied to the PDI library:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ <span class="nb">cd</span> /Applications/Pentaho
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ ls -lh design-tools/data-integration/lib/CassandraJDBC42.jar
+</code></pre></div></p>
+</li>
+<li>
+<p>Expected output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>-rw-r--r--  1 erick  vaxxed   16M 14 Sep 22:18 design-tools/data-integration/lib/CassandraJDBC42.jar
+</code></pre></div></p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ file design-tools/data-integration/lib/CassandraJDBC42.jar
+</code></pre></div>
+<ul>
+<li>
+<p>Expected output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>design-tools/data-integration/lib/CassandraJDBC42.jar: Java archive data (JAR)
+</code></pre></div></p>
+</li>
+<li>
+<p>Restart Pentaho on your workstation for the Simba driver to be loaded.</p>
+</li>
+</ul>
+<h3 id="step-3-define-a-connection-in-pentaho">✅ Step 3: Define a connection in Pentaho<a class="headerlink" href="#step-3-define-a-connection-in-pentaho" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>In this section we assume that your database in Astra is called <code>pentaho</code> and as such the download secure bundle is called <code>secure-connect-pentaho.zip</code></p>
+</blockquote>
+<ol>
+<li>Create a new Transformation.</li>
+<li>Open a new <strong>Database Connection</strong> dialog box.</li>
+<li>In the <strong>Connection name</strong> field, give your DB connection a name.</li>
+<li>Under <strong>Connection type,</strong> select <strong>Generic database.</strong></li>
+<li>Set the <strong>Custom connection URL</strong>. <em>(Note that you will need to specify the full path to your secure bundle and adapt to your database name)</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>jdbc:cassandra://;AuthMech=2;TunableConsistency=6;SecureConnectionBundlePath=/path/to/secure-connect-pentaho.zip
+</code></pre></div></li>
+<li>In the <strong>Username</strong> field, enter the string <code>token</code>.</li>
+<li>In the <strong>Password</strong> field, paste the value of the token you created in the Prerequisites section above. The token looks like <code>AstraCS:AbC...XYz:123...edf0</code><blockquote>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/3e05907c0a194c92aa96cf88bb26dd1fcb57b2bb/pentaho-data-integration/img/pentaho-01-new-astra-connection.png?raw=true" /></p>
+</blockquote>
+</li>
+<li>Click on the <strong>Test Connection</strong> button to confirm that the driver configuration is working:<blockquote>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-02-test-connection.png?raw=true" /></p>
+</blockquote>
+</li>
+<li>Click on the OK button to save the connection settings.</li>
+</ol>
+<h3 id="step-4-final-test">✅ Step 4: Final Test<a class="headerlink" href="#step-4-final-test" title="Permanent link">&para;</a></h3>
+<p>Connect to your Astra DB by launching the SQL Editor in Pentaho and run a simple CQL statement. For example:</p>
+<blockquote>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-03-sql-editor.png?raw=true" /></p>
+</blockquote>
+<p>Here's an example output:</p>
+<blockquote>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-04-preview-data.png?raw=true" /></p>
+</blockquote>
+<p>You should also be able to browse the keyspaces in your Astra DB using the DataBase Explorer. Here's an example output:</p>
+<blockquote>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-05-db-explorer.png?raw=true" /></p>
+</blockquote>
 
               
             </article>
