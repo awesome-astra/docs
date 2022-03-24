@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1355,8 +1360,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data/explore/minddb/" class="md-nav__link">
-        ‣ MindDB
+      <a href="../../../data/explore/mindsdb/" class="md-nav__link">
+        ‣ MindsDB
       </a>
     </li>
   
@@ -1792,9 +1797,160 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Temporal
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Temporal
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-prerequisites" class="md-nav__link">
+    - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setup-astra" class="md-nav__link">
+    ✅ Step 1: Setup Astra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-temporal-pre-setup" class="md-nav__link">
+    ✅ Step 2: Temporal Pre-setup
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 2: Temporal Pre-setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-this-step-you-will-set-up-a-temporal-instance-using-docker" class="md-nav__link">
+    For this step, you will set up a Temporal instance using Docker.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-temporal-schema-migration" class="md-nav__link">
+    ✅ Step 3: Temporal Schema Migration
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 3: Temporal Schema Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-migration" class="md-nav__link">
+    Schema Migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-charts-installation" class="md-nav__link">
+    Helm Charts Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-creation" class="md-nav__link">
+    Secret Creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-to-volume-server-deployment" class="md-nav__link">
+    Mounting to Volume - Server Deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-persistence-layer-configuration" class="md-nav__link">
+    ✅ Step 4: Persistence Layer Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 4: Persistence Layer Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#values-configuration" class="md-nav__link">
+    Values Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-install" class="md-nav__link">
+    Helm Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-test-and-validate" class="md-nav__link">
+    ✅ Step 5: Test and Validate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1874,6 +2030,159 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-prerequisites" class="md-nav__link">
+    - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setup-astra" class="md-nav__link">
+    ✅ Step 1: Setup Astra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-temporal-pre-setup" class="md-nav__link">
+    ✅ Step 2: Temporal Pre-setup
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 2: Temporal Pre-setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-this-step-you-will-set-up-a-temporal-instance-using-docker" class="md-nav__link">
+    For this step, you will set up a Temporal instance using Docker.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-temporal-schema-migration" class="md-nav__link">
+    ✅ Step 3: Temporal Schema Migration
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 3: Temporal Schema Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-migration" class="md-nav__link">
+    Schema Migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-charts-installation" class="md-nav__link">
+    Helm Charts Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-creation" class="md-nav__link">
+    Secret Creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-to-volume-server-deployment" class="md-nav__link">
+    Mounting to Volume - Server Deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-persistence-layer-configuration" class="md-nav__link">
+    ✅ Step 4: Persistence Layer Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 4: Persistence Layer Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#values-configuration" class="md-nav__link">
+    Values Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-install" class="md-nav__link">
+    Helm Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-test-and-validate" class="md-nav__link">
+    ✅ Step 5: Test and Validate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1883,14 +2192,321 @@
 
   <h1>• Temporal</h1>
 
-
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-03-24</em> </p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-logo-dark.svg?raw=true" height="100px" /></p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, CockroachDB and Apache CassandraⓇ as backend dependencies. </p>
+<ul>
+<li>ℹ️ <a href="https://docs.temporal.io/docs/temporal-explained/introduction">Introduction to Temporal</a></li>
+<li>📥 <a href="https://docs.temporal.io/docs/clusters/quick-install/">Temporal Quick Install</a></li>
+</ul>
+<h2 id="-prerequisites">- Prerequisites<a class="headerlink" href="#-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your Secure Bundle</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.  </p>
+</div>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-setup-astra">✅ Step 1: Setup Astra<a class="headerlink" href="#step-1-setup-astra" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In your Astra database, create two new keyspaces called <strong>"temporal"</strong> and <strong>"temporal_visibility".</strong> You will be using both of these in the next steps.</li>
+<li>Make sure to create an Astra token with <strong>Admin Role</strong></li>
+<li>Make sure you have downloaded your Secure Connect Bundle for your database. </li>
+<li>We recommend you create a central directory somewhere in your electronic filing system to keep track of all the files needed for this setup. For this example, we’re calling this main directory <code>/my-temporal</code>, the Secure Connect Bundle is <code>secure-connect-temporal</code>, and the CSV for token credentials is saved under <code>adminuser</code></li>
+</ol>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-01-sample-directory.png?raw=true"  /></p>
+<h3 id="step-2-temporal-pre-setup">✅ Step 2: Temporal Pre-setup<a class="headerlink" href="#step-2-temporal-pre-setup" title="Permanent link">&para;</a></h3>
+<h4 id="for-this-step-you-will-set-up-a-temporal-instance-using-docker">For this step, you will set up a Temporal instance using Docker.<a class="headerlink" href="#for-this-step-you-will-set-up-a-temporal-instance-using-docker" title="Permanent link">&para;</a></h4>
+<details class="info">
+<summary>Step 1: Set up the Docker Image</summary>
+<ul>
+<li>Follow the <a href="https://docs.temporal.io/docs/server/quick-install">Quick Install</a> instructions to setup Docker</li>
+<li>Clone the <a href="https://github.com/temporalio/docker-compose">temporalio/docker-compose</a> repository in your <code>/my-temporal</code> directory</li>
+<li>Move the following files from your Secure Connect Bundle into the <code>dynamicconfig</code> folder in the <code>docker-compose</code> folder:<ul>
+<li><code>ca.crt</code></li>
+<li><code>cert</code></li>
+<li><code>key</code>
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-02-dynamic-config.png?raw=true"  />
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-03-certs-dynamic-config.png?raw=true"  /></li>
+</ul>
+</li>
+</ul>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Step 2: Using your local command line or terminal, change the directory to reflect the root of the project.</p>
+</div>
+<details class="info">
+<summary>Step 3: Run Docker Compose</summary>
+<p>Run the docker-compose up command. Your output should look something like the following: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>user@user % cd my-temporal 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>user@user my-temporal % git clone https://github.com/temporalio/docker-compose.git
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Cloning into &#39;docker-compose&#39;...
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>remote: Enumerating objects: 549, done.
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>remote: Counting objects: 100% (473/473), done.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>remote: Compressing objects: 100% (201/201), done.
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>remote: Total 549 (delta 431), reused 277 (delta 272), pack-reused 76
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Receiving objects: 100% (549/549), 83.01 KiB | 1.06 MiB/s, done.
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Resolving deltas: 100% (446/446), done.
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>user@user my-temporal % cd  docker-compose
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>user@user docker-compose % docker-compose up
+</code></pre></div></p>
+<p>Once complete, you should view all the created containers in your Docker Destop. For this setup, we will be focusing on the container named <code>temporal</code>.</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-04-temporal-docker.png?raw=true" height="100px"  /></p>
+</details>
+<h3 id="step-3-temporal-schema-migration">✅ Step 3: Temporal Schema Migration<a class="headerlink" href="#step-3-temporal-schema-migration" title="Permanent link">&para;</a></h3>
+<h4 id="schema-migration">Schema Migration<a class="headerlink" href="#schema-migration" title="Permanent link">&para;</a></h4>
+<p>For this step, you will set up the keyspaces you created earlier in the Astra prerequisites (<strong>temporal</strong> and <strong>temporal_visibility</strong>). You will be using <code>temporal-cassandra-tool</code> which is part of the Temporal repo. </p>
+<div class="admonition info">
+<p class="admonition-title">Step 1. Go into your Docker Desktop</p>
+</div>
+<details class="info">
+<summary>Step 2. SSH into the container</summary>
+<p>Click on <code>temporal</code> container and press the <strong>CLI</strong> button to access the content with SSH.
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-04-temporal-docker.png?raw=true"  /></p>
+</details>
+<details class="info">
+<summary>Step 3. Initalize Keyspaces</summary>
+<ul>
+<li>Run the following commands to initialize the keyspaces that we created through Astra. </li>
+<li>Note that there are two sets of commands, one for <strong>temporal</strong> keyspace and one for <strong>temporal_visibility</strong> keyspace. </li>
+<li>Each command takes about <strong>15 minutes</strong> to run. Be patient with this process. We recommend starting up two terminal windows, one for <strong>temporal</strong> keyspace and one for <strong>temporal_visibility</strong> keyspace. You run this in the background while you do other work in the meantime.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// Host and port can be found at config.json file inside the Astra Secure Connect Bundle
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>export CASSANDRA_HOST={host} //Dont include brackets
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>export CASSANDRA_PORT=29042
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>// Password can be found in Admin user CSV under &quot;Token&quot;
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>export CASSANDRA_USER=token
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>export CASSANDRA_PASSWORD={Astra Token}
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>// temporal keyspace
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>CASSANDRA_KEYSPACE=temporal temporal-cassandra-tool --ep $CASSANDRA_HOST --port $CASSANDRA_PORT --user $CASSANDRA_USER --password $CASSANDRA_PASSWORD --tls=true --tls-cert-file=/etc/temporal/config/dynamicconfig/cert --tls-key-file=/etc/temporal/config/dynamicconfig/key --tls-ca-file=/etc/temporal/config/dynamicconfig/ca.crt --tls-disable-host-verification=true  setup-schema -v 0.0
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>CASSANDRA_KEYSPACE=temporal temporal-cassandra-tool --ep $CASSANDRA_HOST --port $CASSANDRA_PORT --user $CASSANDRA_USER --password $CASSANDRA_PASSWORD --tls=true --tls-cert-file=/etc/temporal/config/dynamicconfig/cert --tls-key-file=/etc/temporal/config/dynamicconfig/key --tls-ca-file=/etc/temporal/config/dynamicconfig/ca.crt --tls-disable-host-verification=true update -schema-dir schema/cassandra/temporal/versioned
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>// temporal_visibility keyspace
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>CASSANDRA_KEYSPACE=temporal_visibility temporal-cassandra-tool --ep $CASSANDRA_HOST --port $CASSANDRA_PORT --user $CASSANDRA_USER --password $CASSANDRA_PASSWORD --tls=true --tls-cert-file=/etc/temporal/config/dynamicconfig/cert --tls-key-file=/etc/temporal/config/dynamicconfig/key --tls-ca-file=/etc/temporal/config/dynamicconfig/ca.crt --tls-disable-host-verification=true  setup-schema -v 0.0
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>CASSANDRA_KEYSPACE=temporal_visibility temporal-cassandra-tool --ep $CASSANDRA_HOST --port $CASSANDRA_PORT --user $CASSANDRA_USER --password $CASSANDRA_PASSWORD --tls=true --tls-cert-file=/etc/temporal/config/dynamicconfig/cert --tls-key-file=/etc/temporal/config/dynamicconfig/key --tls-ca-file=/etc/temporal/config/dynamicconfig/ca.crt --tls-disable-host-verification=true update -schema-dir schema/cassandra/visibility/versioned`
+</code></pre></div></li>
+</ul>
+<p>Once the process is completed, you should see a message similar to this: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>2022-03-02T22:23:27.618Z    INFO    Validating connection to cassandra cluster. {&quot;logging-call-at&quot;: &quot;cqlclient.go:112&quot;}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2022-03-02T22:42:53.526Z    INFO    Connection validation succeeded.    {&quot;logging-call-at&quot;: &quot;cqlclient.go:118&quot;}
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2022-03-02T22:42:53.526Z    INFO    Starting schema setup   {&quot;config&quot;: {&quot;SchemaFilePath&quot;:&quot;&quot;,&quot;InitialVersion&quot;:&quot;0.0&quot;,&quot;Overwrite&quot;:false,&quot;DisableVersioning&quot;:false}, &quot;logging-call-at&quot;: &quot;setuptask.go:57&quot;}
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2022-03-02T22:42:53.526Z    DEBUG   Setting up version tables   {&quot;logging-call-at&quot;: &quot;setuptask.go:67&quot;}
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2022-03-02T22:42:54.120Z    DEBUG   Current database schema version 1.6 is greater than initial schema version 0.0. Skip version upgrade    {&quot;logging-call-at&quot;: &quot;setuptask.go:116&quot;}
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>2022-03-02T22:42:54.120Z    INFO    Schema setup complete   {&quot;logging-call-at&quot;: &quot;setuptask.go:131&quot;}
+</code></pre></div>
+<p>Great! Your schemas have been migrated with Astra DB. </p>
+</details>
+<details class="info">
+<summary>Step 4: Confirm in Astra</summary>
+<ul>
+<li>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. </li>
+<li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use temporal;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:temporal&gt; desc tables;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>history_node        tasks             cluster_metadata_info
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cluster_membership  namespaces        cluster_metadata     
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>schema_version      namespaces_by_id  schema_update_history
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>executions          queue_metadata  
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>queue               history_tree    
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>token@cqlsh:temporal&gt; use temporal_visibility;
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>token@cqlsh:temporal_visibility&gt; desc tables;
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>open_executions  schema_update_history  schema_version  closed_executions
+</code></pre></div>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Step 5: Shut down Temporal container</p>
+</div>
+<h4 id="helm-charts-installation">Helm Charts Installation<a class="headerlink" href="#helm-charts-installation" title="Permanent link">&para;</a></h4>
+<p>In this section, you are going to be following steps to install Temporal using Helm Charts:</p>
+<details class="info">
+<summary>Step 1: Setup Kubernetes Cluster</summary>
+<p>Refer to the <a href="https://github.com/temporalio/helm-charts#prerequisites">Prerequisites</a> section that gives you the steps in configuring your system to access a Kubernetes cluster, AWS CLI V2, kubectl, Helm v3, and so on. For this specific example, I used <a href="https://kind.sigs.k8s.io/">Kind</a> to deploy my Kubernetes cluster.</p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Step 2: Clone the <a href="https://github.com/temporalio/helm-charts">temporalio/helm-charts</a> repository in your <code>/my-temporal</code> directory</p>
+</div>
+<details class="info">
+<summary>Step 3: Download Helm Chart Dependencies</summary>
+<p>Your output should look like this:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% helm dependencies update
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Getting updates for unmanaged Helm repositories...
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>...Successfully got an update from the &quot;https://helm.elastic.co&quot; chart repository
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...Successfully got an update from the &quot;https://grafana.github.io/helm-charts&quot; chart repository
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...Successfully got an update from the &quot;https://prometheus-community.github.io/helm-charts&quot; chart repository
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>...Successfully got an update from the &quot;https://charts.helm.sh/incubator&quot; chart repository
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Hang tight while we grab the latest from your chart repositories...
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>...Successfully got an update from the &quot;kong&quot; chart repository
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>...Successfully got an update from the &quot;datastax-examples-kong&quot; chart repository
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>...Successfully got an update from the &quot;bitnami&quot; chart repository
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Update Complete. ⎈Happy Helming!⎈
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>Saving 4 charts
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>Downloading cassandra from repo https://charts.helm.sh/incubator
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>Downloading prometheus from repo https://prometheus-community.github.io/helm-charts
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Downloading elasticsearch from repo https://helm.elastic.co
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>Downloading grafana from repo https://grafana.github.io/helm-charts
+</code></pre></div></p>
+</details>
+<details class="info">
+<summary>Step 4: Deploy Kubernetes Cluster</summary>
+<p>Create and deploy your Kubernetes cluster using the instructions here. Once deployed, the Kubernetes cluster should appear up and running in your Docker Desktop like this:</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-06-kubernetes-docker.png?raw=true"  /></p>
+</details>
+<h4 id="secret-creation">Secret Creation<a class="headerlink" href="#secret-creation" title="Permanent link">&para;</a></h4>
+<p>In the Docker Image step, you noticed we used the following files from our Astra Secure Connect Bundle: <code>ca.crt</code>, <code>cert</code>, and <code>key</code>. These are all credentials that will tell Temporal that you are trying to connect with Astra and that you have the access to do so. With Secrets in Kubernetes, you are able to store sensitive information and mount it to your deployment.</p>
+<details class="info">
+<summary>How to Store Bundle info in Secrets</summary>
+<ol>
+<li>Go to your <code>/helm-charts</code> file directory.</li>
+<li>Open the <code>templates</code> folder.</li>
+<li>Using your preferred text editor (we used VSCode) create an <code>astra-secret.yaml</code> file in this folder.</li>
+<li>Copy and paste the following code in your editor:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>apiVersion: v1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>kind: Secret
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>metadata:
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>name: astra-secret
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>type: Opaque
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>data:
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>ca.crt: LS0tLS1CRUdJTiBDRV...
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>cert: LS0tLS1CRUdJTiBDR....
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>key: LS0tLS1CRUdJTiBSU...
+</code></pre></div></li>
+<li>Navigate to your Secure Connect Bundle in your <code>/my-temporal</code> directory using your terminal</li>
+<li>Base64 Encode your <code>ca.crt</code>, <code>cert</code>, and <code>key</code> files then plug them back into the respective fields in your <code>astra-secret.yaml</code> file 
+<strong>ex.</strong> <code>ca.crt: LS0tLS1CRUdJTiBDRV...</code><ul>
+<li>Base64 for Mac: <code>base64 --break 0 &lt;file-name&gt;</code></li>
+<li>Base64 for Windows: <code>certutil -encode input-file.txt encoded-output.txt</code></li>
+<li>Base64 for Linux: <code>base64 -w o &lt;path-to-file&gt;</code></li>
+</ul>
+</li>
+<li>Save your <code>astra-secret.yaml</code> file.</li>
+</ol>
+</details>
+<h4 id="mounting-to-volume-server-deployment">Mounting to Volume - Server Deployment<a class="headerlink" href="#mounting-to-volume-server-deployment" title="Permanent link">&para;</a></h4>
+<p>Once you have finished creating the Secrets, you are going to mount these to the Temporal Server Deployment file. </p>
+<details class="info">
+<summary>How to Mount to Server Deployment</summary>
+<ol>
+<li>In your <code>templates</code> folder, find and open <code>server-deployment.yaml</code></li>
+<li>Append the following under <code>volumeMounts:</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>volumeMounts:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        ….
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        - name: astra-secret
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>            mountPath: /etc/temporal/secret
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            readOnly: true
+</code></pre></div></li>
+<li>Scroll down to <code>volumes</code> and append the following:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>volumes:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    …
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    - name: astra-secret
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        secret:
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        secretName: astra-secret
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        items:
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>            - key: cert
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>            path: cert
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            - key: ca.crt
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>            path: ca.crt
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>            - key: key
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>            path: key
+</code></pre></div></li>
+<li>(Note that the <code>volumeMount</code> name and <code>volume name</code> must be the same for <code>astra-secret</code>. </li>
+<li>Save your <code>server-development.yaml</code> file.</li>
+</ol>
+</details>
+<h3 id="step-4-persistence-layer-configuration">✅ Step 4: Persistence Layer Configuration<a class="headerlink" href="#step-4-persistence-layer-configuration" title="Permanent link">&para;</a></h3>
+<p>Now that you’ve gotten this far, we’re going to configure the Persistence Layer of Temporal’s server. The persistence layer, also known as the Data Access layer, is paired with the Temporal Server to allow support for different back-end databases, Cassandra in this case. </p>
+<h4 id="values-configuration">Values Configuration<a class="headerlink" href="#values-configuration" title="Permanent link">&para;</a></h4>
+<details class="info">
+<summary>Configure Persistence Layer</summary>
+<ol>
+<li>Go to the <code>helm-charts</code> directory.</li>
+<li>Go to the <code>values</code> folder.</li>
+<li>Edit the <code>values.cassandra.yaml</code> file using your preferred editor (ie. VSCode).</li>
+<li>While leaving the “consistency” section alone, update the <code>cassandra</code> and visibility sections with the code below. Make sure to change the <code>keyspace</code> name to <code>temporal_visibility</code> when updating under the <code>visibility</code> section:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>disableInitialHostLookup: true
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        tls:
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        enableHostVerification: false
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        enabled: true
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        certFile: &quot;/etc/temporal/secret/cert&quot;
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        keyFile: &quot;/etc/temporal/secret/key&quot;
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        caFile: &quot;/etc/temporal/secret/ca.crt&quot;
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        //get host from config.json file in SCB
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        hosts: &lt;host&gt; 
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        port: 29042
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        keyspace: temporal
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        user: &quot;token&quot;
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        password: &lt;astra-token&gt;
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        existingSecret: &quot;&quot;
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        replicationFactor: 3`
+</code></pre></div></li>
+<li>Save your <code>values.cassandra.yaml</code> file.</li>
+</ol>
+</details>
+<h4 id="helm-install">Helm Install<a class="headerlink" href="#helm-install" title="Permanent link">&para;</a></h4>
+<details class="info">
+<summary>Install and Deploy Temporal Server</summary>
+<ol>
+<li>In your <strong>helm-charts</strong> directory, run this command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>helm install -f values/values.cassandra.yaml --set elasticsearch.enabled=false temporalastra . --timeout 900s
+</code></pre></div>
+You should see this message if it was successful:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>NAME: temporalastra
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>LAST DEPLOYED: Thu Mar  3 15:34:39 2022
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>NAMESPACE: default
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>STATUS: deployed
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>REVISION: 1
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>TEST SUITE: None
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>NOTES:
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>To verify that Temporal has started, run:
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>kubectl --namespace=default get pods -l &quot;app.kubernetes.io/instance=temporalastra&quot;
+</code></pre></div></li>
+<li>In a different tab, run <code>kubectl --namespace=default get pods -l "app.kubernetes.io/instance=temporalastra"</code></li>
+</ol>
+<p>A successful deployment should look like this: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>NAME                                                  READY   STATUS    RESTARTS   AGE
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>temporalastra-admintools-5c5fb5f989-rhdrz           1/1     Running   0          14m
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>temporalastra-frontend-7767bcdddb-kxqsn             1/1     Running   0          14m
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>temporalastra-grafana-6bb965b6ff-5kdnq              1/1     Running   0          14m
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>temporalastra-history-5b798b4965-4sv6q              1/1     Running   0          14m
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>temporalastra-kube-state-metrics-84ff4fb4c8-lkjbr   1/1     Running   0          14m
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>temporalastra-matching-65b79bd899-xt6cb             1/1     Running   0          14m
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>temporalastra-web-7b6c8d64d7-xtqpb                  1/1     Running   0          14m
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>temporalastra-worker-6dc9568895-h6hkq               1/1     Running   0          14m
+</code></pre></div>
+3. Allow a couple minutes for all <code>STATUS</code> to initialize and switch to Running. You can run the get pods statement from above to continuously check on the status as its initializing.</p>
+</details>
+<h3 id="step-5-test-and-validate">✅ Step 5: Test and Validate<a class="headerlink" href="#step-5-test-and-validate" title="Permanent link">&para;</a></h3>
+<p>You can test your connection and play with your Temporal cluster with these instructions.</p>
+<ol>
+<li>Make sure to use tctl to create namespaces dedicated to certain workflows:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bash-5.0# tctl --namespace test namespace re
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Namespace test successfully registered.
+</code></pre></div></li>
+<li>When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>c, err := client.NewClient(client.Options{HostPort: &quot;127.0.0.1:7233&quot;, Namespace: &quot;test&quot;})
+</code></pre></div></li>
+</ol>
+<p>Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.</p>
+<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-06-test-validate.png?raw=true"  /></p>
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-03-21
+      2022-03-24
     
   </small>
 </div>
