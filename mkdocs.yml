@@ -127,15 +127,14 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
 
- #extra_javascript:
- #  - js/carousel.js 
+ extra_javascript:
+   - assets/javascripts/carousel.js 
 
- #extra_css:
- #  - css/astra.css
+ extra_css:
+   - assets/stylesheets/astra.css
  
  include_search_page: false
  search_index_only: true
-
 
 # Mardown Support
 markdown_extensions:

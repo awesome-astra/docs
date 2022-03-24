@@ -1,24 +1,70 @@
 ## A - Overview
 
-ASTRA DB is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 20M reads/writes, 80GB storage monthly - sufficient to run small production workloads.
+ASTRA DB is the simplest way to run Cassandra with zero operations at all. **No credit card required**, $25.00 USD credit every month, (_roughly 20M reads/writes, 80GB storage monthly_) - sufficient to run small production workloads.
 
-## B - Registration
+[http://astra.datastax.com](http://astra.datastax.com/) is the URL to access to create an account and use the solution.
 
-### 1. Use a github account
+![](https://dabuttonfactory.com/button.png?t=Go+to+Astra&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)
 
-### 2. Use a google account
+## B - Sign Up
 
-### 3. Provider email and password
+You can use your `Github`, `Google` accounts or register with an `email`.
 
-Navigate [Astra Registration Page](http://astra.datastax.com/). If you don't have one yet, keep reading and we'll show you how to create it.
+### 1. Sign In with Github
 
-## C - Procedure
+??? note "Click the `[Sign In with Github]` button"
 
-**✅ Step 1:Click the `sign-in` button to login or register.**
+    <img src="../../../img/astra/astra-signin-github-0.png" />
 
-You can use your `Github`, `Google` accounts or register with an `email`. With the latest make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character.
+??? note "1️⃣ Click `Continue` on the OAuth claims delegation"
 
-> If you already have an Astra account, skip this step, locate and click the "Create Database" button on the left-side navigation bar
-> of your Astra UI, and read next step.
+    The OAuth2 delegation screen from github is asking for permissions.
 
-<img src="../../../img/astra/astra-login.png" />
+    <img src="../../../img/astra/astra-signin-github-1.png" />
+
+??? success "2️⃣ You are redirected to the homepage"
+
+    <img src="../../../img/astra/astra-signup-8.png" />
+
+### 2. Sign In with Google
+
+??? note "1️⃣ Click the `[Sign In with Google]` button"
+
+    <img src="../../../img/astra/astra-signin-google-0.png" />
+
+??? success "2️⃣ You are redirected to the homepage"
+
+    <img src="../../../img/astra/astra-signup-8.png" />
+
+### 3. Sign Up
+
+??? note "1️⃣ Click the `Sign up` on the bottom of the page"
+
+    <img src="../../../img/astra/astra-signup-1.png" />
+
+??? note "2️⃣ Provide your information and validate the captcha"
+
+    <img src="../../../img/astra/astra-signup-2.png" />
+
+??? note "3️⃣ Accept terms and policies"
+
+    <img src="../../../img/astra/astra-signup-3.png" />
+
+    Astra is now looking for you to validate your email adress
+
+    <img src="../../../img/astra/astra-signup-4.png" />
+
+??? note "4️⃣ Open the mail in your inbox and validate with `Verify my email` link"
+
+    <img src="../../../img/astra/astra-signup-5.png" />
+
+    - Astra will show a validation message, select **Click Here to proceed**.
+
+    <img src="../../../img/astra/astra-signup-6.png" />
+
+    - Select **back to application**
+    <img src="../../../img/astra/astra-signup-7.png" />
+
+??? success "5️⃣ You are redirected to the homepage"
+
+    <img src="../../../img/astra/astra-signup-8.png" />
