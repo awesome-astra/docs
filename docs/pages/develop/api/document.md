@@ -97,7 +97,7 @@ In order to use the **`Document Api`** for Astra DB in your application some pre
 
 function setupSwagger() {
   window.ui = SwaggerUIBundle({
-    url: "/pages/develop/api/swagger-api-document.json",
+    url: "../swagger-api-document.json",
     dom_id: '#swagger-ui',
     presets: [
       SwaggerUIBundle.presets.apis,
