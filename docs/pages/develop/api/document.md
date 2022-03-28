@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui.css">
 <link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/formbase.min.css">
 
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui.css">
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-standalone-preset.js"></script>
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
+<script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
 ## Overview
 
@@ -76,141 +77,23 @@ In order to use the **`Document Api`** for Astra DB in your application some pre
 <label class="label" for="astra_token"><i class="fa fa-key"></i> &nbsp;Authentication token</label>
 <br/>
 <input class="input" id="astra_token" name="astra_token" type="text" placeholder="AstraCS:...." style="width:70%">
-<input type="submit" class="md-button button-primary float-right" value="Lookup Databases" onclick="lookupAstraDatabasesInAstra()" />
+<input type="submit" 
+       class="md-button button-primary float-right" value="Lookup Databases" 
+       onclick="dbSelectorListDatabases(document.getElementById('astra_token').value)" />
 
-<div id="block_astra_db" hidden="true">
-<label class="label" for="astra_db"><i class="fa fa-database"></i> &nbsp;Pick a Database</label>
-<br/>
-<select class="select" id="astra_db" name="astra_db" style="width:70%">
-<option selected disabled>-</option>
-<option value="dde308f5-a8b0-474d-afd6-81e5689e3e25">netflix</option>
-<option value="db2">db2</option>
-</select>
-</div>
+<div id="block_astra_db"></div>
 
-<div id="block_astra_region" hidden="true">
-<label class="label" for="astra_region"><i class="fa fa-map"></i> &nbsp;Pick a Region</label>
-<br/>
-<select class="select" id="astra_region" name="astra_region" style="width:70%">
-<option selected disabled>-</option>
-<option value="eu-central-1">eu-central-1</option>
-<option value="eu-central-2">eu-central-2</option>
-</select>
-</div>
+<div id="block_astra_region"></div>
 
-<div id="block_astra_namespace" hidden="true">
-<label class="label" for="astra_namespace"><i class="fa fa-bookmark"></i> &nbsp;Pick a Namespace</label>
-<br/>
-<select class="select" id="astra_namespace" name="astra_namespace" style="width:70%">
-<option selected disabled>-</option>
-<option value="ks_mtg">ks_mtg</option>
-<option value="ks2">ks2</option>
-</select>
-</div>
+<div id="block_astra_namespace" ></div>
 
 </fieldset>
 
 ## Swagger Sandbox
 
-<div id="block_astra_namespace" >
-  <span id="Organization"> </span>
-</div>
-
 <div id="swagger-ui"></div>
 
 <script>
-function lookupAstraDatabasesInAstra() {
-    let astraCSToken = document.getElementById("astra_token").value;
-
-    var url= 'https://api.astra.datastax.com/v2/databases?include=nonterminated&provider=ALL&limit=25';
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.setRequestHeader("Authorization", "Bearer " + astraCSToken);
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-    }};
-    xhr.send();
-}
-
-const UrlMutatorPlugin = (system) => ({
-  rootInjects: {
-    setScheme: (scheme) => {
-      const jsonSpec = system.getState().toJSON().spec.json;
-      const schemes = Array.isArray(scheme) ? scheme : [scheme];
-      const newJsonSpec = Object.assign({}, jsonSpec, { schemes });
-      return system.specActions.updateJsonSpec(newJsonSpec);
-    },
-    setHost: (host) => {
-      const jsonSpec = system.getState().toJSON().spec.json;
-      const newJsonSpec = Object.assign({}, jsonSpec, { host });
-      return system.specActions.updateJsonSpec(newJsonSpec);
-    },
-    setBasePath: (basePath) => {
-      const jsonSpec = system.getState().toJSON().spec.json;
-      const newJsonSpec = Object.assign({}, jsonSpec, { basePath });
-      return system.specActions.updateJsonSpec(newJsonSpec);
-    }
-  }
-});
-
-/**
- * Leveraging the 'UrlMutatorPlugin' to dynamically define target for Swagger UI
- * 
- * @author Cedrick Lunven
- */
-function setupAstraDBEndpoint(dbid, dbregion) {
-   window.ui.setScheme('https');
-   window.ui.setHost(dbid + '-' + dbregion + '.apps.astra.datastax.com');
-   window.ui.setBasePath('/api/rest');
-   console.log('Api Endpoint:' + dbid + '-' + dbregion + '.apps.astra.datastax.com');
-}
-
-function hookTryItOutButton() {
-  console.log("Try-it-out");
-  let swaggerOperations = document.querySelectorAll(".try-out__btn");
-  for (const swaggerOp of swaggerOperations) {
-    swaggerOp.addEventListener("click", function (event) {
-      setTimeout(fillSwaggerForm, 100);
-    });
-  }
-}
-
-function hookSwagger() {
-  console.log("Hooking swagger")
-  let swaggerOperations = document.querySelectorAll(".opblock-summary");
-  for (const swaggerOp of swaggerOperations) {
-    console.log("ok")
-    swaggerOp.addEventListener("click", function (event) {
-      setTimeout(fillSwaggerForm, 100);
-      setTimeout(hookTryItOutButton, 100);
-    });
-  }
-}
-
-function fillSwaggerForm() {
-  let inputFields = document.querySelectorAll("input[type=text]");
-  for (const inputField of inputFields) {
-    // I would replace the token with value on top
-    if (inputField.getAttribute("placeholder").startsWith("X-Cassandra-Token")) {
-      inputField.value = document.getElementById("astra_token").value;
-
-      var event = new Event("change");
-      inputField.dispatchEvent(event);
-
-      // Replacing the namespace Id by its values when need
-    } else if (inputField.getAttribute("placeholder").startsWith("namespace-id")) {
-      inputField.value = document.getElementById("astra_namespace").value;
-      var event = new Event("change");
-      inputField.dispatchEvent(event);
-    }
-  }
-}
-
-function updateSwaggerUI() {
-   setupAstraDBEndpoint('dde308f5-a8b0-474d-afd6-81e5689e3e25', 'eu-central-1')
-}
 
 function setupSwagger() {
   window.ui = SwaggerUIBundle({
@@ -229,16 +112,11 @@ function setupSwagger() {
     } 
   });
   document.querySelector(".topbar").hidden=true;
-  console.log("bar hidden");
-  hookSwagger();
-  console.log("invokedn");
-  
+  // Add the populate field function Hook.
+  setTimeout(hookSwagger, 100);
 }
 
-
-
 window.onload = setupSwagger;
-
   
 </script>
 
