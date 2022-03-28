@@ -1,5 +1,26 @@
 Dear <b>Developers</b> you do have a running database ... now what ? In this page we provide you the minimum code to use the solution with the language or the framework you prefer.
 
+### 🛠️ Pick an API
+
+Astra offers different Apis and interfaces. The choice of one against another will be driven by your use cases.
+
+<a href="api/document">
+ <img src="../../img/tile.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/rest">
+<img src="../../img/tile.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/graphql">
+<img src="../../img/tile.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/rest">
+<img src="../../img/tile.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/cql">
+<img src="../../img/tile.png" height="130px" width="130px"/>
+</a>
+</p>
+
 ### 🛠️ Pick a language
 
 Select the language of you choice clicking the tile and learn how to interact with each interface exposed in Astra
