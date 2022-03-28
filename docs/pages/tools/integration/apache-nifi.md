@@ -1,4 +1,4 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}* 
 
 > This is an adaptation of the [Steven Matison Blogpost](https://ds-steven-matison.github.io/astra/nifi/)
 
@@ -129,3 +129,5 @@ select count(*) FROM apache_log;
 ### What’s Next
 
 We can now use Stargate Document API to query this data source and even search into the JSON Object. We can have conversations about the raw data, build cassandra data models, and investigate how this log data can be used downtream from cassandra. Stay tuned as I add other Log Ingestion Use Cases, a UUID Generator, and more Astra NiFi content here.
+
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) 
