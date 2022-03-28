@@ -21,8 +21,8 @@ nav:
   - Develop with Astra:
     - List: pages/develop/index.md
     - Stargate Apis:
-      - • REST: pages/develop/api/rest.md
       - • Document: pages/develop/api/document.md
+      - • REST: pages/develop/api/rest.md
       - • graphQL: pages/develop/api/graphql.md
       - • gRPC: pages/develop/api/grpc.md
     - Languages:
@@ -128,10 +128,10 @@ theme:
         name: Switch to dark mode
 
  extra_javascript:
-   - assets/javascripts/carousel.js 
+   - /assets/javascripts/carousel.js
 
  extra_css:
-   - assets/stylesheets/astra.css
+   - stylesheets/formbase.min.css
  
  include_search_page: false
  search_index_only: true
@@ -178,6 +178,7 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date
+  #- render_swagger
 
 # Customization
 extra:
