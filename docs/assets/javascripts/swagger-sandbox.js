@@ -13,7 +13,7 @@ function dbSelectorListDatabases(astraToken) {
   targetDiv.innerHTML +=
     '<label class="label" for="astra_db"><i class="fa fa-database"></i> &nbsp;Pick a Database</label><br/>';
   targetDiv.innerHTML +=
-    '<select class="select" id="astra_db" name="astra_db" style="width:70%" onchange="dbSelectorListRegions(document.getElementById(\'astra_token\').value, document.getElementById(\'astra_db\').value)"><option selected disabled>-</option><option value="dde308f5-a8b0-474d-afd6-81e5689e3e25">netflix</option></select>';
+    '<select class="select" id="astra_db" name="astra_db" style="width:70%" onchange="dbSelectorListRegions(document.getElementById(\'astra_token\').value, document.getElementById(\'astra_db\').value)"><option selected disabled>-</option><option value="dde308f5-a8b0-474d-afd6-81e5689e3e25">mtg</option><option value="3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23">workshops</option><option value="7e96f835-267b-43ce-b2fb-97eabb535932">sdk_test</option><option value="0d8a8243-ab72-4956-8237-79c76850befb">live_workshops</option></select>';
 }
 
 function dbSelectorListRegions(astraToken, dbid) {
@@ -24,7 +24,7 @@ function dbSelectorListRegions(astraToken, dbid) {
   targetDiv.innerHTML +=
     '<label class="label" for="astra_region"><i class="fa fa-map"></i> &nbsp;Pick a Region</label><br/>';
   targetDiv.innerHTML +=
-    '<select class="select" id="astra_region" name="astra_region" style="width:70%" onchange="dbSelectorKeyspaces(document.getElementById(\'astra_token\').value, document.getElementById(\'astra_db\').value, document.getElementById(\'astra_region\').value)"><option selected disabled>-</option><option value="eu-central-1">eu-central-1</option><option value="eu-central-2">eu-central-2</option></select>';
+    '<select class="select" id="astra_region" name="astra_region" style="width:70%" onchange="dbSelectorKeyspaces(document.getElementById(\'astra_token\').value, document.getElementById(\'astra_db\').value, document.getElementById(\'astra_region\').value)"><option selected disabled>-</option><option value="eu-central-1">eu-central-1</option><option value="eu-west-1">eu-west-1</option></select>';
 }
 
 function dbSelectorKeyspaces(astraToken, dbid, dbregion) {
@@ -166,24 +166,26 @@ function fillSwaggerForm() {
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("X-Cassandra-Token")
     ) {
+      //inputField.placeholder = document.getElementById("astra_token").value;
       inputField.value = document.getElementById("astra_token").value;
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
+      inputField.dispatchEvent(new Event("focus"));
       inputField.dispatchEvent(new Event("input"));
-      //inputField.dispatchEvent(new Event("focus"));
-      //inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
+      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
     } else if (
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("namespace-id")
     ) {
+      //inputField.placeholder = document.getElementById("astra_namespace").value;
       inputField.value = document.getElementById("astra_namespace").value;
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
+      inputField.dispatchEvent(new Event("focus"));
       inputField.dispatchEvent(new Event("input"));
-      //inputField.dispatchEvent(new Event("focus"));
-      //inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
+      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
     }
   }
 }
