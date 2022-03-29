@@ -1,4 +1,4 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}* 
 
 ## A - Overview
 
@@ -117,3 +117,5 @@ INFO - Marking task as SUCCESS. dag_id=cass_hooks_tutorial, task_id=check_table_
 ## D - Acknowledgements
 
 Special thanks goes out to Obioma Anomnachi of Anant. Obi’s [video](https://www.youtube.com/watch?v=h2OCveciEIA) and [GitHub repo](https://github.com/anomnaco/AirflowCassandra) proved quite helpful in building out this tutorial.
+
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/)

@@ -1,4 +1,4 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}* 
 
 <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/temporal/img/temporal-logo-dark.svg?raw=true" height="100px" />
 

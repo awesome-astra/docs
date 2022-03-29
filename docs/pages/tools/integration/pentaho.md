@@ -1,4 +1,4 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}* 
 
 _This article was originally written by **Erick Ramirez** on [community.datastax.com](https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html)_
 
@@ -109,3 +109,4 @@ You should also be able to browse the keyspaces in your Astra DB using the DataB
 
 > <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-05-db-explorer.png?raw=true" />
 
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) |
