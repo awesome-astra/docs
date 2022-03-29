@@ -1,6 +1,6 @@
 ### Working with Lagom
 
-<img src="https://github.com/datastaxdevs/awesome-astra/raw/main/_img/tile-lagom.png?raw=true" align="left" height="180px"/>
+<img src="/img/tile-lagom.png" align="left" height="180px"/>
 
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
 
@@ -74,8 +74,8 @@ If your local Cassandra does not use SSL or authentication, then you are finishe
 ```
 your-service.cassandra {
     authentication {
-        username = "aploetz"
-        password = "reindeerFlotilla"
+        username = "yourUserName"
+        password = "yourPassword"
     }
     ssl {
         truststore.path = "/Users/youruser/cassandra/truststore.jks"
@@ -171,6 +171,7 @@ lagom.persistence.read-side.cassandra {
 ```
 
 Note the options for `keyspace-autocreate` and `tables-autocreate` are shown set here.  By default, these are both set to `true`.  However, Astra DB only permits keyspace creation to happen via the Astra Dashboard.  This means that:
+
 - Keyspaces must be created before connecting a Lagom microservice to Astra DB.
 - Lagom's attempts to create keyspaces will fail (due to a permissions error).
 - Table creation should function appropriately, assuming the required keyspaces already exist.
