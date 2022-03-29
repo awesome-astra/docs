@@ -1,0 +1,2741 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/v2/namespaces/{namespace-id}/collections": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "List collections in namespace",
+                "description": "",
+                "operationId": "getCollections",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace to fetch collections for",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DocCollection"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Create a new empty collection in a namespace",
+                "description": "",
+                "operationId": "createCollection",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace to create the collection in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON with the name of the collection",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateCollection"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Search documents in a collection",
+                "description": "Page over documents in a collection, with optional search parameters.",
+                "operationId": "searchDoc",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "a JSON blob with search filters; allowed predicates: $eq, $ne, $in, $nin, $gt, $lt, $gte, $lte, $exists; allowed boolean operators: $and, $or, $not; allowed hints: $selectivity (a number between 0.0 and 1.0, less is better); Use \\ to escape periods, commas, and asterisks.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "the field names that you want to restrict the results to",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page-size",
+                        "in": "query",
+                        "description": "the max number of documents to return, max 20, default 3",
+                        "required": false,
+                        "type": "integer",
+                        "default": 3,
+                        "maximum": 20,
+                        "minimum": 1,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "page-state",
+                        "in": "query",
+                        "description": "Cassandra page state, used for pagination on consecutive requests",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DocumentResponseWrapper"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Create a new document",
+                "description": "Auto-generates an ID for the newly created document. Use \\ to escape periods, commas, and asterisks.",
+                "operationId": "postDoc",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON document",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Delete a collection in a namespace",
+                "description": "",
+                "operationId": "deleteCollection",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace containing the collection to delete",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the collection to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/upgrade": {
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Upgrade a collection in a namespace",
+                "description": "WARNING: This endpoint is expected to cause some down-time for the collection you choose.",
+                "operationId": "upgradeCollection",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace containing the collection to upgrade",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the collection to upgrade",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON with the upgrade type",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpgradeCollection"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DocCollection"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Collection not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/batch": {
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Write multiple documents in one request",
+                "description": "Auto-generates an ID for the newly created document if an idPath is not provided as a query parameter. When an idPath is provided, this operation is idempotent.",
+                "operationId": "writeManyDocs",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "A JSON array where each element is a document to write",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InputStream"
+                        }
+                    },
+                    {
+                        "name": "id-path",
+                        "in": "query",
+                        "description": "The path where an ID could be found in each document. If defined, the value at this path will be used as the ID for each document. Otherwise, a random UUID will be given for each document.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/MultiDocsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/{document-id}/{document-path}": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Get a path in a document",
+                "description": "Retrieve the JSON representation of the document at a provided path, with optional search parameters.",
+                "operationId": "getDocumentPath",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-path",
+                        "in": "path",
+                        "description": "the path in the JSON that you want to retrieve. Use \\ to escape periods, commas, and asterisks.",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "pattern": ".*"
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "a JSON blob with search filters; allowed predicates: $eq, $ne, $in, $nin, $gt, $lt, $gte, $lte, $exists; allowed boolean operators: $and, $or, $not; allowed hints: $selectivity (a number between 0.0 and 1.0, less is better); Use \\ to escape periods, commas, and asterisks.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "the field names that you want to restrict the results to",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page-size",
+                        "in": "query",
+                        "description": "the max number of results to return, if `where` is defined (default 100)",
+                        "required": false,
+                        "type": "integer",
+                        "default": 100,
+                        "minimum": 1,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "page-state",
+                        "in": "query",
+                        "description": "Cassandra page state, used for pagination on consecutive requests",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DocumentResponseWrapper"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Replace data at a path in a document",
+                "description": "Removes whatever was previously present at the path",
+                "operationId": "putDocPath",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-path",
+                        "in": "path",
+                        "description": "the path in the JSON that you want to retrieve",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "pattern": ".*"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON document",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Delete a path in a document",
+                "description": "Delete a path in a document",
+                "operationId": "deleteDocPath",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-path",
+                        "in": "path",
+                        "description": "the path in the JSON that you want to retrieve",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "pattern": ".*"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Update data at a path in a document",
+                "description": "Merges data at the path with requested data, assumes that the data at the path is already an object.",
+                "operationId": "patchDocPath",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-path",
+                        "in": "path",
+                        "description": "the path in the JSON that you want to retrieve",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "pattern": ".*"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON document",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/{document-id}": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Get a document",
+                "description": "Retrieve the JSON representation of the document",
+                "operationId": "getDocumentPath_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "a JSON blob with search filters; allowed predicates: $eq, $ne, $in, $nin, $gt, $lt, $gte, $lte, $exists; allowed boolean operators: $and, $or, $not; allowed hints: $selectivity (a number between 0.0 and 1.0, less is better); Use \\ to escape periods, commas, and asterisks.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "the field names that you want to restrict the results to",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page-size",
+                        "in": "query",
+                        "description": "the max number of results to return, if `where` is defined (default 100)",
+                        "required": false,
+                        "type": "integer",
+                        "default": 100,
+                        "minimum": 1,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "page-state",
+                        "in": "query",
+                        "description": "Cassandra page state, used for pagination on consecutive requests",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DocumentResponseWrapper"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Create or update a document with the provided document-id",
+                "description": "",
+                "operationId": "putDoc",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON document",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Delete a document",
+                "description": "Delete a document",
+                "operationId": "deleteDoc",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Update data at the root of a document",
+                "description": "Merges data at the root with requested data.",
+                "operationId": "patchDoc",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON document",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/json-schema": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Get a JSON schema from a collection",
+                "description": "",
+                "operationId": "getJsonSchema",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the collection to add a JSON schema to",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/JsonSchemaResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Assign a JSON schema to a collection. This will erase any schema that already exists.",
+                "description": "",
+                "operationId": "attachJsonSchema",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace of the collection",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the collection to add a JSON schema to",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The JSON schema to attach",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/JsonSchemaResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/schemas/namespaces": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Get all namespaces",
+                "description": "Retrieve all available namespaces.",
+                "operationId": "getAllNamespaces",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Keyspace"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Create a namespace",
+                "description": "Create a new namespace.",
+                "operationId": "createNamespace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "A map representing a namespace with SimpleStrategy or NetworkTopologyStrategy with default replicas of 1 and 3 respectively \nSimple:\n```json\n{ \"name\": \"killrvideo\", \"replicas\": 1 }\n````\nNetwork Topology:\n```json\n{\n  \"name\": \"killrvideo\",\n   \"datacenters\":\n      [\n         { \"name\": \"dc1\", \"replicas\": 3 },\n         { \"name\": \"dc2\", \"replicas\": 3 },\n      ],\n}\n```",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CreateNamespace"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/schemas/namespaces/{namespace-id}/functions": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "View all built-in reserved functions",
+                "description": "",
+                "operationId": "getBuiltInFunctions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "The namespace to use for the request.",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/BuiltInApiFunctionResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/schemas/namespaces/{namespace-id}": {
+            "get": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Get a namespace",
+                "description": "Return a single namespace specification.",
+                "operationId": "getOneNamespace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "The namespace to use for the request.",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Keyspace"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Delete a namespace",
+                "description": "Delete a single namespace.",
+                "operationId": "deleteNamespace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "Name of the namespace to use for the request.",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/namespaces/{namespace-id}/collections/{collection-id}/{document-id}/{document-path}/function": {
+            "post": {
+                "tags": [
+                    "documents"
+                ],
+                "summary": "Execute a built-in function (e.g. $push and $pop) against a value in this document. Performance may vary.",
+                "description": "",
+                "operationId": "executeBuiltInFunction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-Cassandra-Token",
+                        "in": "header",
+                        "description": "The token returned from the authorization endpoint. Use this token in each request.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "namespace-id",
+                        "in": "path",
+                        "description": "the namespace that the collection is in",
+                        "required": true,
+                        "type": "string",
+                        "pattern": "[a-zA-Z_0-9]+"
+                    },
+                    {
+                        "name": "collection-id",
+                        "in": "path",
+                        "description": "the name of the collection",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-id",
+                        "in": "path",
+                        "description": "the name of the document",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "document-path",
+                        "in": "path",
+                        "description": "the path in the JSON that you want to execute the operation on",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "pattern": ".*"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The operation to perform",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ExecuteBuiltInFunction"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "Whether to include profiling information in the response (advanced)",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    },
+                    {
+                        "name": "raw",
+                        "in": "query",
+                        "description": "Unwrap results",
+                        "required": false,
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WriteDocResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable entity",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "DocCollection": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the collection.",
+                    "readOnly": true
+                },
+                "upgradeAvailable": {
+                    "type": "boolean",
+                    "description": "Whether an upgrade is available. Use the 'upgrade a collection' endpoint with the upgrade type to perform upgrade.",
+                    "readOnly": true
+                },
+                "upgradeType": {
+                    "type": "string",
+                    "description": "The upgrade type, if an upgrade is available.",
+                    "readOnly": true,
+                    "enum": [
+                        "SAI_INDEX_UPGRADE"
+                    ]
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "example": "Invalid STRING constant (8be6d514-3436-4e04-a5fc-0ffbefa4c1fe) for \"id\" of type uuid",
+                    "description": "A human readable description of the error state"
+                },
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 2200,
+                    "description": "The internal number referencing the error state"
+                },
+                "internalTxId": {
+                    "type": "string"
+                }
+            },
+            "description": "A description of an error state"
+        },
+        "UpgradeCollection": {
+            "type": "object",
+            "required": [
+                "upgradeType"
+            ],
+            "properties": {
+                "upgradeType": {
+                    "type": "string",
+                    "description": "The upgrade type, if an upgrade is available.",
+                    "readOnly": true,
+                    "enum": [
+                        "SAI_INDEX_UPGRADE"
+                    ]
+                }
+            }
+        },
+        "CreateCollection": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "cycling",
+                    "description": "The name of the collection.",
+                    "readOnly": true
+                }
+            }
+        },
+        "ExecutionProfile": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Brief information about this execution step",
+                    "readOnly": true
+                },
+                "queries": {
+                    "type": "array",
+                    "description": "A set of CQL queries performed under this execution step",
+                    "readOnly": true,
+                    "items": {
+                        "$ref": "#/definitions/QueryInfo"
+                    }
+                },
+                "nested": {
+                    "type": "array",
+                    "description": "Nested execution steps",
+                    "readOnly": true,
+                    "items": {
+                        "$ref": "#/definitions/ExecutionProfile"
+                    }
+                }
+            }
+        },
+        "MultiDocsResponse": {
+            "type": "object",
+            "properties": {
+                "documentIds": {
+                    "type": "array",
+                    "description": "The ids of the documents created, in order of creation",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "profile": {
+                    "description": "Profiling information related to the execution of the request (optional)",
+                    "readOnly": true,
+                    "$ref": "#/definitions/ExecutionProfile"
+                }
+            }
+        },
+        "QueryInfo": {
+            "type": "object",
+            "properties": {
+                "cql": {
+                    "type": "string",
+                    "description": "CQL query text",
+                    "readOnly": true
+                },
+                "executionCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of times this query was executed",
+                    "readOnly": true
+                },
+                "rowCount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The total number of rows fetched by this query",
+                    "readOnly": true
+                }
+            }
+        },
+        "InputStream": {
+            "type": "object"
+        },
+        "WriteDocResponse": {
+            "type": "object",
+            "properties": {
+                "documentId": {
+                    "type": "string"
+                }
+            }
+        },
+        "JsonNode": {
+            "type": "object",
+            "properties": {
+                "float": {
+                    "type": "boolean"
+                },
+                "short": {
+                    "type": "boolean"
+                },
+                "number": {
+                    "type": "boolean"
+                },
+                "valueNode": {
+                    "type": "boolean"
+                },
+                "containerNode": {
+                    "type": "boolean"
+                },
+                "missingNode": {
+                    "type": "boolean"
+                },
+                "object": {
+                    "type": "boolean"
+                },
+                "nodeType": {
+                    "type": "string",
+                    "enum": [
+                        "ARRAY",
+                        "BINARY",
+                        "BOOLEAN",
+                        "MISSING",
+                        "NULL",
+                        "NUMBER",
+                        "OBJECT",
+                        "POJO",
+                        "STRING"
+                    ]
+                },
+                "pojo": {
+                    "type": "boolean"
+                },
+                "integralNumber": {
+                    "type": "boolean"
+                },
+                "floatingPointNumber": {
+                    "type": "boolean"
+                },
+                "int": {
+                    "type": "boolean"
+                },
+                "long": {
+                    "type": "boolean"
+                },
+                "double": {
+                    "type": "boolean"
+                },
+                "bigDecimal": {
+                    "type": "boolean"
+                },
+                "bigInteger": {
+                    "type": "boolean"
+                },
+                "textual": {
+                    "type": "boolean"
+                },
+                "boolean": {
+                    "type": "boolean"
+                },
+                "binary": {
+                    "type": "boolean"
+                },
+                "array": {
+                    "type": "boolean"
+                },
+                "empty": {
+                    "type": "boolean"
+                },
+                "null": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "JsonSchemaResponse": {
+            "type": "object",
+            "properties": {
+                "schema": {
+                    "readOnly": true,
+                    "$ref": "#/definitions/JsonNode"
+                },
+                "debug": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "info": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "warn": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "error": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fatal": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Datacenter": {
+            "type": "object",
+            "required": [
+                "name",
+                "replicas"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the datacenter."
+                },
+                "replicas": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of replicas in the datacenter. In other words, the number of copies of each row in the datacenter."
+                }
+            }
+        },
+        "BuiltInApiFunctionResponse": {
+            "type": "object",
+            "properties": {
+                "functions": {
+                    "type": "array",
+                    "readOnly": true,
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "ARRAY_PUSH",
+                            "ARRAY_POP"
+                        ]
+                    }
+                }
+            }
+        },
+        "CreateNamespace": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "myspace",
+                    "description": "The name of the namespace.",
+                    "readOnly": true
+                },
+                "replicas": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1,
+                    "description": "The amount of replicas to use with the `SimpleStrategy`. Ignored if `datacenters` is set. Defaults to 1.",
+                    "readOnly": true,
+                    "minimum": 1
+                },
+                "datacenters": {
+                    "type": "array",
+                    "description": "The datacenters description for the `NetworkTopologyStrategy`.",
+                    "readOnly": true,
+                    "items": {
+                        "$ref": "#/definitions/Datacenter"
+                    }
+                }
+            }
+        },
+        "DocumentResponseWrapper": {
+            "type": "object",
+            "properties": {
+                "documentId": {
+                    "type": "string",
+                    "description": "The id of the document"
+                },
+                "pageState": {
+                    "type": "string",
+                    "description": "A string representing the paging state to be used on future paging requests."
+                },
+                "data": {
+                    "type": "object",
+                    "description": "The data returned by the request"
+                },
+                "profile": {
+                    "description": "Profiling information related to the execution of the request (optional)",
+                    "readOnly": true,
+                    "$ref": "#/definitions/ExecutionProfile"
+                }
+            }
+        },
+        "ExecuteBuiltInFunction": {
+            "type": "object",
+            "required": [
+                "operation"
+            ],
+            "properties": {
+                "operation": {
+                    "type": "string",
+                    "example": "$push",
+                    "description": "The name of the operation.",
+                    "readOnly": true
+                },
+                "value": {
+                    "type": "object",
+                    "example": "some_value",
+                    "description": "The value to use for the operation",
+                    "readOnly": true
+                }
+            }
+        },
+        "SuccessResponse": {
+            "type": "object",
+            "required": [
+                "success"
+            ],
+            "properties": {
+                "success": {
+                    "type": "boolean",
+                    "description": "Whether the request was successful."
+                }
+            }
+        },
+        "Filter": {
+            "type": "object",
+            "properties": {
+                "columnName": {
+                    "type": "string",
+                    "description": "The column name to apply the filter to."
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "The comparison operator to use in the filter.",
+                    "enum": [
+                        "eq",
+                        "notEq",
+                        "gt",
+                        "gte",
+                        "lt",
+                        "lte",
+                        "in"
+                    ]
+                },
+                "value": {
+                    "type": "array",
+                    "description": "An array of values to use in the filter. The full array will only be used for the `in` operation, for all others only the first element will be considered.",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Query": {
+            "type": "object",
+            "required": [
+                "filters"
+            ],
+            "properties": {
+                "columnNames": {
+                    "type": "array",
+                    "description": "A list of column names to return in the result set. An empty array returns all columns.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "filters": {
+                    "type": "array",
+                    "description": "An array of filters to return results for, separated by `AND`. For example, `a > 1 AND b != 1`.",
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    }
+                },
+                "orderBy": {
+                    "description": "The clustering order for rows returned.",
+                    "$ref": "#/definitions/ClusteringExpression"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The size of the page to return in the result set."
+                },
+                "pageState": {
+                    "type": "string",
+                    "description": "A string returned from previous query requests representing the paging state."
+                }
+            }
+        },
+        "Changeset": {
+            "type": "object",
+            "required": [
+                "column",
+                "value"
+            ],
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "example": "firstName",
+                    "description": "Name of the column to update."
+                },
+                "value": {
+                    "type": "string",
+                    "example": "Joe",
+                    "description": "The value to update in the column for all matching rows."
+                }
+            }
+        },
+        "GetResponseWrapper": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The count of records returned"
+                },
+                "pageState": {
+                    "type": "string",
+                    "description": "A string representing the paging state to be used on future paging requests."
+                },
+                "data": {
+                    "type": "object",
+                    "description": "The data returned by the request"
+                }
+            }
+        },
+        "RESTResponseWrapper": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "description": "Response data returned by the request."
+                }
+            }
+        },
+        "IndexAdd": {
+            "type": "object",
+            "required": [
+                "column"
+            ],
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "Column name"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Optional index name. If no name is specified, Cassandra names the index: table_name_column_name_idx."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "A custom index class name or classpath."
+                },
+                "options": {
+                    "type": "object",
+                    "description": "Options passed to a custom index",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "ifNotExists": {
+                    "type": "boolean",
+                    "description": "Determines whether to create a new index if an index with the same name exists. Attempting to create an existing index returns an error unless this option is true."
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The kind (ENTRIES, KEY, VALUES, FULL) of an index",
+                    "enum": [
+                        "KEYS",
+                        "VALUES",
+                        "ENTRIES",
+                        "FULL"
+                    ]
+                }
+            }
+        },
+        "Column": {
+            "type": "object",
+            "properties": {
+                "collection": {
+                    "type": "boolean"
+                },
+                "frozenCollection": {
+                    "type": "boolean"
+                },
+                "primaryKeyComponent": {
+                    "type": "boolean"
+                },
+                "partitionKey": {
+                    "type": "boolean"
+                },
+                "clusteringKey": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Table": {
+            "type": "object",
+            "properties": {
+                "requiredIndexColumns": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "#/definitions/Column"
+                    }
+                },
+                "optionalIndexColumns": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "#/definitions/Column"
+                    }
+                }
+            }
+        },
+        "UserDefinedTypeField": {
+            "type": "object",
+            "required": [
+                "name",
+                "typeDefinition"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "emailaddress",
+                    "description": "Name for the type, which must be unique.",
+                    "readOnly": true
+                },
+                "typeDefinition": {
+                    "type": "string",
+                    "example": "text",
+                    "description": "A valid type of data (e.g, text, int, etc) allowed in the type.",
+                    "readOnly": true
+                }
+            }
+        },
+        "UserDefinedTypeResponse": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the user defined type.",
+                    "readOnly": true
+                },
+                "keyspace": {
+                    "type": "string",
+                    "description": "Name of the keyspace the user defined type belongs.",
+                    "readOnly": true
+                },
+                "fields": {
+                    "type": "array",
+                    "description": "Definition of columns within the user defined type.",
+                    "readOnly": true,
+                    "items": {
+                        "$ref": "#/definitions/UserDefinedTypeField"
+                    }
+                }
+            }
+        },
+        "UserDefinedTypeAdd": {
+            "type": "object",
+            "required": [
+                "fields",
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "User Defined Type name"
+                },
+                "ifNotExists": {
+                    "type": "boolean",
+                    "description": "Determines whether to create a new UDT if an UDT with the same name exists. Attempting to create an existing UDT returns an error unless this option is true."
+                },
+                "fields": {
+                    "type": "array",
+                    "description": "User Defined Type fields",
+                    "items": {
+                        "$ref": "#/definitions/UserDefinedTypeField"
+                    }
+                }
+            }
+        },
+        "RenameUdtField": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "User Defined Type's old field name"
+                },
+                "to": {
+                    "type": "string",
+                    "description": "User Defined Type's new field name"
+                }
+            }
+        },
+        "UserDefinedTypeUpdate": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "User Defined Type name"
+                },
+                "addFields": {
+                    "type": "array",
+                    "description": "User Defined Type fields to add",
+                    "items": {
+                        "$ref": "#/definitions/UserDefinedTypeField"
+                    }
+                },
+                "renameFields": {
+                    "type": "array",
+                    "description": "User Defined Type fields to rename",
+                    "items": {
+                        "$ref": "#/definitions/RenameUdtField"
+                    }
+                }
+            }
+        }
+    }
+}
