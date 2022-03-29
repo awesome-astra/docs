@@ -61,4 +61,8 @@ Select the language of you choice clicking the tile and learn how to interact wi
 <a href="frameworks/micronaut">
 <img src="../../img/tile-micronaut.png" height="130px" width="130px"/>
 </a>
+</a>&nbsp;&nbsp;
+<a href="frameworks/lagom">
+<img src="../../img/tile-lagom.png" height="130px" width="130px"/>
+</a>
 </p>
