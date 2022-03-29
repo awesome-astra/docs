@@ -10,7 +10,7 @@
 
 The **Document Api** is an HTTP REST APi part of the open source component [Stargate.io](stargate.io). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
 
-<img src="../../../../img/api-document/architecture.png" />
+<img src="../../../../img/stargate-api-doc/architecture.png" />
 
 ## Design
 
