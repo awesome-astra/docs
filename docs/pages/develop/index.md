@@ -5,19 +5,19 @@ Dear <b>Developers</b> you do have a running database ... now what ? In this pag
 Astra offers different Apis and interfaces. The choice of one against another will be driven by your use cases.
 
 <a href="api/document">
- <img src="../../img/tile.png" height="130px" width="130px"/>
+ <img src="../../img/tile-api-document.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/rest">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-rest.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/graphql">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-graphql.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="api/rest">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<a href="api/grpc">
+<img src="../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/cql">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-cql.png" height="130px" width="130px"/>
 </a>
 </p>
 

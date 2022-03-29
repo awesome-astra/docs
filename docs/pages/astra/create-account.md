@@ -69,9 +69,9 @@ You can use your `Github`, `Google` accounts or register with an `email`.
 
     <img src="../../../img/astra/astra-signup-8.png" />
 
-## C - Users and Organizations
+## C - Account and Organization
 
-### Personal Organizations (tenant)
+### 1. Overview
 
 When you create an account your personal **Organization** is created, **this is your tenant**:
 
@@ -80,7 +80,26 @@ When you create an account your personal **Organization** is created, **this is 
 
 <img src="../../../img/astra/organization-1.png" />
 
-### Create Organizations
+### 2. Organization Objects
+
+Within one organization will live `Databases`, `Tenants` and `Security Tokens` as shown on the Organization Dashboard.
+
+```mermaid
+  graph TD
+    User(User) -->|1..n| ORG(Organization)
+    ORG(Organization) -->|0..n| DB(Databases)
+    ORG(Organization) -->|0..n| ST(Streaming Tenants)
+    ORG(Organization) -->|0..n| ROLE(Roles)
+    ORG(Organization) -->|0..n| TOK(Security Tokens)
+    TOK(Security Tokens) -->|1..1| ROLE
+    DB(Databases) -->|1..n| KEY(Keyspaces)
+    KEY(Keyspaces) -->|0..n| TABLE(Tables)
+    ST(Streaming Tenants) -->|0..n| TOPIC(Topics)
+```
+
+<img src="../../../img/astra/organization-3.png" />
+
+### 3. Multiple Organizations
 
 You can create multiple organizations accessing the menu **`Managing Organizations`** and invite other users to join. It is usefule when the same database could be access by multiple users with different emails.
 
@@ -90,13 +109,7 @@ As a consequence a user can be part of multiple organizations, his personal, the
 
 ```mermaid
   graph TD
-    USER(User) -->|own one| PORG(Personal Organization - registration)
-    USER -->|own many| CORG(Organizations he created)
-    USER -->|is member of many| IORG(Organizations he was invited to)
+    USER(User) -->|1..n| PORG(Personal Organization - registration)
+    USER -->|0..n| CORG(Organizations he created)
+    USER -->|0...n| IORG(Organizations he was invited to)
 ```
-
-### Organizations and Databases
-
-Within one organization will live `Databases`, `Tenants` and `Security Tokens` as shown on the Organization Dashboard.
-
-<img src="../../../img/astra/organization-3.png" />
