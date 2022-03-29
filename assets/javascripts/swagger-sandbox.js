@@ -166,26 +166,22 @@ function fillSwaggerForm() {
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("X-Cassandra-Token")
     ) {
-      //inputField.placeholder = document.getElementById("astra_token").value;
       inputField.value = document.getElementById("astra_token").value;
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("focus"));
-      inputField.dispatchEvent(new Event("input"));
-      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
+      inputField.dispatchEvent(new Event("change"));
+      inputField.dispatchEvent(new Event("onchange"));
     } else if (
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("namespace-id")
     ) {
-      //inputField.placeholder = document.getElementById("astra_namespace").value;
       inputField.value = document.getElementById("astra_namespace").value;
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("focus"));
-      inputField.dispatchEvent(new Event("input"));
-      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
+      inputField.dispatchEvent(new Event("change"));
+      inputField.dispatchEvent(new Event("onchange"));
     }
   }
 }
