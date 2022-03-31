@@ -6,13 +6,9 @@
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
 <script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
-## Overview
-
 The **Document Api** is an HTTP REST APi part of the open source component [Stargate.io](stargate.io). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
 
 <img src="../../../../img/stargate-api-doc/architecture.png" />
-
-## Design
 
 - A `namespace` (replacement for keyspace) will hold multiple `collections` (not tables) to store `Documents`
 
@@ -30,7 +26,7 @@ The **Document Api** is an HTTP REST APi part of the open source component [Star
     DOC -->|1..49 Nested docs|DOC
 ```
 
-???+ abstract "Storage of data in Cassandra"
+???+ abstract "How is store the data in Cassandra ?"
 
       The JSON document are stored using an internal data model. The table schema is generic and the same for each collection. The algorithm used tp transform the document is called **_document shredding_**. The schema is optimized for searches but also to limit tombstones on edits and deletes.
 
