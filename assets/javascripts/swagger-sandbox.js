@@ -154,7 +154,7 @@ function hookExecuteButton() {
   let swaggerOperations = document.querySelectorAll(".execute");
   for (const swaggerOp of swaggerOperations) {
     swaggerOp.addEventListener("click", function (event) {
-      console.log("EXECUTE");
+      event.preventDefault();
     });
   }
 }
@@ -171,6 +171,8 @@ function fillSwaggerForm() {
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
       inputField.dispatchEvent(new Event("change"));
+      inputField.dispatchEvent(new Event("blur"));
+      inputField.dispatchEvent(new Event("onblur"));
       inputField.dispatchEvent(new Event("onchange"));
     } else if (
       inputField.hasAttribute("placeholder") &&
@@ -182,6 +184,8 @@ function fillSwaggerForm() {
       inputField.style.border = "1px solid #008800";
       inputField.dispatchEvent(new Event("change"));
       inputField.dispatchEvent(new Event("onchange"));
+      inputField.dispatchEvent(new Event("blur"));
+      inputField.dispatchEvent(new Event("onblur"));
     }
   }
 }
