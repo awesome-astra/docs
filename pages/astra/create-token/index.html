@@ -2005,9 +2005,9 @@
 <p>As stated in the <a href="create-account">Create Account</a> page the security token are associated to one and only one organization and only one role.</p>
 <pre class="mermaid"><code>  graph TD
     USER(User) --&gt;|1...n|ORG(Organizations)
-    ORG --&gt;|1..n|DB(Dabatases)
-    ORG --&gt;|1..n|TOKEN(Tokens)
-    ORG --&gt;|1..n|STR(Streaming Tenants)
+    ORG --&gt;|0..n|DB(Dabatases)
+    ORG --&gt;|0..n|TOKEN(Tokens)
+    ORG --&gt;|0..n|STR(Streaming Tenants)
     TOKEN--&gt;|1:1|ROLE(role)
     ROLE--&gt;|1..n|PERMISSIONS(permissions)</code></pre>
 <p>There are some predefined roles within an organizations associated with some default permissions. The full list of permissions per roles is available in <a href="https://docs.datastax.com/en/astra/docs/user-permissions.html">Astra Documentation</a></p>
@@ -2065,7 +2065,7 @@
   <small>
     
       Last update:
-      2022-03-24
+      2022-04-01
     
   </small>
 </div>
