@@ -15,9 +15,9 @@ As stated in the [Create Account](create-account) page the security token are as
 ```mermaid
   graph TD
     USER(User) -->|1...n|ORG(Organizations)
-    ORG -->|1..n|DB(Dabatases)
-    ORG -->|1..n|TOKEN(Tokens)
-    ORG -->|1..n|STR(Streaming Tenants)
+    ORG -->|0..n|DB(Dabatases)
+    ORG -->|0..n|TOKEN(Tokens)
+    ORG -->|0..n|STR(Streaming Tenants)
     TOKEN-->|1:1|ROLE(role)
     ROLE-->|1..n|PERMISSIONS(permissions)
 ```
