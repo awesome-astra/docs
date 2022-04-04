@@ -2004,7 +2004,7 @@
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>As stated in the <a href="create-account">Create Account</a> page the security token are associated to one and only one organization and only one role.</p>
 <pre class="mermaid"><code>  graph TD
-    USER(User) --&gt;|1...n|ORG(Organizations)
+    USER(User) --&gt;|n...m|ORG(Organizations)
     ORG --&gt;|0..n|DB(Dabatases)
     ORG --&gt;|0..n|TOKEN(Tokens)
     ORG --&gt;|0..n|STR(Streaming Tenants)
@@ -2065,7 +2065,7 @@
   <small>
     
       Last update:
-      2022-04-01
+      2022-04-04
     
   </small>
 </div>
