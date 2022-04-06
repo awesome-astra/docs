@@ -2061,7 +2061,7 @@
   <h1>‣ Multi Regions</h1>
 
 <details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
+<summary><b> 📖 Reference Documentation and resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/db-multi-region.html"><b>📖  Astra Docs</b> - Reference documentation</a>
 <li><a href="https://www.youtube.com/watch?v=UMkX41Y0yZE"><b>🎥 Youtube Video</b> - Walk through instance creation</a>
@@ -2069,16 +2069,16 @@
 </details>
 
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p><code>AstraDB</code> allows you to replicate data across multiple regions to maintain data availability for multi-region application architectures. Configuring multiple regions can also satisfy data locality requirements with the added value of cost savings.</p>
+<p><code>AstraDB</code> allows you to replicate data across multiple regions to maintain data availability for multi-region application architectures. Configuring multiple regions can also satisfy data locality requirements and save money.</p>
 <p><img src="../../../img/astra/astra-multiregions.png" height="400px"/></p>
 <h3 id="eventual-consistency">🔄 Eventual Consistency<a class="headerlink" href="#eventual-consistency" title="Permanent link">&para;</a></h3>
-<p>Apache Cassandra® and DataStax Astra DB follow the eventual consistency model. As a result, data written to one datacenter/region may not be immediately accessible in other datacenters/regions in the same database cluster. The time span is normally within a few minutes to fully replicate the data. However, it could take longer, and possibly span one or more days. There are several contributing factors to the latter scenario, such as the workload volume, the number of regions, the process that runs data repair operations, and network resources.</p>
+<p>Apache Cassandra® and DataStax Astra DB follow the eventual consistency model. As a result, data written to one datacenter/region may not be immediately accessible in other datacenters/regions in the same database cluster. It normally only takes a few minutes to fully replicate the data. However, it could take longer, and possibly span one or more days. There are several contributing factors to the latter scenario; such as the workload volume, the number of regions, the process that runs data repair operations, and network resources.</p>
 <h3 id="data-sovereignty">⚖️ Data sovereignty<a class="headerlink" href="#data-sovereignty" title="Permanent link">&para;</a></h3>
-<p>Astra DB serverless replicates all data in the database to all of a database’s regions. By contrast, multiple keyspaces in Apache Cassandra® and DataStax Enterprise (DSE) allow a database to replicate some tables to a subset of regions. To achieve the same behavior as Cassandra or DSE, create a separate AstraDB instance that adheres to the necessary region restrictions. The database client will need to add a separate connection for the additional database and send queries to the appropriate connection depending on the table being queried.</p>
+<p>Astra DB serverless replicates all data in the database to all of a database’s regions. By contrast, multiple keyspaces in Apache Cassandra® and DataStax Enterprise (DSE) allow a database to replicate some tables to a subset of regions. To achieve the same behavior as Cassandra or DSE, create a separate Astra DB instance that adheres to the necessary region restrictions. The database client will need to add a separate connection for the additional database and send queries to the appropriate connection depending on the table being queried.</p>
 <h3 id="limitations">⚠️ Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Lightweight transactions work for only a single-region datacenter.</li>
-<li>If you original region is disconnected, schema changes are suspended and repairs do not run. If any regions are disconnected, the writes to those regions will not be forwarded.</li>
+<li>Lightweight transactions only work for a single-region datacenter.</li>
+<li>If your original region is disconnected, schema changes are suspended and repairs do not run. If any regions are disconnected, the writes to those regions will not be forwarded.</li>
 <li>While adding a new region, you cannot drop a table or keyspace and you cannot truncate a table.</li>
 <li>If any region is not online, you cannot truncate a table.</li>
 </ul>
@@ -2088,23 +2088,23 @@
 <p>You should have an <a href="http://astra.datastax.com/">Astra account</a></p>
 </li>
 <li>
-<p>You should have enter a <strong>CREDIT CARD</strong> in the system <strong>OR/AND</strong> get <strong>MORE THAN 25$</strong> in Astra Credits.</p>
+<p>You should have a <strong>CREDIT CARD</strong> in the system <strong>AND/OR</strong> have <strong>MORE THAN 25$</strong> in Astra Credits.</p>
 </li>
 </ul>
 <p><img src="../../../img/astra/multi-regions-1.png" width="400px"/></p>
 <h2 id="c-create-a-new-region">C - Create a new Region<a class="headerlink" href="#c-create-a-new-region" title="Permanent link">&para;</a></h2>
 <p><strong>✅ Step 1: Click the <code>Add Region</code> Button</strong></p>
 <ul>
-<li>Select the database to show the Dashboard, select <code>Add Region.</code></li>
+<li>Select the database to show the Dashboard and select <code>Add Region.</code></li>
 </ul>
 <p><img src="../../../img/astra/multi-regions-2.png"/></p>
 <p><strong>✅ Step 2: Select your region</strong></p>
 <ul>
-<li>Select your desired region from the dropdown menu of available.</li>
+<li>Select your desired region from the dropdown menu.</li>
 </ul>
 <p><img src="../../../img/astra/multi-regions-3.png"/></p>
 <ul>
-<li>You can review your selected region and its cost below the dropdown menu. You can add only a single region at one time.</li>
+<li>Your selected region and the costs appear below the dropdown menu. You can add only a single region at a time.</li>
 </ul>
 <p><img src="../../../img/astra/multi-regions-4.png"/></p>
 <p><strong>✅ Step 3: Validate your region</strong></p>
@@ -2113,31 +2113,31 @@
 <p>Select Add Region to add the region to your database.</p>
 </li>
 <li>
-<p>The database switch in maintenance status. Do not worry the existing regions remain active and available for operations there is no downtime.</p>
+<p>The database with switch to Maintenance status. Do not worry, the existing regions will remain active and available for operations. There is no downtime.</p>
 </li>
 </ul>
 <p><img src="../../../img/astra/multi-regions-5.png"/></p>
 <p>After you add the new region, your new region will show up in the list of regions on your database Dashboard.</p>
 <p><img src="../../../img/astra/multi-regions-6.png"/></p>
-<p>Finally after the initialization you got:</p>
+<p>After the initialization, you will get:</p>
 <p><img src="../../../img/astra/multi-regions-7.png"/></p>
 <h2 id="d-delete-a-new-region">D - Delete a new Region<a class="headerlink" href="#d-delete-a-new-region" title="Permanent link">&para;</a></h2>
 <p><strong>✅ Step 1: Select Region to delete</strong></p>
 <ul>
-<li>From you database Dashboard, select the overflow menu for the database you want to delete, Select Delete. You can notice that you CANNOT delete the original main region, the delete is not available in the menu</li>
+<li>From your database Dashboard, select the overflow menu for the database that you want to delete and select Delete. You will notice that you CANNOT delete the original main region.</li>
 </ul>
 <p><img src="../../../img/astra/delete-region-1.png"/></p>
 <p><strong>✅ Step 2: Validate your action</strong></p>
 <ul>
-<li>Removing a region is not reversible. Proceed with caution. A pop-up will ask you to validate this operation by entering the <code>delete</code> word.</li>
+<li>Removing a region is not reversible so proceed with caution. A pop-up will ask you to validate this operation by entering the <code>delete</code> word.</li>
 </ul>
 <p><img src="../../../img/astra/delete-region-2.png"/></p>
 <ul>
-<li>The database will switch in maintenance mode. After a few seconds you will see the status of the deleted regions change from <code>Active</code> to <code>Offline</code></li>
+<li>The database will switch to Maintenance mode. After a few seconds, you will see the status of the deleted regions change from <code>Active</code> to <code>Offline</code>.</li>
 </ul>
 <p><img src="../../../img/astra/delete-region-3.png"/></p>
 <ul>
-<li>Finally the region will not be visible on screen</li>
+<li>Finally the region will not be visible in the Regions list.</li>
 </ul>
 <p><img src="../../../img/astra/delete-region-4.png"/></p>
 
@@ -2146,7 +2146,7 @@
   <small>
     
       Last update:
-      2022-03-18
+      2022-04-05
     
   </small>
 </div>

@@ -1993,7 +1993,7 @@
   <h1>‣ Create Topic</h1>
 
 <details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
+<summary><b> 📖 Reference Documentation and resources</b></summary>
 <ol>
 <li><a href="- [Reference documentation](https://docs.datastax.com/en/astra-streaming/docs/astream-quick-start.html)
 "><b>📖  Astra Docs</b> - Reference documentation</a>
@@ -2006,8 +2006,8 @@
 <li><a href="">Apache Pulsar documentation</a></li>
 </ul>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p><strong><code>ASTRA STREAMING</code></strong> is the simplest way to use the Apache Pulsar messaging/streaming service with zero operations at all - just push the button and get your messages flowing.
-No credit card required, $25.00 USD credit every month, and the strength and the features of Apache Pulsar managed for you in the cloud.</p>
+<p><strong><code>ASTRA STREAMING</code></strong> is the simplest way to use the Apache Pulsar messaging/streaming service with zero operations - just push the button and get your messages flowing.
+No credit card required, $25.00 USD credit every month, and all of thethe strength and features of Apache Pulsar managed for you in the cloud.</p>
 <p>This page explains how to create a new tenant in Astra Streaming, a new namespace in the tenant (if desired) and a new topic in the namespace.
 Also instructions are given to retrieve the connection parameters to later connect to the topic and start messaging from your application.</p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
@@ -2019,29 +2019,28 @@ Also instructions are given to retrieve the connection parameters to later conne
 <p>Make sure you are logged in to your <a href="http://astra.datastax.com/">Astra account</a>
 before proceeding.</p>
 <p><strong>✅ Step 1: Create a tenant</strong></p>
-<p>Go to your Astra console, locate the "Create Streaming" button on the left window and to the right of Streaming. Click on it.</p>
+<p>Go to your Astra console, click the "Create Stream" button next to the Streaming section.</p>
 <p>Set up a new Tenant (remember Pulsar has a multi-tenant architecture): <em>you have to find a globally unique name for it</em>.
-Pick the provider/region you like (<em>try to have it close to you for reduced latency</em>) and finally hit "Create Tenant".</p>
+Pick the provider and region (<em>try to have it close to you for reduced latency</em>) and finally hit "Create Tenant".</p>
 <p>You'll shortly see the dashboard for your newly-created Tenant.</p>
 <p><strong>✅ Step 2: Create a namespace</strong></p>
-<p>A <code>default</code> namespace is created for you with the tenant and you can use it if you want.
-However, you may want to create a namespace to host your topic(s).</p>
+<p>A <code>default</code> namespace is created for you with the tenant and you can use it as is.
+However, you may want to create a separate namespace to host your topic(s).</p>
 <p>Go to the "Namespaces" tab of your Tenant dashboard and click on the "Create namespace"
-button on the right. Choose a name and hit "Create": you should see it listed among the
+button on the right. Choose a name and hit "Create". You should see it listed among the
 available namespaces in a moment.</p>
 <p><strong>✅ Step 3: Create a topic</strong></p>
-<p>Head to the "Topics" tab and click the "Add Topic" button next to the namespace you want to use.</p>
-<p>Choose a topic name and click "Save" after reviewing the topic settings (such as <code>persistent=yes, partitioned=no</code>)
-according to your needs.</p>
-<p>Your topic is now being created, which takes a couple of minutes max. It will then be ready to receive and
+<p>Switch to the "Topics" tab and click the "Add Topic" button next to the namespace that you want to use.</p>
+<p>Choose a topic name, review and/or modify the topic settings (such as <code>persistent=yes, partitioned=no</code>), and click "Save".</p>
+<p>It takes no more than a couple of minutes to create your new topic. It will then be ready to receive and
 dispatch messages.</p>
 <p><strong>👁️ Walkthrough for topic creation</strong></p>
 <p><img src="../../../img/astra/astra-create-streaming-topic.gif" /></p>
 <p><strong>✅ Step 4: retrieve the Broker URL</strong></p>
-<p>All is left is to make sure you have the connection parameters needed to reach the topic
+<p>All that is left is to make sure you have the connection parameters needed to reach the topic
 programmatically. If you click the "Connect" tab you will see a list of "Tenant Details",
 along with links to look at code examples in various languages.</p>
-<p>There are several ways to connect to the topic: in particular, if you plan to use the
+<p>There are several ways to connect to the topic. If you plan to use the
 Pulsar drivers from your application, the important bits are the "Broker Service URL"
 and the "Streaming Token" secret.</p>
 <p>The "Broker Service URL" is shown right in the "Connect" tab and looks like
@@ -2050,14 +2049,14 @@ clipboard icon to copy it.</p>
 <p><strong>✅ Step 5: Manage secrets and retrieve the Streaming Token</strong></p>
 <p>You will also need a Token, a long secret string providing authentication info
 when the driver will connect to the topic. <strong>The token must be treated as a secret,
-which means do not post it publicly and do not check it in to repositories.</strong></p>
+which means do not post it publicly and do not check it in to version control.</strong></p>
 <blockquote>
-<p><em>Note</em>: the Streaming Tokens are a completely separate thing from the Astra DB Tokens.</p>
+<p><em>Note</em>: Streaming Tokens are completely separate from Astra DB Tokens.</p>
 </blockquote>
-<p>Get to the "Token Manager" by clicking on the link in the "Tenant Details" list:
+<p>Navigate to the "Token Manager" by clicking on the link in the "Tenant Details" list:
 there you will be able to create, copy and revoke streaming tokens for your tenant.</p>
-<p>Note that a default token has already been created for you, so you don't need
-to create a new token if you are OK with using that one. Click on the clipboard
+<p>Note that a default token has already been created for you, so you don't necessarily need
+to create a new token. Click on the clipboard
 icon to copy it.</p>
 <blockquote>
 <p>The token is a long random-looking string, such as <code>eyJhbGci [...] cpNpX_qN68Q</code>
@@ -2071,7 +2070,7 @@ icon to copy it.</p>
   <small>
     
       Last update:
-      2022-03-18
+      2022-04-05
     
   </small>
 </div>

@@ -2019,7 +2019,7 @@
   <h1>‣ Secure Connect Bundle</h1>
 
 <details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
+<summary><b> 📖 Reference Documentation and resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html"><b>📖  Astra Docs</b> - Download Cloud Secure Bundle</a>
 <li><a href="https://www.youtube.com/watch?v=PNQM-Bsyibg&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=7"><b>🎥 Youtube Video</b> - Walk through secure </a>
@@ -2027,8 +2027,8 @@
 </details>
 
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p>To initialize a <strong>secured</strong> 2-way TLS connection between clients and Astra x509 certificates are needed. The strong authentication is key for maximum security and still benefit from greatest drivers features(health-check, load-balancing, fail-over). Under the hood the protocol SNI over TCP is used to contact each node independently.</p>
-<p>The configuration and required certificates are provided to user through a zip file called the <strong>secure connect bundle</strong> that can be downloaded for each <strong>DATABASE REGION</strong>. Meaning a database deployed across multiple regions will have one secure connect bundle per region. <em>(1 region = 1 underlying Apache Cassandra™ datacenter)</em></p>
+<p>To initialize a <strong>secured</strong> 2-way TLS connection between clients and Astra x509 certificates are needed. The strong authentication is key for maximum security and still benefits from robust driver features (health-check, load-balancing, fail-over). Under the hood the protocol SNI over TCP is used to contact each node independently.</p>
+<p>The configuration and required certificates are provided to the user through a zip file called the <strong>secure connect bundle</strong> which can be downloaded for each <strong>DATABASE REGION</strong>. This means that a database deployed across multiple regions will have one secure connect bundle per region. <em>(1 region = 1 underlying Apache Cassandra™ datacenter)</em></p>
 <p><img src="../../../img/astra/secureconnectbundle-doc.png" height="300px" /></p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2040,35 +2040,35 @@
 <p>Once signed in Astra the list of available databases is located in the menu on the left.</p>
 <ul>
 <li>
-<p>Select the database you want to work with by clicking on it.</p>
+<p>Select the database that you want to work with.</p>
 </li>
 <li>
-<p>Click on the TAB <code>CONNECT</code> or the big blue button <code>[CONNECT]</code> on the top right hand corner.</p>
+<p>Click on the <code>CONNECT</code> tab or the big blue button <code>[CONNECT]</code> in the upper right hand corner.</p>
 </li>
 </ul>
 <p><img src="../../../img/astra/secureconnectbundle-db.png" /></p>
 <p><strong>✅ Step 2 : Download the ZIP</strong></p>
 <ul>
 <li>
-<p>On this screen look for <strong><code>Connect using a driver</code></strong>. You can pick any of the options <code>Node.js</code> (<code>javascript</code>), <code>Python</code> or <code>Java</code>. <strong>It will be the same file downloaded.</strong></p>
+<p>On this screen look for <strong><code>Connect using a driver</code></strong>. You can pick any of the folowing options; <code>Node.js</code> (<code>javascript</code>), <code>Python</code> or <code>Java</code>. <strong>It will be the same file download.</strong></p>
 </li>
 <li>
-<p>Click on <code>Download Bundle</code> and eventually select the region you want to use</p>
+<p>Click on <code>Download Bundle</code> and  select the region that you want to use.</p>
 </li>
 <li>
-<p>Click on target region to be able to copy the link locally.</p>
+<p>Click on target region to copy the link locally.</p>
 </li>
 </ul>
 <p><img src="../../../img/astra/secureconnectbundle-regions.png" /></p>
 <h4 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p>Most browsers will give you the option to open the zip file directly. <em>Do not do that, save it whole instead</em>: the bundle zipfile will be passed
-  to the drivers as it is!</p>
+<p>Most browsers will give you the option to open the zip file directly. <em>Do not do that, save it locally instead</em>: the bundle zipfile will be passed
+  to the drivers as is!</p>
 </li>
 <li>
-<p>The generated link to the bundle zipfile will expire a few minutes after it is generated. If you download the bundle <strong>much later</strong> after you have reached the "Connect" page,
-  you might end up with a faulty bundle. As a check, make sure the zipfile you downloaded is around 12-13 KiB in size.</p>
+<p>The generated link to the bundle zipfile will expire a few minutes after it is generated. If you wait too long on the "Connect" page,
+  you might end up with a faulty bundle. As a check, make sure the zipfile you downloaded is around 12-13 KB in size.</p>
 </li>
 </ul>
 
@@ -2077,7 +2077,7 @@
   <small>
     
       Last update:
-      2022-03-21
+      2022-04-05
     
   </small>
 </div>

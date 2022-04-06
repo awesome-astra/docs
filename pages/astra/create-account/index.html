@@ -2101,8 +2101,8 @@
   <h1>‣ Create Account</h1>
 
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p>ASTRA DB is the simplest way to run Cassandra with zero operations at all. <strong>No credit card required</strong>, $25.00 USD credit every month, (<em>roughly 20M reads/writes, 80GB storage monthly</em>) - sufficient to run small production workloads.</p>
-<p><a href="http://astra.datastax.com/">http://astra.datastax.com</a> is the URL to access to create an account and use the solution.</p>
+<p>ASTRA DB is the simplest way to run Cassandra with zero operations. <strong>No credit card required</strong> and $25.00 USD credit every month (<em>roughly 20M reads/writes, 80GB storage monthly</em>) which is sufficient to run small production workloads.</p>
+<p><a href="http://astra.datastax.com/">http://astra.datastax.com</a> is the URL create an account and get started with the solution.</p>
 <p><img alt="" src="https://dabuttonfactory.com/button.png?t=Go+to+Astra&amp;f=Open+Sans-Bold&amp;ts=18&amp;tc=fff&amp;hp=40&amp;vp=18&amp;c=11&amp;bgt=gradient&amp;bgc=4052b5&amp;ebgc=073763" /></p>
 <h2 id="b-sign-up">B - Sign Up<a class="headerlink" href="#b-sign-up" title="Permanent link">&para;</a></h2>
 <p>You can use your <code>Github</code>, <code>Google</code> accounts or register with an <code>email</code>.</p>
@@ -2145,7 +2145,7 @@
 <p><img src="../../../img/astra/astra-signup-4.png" /></p>
 </details>
 <details class="note">
-<summary>4️⃣ Open the mail in your inbox and validate with <code>Verify my email</code> link</summary>
+<summary>4️⃣ Open the mail in your inbox and validate with the <code>Verify my email</code> link</summary>
 <p><img src="../../../img/astra/astra-signup-5.png" /></p>
 <ul>
 <li>Astra will show a validation message, select <strong>Click Here to proceed</strong>.</li>
@@ -2169,7 +2169,7 @@
 </ul>
 <p><img src="../../../img/astra/organization-1.png" /></p>
 <h3 id="2-organization-objects">2. Organization Objects<a class="headerlink" href="#2-organization-objects" title="Permanent link">&para;</a></h3>
-<p>Within one organization will live <code>Databases</code>, <code>Tenants</code> and <code>Security Tokens</code> as shown on the Organization Dashboard.</p>
+<p><code>Databases</code>, <code>Tenants</code> and <code>Security Tokens</code> objects are created within the organization, as shown on the Organization Dashboard.</p>
 <pre class="mermaid"><code>  graph TD
     User(User) --&gt;|1..n| ORG(Organization)
     ORG(Organization) --&gt;|0..n| DB(Databases)
@@ -2182,9 +2182,9 @@
     ST(Streaming Tenants) --&gt;|0..n| TOPIC(Topics)</code></pre>
 <p><img src="../../../img/astra/organization-3.png" /></p>
 <h3 id="3-multiple-organizations">3. Multiple Organizations<a class="headerlink" href="#3-multiple-organizations" title="Permanent link">&para;</a></h3>
-<p>You can create multiple organizations accessing the menu <strong><code>Managing Organizations</code></strong> and invite other users to join. It is usefule when the same database could be access by multiple users with different emails.</p>
+<p>You can create multiple organizations through the <strong><code>Manage Organizations</code></strong> menu option and invite other users to join as well. It is useful when the same database could be accessed by multiple users with different emails.</p>
 <p><img src="../../../img/astra/organization-2.png" /></p>
-<p>As a consequence a user can be part of multiple organizations, his personal, the one he created and the one he got invited to.</p>
+<p>As a consequence a user can be part of multiple organizations; the personal organization created during registration, new user-defined organizations, and shared organizations.</p>
 <pre class="mermaid"><code>  graph TD
     USER(User) --&gt;|1..n| PORG(Personal Organization - registration)
     USER --&gt;|0..n| CORG(Organizations he created)
@@ -2195,7 +2195,7 @@
   <small>
     
       Last update:
-      2022-03-29
+      2022-04-05
     
   </small>
 </div>
