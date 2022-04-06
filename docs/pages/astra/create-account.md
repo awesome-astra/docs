@@ -1,8 +1,8 @@
 ## A - Overview
 
-ASTRA DB is the simplest way to run Cassandra with zero operations at all. **No credit card required**, $25.00 USD credit every month, (_roughly 20M reads/writes, 80GB storage monthly_) - sufficient to run small production workloads.
+ASTRA DB is the simplest way to run Cassandra with zero operations. **No credit card required** and $25.00 USD credit every month (_roughly 20M reads/writes, 80GB storage monthly_) which is sufficient to run small production workloads.
 
-[http://astra.datastax.com](http://astra.datastax.com/) is the URL to access to create an account and use the solution.
+[http://astra.datastax.com](http://astra.datastax.com/) is the URL create an account and get started with the solution.
 
 ![](https://dabuttonfactory.com/button.png?t=Go+to+Astra&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)
 
@@ -54,7 +54,7 @@ You can use your `Github`, `Google` accounts or register with an `email`.
 
     <img src="../../../img/astra/astra-signup-4.png" />
 
-??? note "4️⃣ Open the mail in your inbox and validate with `Verify my email` link"
+??? note "4️⃣ Open the mail in your inbox and validate with the `Verify my email` link"
 
     <img src="../../../img/astra/astra-signup-5.png" />
 
@@ -82,7 +82,7 @@ When you create an account your personal **Organization** is created, **this is 
 
 ### 2. Organization Objects
 
-Within one organization will live `Databases`, `Tenants` and `Security Tokens` as shown on the Organization Dashboard.
+`Databases`, `Tenants` and `Security Tokens` objects are created within the organization, as shown on the Organization Dashboard.
 
 ```mermaid
   graph TD
@@ -101,11 +101,11 @@ Within one organization will live `Databases`, `Tenants` and `Security Tokens` a
 
 ### 3. Multiple Organizations
 
-You can create multiple organizations accessing the menu **`Managing Organizations`** and invite other users to join. It is usefule when the same database could be access by multiple users with different emails.
+You can create multiple organizations through the **`Manage Organizations`** menu option and invite other users to join as well. It is useful when the same database could be accessed by multiple users with different emails.
 
 <img src="../../../img/astra/organization-2.png" />
 
-As a consequence a user can be part of multiple organizations, his personal, the one he created and the one he got invited to.
+As a consequence a user can be part of multiple organizations; the personal organization created during registration, new user-defined organizations, and shared organizations.
 
 ```mermaid
   graph TD
