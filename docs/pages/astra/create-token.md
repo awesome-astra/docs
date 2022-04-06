@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-!!! abstract "Reference Documentations and resources"
+!!! abstract "Reference Documentation and resources"
 
     <ol>
         <li><i class="fa fa-book" ></i>&nbsp;<a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html"><b>Astra Docs</b> - The Astra token creation procedure</a>
@@ -10,7 +10,7 @@
 
 ## A - Overview
 
-As stated in the [Create Account](create-account) page the security token are associated to one and only one organization and only one role.
+As stated in the [Create Account](create-account) page the security token is associated to one and only one organization and only one role.
 
 ```mermaid
   graph TD
@@ -22,7 +22,7 @@ As stated in the [Create Account](create-account) page the security token are as
     ROLE-->|1..n|PERMISSIONS(permissions)
 ```
 
-There are some predefined roles within an organizations associated with some default permissions. The full list of permissions per roles is available in [Astra Documentation](https://docs.datastax.com/en/astra/docs/user-permissions.html)
+There are a set of predefined roles within an organization which are associated with some default permissions. The full list of permissions and roles is available in [Astra Documentation](https://docs.datastax.com/en/astra/docs/user-permissions.html)
 
 <center>
 <img src="../../../img/astra/roles-1.png" />
@@ -34,7 +34,7 @@ There are some predefined roles within an organizations associated with some def
 </p>
 </center>
 
-it is also possible to create a custom roles and associate fined grained permissions. (`Organizations Settings / Role Managennt`)
+It is also possible to create custom roles and associate fined grained permissions. (`Organizations Settings / Role Managennt`)
 
 <center>
 <img src="../../../img/astra/roles-2.png" />
@@ -51,13 +51,13 @@ it is also possible to create a custom roles and associate fined grained permiss
 
 ??? note "1️⃣ Open the Organization settings panel"
 
-    On the top left hand corner locate the panel `Current Organization` with your email address. Use the chevron down **&#8964;** to open the menu and pick `Organizations Settings`
+    On the top left hand corner locate the panel `Current Organization` with your email address. Use the chevron down **&#8964;** to open the menu and pick `Organization Settings`
 
     <img src="../../../img/astra/astra-create-token-1.png" />
 
 ??? note "2️⃣ Open the token management page"
 
-    On the new page, select `Token Management` in the menu. Then use the `Select Roles` combo to select `Organization Administrator` role. This is the administrator of your tenant with all permissions.
+    On the new page, select `Token Management` in the menu. Then use the `Select Roles` combo to select the `Organization Administrator` role. This is the administrator of your tenant with all permissions.
 
     <img src="../../../img/astra/astra-create-token-2.png" />
 
@@ -79,6 +79,6 @@ it is also possible to create a custom roles and associate fined grained permiss
 
 ??? tip "Copy values in the clipboard"
 
-    You can use the clipboard icons close to each parameter to clip them and copy them elsewhere.
+    You can use the clipboard icons next to each parameter to copy and paste them elsewhere.
 
     <img src="../../../img/astra/astra-create-token-4.png" />
