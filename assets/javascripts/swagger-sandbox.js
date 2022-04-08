@@ -166,26 +166,34 @@ function fillSwaggerForm() {
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("X-Cassandra-Token")
     ) {
+      let lastValue = inputField.value;
       inputField.value = document.getElementById("astra_token").value;
+      let event = new Event("input", { bubbles: true });
+      event.simulated = true;
+      let tracker = inputField._valueTracker;
+      if (tracker) {
+        tracker.setValue(lastValue);
+      }
+      inputField.dispatchEvent(event);
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("change"));
-      inputField.dispatchEvent(new Event("blur"));
-      inputField.dispatchEvent(new Event("onblur"));
-      inputField.dispatchEvent(new Event("onchange"));
     } else if (
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("namespace-id")
     ) {
+      let lastValue = inputField.value;
       inputField.value = document.getElementById("astra_namespace").value;
+      let event = new Event("input", { bubbles: true });
+      event.simulated = true;
+      let tracker = inputField._valueTracker;
+      if (tracker) {
+        tracker.setValue(lastValue);
+      }
+      inputField.dispatchEvent(event);
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("change"));
-      inputField.dispatchEvent(new Event("onchange"));
-      inputField.dispatchEvent(new Event("blur"));
-      inputField.dispatchEvent(new Event("onblur"));
     }
   }
 }
