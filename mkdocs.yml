@@ -55,6 +55,7 @@ nav:
       - ‣ DBeaver: pages/data/explore/dbeaver.md
       - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
+      - ‣ Trino: pages/data/explore/trino.md      
     - Data Modelling:
       - ‣ Kashliev KDM: http://kdm.kashliev.com/
 
