@@ -8,11 +8,11 @@
 
 ## Overview
 
-Stargate is a data gateway (Proxy) on top of Apache Cassandra exposing new interface to ease the integration. It is a way to create stateless components (1) and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
+Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify integration in your applications. It is a way to create stateless components and ease the integration through one of four different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
 
 To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://github.com/datastaxdevs/awesome-astra/wiki/Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
 
-> ⚠️ We recommend to use version `V2` (_with V2 in the URL_) as it covers more features and the V1 would be deprecated sooner.
+> ⚠️ We recommend using version `V2` (_with V2 in the URL_) as it covers more features and V1 will be deprecated eventually.
 
 ## Design
 

@@ -4,9 +4,9 @@
 
 <img src="../../../../img/tile-java.png" align="left" height="180px"/>
 
-Astra provides include **multiple services** (Database, Streaming), and, for each, there are **multiple Api and interfaces**. Frameworks and tools to connect to Astra are related to the Apis you choose.
+Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
 
-Pick the interface in the table to get relevant instructions. In most case you download a working sample. Those are standalone examples designed as simple as possible. please note that a _Software developement KIT (SDK)_ is also available for you to reduce boilerplate. More information [here](https://github.com/datastax/astra-sdk-java/wiki).
+Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. Those are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ is also available for you to reduce the amount of boilerplate code needed to get started. More information is [here](https://github.com/datastax/astra-sdk-java/wiki).
 
 ### 2. Interfaces list
 
@@ -27,7 +27,7 @@ Pick the interface you want to use from the list:
 
 ## 3. CQL Cassandra Drivers
 
-Drivers reference documentation can be found [HERE](https://docs.datastax.com/en/developer/java-driver/4.13/), this page is focused on connectivity with Astra DB only.
+Driver reference documentation can be found [HERE](https://docs.datastax.com/en/developer/java-driver/4.13/), this page is focused on connectivity with Astra DB only.
 
 ???+ abstract "Prerequisites"
 
@@ -54,7 +54,7 @@ Drivers reference documentation can be found [HERE](https://docs.datastax.com/en
 
 ### 3.1 Drivers 4.x
 
-!!! important "Version 4.x is recommended version"
+!!! important "Version 4.x is recommended"
 
 Version 4 is major redesign of the internal architecture. As such, it is not binary compatible with previous versions. However, most of the concepts remain unchanged, and the new API will look very familiar to 2.x and 3.x users.
 
@@ -118,10 +118,10 @@ Version 4 is major redesign of the internal architecture. As such, it is not bin
 
 ??? info "Extra Resources"
 
-      - If you want to know more the rational is explained [in this blogpost](https://www.datastax.com/blog/introducing-java-driver-4).
+      - To learn more about the history of the 4.x Java driver, check out [this blogpost](https://www.datastax.com/blog/introducing-java-driver-4).
       - If you are still using `3.x` and want to migrate you can have a look the [upgrade guide](https://docs.datastax.com/en/developer/java-driver/4.13/upgrade_guide/#4-0-0) but you can also keep using `3.x` as described [below](#using-java-cassandra-drivers-version-3x)
       - [Multiple Standalone Classes using driver 4.x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-4x/src/main/java/com/datastax/samples)
-      - [Spring PetClinic in Reactive](https://github.com/spring-petclinic/spring-petclinic-reactive) and specially the [mapper](https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db)
+      - [Spring PetClinic in Reactive](https://github.com/spring-petclinic/spring-petclinic-reactive) and especially the [mapper](https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db)
 
 <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
   <i class="fa fa-download" ></i>&nbsp;Download Driver 4x Sample
@@ -190,7 +190,7 @@ This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra 
 
 ![](https://github.com/datastax/astra-sdk-java/raw/main/docs/img/sdk-overview.png?raw/true)
 
-**The Astra SDK** setup the connection to work with AstraDB cloud-based service. You work with the class `AstraClient` (that configure `StargateClient` for you). As you can see on the figure below the `AstraClient` handles not only Stargate Apis but also Astra Devops Api and Apache Pulsar. [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
+**The Astra SDK** sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient` (which configures the `StargateClient` for you). As you can see on the figure below the `AstraClient` handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
 ??? abstract annotate "Setup `pom.xml`"
 
@@ -229,7 +229,7 @@ This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra 
 
 ??? info "Extra Resources"
 
-      - To get the full fledge informations regarding SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
+      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
 <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
   <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
@@ -239,7 +239,7 @@ This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra 
 
 **ℹ️ Overview**
 
-Stargate is a data gateway (Proxy) on top of Apache Cassandra exposing new interface to ease the integration. It is a way to create stateless components (1) and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
+Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify application integration. It is a way to create stateless components and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
 
 To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://github.com/datastaxdevs/awesome-astra/wiki/Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
 
@@ -265,7 +265,7 @@ mvn -version
 
 **📦 Setup Project**
 
-- You simple need an `HTTP Client` to use the Rest API. There are a lot in the Java languages like [HttpURLConnection](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html), [HttpClient introduced in Java 11](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html), [Apache HTTPClient](https://hc.apache.org/httpcomponents-client-5.0.x/index.html), [OkHttpClient](https://square.github.io/okhttp/), [Jetty HttpClient](https://www.eclipse.org/jetty/documentation/current/http-client.html). A comparison is provided is this [blogpost](https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/) to make your choice. In this tutorial we will go with `Apache HttpClient`, this is the one used in the SDK, you should adapt the code depending on the framework you choosed.
+- You simply need an `HTTP Client` to use the Rest API. There are a lot of clients in the Java languages like [HttpURLConnection](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html), [HttpClient introduced in Java 11](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html), [Apache HTTPClient](https://hc.apache.org/httpcomponents-client-5.0.x/index.html), [OkHttpClient](https://square.github.io/okhttp/), [Jetty HttpClient](https://www.eclipse.org/jetty/documentation/current/http-client.html). A comparison is provided is this [blogpost](https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/) to make your choice. In this tutorial, we will use the `Apache HttpClient`, which is included in the SDK. You should adapt the code depending on the framework you have chosen.
 
 - Import relevant dependencies for `Apache Http Client` in your `pom.xml`
 
