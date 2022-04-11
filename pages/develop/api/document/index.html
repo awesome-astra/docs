@@ -2097,20 +2097,20 @@
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
 <script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
-<p>The <strong>Document Api</strong> is an HTTP REST APi part of the open source component <a href="stargate.io">Stargate.io</a>. The idea is to provide an abstraction on top of Apache Cassandra™ to allow <strong>document-oriented</strong> access patterns.</p>
+<p>The <strong>Document API</strong> is an HTTP REST API and part of the open source <a href="stargate.io">Stargate.io</a>. The idea is to provide an abstraction on top of Apache Cassandra™ to allow <strong>document-oriented</strong> access patterns.</p>
 <p><img src="../../../../img/stargate-api-doc/architecture.png" /></p>
 <ul>
 <li>
 <p>A <code>namespace</code> (replacement for keyspace) will hold multiple <code>collections</code> (not tables) to store <code>Documents</code></p>
 </li>
 <li>
-<p>You interact with the database through <code>JSON documents</code> and no validation (sometimes called <code>_schemaless_</code> but better term would be validationless).</p>
+<p>You interact with the database through <code>JSON documents</code> and no validation (sometimes called <code>_schemaless_</code> but a better term would be validationless).</p>
 </li>
 <li>
-<p>Each documents has a unique identifier within the collection. Each insert is an upsert</p>
+<p>Each documents has a unique identifier within the collection. Each insert is an upsert.</p>
 </li>
 <li>
-<p>You can query on any field (<em>thanks to the support out of the box of the secondary index <code>SAI</code></em>)</p>
+<p>You can query on any field (<em>thanks to out of the box support for the secondary index <code>SAI</code></em>)</p>
 </li>
 </ul>
 <pre class="mermaid"><code>  graph LR
@@ -2119,8 +2119,8 @@
     COL --&gt;|1..n|DOC(Documents)
     DOC --&gt;|1..49 Nested docs|DOC</code></pre>
 <details class="abstract" open="open">
-<summary>How is store the data in Cassandra ?</summary>
-<p>The JSON document are stored using an internal data model. The table schema is generic and the same for each collection. The algorithm used tp transform the document is called <strong><em>document shredding</em></strong>. The schema is optimized for searches but also to limit tombstones on edits and deletes.</p>
+<summary>How is the data stored in Cassandra?</summary>
+<p>The JSON documents are stored using an internal data model. The table schema is generic as is each collection. The algorithm used to transform the document is called <strong><em>document shredding</em></strong>. The schema is optimized for searches but also to limit tombstones on edits and deletes.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="n">collection_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">key</span><span class="w">       </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">p0</span><span class="w">        </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
@@ -2132,7 +2132,7 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="n">leaf</span><span class="w">       </span><span class="nb">text</span><span class="w"></span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<p>A json like <code>{"a": { "b": 1 }, "c": 2}</code> will be stored like</p>
+<p>A JSON like <code>{"a": { "b": 1 }, "c": 2}</code> will be stored like</p>
 <table>
 <thead>
 <tr>
@@ -2157,7 +2157,7 @@
 </tr>
 </tbody>
 </table>
-<p>This also work with arrays <code>{"a": { "b": 1 }, "c": [{"d": 2}]}</code></p>
+<p>This also works with arrays <code>{"a": { "b": 1 }, "c": [{"d": 2}]}</code></p>
 <table>
 <thead>
 <tr>
@@ -2187,12 +2187,12 @@
 </table>
 </details>
 <h2 id="prerequesites">Prerequesites<a class="headerlink" href="#prerequesites" title="Permanent link">&para;</a></h2>
-<p>In order to use the <strong><code>Document Api</code></strong> for Astra DB in your application some prerequisites are mandatory.</p>
+<p>In order to use the <strong><code>Document API</code></strong> for Astra DB in your application, the following prerequisites must be met.</p>
 <ul>
 <li>An <strong>Astra account</strong>, use the <a href="http://astra.datastax.com/">tutorial</a> to create yours</li>
 <li>A running <strong>Astra Database</strong>, use the <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">tutorial</a> to create one</li>
 <li>An <strong>authentication token</strong>, use the <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">tutorial</a> to create one</li>
-<li>A client, framework or tool to execute <strong>Http Requests</strong>. This page will provide your <code>SWAGGER</code> and <code>POSTMAN</code></li>
+<li>A client, framework or tool to execute <strong>Http Requests</strong>. This page will provide you <code>SWAGGER</code> and <code>POSTMAN</code></li>
 </ul>
 <h2 id="database-selector">Database Selector<a class="headerlink" href="#database-selector" title="Permanent link">&para;</a></h2>
 <fieldset>
@@ -2245,7 +2245,7 @@ window.onload = setupSwagger;
 <h2 id="postman">Postman<a class="headerlink" href="#postman" title="Permanent link">&para;</a></h2>
 <p><strong>Prerequisites [Development Environment]</strong></p>
 <ul>
-<li>You should install <strong><a href="https://www.postman.com/downloads/">Postman</a></strong> to import some collections we provided.</li>
+<li>You should install <strong><a href="https://www.postman.com/downloads/">Postman</a></strong> to import the sample collections that we have provided.</li>
 </ul>
 <p><strong>Setup Postman</strong></p>
 <ul>
@@ -2292,7 +2292,7 @@ window.onload = setupSwagger;
 </tbody>
 </table>
 <ul>
-<li>this is what it is look like</li>
+<li>this is what it is looks like</li>
 </ul>
 <p><img alt="import-doc" src="https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-conf-edit.png?raw=true" /></p>
 <ul>
@@ -2300,12 +2300,12 @@ window.onload = setupSwagger;
 </ul>
 <p><img alt="import-doc" src="https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-import.png?raw=true" /></p>
 <ul>
-<li>That's it you have now access to a few dozens operations for <code>namespace</code>, <code>collections</code> and <code>documents</code></li>
+<li>That's it! You have now access to a few dozens operations for <code>namespace</code>, <code>collections</code> and <code>documents</code></li>
 </ul>
 <p><img alt="import-doc" src="https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-resources.png?raw=true" /></p>
 <h2 id="working-with-curl">Working with CURL<a class="headerlink" href="#working-with-curl" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Working with CURL:You should have <strong>curl</strong> commands available either installing following steps <a href="https://curl.se/download.html">here</a> or</li>
+<li>You should have <strong>curl</strong> commands available but, if not, you can install from <a href="https://curl.se/download.html">here</a> or</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --version
 </code></pre></div>
@@ -2314,10 +2314,10 @@ window.onload = setupSwagger;
 <p class="admonition-title">Known Limitations</p>
 <ul>
 <li>
-<p>As of today there are <strong>no aggregation nor sorting</strong> available in the Document Api.</p>
+<p>As of today there is <strong>no aggregation or sorting</strong> available in the Document Api.</p>
 </li>
 <li>
-<p>Queries are paged with a <strong>pagesize of <code>3</code> records by default</strong>, you can increase up to a maximum of <code>20</code> records, then the payload would be to large.</p>
+<p>Queries are paged with a <strong>pagesize of <code>3</code> records by default</strong> and you can increase up to a maximum of <code>20</code> records. Otherwise, the payload would be too large.</p>
 </li>
 </ul>
 </div>
@@ -2325,7 +2325,7 @@ window.onload = setupSwagger;
 <div class="admonition example">
 <p class="admonition-title"><code>GET /v2/namespaces/</code></p>
 <p><strong>Definition:</strong></p>
-<p>This operation list the namespaces inside a database. It will retrieve all keyspaces in the Cassandra database and for each one the different datacenters.</p>
+<p>This operation lists the namespaces inside of a Cassandra database. For each namespace, it will list the datacenters where it resides and the number of replicas. </p>
 <p><strong>Sample Curl</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -X GET https://<span class="o">{</span>ASTRA_DB_ID<span class="o">}</span>-<span class="o">{</span>ASTRA_DB_REGION<span class="o">}}</span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>.apps.astra.datastax.com/api/rest/v2/namespaces/ <span class="se">\</span>
@@ -2351,7 +2351,7 @@ window.onload = setupSwagger;
   <small>
     
       Last update:
-      2022-03-31
+      2022-04-11
     
   </small>
 </div>

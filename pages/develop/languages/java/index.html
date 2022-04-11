@@ -2311,8 +2311,8 @@
 <p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
 <h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
 <p><img src="../../../../img/tile-java.png" align="left" height="180px"/></p>
-<p>Astra provides include <strong>multiple services</strong> (Database, Streaming), and, for each, there are <strong>multiple Api and interfaces</strong>. Frameworks and tools to connect to Astra are related to the Apis you choose.</p>
-<p>Pick the interface in the table to get relevant instructions. In most case you download a working sample. Those are standalone examples designed as simple as possible. please note that a <em>Software developement KIT (SDK)</em> is also available for you to reduce boilerplate. More information <a href="https://github.com/datastax/astra-sdk-java/wiki">here</a>.</p>
+<p>Astra provides <strong>multiple services</strong> such as; Database and Streaming, with <strong>multiple Apis and interfaces</strong>. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.</p>
+<p>Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. Those are standalone examples designed to be as simple as possible. Please note that a <em>Software developement KIT (SDK)</em> is also available for you to reduce the amount of boilerplate code needed to get started. More information is <a href="https://github.com/datastax/astra-sdk-java/wiki">here</a>.</p>
 <h3 id="2-interfaces-list">2. Interfaces list<a class="headerlink" href="#2-interfaces-list" title="Permanent link">&para;</a></h3>
 <p>Pick the interface you want to use from the list:</p>
 <table>
@@ -2377,7 +2377,7 @@
 </tbody>
 </table>
 <h2 id="3-cql-cassandra-drivers">3. CQL Cassandra Drivers<a class="headerlink" href="#3-cql-cassandra-drivers" title="Permanent link">&para;</a></h2>
-<p>Drivers reference documentation can be found <a href="https://docs.datastax.com/en/developer/java-driver/4.13/">HERE</a>, this page is focused on connectivity with Astra DB only.</p>
+<p>Driver reference documentation can be found <a href="https://docs.datastax.com/en/developer/java-driver/4.13/">HERE</a>, this page is focused on connectivity with Astra DB only.</p>
 <details class="abstract" open="open">
 <summary>Prerequisites</summary>
 <p><strong>Astra</strong></p>
@@ -2401,7 +2401,7 @@
 </details>
 <h3 id="31-drivers-4x">3.1 Drivers 4.x<a class="headerlink" href="#31-drivers-4x" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
-<p class="admonition-title">Version 4.x is recommended version</p>
+<p class="admonition-title">Version 4.x is recommended</p>
 </div>
 <p>Version 4 is major redesign of the internal architecture. As such, it is not binary compatible with previous versions. However, most of the concepts remain unchanged, and the new API will look very familiar to 2.x and 3.x users.</p>
 <details class="abstract annotate">
@@ -2467,10 +2467,10 @@
 <details class="info">
 <summary>Extra Resources</summary>
 <ul>
-<li>If you want to know more the rational is explained <a href="https://www.datastax.com/blog/introducing-java-driver-4">in this blogpost</a>.</li>
+<li>To learn more about the history of the 4.x Java driver, check out <a href="https://www.datastax.com/blog/introducing-java-driver-4">this blogpost</a>.</li>
 <li>If you are still using <code>3.x</code> and want to migrate you can have a look the <a href="https://docs.datastax.com/en/developer/java-driver/4.13/upgrade_guide/#4-0-0">upgrade guide</a> but you can also keep using <code>3.x</code> as described <a href="#using-java-cassandra-drivers-version-3x">below</a></li>
 <li><a href="https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-4x/src/main/java/com/datastax/samples">Multiple Standalone Classes using driver 4.x</a></li>
-<li><a href="https://github.com/spring-petclinic/spring-petclinic-reactive">Spring PetClinic in Reactive</a> and specially the <a href="https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db">mapper</a></li>
+<li><a href="https://github.com/spring-petclinic/spring-petclinic-reactive">Spring PetClinic in Reactive</a> and especially the <a href="https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db">mapper</a></li>
 </ul>
 </details>
 <p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
@@ -2536,7 +2536,7 @@
 <h3 id="33-astra-sdk">3.3 Astra SDK<a class="headerlink" href="#33-astra-sdk" title="Permanent link">&para;</a></h3>
 <p>This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs.</p>
 <p><img alt="" src="https://github.com/datastax/astra-sdk-java/raw/main/docs/img/sdk-overview.png?raw/true" /></p>
-<p><strong>The Astra SDK</strong> setup the connection to work with AstraDB cloud-based service. You work with the class <code>AstraClient</code> (that configure <code>StargateClient</code> for you). As you can see on the figure below the <code>AstraClient</code> handles not only Stargate Apis but also Astra Devops Api and Apache Pulsar. <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
+<p><strong>The Astra SDK</strong> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code> (which configures the <code>StargateClient</code> for you). As you can see on the figure below the <code>AstraClient</code> handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
 <details class="abstract annotate">
 <summary>Setup <code>pom.xml</code></summary>
 <ul>
@@ -2573,7 +2573,7 @@
 <details class="info">
 <summary>Extra Resources</summary>
 <ul>
-<li>To get the full fledge informations regarding SDK check the <a href="https://github.com/datastax/astra-sdk-java/wiki">github repository</a></li>
+<li>To get the full fledged information regarding the SDK check the <a href="https://github.com/datastax/astra-sdk-java/wiki">github repository</a></li>
 </ul>
 </details>
 <p><a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
@@ -2581,7 +2581,7 @@
 </a></p>
 <h2 id="4-stargate-rest-api">4. Stargate REST Api<a class="headerlink" href="#4-stargate-rest-api" title="Permanent link">&para;</a></h2>
 <p><strong>ℹ️ Overview</strong></p>
-<p>Stargate is a data gateway (Proxy) on top of Apache Cassandra exposing new interface to ease the integration. It is a way to create stateless components (1) and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with <code>REST Apis</code> also called <code>DATA</code> in the swagger specifications.</p>
+<p>Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify application integration. It is a way to create stateless components and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with <code>REST Apis</code> also called <code>DATA</code> in the swagger specifications.</p>
 <p>To know more regarding this interface specially you can have a look to <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Stargate-Api-Rest">dedicated section of the wiki</a> or <a href="https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html">reference Stargate Rest Api Quick Start Guide</a>.</p>
 <blockquote>
 <p>⚠️ We recommend to use version <code>V2</code> (<em>with V2 in the URL</em>) as it covers more features and the V1 would be deprecated sooner.</p>
@@ -2607,7 +2607,7 @@
 <p><strong>📦 Setup Project</strong></p>
 <ul>
 <li>
-<p>You simple need an <code>HTTP Client</code> to use the Rest API. There are a lot in the Java languages like <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html">HttpURLConnection</a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html">HttpClient introduced in Java 11</a>, <a href="https://hc.apache.org/httpcomponents-client-5.0.x/index.html">Apache HTTPClient</a>, <a href="https://square.github.io/okhttp/">OkHttpClient</a>, <a href="https://www.eclipse.org/jetty/documentation/current/http-client.html">Jetty HttpClient</a>. A comparison is provided is this <a href="https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/">blogpost</a> to make your choice. In this tutorial we will go with <code>Apache HttpClient</code>, this is the one used in the SDK, you should adapt the code depending on the framework you choosed.</p>
+<p>You simply need an <code>HTTP Client</code> to use the Rest API. There are a lot of clients in the Java languages like <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html">HttpURLConnection</a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html">HttpClient introduced in Java 11</a>, <a href="https://hc.apache.org/httpcomponents-client-5.0.x/index.html">Apache HTTPClient</a>, <a href="https://square.github.io/okhttp/">OkHttpClient</a>, <a href="https://www.eclipse.org/jetty/documentation/current/http-client.html">Jetty HttpClient</a>. A comparison is provided is this <a href="https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/">blogpost</a> to make your choice. In this tutorial, we will use the <code>Apache HttpClient</code>, which is included in the SDK. You should adapt the code depending on the framework you have chosen.</p>
 </li>
 <li>
 <p>Import relevant dependencies for <code>Apache Http Client</code> in your <code>pom.xml</code></p>
@@ -2912,7 +2912,7 @@
   <small>
     
       Last update:
-      2022-03-31
+      2022-04-11
     
   </small>
 </div>
