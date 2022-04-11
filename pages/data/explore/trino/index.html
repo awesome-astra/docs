@@ -13,14 +13,14 @@
         <meta name="author" content="Cedrick Lunven">
       
       
-        <link rel="canonical" href="https://awesome-astra.github.io/pages/data/explore/cqlsh/">
+        <link rel="canonical" href="https://awesome-astra.github.io/pages/data/explore/trino/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
-        <title>‣ Cqlsh - Awesome-Astra</title>
+        <title>‣ Trino - Awesome-Astra</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ Cqlsh
+              ‣ Trino
             
           </span>
         </div>
@@ -1310,69 +1310,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          ‣ Cqlsh
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cqlsh/" class="md-nav__link">
         ‣ Cqlsh
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-installation" class="md-nav__link">
-    C - Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-tips-and-tricks" class="md-nav__link">
-    D - Tips and tricks
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1466,11 +1408,123 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../trino/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ‣ Trino
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         ‣ Trino
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-overview" class="md-nav__link">
+    A - Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-prerequisites" class="md-nav__link">
+    B - Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-populate-an-astra-db-database" class="md-nav__link">
+    C - Populate an Astra DB Database
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Populate an Astra DB Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sign-in-to-your-astra-account-and-create-a-new-astra-database-or-select-an-existing-one-add-a-new-keyspace-with-name-banking_app-or-reuse-an-existing-one" class="md-nav__link">
+    1. Sign in to your Astra account and create a new Astra database or select an existing one. Add a new keyspace with name banking_app or reuse an existing one.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-following-tables-using-the-cql-console" class="md-nav__link">
+    2. Create the following tables using the CQL Console:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-insert-rows" class="md-nav__link">
+    3. Insert rows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-deploy-a-cql-proxy" class="md-nav__link">
+    D - Deploy a CQL Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="D - Deploy a CQL Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-follow-these-instructions-to-deploy-a-cql-proxy-as-close-to-a-trino-server-as-possible-the-simplest-way-to-start-cql-proxy-is-to-use-an-astra-token-and-astra-database-id" class="md-nav__link">
+    4. Follow these instructions to deploy a CQL Proxy as close to a Trino Server as possible. The simplest way to start cql-proxy is to use an &lt;astra-token&gt; and &lt;astra-database-id&gt;:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-configure-and-start-a-trino-server" class="md-nav__link">
+    E - Configure and Start a Trino Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-run-sql-queries-against-astra-db-using-a-trino-cli-client" class="md-nav__link">
+    F - Run SQL Queries against Astra DB using a Trino CLI Client
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1993,15 +2047,69 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation" class="md-nav__link">
-    C - Installation
+  <a href="#c-populate-an-astra-db-database" class="md-nav__link">
+    C - Populate an Astra DB Database
+  </a>
+  
+    <nav class="md-nav" aria-label="C - Populate an Astra DB Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sign-in-to-your-astra-account-and-create-a-new-astra-database-or-select-an-existing-one-add-a-new-keyspace-with-name-banking_app-or-reuse-an-existing-one" class="md-nav__link">
+    1. Sign in to your Astra account and create a new Astra database or select an existing one. Add a new keyspace with name banking_app or reuse an existing one.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-following-tables-using-the-cql-console" class="md-nav__link">
+    2. Create the following tables using the CQL Console:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-insert-rows" class="md-nav__link">
+    3. Insert rows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-deploy-a-cql-proxy" class="md-nav__link">
+    D - Deploy a CQL Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="D - Deploy a CQL Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-follow-these-instructions-to-deploy-a-cql-proxy-as-close-to-a-trino-server-as-possible-the-simplest-way-to-start-cql-proxy-is-to-use-an-astra-token-and-astra-database-id" class="md-nav__link">
+    4. Follow these instructions to deploy a CQL Proxy as close to a Trino Server as possible. The simplest way to start cql-proxy is to use an &lt;astra-token&gt; and &lt;astra-database-id&gt;:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-configure-and-start-a-trino-server" class="md-nav__link">
+    E - Configure and Start a Trino Server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-tips-and-tricks" class="md-nav__link">
-    D - Tips and tricks
+  <a href="#f-run-sql-queries-against-astra-db-using-a-trino-cli-client" class="md-nav__link">
+    F - Run SQL Queries against Astra DB using a Trino CLI Client
   </a>
   
 </li>
@@ -2020,145 +2128,88 @@
                 
 
 
-  <h1>‣ Cqlsh</h1>
+  <h1>‣ Trino</h1>
 
-<details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
-<ol>
-<li><a href="https://docs.datastax.com/en/astra/docs/connecting-to-databases-using-standalone-cqlsh.html"><b>📖  Astra Docs</b> - Reference documentation</a>
-<li><a href="https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html"><b>📖  Cql Tool Docs</b> - Reference Documentation</a>
-</ol>
-</details>
-
+<p><img src="../../../../img/trino/logo-trino.png" height="100px" /></p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p><a href="https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html">CqlSH</a> is a command-line interface for interacting with Cassandra using CQL (the Cassandra Query Language). It is shipped with every Cassandra package, and can be found in the bin/ directory alongside the cassandra executable. cqlsh is implemented with the Python native protocol driver, and connects to the single specified node.</p>
-<p>You can setup the software by providing options in the command line and/OR provide the settings in a file called <code>cqlshrc</code> located in <code>~/.cassandra</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt; cqlsh --help
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Usage: cqlsh [options] [host [port]]
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>CQL Shell
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Options:
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  --version             show program&#39;s version number and exit
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  -h, --help            show this help message and exit
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  -C, --color           Always use color output
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  --no-color            Never use color output
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  --browser=BROWSER     The browser to use to display CQL help, where BROWSER
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                        can be:
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                        - one of the supported browsers in
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                        https://docs.python.org/2/library/webbrowser.html.
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                        - browser path followed by %s, example: /usr/bin
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                        /google-chrome-stable %s
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  --ssl                 Use SSL
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  -u USERNAME, --username=USERNAME
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                        Authenticate as user.
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  -p PASSWORD, --password=PASSWORD
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                        Authenticate using password.
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  -k KEYSPACE, --keyspace=KEYSPACE
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                        Authenticate to the given keyspace.
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  -b SECURE_CONNECT_BUNDLE, --secure-connect-bundle=SECURE_CONNECT_BUNDLE
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                        Connect using secure connect bundle. If this option is
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                        specified host, port settings are ignored
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  -f FILE, --file=FILE  Execute commands from FILE, then exit
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  --debug               Show additional debugging information
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  --coverage            Collect coverage data
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  --encoding=ENCODING   Specify a non-default encoding for output. (Default:
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                        utf-8)
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>  --cqlshrc=CQLSHRC     Specify an alternative cqlshrc file location.
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>  --cqlversion=CQLVERSION
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                        Specify a particular CQL version, by default the
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                        highest version supported by the server will be used.
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                        Examples: &quot;3.0.3&quot;, &quot;3.1.0&quot;
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>  --protocol-version=PROTOCOL_VERSION
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>                        Specify a specific protocol version; otherwise the
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>                        client will default and downgrade as necessary.
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>                        Mutually exclusive with --dse-protocol-version.
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>  -e EXECUTE, --execute=EXECUTE
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>                        Execute the statement and quit.
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>  --connect-timeout=CONNECT_TIMEOUT
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>                        Specify the connection timeout in seconds (default: 5
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>                        seconds).
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>  --request-timeout=REQUEST_TIMEOUT
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>                        Specify the default request timeout in seconds
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>                        (default: 10 seconds).
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>  --consistency-level=CONSISTENCY_LEVEL
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>                        Specify the initial consistency level.
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>  --serial-consistency-level=SERIAL_CONSISTENCY_LEVEL
-<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>                        Specify the initial serial consistency level.
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>  -t, --tty             Force tty mode (command prompt).
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>  --no-file-io          Disable cqlsh commands that perform file I/O.
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>  --disable-history     Disable saving of history
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>Connects to 127.0.0.1:9042 by default. These defaults can be changed by
-<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>setting $CQLSH_HOST and/or $CQLSH_PORT. When a host (and optional port number)
-<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>are given on the command line, they take precedence over any defaults.
-</code></pre></div>
+<p><a href="https://trino.io">Trino</a> is a distributed SQL query engine for big data analytics. Trino can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Trino use cases include:</p>
+<ul>
+<li>interactive data analytics, </li>
+<li>SQL-based analytics over object storage systems, </li>
+<li>data access and analytics across multiple data sources with query federation,</li>
+<li>Batch ETL processing across disparate systems.</li>
+</ul>
+<p>In this tutorial, we show <strong>how to use Trino to explore and query data in <a href="http://astra.datastax.com">Astra DB</a> with SQL</strong>.
+The overall architecture of this solution is depicted below. <em>Trino CLI Client</em> sends SQL queries to <em>Trino Server</em>, <em>Trino Server</em> retrieves data from <em>Astra DB</em> via <em>CQL Proxy</em>, process it and returns the results back to the client.</p>
+<p><center>
+<pre class="mermaid"><code>graph TB
+    A(Trino CLI Client) &lt;--&gt; B(Trino Server)
+    B --&gt; C(CQL Proxy)
+    C --&gt; D(Astra DB)
+    B --&gt; A
+    C --&gt; B
+    D --&gt; C</code></pre>
+</center></p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
-<li>You should download the <a href="https://downloads.datastax.com/#cqlsh">Cqlsh Version for Astra DB</a></li>
-<li>You should NOT use a WINDOWS machine, as of today <code>cqlsh</code> is not supported on Windows</li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
 </ul>
-<h2 id="c-installation">C - Installation<a class="headerlink" href="#c-installation" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1: Download and extract the archive</strong></p>
-<ul>
-<li>To download the archive you can go on the <a href="https://downloads.datastax.com/#cqlsh">download page</a>, check the box and download the file:</li>
-</ul>
-<p><img alt="pic" src="../../../../img/cqlsh/cqlsh-download.png" /></p>
-<ul>
-<li>You can also use the command line:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>          &amp;&amp; tar xvzf cqlsh-astra.tar.gz \
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>          &amp;&amp; rm -f cqlsh-astra.tar.gz
+<h2 id="c-populate-an-astra-db-database">C - Populate an Astra DB Database<a class="headerlink" href="#c-populate-an-astra-db-database" title="Permanent link">&para;</a></h2>
+<h3 id="1-sign-in-to-your-astra-account-and-create-a-new-astra-database-or-select-an-existing-one-add-a-new-keyspace-with-name-banking_app-or-reuse-an-existing-one">1. <a href="https://astra.datastax.com/">Sign in</a> to your Astra account and <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">create a new Astra database</a> or select an existing one. Add a new keyspace with name <code>banking_app</code> or reuse an existing one.<a class="headerlink" href="#1-sign-in-to-your-astra-account-and-create-a-new-astra-database-or-select-an-existing-one-add-a-new-keyspace-with-name-banking_app-or-reuse-an-existing-one" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-the-following-tables-using-the-cql-console">2. Create the following tables using the CQL Console:<a class="headerlink" href="#2-create-the-following-tables-using-the-cql-console" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">banking_app</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-<ul>
-<li>The archive should look like:</li>
-</ul>
-<p><img alt="pic" src="../../../../img/cqlsh/cqlsh-archive.png" /></p>
-<p><strong>✅ Step 2: Start <code>cqlsh</code> providing parameters in the command line:</strong></p>
-<ul>
-<li>From the directory where you extracted the CQLSH tarball, run the <code>cqlsh</code> script from the command line:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ <span class="nb">cd</span> /cqlsh-astra/bin
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$ ./cqlsh -u <span class="si">${</span><span class="nv">CLIENT_ID</span><span class="si">}</span> -p <span class="si">${</span><span class="nv">CLIENT_SECRET</span><span class="si">}</span> -b <span class="si">${</span><span class="nv">PATH_TO_SECURE_BUNBLE</span><span class="p">.zip</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="n">customer_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="n">account_number</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="n">account_type</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="n">account_balance</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">STATIC</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">((</span><span class="n">customer_id</span><span class="p">),</span><span class="w"> </span><span class="n">account_number</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<ul>
-<li><code>-u</code> (username) - Client ID as provided in the token generation page</li>
-<li><code>-p</code> (password) - Client secret as provided in the token generation page</li>
-<li><code>-b</code> (bundle) - location of the secure connect bundle that you downloaded for your database.</li>
-</ul>
-<p><strong>✅ Step 3: Start <code>Cqlsh</code> providing parameters in <code>cqlshrc</code></strong></p>
-<p>Configure the cqlshrc file If you do not want to pass the secure connect bundle on the command line every time, set up the location in your <code>cqlshrc</code> file in <code>~/.cassandra</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[authentication]
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>username = ${CLIENT_ID}
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>password = ${CLIENT_SECRET}
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>[connection]
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>secure_connect_bundle = ${PATH_TO_SECURE_BUNBLE.zip}
+<h3 id="3-insert-rows">3. Insert rows<a class="headerlink" href="#3-insert-rows" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="n">d6c1271</span><span class="o">-</span><span class="mi">16</span><span class="n">b6</span><span class="o">-</span><span class="mi">479</span><span class="n">d</span><span class="o">-</span><span class="mi">8</span><span class="n">ea9</span><span class="o">-</span><span class="mi">546</span><span class="n">c37381ab3</span><span class="p">,</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="s1">&#39;alice@example.org&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="s1">&#39;bob@example.org&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="n">account_number</span><span class="p">,</span><span class="n">account_type</span><span class="p">,</span><span class="n">account_balance</span><span class="p">,</span><span class="n">name</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="n">d6c1271</span><span class="o">-</span><span class="mi">16</span><span class="n">b6</span><span class="o">-</span><span class="mi">479</span><span class="n">d</span><span class="o">-</span><span class="mi">8</span><span class="n">ea9</span><span class="o">-</span><span class="mi">546</span><span class="n">c37381ab3</span><span class="p">,</span><span class="s1">&#39;A-101&#39;</span><span class="p">,</span><span class="s1">&#39;Checking&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">01</span><span class="p">,</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="n">account_number</span><span class="p">,</span><span class="n">account_type</span><span class="p">,</span><span class="n">account_balance</span><span class="p">,</span><span class="n">name</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="n">d6c1271</span><span class="o">-</span><span class="mi">16</span><span class="n">b6</span><span class="o">-</span><span class="mi">479</span><span class="n">d</span><span class="o">-</span><span class="mi">8</span><span class="n">ea9</span><span class="o">-</span><span class="mi">546</span><span class="n">c37381ab3</span><span class="p">,</span><span class="s1">&#39;A-102&#39;</span><span class="p">,</span><span class="s1">&#39;Savings&#39;</span><span class="p">,</span><span class="mi">200</span><span class="p">.</span><span class="mi">02</span><span class="p">,</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="n">account_number</span><span class="p">,</span><span class="n">account_type</span><span class="p">,</span><span class="n">account_balance</span><span class="p">,</span><span class="n">name</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;B-101&#39;</span><span class="p">,</span><span class="s1">&#39;Checking&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">.</span><span class="mi">03</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="n">account_number</span><span class="p">,</span><span class="n">account_type</span><span class="p">,</span><span class="n">account_balance</span><span class="p">,</span><span class="n">name</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;B-102&#39;</span><span class="p">,</span><span class="s1">&#39;Savings&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">.</span><span class="mi">04</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<h2 id="d-tips-and-tricks">D - Tips and tricks<a class="headerlink" href="#d-tips-and-tricks" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>If is a good idea to add <code>cqlsh</code> in your path to be able to use from everywhere</p>
-</li>
-<li>
-<p>If you want to work with multiple DB use some alias with the parameters</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>alias cqlsh_db1=&#39;cqlsh -u user -p password -b secure-connect-db1.zip&#39;
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>alias cqlsh_db2=&#39;cqlsh --cqlshrc_db2&#39;
+<h2 id="d-deploy-a-cql-proxy">D - Deploy a CQL Proxy<a class="headerlink" href="#d-deploy-a-cql-proxy" title="Permanent link">&para;</a></h2>
+<h3 id="4-follow-these-instructions-to-deploy-a-cql-proxy-as-close-to-a-trino-server-as-possible-the-simplest-way-to-start-cql-proxy-is-to-use-an-astra-token-and-astra-database-id">4. Follow <a href="https://github.com/datastax/cql-proxy">these instructions</a> to deploy a <em>CQL Proxy</em> as close to a <em>Trino Server</em> as possible. The simplest way to start <code>cql-proxy</code> is to use an <code>&lt;astra-token&gt;</code> and <code>&lt;astra-database-id&gt;</code>:<a class="headerlink" href="#4-follow-these-instructions-to-deploy-a-cql-proxy-as-close-to-a-trino-server-as-possible-the-simplest-way-to-start-cql-proxy-is-to-use-an-astra-token-and-astra-database-id" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./cql-proxy <span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--astra-token &lt;astra-token&gt; <span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>--astra-database-id &lt;astra-database-id&gt;
 </code></pre></div>
+<p>An example command with no-longer-valid token and databse id may look like the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./cql-proxy <span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>--astra-token AstraCS:NoBhcuwCrIhZxqzjEMCSuGos:8a85142b47a588472a1f3b1314e2141f098785895411dee9db11f2a7ade457ce <span class="se">\</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>--astra-database-id e5e4e925-289a-8231-83fd-25918093257b
+</code></pre></div>
+<h2 id="e-configure-and-start-a-trino-server">E - Configure and Start a Trino Server<a class="headerlink" href="#e-configure-and-start-a-trino-server" title="Permanent link">&para;</a></h2>
+<h2 id="f-run-sql-queries-against-astra-db-using-a-trino-cli-client">F - Run SQL Queries against Astra DB using a Trino CLI Client<a class="headerlink" href="#f-run-sql-queries-against-astra-db-using-a-trino-cli-client" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-03-18
+      2022-04-10
     
   </small>
 </div>
