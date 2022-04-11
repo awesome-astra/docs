@@ -1,10 +1,10 @@
 !!! warning "Page in construction"
 
-      This page has not been populated yet, cone back soon.
+      This page has not been populated yet, come back soon.
 
 ## Overview
 
-The **GraphQL Api** is an HTTP oriented APi part of the open source component [Stargate.io](stargate.io).
+The **GraphQL Api** is an HTTP oriented APi and is part of the open source component, [Stargate.io](stargate.io).
 
 ## Extra Resources
 
