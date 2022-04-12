@@ -1,8 +1,123 @@
-/* This file contains functions to build the swagger Dashboard. */
-
 /* ----------------------------------------------------------- */
 /* --------------------- DB SELECTOR ------------------------- */
 /* ----------------------------------------------------------- */
+
+function dbSelectorValidateFormAstraToken() {
+  let inputToken = document.querySelector("#astra_token");
+  let inputTokenError = document.querySelector("#astra_token_errors");
+  inputToken.style.color = "#000000";
+  inputToken.style.backgroundColor = "#ffffff";
+  inputToken.style.border = "1px solid #888888";
+  inputTokenError.innerHTML = "";
+  if (inputToken.value == "") {
+    inputTokenError.innerHTML += "Token is required";
+    inputToken.style.color = "#880000";
+    inputToken.style.backgroundColor = "#ffeeee";
+    inputToken.style.border = "1px solid #880000";
+  } else if (!inputToken.value.startsWith("AstraCS:")) {
+    inputTokenError.innerHTML += "Token should start with AstraCS:";
+    inputToken.style.color = "#880000";
+    inputToken.style.backgroundColor = "#ffeeee";
+    inputToken.style.border = "1px solid #880000";
+  }
+}
+
+function dbSelectorValidateFormDatabaseId() {
+  let inputDb = document.querySelector("#astra_db");
+  let inputDbError = document.querySelector("#astra_db_errors");
+  inputDb.style.color = "000000";
+  inputDb.style.backgroundColor = "#ffffff";
+  inputDb.style.border = "1px solid #888888";
+  inputDbError.innerHTML = "";
+  if (inputDb.value == "") {
+    inputDbError.innerHTML += "Database ID is required";
+    inputDb.style.color = "#880000";
+    inputDb.style.backgroundColor = "#ffeeee";
+    inputDb.style.border = "1px solid #880000";
+  }
+}
+
+function dbSelectorValidateFormDatabaseRegion() {
+  let inputRegion = document.querySelector("#astra_region");
+  let inputRegionError = document.querySelector("#astra_region_errors");
+  inputRegion.style.color = "000000";
+  inputRegion.style.backgroundColor = "#ffffff";
+  inputRegion.style.border = "1px solid #888888";
+  inputRegionError.innerHTML = "";
+  if (inputRegion.value == "") {
+    inputRegionError.innerHTML += "Database ID is required";
+    inputRegion.style.color = "#880000";
+    inputRegion.style.backgroundColor = "#ffeeee";
+    inputRegion.style.border = "1px solid #880000";
+  }
+}
+
+function dbSelectorShowKeyspaces(astraToken, dbid, dbregion) {
+  console.log("Listing Keyspaces: db=" + dbid + " region=" + dbregion);
+  dbSelectorValidateFormAstraToken();
+  dbSelectorValidateFormDatabaseId();
+  dbSelectorValidateFormDatabaseRegion();
+  document.querySelector("#dbselector_errors").innerHTML = "";
+  document.querySelector("#block_astra_namespace").innerHTML = "";
+  if (
+    document.querySelector("#astra_token_errors").innerHTML == "" &&
+    document.querySelector("#astra_db_errors").innerHTML == "" &&
+    document.querySelector("#astra_region_errors").innerHTML == ""
+  ) {
+    dbSelectorBuildStargateEndpoint(dbid.trim(), dbregion.trim());
+    let targetDiv = document.querySelector("#block_astra_namespace");
+    let select =
+      '<select class="select" id="astra_namespace" name="astra_namespace" style="width:70%">';
+    select += "<option selected disabled>Pick your keyspace</option>";
+    // Invoke Stargate to list namespace
+    var url =
+      "https://" +
+      dbid +
+      "-" +
+      dbregion +
+      ".apps.astra.datastax.com/api/rest/v2/schemas/namespaces/";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.setRequestHeader("X-Cassandra-Token", astraToken);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhr.onerror = function (e) {
+      document.querySelector("#dbselector_errors").innerHTML =
+        "<li>Cannot contact Database please check parameters</li>";
+      reject(new TypeError("Network request failed"));
+    };
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status != 0) {
+          JSON.parse(xhr.responseText).data.forEach(function (item, index) {
+            select +=
+              '<option value="' + item.name + '">' + item.name + "</option>";
+          });
+          select += "</select>";
+          targetDiv.innerHTML = "";
+          targetDiv.innerHTML += '<label class="label" for="astra_namespace">';
+          targetDiv.innerHTML += '<i class="fa fa-bookmark"></i>';
+          targetDiv.innerHTML += "&nbsp;Pick a Namespace</label><br/>";
+          targetDiv.innerHTML += select;
+        }
+      }
+    };
+    xhr.send();
+  }
+}
+
+/**
+ * Leveraging the 'UrlMutatorPlugin' to dynamically define target for Swagger UI
+ */
+function dbSelectorBuildStargateEndpoint(dbid, dbregion) {
+  window.ui.setScheme("https");
+  window.ui.setHost(dbid + "-" + dbregion + ".apps.astra.datastax.com");
+  window.ui.setBasePath("/api/rest");
+  console.log(
+    "Api Endpoint:" + dbid + "-" + dbregion + ".apps.astra.datastax.com"
+  );
+}
+
+/* Waiting for DEVOPS API
 
 function dbSelectorListDatabases(astraToken) {
   console.log("Look up databases with token " + astraToken);
@@ -27,42 +142,6 @@ function dbSelectorListRegions(astraToken, dbid) {
     '<select class="select" id="astra_region" name="astra_region" style="width:70%" onchange="dbSelectorKeyspaces(document.getElementById(\'astra_token\').value, document.getElementById(\'astra_db\').value, document.getElementById(\'astra_region\').value)"><option selected disabled>-</option><option value="eu-central-1">eu-central-1</option><option value="eu-west-1">eu-west-1</option></select>';
 }
 
-function dbSelectorKeyspaces(astraToken, dbid, dbregion) {
-  console.log("Look up keyspaces with db " + dbid);
-  setupAstraDBEndpoint(dbid, dbregion);
-  let targetDiv = document.querySelector("#block_astra_namespace");
-
-  let select =
-    '<select class="select" id="astra_namespace" name="astra_namespace" style="width:70%"><option selected disabled>-</option>';
-  // Invoke Stargate to list namespace
-  var url =
-    "https://" +
-    dbid +
-    "-" +
-    dbregion +
-    ".apps.astra.datastax.com/api/rest/v2/schemas/namespaces/";
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
-  xhr.setRequestHeader("X-Cassandra-Token", astraToken);
-  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      JSON.parse(xhr.responseText).data.forEach(function (item, index) {
-        //console.log("Namespace" + item.name);
-        select +=
-          '<option value="' + item.name + '">' + item.name + "</option>";
-      });
-      select += "</select>";
-      targetDiv.innerHTML = "";
-      targetDiv.innerHTML += '<label class="label" for="astra_namespace">';
-      targetDiv.innerHTML += '<i class="fa fa-bookmark"></i>';
-      targetDiv.innerHTML += "&nbsp;Pick a Namespace</label><br/>";
-      targetDiv.innerHTML += select;
-    }
-  };
-  xhr.send();
-}
-
 function dbSelectorFindDatabasesInCurrentOrg() {
   let astraCSToken = document.getElementById("astra_token").value;
   var url =
@@ -77,7 +156,7 @@ function dbSelectorFindDatabasesInCurrentOrg() {
     }
   };
   xhr.send();
-}
+}*/
 
 /* ----------------------------------------------------------- */
 /* ---------------   Change Swaggger Target   ---------------- */
@@ -108,20 +187,6 @@ const UrlMutatorPlugin = (system) => ({
     },
   },
 });
-
-/**
- * Leveraging the 'UrlMutatorPlugin' to dynamically define target for Swagger UI
- *
- * @author Cedrick Lunven
- */
-function setupAstraDBEndpoint(dbid, dbregion) {
-  window.ui.setScheme("https");
-  window.ui.setHost(dbid + "-" + dbregion + ".apps.astra.datastax.com");
-  window.ui.setBasePath("/api/rest");
-  console.log(
-    "Api Endpoint:" + dbid + "-" + dbregion + ".apps.astra.datastax.com"
-  );
-}
 
 /* ----------------------------------------------------------- */
 /* --------------- Populated Swagger Forms  ------------------ */
