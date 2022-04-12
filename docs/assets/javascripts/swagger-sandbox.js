@@ -154,7 +154,7 @@ function hookExecuteButton() {
   let swaggerOperations = document.querySelectorAll(".execute");
   for (const swaggerOp of swaggerOperations) {
     swaggerOp.addEventListener("click", function (event) {
-      console.log("EXECUTE");
+      event.preventDefault();
     });
   }
 }
@@ -166,26 +166,34 @@ function fillSwaggerForm() {
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("X-Cassandra-Token")
     ) {
-      //inputField.placeholder = document.getElementById("astra_token").value;
+      let lastValue = inputField.value;
       inputField.value = document.getElementById("astra_token").value;
+      let event = new Event("input", { bubbles: true });
+      event.simulated = true;
+      let tracker = inputField._valueTracker;
+      if (tracker) {
+        tracker.setValue(lastValue);
+      }
+      inputField.dispatchEvent(event);
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("focus"));
-      inputField.dispatchEvent(new Event("input"));
-      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
     } else if (
       inputField.hasAttribute("placeholder") &&
       inputField.getAttribute("placeholder").startsWith("namespace-id")
     ) {
-      //inputField.placeholder = document.getElementById("astra_namespace").value;
+      let lastValue = inputField.value;
       inputField.value = document.getElementById("astra_namespace").value;
+      let event = new Event("input", { bubbles: true });
+      event.simulated = true;
+      let tracker = inputField._valueTracker;
+      if (tracker) {
+        tracker.setValue(lastValue);
+      }
+      inputField.dispatchEvent(event);
       inputField.style.color = "#008800";
       inputField.style.backgroundColor = "#eeffee";
       inputField.style.border = "1px solid #008800";
-      inputField.dispatchEvent(new Event("focus"));
-      inputField.dispatchEvent(new Event("input"));
-      inputField.dispatchEvent(new KeyboardEvent("keypress", { key: "a" }));
     }
   }
 }
