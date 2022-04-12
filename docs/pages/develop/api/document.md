@@ -70,18 +70,73 @@ In order to use the **`Document API`** for Astra DB in your application, the fol
 
 <fieldset>
 <legend>Astra DB Setup</legend>
-<label class="label" for="astra_token"><i class="fa fa-key"></i> &nbsp;Authentication token</label>
+<label class="label" for="astra_token"><i class="fa fa-key"></i> &nbsp;Authentication token&nbsp;<sup>*</sup></label>
+<span id="astra_token_errors" style="color:red;font-style:italic;"></span>
 <br/>
 <input class="input" id="astra_token" name="astra_token" type="text" placeholder="AstraCS:...." style="width:70%">
-<input type="submit" 
-       class="md-button button-primary float-right" value="Lookup Databases" 
+
+<!-- Waiting for the Devops API to Allow CORS
+<input type="submit"
+       class="md-button button-primary float-right" value="Lookup Databases"
        onclick="dbSelectorListDatabases(document.getElementById('astra_token').value)" />
+-->
 
-<div id="block_astra_db"></div>
+<div id="block_astra_db">
+  <label class="label" for="astra_db"><i class="fa fa-database"></i> &nbsp;Database identifier&nbsp;<sup>*</sup> <a href="/pages/astra/faq/#where-should-i-find-a-database-identifier">(Where find it ?)</a></label>
+  <span id="astra_db_errors" style="color:red;font-style:italic;"></span>
+  <br/>
+  <input class="input" id="astra_db" name="astra_token" type="text" placeholder="Your Database id" style="width:70%">
+</div>
 
-<div id="block_astra_region"></div>
+<div id="block_astra_region">
+  <label class="label" for="astra_region"><i class="fa fa-map"></i> &nbsp;Database Region&nbsp;<sup>*</sup>  <a href="/pages/astra/faq/#where-should-i-find-a-database-region-name">(Where find it ?)</a></label>
+   <span id="astra_region_errors" style="color:red;font-style:italic;"></span>
+  <br/>
+  <select class="select" id="astra_region" 
+    name="astra_region" style="width:70%" 
+    onchange="dbSelectorShowKeyspaces(
+      document.getElementById('astra_token').value, 
+      document.getElementById('astra_db').value, 
+      document.getElementById('astra_region').value)">
+    <option selected disabled>Pick your region</option>
+    <optgroup label="Google Cloud Platform">
+      <option value="asia-south1">(GCP) asia-south1</option>
+      <option value="europe-west1">(GCP) europe-west1</option>
+      <option value="europe-west2">(GCP) europe-west2 </option>
+      <option value="northamerica-northeast1">(GCP) northamerica-northeast1</option>
+      <option value="southamerica-east1">(GCP) southamerica-east1</option>
+      <option value="us-central1">(GCP) us-central1</option>
+      <option value="us-east1">(GCP) us-east1</option>
+      <option value="us-east4">(GCP) us-east4</option>
+      <option value="us-west1">(GCP) us-west1</option>
+    </optgroup>
+    <optgroup label="AWS">
+      <option value="ap-southeast-1">(AWS) ap-southeast-1</option>
+      <option value="eu-central-1">(AWS) eu-central-1</option>
+      <option value="eu-west-1">(AWS) eu-west-1</option>
+      <option value="us-east-1">(AWS) us-east-1</option>
+      <option value="us-east-2">(AWS) us-east-2</option>
+      <option value="us-west-2">(AWS) us-west-2</option>
+    </optgroup>
+    <optgroup label="Azure">
+      <option value="northeurope">(Azure) northeurope</option>
+      <option value="westeurope">(Azure) westeurope</option>
+      <option value="eastus">(Azure) eastus</option>
+      <option value="eastus2">(Azure) eastus2</option>
+      <option value="southcentralus">(Azure) southcentralus</option>
+      <option value="westus2">(Azure) westus2</option>
+      <option value="canadacentral">(Azure) canadacentral</option>
+      <option value="brazilsouth">(Azure) brazilsouth</option>
+      <option value="centralindia">(Azure) centralindia</option>
+      <option value="australiaeast">(Azure) australiaeast</option>
+    </optgroup>
+  </select>
+</div>
 
-<div id="block_astra_namespace" ></div>
+<div id="dbselector_errors" style="color:red;font-style:italic;"></div>
+
+<div id="block_astra_namespace" >
+</div>
 
 </fieldset>
 
@@ -104,7 +159,7 @@ function setupSwagger() {
     ],
     layout: "StandaloneLayout",
     onComplete: () => {
-       setupAstraDBEndpoint('ASTRA_DB_ID', 'ASTRA_DB_REGION')
+       dbSelectorBuildStargateEndpoint('ASTRA_DB_ID', 'ASTRA_DB_REGION')
     } 
   });
   document.querySelector(".topbar").hidden=true;
@@ -172,7 +227,7 @@ curl --version
 
       **Definition:**
 
-      This operation lists the namespaces inside of a Cassandra database. For each namespace, it will list the datacenters where it resides and the number of replicas. 
+      This operation lists the namespaces inside of a Cassandra database. For each namespace, it will list the datacenters where it resides and the number of replicas.
 
       **Sample Curl**
 
