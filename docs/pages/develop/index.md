@@ -1,29 +1,29 @@
-Dear <b>Developers</b> you do have a running database ... now what ? In this page we provide you the minimum code to use the solution with the language or the framework you prefer.
+Dear <b>Developers</b>, so you have a running database ... now what ? In this page we provide you with the minimum amount of code needed to use Astra with the language or framework of your choice.
 
 ### 🛠️ Pick an API
 
 Astra offers different Apis and interfaces. The choice of one against another will be driven by your use cases.
 
 <a href="api/document">
- <img src="../../img/tile.png" height="130px" width="130px"/>
+ <img src="../../img/tile-api-document.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/rest">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-rest.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/graphql">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-graphql.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="api/rest">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<a href="api/grpc">
+<img src="../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="api/cql">
-<img src="../../img/tile.png" height="130px" width="130px"/>
+<img src="../../img/tile-api-cql.png" height="130px" width="130px"/>
 </a>
 </p>
 
 ### 🛠️ Pick a language
 
-Select the language of you choice clicking the tile and learn how to interact with each interface exposed in Astra
+Click the tile and learn how to interact with each language-specific interface exposed in Astra.
 
 <a href="languages/java">
  <img src="../../img/tile-java.png" height="130px" width="130px"/>
@@ -60,5 +60,9 @@ Select the language of you choice clicking the tile and learn how to interact wi
 </a>&nbsp;&nbsp;
 <a href="frameworks/micronaut">
 <img src="../../img/tile-micronaut.png" height="130px" width="130px"/>
+</a>
+</a>&nbsp;&nbsp;
+<a href="frameworks/lagom">
+<img src="../../img/tile-lagom.png" height="130px" width="130px"/>
 </a>
 </p>
