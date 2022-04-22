@@ -14,7 +14,7 @@ Apache Airflow is an open source workflow management system. It provides compone
 - You should [Create and Astra Database](/pages/astra/create-instance/)
 - You should [Have an Astra Token](/pages/astra/create-token/)
 - You should [Download your Secure bundle](/pages/astra/download-scb/)
-- You should install `python3` and `pip3` (local deploymnent of Airflow) or Docker (docker)
+- You should install `python3` and `pip3` (local deployment of Airflow) or Docker (docker)
 
 This article was written for Apache Airflow version `2.2.3` on `MacOS` with Python `3.9`.
 
