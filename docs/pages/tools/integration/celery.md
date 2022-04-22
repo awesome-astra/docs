@@ -1,6 +1,6 @@
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
-<img src="images/celery_logo.png" height="180px" />
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/celery/img/celery_logo.png?raw=true" height="100px" />
 
 ## A - Overview
 
@@ -141,7 +141,7 @@ DESCRIBE TABLES;            // the output, e.g. "celery_tasks", lists the tables
 SELECT * FROM celery_tasks; // <== enter your table name here
 ```
 
-<img src="images/celery_cql_console.png" />
+<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/celery/img/celery_cql_console.png?raw=true" height="100px" />
 
 ## D - Additional configuration
 
