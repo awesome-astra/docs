@@ -10,7 +10,7 @@
 
 Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify integration in your applications. It is a way to create stateless components and ease the integration through one of four different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
 
-To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://github.com/datastaxdevs/awesome-astra/wiki/Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
+To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://awesome-astra.github.io/docs//Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
 
 > ⚠️ We recommend using version `V2` (_with V2 in the URL_) as it covers more features and V1 will be deprecated eventually.
 
@@ -21,8 +21,8 @@ To know more regarding this interface specially you can have a look to [dedicate
 ## Prerequesites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
 ## Swagger Sandbox
 
