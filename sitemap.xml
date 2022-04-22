@@ -261,6 +261,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/celery/</loc>
+         <lastmod>2022-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/pentaho/</loc>
          <lastmod>2022-04-22</lastmod>
          <changefreq>daily</changefreq>

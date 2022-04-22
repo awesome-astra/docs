@@ -1746,6 +1746,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4">
@@ -1838,6 +1840,20 @@
     <li class="md-nav__item">
       <a href="../../integration/cadence/" class="md-nav__link">
         • Cadence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/celery/" class="md-nav__link">
+        • Celery
       </a>
     </li>
   
@@ -2078,7 +2094,7 @@
 
   <h1>• JanusGraph</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-03-24</em> </p>
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-04-22</em> </p>
 <ul>
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">DataStax Community</a></em> </li>
 <li><em>Documented on JanusGraph <a href="https://docs.janusgraph.org/storage-backend/cassandra/#:~:text=large%20graphs%20effectively.-,Deploying%20on%20DataStax%20Astra,-Astra%20DB%20simplifies">official documentation</a></em></li>
@@ -2100,9 +2116,9 @@
 However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the <strong>Prerequisites</strong>.</p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a> </li>
-<li><a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your secure connect bundle ZIP</a></li>
+<li><a href="/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li><a href="/pages/astra/create-token/">Create an Astra Token</a> </li>
+<li><a href="/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
 </ul>
 <p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. </p>
 <p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI</p>
@@ -2239,7 +2255,7 @@ Load a graph using Astra as the storage backend with:
   <small>
     
       Last update:
-      2022-03-24
+      2022-04-22
     
   </small>
 </div>

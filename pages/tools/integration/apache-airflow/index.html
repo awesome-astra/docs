@@ -1748,6 +1748,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4">
@@ -1904,6 +1906,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/" class="md-nav__link">
+        • Celery
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2038,7 +2054,7 @@
 
   <h1>• Apache Airflow</h1>
 
-<p><em>Last Update 2022-03-28</em> </p>
+<p><em>Last Update 2022-04-22</em> </p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/airflow/img/airflow-image.png?raw=true" height="100px" /></p>
 <p>Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems. These instructions will step through tasks/adjustments to be done in each product (Astra DB, cql-proxy, Apache Airflow), ultimately resulting in Airflow being able to work with AstraDB in its directed acyclic graphs (DAG).</p>
@@ -2048,9 +2064,9 @@
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your Secure bundle</a></li>
+<li>You should <a href="/pages/astra/create-instance/">Create and Astra Database</a></li>
+<li>You should <a href="/pages/astra/create-token/">Have an Astra Token</a></li>
+<li>You should <a href="/pages/astra/download-scb/">Download your Secure bundle</a></li>
 <li>You should install <code>python3</code> and <code>pip3</code> (local deploymnent of Airflow) or Docker (docker)</li>
 </ul>
 <p>This article was written for Apache Airflow version <code>2.2.3</code> on <code>MacOS</code> with Python <code>3.9</code>.</p>
@@ -2060,7 +2076,7 @@
 <p><strong>✅ Step 1 Create the keyspace <code>airflow</code></strong></p>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>airflow</code>.</p>
 <p><strong>✅ Step 2 Start Cql Proxy</strong></p>
-<p>DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in <a href="https://github.com/datastaxdevs/awesome-astra/wiki/CQL-Proxy">CQL-PROXY</a>.</p>
+<p>DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in <a href="https://awesome-astra.github.io/docs//CQL-Proxy">CQL-PROXY</a>.</p>
 <p>Be sure to start <code>cql-proxy</code> with the following settings:</p>
 <ul>
 <li>Using the Secure Connect Bundle downloaded in the previous section</li>
@@ -2128,7 +2144,7 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
   <small>
     
       Last update:
-      2022-03-28
+      2022-04-22
     
   </small>
 </div>
