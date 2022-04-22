@@ -6,7 +6,7 @@
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
 <script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
-The **Document API** is an HTTP REST API and part of the open source [Stargate.io](stargate.io). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
+The **Document API** is an HTTP REST API and part of the open source [Stargate.io](https://stargate.io/). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
 
 <img src="../../../../img/stargate-api-doc/architecture.png" />
 
