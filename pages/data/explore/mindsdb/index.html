@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#files-i-changed" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1384,9 +1389,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ‣ MindsDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         ‣ MindsDB
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#files-i-changed" class="md-nav__link">
+    Files I Changed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    Git Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-history" class="md-nav__link">
+    Terminal History
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1933,6 +1981,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#files-i-changed" class="md-nav__link">
+    Files I Changed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    Git Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-history" class="md-nav__link">
+    Terminal History
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1951,28 +2028,24 @@
 <li><em>This article was originally written by <strong>Steven Matisson</strong> on <a href="https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB">Datastax JIRA</a></em></li>
 </ul>
 <p><img src="https://github.com/mindsdb/mindsdb_native/raw/stable/assets/MindsDBColorPurp@3x.png?raw=true" height="50px" /></p>
-<p>
-
-This page will go into details about what I had to do to build the project, modify the `cassandra.py` and `scylla_ds.py`, and get mindsdb GUI connected to Astra.
-
-- **Source Repo:** [GitHub - mindsdb/mindsdb](https://github.com/mindsdb/mindsdb)
-- **My Fork:** [ds-steven-matison/mindsdb](https://github.com/ds-steven-matison/mindsdb)
-- **Docs:** [https://docs.mindsdb.com/](https://docs.mindsdb.com/)
-
-#### Files I Changed
-
+<p>This page will go into details about what I had to do to build the project, modify the <code>cassandra.py</code> and <code>scylla_ds.py</code>, and get mindsdb GUI connected to Astra.</p>
+<ul>
+<li><strong>Source Repo:</strong> <a href="https://github.com/mindsdb/mindsdb">GitHub - mindsdb/mindsdb</a></li>
+<li><strong>My Fork:</strong> <a href="https://github.com/ds-steven-matison/mindsdb">ds-steven-matison/mindsdb</a></li>
+<li><strong>Docs:</strong> <a href="https://docs.mindsdb.com/">https://docs.mindsdb.com/</a></li>
+</ul>
+<h4 id="files-i-changed">Files I Changed<a class="headerlink" href="#files-i-changed" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/datasources/scylla_ds.py
 </code></pre></div>
-
-- _Path here is correct. “lib64” not part of repo, so I put scylla_ds.py in repo so you can see source code here: [github diff](https://github.com/ds-steven-matison/mindsdb/commit/51d6936d49e0597e47cc7dac24785d2f775f3ea4#diff-9ad8948ab6e9e5fbdfa34873eb019faa3069f62c2297acbb50791ba70af43e9f)_
-
+<ul>
+<li><em>Path here is correct. “lib64” not part of repo, so I put scylla_ds.py in repo so you can see source code here: <a href="https://github.com/ds-steven-matison/mindsdb/commit/51d6936d49e0597e47cc7dac24785d2f775f3ea4#diff-9ad8948ab6e9e5fbdfa34873eb019faa3069f62c2297acbb50791ba70af43e9f">github diff</a></em></li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/cassandra.py
 </code></pre></div>
-
-- Changes diff in repo here: [github diff](https://github.com/ds-steven-matison/mindsdb/commit/51d6936d49e0597e47cc7dac24785d2f775f3ea4#diff-23fdac8240db507d6205637ba90dcb72f825d939bf44d5ada16ea4ebfeee0175)
-
-### Git Status
-
+<ul>
+<li>Changes diff in repo here: <a href="https://github.com/ds-steven-matison/mindsdb/commit/51d6936d49e0597e47cc7dac24785d2f775f3ea4#diff-23fdac8240db507d6205637ba90dcb72f825d939bf44d5ada16ea4ebfeee0175">github diff</a></li>
+</ul>
+<h3 id="git-status">Git Status<a class="headerlink" href="#git-status" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Untracked files:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    LICENSE.txt
@@ -1987,9 +2060,7 @@ This page will go into details about what I had to do to build the project, modi
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    pip-selfcheck.json
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    share/
 </code></pre></div>
-
-### Terminal History
-
+<h3 id="terminal-history">Terminal History<a class="headerlink" href="#terminal-history" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  503  python -v
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  504  python -version
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  505  ls
@@ -2049,7 +2120,7 @@ This page will go into details about what I had to do to build the project, modi
   <small>
     
       Last update:
-      2022-03-24
+      2022-04-22
     
   </small>
 </div>
