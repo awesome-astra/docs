@@ -77,6 +77,7 @@ nav:
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • Temporal : pages/tools/integration/temporal.md
       - • Cadence : pages/tools/integration/cadence.md
+      - • Celery : pages/tools/integration/celery.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
 

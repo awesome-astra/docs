@@ -2,7 +2,7 @@
 
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache-spark/img/Apache_Spark_logo.png" height="180px" />
+<img src="/img/apache-spark/Apache_Spark_logo.png" height="180px" />
 
 ## A - Overview
 
@@ -13,9 +13,9 @@ Apache Spark is an open-source, distributed processing system used for big data 
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token) (RO User is needed for this example)
-- [Download your secure connect bundle ZIP](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- [Create an Astra Database](/pages/astra/create-instance/)
+- [Create an Astra Token](/pages/astra/create-token/) (RO User is needed for this example)
+- [Download your secure connect bundle ZIP](/pages/astra/download-scb/)
 - Download and install the latest version of [Spark Cassandra Connector](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility [here.](https://github.com/datastax/spark-cassandra-connector#version-compatibility)
 
 ## C - Installation and Setup
@@ -79,4 +79,4 @@ res0: Long = 25
 scala> :quit
 ```
 
-[🏠 Back to HOME](https://github.com/datastaxdevs/awesome-astra/wiki)
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/)

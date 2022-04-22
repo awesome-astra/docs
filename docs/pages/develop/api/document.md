@@ -62,8 +62,8 @@ The **Document API** is an HTTP REST API and part of the open source [Stargate.i
 In order to use the **`Document API`** for Astra DB in your application, the following prerequisites must be met.
 
 - An **Astra account**, use the [tutorial](http://astra.datastax.com/) to create yours
-- A running **Astra Database**, use the [tutorial](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) to create one
-- An **authentication token**, use the [tutorial](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token) to create one
+- A running **Astra Database**, use the [tutorial](/pages/astra/create-instance/) to create one
+- An **authentication token**, use the [tutorial](/pages/astra/create-token/) to create one
 - A client, framework or tool to execute **Http Requests**. This page will provide you `SWAGGER` and `POSTMAN`
 
 ## Database Selector
@@ -188,9 +188,9 @@ window.onload = setupSwagger;
 | Parameter Name | parameter value                       | Description                                                                                                                                                                                                                                       |
 | :------------: | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |     token      | `AstraCS:....`                        | _When you generate a new token it is the third field. Make sure you add enough privileges to use the APis, Database Administrator is a good choice to develop_                                                                                    |
-|       db       | `00000000-0000-0000-0000-00000000000` | _Unique identifier of your DB, [you find on the main dashboard](https://github.com/datastaxdevs/awesome-astra/wiki/Astra-FAQ#where-should-i-find-a-database-identifier-)_                                                                         |
-|     region     | `us-east1`                            | _region name, [you find on the datanase dashboard](https://github.com/datastaxdevs/awesome-astra/wiki/Astra-FAQ#where-should-i-find-a-database-region-name-)_                                                                                     |
-|   namespace    | `demo`                                | _Namespaces are the same as keyspaces. They are created with the database or added from the database dashboard: [How to create a keyspace](https://github.com/datastaxdevs/awesome-astra/wiki/Astra-FAQ#how-to-create-a-namespace-or-keyspace-)]_ |
+|       db       | `00000000-0000-0000-0000-00000000000` | _Unique identifier of your DB, [you find on the main dashboard](https://awesome-astra.github.io/docs//Astra-FAQ#where-should-i-find-a-database-identifier-)_                                                                         |
+|     region     | `us-east1`                            | _region name, [you find on the datanase dashboard](https://awesome-astra.github.io/docs//Astra-FAQ#where-should-i-find-a-database-region-name-)_                                                                                     |
+|   namespace    | `demo`                                | _Namespaces are the same as keyspaces. They are created with the database or added from the database dashboard: [How to create a keyspace](https://awesome-astra.github.io/docs//Astra-FAQ#how-to-create-a-namespace-or-keyspace-)]_ |
 |   collection   | `person`                              | _Collection name (like table) to store one type of documents._                                                                                                                                                                                    |
 
 - this is what it is looks like

@@ -7,8 +7,8 @@ Lagom is an open source framework for building out Reactive microservices.  Lago
 #### 📦. Prerequisites [ASTRA DB]
 
 - You should have an [Astra DB account](http://astra.datastax.com/)
-- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create an Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
 #### 📦. Prerequisites [Development Environment]
 

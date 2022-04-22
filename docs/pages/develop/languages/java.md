@@ -34,9 +34,9 @@ Driver reference documentation can be found [HERE](https://docs.datastax.com/en/
       **Astra**
 
       - You should have an [Astra account](http://astra.datastax.com/)
-      - You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-      - You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-      - You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+      - You should [Create and Astra Database](/pages/astra/create-instance/)
+      - You should [Have an Astra Token](/pages/astra/create-token/)
+      - You should [Download your Secure bundle](/pages/astra/download-scb/)
 
       **Development environment**
 
@@ -241,7 +241,7 @@ This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra 
 
 Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify application integration. It is a way to create stateless components and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with `REST Apis` also called `DATA` in the swagger specifications.
 
-To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://github.com/datastaxdevs/awesome-astra/wiki/Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
+To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://awesome-astra.github.io/docs//Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
 
 > ⚠️ We recommend to use version `V2` (_with V2 in the URL_) as it covers more features and the V1 would be deprecated sooner.
 
@@ -250,8 +250,8 @@ To know more regarding this interface specially you can have a look to [dedicate
 **📦 Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
 **📦 Prerequisites [Development Environment]**
 
@@ -450,8 +450,8 @@ api XXX
 **📦 Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
 **📦 Prerequisites [Development Environment]**
 
@@ -477,7 +477,7 @@ mvn -version
 
 **🖥️ Sample Code (project [astra-httpclient-docapi](https://github.com/DataStax-Examples/astra-samples-java/tree/main/astra-httpclient-docapi))**
 
-> [⏫ Back to top](https://github.com/datastaxdevs/awesome-astra/wiki/Coding-Applications-for-Astra-in-JAVA#pick-the-interface-you-need-to-use)
+> [⏫ Back to top](https://awesome-astra.github.io/docs//Coding-Applications-for-Astra-in-JAVA#pick-the-interface-you-need-to-use)
 
 ## 6 Stargate GraphQL
 

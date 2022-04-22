@@ -27,7 +27,7 @@ graph TB
 ## B - Prerequisites
 
 - [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- [Create an Astra Token](/pages/astra/create-token/)
 
 ## C - Populate an Astra DB Database
 

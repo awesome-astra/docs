@@ -12,8 +12,8 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
 ## - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should have an [Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create an Astra Database](/pages/astra/create-instance/)
+- You should have an [Astra Token](/pages/astra/create-token/)
 
 
 !!! note "Note"

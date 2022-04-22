@@ -1,6 +1,6 @@
 # Connecting to Astra DB from a Google Cloud Function using Python Driver and Cloud Console
 
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki) | \*Written by **Artem Chebotko\***
+[🏠 Back to home](https://awesome-astra.github.io/docs/) | \*Written by **Artem Chebotko\***
 
 **📋 On this page**
 
@@ -17,9 +17,9 @@
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- [Download a Secure Connect Bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- [Create an Astra Database](/pages/astra/create-instance/)
+- [Create an Astra Token](/pages/astra/create-token/)
+- [Download a Secure Connect Bundle](/pages/astra/download-scb/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
 ## C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console
@@ -138,7 +138,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 # Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console
 
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki) | \*Written by **Artem Chebotko\***
+[🏠 Back to home](https://awesome-astra.github.io/docs/) | \*Written by **Artem Chebotko\***
 
 **📋 On this page**
 
@@ -155,8 +155,8 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- [Create an Astra Database](/pages/astra/create-instance/)
+- [Create an Astra Token](/pages/astra/create-token/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
 ## C - Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console

@@ -4,6 +4,8 @@
 
 - **[Apache Spark](integration/apache-spark):** Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
 
+- **[Celery](integration/celery):** Celery is an open-source, distributed task queue written in Python. With Celery you can run tasks (e.g. processing of messages) in an asynchronous fashion. Celery supports a variety of message buses and backends: among the supported backends are Cassandra and Astra DB.
+
 - **[Cloud Functions (Python Driver)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
 - **[Cloud Functions (Python SDK)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.

@@ -18,9 +18,9 @@ Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) c
 ## - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Download your Secure bundle](/pages/astra/download-scb/)
 - You should [Download and install PDI](https://sourceforge.net/projects/pentaho/)
 
 This article was written for version `9.1` on `MacOS` but it should also work for the Windows version.
