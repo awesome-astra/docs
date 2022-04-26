@@ -279,35 +279,41 @@ mvn -version
 
 **🖥️ Sample Code (project [astra-httpclient-restapi](https://github.com/DataStax-Examples/astra-samples-java/tree/main/astra-httpclient-restapi))**
 
-```java
-public class AstraRestApiHttpClient {
+=== "View Code"
 
-    static final String ASTRA_TOKEN       = "<change_with_your_token>";
-    static final String ASTRA_DB_ID       = "<change_with_your_database_identifier>";
-    static final String ASTRA_DB_REGION   = "<change_with_your_database_region>";
-    static final String ASTRA_DB_KEYSPACE = "<change_with_your_keyspace>";
+      ```java
+      public class AstraRestApiHttpClient {
 
-    static  Logger logger = LoggerFactory.getLogger(AstraRestApiHttpClient.class);
+          static final String ASTRA_TOKEN       = "<change_with_your_token>";
+          static final String ASTRA_DB_ID       = "<change_with_your_database_identifier>";
+          static final String ASTRA_DB_REGION   = "<change_with_your_database_region>";
+          static final String ASTRA_DB_KEYSPACE = "<change_with_your_keyspace>";
 
-    public static void main(String[] args) throws Exception {
+          static  Logger logger = LoggerFactory.getLogger(AstraRestApiHttpClient.class);
 
-        String apiRestEndpoint = new StringBuilder("https://")
-                .append(ASTRA_DB_ID).append("-")
-                .append(ASTRA_DB_REGION)
-                .append(".apps.astra.datastax.com/api/rest")
-                .toString();
-        logger.info("Rest Endpoint is {}", apiRestEndpoint);
+          public static void main(String[] args) throws Exception {
 
-        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            listKeyspaces(httpClient, apiRestEndpoint);
-            createTable(httpClient, apiRestEndpoint);
-            insertRow(httpClient, apiRestEndpoint);
-            retrieveRow(httpClient, apiRestEndpoint);
-        }
-        logger.info("[OK] Success");
-        System.exit(0);
-    }
-```
+              String apiRestEndpoint = new StringBuilder("https://")
+                      .append(ASTRA_DB_ID).append("-")
+                      .append(ASTRA_DB_REGION)
+                      .append(".apps.astra.datastax.com/api/rest")
+                      .toString();
+              logger.info("Rest Endpoint is {}", apiRestEndpoint);
+
+              try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+                  listKeyspaces(httpClient, apiRestEndpoint);
+                  createTable(httpClient, apiRestEndpoint);
+                  insertRow(httpClient, apiRestEndpoint);
+                  retrieveRow(httpClient, apiRestEndpoint);
+              }
+              logger.info("[OK] Success");
+              System.exit(0);
+          }
+      ```
+
+=== "Execute Code"
+
+    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
 
 - List keyspaces
 
