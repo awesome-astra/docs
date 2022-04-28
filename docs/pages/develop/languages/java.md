@@ -1,29 +1,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
+---
+
 ### 1. Overview
 
 <img src="../../../../img/tile-java.png" align="left" height="180px"/>
 
-Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
+The Astra platform provides multiple services such as; **Databases** and **Streaming**. For each service there are **multiple Apis and interfaces** available. In this page we will explain how to use each interface with JAVA. For each interface we list **minimal dependencies** and show you the **minimal code**.
 
-Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. Those are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ is also available for you to reduce the amount of boilerplate code needed to get started. More information is [here](https://github.com/datastax/astra-sdk-java/wiki).
+A _Software developement KIT (SDK)_ for JAVA is available. It greatly simplifies the integration as all interface clients have been implemented for you. More information [here](https://github.com/datastax/astra-sdk-java/wiki).
 
 ### 2. Interfaces list
 
 Pick the interface you want to use from the list:
 
-|      Component      | Interface                                                                        | Description                                 |
-| :-----------------: | :------------------------------------------------------------------------------- | :------------------------------------------ |
-|    **Astra DB**     | [:fontawesome-solid-paper-plane: Cassandra Drivers](#3-cql-cassandra-drivers)    | Main connection to Cassandra                |
-|    **Astra DB**     | [:octicons-arrow-switch-16: Rest API](#4-stargate-rest-api)                      | CQL exposes as stateless rest resources     |
-|    **Astra DB**     | [:material-code-json: Document Api](#5-stargate-document-api)                    | Use Cassandra as a Document DB              |
-|    **Astra DB**     | [:material-graphql: GraphQL Api](#6-stargate-graphql)                            | Create tables and use generated CRUD        |
-|    **Astra DB**     | [:octicons-code-square-16: Grpc Apis](#7-stargate-grpc)                          | CQL exposes through serialized protobuf     |
-| **Astra Streaming** | [:fontawesome-solid-envelopes-bulk: Pulsar Client](#8-pulsar-client)             | Create Producer, Consumers, Subscriptions.. |
-| **Astra Streaming** | [:fontawesome-brands-connectdevelop: Pulsar Admin](#9-pulsar-admin)              | Administrate your Pulsar cluster            |
-|   **Astra Core**    | [:fontawesome-solid-users: Devops Users and Roles](#10-devops-organization-apis) | Manage users and roles                      |
-|   **Astra Core**    | [:material-database: Devops Database](#11-devops-database-api)                   | Manage Databases                            |
-|   **Astra Core**    | [:material-tools: Devops Streaming](#12-devops-streaming-api)                    | Manage Streaming                            |
+|      Component      | Interface                                                                            | Description                                                                                                                                                                                                            |
+| :-----------------: | :----------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    **Astra DB**     | [:fontawesome-solid-paper-plane: Cassandra Native Drivers](#3-cql-cassandra-drivers) | Use Cassandra with java native drivers and CQL language.                                                                                                                                                               |
+|    **Astra DB**     | [:octicons-arrow-switch-16: Rest](#4-stargate-rest-api)                              | CQL operations exposed as stateless rest resources. You will interact with this interface through an `HttpClient`.                                                                                                     |
+|    **Astra DB**     | [:material-code-json: Document](#5-stargate-document-api)                            | Use Cassandra as a Document-Oriented database. You will interact with this interface through an `HttpClient`.                                                                                                          |
+|    **Astra DB**     | [:material-graphql: GraphQL](#6-stargate-graphql)                                    | CQL operations exposed as a GraqphQL interface. Each query and mutation definitions are generated from the table schema. You will interact with this interface through an `HttpClient` or `GraphQL` client like `DGS`. |
+|    **Astra DB**     | [:octicons-code-square-16: gRPC](#7-stargate-grpc)                                   | CQL operations exposed as a gRPC API. You will interact with this interface through a grpc Client generated from the specification `proto` files                                                                       |
+| **Astra Streaming** | [:fontawesome-solid-envelopes-bulk: Pulsar Client](#8-pulsar-client)                 | Create Producer, Consumers, Subscriptions..                                                                                                                                                                            |
+| **Astra Streaming** | [:fontawesome-brands-connectdevelop: Pulsar Admin](#9-pulsar-admin)                  | Administrate your Pulsar cluster                                                                                                                                                                                       |
+|   **Astra Core**    | [:material-tools: Devops Apis](#10-devops-apis)                                      | Administration operations for the platform exposed as stateless HTTP Apis. You will interact with this interface through an `HttpClient`.                                                                              |
 
 ## 3. CQL Cassandra Drivers
 
@@ -311,10 +311,6 @@ mvn -version
           }
       ```
 
-=== "Execute Code"
-
-    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
-
 - List keyspaces
 
 ![listks](https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/schemas-keyspace-list.png?raw=true)
@@ -451,27 +447,26 @@ throws Exception {
 
 **ℹ️ Overview**
 
-api XXX
+The Document API is an HTTP REST API and part of the open source Stargate.io. The idea is to provide an abstraction on top of Apache Cassandra™ to allow document-oriented access patterns. To get familiar with it you can access [documentation and sandbox here](/pages/develop/api/document/)
 
-**📦 Prerequisites [ASTRA]**
+### 5.1 `Http Client`
+
+- **📦 Prerequisites**
 
 - You should have an [Astra account](http://astra.datastax.com/)
 - You should [Create and Astra Database](/pages/astra/create-instance/)
 - You should [Have an Astra Token](/pages/astra/create-token/)
-
-**📦 Prerequisites [Development Environment]**
-
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
-
 - You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
 
 ```bash
 mvn -version
 ```
 
-**📦 Setup Project**
+- **📦 Setup Project**
 
-- Import relevant dependencies for `Apache Http Client` in your `pom.xml`. Jackon is also helpful to serialize or unserialized Java Objects as JSON.
+Import relevant dependencies for `Apache Http Client` in your `pom.xml`.
+Jackon is also helpful to serialize or unserialized Java Objects as JSON.
 
 ```xml
 <dependency>
@@ -481,9 +476,105 @@ mvn -version
 </dependency>
 ```
 
-**🖥️ Sample Code (project [astra-httpclient-docapi](https://github.com/DataStax-Examples/astra-samples-java/tree/main/astra-httpclient-docapi))**
+=== "View Code"
 
-> [⏫ Back to top](https://awesome-astra.github.io/docs//Coding-Applications-for-Astra-in-JAVA#pick-the-interface-you-need-to-use)
+      ```java
+      static final String ASTRA_TOKEN       = "change_me";
+      static final String ASTRA_DB_ID       = "change_me";
+      static final String ASTRA_DB_REGION   = "change_me";
+      static final String ASTRA_DB_KEYSPACE = "change_me";
+      static  Logger logger = LoggerFactory.getLogger(AstraDocApiHttpClient.class);
+
+      public static void main(String[] args) throws Exception {
+         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+
+              // Build Request
+              String apiRestEndpoint = new StringBuilder("https://")
+                  .append(ASTRA_DB_ID).append("-")
+                  .append(ASTRA_DB_REGION)
+                  .append(".apps.astra.datastax.com/api/rest")
+                  .toString();
+              HttpGet req = new HttpGet(apiRestEndpoint + "/v2/schemas/namespaces");
+              req.addHeader("X-Cassandra-Token", ASTRA_TOKEN);
+
+              // Execute Request
+              try(CloseableHttpResponse res = httpClient.execute(req)) {
+                if (200 == res.getCode()) {
+                  logger.info("[OK] Namespaces list retrieved");
+                  logger.info("Returned message: {}", EntityUtils.toString(res.getEntity()));
+                }
+              }
+         }
+      }
+      ```
+
+=== "Execute Code"
+
+    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CedrickLunven/HttpClientDocumentApi?lite=true"></iframe>
+
+=== "Download Project"
+
+    <a href="https://github.com/awesome-astra/sample-java-httpclient-docapi/archive/refs/heads/main.zip" class="md-button">
+          <i class="fa fa-download" ></i>&nbsp;Download Document Api Code
+    </a>
+
+### 5.2 `Astra SDK`
+
+- **📦 Prerequisites**
+
+- You should have an [Astra account](http://astra.datastax.com/)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
+- You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
+
+```bash
+mvn -version
+```
+
+- **📦 Setup Project**
+
+Import relevant dependencies for `Astra SDK` in your `pom.xml`.
+
+```xml
+<dependency>
+	<groupId>com.datastax.astra</groupId>
+	<artifactId>astra-sdk</artifactId>
+	<version>0.3.0</version>
+</dependency>
+```
+
+=== "View Code"
+
+      ```java
+      public static final String ASTRA_DB_TOKEN    = "CHANGE_ME";
+      public static final String ASTRA_DB_ID       = "CHANGE_ME";
+      public static final String ASTRA_DB_REGION   = "CHANGE_ME";
+
+      public static void main(String[] args) {
+          try (AstraClient astraClient =  AstraClient.builder()
+          .withToken(ASTRA_DB_TOKEN)
+          .withDatabaseId(ASTRA_DB_ID)
+          .withDatabaseRegion(ASTRA_DB_REGION)
+          .build()) {
+          System.out.println("+ Namespaces (doc)    : " +
+            astraClient
+              .apiStargateDocument()
+              .namespaceNames()
+              .collect(Collectors.toList()));
+          }
+      }
+      ```
+
+=== "Execute Code"
+
+    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
+
+=== "Download Project"
+
+    <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+          <i class="fa fa-download" ></i>&nbsp;Download Document Api Code
+    </a>
 
 ## 6 Stargate GraphQL
 
@@ -685,8 +776,4 @@ TODO
 
 ## 9. Pulsar Admin
 
-## 10 Devops API Database
-
-## 11 Devops API Organization
-
-## 12 Devops API Streaming
+## 10 Devops API
