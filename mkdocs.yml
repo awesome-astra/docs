@@ -74,10 +74,11 @@ nav:
       - • Apache Airflow : pages/tools/integration/apache-airflow.md
       - • Apache Nifi : pages/tools/integration/apache-nifi.md
       - • Apache Spark : pages/tools/integration/apache-spark.md
-      - • Pentaho Data Integration : pages/tools/integration/pentaho.md
-      - • Temporal : pages/tools/integration/temporal.md
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
+      - • Liquibase : pages/tools/integration/liquibase.md
+      - • Pentaho Data Integration : pages/tools/integration/pentaho.md
+      - • Temporal : pages/tools/integration/temporal.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
 
