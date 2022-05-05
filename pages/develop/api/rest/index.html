@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/api/rest/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1806,6 +1806,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4">
@@ -1868,34 +1870,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/integration/pentaho/" class="md-nav__link">
-        • Pentaho Data Integration
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../tools/integration/temporal/" class="md-nav__link">
-        • Temporal
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../tools/integration/cadence/" class="md-nav__link">
         • Cadence
       </a>
@@ -1912,6 +1886,48 @@
     <li class="md-nav__item">
       <a href="../../../tools/integration/celery/" class="md-nav__link">
         • Celery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/integration/liquibase/" class="md-nav__link">
+        • Liquibase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/integration/pentaho/" class="md-nav__link">
+        • Pentaho Data Integration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/integration/temporal/" class="md-nav__link">
+        • Temporal
       </a>
     </li>
   
@@ -2088,20 +2104,20 @@
 <li>List keyspaces</li>
 </ul>
 <p><img alt="listks" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/schemas-keyspace-list.png?raw=true" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span> <span class="n">httpClient</span><span class="p">,</span> <span class="n">String</span> <span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> <span class="c1">// Build Request</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> <span class="n">HttpGet</span> <span class="n">listKeyspacesReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span> <span class="o">+</span> <span class="s">&quot;/v2/schemas/keyspaces&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> <span class="n">listKeyspacesReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span> <span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span><span class="c1">// Build Request</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">listKeyspacesReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w"> </span><span class="n">listKeyspacesReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a> <span class="c1">// Execute Request</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> <span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span> <span class="n">res</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">listKeyspacesReq</span><span class="p">))</span> <span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>   <span class="k">if</span> <span class="p">(</span><span class="mi">200</span> <span class="o">==</span> <span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span> <span class="p">{</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>     <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Keyspaces list retrieved&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>     <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span> <span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>   <span class="p">}</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a> <span class="p">}</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w"> </span><span class="c1">// Execute Request</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w"> </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">listKeyspacesReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">     </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Keyspaces list retrieved&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">     </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">   </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li>Create a Table</li>
@@ -2141,68 +2157,68 @@
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Create Table code</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">createTable</span><span class="p">(</span><span class="n">CloseableHttpClient</span> <span class="n">httpClient</span><span class="p">,</span> <span class="n">String</span> <span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="n">HttpPost</span> <span class="n">createTableReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       <span class="o">+</span> <span class="s">&quot;/v2/schemas/keyspaces/&quot;</span> <span class="o">+</span> <span class="n">ASTRA_DB_KEYSPACE</span> <span class="o">+</span> <span class="s">&quot;/tables&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  <span class="n">createTableReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span> <span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  <span class="n">String</span> <span class="n">createTableJson</span> <span class="o">=</span> <span class="s">&quot;{...JSON.....}&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  <span class="n">createTableReq</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span> <span class="n">StringEntity</span><span class="p">(</span><span class="n">createTableJson</span><span class="p">,</span> <span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createTable</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">createTableReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">       </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/tables&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">createTableJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{...JSON.....}&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="n">createTableJson</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span><span class="w"></span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  <span class="c1">// Execute Request</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  <span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span> <span class="n">res</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">createTableReq</span><span class="p">))</span> <span class="p">{</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">if</span> <span class="p">(</span><span class="mi">201</span> <span class="o">==</span> <span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span> <span class="p">{</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Table Created (if needed)&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span> <span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="p">}</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  <span class="p">}</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="c1">// Execute Request</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">createTableReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Table Created (if needed)&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li>Insert a Row</li>
 </ul>
 <p><img alt="row" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/data-rows-insert.png?raw=true" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span> <span class="n">httpClient</span><span class="p">,</span> <span class="n">String</span> <span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  <span class="n">HttpPost</span> <span class="n">insertCedrick</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span> <span class="o">+</span> <span class="s">&quot;/v2/keyspaces/&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   <span class="o">+</span> <span class="n">ASTRA_DB_KEYSPACE</span> <span class="o">+</span> <span class="s">&quot;/users&quot;</span> <span class="p">);</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  <span class="n">insertCedrick</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span> <span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  <span class="n">insertCedrick</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span> <span class="n">StringEntity</span><span class="p">(</span><span class="s">&quot;{&quot;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="o">+</span> <span class="s">&quot; \&quot;firstname\&quot;: \&quot;Cedrick\&quot;,&quot;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="o">+</span> <span class="s">&quot; \&quot;lastname\&quot; : \&quot;Lunven\&quot;,&quot;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="o">+</span> <span class="s">&quot; \&quot;email\&quot;    : \&quot;c.lunven@gmail.com\&quot;,&quot;</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="o">+</span> <span class="s">&quot; \&quot;color\&quot;    : \&quot;blue\&quot; }&quot;</span><span class="p">,</span> <span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">insertCedrick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="s">&quot;{&quot;</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;firstname\&quot;: \&quot;Cedrick\&quot;,&quot;</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;lastname\&quot; : \&quot;Lunven\&quot;,&quot;</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;email\&quot;    : \&quot;c.lunven@gmail.com\&quot;,&quot;</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;color\&quot;    : \&quot;blue\&quot; }&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span><span class="w"></span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  <span class="c1">// Execute Request</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  <span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span> <span class="n">res</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">insertCedrick</span><span class="p">))</span> <span class="p">{</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="k">if</span> <span class="p">(</span><span class="mi">201</span> <span class="o">==</span> <span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span> <span class="p">{</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row inserted&quot;</span><span class="p">);</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span> <span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="p">}</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  <span class="p">}</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="c1">// Execute Request</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">insertCedrick</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row inserted&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span><span class="w"></span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li>Retrieve a row</li>
 </ul>
 <p><img alt="row" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/data-rows-read.png?raw=true" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span> <span class="n">httpClient</span><span class="p">,</span> <span class="n">String</span> <span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="c1">// Build Request</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="n">HttpGet</span> <span class="n">rowReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span> <span class="o">+</span> <span class="s">&quot;/v2/keyspaces/&quot;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="o">+</span> <span class="n">ASTRA_DB_KEYSPACE</span> <span class="o">+</span> <span class="s">&quot;/users/Cedrick/Lunven&quot;</span> <span class="p">);</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  <span class="n">rowReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span> <span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="c1">// Build Request</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">rowReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users/Cedrick/Lunven&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="n">rowReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  <span class="c1">// Execute Request</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  <span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span> <span class="n">res</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">rowReq</span><span class="p">))</span> <span class="p">{</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="k">if</span> <span class="p">(</span><span class="mi">200</span> <span class="o">==</span> <span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span> <span class="p">{</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>      <span class="n">String</span> <span class="n">payload</span> <span class="o">=</span>  <span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">());</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row retrieved&quot;</span><span class="p">);</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>      <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Row retrieved : {}&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="p">);</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="p">}</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>  <span class="p">}</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="c1">// Execute Request</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">rowReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row retrieved&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Row retrieved : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p><a href="https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip"><img alt="dl" src="https://dabuttonfactory.com/button.png?t=Download+Project&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=666&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></p>
 
@@ -2293,7 +2309,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>
