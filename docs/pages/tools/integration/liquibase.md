@@ -1,5 +1,7 @@
 _Last Update {{ git_revision_date }}_
 
+<img src="https://github.com/awesome-astra/docs/blob/main/docs/img/liquibase/logo.png?raw=true" height="100px" />
+
 ## Overview
 
 The purpose of this document is to guide you through the process of creating a new Liquibase project with Cassandra. In this tutorial, you will generate an example project and follow the instructions to apply and learn concepts associated with creating new Liquibase projects with Cassandra on DataStax Astra.
