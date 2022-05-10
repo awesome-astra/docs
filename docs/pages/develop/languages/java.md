@@ -8,7 +8,9 @@
 
 The Astra platform provides multiple services such as; **Databases** and **Streaming**. For each service there are **multiple Apis and interfaces** available. In this page we will explain how to use each interface with JAVA. For each interface we list **minimal dependencies** and show you the **minimal code**.
 
-A _Software developement KIT (SDK)_ for JAVA is available. It greatly simplifies the integration as all interface clients have been implemented for you. More information [here](https://github.com/datastax/astra-sdk-java/wiki).
+
+Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ is also available for you to reduce the amount of boilerplate code needed to get started. More information is [here](https://github.com/datastax/astra-sdk-java/wiki).
+
 
 ### 2. Interfaces list
 
