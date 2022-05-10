@@ -2,9 +2,9 @@
 
 <img src="../../../../img/tile-scala.png" align="left" height="180px"/>
 
-Astra provides include **multiple services** (Database, Streaming), and, for each, there are **multiple Api and interfaces**. Frameworks and tools to connect to Astra are related to the Apis you choose.
+Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
 
-Pick the interface in the table to get relevant instructions. In most case you download a working sample. Those are standalone examples designed as simple as possible. please note that a _Software developement KIT (SDK)_ is also available for you to reduce boilerplate. More information [here](https://github.com/datastax/astrajs).
+Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ is also available for you to reduce the amount of boilerplate code needed to get started. More information is [here](https://github.com/datastax/astrajs).
 
 ### 2. Interfaces List
 
