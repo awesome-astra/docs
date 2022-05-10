@@ -15,7 +15,7 @@ nav:
       - ‣ Multi Regions: pages/astra/multi-regions.md
       - ‣ CQL Proxy: pages/astra/cqlproxy.md
       - ‣ FAQ: pages/astra/faq.md
-    - Astra Steaming:
+    - Astra Streaming:
       - ‣ Create Topic: pages/astra/create-topic.md
 
   - Data Management:
