@@ -1,5 +1,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
+## Executable Code (REPLIT)
+
+Change values `ASTRA_DB_TOKEN`, `ASTRA_DB_ID`, `ASTRA_DB_REGION`, `ASTRA_DB_KEYSPACE` in the code below and execute with
+
+[![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://replit.com/@CLU2/ConnectToAstra.zip)
+
+<iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
+
 ## Mermaids
 
 ### 1️⃣ Flow

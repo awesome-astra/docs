@@ -1,10 +1,10 @@
-<ul>
-<li><a href="integration/apache-airflow"><b>Apache Airflow</b></a>: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems</li>
+- **[Apache Airflow](integration/apache-airflow)**: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems.
 
-</ul>
 - **[Apache Nifi](integration/apache-nifi)**: NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, we use it here to mean the automated and managed flow of information between systems.
 
 - **[Apache Spark](integration/apache-spark):** Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
+
+- **[Celery](integration/celery):** Celery is an open-source, distributed task queue written in Python. With Celery you can run tasks (e.g. processing of messages) in an asynchronous fashion. Celery supports a variety of message buses and backends: among the supported backends are Cassandra and Astra DB.
 
 - **[Cloud Functions (Python Driver)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
@@ -26,7 +26,7 @@
 
 - **[Micronaut](../develop/frameworks/micronaut.md)**: Micronaut is a modern, JVM-based, full stack Java framework designed for building modular, easily testable JVM applications with support for Java, Kotlin, and Groovy. Micronaut is developed by the creators of the Grails framework and takes inspiration from lessons learnt over the years building real-world applications from monoliths to microservices using Spring, Spring Boot and Grails.
 
-- **[MindDB](../data/explore/minddb.md)**:MindsDB enables you to use ML predictions in your database using SQL.
+- **[MindsDB](../data/explore/mindsdb.md)**:MindsDB enables you to use ML predictions in your database using SQL.
 
 - **[Pentaho Data Integration](integration/pentaho.md)**: Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 

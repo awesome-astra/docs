@@ -1,12 +1,6 @@
-# Connecting to Astra DB from a Google Cloud Function using Python Driver and Cloud Console
+# Google Cloud Functions
 
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki) | \*Written by **Artem Chebotko\***
-
-**📋 On this page**
-
-- [A - Overview](#A---Overview)
-- [B - Prerequisites](#B---Prerequisites)
-- [C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console](#C---Creating-a-Google-Cloud-Function-to-Access-Astra-DB-using-Python-Driver-and-Cloud-Console)
+[🏠 Back to home](https://awesome-astra.github.io/docs/) | \*Written by **Artem Chebotko\***
 
 ## A - Overview
 
@@ -17,33 +11,33 @@
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- [Download a Secure Connect Bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- [Create an Astra Database](/pages/astra/create-instance/)
+- [Create an Astra Token](/pages/astra/create-token/)
+- [Download a Secure Connect Bundle](/pages/astra/download-scb/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
-## C - Creating a Google Cloud Function to Access Astra DB using Python Driver and Cloud Console
+## C - Using `Python Driver`
 
-### ✅ Step 1: Create a secret with the secure connect bundle file.
+### ✅ 1. Create a secret with the secure connect bundle file.
 
 1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
 2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/create-secret.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/create-secret.png" />
 
 3. Click **Create secret**.
 
 4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/secret-manager.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/secret-manager.png" />
 
-### ✅ Step 2: Create a function.
+### ✅ 2. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select the same project that has Secret Manager and Cloud Functions enabled, and click **Create function**.
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/basics.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/basics.png" />
 
 4. Click **Save**.
 
@@ -52,13 +46,13 @@
 - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
 - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/runtime.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/runtime.png" />
 
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/reference-secret.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/reference-secret.png" />
 
 Notice the final **Path** that should be used to access the secure connect bundle in the function code.
 
@@ -72,7 +66,7 @@ Notice the final **Path** that should be used to access the secure connect bundl
 
 11. Add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `requirements.txt` file.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/requirements_txt.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/requirements_txt.png" />
 
 12. Replace the `main.py` content with:
 
@@ -103,71 +97,47 @@ def query_astra_db(request):
     print ('Success')
 ```
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/main_py.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/main_py.png" />
 
 You can learn more about the code above by reading the [**cassandra-driver**](https://github.com/datastax/python-driver) documentation.
 
-### ✅ Step 3: Deploy the function.
+### ✅ 3. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/deploy.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/deploy.png" />
 
-### ✅ Step 4: Test the function.
+### ✅ 4. Test the function.
 
 1. Under **Actions**, select **Test function**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/test-function.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/test-results.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/test-results.png" />
 
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ Step 5: View logs.
+### ✅ 5. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/logs.png" />
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-driver/img/logs-explorer.png" />
+<img src="../../../../img/google-cloud-functions-python-driver/logs.png" />
 
----
+<img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" />
 
-# Connecting to Astra DB from a Google Cloud Function using Python SDK and Cloud Console
+## D - Using `Python SDK`
 
-[🏠 Back to home](https://github.com/datastaxdevs/awesome-astra/wiki) | \*Written by **Artem Chebotko\***
-
-**📋 On this page**
-
-- [A - Overview](#A---Overview)
-- [B - Prerequisites](#B---Prerequisites)
-- [C - Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console](#C---Creating-a-Google-Cloud-Function-to-Access-Astra-DB-using-Python-SDK-and-Cloud-Console)
-
-## A - Overview
-
-[Cloud Functions](https://cloud.google.com/functions) is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:
-
-- Extend Astra DB with additional data processing capabilities, such as aggregating, summarizing and validating data periodically;
-- Connect Astra DB with other cloud services into data pipelines that move, process and analyze data.
-
-## B - Prerequisites
-
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
-
-## C - Creating a Google Cloud Function to Access Astra DB using Python SDK and Cloud Console
-
-### ✅ Step 1: Create a function.
+### ✅ 1. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select a project that has Cloud Functions enabled, and click **Create function**.
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/basics.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/basics.png" />
 
 4. Click **Save**.
 
@@ -177,7 +147,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
 - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/runtime.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/runtime.png" />
 
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
@@ -191,7 +161,7 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
 
 10. Add [**AstraPy**](https://github.com/datastax/astrapy), a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the `requirements.txt` file.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/requirements_txt.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/requirements_txt.png" />
 
 11. Replace the `main.py` content with:
 
@@ -221,33 +191,34 @@ def query_astra_db(request):
     print ('Success')
 ```
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/main_py.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/main_py.png" />
 
 You can learn more about the code above by reading the [AstraPy](https://github.com/datastax/astrapy) documentation.
 
-### ✅ Step 2: Deploy the function.
+### ✅ 2. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/deploy.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/deploy.png" />
 
-### ✅ Step 3: Test the function.
+### ✅ 3. Test the function.
 
 1. Under **Actions**, select **Test function**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/test-function.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/test-results.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/test-results.png" />
 
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ Step 4: View logs.
+### ✅ 4. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/logs.png" />
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/google-cloud-functions-python-sdk/img/logs-explorer.png" />
+<img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
+
+<img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" />
