@@ -16,9 +16,9 @@ DataGrip is a database management environment for developers. It is designed to 
 
 > [Datagrip reference documentation](https://www.jetbrains.com/help/datagrip/quick-start-with-datagrip.html)
 
-- [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- [Download your secure connect bundle ZIP](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- [Create an Astra Database](/pages/astra/create-instance/)
+- [Create an Astra Token](/pages/astra/create-token/)
+- [Download your secure connect bundle ZIP](/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
 ## C - Installation and Setup
