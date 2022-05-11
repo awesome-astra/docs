@@ -1743,6 +1743,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4">
@@ -1941,6 +1943,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feast/" class="md-nav__link">
+        • Feast
+      </a>
     </li>
   
 
@@ -2183,7 +2199,7 @@
 
   <h1>• Celery</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-04-22</em> </p>
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-05-11</em> </p>
 <p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/celery/img/celery_logo.png?raw=true" height="100px" /></p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages.
@@ -2209,11 +2225,11 @@ as backend. See the Celery documentation for more details:</p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
-<li><a href="/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery)</li>
-<li><a href="/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
+<li><a href="/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery).</li>
+<li><a href="/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.</li>
 <li>Install Celery with the Cassandra backend in your local Python environment, e.g. <code>pip install celery[cassandra]</code>. See <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">the backend-settings page</a> for additional info.</li>
 </ul>
-<p>Keep the token information </p>
+<p>Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.</p>
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
 <p>Here a minimal Celery setup that makes use of the Astra DB backend is described start-to-end.</p>
 <p>A task will be defined and executed through Celery: afterwards, its return value will be retrieved on the client side.
@@ -2297,7 +2313,7 @@ For this example to work, a message bus is needed - here, in line with a <a href
 </code></pre></div>
 <p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/celery/img/celery_cql_console.png?raw=true" height="100px" /></p>
 <h2 id="d-additional-configuration">D - Additional configuration<a class="headerlink" href="#d-additional-configuration" title="Permanent link">&para;</a></h2>
-<p>Celery uses the DataStax Python driver for Cassandra; hence, the choice connection parameters
+<p>Celery uses the DataStax Python driver for Cassandra; hence, the choice of connection parameters
 is that for the generic driver-based usage of Cassandra in Python.</p>
 <p>In particular, one may want to specify additional parameters through the <code>celeryconfig</code> such as
 protocol level, load-balancing policy and so on. Refer to the
@@ -2310,7 +2326,7 @@ section in the Celery documentation for a more comprehensive setup.</p>
   <small>
     
       Last update:
-      2022-04-22
+      2022-05-11
     
   </small>
 </div>
