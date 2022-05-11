@@ -78,6 +78,7 @@ nav:
       - • Temporal : pages/tools/integration/temporal.md
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
+      - • Feast : pages/tools/integration/feast.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
 
