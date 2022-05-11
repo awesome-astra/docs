@@ -6,6 +6,8 @@
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
 <script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
+## 1. Overview
+
 The **Document API** is an HTTP REST API and part of the open source [Stargate.io](https://stargate.io/). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
 
 <img src="../../../../img/stargate-api-doc/architecture.png" />
@@ -26,7 +28,7 @@ The **Document API** is an HTTP REST API and part of the open source [Stargate.i
     DOC -->|1..49 Nested docs|DOC
 ```
 
-???+ abstract "How is the data stored in Cassandra?"
+??? abstract "How is the data stored in Cassandra?"
 
       The JSON documents are stored using an internal data model. The table schema is generic as is each collection. The algorithm used to transform the document is called **_document shredding_**. The schema is optimized for searches but also to limit tombstones on edits and deletes.
 
@@ -57,16 +59,21 @@ The **Document API** is an HTTP REST API and part of the open source [Stargate.i
       | {docid} | `a` | `b`   | _null_ | `1`       |
       | {docid} | `c` | `[0]` | `d`    | `2`       |
 
-## Prerequesites
+!!! warning "Known Limitations"
 
-In order to use the **`Document API`** for Astra DB in your application, the following prerequisites must be met.
+      - As of today there is **no aggregation or sorting** available in the Document Api.
 
-- An **Astra account**, use the [tutorial](http://astra.datastax.com/) to create yours
-- A running **Astra Database**, use the [tutorial](/pages/astra/create-instance/) to create one
-- An **authentication token**, use the [tutorial](/pages/astra/create-token/) to create one
-- A client, framework or tool to execute **Http Requests**. This page will provide you `SWAGGER` and `POSTMAN`
+      - Queries are paged with a **pagesize of `3` records by default** and you can increase up to a maximum of `20` records. Otherwise, the payload would be too large.
 
-## Database Selector
+## 2. Prerequesites
+
+- You should have an [Astra account](http://astra.datastax.com/)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
+
+## 3. Browse Api with Swagger
+
+### 3.1 Provide Database Details
 
 <fieldset>
 <legend>Astra DB Setup</legend>
@@ -140,7 +147,9 @@ In order to use the **`Document API`** for Astra DB in your application, the fol
 
 </fieldset>
 
-## Swagger Sandbox
+### 3.2 Use Swagger
+
+The swagger client below will have fields pre-populated with your database details.
 
 <div id="swagger-ui"></div>
 
@@ -171,13 +180,13 @@ window.onload = setupSwagger;
   
 </script>
 
-## Postman
+## 3. Browse Api with Postman
 
-**Prerequisites [Development Environment]**
+### 3.1 Installation
 
-- You should install **[Postman](https://www.postman.com/downloads/)** to import the sample collections that we have provided.
+- Install **[Postman](https://www.postman.com/downloads/)** to import the sample collections that we have provided.
 
-**Setup Postman**
+### 3.2 Postman Setup
 
 - Import the configuration File `Astra_Document_Api_Configuration.json` in postman. In the menu locate `File > Import` and drag the file in the box.
 
@@ -185,13 +194,13 @@ window.onload = setupSwagger;
 
 - Edit the values for you db:
 
-| Parameter Name | parameter value                       | Description                                                                                                                                                                                                                                       |
-| :------------: | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|     token      | `AstraCS:....`                        | _When you generate a new token it is the third field. Make sure you add enough privileges to use the APis, Database Administrator is a good choice to develop_                                                                                    |
+| Parameter Name | parameter value                       | Description                                                                                                                                                                                                                          |
+| :------------: | :------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     token      | `AstraCS:....`                        | _When you generate a new token it is the third field. Make sure you add enough privileges to use the APis, Database Administrator is a good choice to develop_                                                                       |
 |       db       | `00000000-0000-0000-0000-00000000000` | _Unique identifier of your DB, [you find on the main dashboard](https://awesome-astra.github.io/docs//Astra-FAQ#where-should-i-find-a-database-identifier-)_                                                                         |
 |     region     | `us-east1`                            | _region name, [you find on the datanase dashboard](https://awesome-astra.github.io/docs//Astra-FAQ#where-should-i-find-a-database-region-name-)_                                                                                     |
 |   namespace    | `demo`                                | _Namespaces are the same as keyspaces. They are created with the database or added from the database dashboard: [How to create a keyspace](https://awesome-astra.github.io/docs//Astra-FAQ#how-to-create-a-namespace-or-keyspace-)]_ |
-|   collection   | `person`                              | _Collection name (like table) to store one type of documents._                                                                                                                                                                                    |
+|   collection   | `person`                              | _Collection name (like table) to store one type of documents._                                                                                                                                                                       |
 
 - this is what it is looks like
 
@@ -205,46 +214,13 @@ window.onload = setupSwagger;
 
 ![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-resources.png?raw=true)
 
-## Working with CURL
+## 4. Api Sandbox with Curl
 
-- You should have **curl** commands available but, if not, you can install from [here](https://curl.se/download.html) or
+Provide the parameters asked at the beginning and see a first set of commands in action.
 
-```bash
-curl --version
-```
+<iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CedrickLunven/Sandbox-DocumentAPI?embed=true"></iframe>
 
-## Operations
-
-!!! warning "Known Limitations"
-
-      - As of today there is **no aggregation or sorting** available in the Document Api.
-
-      - Queries are paged with a **pagesize of `3` records by default** and you can increase up to a maximum of `20` records. Otherwise, the payload would be too large.
-
-### ‣ List Namespaces
-
-!!! example "`GET /v2/namespaces/`"
-
-      **Definition:**
-
-      This operation lists the namespaces inside of a Cassandra database. For each namespace, it will list the datacenters where it resides and the number of replicas.
-
-      **Sample Curl**
-
-      ```bash
-      curl -X GET https://{ASTRA_DB_ID}-{ASTRA_DB_REGION}}\
-      .apps.astra.datastax.com/api/rest/v2/namespaces/ \
-        -H 'accept: application/json' \
-        -H 'X-Cassandra-Token: {TOKEN}}'
-      ```
-
-      **Sample Output**
-
-      ```json
-
-      ```
-
-## Extra Resources
+## 4. Extra Resources
 
 !!! abstract "Reference Documentation"
 
