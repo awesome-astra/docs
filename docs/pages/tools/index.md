@@ -20,7 +20,7 @@
 
 - **[DBeaver](../data/explore/dbeaver.md)**: DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.
 
-- **[Feast](integration/feast):** Celery is an open-source, distributed task queue written in Python. With Celery you can run tasks (e.g. processing of messages) in an asynchronous fashion. Celery supports a variety of message buses and backends: among the supported backends are Cassandra and Astra DB.
+- **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
 
 - **[IntelliJ IDEA](ide/intellij.md)**: The Capable & Ergonomic Java IDE by JetBrains
 
