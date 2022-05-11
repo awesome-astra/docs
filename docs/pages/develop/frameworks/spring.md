@@ -4,13 +4,13 @@
 
 Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](https://spring.io).
 
-Spring applications are packaged as standalone using [`Spring Boot`](https://spring.io/projects/spring-boot). To add capabilities to applications multiple `starters` are provided by Spring. In the current page we will details which are the starters needed to interact Astra interfaces. Datastax team also implemented a dedicated `astra-spring-boot-starter` to help you with the boiler plate code.
+Spring applications are packaged as standalone by using [`Spring Boot`](https://spring.io/projects/spring-boot). To add capabilities to applications multiple `starters` are provided by Spring. In the current page we will explore which starters are needed to interact Astra interfaces. The Datastax team also implemented a dedicated `astra-spring-boot-starter` to help you with the boiler plate code.
 
 ## Astra Spring Boot Starter
 
 #### ℹ️ Overview
 
-**The Astra Spring Boot Starter** once imported in a Spring Boot application, will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are read in `application.yaml` like any spring applications with a dedicated prefix `astra`.
+**The Astra Spring Boot Starter**, once imported in a Spring Boot application, will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are read in `application.yaml` like any spring applications with a dedicated prefix `astra`.
 
 The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.
 

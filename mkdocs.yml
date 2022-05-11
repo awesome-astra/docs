@@ -15,8 +15,26 @@ nav:
       - ‣ Multi Regions: pages/astra/multi-regions.md
       - ‣ CQL Proxy: pages/astra/cqlproxy.md
       - ‣ FAQ: pages/astra/faq.md
-    - Astra Steaming:
+    - Astra Streaming:
       - ‣ Create Topic: pages/astra/create-topic.md
+
+  - Data Management:
+    - Home: pages/data/index.md
+    - Load Data:
+      - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
+      - ‣ DSBulk: pages/data/load/dsbulk.md
+      - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
+    - Explore Data:
+      - ‣ Cqlsh: pages/data/explore/cqlsh.md
+      - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
+      - ‣ Datagrip: pages/data/explore/datagrip.md
+      - ‣ DBSchema: pages/data/explore/dbschema.md
+      - ‣ DBeaver: pages/data/explore/dbeaver.md
+      - ‣ MindsDB: pages/data/explore/mindsdb.md
+      - ‣ TablePlus: pages/data/explore/tableplus.md
+      - ‣ Trino: pages/data/explore/trino.md      
+    - Data Modelling:
+      - ‣ Kashliev KDM: http://kdm.kashliev.com/
 
   - Develop with Astra:
     - List: pages/develop/index.md
@@ -41,24 +59,6 @@ nav:
     - Platform:
       - • Google Cloud Functions: pages/develop/platform/google-cloud-function.md
 
-  - Data Management:
-    - Home: pages/data/index.md
-    - Load Data:
-      - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
-      - ‣ DSBulk: pages/data/load/dsbulk.md
-      - ‣ NoSQL Bench: pages/data/load/nosqlbench.md
-    - Explore Data:
-      - ‣ Cqlsh: pages/data/explore/cqlsh.md
-      - ‣ Netflix Data Explorer : pages/data/explore/netflix-data-explorer.md
-      - ‣ Datagrip: pages/data/explore/datagrip.md
-      - ‣ DBSchema: pages/data/explore/dbschema.md
-      - ‣ DBeaver: pages/data/explore/dbeaver.md
-      - ‣ MindsDB: pages/data/explore/mindsdb.md
-      - ‣ TablePlus: pages/data/explore/tableplus.md
-      - ‣ Trino: pages/data/explore/trino.md      
-    - Data Modelling:
-      - ‣ Kashliev KDM: http://kdm.kashliev.com/
-
   - Third-Party Tools:
     - Tools List: pages/tools/index.md
     - Developers IDE:
@@ -74,11 +74,12 @@ nav:
       - • Apache Airflow : pages/tools/integration/apache-airflow.md
       - • Apache Nifi : pages/tools/integration/apache-nifi.md
       - • Apache Spark : pages/tools/integration/apache-spark.md
-      - • Pentaho Data Integration : pages/tools/integration/pentaho.md
-      - • Temporal : pages/tools/integration/temporal.md
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
       - • Feast : pages/tools/integration/feast.md
+      - • Liquibase : pages/tools/integration/liquibase.md
+      - • Pentaho Data Integration : pages/tools/integration/pentaho.md
+      - • Temporal : pages/tools/integration/temporal.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
 
