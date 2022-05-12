@@ -186,6 +186,8 @@ window.onload = setupSwagger;
 
 - Install **[Postman](https://www.postman.com/downloads/)** to import the sample collections that we have provided.
 
+- You can also import the collection in [Hoppscotch.io](https://hoppscotch.io/) not to install anything.
+
 <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/attachments/postman/Astra_Document_Api.json" class="md-button">
   <i class="fa fa-download" ></i>&nbsp;Postman Collection
 </a>
