@@ -180,15 +180,23 @@ window.onload = setupSwagger;
   
 </script>
 
-## 3. Browse Api with Postman
+## 4. Browse Api with Postman
 
-### 3.1 Installation
+### 4.1 Installation
 
 - Install **[Postman](https://www.postman.com/downloads/)** to import the sample collections that we have provided.
 
-### 3.2 Postman Setup
+<a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/attachments/postman/Astra_Document_Api.json" class="md-button">
+  <i class="fa fa-download" ></i>&nbsp;Postman Collection
+</a>
+
+### 4.2 Postman Setup
 
 - Import the configuration File `Astra_Document_Api_Configuration.json` in postman. In the menu locate `File > Import` and drag the file in the box.
+
+<a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/attachments/postman/Astra_Document_Api_Configuration.json" class="md-button">
+  <i class="fa fa-download" ></i>&nbsp;Postman Configuration
+</a>
 
 ![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-conf-import.png?raw=true)
 
@@ -214,13 +222,13 @@ window.onload = setupSwagger;
 
 ![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-resources.png?raw=true)
 
-## 4. Api Sandbox with Curl
+## 5. Api Sandbox with Curl
 
 Provide the parameters asked at the beginning and see a first set of commands in action.
 
 <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CedrickLunven/Sandbox-DocumentAPI?embed=true"></iframe>
 
-## 4. Extra Resources
+## 6. Extra Resources
 
 !!! abstract "Reference Documentation"
 
