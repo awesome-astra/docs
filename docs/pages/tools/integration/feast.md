@@ -27,6 +27,7 @@ flexibly supports
 both Cassandra and Astra DB, as will be explained below.
 
 Reference documentation:
+
 - ℹ️ [Feast documentation](https://docs.feast.dev/)
 - ℹ️ [Minimal quickstart with Feast](https://docs.feast.dev/getting-started/quickstart)
 - ℹ️ [The `feast-cassandra` plugin](https://pypi.org/project/feast-cassandra/)
@@ -87,8 +88,9 @@ online_store:
     keyspace: feastks
 ```
 
-<details><summary>Settings in `feature_store.yaml` for usage with Cassandra</summary>
-If using regular Cassandra as opposed to Astra DB, the `online_store` portion might look like:
+<details><summary>Settings in "feature_store.yaml" for usage with Cassandra</summary>
+
+If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
 
 ```
 online_store:
@@ -127,7 +129,7 @@ up to a certain provided timestamp.
 
 Create a file `generate.py` and run it with `python generate.py`:
 
-<details><summary>Show `generate.py`</summary>
+<details><summary>Show "generate.py"</summary>
 
 ```python
 from datetime import datetime, timedelta
@@ -196,7 +198,7 @@ and return the required features, as resulting from the last
 
 Create a `fetch_online.py` script and run it with `python fetch_online.py`:
 
-<details><summary>Show `fetch_online.py`</summary>
+<details><summary>Show "fetch_online.py"</summary>
 
 ```python
 from pprint import pprint
