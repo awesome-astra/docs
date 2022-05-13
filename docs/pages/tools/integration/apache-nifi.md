@@ -36,11 +36,11 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 - You should install a `Java JDK 1.8+` and [Apache Maven](https://maven.apache.org/)
 - [Download and install Apache Nifi](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi)
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/nifi-flow-authenticated.png?raw=true" height="400px"/>
+<img src="/img/apache_nifi/nifi-flow-authenticated.png" height="400px"/>
 
 - You should add `invokeHttp` and `Cassandra` [processors](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor)
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/add-processor.png?raw=true" height="400px"/>
+<img src="/img/apache_nifi/add-processor.png" height="400px"/>
 
 ## C - Log Ingestion to Astra with NiFi
 
@@ -54,7 +54,7 @@ In this demo we are going to communicate with Astra via **Stargate’s Documemen
 
 #### GetAuthToken
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/get-auth-token.png?raw=true" height="600px"/>
+<img src="/img/apache_nifi/get-auth-token.png" height="600px"/>
 
 - Upload and add Get [Astra Get Auth Token Template](https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_GetAuthToken.xml) to your canvas. Record the Process Group Id for later.
 - Collect Astra details needed: astra databaseid, region, api url, username, password.
@@ -71,7 +71,7 @@ In this demo we are going to communicate with Astra via **Stargate’s Documemen
 
 ### ✅ Step 2 : Create Data Flow for Log Ingestion
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/apache_nifi/apache_log_flow.png?raw=true" height="600px"/>
+<img src="/img/apache_nifi/apache_log_flow.png" height="600px"/>
 
 In this first example, we are going to ingest apache log data from a custom log file. Reference the template Astra Apache Logs to [Cassandra with Stargate for this data flow](https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_Apache_Logs_to_Cassandra_with_Stargate.xml). This log data happens to be on the same NiFi host in the normal /var/log/httpd/ location. The custom apache log file is in the format of:
 

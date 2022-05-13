@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/formbase.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/formbase.min.css">
 
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui.css">
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-standalone-preset.js"></script>
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
-<script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
+<script src="/assets/javascripts/swagger-sandbox.js"></script>
 
 ## 1. Overview
 
 The **Document API** is an HTTP REST API and part of the open source [Stargate.io](https://stargate.io/). The idea is to provide an abstraction on top of Apache Cassandra™ to allow **document-oriented** access patterns.
 
-<img src="../../../../img/stargate-api-doc/architecture.png" />
+<img src="/img/stargate-api-doc/architecture.png" />
 
 - A `namespace` (replacement for keyspace) will hold multiple `collections` (not tables) to store `Documents`
 
@@ -188,7 +188,7 @@ window.onload = setupSwagger;
 
 - You can also import the collection in [Hoppscotch.io](https://hoppscotch.io/) not to install anything.
 
-<a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/attachments/postman/Astra_Document_Api.json" class="md-button">
+<a href="/assets/attachments/postman/Astra_Document_Api.json" class="md-button">
   <i class="fa fa-download" ></i>&nbsp;Postman Collection
 </a>
 
@@ -196,11 +196,11 @@ window.onload = setupSwagger;
 
 - Import the configuration File `Astra_Document_Api_Configuration.json` in postman. In the menu locate `File > Import` and drag the file in the box.
 
-<a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/attachments/postman/Astra_Document_Api_Configuration.json" class="md-button">
+<a href="/assets/attachments/postman/Astra_Document_Api_Configuration.json" class="md-button">
   <i class="fa fa-download" ></i>&nbsp;Postman Configuration
 </a>
 
-![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-conf-import.png?raw=true)
+![import-doc](/img/postman/docapi-conf-import.png)
 
 - Edit the values for you db:
 
@@ -214,15 +214,15 @@ window.onload = setupSwagger;
 
 - this is what it is looks like
 
-![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-conf-edit.png?raw=true)
+![import-doc](/img/postman/docapi-conf-edit.png)
 
 - Import the Document Api Collection `Astra_Document_Api.json` in postman. Same as before `File > Menu`
 
-![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-import.png?raw=true)
+![import-doc](/img/postman/docapi-import.png)
 
 - That's it! You have now access to a few dozens operations for `namespace`, `collections` and `documents`
 
-![import-doc](https://github.com/datastaxdevs/awesome-astra/blob/main/postman/docapi-resources.png?raw=true)
+![import-doc](/img/postman/docapi-resources.png)
 
 ## 5. Api Sandbox with Curl
 

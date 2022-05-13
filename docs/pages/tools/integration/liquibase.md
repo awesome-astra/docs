@@ -1,6 +1,6 @@
 _Last Update {{ git_revision_date }}_
 
-<img src="https://github.com/awesome-astra/docs/blob/main/docs/img/liquibase/logo.png?raw=true" height="100px" />
+<img src="/img/liquibase/logo.png" height="100px" />
 
 ## Overview
 

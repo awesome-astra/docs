@@ -15,13 +15,13 @@ The Data Explorer by netflix is a web-based tools that will help you navigating 
 
 Multi-cluster access provides easy access to all of the clusters in your environment. The cluster selector in the top nav allows you to switch to any of your discovered clusters quickly.
 
-![](https://github.com/Netflix/nf-data-explorer/raw/master/.github/cluster_selector.png?raw=true)
+![](/img/netflix-data-explorer/cluster_selector.png)
 
 - **Explore your data**
 
 The Explore view provides a simple way to explore your data quickly. You can query by partition and clustering keys, insert and edit records, and easily export the results or download them as CQL statements.
 
-![](https://miro.medium.com/max/1400/0*6ZS1XuvzPsgcirMg)
+![](/img/netflix-data-explorer/explore_view.png)
 
 - **Schema Designer**
 
@@ -29,13 +29,13 @@ Creating a new Keyspace and Table by hand can be error-prone
 
 Our schema designer UI streamlines creating a new Table with improved validation and enforcement of best practices.
 
-![](https://github.com/Netflix/nf-data-explorer/raw/master/.github/schema_designer.gif?raw=true)
+![](/img/netflix-data-explorer/schema_designer.gif)
 
 - **Query IDE**
 
 The Query Mode provides a powerful IDE-like experience for writing free-form CQL queries.
 
-![](https://github.com/Netflix/nf-data-explorer/raw/master/.github/query_ide.gif?raw=true)
+![](/img/netflix-data-explorer/query_ide.gif)
 
 ## B - Prerequisites
 
@@ -77,7 +77,7 @@ yarn start
 
 - Import your bundle
 
-> Here are the instructiond to get your [cloud secure bundle](/pages/astra/download-scb/)
+> Here are the instructions to get your [cloud secure bundle](/pages/astra/download-scb/)
 
 [![Open in IDE](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Examples/nf-data-explorer)
 
@@ -89,6 +89,6 @@ yarn start
 
 - Open the application
 
-![pic](../../../img/netflix-data-explorer/import-bundle.png)
+![pic](/img/netflix-data-explorer/import-bundle.png)
 
 - Import your bundle

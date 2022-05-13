@@ -1,6 +1,6 @@
 _Last Update {{ git_revision_date }}_
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/cadence/cadence-logo.png?raw=true" height="100px" />
+<img src="/img/cadence/cadence-logo.png" height="100px" />
 
 ## Overview
 
@@ -26,7 +26,10 @@ This runbook was written using Mac OS Monterey but it will also work with Window
 2. Make sure to create an Astra token with **Admin Role**
 3. Get your **Database ID**
 
-???+ tip "Find your Database ID in one of two ways:" 1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+??? tip "Find your Database ID in one of two ways"
+
+    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
 
 ### ✅ 2. Cadence Pre-setup
 
@@ -74,8 +77,9 @@ Once the process is completed, you should see a message similar to this:
 
 Great! Your schemas have been migrated with Astra DB.
 ??? info "Confirm your tables exist in Astra"
-_ You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
-_ Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
+    
+    You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
+    Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
 
     ```
     token@cqlsh> use cadence;
@@ -132,6 +136,6 @@ Domain samples-domain successfully registered.
 
 Once you have this all running, you should be able to see your workflows reflect on both the Cadence UI and Astra UI. You can see the domain on the top left is samples-domain, the domain we created, as well as the Status of each workflow as “Completed”.
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/cadence/cadence-testui.png?raw=true"  />
+<img src="/img/cadence/cadence-testui.png"  />
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)

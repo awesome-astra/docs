@@ -1,6 +1,6 @@
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12287/how-to-connect-to-astra-db-from-dbeaver.html)_
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png?raw=true" height="180px" />
+<img src="/img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" />
 
 ## A - Overview
 
@@ -42,13 +42,13 @@ Download the JDBC driver from the DataStax website:
 - Driver Name: `Astra DB`
 - Driver Type: `Generic`
 - Class Name: `com.simba.cassandra.jdbc42.Driver`
-  <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2385-dbeaver-01-create-driver.png?raw=true" height="350px" />
+  <img src="/img/dbeaver/2385-dbeaver-01-create-driver.png" height="350px" />
 
 7. Click the **OK** button to save the driver
 
 At this point, you should see **Astra DB** as one of the drivers on the list:
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2373-dbeaver-02-driver-manager.png?raw=true" height="350px" />
+<img src="/img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" />
 
 ### ✅ Step 3: Create New Connection
 
@@ -61,15 +61,15 @@ Connect to your Astra DB in DBeaver:
    **Note** That you will need to specify the full path to _your_ secure bundle.
 4. In the **Username** field, enter the string `token`
 5. In the **Password** field, paste the value of the token you created in the **Prerequisites** section above. The token looks like `AstraCS:AbC...XYz:123...edf0`.
-   <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2374-dbeaver-03-new-connection.png?raw=true" height="350px" />
+   <img src="/img/dbeaver/2374-dbeaver-03-new-connection.png" height="350px" />
 
 6. Click on the **Connection details** button
 7. In **Connection name** field, give your DB connection a name:
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2402-dbeaver-04-connection-details.png?raw=true" height="350px" />
+<img src="/img/dbeaver/2402-dbeaver-04-connection-details.png" height="350px" />
 8. Click the **Finish** button
 9. Click on the **Test Connection** button to confirm that the driver configuration is working:
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2395-dbeaver-05-test-connection.png?raw=true" height="200px" />
+<img src="/img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" />
 
 ### ✅ Step 4: Final Test
 
@@ -77,6 +77,6 @@ Connect to your Astra DB. If the connection was successful, you should be able t
 
 Here's an example output:
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbeaver/2396-dbeaver-06-explore.png?raw=true" height="350px" />
+<img src="/img/dbeaver/2396-dbeaver-06-explore.png" height="350px" />
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)

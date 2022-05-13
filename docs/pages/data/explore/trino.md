@@ -1,4 +1,4 @@
-<img src="../../../../img/trino/logo-trino.png" height="100px" />
+<img src="/img/trino/logo-trino.png" height="100px" />
 
 ## A - Overview
 

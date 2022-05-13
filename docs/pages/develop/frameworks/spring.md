@@ -1,6 +1,6 @@
 ### Working with Spring
 
-<img src="https://github.com/datastaxdevs/awesome-astra/raw/main/_img/tile-spring.png?raw=true" align="left" height="180px"/>
+<img src="/img/tile-spring.png" align="left" height="180px"/>
 
 Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](https://spring.io).
 
@@ -14,7 +14,7 @@ Spring applications are packaged as standalone by using [`Spring Boot`](https://
 
 The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.
 
-![pic](https://github.com/datastax/astra-sdk-java/raw/main/docs/img/quickstart-spring.png?raw=true)
+![pic](/img/spring/quickstart-spring.png)
 
 #### 📦. Prerequisites [ASTRA]
 
@@ -47,7 +47,7 @@ mvn -version
 |    **name**    | `sdk-quickstart-spring` | **dependencies** | `Spring Web` and `Spring Data for Cassandra` |
 | **packaging**  |          `JAR`          | **Java Version** |                 `8` or `11`                  |
 
-<img src="https://github.com/datastax/astra-sdk-java/blob/main/docs/img/spring-initializr.png?raw=true" />
+<img src="/img/spring/spring-initializr.png" />
 
 <p>
 
@@ -129,15 +129,15 @@ mvn clean install spring-boot:run
 ```
 
 - Access the resources we created
-  - Get your Organization ID: http://localhost:8080/api/devops/organizationid
-  - Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
-  - Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
+- Get your Organization ID: http://localhost:8080/api/devops/organizationid
+- Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
+- Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip)
 
 ## 5. Spring Data Cassandra
 
-As describe in the [Spring documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.choose-style), there are multiple ways to interact with Cassandra. In this tutorial we will show you how to use all of them
+As described in the [Spring documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.choose-style), there are multiple ways to interact with Cassandra. In this tutorial we will show you how to use all of them
 
 - **Repository Abstraction** lets you create repository declarations in your data access layer. The goal of Spring Data’s repository abstraction is to significantly reduce the amount of boilerplate code required to implement data access layers for various persistence stores.
 

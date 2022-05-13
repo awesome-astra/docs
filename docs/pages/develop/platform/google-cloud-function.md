@@ -23,13 +23,13 @@
 1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
 2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
 
-<img src="../../../../img/google-cloud-functions-python-driver/create-secret.png" />
+<img src="/img/google-cloud-functions-python-driver/create-secret.png" />
 
 3. Click **Create secret**.
 
 4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
 
-<img src="../../../../img/google-cloud-functions-python-driver/secret-manager.png" />
+<img src="/img/google-cloud-functions-python-driver/secret-manager.png" />
 
 ### ✅ 2. Create a function.
 
@@ -37,7 +37,7 @@
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
 
-<img src="../../../../img/google-cloud-functions-python-driver/basics.png" />
+<img src="/img/google-cloud-functions-python-driver/basics.png" />
 
 4. Click **Save**.
 
@@ -46,13 +46,13 @@
 - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
 - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
 
-<img src="../../../../img/google-cloud-functions-python-driver/runtime.png" />
+<img src="/img/google-cloud-functions-python-driver/runtime.png" />
 
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
 
-<img src="../../../../img/google-cloud-functions-python-driver/reference-secret.png" />
+<img src="/img/google-cloud-functions-python-driver/reference-secret.png" />
 
 Notice the final **Path** that should be used to access the secure connect bundle in the function code.
 
@@ -66,7 +66,7 @@ Notice the final **Path** that should be used to access the secure connect bundl
 
 11. Add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `requirements.txt` file.
 
-<img src="../../../../img/google-cloud-functions-python-driver/requirements_txt.png" />
+<img src="/img/google-cloud-functions-python-driver/requirements_txt.png" />
 
 12. Replace the `main.py` content with:
 
@@ -97,7 +97,7 @@ def query_astra_db(request):
     print ('Success')
 ```
 
-<img src="../../../../img/google-cloud-functions-python-driver/main_py.png" />
+<img src="/img/google-cloud-functions-python-driver/main_py.png" />
 
 You can learn more about the code above by reading the [**cassandra-driver**](https://github.com/datastax/python-driver) documentation.
 
@@ -107,17 +107,17 @@ You can learn more about the code above by reading the [**cassandra-driver**](ht
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
 
-<img src="../../../../img/google-cloud-functions-python-driver/deploy.png" />
+<img src="/img/google-cloud-functions-python-driver/deploy.png" />
 
 ### ✅ 4. Test the function.
 
 1. Under **Actions**, select **Test function**.
 
-<img src="../../../../img/google-cloud-functions-python-driver/test-function.png" />
+<img src="/img/google-cloud-functions-python-driver/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
 
-<img src="../../../../img/google-cloud-functions-python-driver/test-results.png" />
+<img src="/img/google-cloud-functions-python-driver/test-results.png" />
 
 Notice the CQL version output **3.4.5** and status code **200**.
 
@@ -125,9 +125,9 @@ Notice the CQL version output **3.4.5** and status code **200**.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 
-<img src="../../../../img/google-cloud-functions-python-driver/logs.png" />
+<img src="/img/google-cloud-functions-python-driver/logs.png" />
 
-<img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" />
+<img src="/img/google-cloud-functions-python-driver/logs-explorer.png" />
 
 ## D - Using `Python SDK`
 
@@ -137,7 +137,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/basics.png" />
+<img src="/img/google-cloud-functions-python-sdk/basics.png" />
 
 4. Click **Save**.
 
@@ -147,7 +147,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
 - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
 
-<img src="../../../../img/google-cloud-functions-python-sdk/runtime.png" />
+<img src="/img/google-cloud-functions-python-sdk/runtime.png" />
 
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
@@ -161,7 +161,7 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
 
 10. Add [**AstraPy**](https://github.com/datastax/astrapy), a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the `requirements.txt` file.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/requirements_txt.png" />
+<img src="/img/google-cloud-functions-python-sdk/requirements_txt.png" />
 
 11. Replace the `main.py` content with:
 
@@ -191,7 +191,7 @@ def query_astra_db(request):
     print ('Success')
 ```
 
-<img src="../../../../img/google-cloud-functions-python-sdk/main_py.png" />
+<img src="/img/google-cloud-functions-python-sdk/main_py.png" />
 
 You can learn more about the code above by reading the [AstraPy](https://github.com/datastax/astrapy) documentation.
 
@@ -201,17 +201,17 @@ You can learn more about the code above by reading the [AstraPy](https://github.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/deploy.png" />
+<img src="/img/google-cloud-functions-python-sdk/deploy.png" />
 
 ### ✅ 3. Test the function.
 
 1. Under **Actions**, select **Test function**.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/test-function.png" />
+<img src="/img/google-cloud-functions-python-sdk/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/test-results.png" />
+<img src="/img/google-cloud-functions-python-sdk/test-results.png" />
 
 Notice the CQL version output **3.4.5** and status code **200**.
 
@@ -219,6 +219,6 @@ Notice the CQL version output **3.4.5** and status code **200**.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 
-<img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
+<img src="/img/google-cloud-functions-python-sdk/logs.png" />
 
-<img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" />
+<img src="/img/google-cloud-functions-python-sdk/logs-explorer.png" />

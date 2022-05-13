@@ -8,7 +8,7 @@
 </ol>
 </details>
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/download.png?raw=true" />
+<img src="/img/dbschema/download.png" />
 
 ## A - Overview
 
@@ -45,29 +45,29 @@ Download the JDBC driver from the DataStax website:
 1. Open [DB Schema](https://dbschema.com/)
 2. Select **Connect to the Database**
 3. Select **Start**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-start.png?raw=true"/>
+<img src="/img/dbschema/dbschema-start.png"/>
 
 4. In the **Choose your database** menu, select Cassandra.
 
 5. Select **Next.**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-cass-sel.png?raw=true" />
+<img src="/img/dbschema/dbschema-cass-sel.png" />
 
 6. Select **JDBC Driver** edit option.
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-connection-d.png?raw=true" />
+<img src="/img/dbschema/dbschema-connection-d.png" />
 
 7. In the JDBC Driver Manager, select **New**.
 8. In the Add RDBMS window, enter **Astra** and select **OK**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-driver-manager.png?raw=true" />
+<img src="/img/dbschema/dbschema-driver-manager.png" />
 
 9. Select **OK** in the confirmation message.
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-connection-d.png?raw=true" />
+<img src="/img/dbschema/dbschema-connection.png" />
 
 10. Upload the Simba JDBC Driver.
 11. Select **Open**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-simba-driver.png?raw=true" />
+<img src="/img/dbschema/dbschema-simba-driver.png" />
 
 12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database **window. Select **Next**.
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-astra.png?raw=true" height="500px" />
+<img src="/img/dbschema/dbschema-astra.png" height="500px" />
 
 13. In the Astra Connection Dialog, add JDBC URL as
     `jdbc:cassandra://;AuthMech=<2>;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;TunableConsistency=<6>` with the following variables:
@@ -78,11 +78,11 @@ Download the JDBC driver from the DataStax website:
     - **TunableConsistency:** Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.
 
 14. Select **Connect**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-url.png?raw=true" height="500px" />
+<img src="/img/dbschema/dbschema-url.png" height="500px" />
 
 15. In the **Select Schemas/Catalogs**, select the keyspace to which you want to connect.
 16. Select **OK.**
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/dbschema/dbschema-connetion-established.png?raw=true" height="500px" />
+<img src="/img/dbschema/dbschema-connetion-established.png" height="500px" />
 
 **✅ Step 4: Final Test**
 

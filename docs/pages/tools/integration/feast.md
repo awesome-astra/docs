@@ -1,6 +1,6 @@
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
-<img src="../../../../img/feast/feast_logo.png" height="100px" />
+<img src="/img/feast/feast_logo.png" height="100px" />
 
 ## A - Overview
 
