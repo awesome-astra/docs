@@ -2378,7 +2378,7 @@
 <p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
 <hr />
 <h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
-<p><img src="../../../../img/tile-java.png" align="left" height="180px"/></p>
+<p><img src="/img/tile-java.png" align="left" height="180px"/></p>
 <p>The Astra platform provides multiple services such as; <strong>Databases</strong> and <strong>Streaming</strong>. For each service there are <strong>multiple Apis and interfaces</strong> available. In this page we will explain how to use each interface with JAVA. For each interface we list <strong>minimal dependencies</strong> and show you the <strong>minimal code</strong>.</p>
 <p>Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a <em>Software developement KIT (SDK)</em> is also available for you to reduce the amount of boilerplate code needed to get started. More information is <a href="https://github.com/datastax/astra-sdk-java/wiki">here</a>.</p>
 <h3 id="2-interfaces-list">2. Interfaces list<a class="headerlink" href="#2-interfaces-list" title="Permanent link">&para;</a></h3>
@@ -2593,7 +2593,7 @@
 </a></p>
 <h3 id="33-astra-sdk">3.3 Astra SDK<a class="headerlink" href="#33-astra-sdk" title="Permanent link">&para;</a></h3>
 <p>This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs.</p>
-<p><img alt="" src="https://github.com/datastax/astra-sdk-java/raw/main/docs/img/sdk-overview.png?raw/true" /></p>
+<p><img alt="" src="/img/java/sdk-overview.png" /></p>
 <p><strong>The Astra SDK</strong> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code> (which configures the <code>StargateClient</code> for you). As you can see on the figure below the <code>AstraClient</code> handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
 <details class="abstract annotate">
 <summary>Setup <code>pom.xml</code></summary>
@@ -2644,7 +2644,7 @@
 <blockquote>
 <p>⚠️ We recommend to use version <code>V2</code> (<em>with V2 in the URL</em>) as it covers more features and the V1 would be deprecated sooner.</p>
 </blockquote>
-<p><img alt="v2" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/api-data.png?raw=true" /></p>
+<p><img alt="v2" src="/img/java/api-data.png" /></p>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
 <ul>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
@@ -2715,7 +2715,7 @@
 <ul>
 <li>List keyspaces</li>
 </ul>
-<p><img alt="listks" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/schemas-keyspace-list.png?raw=true" /></p>
+<p><img alt="listks" src="/img/java/schemas-keyspace-list.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w"> </span><span class="c1">// Build Request</span><span class="w"></span>
@@ -2734,7 +2734,7 @@
 <ul>
 <li>Create a Table</li>
 </ul>
-<p><img alt="table" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/schemas-table-create.png?raw=true" /></p>
+<p><img alt="table" src="/img/java/schemas-table-create.png" /></p>
 <blockquote>
 <p>Query used is <code>createTableJson</code> here:</p>
 </blockquote>
@@ -2789,7 +2789,7 @@
 <ul>
 <li>Insert a Row</li>
 </ul>
-<p><img alt="row" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/data-rows-insert.png?raw=true" /></p>
+<p><img alt="row" src="/img/java/data-rows-insert.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">insertCedrick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span><span class="w"></span>
@@ -2813,7 +2813,7 @@
 <ul>
 <li>Retrieve a row</li>
 </ul>
-<p><img alt="row" src="https://github.com/datastaxdevs/awesome-astra/blob/main/stargate-api-rest/data-rows-read.png?raw=true" /></p>
+<p><img alt="row" src="/img/java/data-rows-read.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
@@ -3068,7 +3068,7 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
   <small>
     
       Last update:
-      2022-05-10
+      2022-05-14
     
   </small>
 </div>

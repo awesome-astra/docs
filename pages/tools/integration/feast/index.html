@@ -2199,8 +2199,8 @@
 
   <h1>• Feast</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-05-11</em> </p>
-<p><img src="../../../../img/feast/feast_logo.png" height="100px" /></p>
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-05-14</em> </p>
+<p><img src="/img/feast/feast_logo.png" height="100px" /></p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://feast.dev/">Feast</a>
 is a (Apache-licensed) open-source feature store for machine learning.
@@ -2220,10 +2220,12 @@ their own infrastructure.</p>
 <a href="https://pypi.org/project/feast-cassandra/">Feast online store plugin for Cassandra</a>
 flexibly supports
 both Cassandra and Astra DB, as will be explained below.</p>
-<p>Reference documentation:
-- ℹ️ <a href="https://docs.feast.dev/">Feast documentation</a>
-- ℹ️ <a href="https://docs.feast.dev/getting-started/quickstart">Minimal quickstart with Feast</a>
-- ℹ️ <a href="https://pypi.org/project/feast-cassandra/">The <code>feast-cassandra</code> plugin</a></p>
+<p>Reference documentation:</p>
+<ul>
+<li>ℹ️ <a href="https://docs.feast.dev/">Feast documentation</a></li>
+<li>ℹ️ <a href="https://docs.feast.dev/getting-started/quickstart">Minimal quickstart with Feast</a></li>
+<li>ℹ️ <a href="https://pypi.org/project/feast-cassandra/">The <code>feast-cassandra</code> plugin</a></li>
+</ul>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>feastks</code> is created in the database.</li>
@@ -2264,8 +2266,9 @@ for the bundle path and the token authentication info</em>):</p>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    password: Client_Secret
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    keyspace: feastks
 </code></pre></div>
-<details><summary>Settings in `feature_store.yaml` for usage with Cassandra</summary>
-If using regular Cassandra as opposed to Astra DB, the `online_store` portion might look like:
+<details><summary>Settings in "feature_store.yaml" for usage with Cassandra</summary>
+
+If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>online_store:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
@@ -2297,7 +2300,7 @@ which directly scans the offline source data and performs
 a point-in-time join to construct the features requested
 up to a certain provided timestamp.</p>
 <p>Create a file <code>generate.py</code> and run it with <code>python generate.py</code>:</p>
-<details><summary>Show `generate.py`</summary>
+<details><summary>Show "generate.py"</summary>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2359,7 +2362,7 @@ newly-inserted rows.</p>
 and return the required features, as resulting from the last
 "materialize" operation.</p>
 <p>Create a <code>fetch_online.py</code> script and run it with <code>python fetch_online.py</code>:</p>
-<details><summary>Show `fetch_online.py`</summary>
+<details><summary>Show "fetch_online.py"</summary>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
@@ -2391,7 +2394,7 @@ and return the required features, as resulting from the last
   <small>
     
       Last update:
-      2022-05-11
+      2022-05-14
     
   </small>
 </div>

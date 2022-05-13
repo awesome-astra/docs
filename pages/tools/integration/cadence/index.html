@@ -2145,8 +2145,8 @@
 
   <h1>• Cadence</h1>
 
-<p><em>Last Update 2022-04-26</em></p>
-<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/cadence/cadence-logo.png?raw=true" height="100px" /></p>
+<p><em>Last Update 2022-05-14</em></p>
+<p><img src="/img/cadence/cadence-logo.png" height="100px" /></p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Cadence is a multi-tenant orchestration framework that helps with managing workflows. It scales horizontally to handle millions of concurrent executions from various customers. Cadence Open Sources uses docker compose to run their server, and uses Apache CassandraⓇ as its default backend dependency. Using docker compose, users are able to also use Cadence with MySQL, PostgreSQL, Statsd+Graphite, and Elasticsearch.</p>
 <ul>
@@ -2170,7 +2170,13 @@
 <li>Make sure to create an Astra token with <strong>Admin Role</strong></li>
 <li>Get your <strong>Database ID</strong></li>
 </ol>
-<p>???+ tip "Find your Database ID in one of two ways:" 1. Navigate to your your database and get the last ID in the URL: <code>https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code> 2. Copy and paste the <strong>Datacenter ID</strong> without the trailing <code>-1</code> from the <strong>Regions</strong> section of your Astra Dashboard.</p>
+<details class="tip">
+<summary>Find your Database ID in one of two ways</summary>
+<ol>
+<li>Navigate to your your database and get the last ID in the URL: <code>https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></li>
+<li>Copy and paste the <strong>Datacenter ID</strong> without the trailing <code>-1</code> from the <strong>Regions</strong> section of your Astra Dashboard.</li>
+</ol>
+</details>
 <h3 id="2-cadence-pre-setup">✅ 2. Cadence Pre-setup<a class="headerlink" href="#2-cadence-pre-setup" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Clone this GitHub <a href="https://github.com/melienherrera/cadence-astra-cql-proxy">repository</a></li>
@@ -2210,25 +2216,22 @@
 <p>Great! Your schemas have been migrated with Astra DB.</p>
 <details class="info">
 <summary>Confirm your tables exist in Astra</summary>
-</details>
-<p>_ You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
-_ Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadence_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>cadence-cassandra-tool</code>.</p>
-<div class="highlight"><pre><span></span><code>```
-token@cqlsh&gt; use cadence;
-token@cqlsh:cadence&gt; desc tables;
-
-history_node        schema_version  tasks           history_tree
-domains_by_name_v2  executions      domains         events
-cluster_config      queue           queue_metadata  schema_update_history
-
-token@cqlsh:cadence&gt; use cadence_visibility ;
-token@cqlsh:cadence_visibility&gt; desc tables;
-
-open_executions        closed_executions_v2  closed_executions
-schema_update_history  schema_version
-
-```
+<p>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
+Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadence_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>cadence-cassandra-tool</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use cadence;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:cadence&gt; desc tables;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>history_node        schema_version  tasks           history_tree
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>domains_by_name_v2  executions      domains         events
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cluster_config      queue           queue_metadata  schema_update_history
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>token@cqlsh:cadence&gt; use cadence_visibility ;
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>token@cqlsh:cadence_visibility&gt; desc tables;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>open_executions        closed_executions_v2  closed_executions
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>schema_update_history  schema_version
 </code></pre></div>
+</details>
 <h3 id="4-run-docker-compose">✅ 4. Run Docker Compose<a class="headerlink" href="#4-run-docker-compose" title="Permanent link">&para;</a></h3>
 <p>In this step, the <code>docker-compose.yaml</code> file is already provided for you in the <code>cadence-astra-cql-proxy</code> repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with cql-proxy, and it should pull your Astra credentials from when you set it earlier.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>services:
@@ -2258,7 +2261,7 @@ Using Cadence’s Command Line tool, you will be able to interact with your loca
 <li>Once this is complete, you can start by running the sample Hello World project by following the instructions in that repository.</li>
 </ol>
 <p>Once you have this all running, you should be able to see your workflows reflect on both the Cadence UI and Astra UI. You can see the domain on the top left is samples-domain, the domain we created, as well as the Status of each workflow as “Completed”.</p>
-<p><img src="https://github.com/datastaxdevs/awesome-astra/blob/main/cadence/cadence-testui.png?raw=true"  /></p>
+<p><img src="/img/cadence/cadence-testui.png"  /></p>
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
 
   <hr>
@@ -2266,7 +2269,7 @@ Using Cadence’s Command Line tool, you will be able to interact with your loca
   <small>
     
       Last update:
-      2022-04-26
+      2022-05-14
     
   </small>
 </div>

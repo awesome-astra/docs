@@ -2118,14 +2118,14 @@
   <h1>• Spring</h1>
 
 <h3 id="working-with-spring">Working with Spring<a class="headerlink" href="#working-with-spring" title="Permanent link">&para;</a></h3>
-<p><img src="https://github.com/datastaxdevs/awesome-astra/raw/main/_img/tile-spring.png?raw=true" align="left" height="180px"/></p>
+<p><img src="/img/tile-spring.png" align="left" height="180px"/></p>
 <p>Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference <a href="https://spring.io">Spring.io</a>.</p>
 <p>Spring applications are packaged as standalone by using <a href="https://spring.io/projects/spring-boot"><code>Spring Boot</code></a>. To add capabilities to applications multiple <code>starters</code> are provided by Spring. In the current page we will explore which starters are needed to interact Astra interfaces. The Datastax team also implemented a dedicated <code>astra-spring-boot-starter</code> to help you with the boiler plate code.</p>
 <h2 id="astra-spring-boot-starter">Astra Spring Boot Starter<a class="headerlink" href="#astra-spring-boot-starter" title="Permanent link">&para;</a></h2>
 <h4 id="i-overview">ℹ️ Overview<a class="headerlink" href="#i-overview" title="Permanent link">&para;</a></h4>
 <p><strong>The Astra Spring Boot Starter</strong>, once imported in a Spring Boot application, will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are read in <code>application.yaml</code> like any spring applications with a dedicated prefix <code>astra</code>.</p>
 <p>The starter will initialize any beans you would need (<code>AstraClient</code>, <code>CqlSession</code>, <code>StargateClient</code>) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.</p>
-<p><img alt="pic" src="https://github.com/datastax/astra-sdk-java/raw/main/docs/img/quickstart-spring.png?raw=true" /></p>
+<p><img alt="pic" src="/img/spring/quickstart-spring.png" /></p>
 <h4 id="prerequisites-astra">📦. Prerequisites [ASTRA]<a class="headerlink" href="#prerequisites-astra" title="Permanent link">&para;</a></h4>
 <ul>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
@@ -2183,7 +2183,7 @@
 </tr>
 </tbody>
 </table>
-<p><img src="https://github.com/datastax/astra-sdk-java/blob/main/docs/img/spring-initializr.png?raw=true" /></p>
+<p><img src="/img/spring/spring-initializr.png" /></p>
 <p>
 
 - Import the application in your favorite IDE but do not start the application immediately.
@@ -2260,15 +2260,15 @@
 </code></pre></div>
 
 - Access the resources we created
-  - Get your Organization ID: http://localhost:8080/api/devops/organizationid
-  - Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
-  - Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
+- Get your Organization ID: http://localhost:8080/api/devops/organizationid
+- Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
+- Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip)
 
 ## 5. Spring Data Cassandra
 
-As describe in the [Spring documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.choose-style), there are multiple ways to interact with Cassandra. In this tutorial we will show you how to use all of them
+As described in the [Spring documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.choose-style), there are multiple ways to interact with Cassandra. In this tutorial we will show you how to use all of them
 
 - **Repository Abstraction** lets you create repository declarations in your data access layer. The goal of Spring Data’s repository abstraction is to significantly reduce the amount of boilerplate code required to implement data access layers for various persistence stores.
 
@@ -2448,7 +2448,7 @@ _ℹ️ Note: Each time you restart the application you will get 3 new tasks as 
   <small>
     
       Last update:
-      2022-05-10
+      2022-05-14
     
   </small>
 </div>
