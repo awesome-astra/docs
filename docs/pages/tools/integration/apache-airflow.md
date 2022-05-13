@@ -2,7 +2,7 @@
 
 ## A - Overview
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/airflow/img/airflow-image.png?raw=true" height="100px" />
+<img src="/img/airflow/airflow-image.png" height="100px" />
 
 Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems. These instructions will step through tasks/adjustments to be done in each product (Astra DB, cql-proxy, Apache Airflow), ultimately resulting in Airflow being able to work with AstraDB in its directed acyclic graphs (DAG).
 
@@ -62,7 +62,7 @@ Inside Apache Airflow, click `Connections` from underneath the `Admin` drop-down
 - **Password:** Your Astra DB client secret.
 - **Port:** The port that cql-proxy is listening on for the CQL native binary protocol, most likely 9042.
 
-<img src="../../../../img/airflow/airflow-connection.png" height="400px" />
+<img src="/img/airflow/airflow-connection.png" height="400px" />
 
 _Figure 2 - Create a new Cassandra connection for Apache Airflow._
 

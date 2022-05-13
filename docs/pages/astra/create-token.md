@@ -25,11 +25,11 @@ As stated in the [Create Account](create-account) page the security token is ass
 There are a set of predefined roles within an organization which are associated with some default permissions. The full list of permissions and roles is available in [Astra Documentation](https://docs.datastax.com/en/astra/docs/user-permissions.html)
 
 <center>
-<img src="../../../img/astra/roles-1.png" />
+<img src="/img/astra/roles-1.png" />
 <br/><i>Figure 1: Default Roles</i>
 
 <p>
-<img src="../../../img/astra/roles-11.png" />
+<img src="/img/astra/roles-11.png" />
 <br/><i>Figure 2: Permissions for a role here `Database Administrator`</i>
 </p>
 </center>
@@ -37,7 +37,7 @@ There are a set of predefined roles within an organization which are associated 
 It is also possible to create custom roles and associate fined grained permissions. (`Organizations Settings / Role Managennt`)
 
 <center>
-<img src="../../../img/astra/roles-2.png" />
+<img src="/img/astra/roles-2.png" />
 <br/><i>Figure 3: Custom Roles screen</i>
 </center>
 
@@ -53,32 +53,32 @@ It is also possible to create custom roles and associate fined grained permissio
 
     On the top left hand corner locate the panel `Current Organization` with your email address. Use the chevron down **&#8964;** to open the menu and pick `Organization Settings`
 
-    <img src="../../../img/astra/astra-create-token-1.png" />
+    <img src="/img/astra/astra-create-token-1.png" />
 
 ??? note "2️⃣ Open the token management page"
 
     On the new page, select `Token Management` in the menu. Then use the `Select Roles` combo to select the `Organization Administrator` role. This is the administrator of your tenant with all permissions.
 
-    <img src="../../../img/astra/astra-create-token-2.png" />
+    <img src="/img/astra/astra-create-token-2.png" />
 
     ??? tip "The same page can be accessed from the dashboard"
 
         You can reach the Token Management page directly from the ellipsis menu next to your database in the main Astra dashboard. Expand to see how
 
-        <img src="../../../img/astra/astra-create-token-alt.gif" />
+        <img src="/img/astra/astra-create-token-alt.gif" />
 
 ??? note "3️⃣ Save the token as a CSV."
 
     The values of `clientSecret` and `token` will not be shown to you later for security reasons. Do not share those values and never commit them on github.
 
-    <img src="../../../img/astra/astra-create-token-3.png" />
+    <img src="/img/astra/astra-create-token-3.png" />
 
-???+ note "4️⃣ Walkthough."
+???+ note "4️⃣ Walkthrough."
 
-    <img src="../../../img/astra/astra-create-token.gif" />
+    <img src="/img/astra/astra-create-token.gif" />
 
 ??? tip "Copy values in the clipboard"
 
     You can use the clipboard icons next to each parameter to copy and paste them elsewhere.
 
-    <img src="../../../img/astra/astra-create-token-4.png" />
+    <img src="/img/astra/astra-create-token-4.png" />

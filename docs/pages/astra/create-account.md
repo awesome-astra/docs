@@ -14,60 +14,60 @@ You can use your `Github`, `Google` accounts or register with an `email`.
 
 ??? note "Click the `[Sign In with Github]` button"
 
-    <img src="../../../img/astra/astra-signin-github-0.png" />
+    <img src="/img/astra/astra-signin-github-0.png" />
 
 ??? note "1️⃣ Click `Continue` on the OAuth claims delegation"
 
     The OAuth2 delegation screen from github is asking for permissions.
 
-    <img src="../../../img/astra/astra-signin-github-1.png" />
+    <img src="/img/astra/astra-signin-github-1.png" />
 
 ??? success "2️⃣ You are redirected to the homepage"
 
-    <img src="../../../img/astra/astra-signup-8.png" />
+    <img src="/img/astra/astra-signup-8.png" />
 
 ### 2. Sign In with Google
 
 ??? note "1️⃣ Click the `[Sign In with Google]` button"
 
-    <img src="../../../img/astra/astra-signin-google-0.png" />
+    <img src="/img/astra/astra-signin-google-0.png" />
 
 ??? success "2️⃣ You are redirected to the homepage"
 
-    <img src="../../../img/astra/astra-signup-8.png" />
+    <img src="/img/astra/astra-signup-8.png" />
 
 ### 3. Sign Up
 
 ??? note "1️⃣ Click the `Sign up` on the bottom of the page"
 
-    <img src="../../../img/astra/astra-signup-1.png" />
+    <img src="/img/astra/astra-signup-1.png" />
 
 ??? note "2️⃣ Provide your information and validate the captcha"
 
-    <img src="../../../img/astra/astra-signup-2.png" />
+    <img src="/img/astra/astra-signup-2.png" />
 
 ??? note "3️⃣ Accept terms and policies"
 
-    <img src="../../../img/astra/astra-signup-3.png" />
+    <img src="/img/astra/astra-signup-3.png" />
 
     Astra is now looking for you to validate your email adress
 
-    <img src="../../../img/astra/astra-signup-4.png" />
+    <img src="/img/astra/astra-signup-4.png" />
 
 ??? note "4️⃣ Open the mail in your inbox and validate with the `Verify my email` link"
 
-    <img src="../../../img/astra/astra-signup-5.png" />
+    <img src="/img/astra/astra-signup-5.png" />
 
     - Astra will show a validation message, select **Click Here to proceed**.
 
-    <img src="../../../img/astra/astra-signup-6.png" />
+    <img src="/img/astra/astra-signup-6.png" />
 
     - Select **back to application**
-    <img src="../../../img/astra/astra-signup-7.png" />
+    <img src="/img/astra/astra-signup-7.png" />
 
 ??? success "5️⃣ You are redirected to the homepage"
 
-    <img src="../../../img/astra/astra-signup-8.png" />
+    <img src="/img/astra/astra-signup-8.png" />
 
 ## C - Account and Organization
 
@@ -78,7 +78,7 @@ When you create an account your personal **Organization** is created, **this is 
 - The name of the organization is your email address, _(1) in the picture below_
 - The unique identifier (GUID) is present in the URL on the dashboard. _(2) in the picture below_
 
-<img src="../../../img/astra/organization-1.png" />
+<img src="/img/astra/organization-1.png" />
 
 ### 2. Organization Objects
 
@@ -97,13 +97,13 @@ When you create an account your personal **Organization** is created, **this is 
     ST(Streaming Tenants) -->|0..n| TOPIC(Topics)
 ```
 
-<img src="../../../img/astra/organization-3.png" />
+<img src="/img/astra/organization-3.png" />
 
 ### 3. Multiple Organizations
 
 You can create multiple organizations through the **`Manage Organizations`** menu option and invite other users to join as well. It is useful when the same database could be accessed by multiple users with different emails.
 
-<img src="../../../img/astra/organization-2.png" />
+<img src="/img/astra/organization-2.png" />
 
 As a consequence a user can be part of multiple organizations; the personal organization created during registration, new user-defined organizations, and shared organizations.
 

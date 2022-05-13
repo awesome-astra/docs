@@ -1,6 +1,6 @@
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/tableplus/download.png?raw=true" height="500px" />
+<img src="/img/tableplus/download.png" height="500px" />
 
 
 - _Last Update `2/11/2022`_
@@ -95,7 +95,7 @@ We will use this information to configure Astra DB as the data source in Tablepl
 
 Here's an example of what the **Cassandra Connection** dialog box should look like:
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/tableplus/2383-tableplus-cassandra-connection.png?raw=true" height="350px" />
+<img src="/img/tableplus/2383-tableplus-cassandra-connection.png" height="350px" />
 
 ### ✅ Step 3: Final Test
 
@@ -103,6 +103,6 @@ Connect to your Astra DB. If the connection was successful, you should be able t
 
 Here's an example output:
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/tableplus/2384-tableplus-astra-connected.png?raw=true" height="350px" />
+<img src="/img/tableplus/2384-tableplus-astra-connected.png" height="350px" />
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)
