@@ -2,7 +2,7 @@
 
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 
-<img src="/img/apache-spark/Apache_Spark_logo.png" height="100px" />
+<img src="../../../..//img/apache-spark/Apache_Spark_logo.png" height="100px" />
 
 ## A - Overview
 
