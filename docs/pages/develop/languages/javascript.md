@@ -1,6 +1,6 @@
 ### 1. Overview
 
-<img src="/img/tile-javascript.png" align="left" height="180px"/>
+<img src="../../../../img/tile-javascript.png" align="left" height="180px"/>
 
 Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
 

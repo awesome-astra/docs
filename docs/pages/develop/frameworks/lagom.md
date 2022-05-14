@@ -1,6 +1,6 @@
 ### Working with Lagom
 
-<img src="/img/tile-lagom.png" align="left" height="180px"/>
+<img src="../../../../img/tile-lagom.png" align="left" height="180px"/>
 
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
 

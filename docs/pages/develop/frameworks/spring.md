@@ -1,6 +1,6 @@
 ### Working with Spring
 
-<img src="/img/tile-spring.png" align="left" height="180px"/>
+<img src="../../../../img/tile-spring.png" align="left" height="180px"/>
 
 Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](https://spring.io).
 
@@ -14,7 +14,7 @@ Spring applications are packaged as standalone by using [`Spring Boot`](https://
 
 The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.
 
-![pic](/img/spring/quickstart-spring.png)
+![pic](../../../../img/spring/quickstart-spring.png)
 
 #### 📦. Prerequisites [ASTRA]
 
@@ -47,7 +47,7 @@ mvn -version
 |    **name**    | `sdk-quickstart-spring` | **dependencies** | `Spring Web` and `Spring Data for Cassandra` |
 | **packaging**  |          `JAR`          | **Java Version** |                 `8` or `11`                  |
 
-<img src="/img/spring/spring-initializr.png" />
+<img src="../../../../img/spring/spring-initializr.png" />
 
 <p>
 

@@ -4,7 +4,7 @@
 
 ### 1. Overview
 
-<img src="/img/tile-java.png" align="left" height="180px"/>
+<img src="../../../../img/tile-java.png" align="left" height="180px"/>
 
 The Astra platform provides multiple services such as; **Databases** and **Streaming**. For each service there are **multiple Apis and interfaces** available. In this page we will explain how to use each interface with JAVA. For each interface we list **minimal dependencies** and show you the **minimal code**.
 
@@ -190,7 +190,7 @@ Version 4 is major redesign of the internal architecture. As such, it is not bin
 
 This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs.
 
-![](/img/java/sdk-overview.png)
+![](../../../../img/java/sdk-overview.png)
 
 **The Astra SDK** sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient` (which configures the `StargateClient` for you). As you can see on the figure below the `AstraClient` handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
@@ -247,7 +247,7 @@ To know more regarding this interface specially you can have a look to [dedicate
 
 > ⚠️ We recommend to use version `V2` (_with V2 in the URL_) as it covers more features and the V1 would be deprecated sooner.
 
-![v2](/img/java/api-data.png)
+![v2](../../../../img/java/api-data.png)
 
 **📦 Prerequisites [ASTRA]**
 
@@ -315,7 +315,7 @@ mvn -version
 
 - List keyspaces
 
-![listks](/img/java/schemas-keyspace-list.png)
+![listks](../../../../img/java/schemas-keyspace-list.png)
 
 ```java
 private static void listKeyspaces(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -336,7 +336,7 @@ throws Exception {
 
 - Create a Table
 
-![table](/img/java/schemas-table-create.png)
+![table](../../../../img/java/schemas-table-create.png)
 
 > Query used is `createTableJson` here:
 
@@ -395,7 +395,7 @@ throws Exception {
 
 - Insert a Row
 
-![row](/img/java/data-rows-insert.png)
+![row](../../../../img/java/data-rows-insert.png)
 
 ```java
 private static void insertRow(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -421,7 +421,7 @@ throws Exception {
 
 - Retrieve a row
 
-![row](/img/java/data-rows-read.png)
+![row](../../../../img/java/data-rows-read.png)
 
 ```java
 private static void retrieveRow(CloseableHttpClient httpClient, String apiRestEndpoint)
