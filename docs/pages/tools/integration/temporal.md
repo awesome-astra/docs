@@ -1,6 +1,6 @@
 *Last Update {{ git_revision_date }}* 
 
-<img src="/img/temporal/temporal-logo-dark.svg" height="100px" />
+<img src="../../../../img/temporal/temporal-logo-dark.svg" height="100px" />
 
 ## Overview
 
@@ -133,7 +133,7 @@ c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace:
 
 Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.
 
-<img src="/img/temporal/temporal-06-test-validate.png"  />
+<img src="../../../../img/temporal/temporal-06-test-validate.png"  />
 
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)

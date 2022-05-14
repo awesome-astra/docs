@@ -57,7 +57,7 @@ dispatch messages.
 
 **👁️ Walkthrough for topic creation**
 
-<img src="/img/astra/astra-create-streaming-topic.gif" />
+<img src="../../../img/astra/astra-create-streaming-topic.gif" />
 
 **✅ Step 4: retrieve the Broker URL**
 
@@ -93,4 +93,4 @@ icon to copy it.
 
 **👁️ Screenshot for the connection parameters**
 
-<img src="/img/astra/astra-streaming-secrets.png" />
+<img src="../../../img/astra/astra-streaming-secrets.png" />

@@ -3,7 +3,7 @@
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html)_ 
 - *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#:~:text=large%20graphs%20effectively.-,Deploying%20on%20DataStax%20Astra,-Astra%20DB%20simplifies)*
 
-<img src="/img/janusgraph/janusgraph.png" height="180px" />
+<img src="../../../../img/janusgraph/janusgraph.png" height="180px" />
 
 
 ## A - Overview
@@ -166,7 +166,7 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 
 !!! abstract "Note"
 
-    It is normal to see some warnings on the Gremlin console. I have attached a [text file](/img/janusgraph/gremlin-console-output.txt) with a sample output so you know what to expect.
+    It is normal to see some warnings on the Gremlin console. I have attached a [text file](../../../../img/janusgraph/gremlin-console-output.txt) with a sample output so you know what to expect.
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:
 ```

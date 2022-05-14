@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/stylesheets/formbase.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/formbase.min.css">
 
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui.css">
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-standalone-preset.js"></script>
 <script src="https://unpkg.com/swagger-ui-dist@3.25.1/swagger-ui-bundle.js"></script>
-<script src="/assets/javascripts/swagger-sandbox.js"></script>
+<script src="../../../../assets/javascripts/swagger-sandbox.js"></script>
 
 ## Overview
 
@@ -16,9 +16,9 @@ To know more regarding this interface specially you can have a look to [dedicate
 
 ## Design
 
-![v2](/img/stargate-api-rest/api-data.png)
+![v2](../../../../img/stargate-api-rest/api-data.png)
 
-## Prerequesites
+## Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
 - You should [Create and Astra Database](/pages/astra/create-instance/)
@@ -34,7 +34,7 @@ todo
 
 - List keyspaces
 
-![listks](/img/stargate-api-rest/schemas-keyspace-list.png)
+![listks](../../../../img/stargate-api-rest/schemas-keyspace-list.png)
 
 ```java
 private static void listKeyspaces(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -55,7 +55,7 @@ throws Exception {
 
 - Create a Table
 
-![table](/img/stargate-api-rest/schemas-table-create.png)
+![table](../../../../img/stargate-api-rest/schemas-table-create.png)
 
 > Query used is `createTableJson` here:
 
@@ -114,7 +114,7 @@ throws Exception {
 
 - Insert a Row
 
-![row](/img/stargate-api-rest/data-rows-insert.png)
+![row](../../../../img/stargate-api-rest/data-rows-insert.png)
 
 ```java
 private static void insertRow(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -140,7 +140,7 @@ throws Exception {
 
 - Retrieve a row
 
-![row](/img/stargate-api-rest/data-rows-read.png)
+![row](../../../../img/stargate-api-rest/data-rows-read.png)
 
 ```java
 private static void retrieveRow(CloseableHttpClient httpClient, String apiRestEndpoint)

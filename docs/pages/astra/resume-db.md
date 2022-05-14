@@ -12,11 +12,11 @@ In the free tier _(serverless)_, after `23 hours`, your database will be **hiber
 
 - Access the database by clicking its name in the menu on the left.
 
-<img src="/img/astra/exit-hibernation-2.png" />
+<img src="../../../img/astra/exit-hibernation-2.png" />
 
 - Once the database is selected, on any tab you will get the `Resume Database` button available at top.
 
-<img src="/img/astra/db-hibernate-hibernated.png" />
+<img src="../../../img/astra/db-hibernate-hibernated.png" />
 
 **✅ Option 2: Resume with a first request to the database**
 
@@ -38,8 +38,8 @@ You will get a `503` error with the following payload.
 
 - In the user interface the status changes to `resuming...`
 
-<img src="/img/astra/db-hibernate-resuming.png" />
+<img src="../../../img/astra/db-hibernate-resuming.png" />
 
 - After a few seconds the database will be active.
 
-<img src="/img/astra/db-hibernate-active.png" />
+<img src="../../../img/astra/db-hibernate-active.png" />

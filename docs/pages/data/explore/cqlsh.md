@@ -88,7 +88,7 @@ are given on the command line, they take precedence over any defaults.
 
 - To download the archive you can go on the [download page](https://downloads.datastax.com/#cqlsh), check the box and download the file:
 
-![pic](/img/cqlsh/cqlsh-download.png)
+![pic](../../../../img/cqlsh/cqlsh-download.png)
 
 - You can also use the command line:
 
@@ -100,7 +100,7 @@ wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
 
 - The archive should look like:
 
-![pic](/img/cqlsh/cqlsh-archive.png)
+![pic](../../../../img/cqlsh/cqlsh-archive.png)
 
 **✅ Step 2: Start `cqlsh` providing parameters in the command line:**
 
