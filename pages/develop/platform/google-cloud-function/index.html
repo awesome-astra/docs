@@ -2252,7 +2252,7 @@
 <li>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</li>
 <li>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/create-secret.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/create-secret.png" /></p>
 <ol>
 <li>
 <p>Click <strong>Create secret</strong>.</p>
@@ -2261,14 +2261,14 @@
 <p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.</p>
 </li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/secret-manager.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/secret-manager.png" /></p>
 <h3 id="2-create-a-function">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
 <li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
 <li>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/basics.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/basics.png" /></p>
 <ol>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -2281,12 +2281,12 @@
 </li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/runtime.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/runtime.png" /></p>
 <p>Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</p>
 <ol>
 <li>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/reference-secret.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/reference-secret.png" /></p>
 <p>Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
 <ol>
 <li>
@@ -2305,7 +2305,7 @@
 <p>Add <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a>, a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>requirements.txt</code> file.</p>
 </li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/requirements_txt.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/requirements_txt.png" /></p>
 <ol>
 <li>Replace the <code>main.py</code> content with:</li>
 </ol>
@@ -2334,7 +2334,7 @@
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p><img src="/img/google-cloud-functions-python-driver/main_py.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/main_py.png" /></p>
 <p>You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a> documentation.</p>
 <h3 id="3-deploy-the-function">✅ 3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2345,21 +2345,21 @@
 <p>On the Cloud Functions Overview page, find the newly deployed function.</p>
 </li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/deploy.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/deploy.png" /></p>
 <h3 id="4-test-the-function">✅ 4. Test the function.<a class="headerlink" href="#4-test-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Under <strong>Actions</strong>, select <strong>Test function</strong>.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/test-function.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/test-function.png" /></p>
 <ol>
 <li>On the testing page, click <strong>Test the function</strong> and observe the output.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-driver/test-results.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/test-results.png" /></p>
 <p>Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 <h3 id="5-view-logs">✅ 5. View logs.<a class="headerlink" href="#5-view-logs" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.</p>
-<p><img src="/img/google-cloud-functions-python-driver/logs.png" /></p>
-<p><img src="/img/google-cloud-functions-python-driver/logs-explorer.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/logs.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" /></p>
 <h2 id="d-using-python-sdk">D - Using <code>Python SDK</code><a class="headerlink" href="#d-using-python-sdk" title="Permanent link">&para;</a></h2>
 <h3 id="1-create-a-function">✅ 1. Create a function.<a class="headerlink" href="#1-create-a-function" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2367,7 +2367,7 @@
 <li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
 <li>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/basics.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/basics.png" /></p>
 <ol>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -2381,7 +2381,7 @@
 <li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
 <li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/runtime.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/runtime.png" /></p>
 <p>Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</p>
 <ol>
 <li>
@@ -2400,7 +2400,7 @@
 <p>Add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the <code>requirements.txt</code> file.</p>
 </li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/requirements_txt.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/requirements_txt.png" /></p>
 <ol>
 <li>Replace the <code>main.py</code> content with:</li>
 </ol>
@@ -2428,7 +2428,7 @@
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p><img src="/img/google-cloud-functions-python-sdk/main_py.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/main_py.png" /></p>
 <p>You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
 <h3 id="2-deploy-the-function">✅ 2. Deploy the function.<a class="headerlink" href="#2-deploy-the-function" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2439,21 +2439,21 @@
 <p>On the Cloud Functions Overview page, find the newly deployed function.</p>
 </li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/deploy.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/deploy.png" /></p>
 <h3 id="3-test-the-function">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Under <strong>Actions</strong>, select <strong>Test function</strong>.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/test-function.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/test-function.png" /></p>
 <ol>
 <li>On the testing page, click <strong>Test the function</strong> and observe the output.</li>
 </ol>
-<p><img src="/img/google-cloud-functions-python-sdk/test-results.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/test-results.png" /></p>
 <p>Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 <h3 id="4-view-logs">✅ 4. View logs.<a class="headerlink" href="#4-view-logs" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.</p>
-<p><img src="/img/google-cloud-functions-python-sdk/logs.png" /></p>
-<p><img src="/img/google-cloud-functions-python-sdk/logs-explorer.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/logs.png" /></p>
+<p><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" /></p>
 
   <hr>
 <div class="md-source-file">

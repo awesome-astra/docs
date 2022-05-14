@@ -2234,18 +2234,18 @@
 <li>You should install a <code>Java JDK 1.8+</code> and <a href="https://maven.apache.org/">Apache Maven</a></li>
 <li><a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi">Download and install Apache Nifi</a></li>
 </ul>
-<p><img src="/img/apache_nifi/nifi-flow-authenticated.png" height="400px"/></p>
+<p><img src="../../../../img/apache_nifi/nifi-flow-authenticated.png" height="400px"/></p>
 <ul>
 <li>You should add <code>invokeHttp</code> and <code>Cassandra</code> <a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor">processors</a></li>
 </ul>
-<p><img src="/img/apache_nifi/add-processor.png" height="400px"/></p>
+<p><img src="../../../../img/apache_nifi/add-processor.png" height="400px"/></p>
 <h2 id="c-log-ingestion-to-astra-with-nifi">C - Log Ingestion to Astra with NiFi<a class="headerlink" href="#c-log-ingestion-to-astra-with-nifi" title="Permanent link">&para;</a></h2>
 <p>In this blog I am going to show you how to ingest raw log data into cassandra using NiFi and Astra. With NiFi ingesting data from any source is super easy. With Astra and Cassandra ingesting raw data can be a challenge due to data model constraints (primary keys and clustering columns).</p>
 <p>In this demo I am going to remove that constraint and ingest all raw data using Astra &amp; Stargate Document API which is accepting of schemaless JSON data. Although not a focus off this blog, it is fully possible to build a cassandra data model and do this log ingestion using NiFi Cassandra Processors or Astra REST API against standard cassandra database tables.</p>
 <p>In this demo we are going to communicate with Astra via <strong>Stargate’s Documement APIs.</strong></p>
 <h3 id="step-1-get-nifi-authorized-for-astra-calls">✅ Step 1 : Get NiFi Authorized for Astra Calls<a class="headerlink" href="#step-1-get-nifi-authorized-for-astra-calls" title="Permanent link">&para;</a></h3>
 <h4 id="getauthtoken">GetAuthToken<a class="headerlink" href="#getauthtoken" title="Permanent link">&para;</a></h4>
-<p><img src="/img/apache_nifi/get-auth-token.png" height="600px"/></p>
+<p><img src="../../../../img/apache_nifi/get-auth-token.png" height="600px"/></p>
 <ul>
 <li>Upload and add Get <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_GetAuthToken.xml">Astra Get Auth Token Template</a> to your canvas. Record the Process Group Id for later.</li>
 <li>Collect Astra details needed: astra databaseid, region, api url, username, password.</li>
@@ -2263,7 +2263,7 @@
 <li>For demo purposes failure routes are visible. In production, these may be auto terminated or routed to exception handling.</li>
 </ul>
 <h3 id="step-2-create-data-flow-for-log-ingestion">✅ Step 2 : Create Data Flow for Log Ingestion<a class="headerlink" href="#step-2-create-data-flow-for-log-ingestion" title="Permanent link">&para;</a></h3>
-<p><img src="/img/apache_nifi/apache_log_flow.png" height="600px"/></p>
+<p><img src="../../../../img/apache_nifi/apache_log_flow.png" height="600px"/></p>
 <p>In this first example, we are going to ingest apache log data from a custom log file. Reference the template Astra Apache Logs to <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_Apache_Logs_to_Cassandra_with_Stargate.xml">Cassandra with Stargate for this data flow</a>. This log data happens to be on the same NiFi host in the normal /var/log/httpd/ location. The custom apache log file is in the format of:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;IfModule</span> <span class="err">log_config_module</span><span class="nt">&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    LogFormat &quot;%&gt;s  %U  %h  %{%Y-%m-%d %H:%M:%S}t&quot; urlsdetails
