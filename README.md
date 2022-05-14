@@ -37,3 +37,6 @@ the ladder with `../../../../img/ETC ETC` !
 
 In other words, **if you use `"/img/tile-java.png"` it will render OK locally and
 then screw up once deployed**.
+
+Also, when calculating the number of `..` to insert, count ONE LESS for `index.md` files as opposed to all other `md` files:
+`index.md` renders as the page for the path containing it (`a/b/c/index.md` renders the URL `a/b/c`).

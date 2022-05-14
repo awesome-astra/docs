@@ -7,7 +7,7 @@ A lot of effort has been put to ease the usage of the database with some develop
 <center>
 [![cql](https://dabuttonfactory.com/button.png?t=Start Now !&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)](create-account)
 
-<img src="../../../img/astra/dashboard.png"/>
+<img src="../../img/astra/dashboard.png"/>
 
 </center>
 
