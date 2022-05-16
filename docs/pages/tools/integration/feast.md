@@ -34,9 +34,9 @@ Reference documentation:
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/). In the following example, a keyspace called `feastks` is created in the database.
-- [Create an Astra Token](/pages/astra/create-token/) with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).
-- [Download your secure connect bundle ZIP](/pages/astra/download-scb/).
+- [Create an Astra Database](/docs/pages/astra/create-instance/). In the following example, a keyspace called `feastks` is created in the database.
+- [Create an Astra Token](/docs/pages/astra/create-token/) with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).
+- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/).
 - Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. `pip install feast feast-cassandra`. See the specific pages ([Feast](https://docs.feast.dev/getting-started/quickstart#step-1-install-feast), [Cassandra plugin](https://pypi.org/project/feast-cassandra/)) for additional installation info.
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.
