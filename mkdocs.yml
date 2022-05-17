@@ -80,6 +80,7 @@ nav:
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • Temporal : pages/tools/integration/temporal.md
+      - • Vault : pages/tools/integration/vault.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
 
