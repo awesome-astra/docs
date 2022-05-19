@@ -2093,7 +2093,7 @@
 
   <h1>• Vault</h1>
 
-<p><em>Last Update 2022-05-17</em></p>
+<p><em>Last Update 2022-05-19</em></p>
 <p><img src="../../../../img/vault/vaultlogo.png" /></p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>The purpose of this document is to guide you through the process using Astra DB as the storage configuration for your 
@@ -2104,6 +2104,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
+<li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
 <li>You should <a href="/pages/astra/create-instance/">Create an Astra Database</a></li>
 <li>You should have an <a href="/pages/astra/create-token/">Astra Token</a></li>
@@ -2119,7 +2120,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 <ol>
 <li>In the Astra UI, create a keyspace called <strong>vault</strong>. </li>
 <li>Navigate to your <em>CQL Console</em> in the Astra UI. Issue the following statement to create a table called <strong>entries</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CREATE TABLE vault.entries (
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CREATE TABLE vault.&quot;entries&quot; (
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    bucket text,
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    key text,
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    value blob,
@@ -2170,25 +2171,35 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 <h2 id="test-and-validate">Test and Validate<a class="headerlink" href="#test-and-validate" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Once you see the above message that you successfully started Vault server, open a new terminal window.</li>
-<li>Run <code>vault operator init</code>. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% vault operator init
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Unseal Key 1: rVRPym...
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Unseal Key 2: 71tY5X...
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Unseal Key 3: ETYWDf...
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Unseal Key 4: 4mDtrr...
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Unseal Key 5: o9X46m...
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Initial Root Token: hvs.gF14F...
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Vault initialized with 5 key shares and a key threshold of 3. Please securely
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>restarted, or stopped, you must supply at least 3 of these keys to unseal it
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>before it can start servicing requests.
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Vault does not store the generated root key. Without at least 3 keys to
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>reconstruct the root key, Vault will remain permanently sealed!
-</code></pre></div></li>
+<li>Run <code>vault operator init</code>. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. </li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>You may get an error that looks like this
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Error initializing: Put &quot;https://127.0.0.1:8200/v1/sys/init&quot;: http: server gave HTTP response to HTTPS client
+</code></pre></div>
+This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vault operator init -address=http://127.0.0.1:8200
+</code></pre></div></p>
+</div>
+<p>Once Vault is initialized, it should give you an output of your Unseal Keys:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>% vault operator init
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Unseal Key 1: rVRPym...
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Unseal Key 2: 71tY5X...
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Unseal Key 3: ETYWDf...
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Unseal Key 4: 4mDtrr...
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Unseal Key 5: o9X46m...
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Initial Root Token: hvs.gF14F...
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Vault initialized with 5 key shares and a key threshold of 3. Please securely
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>restarted, or stopped, you must supply at least 3 of these keys to unseal it
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>before it can start servicing requests.
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Vault does not store the generated root key. Without at least 3 keys to
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>reconstruct the root key, Vault will remain permanently sealed!
+</code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Note</p>
 <p>Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. </p>
@@ -2200,18 +2211,21 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 <p><img src="../../../../img/vault/vault_key.png" style="width:250px;"/> 
 <img src="../../../../img/vault/vault_token.png" style="width:250px;"/></p>
 <ol>
-<li>You should now be able to access the Vault UI as well as cross-reference your CQL Console to make sure the requests are properly being written to your <strong>entries</strong> table!</li>
+<li>You should now be able to access the Vault UI as well as cross-reference your CQL Console to make sure the requests are properly being written to your <strong>entries</strong> table! </li>
 </ol>
+<p><strong>Note:</strong> When querying from the <strong>entries</strong> table, you must use double-quotes as <code>entries</code> is a reserved word for CQL.</p>
 <p><img src="../../../../img/vault/vaultui.png"/> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>token@cqlsh:vault&gt; select * from &quot;entries&quot; limit 1;
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>@ Row 1
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> bucket | logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> key    | logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a> value  | 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>(1 rows)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>token@cqlsh:vault&gt; use vault;                           //Switches to Vault keyspace
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>token@cqlsh:vault&gt; expand on;                           //Prints output in readable format
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>token@cqlsh:vault&gt; select * from &quot;entries&quot; limit 1;     //Select statement from &quot;entries&quot; table
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>@ Row 1
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a> bucket | logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a> key    | logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a> value  | 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>(1 rows)
 </code></pre></div>
 
   <hr>
@@ -2219,7 +2233,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
   <small>
     
       Last update:
-      2022-05-17
+      2022-05-19
     
   </small>
 </div>
