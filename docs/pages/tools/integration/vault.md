@@ -12,6 +12,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 - 📥 [Vault Quick Install](https://www.vaultproject.io/docs/install)
 
 ## Prerequisites
+- You should [Install Vault](https://www.vaultproject.io/docs/install)
 - You should have an [Astra account](http://astra.datastax.com/)
 - You should [Create an Astra Database](/pages/astra/create-instance/)
 - You should have an [Astra Token](/pages/astra/create-token/)
@@ -26,7 +27,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 1. In the Astra UI, create a keyspace called **vault**. 
 2. Navigate to your *CQL Console* in the Astra UI. Issue the following statement to create a table called **entries**
 ```
-CREATE TABLE vault.entries (
+CREATE TABLE vault."entries" (
     bucket text,
     key text,
     value blob,
@@ -81,7 +82,20 @@ Successful output should look like this:
 
 ## Test and Validate
 1. Once you see the above message that you successfully started Vault server, open a new terminal window.
-2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal.
+2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
+
+!!! info "Note"
+    You may get an error that looks like this
+    ```
+    Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client
+    ```
+    This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
+    ```
+    vault operator init -address=http://127.0.0.1:8200
+    ```
+
+Once Vault is initialized, it should give you an output of your Unseal Keys:
+
 ```
 % vault operator init
 Unseal Key 1: rVRPym...
@@ -108,12 +122,16 @@ reconstruct the root key, Vault will remain permanently sealed!
 <img src="../../../../img/vault/vault_key.png" style="width:250px;"/> 
 <img src="../../../../img/vault/vault_token.png" style="width:250px;"/>
 
-5. You should now be able to access the Vault UI as well as cross-reference your CQL Console to make sure the requests are properly being written to your **entries** table!
+5. You should now be able to access the Vault UI as well as cross-reference your CQL Console to make sure the requests are properly being written to your **entries** table! 
+
+**Note:** When querying from the **entries** table, you must use double-quotes as `entries` is a reserved word for CQL.
 
 <img src="../../../../img/vault/vaultui.png"/> 
 
 ```
-token@cqlsh:vault> select * from "entries" limit 1;
+token@cqlsh:vault> use vault;                           //Switches to Vault keyspace
+token@cqlsh:vault> expand on;                           //Prints output in readable format
+token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from "entries" table
 
 @ Row 1
 --------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
