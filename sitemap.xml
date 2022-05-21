@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/data/explore/presto/</loc>
+         <lastmod>2022-05-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/tableplus/</loc>
          <lastmod>2022-05-21</lastmod>
          <changefreq>daily</changefreq>
