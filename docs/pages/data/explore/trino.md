@@ -162,7 +162,7 @@ Wait for message `======== SERVER STARTED ========` to confirm a successful star
 
 In this section you will execute SQL Queries against Astra DB using Trino CLI Client.
 
-**✅ 7. Install trino Client**
+**✅ 7. Install Trino Client**
 
 Follow [the instructions](https://trino.io/docs/current/installation/cli.html) to download and install a _CLI Trino Client_.
 
