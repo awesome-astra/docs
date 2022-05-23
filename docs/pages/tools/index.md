@@ -22,9 +22,13 @@
 
 - **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
 
+- **[HashiCorp Vault](integration/vault):** Vault is an identity-based secrets and encryption management system. A secret is anything that you want to tightly control access to, such as API encryption keys, passwords, or certificates. Vault provides encryption services that are gated by authentication and authorization methods
+
 - **[IntelliJ IDEA](ide/intellij.md)**: The Capable & Ergonomic Java IDE by JetBrains
 
 - **[JanusGraph](../tools/databases/janusgraph.md):** JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.
+
+- **[Liquibase](integration/liquibase.md)**: Liquibase is a database schema change management solution that enables you to revise and release database changes faster and safer from development to production.
 
 - **[Micronaut](../develop/frameworks/micronaut.md)**: Micronaut is a modern, JVM-based, full stack Java framework designed for building modular, easily testable JVM applications with support for Java, Kotlin, and Groovy. Micronaut is developed by the creators of the Grails framework and takes inspiration from lessons learnt over the years building real-world applications from monoliths to microservices using Spring, Spring Boot and Grails.
 
@@ -33,3 +37,5 @@
 - **[Pentaho Data Integration](integration/pentaho.md)**: Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
 - **[TablePlus](../data/explore/tableplus.md):** TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.
+
+- **[Temporal](integration/temporal.md):** Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. 
