@@ -2625,7 +2625,7 @@
 </a></p>
 <h3 id="33-astra-sdk">3.3 Astra SDK<a class="headerlink" href="#33-astra-sdk" title="Permanent link">&para;</a></h3>
 <p>This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs.</p>
-<p><img alt="" src="../../../../img/java/sdk-overview.png" /></p>
+<p><img src="../../../../img/java/sdk-overview.png" /></p>
 <p><strong>The Astra SDK</strong> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code> (which configures the <code>StargateClient</code> for you). As you can see on the figure below the <code>AstraClient</code> handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
 <details class="abstract annotate">
 <summary>Setup <code>pom.xml</code></summary>
@@ -2676,7 +2676,7 @@
 <blockquote>
 <p>⚠️ We recommend to use version <code>V2</code> (<em>with V2 in the URL</em>) as it covers more features and the V1 would be deprecated sooner.</p>
 </blockquote>
-<p><img alt="v2" src="../../../../img/java/api-data.png" /></p>
+<p><img src="../../../../img/java/api-data.png" /></p>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
 <ul>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
@@ -2747,7 +2747,7 @@
 <ul>
 <li>List keyspaces</li>
 </ul>
-<p><img alt="listks" src="../../../../img/java/schemas-keyspace-list.png" /></p>
+<p><img src="../../../../img/java/schemas-keyspace-list.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w"> </span><span class="c1">// Build Request</span><span class="w"></span>
@@ -2766,7 +2766,7 @@
 <ul>
 <li>Create a Table</li>
 </ul>
-<p><img alt="table" src="../../../../img/java/schemas-table-create.png" /></p>
+<p><img src="../../../../img/java/schemas-table-create.png" /></p>
 <blockquote>
 <p>Query used is <code>createTableJson</code> here:</p>
 </blockquote>
@@ -2821,7 +2821,7 @@
 <ul>
 <li>Insert a Row</li>
 </ul>
-<p><img alt="row" src="../../../../img/java/data-rows-insert.png" /></p>
+<p><img src="../../../../img/java/data-rows-insert.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">insertCedrick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span><span class="w"></span>
@@ -2845,7 +2845,7 @@
 <ul>
 <li>Retrieve a row</li>
 </ul>
-<p><img alt="row" src="../../../../img/java/data-rows-read.png" /></p>
+<p><img src="../../../../img/java/data-rows-read.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
@@ -3100,7 +3100,7 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
   <small>
     
       Last update:
-      2022-05-14
+      2022-05-23
     
   </small>
 </div>
