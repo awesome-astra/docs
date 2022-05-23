@@ -200,7 +200,7 @@ window.onload = setupSwagger;
   <i class="fa fa-download" ></i>&nbsp;Postman Configuration
 </a>
 
-![import-doc](../../../../img/postman/docapi-conf-import.png)
+<img src="../../../../img/postman/docapi-conf-import.png" />
 
 - Edit the values for your db:
 
@@ -214,15 +214,15 @@ window.onload = setupSwagger;
 
 - this is what it is looks like
 
-![import-doc](../../../../img/postman/docapi-conf-edit.png)
+<img src="../../../../img/postman/docapi-conf-edit.png" />
 
 - Import the Document Api Collection `Astra_Document_Api.json` in postman. Same as before `File > Menu`
 
-![import-doc](../../../../img/postman/docapi-import.png)
+<img src="../../../../img/postman/docapi-import.png" />
 
 - That's it! You have now access to a few dozens operations for `namespace`, `collections` and `documents`
 
-![import-doc](../../../../img/postman/docapi-resources.png)
+<img src="../../../../img/postman/docapi-resources.png" />
 
 ## 5. Api Sandbox with Curl
 

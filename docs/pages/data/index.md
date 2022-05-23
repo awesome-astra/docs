@@ -40,6 +40,9 @@ In this section are listed third party tools that will help you browse your data
 <a href="explore/trino">
  <img src="../../img/data/tile-trino.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<a href="explore/presto">
+ <img src="../../img/data/tile-presto.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 
 
 ### 📋 Data Modelling

@@ -31,6 +31,7 @@ nav:
       - ‣ DBSchema: pages/data/explore/dbschema.md
       - ‣ DBeaver: pages/data/explore/dbeaver.md
       - ‣ MindsDB: pages/data/explore/mindsdb.md
+      - ‣ Presto: pages/data/explore/presto.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
       - ‣ Trino: pages/data/explore/trino.md      
     - Data Modelling:
