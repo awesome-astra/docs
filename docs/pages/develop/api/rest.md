@@ -16,7 +16,7 @@ To know more regarding this interface specially you can have a look to [dedicate
 
 ## Design
 
-![v2](../../../../img/stargate-api-rest/api-data.png)
+<img src="../../../../img/stargate-api-rest/api-data.png" />
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ todo
 
 - List keyspaces
 
-![listks](../../../../img/stargate-api-rest/schemas-keyspace-list.png)
+<img src="../../../../img/stargate-api-rest/schemas-keyspace-list.png" />
 
 ```java
 private static void listKeyspaces(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -55,7 +55,7 @@ throws Exception {
 
 - Create a Table
 
-![table](../../../../img/stargate-api-rest/schemas-table-create.png)
+<img src="../../../../img/stargate-api-rest/schemas-table-create.png" />
 
 > Query used is `createTableJson` here:
 
@@ -114,7 +114,7 @@ throws Exception {
 
 - Insert a Row
 
-![row](../../../../img/stargate-api-rest/data-rows-insert.png)
+<img src="../../../../img/stargate-api-rest/data-rows-insert.png" />
 
 ```java
 private static void insertRow(CloseableHttpClient httpClient, String apiRestEndpoint)
@@ -140,7 +140,7 @@ throws Exception {
 
 - Retrieve a row
 
-![row](../../../../img/stargate-api-rest/data-rows-read.png)
+<img src="../../../../img/stargate-api-rest/data-rows-read.png" />
 
 ```java
 private static void retrieveRow(CloseableHttpClient httpClient, String apiRestEndpoint)
