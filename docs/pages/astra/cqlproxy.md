@@ -4,7 +4,7 @@
 
 ### What is `cql-proxy`?
 
-![cql-proxy](../../../img/cqlproxy/cql-proxy.png)
+<img src="../../../img/cqlproxy/cql-proxy.png" />
 
 `cql-proxy` is designed to forward your application's CQL traffic to an appropriate database service. It listens on a local address and securely forwards that traffic.
 

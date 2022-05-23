@@ -1,21 +1,21 @@
-<img src="../../../../img/trino/logo-trino.png" height="100px" />
+<img src="../../../../img/presto/logo-presto.png" height="100px" />
 
 ## A - Overview
 
-[Trino](https://trino.io) is a distributed SQL query engine for big data analytics. Trino can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Trino use cases include:
+[Presto](https://prestodb.io) is a distributed SQL query engine for big data analytics. Presto can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Presto use cases include:
 
 - interactive data analytics,
 - SQL-based analytics over object storage systems,
 - data access and analytics across multiple data sources with query federation,
 - batch ETL processing across disparate systems.
 
-In this tutorial, we show **how to use Trino to explore and query data in [Astra DB](http://astra.datastax.com) with SQL**.
-The overall architecture of this solution is depicted below. _Trino CLI Client_ sends SQL queries to _Trino Server_. _Trino Server_ retrieves data from _Astra DB_ via _CQL Proxy_, computes the query results and returns them to the client.
+In this tutorial, we show **how to use Presto to explore and query data in [Astra DB](http://astra.datastax.com) with SQL**.
+The overall architecture of this solution is depicted below. _Presto CLI Client_ sends SQL queries to _Presto Server_. _Presto Server_ retrieves data from _Astra DB_ via _CQL Proxy_, computes the query results and returns them to the client.
 
 <center>
 ```mermaid
 graph TB
-    A(Trino CLI Client) <--> B(Trino Server)
+    A(Presto CLI Client) <--> B(Presto Server)
     B --> C(CQL Proxy)
     C --> D(Astra DB)
     B --> A
@@ -80,7 +80,7 @@ VALUES (0e5d9e8c-2e3b-4576-8515-58b491cb859e,'B-102','Savings',400.04,'Bob');
 
 **✅ 4. Installation**
 
-Follow [the instructions](https://github.com/datastax/cql-proxy) to deploy a _CQL Proxy_ as close to a _Trino Server_ as possible, preferrably deploying both components on the same server. The simplest way to start `cql-proxy` is to use an `<astra-token>` and `<astra-database-id>`:
+Follow [the instructions](https://github.com/datastax/cql-proxy) to deploy a _CQL Proxy_ as close to a _Presto Server_ as possible, preferrably deploying both components on the same server. The simplest way to start `cql-proxy` is to use an `<astra-token>` and `<astra-database-id>`:
 
 ```bash
 ./cql-proxy \
@@ -96,18 +96,18 @@ An example command with a sample, invalid token and database id:
 --astra-database-id e5e4e925-289a-8231-83fd-25918093257b
 ```
 
-## E - Setup Trino Server
+## E - Setup Presto Server
 
-**✅ 5. Trino intallation**
+**✅ 5. Presto intallation**
 
-Follow [the instructions](https://trino.io/docs/current/installation/deployment.html) to download, install and configure a _Trino Server_ or use an existing deployment. The minimal configuration requirements for a local single-machine deployment are:
+Follow [the instructions](https://prestodb.io/docs/current/installation/deployment.html) to download, install and configure a _Presto Server_ or use an existing deployment. The minimal configuration requirements for a local single-machine deployment are:
 
 - Node properties in file `etc/node.properties`
 
 ```
 node.environment=production
 node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
-node.data-dir=/var/trino/data
+node.data-dir=/var/presto/data
 ```
 
 - JVM config in file `etc/jvm.config`
@@ -115,18 +115,13 @@ node.data-dir=/var/trino/data
 ```
 -server
 -Xmx16G
--XX:-UseBiasedLocking
 -XX:+UseG1GC
 -XX:G1HeapRegionSize=32M
+-XX:+UseGCOverheadLimit
 -XX:+ExplicitGCInvokesConcurrent
--XX:+ExitOnOutOfMemoryError
 -XX:+HeapDumpOnOutOfMemoryError
--XX:-OmitStackTraceInFastThrow
--XX:ReservedCodeCacheSize=512M
--XX:PerMethodRecompilationCutoff=10000
--XX:PerBytecodeRecompilationCutoff=10000
+-XX:+ExitOnOutOfMemoryError
 -Djdk.attach.allowAttachSelf=true
--Djdk.nio.maxCachedBufferSize=2000000
 ```
 
 - Config properties in file `etc/config.properties`
@@ -137,6 +132,8 @@ node-scheduler.include-coordinator=true
 http-server.http.port=8080
 query.max-memory=5GB
 query.max-memory-per-node=1GB
+query.max-total-memory-per-node=2GB
+discovery-server.enabled=true
 discovery.uri=http://localhost:8080
 ```
 
@@ -148,9 +145,9 @@ cassandra.contact-points=localhost
 cassandra.consistency-level=QUORUM
 ```
 
-The above configuration uses [the Cassandra connector](https://trino.io/docs/current/connector/cassandra.html) to interact with `cql-proxy`.
+The above configuration uses [the Cassandra connector](https://prestodb.io/docs/current/connector/cassandra.html) to interact with `cql-proxy`.
 
-**✅ 6. Start the Trino Server:**
+**✅ 6. Start the Presto Server:**
 
 ```bash
 bin/launcher run
@@ -158,30 +155,23 @@ bin/launcher run
 
 Wait for message `======== SERVER STARTED ========` to confirm a successful start.
 
-## F - SQL Queries with Trino Client
+## F - SQL Queries with Presto Client
 
-In this section you will execute SQL Queries against Astra DB using Trino CLI Client.
+In this section you will execute SQL Queries against Astra DB using Presto CLI Client.
 
-**✅ 7. Install Trino Client**
+**✅ 7. Install Presto Client**
 
-Follow [the instructions](https://trino.io/docs/current/installation/cli.html) to download and install a _CLI Trino Client_.
+Follow [the instructions](https://prestodb.io/docs/current/installation/cli.html) to download and install a _CLI Presto Client_.
 
-**✅ 8. Start the _CLI Trino Client_:**
+**✅ 8. Start the _CLI Presto Client_:**
 
 ```bash
-./trino --server http://localhost:8080 --catalog cassandra
+./presto --server http://localhost:8080 --catalog cassandra
 ```
 
-The `server` option specifies the HTTP(S) address and port of the Trino coordinator, and the `catalog` option sets the default catalog.
+The `server` option specifies the HTTP(S) address and port of the Presto coordinator, and the `catalog` option sets the default catalog.
 
-**✅ 9. Insert a new customer into table `customer`:**
-
-```SQL
-INSERT INTO banking_db.customer (id,name,email)
-VALUES (uuid(),'Luis','luis@example.org');
-```
-
-**✅ 10. Execute the SQL query to find the total number of customers:**
+**✅ 9. Execute the SQL query to find the total number of customers:**
 
 ```SQL
 SELECT COUNT(*) AS customer_count
@@ -193,11 +183,11 @@ Output:
 ```
  customer_count
 ----------------
-              3
+              2
 (1 row)
 ```
 
-**✅ 11. Execute the SQL query to find emails of customers with account balances of `300.00` or higher:**
+**✅ 10. Execute the SQL query to find emails of customers with account balances of `300.00` or higher:**
 
 ```SQL
 SELECT DISTINCT email AS customer_email
@@ -216,7 +206,7 @@ Output:
 (1 row)
 ```
 
-**✅ 12. Execute the SQL query to find customers and sums of their account balances:**
+**✅ 11. Execute the SQL query to find customers and sums of their account balances:**
 
 ```SQL
 SELECT id AS customer_id,
@@ -236,8 +226,7 @@ Output:
 ```
              customer_id              | customer_name |  customer_email   | customer_funds
 --------------------------------------+---------------+-------------------+----------------
- 0e5d9e8c-2e3b-4576-8515-58b491cb859e | Bob           | bob@example.org   |         700.07
- c628dca6-a8a6-4f37-ac29-44975af069fb | Luis          | luis@example.org  |           0.00
- 8d6c1271-16b6-479d-8ea9-546c37381ab3 | Alice         | alice@example.org |         300.03
-(3 rows)
+ 8d6c1271-16b6-479d-8ea9-546c37381ab3 | Alice         | alice@example.org | 300.03
+ 0e5d9e8c-2e3b-4576-8515-58b491cb859e | Bob           | bob@example.org   | 700.07
+(2 rows)
 ```
