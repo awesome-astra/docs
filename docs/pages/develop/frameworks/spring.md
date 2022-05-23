@@ -14,7 +14,7 @@ Spring applications are packaged as standalone by using [`Spring Boot`](https://
 
 The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.
 
-![pic](../../../../img/spring/quickstart-spring.png)
+<img src="../../../../img/spring/quickstart-spring.png" />
 
 #### 📦. Prerequisites [ASTRA]
 

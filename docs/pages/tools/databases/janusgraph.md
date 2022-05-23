@@ -166,7 +166,7 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 
 !!! abstract "Note"
 
-    It is normal to see some warnings on the Gremlin console. I have attached a [text file](../../../../img/janusgraph/gremlin-console-output.txt) with a sample output so you know what to expect.
+    It is normal to see some warnings on the Gremlin console. I have attached a <a href="../../../../img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:
 ```
