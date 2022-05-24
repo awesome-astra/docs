@@ -80,6 +80,7 @@ nav:
       - • Feast : pages/tools/integration/feast.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
+      - • StepZen : pages/tools/integration/stepzen.md
       - • Temporal : pages/tools/integration/temporal.md
       - • Vault : pages/tools/integration/vault.md
     - Databases:

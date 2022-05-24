@@ -36,6 +36,8 @@
 
 - **[Pentaho Data Integration](integration/pentaho.md)**: Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
+- **[StepZen](integration/stepzen.md):** StepZen helps developers build GraphQL faster, deploy in seconds, and run on StepZen. It simplifies how you access the data you need, and with zero infrastructure to build or manage, you can focus on crafting modern data-driven experiences.
+
 - **[TablePlus](../data/explore/tableplus.md):** TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.
 
 - **[Temporal](integration/temporal.md):** Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. 
