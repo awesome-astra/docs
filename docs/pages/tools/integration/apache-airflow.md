@@ -1,4 +1,4 @@
-*Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}*
 
 ## A - Overview
 
@@ -14,7 +14,7 @@ Apache Airflow is an open source workflow management system. It provides compone
 - You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
 - You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
 - You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
-- You should install `python3` and `pip3` (local deploymnent of Airflow) or Docker (docker)
+- You should install `python3` and `pip3` (local deployment of Airflow) or Docker (docker)
 
 This article was written for Apache Airflow version `2.2.3` on `MacOS` with Python `3.9`.
 
