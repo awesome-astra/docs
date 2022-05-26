@@ -1,28 +1,123 @@
-### Working with Spring
 
-<img src="https://github.com/datastaxdevs/awesome-astra/raw/main/_img/tile-spring.png?raw=true" align="left" height="180px"/>
+<img src="../../../../img/tile-spring.png" align="left" height="180px"/>
 
-Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.. To get more information regarding the framework visit the reference [Spring.io](https://spring.io).
+*Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.* To get more information regarding the framework visit the reference website [Spring.io](https://spring.io).
 
-Spring applications are packaged as standalone using [`Spring Boot`](https://spring.io/projects/spring-boot). To add capabilities to applications multiple `starters` are provided by Spring. In the current page we will details which are the starters needed to interact Astra interfaces. Datastax team also implemented a dedicated `astra-spring-boot-starter` to help you with the boiler plate code.
+`Spring-Data` is the module use to interact with Databases whereas [`Spring Boot`](https://spring.io/projects/spring-boot) is the runtime for microservices. In this page we detail how to setup both modules to interact with Astra.
 
-## Astra Spring Boot Starter
+## 1. Overview
 
-#### ℹ️ Overview
+### 2.1 Modules dependencies
 
-**The Astra Spring Boot Starter** once imported in a Spring Boot application, will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are read in `application.yaml` like any spring applications with a dedicated prefix `astra`.
+Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is **Spring Data** and especially **Spring Data Cassandra**. It relies on the Datastax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)
 
-The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use all interfaces exposes by Astra. Not all are activated by default, you want to initialize only what you need.
+The stateful object `CqlSession` is instanciated and injected in spring `CassandraTemplate` (aka `CassandraOperations`). From there, it is used either directly or injected in different `CassandraRepository` (specialization of Spring Data `CrudRepository` for Apache Cassandra™).
 
-![pic](https://github.com/datastax/astra-sdk-java/raw/main/docs/img/quickstart-spring.png?raw=true)
+The configuration of `spring-data-cassandra` in `Spring-Boot` applications is simplified with the usage of *starters*. One is associated to the standard web stack and called `spring-boot-starter-data-cassandra` and the other is named `spring-boot-starter-data-cassandra-reactive` for the reactive stack.
 
-#### 📦. Prerequisites [ASTRA]
+<img src="../../../../img/spring/spring-dependency-graph.png" />
+
+### 2.2 Compatibility Matrix
+
+In January 2019, the native Cassandra Drivers got an important, not backward compatible, upgrade. To get informations regarding Apache Cassandra™ support here is the [Cassandra compatibility matrix](https://docs.datastax.com/en/driver-matrix/doc/java-drivers.html).
+
+Spring Data copes with the new generation of drivers starting with Spring data 3.x. Support of Astra was introduced in 2020 for all native versions (4.x and 3.x). This leads to the following table for **minimal library versions for Astra Support**:
+
+| Drivers Release | Drivers Version | Spring-Data  | Spring Boot  
+|:---:|:---:|:---:|:---:|
+| `Unified 4.x` | `4.6.0` | `3.0.0.RELEASE` | `2.3.0.RELEASE` |
+| `OSS 3.x` | `3.8.0` | Setup below table | `2.2.13.RELEASE` | 
+| `DSE 2.x` | `2.3.0` | `3.0.0.RELEASE` |  `2.3.0.RELEASE` |
+| `DSE 1.x` | `1.9.0` | Setup below table | `2.2` |
+
+- Setup **Spring Data 2.2.x** (and before) to work with **Astra**
+
+As stated in the matrix, even the latest Spring Data `2.2.13.RELEASE` rely on `cassandra-driver` version `3.7.2` that where not yet compatible to Astra. To work with Astra you  have to override the `cassandra-drivers` version as below.
+
+```xml
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-data-cassandra</artifactId>
+ <version>2.2.13.RELEASE</version>
+</dependency>
+
+<dependency>
+  <groupId>com.datastax.cassandra</groupId>
+  <artifactId>cassandra-driver-core</artifactId>
+  <version>3.11.2</version>
+</dependency>
+```
+
+You can find [here a sample project](https://github.com/mborges-pivotal/astra-springboot154) that using Spring Boot version as old as `1.5.4`.
+
+- Setup **Spring Data 2.2** (and before) to work with **DataStax Enterprise (DSE)**
+
+Before 4.x and the unified drivers you have to use `dse-java-driver-core` to have access to enterprise features but also the be elligible for the support. To enable it 
+you need to exclude `cassandra-driver-core` and import `dse-java-driver-core` as show below
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-cassandra</artifactId>
+  <version>2.2.13.RELEASE</version>
+  <exclusions>
+    <exclusion>
+      <groupId>com.datastax.cassandra</groupId>
+      <artifactId>cassandra-driver-core</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+
+<dependency>
+  <groupId>com.datastax.dse</groupId>
+  <artifactId>dse-java-driver-core</artifactId>
+  <version>1.9.0</version>
+</dependency>
+```
+
+### 2.3 Rules and Pitfalls
+
+- **Define your own `CqlSession` bean** (spring-data will find it !)
+
+`Spring Data Cassandra` starters provide some dedicated keys in the configuration file `application.yaml` (`spring.data.cassandra.*`) but you do not get the complete list of options of the drivers. In the same way some super classes like `AbstractCassandraConfiguration` are provided where you can specify a few configuration properties but a limited set of keys are available.
+
+- **Do not use `findAll()`**
+
+It can be tempting to use this method to test new repositories as no parameter is required - but this is dangerous. The default paging mechanism is skipped and this method will retrieve every single record of the table. As such, it would perform a full scan of the cluster (pick data for each node) that (1) would be slow and (2) could lead to `OutOfMemoryException` as Cassandra Tables are expected to store billions of records.
+
+- **Do not use `@AllowFiltering`**
+
+This annotation (some for associated CQL Statement) is limited for the use cases where (1) you provide the partition key **AND** (2) you know your partition size is fairly small. In 99% of the cases the need of this annotation (or `ALLOW FILTERING` in the `CQL`) is a sign of a wrong data model: your primary key is invalid and you need another table to store the same data (or eventually to create a secondary index).
+
+- **Do not rely (only) on Spring Data to create your schema**
+
+SDC provide a configuration key `spring.data.cassandra.schema-action: CREATE_IF_NOT_EXISTS` that proposes to create the Cassandra Tables based on your annotated beans. It is NOT a good idea. Indeed, it could lead to wrong data model (cf next point) but also it does not give access to fine grained properties like `COMPACTION` and `TTL` that might be different in development and production. Let a `Cassandra Administrator` reviews your DDL scripts and updates them for production.
+
+- **Data Model First, Entities second**
+
+With the `JPA` (entity, repository) methodology, you are tempting to reuse the same entities and repositories to perform multiple queries against the same table. Most new requests will be not valid as you will not request using the primary key. You can be tempting to create a secondary index or use allow filtering; **WRONG !**. The good practice is to **CREATE ANOTHER TABLE, ANOTHER ENTITY and ANOTHER REPOSITORY** - and even if data stored is the same. With Cassandra 1 query = 1 table (mostly).
+
+- **`CassandraRepository` probably cannot implement it all**
+
+With real-life applications you might probably need to go back to the `CqlSession` and execute custom fine-grained queries (`Batches`, `TTL`, `LWT`...). The interfaces and `CassandraRepostiory` would not be enough. The class `SimpleCassandraRepository` is an abstract class (not interface0 you can inherit from that give you access to the `CqlSession` and execute your queries as you like, it is a good trade off.
+
+## 2.  Astra Spring Boot Starter
+
+### 2.1 Introduction
+
+**The Astra Spring Boot Starter** will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are provided in `application.yaml` like any spring applications with a dedicated prefix `astra.*`. The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use every interfaces exposes by Astra. Not all are activated by default though, you want to initialize only what you need.
+
+<img src="../../../../img/spring/quickstart-spring.png" />
+
+### 2.2 Project Setup
+
+**📦. Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
-#### 📦. Prerequisites [Development Environment]
+**📦. Prerequisites [Development Environment]**
 
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**, Validate your installation with
 
@@ -36,7 +131,7 @@ java --version
 mvn -version
 ```
 
-#### 📦. Setup Project
+**📦. Setup Project**
 
 - Create your project with [Spring Initializr](https://start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.6&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
 
@@ -47,21 +142,23 @@ mvn -version
 |    **name**    | `sdk-quickstart-spring` | **dependencies** | `Spring Web` and `Spring Data for Cassandra` |
 | **packaging**  |          `JAR`          | **Java Version** |                 `8` or `11`                  |
 
-<img src="https://github.com/datastax/astra-sdk-java/blob/main/docs/img/spring-initializr.png?raw=true" />
+<img src="../../../../img/spring/spring-initializr.png" />
 
-<p>
+<p/>
 
 - Import the application in your favorite IDE but do not start the application immediately.
 
 - Add the latest version of starter as a dependency in `pom.xml` [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/) of `astra-spring-boot-starter` in the project.
 
-```xml
-<dependency>
-  <groupId>com.datastax.astra</groupId>
-  <artifactId>astra-spring-boot-starter</artifactId>
-  <version>0.3.0</version>
-</dependency>
-```
+  ```xml
+  <dependency>
+    <groupId>com.datastax.astra</groupId>
+    <artifactId>astra-spring-boot-starter</artifactId>
+    <version>0.3.0</version>
+  </dependency>
+  ```
+
+### 2.3 Code and Configuration
 
 - Change the main class with the following code, we are leveraging on the unique `AstraClient` to interact with multiple interfaces.
 
@@ -102,7 +199,7 @@ public class SdkQuickstartSpringApplication {
 }
 ```
 
-- Rename `src/main/resources/application.properties` to `src/main/resources/application.yaml`. This step eases the configuration with hierarchical keys. Populate `application.yaml` with the following content and replace the values with expected values (how to retrieve the values are explained in the [Quickstart Astra](https://github.com/datastax/astra-sdk-java/wiki/Astra-SDK-Quickstart)
+Rename `src/main/resources/application.properties` to `src/main/resources/application.yaml`. This step eases the configuration with hierarchical keys. Populate `application.yaml` with the following content and replace the values with expected values (how to retrieve the values are explained in the [Quickstart Astra](https://github.com/datastax/astra-sdk-java/wiki/Astra-SDK-Quickstart)
 
 ```yaml
 astra:
@@ -129,199 +226,100 @@ mvn clean install spring-boot:run
 ```
 
 - Access the resources we created
-  - Get your Organization ID: http://localhost:8080/api/devops/organizationid
-  - Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
-  - Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
+- Get your Organization ID: http://localhost:8080/api/devops/organizationid
+- Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
+- Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip)
 
-## 5. Spring Data Cassandra
+## 3. Spring Data Cassandra
 
-As describe in the [Spring documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.choose-style), there are multiple ways to interact with Cassandra. In this tutorial we will show you how to use all of them
+### 3.1 Project Setup
 
-- **Repository Abstraction** lets you create repository declarations in your data access layer. The goal of Spring Data’s repository abstraction is to significantly reduce the amount of boilerplate code required to implement data access layers for various persistence stores.
+**📦. Prerequisites [ASTRA]**
 
-- **`CassandraTemplate` wraps a `CqlTemplate`** to provide query result-to-object mapping and the use of SELECT, INSERT, UPDATE, and DELETE methods instead of writing CQL statements. This approach provides better documentation and ease of use.
+- You should have an [Astra account](http://astra.datastax.com/)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Have downloaded your Cloud Secure Bundle](/pages/astra/download-scb/)
 
-**ℹ️ Connecting Spring Data Cassandra to Astra**
+**📦. Prerequisites [Development Environment]**
 
-Spring Data Cassandra leverages on a `CqlSession` bean, all the time. To build the `CqlSession` there area again multiple ways described in the [documentation](https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#cassandra.connectors) from custom code to `AbstractCassandraConfiguration`. **FORGET ABOUT IT.**
+- You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**, Validate your installation with
 
-Astra Spring Boot Starter creates the `CqlSession` bean for you using the keys previously listed as such you do not need to use configuration keys like `spring.data.cassandra` (_or very very few for special behaviour_)
-
-#### ✅ Step 5a. Spring Data Cassandra Connectivity
-
-This one is straight forward. Remove the `exclude` in `@SpringBootApplication`
-
-```
-@SpringBootApplication
+```bash
+java --version
 ```
 
-You can restart the application, spring data is connected to Astra.
+- You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
 
-#### ✅ Step 5b. Working with `CassandraRepository<BEAN,KEY>`
-
-- Create a bean `Todos` in the same package `com.datastax.tutorial`
-
-```java
-@Table
-public class Todos {
- @PrimaryKey
- @CassandraType(type = Name.UUID)
- private UUID uid = UUID.randomUUID();
-
- private String title;
-
- private boolean completed = false;
-
- public Todos() {}
-
- public Todos(String title) { this.title = title; }
-
- //_getters and setters have been omitted here
+```bash
+mvn -version
 ```
 
-- Create an **interface** `TodosRepository` in the same package `com.datastax.tutorial`
+**📦. Setup Project**
 
-```java
-package com.datastax.tutorial;
-import org.springframework.data.cassandra.repository.CassandraRepository;
+- Create a Spring Boot application from the initializer and add the `spring-boot-starter-data-cassandra`
 
-public interface TodosRepository extends CassandraRepository<Todos, String> {}
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-cassandra</artifactId>
+</dependency>
 ```
 
-- Edit the `QuickStartSpring` to add the following:
+### 3.2 Code and Configuration
 
-```java
-  @Autowired
-  private TodosRepository todoRepository;
-
-  @PostConstruct
-  public void insertTodos() {
-    todoRepository.save(new Todos("Create Spring Project"));
-    todoRepository.save(new Todos("Setup Astra Starter"));
-    todoRepository.save(new Todos("Setup Spring Starter"));
-  }
-
-  @GetMapping("/todos")
-  public List<Todos> todos() {
-    return todoRepository.findAll(CassandraPageRequest.first(10)).toList();
-  }
-```
-
-- Finally tells Spring Data to create for us the tables with configuration. (not for CqlSession, only for this). In `application.yaml` add the following:
+- Setup the configuration file `application.yaml`
 
 ```yaml
-spring:
-  data:
-    cassandra:
-      schema-action: CREATE_IF_NOT_EXISTS
+spring.data.cassandra:
+  keyspace-name: myks
+  username: myClientId
+  password: myClientSecret
+  schema-action: CREATE_IF_NOT_EXISTS # for dev purpose
+  request:
+    timeout: 10s
+  connection:
+    connect-timeout: 10s
+    init-query-timeout: 10s
+
+datastax.astra:
+  # You must download it before
+  secure-connect-bundle: /tmp/secure-connect-bundle.zip
 ```
 
-- You can restart your application and access [http://localhost:8080/todos](http://localhost:8080/todos)
-
-```json
-[
-  {
-    "uid": "83d7a60d-1f24-42c5-aa16-9275f36dc312",
-    "title": "Setup Spring Starter",
-    "completed": false
-  },
-  {
-    "uid": "95e8a502-786d-4dd2-983a-b451a12877fe",
-    "title": "Setup Astra Starter",
-    "completed": false
-  },
-  {
-    "uid": "44da79c3-73a6-46d0-84cb-3afa2a96d99e",
-    "title": "Create Spring Project",
-    "completed": false
-  }
-]
-```
-
-_ℹ️ Note: Each time you restart the application you will get 3 new tasks as the primary is an generated UUID._
-
-#### ✅ Step 5c. Working with `CqlTemplate` and `CassandraTemplate`
-
-`CassandraTemplate` is the bean initialized by Spring-Data. It embeds the `CqlTemplate` = `CqlOperations`.
-
-- Add the following to your main class
+- Create a dedicated configuration bean to parse `datastax.astra`
 
 ```java
-@Autowired
-private CassandraTemplate cassandraTemplate;
+@ConfigurationProperties(prefix = "datastax.astra")
+public class DataStaxAstraProperties {
 
-@GetMapping("/datacenter")
-public String datacenter() {
-  return cassandraTemplate
-     .getCqlOperations()
-     .queryForObject("SELECT data_center FROM system.local", String.class);
+    private File secureConnectBundle;
+
+    // Getter and Setter omitted
 }
 ```
 
-- You can restart your application and access [http://localhost:8080/datacenter](http://localhost:8080/datacenter)
+- Define a bean of `CqlSessionBuilderCustomizer` to add this `CloudSecureBundle`
 
-## Spring Data Cassandra
+```java
+@SpringBootApplication
+@EnableConfigurationProperties(DataStaxAstraProperties.class)
+public class SpringDataCassandraApplication {
 
-### Overview
+    public static void main(String[] args) {
+        SpringApplication.run(SpringDataCassandraApplication.class, args);
+    }
 
-- Spring data
-- Spring data cassandra
-- Leveraging java drivers
-- 10 pitfalls of Spring Data Cassandra
-
-- [Guide](https://spring.io/guides/gs/accessing-data-cassandra/)
-
-```
-TODO
-```
-
-### Spring Boot 1x and Spring Data 2x
-
-- Working with 3.x driver
-- 3.8 is required
-- how to enforce version
-- compatibility table
-
-```
-TODO
+    @Bean
+    public CqlSessionBuilderCustomizer sessionBuilderCustomizer(DataStaxAstraProperties astraProperties) {
+        Path bundle = astraProperties.getSecureConnectBundle().toPath();
+        return builder -> builder.withCloudSecureConnectBundle(bundle);
+    }
+}
 ```
 
-- https://github.com/mborges-pivotal/astra-springboot154
 
-### Spring Boot 2x and Spring Data 3x (recommended)
+[![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/awesome-astra/sample-java-spring-data/archive/refs/heads/master.zip)
 
-- Working with 4.x drivers
-- CqlSession Customizer
-- Create your own Cql Session
-
-```
-TODO
-```
-
-## Spring and Rest Apis
-
-### Spring Web (Rest Template)
-
-```
-TODO
-```
-
-### Spring Webflux (Webclient)
-
-```
-TODO
-```
-
-## Spring Cloud and Astra
-
-```
-TODO
-```
-
-## Spring Batch and Astra
-
-```
-TODO
-```

@@ -2,11 +2,11 @@
 
 _This article was originally written by **Erick Ramirez** on [community.datastax.com](https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html)_
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/logo-pentaho.png?raw=true" height="100px" />
+<img src="../../../../img/pentaho-data-integration/logo-pentaho.png" height="100px" />
 
 ## Overview
 
-<img src="https://github.com/datastaxdevs/awesome-astra/blob/3e05907c0a194c92aa96cf88bb26dd1fcb57b2bb/pentaho-data-integration/img/pdi.png?raw=true" height="100px" />
+<img src="../../../../img/pentaho-data-integration/pdi.png" height="100px" />
 
 Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
@@ -18,9 +18,9 @@ Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) c
 ## - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+- You should [Create and Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Download your Secure bundle](/pages/astra/download-scb/)
 - You should [Download and install PDI](https://sourceforge.net/projects/pentaho/)
 
 This article was written for version `9.1` on `MacOS` but it should also work for the Windows version.
@@ -89,9 +89,9 @@ jdbc:cassandra://;AuthMech=2;TunableConsistency=6;SecureConnectionBundlePath=/pa
 ```
 6. In the **Username** field, enter the string `token`.
 7. In the **Password** field, paste the value of the token you created in the Prerequisites section above. The token looks like `AstraCS:AbC...XYz:123...edf0`
-> <img src="https://github.com/datastaxdevs/awesome-astra/blob/3e05907c0a194c92aa96cf88bb26dd1fcb57b2bb/pentaho-data-integration/img/pentaho-01-new-astra-connection.png?raw=true" />
+> <img src="../../../../img/pentaho-data-integration/pentaho-01-new-astra-connection.png" />
 8. Click on the **Test Connection** button to confirm that the driver configuration is working:
-> <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-02-test-connection.png?raw=true" />
+> <img src="../../../../img/pentaho-data-integration/pentaho-02-test-connection.png" />
 9. Click on the OK button to save the connection settings.
 
 
@@ -99,14 +99,14 @@ jdbc:cassandra://;AuthMech=2;TunableConsistency=6;SecureConnectionBundlePath=/pa
 
 Connect to your Astra DB by launching the SQL Editor in Pentaho and run a simple CQL statement. For example:
 
-> <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-03-sql-editor.png?raw=true" />
+> <img src="../../../../img/pentaho-data-integration/pentaho-03-sql-editor.png" />
 
 Here's an example output:
 
-> <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-04-preview-data.png?raw=true" />
+> <img src="../../../../img/pentaho-data-integration/pentaho-04-preview-data.png" />
 
 You should also be able to browse the keyspaces in your Astra DB using the DataBase Explorer. Here's an example output:
 
-> <img src="https://github.com/datastaxdevs/awesome-astra/blob/main/pentaho-data-integration/img/pentaho-05-db-explorer.png?raw=true" />
+> <img src="../../../../img/pentaho-data-integration/pentaho-05-db-explorer.png" />
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) |
