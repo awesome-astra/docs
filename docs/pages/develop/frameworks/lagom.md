@@ -1,14 +1,14 @@
 ### Working with Lagom
 
-<img src="/img/tile-lagom.png" align="left" height="180px"/>
+<img src="../../../../img/tile-lagom.png" align="left" height="180px"/>
 
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
 
 #### 📦. Prerequisites [ASTRA DB]
 
 - You should have an [Astra DB account](http://astra.datastax.com/)
-- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create an Astra Database](/pages/astra/create-instance/)
+- You should [Have an Astra Token](/pages/astra/create-token/)
 
 #### 📦. Prerequisites [Development Environment]
 
