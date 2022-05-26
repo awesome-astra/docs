@@ -1,10 +1,10 @@
-<ul>
-<li><a href="integration/apache-airflow"><b>Apache Airflow</b></a>: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems</li>
+- **[Apache Airflow](integration/apache-airflow)**: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems
 
-</ul>
 - **[Apache Nifi](integration/apache-nifi)**: NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, we use it here to mean the automated and managed flow of information between systems.
 
 - **[Apache Spark](integration/apache-spark):** Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
+
+- **[Authorizer](integration/authorizer):** Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data.
 
 - **[Cloud Functions (Python Driver)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
