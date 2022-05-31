@@ -22,7 +22,8 @@
 
 - **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
 
-- **[HashiCorp Vault](integration/vault):** Vault is an identity-based secrets and encryption management system. A secret is anything that you want to tightly control access to, such as API encryption keys, passwords, or certificates. Vault provides encryption services that are gated by authentication and authorization methods
+- **[HashiCorp Vault](integration/vault.md):** Vault is an identity-based secrets and encryption management system. A secret is anything that you want to tightly control access to, such as API encryption keys, passwords, or certificates. Vault provides encryption services that are gated by authentication and authorization methods.
+    - [Astra DB Plugin](plugins/astradb-vault-plugin.md)
 
 - **[IntelliJ IDEA](ide/intellij.md)**: The Capable & Ergonomic Java IDE by JetBrains
 

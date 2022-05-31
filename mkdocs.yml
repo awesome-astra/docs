@@ -62,6 +62,8 @@ nav:
 
   - Third-Party Tools:
     - Tools List: pages/tools/index.md
+    - Databases:
+      - • JanusGraph : pages/tools/databases/janusgraph.md
     - Developers IDE:
       - • IntelliJ : pages/tools/ide/intellij.md
       - • Eclipse :  pages/tools/ide/eclipse.md
@@ -78,13 +80,13 @@ nav:
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
       - • Feast : pages/tools/integration/feast.md
+      - • HashiCorp Vault : pages/tools/integration/vault.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • StepZen : pages/tools/integration/stepzen.md
       - • Temporal : pages/tools/integration/temporal.md
-      - • Vault : pages/tools/integration/vault.md
-    - Databases:
-      - • JanusGraph : pages/tools/databases/janusgraph.md
+    - Plugins: 
+      - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
 
 # ------------------------------------------------------
 # Settings
