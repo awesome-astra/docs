@@ -1,4 +1,4 @@
-*Last Update {{ git_revision_date }}* 
+*Last Update {{ git_revision_date }}*
 
 ## A - Overview
 
