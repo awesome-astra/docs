@@ -43,7 +43,7 @@ To successfully connect with Astra DB, you will need to open the secure bundle a
  - key
 
  You can accomplish this with the `base64` command:
- ```bash
+ ```
 base64 cert cert_base64_file
 base64 ca.crt ca_base64_file
 base64 key key_base64_file
