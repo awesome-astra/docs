@@ -33,7 +33,7 @@ nav:
       - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ Presto: pages/data/explore/presto.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
-      - ‣ Trino: pages/data/explore/trino.md      
+      - ‣ Trino: pages/data/explore/trino.md
     - Data Modelling:
       - ‣ Kashliev KDM: http://kdm.kashliev.com/
 
@@ -77,6 +77,7 @@ nav:
       - • Apache Airflow : pages/tools/integration/apache-airflow.md
       - • Apache Nifi : pages/tools/integration/apache-nifi.md
       - • Apache Spark : pages/tools/integration/apache-spark.md
+      - • Authorizer : pages/tools/integration/authorizer.md
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
       - • Feast : pages/tools/integration/feast.md
@@ -85,7 +86,7 @@ nav:
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • StepZen : pages/tools/integration/stepzen.md
       - • Temporal : pages/tools/integration/temporal.md
-    - Plugins: 
+    - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
 
 # ------------------------------------------------------
