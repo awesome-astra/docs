@@ -30,6 +30,10 @@ mkdocs serve
 
 You should be able to access it on http://localhost:8000
 
+**Known Issue:**
+
+If you get an `mkdocs not found error`, launch it this way: `python3 -m mkdocs serve`
+
 ### 3. Instructions
 
 #### Images
