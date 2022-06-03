@@ -20,7 +20,7 @@ StepZen helps developers build GraphQL faster, deploy in seconds, and run on Ste
 
 
 ## Installation and Setup
-After logging into your StepZen account and have all of your credentials ready, you can navigate to [this page(https://stepzen.com/getting-started?details=nosql)] or follow the steps below to setup StepZen.
+After logging into your StepZen account and have all of your credentials ready, you can navigate to [this page](https://stepzen.com/getting-started?details=nosql) or follow the steps below to setup StepZen.
 
 1. First, install the StepZen CLI 
 ```
