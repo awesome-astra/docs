@@ -1,6 +1,6 @@
 # Google Cloud Functions
 
-[🏠 Back to home](https://awesome-astra.github.io/docs/) | \*Written by **Artem Chebotko\***
+[🏠 Back to home](https://awesome-astra.github.io/docs/) | Written by **Artem Chebotko**
 
 ## A - Overview
 
@@ -11,9 +11,9 @@
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/)
-- [Create an Astra Token](/pages/astra/create-token/)
-- [Download a Secure Connect Bundle](/pages/astra/download-scb/)
+- [Create an Astra Database](/docs/pages/astra/create-instance/)
+- [Create an Astra Token](/docs/pages/astra/create-token/)
+- [Download a Secure Connect Bundle](/docs/pages/astra/download-scb/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
 ## C - Using `Python Driver`
