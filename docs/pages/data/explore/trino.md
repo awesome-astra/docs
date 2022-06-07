@@ -26,14 +26,14 @@ graph TB
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/pages/astra/create-token/)
+- [Create an Astra Database](/docs/pages/astra/create-instance/)
+- [Create an Astra Token](/docs/pages/astra/create-token/)
 
 ## C - Setup Astra DB
 
 **✅ 1. [Sign in](https://astra.datastax.com/)**
 
-Connect to your Astra account and [create a new Astra database](https://awesome-astra.github.io/docs/pages/astra/create-instance/) or select an existing one. Add a new keyspace with name `banking_db` or use an existing one.
+Connect to your Astra account and [create a new Astra database](/docs/pages/astra/create-instance/) or select an existing one. Add a new keyspace with name `banking_db` or use an existing one.
 
 **✅ 2. Create the following tables using the CQL Console**
 
