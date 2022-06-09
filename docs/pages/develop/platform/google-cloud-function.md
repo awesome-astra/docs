@@ -90,7 +90,7 @@ def query_astra_db(request):
     print ('Success')
 ```
 <br/><img src="../../../../img/google-cloud-functions-python-driver/main_py.png" /><br/>
-You can learn more about the code above by reading the [**cassandra-driver**](https://github.com/datastax/python-driver) documentation.
+You can learn more about the code above by reading the [**python-driver**](https://github.com/datastax/python-driver) documentation.
 
 ### ✅ 3. Deploy the function.
 
@@ -195,3 +195,118 @@ Notice the CQL version output **3.4.5** and status code **200**.
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 <br/><img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
 <br/><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" />
+
+
+## E - Using `Java Driver`
+
+### ✅ 1. Create a secret with the secure connect bundle file.
+
+1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
+
+2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/create-secret.png" />
+
+3. Click **Create secret**.
+
+4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/secret-manager.png" />
+
+### ✅ 2. Create a function.
+
+1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select the same project that has Secret Manager and Cloud Functions enabled, and click **Create function**.
+2. Under the **Basics** section, specify preferred **Function name** and **Region**.
+3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/basics.png" />
+
+4. Click **Save**.
+
+5. Under the **Runtime, build, connections and security settings** section, customize additional settings and create these **Runtime environment variables**:
+
+    - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
+    - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
+<br/><img src="../../../../img/google-cloud-functions-java-driver/runtime.png" /><br/>
+Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
+
+6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
+Notice the final **Path** that should be used to access the secure connect bundle in the function code.
+
+7. Click **Done** and **Next**.
+
+8. Select **Java 11** or your preferred version in the **Runtime** field.
+
+9. Select **Inline Editor** in the **Source code** field.
+
+10. Enter **com.example.AstraDBFunction** in the **Entry point** field.
+
+11. Add [**java-driver**](https://github.com/datastax/java-driver), a Java client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `pom.xml` file:
+```
+    <dependency>
+      <groupId>com.datastax.oss</groupId>
+      <artifactId>java-driver-core</artifactId>
+      <version>4.13.0</version>
+    </dependency>  
+```
+<br/><img src="../../../../img/google-cloud-functions-java-driver/pom_xml.png" />
+
+12. Rename the `Example.java` file to `AstraDBFunction.java` and replace its content with:
+```java
+package com.example;
+
+import com.google.cloud.functions.HttpFunction;
+import com.google.cloud.functions.HttpRequest;
+import com.google.cloud.functions.HttpResponse;
+import java.io.BufferedWriter;
+
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
+import com.datastax.oss.driver.api.core.cql.Row;
+import java.nio.file.Paths;
+
+public class AstraDBFunction implements HttpFunction {
+
+  public static final String ASTRA_DB_CLIENT_ID = System.getenv("ASTRA_DB_CLIENT_ID");
+  public static final String ASTRA_DB_CLIENT_SECRET = System.getenv("ASTRA_DB_CLIENT_SECRET");
+
+  public static CqlSession session = CqlSession.builder()
+           .withCloudSecureConnectBundle(Paths.get("/secrets/secure-connect-secret"))
+           .withAuthCredentials(ASTRA_DB_CLIENT_ID,ASTRA_DB_CLIENT_SECRET)
+           .build();
+
+  public void service(HttpRequest request, HttpResponse response) throws Exception {
+
+    BufferedWriter writer = response.getWriter();
+         
+    ResultSet rs = session.execute("SELECT cql_version FROM system.local WHERE key = 'local';");
+    Row row = rs.one();
+    writer.write( row.getString("cql_version") );
+   
+    writer.newLine();
+    writer.write("Success");
+  }
+}
+```
+<br/><img src="../../../../img/google-cloud-functions-java-driver/source_code.png" /><br/>
+You can learn more about the code above by reading the [**java-driver**](https://github.com/datastax/java-driver) documentation.
+
+### ✅ 3. Deploy the function.
+
+1. Click **Deploy**.
+
+2. On the Cloud Functions Overview page, find the newly deployed function.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/deploy.png" />
+
+### ✅ 4. Test the function.
+
+1. Under **Actions**, select **Test function**.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/test-function.png" />
+
+2. On the testing page, click **Test the function** and observe the output.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/test-results.png" /><br/>
+Notice the CQL version output **3.4.5** and status code **200**.
+
+### ✅ 5. View logs.
+
+You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/logs.png" />
+<br/><img src="../../../../img/google-cloud-functions-java-driver/logs-explorer.png" />
