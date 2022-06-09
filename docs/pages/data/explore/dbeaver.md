@@ -11,9 +11,9 @@ DBeaver is a universal database management tool for everyone who needs to work w
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/)
-- [Create an Astra Token](/pages/astra/create-token/)
-- [Download your secure connect bundle ZIP](/pages/astra/download-scb/)
+- [Create an Astra Database](/docs/pages/astra/create-instance/)
+- [Create an Astra Token](/docs/pages/astra/create-token/)
+- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
 
 This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.
 
