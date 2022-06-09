@@ -1607,6 +1607,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e-using-java-driver" class="md-nav__link">
+    E - Using Java Driver
+  </a>
+  
+    <nav class="md-nav" aria-label="E - Using Java Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-secret-with-the-secure-connect-bundle-file_1" class="md-nav__link">
+    ✅ 1. Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function_1" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-function_1" class="md-nav__link">
+    ✅ 3. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test-the-function_1" class="md-nav__link">
+    ✅ 4. Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-logs_1" class="md-nav__link">
+    ✅ 5. View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2337,6 +2385,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e-using-java-driver" class="md-nav__link">
+    E - Using Java Driver
+  </a>
+  
+    <nav class="md-nav" aria-label="E - Using Java Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-secret-with-the-secure-connect-bundle-file_1" class="md-nav__link">
+    ✅ 1. Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function_1" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-function_1" class="md-nav__link">
+    ✅ 3. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test-the-function_1" class="md-nav__link">
+    ✅ 4. Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-logs_1" class="md-nav__link">
+    ✅ 5. View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2454,7 +2550,7 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
 <br/><img src="../../../../img/google-cloud-functions-python-driver/main_py.png" /><br/>
-You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a> documentation.</p>
+You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>python-driver</strong></a> documentation.</p>
 </li>
 </ol>
 <h3 id="3-deploy-the-function">✅ 3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function" title="Permanent link">&para;</a></h3>
@@ -2581,13 +2677,145 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
 <br/><img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
 <br/><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" /></p>
+<h2 id="e-using-java-driver">E - Using <code>Java Driver</code><a class="headerlink" href="#e-using-java-driver" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file_1">✅ 1. Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</p>
+</li>
+<li>
+<p>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/create-secret.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create secret</strong>.</p>
+</li>
+<li>
+<p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/secret-manager.png" /></p>
+</li>
+</ol>
+<h3 id="2-create-a-function_1">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
+<li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
+<li>
+<p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/basics.png" /></p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section, customize additional settings and create these <strong>Runtime environment variables</strong>:</p>
+<ul>
+<li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
+<li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
+<br/><img src="../../../../img/google-cloud-functions-java-driver/runtime.png" /><br/>
+Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
+</ul>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
+Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
+</li>
+<li>
+<p>Click <strong>Done</strong> and <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Java 11</strong> or your preferred version in the <strong>Runtime</strong> field.</p>
+</li>
+<li>
+<p>Select <strong>Inline Editor</strong> in the <strong>Source code</strong> field.</p>
+</li>
+<li>
+<p>Enter <strong>com.example.AstraDBFunction</strong> in the <strong>Entry point</strong> field.</p>
+</li>
+<li>
+<p>Add <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a>, a Java client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>pom.xml</code> file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    &lt;dependency&gt;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      &lt;groupId&gt;com.datastax.oss&lt;/groupId&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      &lt;artifactId&gt;java-driver-core&lt;/artifactId&gt;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      &lt;version&gt;4.13.0&lt;/version&gt;
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    &lt;/dependency&gt;  
+</code></pre></div>
+<br/><img src="../../../../img/google-cloud-functions-java-driver/pom_xml.png" /></p>
+</li>
+<li>
+<p>Rename the <code>Example.java</code> file to <code>AstraDBFunction.java</code> and replace its content with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpFunction</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpRequest</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpResponse</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedWriter</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.cql.ResultSet</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.cql.Row</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDBFunction</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HttpFunction</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;ASTRA_DB_CLIENT_ID&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_CLIENT_SECRET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;ASTRA_DB_CLIENT_SECRET&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CqlSession</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">           </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;/secrets/secure-connect-secret&quot;</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">           </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="n">ASTRA_DB_CLIENT_ID</span><span class="p">,</span><span class="n">ASTRA_DB_CLIENT_SECRET</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">           </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">service</span><span class="p">(</span><span class="n">HttpRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="n">BufferedWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="s">&quot;SELECT cql_version FROM system.local WHERE key = &#39;local&#39;;&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="n">Row</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">one</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;cql_version&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="na">newLine</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Success&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<br/><img src="../../../../img/google-cloud-functions-java-driver/source_code.png" /><br/>
+You can learn more about the code above by reading the <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> documentation.</p>
+</li>
+</ol>
+<h3 id="3-deploy-the-function_1">✅ 3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Deploy</strong>.</p>
+</li>
+<li>
+<p>On the Cloud Functions Overview page, find the newly deployed function.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/deploy.png" /></p>
+</li>
+</ol>
+<h3 id="4-test-the-function_1">✅ 4. Test the function.<a class="headerlink" href="#4-test-the-function_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/test-function.png" /></p>
+</li>
+<li>
+<p>On the testing page, click <strong>Test the function</strong> and observe the output.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/test-results.png" /><br/>
+Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
+</li>
+</ol>
+<h3 id="5-view-logs_1">✅ 5. View logs.<a class="headerlink" href="#5-view-logs_1" title="Permanent link">&para;</a></h3>
+<p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
+<br/><img src="../../../../img/google-cloud-functions-java-driver/logs.png" />
+<br/><img src="../../../../img/google-cloud-functions-java-driver/logs-explorer.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-07
+      2022-06-09
     
   </small>
 </div>
