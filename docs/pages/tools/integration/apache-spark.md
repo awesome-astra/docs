@@ -13,9 +13,9 @@ Apache Spark is an open-source, distributed processing system used for big data 
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/)
-- [Create an Astra Token](/pages/astra/create-token/) (RO User is needed for this example)
-- [Download your secure connect bundle ZIP](/pages/astra/download-scb/)
+- [Create an Astra Database](/docs/pages/astra/create-instance/)
+- [Create an Astra Token](/docs/pages/astra/create-token/) (RO User is needed for this example)
+- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
 - Download and install the latest version of [Spark Cassandra Connector](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility [here.](https://github.com/datastax/spark-cassandra-connector#version-compatibility)
 
 ## C - Installation and Setup

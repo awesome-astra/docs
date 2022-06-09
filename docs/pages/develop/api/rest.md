@@ -21,8 +21,8 @@ To know more regarding this interface specially you can have a look to [dedicate
 ## Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/pages/astra/create-instance/)
-- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
 
 ## Swagger Sandbox
 

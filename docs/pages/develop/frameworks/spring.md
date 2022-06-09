@@ -114,8 +114,8 @@ With real-life applications you might probably need to go back to the `CqlSessio
 **📦. Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/pages/astra/create-instance/)
-- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
 
 **📦. Prerequisites [Development Environment]**
 
@@ -239,9 +239,9 @@ mvn clean install spring-boot:run
 **📦. Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/pages/astra/create-instance/)
-- You should [Have an Astra Token](/pages/astra/create-token/)
-- You should [Have downloaded your Cloud Secure Bundle](/pages/astra/download-scb/)
+- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Have downloaded your Cloud Secure Bundle](/docs/pages/astra/download-scb/)
 
 **📦. Prerequisites [Development Environment]**
 

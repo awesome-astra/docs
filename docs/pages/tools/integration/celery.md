@@ -27,9 +27,9 @@ as backend. See the Celery documentation for more details:
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
-- [Create an Astra Token](/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery).
-- [Download your secure connect bundle ZIP](/pages/astra/download-scb/).
+- [Create an Astra Database](/docs/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
+- [Create an Astra Token](/docs/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery).
+- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/).
 - Install Celery with the Cassandra backend in your local Python environment, e.g. `pip install celery[cassandra]`. See [the backend-settings page](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) for additional info.
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.
