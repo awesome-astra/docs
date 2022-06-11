@@ -16,7 +16,7 @@
 - [Download a Secure Connect Bundle](/docs/pages/astra/download-scb/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
-## C - Using `Python Driver`
+## C - Using Python Driver
 
 ### ✅ 1. Create a secret with the secure connect bundle file.
 
@@ -114,7 +114,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 <br/><img src="../../../../img/google-cloud-functions-python-driver/logs.png" />
 <br/><img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" />
 
-## D - Using `Python SDK`
+## D - Using Python SDK
 
 ### ✅ 1. Create a function.
 
@@ -197,7 +197,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 <br/><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" />
 
 
-## E - Using `Java Driver`
+## E - Using Java Driver
 
 ### ✅ 1. Create a secret with the secure connect bundle file.
 
@@ -310,3 +310,118 @@ Notice the CQL version output **3.4.5** and status code **200**.
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 <br/><img src="../../../../img/google-cloud-functions-java-driver/logs.png" />
 <br/><img src="../../../../img/google-cloud-functions-java-driver/logs-explorer.png" />
+
+
+## F - Using Java gRPC
+
+### ✅ 1. Create a function.
+
+1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select a project that has Cloud Functions enabled, and click **Create function**.
+2. Under the **Basics** section, specify preferred **Function name** and **Region**.
+3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/basics.png" />
+
+4. Click **Save**.
+
+5. Under the **Runtime, build, connections and security settings** section, customize additional settings and create these **Runtime environment variables**:
+    - `ASTRA_DB_ID`: A **Database ID** value can be found on the [Astra DB](https://astra.datastax.com/) dashboard.
+    - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
+    - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/runtime.png" /><br/>
+Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
+
+6. Click **Next**.
+
+7. Select **Java 11** or your preferred version in the **Runtime** field.
+
+8. Select **Inline Editor** in the **Source code** field.
+
+9. Enter **com.example.AstraDBFunction** in the **Entry point** field.
+
+10. Add gRPC dependencies to the `pom.xml` file:
+```
+    <dependency>
+      <groupId>io.stargate.grpc</groupId>
+      <artifactId>grpc-proto</artifactId>
+      <version>1.0.41</version>
+    </dependency>
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-netty-shaded</artifactId>
+      <version>1.41.0</version>
+    </dependency>   
+```
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/pom_xml.png" />
+
+11. Rename the `Example.java` file to `AstraDBFunction.java` and replace its content with:
+```java
+package com.example;
+
+import com.google.cloud.functions.HttpFunction;
+import com.google.cloud.functions.HttpRequest;
+import com.google.cloud.functions.HttpResponse;
+import java.io.BufferedWriter;
+
+import java.util.concurrent.TimeUnit;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.stargate.grpc.StargateBearerToken;
+import io.stargate.proto.QueryOuterClass;
+import io.stargate.proto.QueryOuterClass.Row;
+import io.stargate.proto.StargateGrpc;
+
+public class AstraDBFunction implements HttpFunction {
+
+  public static final String ASTRA_DB_TOKEN    = System.getenv("ASTRA_DB_APPLICATION_TOKEN");
+  public static final String ASTRA_DB_ID       = System.getenv("ASTRA_DB_ID");
+  public static final String ASTRA_DB_REGION   = System.getenv("ASTRA_DB_REGION");
+  
+  public static ManagedChannel channel = ManagedChannelBuilder
+            .forAddress(ASTRA_DB_ID + "-" + ASTRA_DB_REGION + ".apps.astra.datastax.com", 443)
+            .useTransportSecurity()
+            .build();
+
+  public static StargateGrpc.StargateBlockingStub blockingStub =
+        StargateGrpc.newBlockingStub(channel).withCallCredentials(new StargateBearerToken(ASTRA_DB_TOKEN));
+
+  public void service(HttpRequest request, HttpResponse response) throws Exception {
+
+    QueryOuterClass.Response queryString = blockingStub.executeQuery(QueryOuterClass
+        .Query.newBuilder()
+        .setCql("SELECT cql_version FROM system.local WHERE key = 'local';")
+        .build());
+
+    QueryOuterClass.ResultSet rs = queryString.getResultSet();
+
+    BufferedWriter writer = response.getWriter();
+    writer.write( rs.getRows(0).getValues(0).getString() );
+    writer.newLine();
+    writer.write("Success");
+  }
+}
+```
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/source_code.png" /><br/>
+You can learn more about the code above by reading the [**Stargate**](https://stargate.io/) documentation.
+
+### ✅ 2. Deploy the function.
+
+1. Click **Deploy**.
+
+2. On the Cloud Functions Overview page, find the newly deployed function.
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/deploy.png" />
+
+### ✅ 3. Test the function.
+
+1. Under **Actions**, select **Test function**.
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-function.png" />
+
+2. On the testing page, click **Test the function** and observe the output.
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-results.png" /><br/>
+Notice the CQL version output **3.4.5** and status code **200**.
+
+### ✅ 4. View logs.
+
+You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs.png" />
+<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs-explorer.png" />
