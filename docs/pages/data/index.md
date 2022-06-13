@@ -31,7 +31,7 @@ In this section are listed third party tools that will help you browse your data
 <a href="explore/netflix-data-explorer">
  <img src="../../img/data/tile-netflix-data-explorer.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="explore/minddb">
+<a href="explore/mindsdb">
  <img src="../../img/data/tile-minddb.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 <a href="explore/tableplus">

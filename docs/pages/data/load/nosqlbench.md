@@ -2,7 +2,7 @@
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
 <li><a href="https://docs.nosqlbench.io/docs/nosqlbench/introduction/"><b>📖  NoSQLBench Docs</b> - Reference documentation</a>
-<li><a href="https://docs.datastax.com/en/astra/docs/test-loading-data-with-nosqlbench.html"><b>📖  Astra Docs</b> - Reference Documentation</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/develop/dev-upload-data.html#_test_loading_data_with_nosqlbench"><b>📖  Astra Docs</b> - Reference Documentation</a>
 </ol>
 </details>
 
@@ -41,7 +41,7 @@ NoSQLBench).
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
