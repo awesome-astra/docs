@@ -10,7 +10,7 @@
 
 ## A - Overview
 
-As stated in the [Create Account](create-account) page the security token is associated to one and only one organization and only one role.
+As stated in the [Create Account](/docs/pages/astra/create-account/) page the security token is associated to one and only one organization and only one role.
 
 ```mermaid
   graph TD

@@ -17,7 +17,7 @@ The configuration and required certificates are provided to the user through a z
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/astra-create-instance)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 
 ## C - Procedure
 

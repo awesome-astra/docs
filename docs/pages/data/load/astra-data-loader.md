@@ -1,7 +1,7 @@
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
-<li><a href="https://docs.datastax.com/en/astra/docs/astra-data-loader.html"><b>📖  Data Loader</b> - Astra Reference documentation</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/manage/upload/astra-data-loader.html"><b>📖  Data Loader</b> - Astra Reference documentation</a>
 <li><a href="https://www.youtube.com/watch?v=xg3SPqKpP7Q&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=5"><b>🎥 Youtube Video</b> - Walk through data loader usage</a>
 </ol>
 </details>
@@ -13,7 +13,7 @@ Astra DB conveniently has its own data loader built in to the user interface. Us
 ### B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 
 ### C - Procedure
 
