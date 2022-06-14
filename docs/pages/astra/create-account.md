@@ -2,9 +2,9 @@
 
 ASTRA DB is the simplest way to run Cassandra with zero operations. **No credit card required** and $25.00 USD credit every month (_roughly 20M reads/writes, 80GB storage monthly_) which is sufficient to run small production workloads.
 
-[http://astra.datastax.com](http://astra.datastax.com/) is the URL create an account and get started with the solution.
+[https://astra.datastax.com](https://astra.datastax.com/) is the URL create an account and get started with the solution.
 
-![](https://dabuttonfactory.com/button.png?t=Go+to+Astra&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)
+[![](https://dabuttonfactory.com/button.png?t=Go+to+Astra&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)](https://astra.datastax.com){target=blank}
 
 ## B - Sign Up
 

@@ -30,6 +30,7 @@ nav:
       - ‣ Datagrip: pages/data/explore/datagrip.md
       - ‣ DBSchema: pages/data/explore/dbschema.md
       - ‣ DBeaver: pages/data/explore/dbeaver.md
+      - ‣ Grafana: pages/tools/integration/grafana.md
       - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ Presto: pages/data/explore/presto.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
@@ -73,6 +74,8 @@ nav:
       - • Jupyter Notebooks :  pages/tools/notebooks/jupyter.md
       - • DataStax Studio : pages/tools/notebooks/datastax-studio.md
       - • Apache Zeppelin : pages/tools/notebooks/zeppelin.md
+    - Data Visualization:
+      - • Grafana: pages/tools/integration/grafana.md
     - Integration Middlewares:
       - • Apache Airflow : pages/tools/integration/apache-airflow.md
       - • Apache Nifi : pages/tools/integration/apache-nifi.md
