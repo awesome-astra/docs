@@ -17,8 +17,8 @@ The purpose of this document is to guide you through the process of creating a n
 
 ### Astra Prerequisites
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create an Astra Database](/pages/astra/create-instance/)
-- You should have an [Astra Token](/pages/astra/create-token/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should have an [Astra Token](/docs/pages/astra/create-token/)
 - [Download](https://downloads.datastax.com/#odbc-jdbc-drivers) the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory 
 - Clone this [repository](https://github.com/datastax/cql-proxy) to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
     - You need your Astra Token and Astra Database ID to use CQL-Proxy

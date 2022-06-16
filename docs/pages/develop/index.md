@@ -16,9 +16,11 @@ Astra offers different Apis and interfaces. The choice of one against another wi
 <a href="api/grpc">
 <img src="../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<!-- Placeholder for CQL section
 <a href="api/cql">
 <img src="../../img/tile-api-cql.png" height="130px" width="130px"/>
 </a>
+-->
 </p>
 
 ### 🛠️ Pick a language

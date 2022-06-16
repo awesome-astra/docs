@@ -21,9 +21,9 @@ DBSchema uses the [Simba JDBC driver](https://downloads.datastax.com/#odbc-jdbc-
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/pages/astra/create-instance/)
-- [Create an Astra Token](/pages/astra/create-token/)
-- [Download your secure connect bundle ZIP](/pages/astra/download-scb/)
+- [Create an Astra Database](/docs/pages/astra/create-instance/)
+- [Create an Astra Token](/docs/pages/astra/create-token/)
+- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
 
 This article assumes you have installed the latest version of DBSchema on your laptop or PC.
 
