@@ -2,7 +2,7 @@
 
 ## A - Overview
 
-<img src="../../../img/quine/quine-image.png?raw=true" height="100px" />
+<img src="../../../img/quine/quine-image.png?raw=true" height="50px" />
 
 Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.
 
