@@ -77,8 +77,8 @@ are given on the command line, they take precedence over any defaults.
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/pages/astra/create-instance/)
-- You should [Have an Astra Token](/pages/astra/create-token/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should download the [Cqlsh Version for Astra DB](https://downloads.datastax.com/#cqlsh)
 - You should NOT use a WINDOWS machine, as of today `cqlsh` is not supported on Windows
 

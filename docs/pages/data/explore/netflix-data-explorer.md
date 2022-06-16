@@ -40,9 +40,9 @@ The Query Mode provides a powerful IDE-like experience for writing free-form CQL
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/pages/astra/create-instance/)
-- You should [Have an Astra Token](/pages/astra/create-token/)
-- You should [Download your Secure bundle](/pages/astra/download-scb/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
 ## C - Procedure
 
@@ -77,7 +77,7 @@ yarn start
 
 - Import your bundle
 
-> Here are the instructions to get your [cloud secure bundle](/pages/astra/download-scb/)
+> Here are the instructions to get your [cloud secure bundle](/docs/pages/astra/download-scb/)
 
 [![Open in IDE](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Examples/nf-data-explorer)
 

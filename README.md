@@ -15,7 +15,13 @@ python3 -m pip install mkdocs-material   # install material theme
 python3 -m pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip   # install font-awesome
 python3 -m pip install mkdocs-git-revision-date-plugin # install git revision date
 ```
-          
+
+Or use this one-liner :) 
+
+```
+python3 -m pip install --upgrade pip && python3 -m pip install mkdocs mkdocs-material https://github.com/bmcorser/fontawesome-markdown/archive/master.zip mkdocs-git-revision-date-plugin
+```
+
 ### 2. Run 
 
 ```
@@ -23,6 +29,10 @@ mkdocs serve
 ```
 
 You should be able to access it on http://localhost:8000
+
+**Known Issue:**
+
+If you get an `mkdocs not found error`, launch it this way: `python3 -m mkdocs serve`
 
 ### 3. Instructions
 
