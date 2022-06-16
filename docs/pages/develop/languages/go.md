@@ -106,8 +106,6 @@ This example will be done using command line arguments:
 
 As seen above, we are going to read in six arguments.
 
-#### 3.1.1 Hostname and credentials
-
 First, we'll take the `hostname` and `port` to establish our connection endpoint.  With Astra DB, you should only use a single endpoint to connect, as that Astra endpoint itself resolves to multiple nodes.
 
 ```
