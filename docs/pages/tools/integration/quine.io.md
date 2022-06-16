@@ -2,7 +2,8 @@
 
 ## A - Overview
 
-<img src="../../../img/quine/quine-image.png?raw=true" height="50px" />
+tile-go.png
+<img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" />
 
 Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.
 
@@ -118,7 +119,7 @@ As shown above, Astra DB will return a warning about table compaction options wh
 
 You can now use Quine's visual graph explorer in a web browser, and create/traverse data with either Gremlin or Cypher: http://localhost:8080/
 
-<img src="../../../img/quine/quine-browser-apollo13.png?raw=true" height="300px" />
+<img src="https://awesome-astra.github.io/docs/img/quine/quine-browser-apollo13.png?raw=true" height="300px" />
 
 The Swagger spec for the Quine API can also be found locally at: http://localhost:8080/docs
 
