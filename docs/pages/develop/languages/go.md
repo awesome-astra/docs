@@ -4,7 +4,7 @@
 
 Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
 
-Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ is also available for you to reduce the amount of boilerplate code needed to get started. More information is [here](https://github.com/datastax/astrajs).
+Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ for Go is forthcoming, and will be available in the near future.
 
 ### 2. Interfaces List
 
@@ -23,7 +23,7 @@ Pick the interface in the table below to get relevant instructions. In most case
 
 ## 3. CQL
 
-### 3.1 Cassandra Drivers
+### 3.1 The Gocql Cassandra Driver
 
 **ℹ️ Overview**
 
@@ -33,27 +33,155 @@ TODO
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](http://astra.datastax.com/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
 **📦 Prerequisites [Development Environment]**
 
-```
-TODO
-```
-
-**📦 Setup Project**
+You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
 
 ```
-TODO
+$ go version
+```
+
+With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
+
+```
+go get github.com/gocql/gocql
 ```
 
 **🖥️ Sample Code**
 
+To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.  You will also need to unzip your secure bundle, to ensure that you can access the files contained within.  
+
 ```
-TODO
+$ mkdir mySecureBundleDir
+$ cd mySecureBundleDir
+$ mv ~/Downloads/secure-connect-bundle.zip .
+$ unzip secure-connect-bundle.zip
 ```
+
+Inside your editor/IDE, create a new code file with a `.go` extension, and import several libraries.
+
+```
+import (
+    "crypto/tls"
+    "crypto/x509"
+    "context"
+    "fmt"
+    "io/ioutil"
+    "github.com/gocql/gocql"
+    "os"
+    "path/filepath"
+    "strconv"
+)
+```
+
+Next, create a `func main()` method.
+
+```
+func main() {
+    // set default port
+    var port int = 29042
+    var err error
+```
+
+As seen above, we'll define Astra DB's default CQL port to 29042 as well as an error variable (which we'll use later).
+
+Next you will want inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
+
+This example will be done using command line arguments:
+
+```
+    hostname := os.Args[1]
+    username := os.Args[2]
+    password := os.Args[3]
+
+    caPath,_ := filepath.Abs(os.Args[4])
+    certPath,_ := filepath.Abs(os.Args[5])
+    keyPath,_ := filepath.Abs(os.Args[6])
+```
+
+As seen above, we are going to read in six arguments.
+
+First, we'll take the `hostname` and `port` to establish our connection endpoint.  With Astra DB, you should only use a single endpoint to connect, as that Astra endpoint itself resolves to multiple nodes.
+
+```
+cluster := gocql.NewCluster(hostname)
+cluster.Port = port
+```
+
+Next, we'll define our connection authenticator and pass our credentials to it.
+
+```
+cluster.Authenticator = gocql.PasswordAuthenticator{
+			Username: username,
+			Password: password,
+}
+```
+
+Finally, we'll need to process the filepaths of our TLS/X509 certificate, key, and certificate authority files.
+
+```
+cert, _ := tls.LoadX509KeyPair(certPath, keyPath)
+caCert, err := ioutil.ReadFile(caPath)
+caCertPool := x509.NewCertPool()
+caCertPool.AppendCertsFromPEM(caCert)
+tlsConfig := &tls.Config{
+		Certificates: []tls.Certificate{cert},
+		RootCAs:      caCertPool,
+}
+```
+
+We'll them pass our `tlsConfig` to the `SslOpts` property on the `cluster` object.
+
+```
+cluster.SslOpts = &gocql.SslOptions{
+		Config:                 tlsConfig,
+		EnableHostVerification: false,
+}
+```
+
+With all of that defined, we can open a connection to our cluster:
+
+```
+session, err := cluster.CreateSession()
+if err != nil {
+		fmt.Println(err)
+}
+defer session.Close()
+ctx := context.Background()
+```
+
+If you get an error concerning a mismatch of the CQL protocol version at this point, try forcing protocol version 4 _before_ the session code block above.
+
+```
+cluster.ProtoVersion = 4
+```
+
+With a connection made, we can run a simple query to return the name of the cluster from the `system.local` table:
+
+```
+var strClusterName string
+err2 := session.Query(`SELECT cluster_name FROM system.local`).WithContext(ctx).Scan(&strClusterName)
+if err2 != nil {
+		fmt.Println(err)
+} else {
+		fmt.Println("cluster_name:", strClusterName)
+}
+```
+
+Running this code with arguments in the proper order should yield output similar to this:
+
+```
+$ go run testCassandraSSL.go ce111111-1111-1111-1111-d11b1d4bc111-us-east1.db.astra.datastax.com token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/ca.crt /Users/aaronploetz/mySecureBundleDir/cert /Users/aaronploetz/mySecureBundleDir/key
+
+cluster_name: cndb
+```
+
+The complete code to this example can be found [here](https://github.com/aar0np/go_stuff/blob/main/testCassandraSSL.go).
 
 ### 3.2 Astra SDK
 
