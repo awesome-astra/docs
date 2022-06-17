@@ -2634,200 +2634,252 @@
 <h2 id="3-cql">3. CQL<a class="headerlink" href="#3-cql" title="Permanent link">&para;</a></h2>
 <h3 id="31-cassandra-drivers">3.1 Cassandra Drivers<a class="headerlink" href="#31-cassandra-drivers" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TODO
-</code></pre></div>
+<p>These instructions are aimed at helping people connect to Astra DB programmatically using the DataStax Python driver.</p>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO
-</code></pre></div>
+<ul>
+<li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
+<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+<li>You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+</ul>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>TODO
+<p>You will need a recent version of Python 3.  Visit <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> for more information on downloads and installation instructions for your machine architecture.  To verify your Python install, run the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ python -V
+</code></pre></div>
+<p>With Python installed locally, you can now use Pip (Python's package manager) to install the DataStax Python driver.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ pip install cassandra-driver
+</code></pre></div>
+<p>You can verify that the DataStax Python driver was installed successfully with this command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ python -c &#39;import cassandra; print (cassandra.__version__)&#39;
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>TODO
+<p>Create a new file and/or directory for your Python program.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir python_project
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cd python_project
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>touch testAstra.py
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>TODO
+<p>To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ mkdir ~/mySecureBundleDir
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ cd ~/mySecureBundleDir
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$ mv ~/Downloads/secure-connect-bundle.zip .
 </code></pre></div>
+<p>Open up your favorite editor or IDE, and add 3 imports:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">cassandra.auth</span> <span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">sys</span>
+</code></pre></div>
+<p>Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.</p>
+<p>This example will be done using command line arguments:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">clientID</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">secret</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">secureBundleLocation</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<p>We'll also define the location of our secure connect bundle, and set that as a property in our <code>cloud_config</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">cloud_config</span><span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="s1">&#39;secure_connect_bundle&#39;</span><span class="p">:</span> <span class="n">secureBundleLocation</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Next, we'll define our authenticator and pass our credentials to it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">auth_provider</span> <span class="o">=</span> <span class="n">PlainTextAuthProvider</span><span class="p">(</span><span class="n">clientID</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
+</code></pre></div>
+<p>With all of that defined, we can build a cluster object and a connection:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="n">cloud_config</span><span class="p">,</span> <span class="n">auth_provider</span><span class="o">=</span><span class="n">auth_provider</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">session</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+<p>With a connection made, we can run a simple query to return the name of the cluster from the <code>system.local</code> table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">row</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select cluster_name from system.local&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">if</span> <span class="n">row</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Running this code with arguments in the proper order should yield output similar to this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ python testAstra.py token &quot;AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b&quot; /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>cndb
+</code></pre></div>
+<p>The complete code to this example can be found <a href="https://github.com/aar0np/DS_Python_stuff/blob/main/testAstra.py">here</a>.</p>
 <h3 id="32-astra-sdk">3.2 Astra SDK<a class="headerlink" href="#32-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>TODO
 </code></pre></div>
 <h2 id="4-stargate-rest-api">4. Stargate REST Api<a class="headerlink" href="#4-stargate-rest-api" title="Permanent link">&para;</a></h2>
 <h3 id="41-axios">4.1 Axios<a class="headerlink" href="#41-axios" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>TODO
 </code></pre></div>
 <h3 id="42-astra-sdk">4.2 Astra SDK<a class="headerlink" href="#42-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
 </code></pre></div>
 <h2 id="5-stargate-document-api">5. Stargate Document Api<a class="headerlink" href="#5-stargate-document-api" title="Permanent link">&para;</a></h2>
 <h3 id="51-axios">5.1 Axios<a class="headerlink" href="#51-axios" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
 </code></pre></div>
 <h3 id="52-astra-sdk">5.2 Astra SDK<a class="headerlink" href="#52-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>TODO
 </code></pre></div>
 <h2 id="6-stargate-graphql">6 Stargate GraphQL<a class="headerlink" href="#6-stargate-graphql" title="Permanent link">&para;</a></h2>
 <h3 id="61-cql-first">6.1 CQL First<a class="headerlink" href="#61-cql-first" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>TODO
 </code></pre></div>
 <h3 id="62-graphql-first">6.2 GraphQL First<a class="headerlink" href="#62-graphql-first" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>TODO
 </code></pre></div>
 <h2 id="7-stargate-grpc">7. Stargate gRPC<a class="headerlink" href="#7-stargate-grpc" title="Permanent link">&para;</a></h2>
 <h3 id="71-stargate-client">7.1 Stargate Client<a class="headerlink" href="#71-stargate-client" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>TODO
 </code></pre></div>
 <h3 id="72-astra-sdk">7.2 Astra SDK<a class="headerlink" href="#72-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>TODO
 </code></pre></div>
 <h2 id="8-pulsar-client">8. Pulsar Client<a class="headerlink" href="#8-pulsar-client" title="Permanent link">&para;</a></h2>
 <h3 id="81-pulsar-client">8.1 Pulsar Client<a class="headerlink" href="#81-pulsar-client" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>TODO
 </code></pre></div>
 <h3 id="82-astra-sdk">8.2 Astra SDK<a class="headerlink" href="#82-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>TODO
 </code></pre></div>
 <h2 id="9-pulsar-admin">9. Pulsar Admin<a class="headerlink" href="#9-pulsar-admin" title="Permanent link">&para;</a></h2>
 <h2 id="10-devops-api-database">10 Devops API Database<a class="headerlink" href="#10-devops-api-database" title="Permanent link">&para;</a></h2>
@@ -2839,7 +2891,7 @@
   <small>
     
       Last update:
-      2022-05-14
+      2022-06-17
     
   </small>
 </div>
