@@ -43,7 +43,7 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
 
 ```
-$ go version
+go version
 ```
 
 With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
@@ -57,10 +57,10 @@ go get github.com/gocql/gocql
 To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.  You will also need to unzip your secure bundle, to ensure that you can access the files contained within.  
 
 ```
-$ mkdir mySecureBundleDir
-$ cd mySecureBundleDir
-$ mv ~/Downloads/secure-connect-bundle.zip .
-$ unzip secure-connect-bundle.zip
+mkdir mySecureBundleDir
+cd mySecureBundleDir
+mv ~/Downloads/secure-connect-bundle.zip .
+unzip secure-connect-bundle.zip
 ```
 
 Inside your editor/IDE, create a new code file with a `.go` extension, and import several libraries.
@@ -81,7 +81,7 @@ import (
 
 Next, create a `func main()` method.
 
-```
+```go
 func main() {
     // set default port
     var port int = 29042
@@ -94,28 +94,28 @@ Next we will inject the connection parameters into the code.  This can be done e
 
 This example will be done using command line arguments:
 
-```
-    hostname := os.Args[1]
-    username := os.Args[2]
-    password := os.Args[3]
+```go
+hostname := os.Args[1]
+username := os.Args[2]
+password := os.Args[3]
 
-    caPath,_ := filepath.Abs(os.Args[4])
-    certPath,_ := filepath.Abs(os.Args[5])
-    keyPath,_ := filepath.Abs(os.Args[6])
+caPath,_ := filepath.Abs(os.Args[4])
+certPath,_ := filepath.Abs(os.Args[5])
+keyPath,_ := filepath.Abs(os.Args[6])
 ```
 
 As seen above, we are going to read in six arguments.
 
 First, we'll take the `hostname` and `port` to establish our connection endpoint.  With Astra DB, you should only use a single endpoint to connect, as that Astra endpoint itself resolves to multiple nodes.
 
-```
+```go
 cluster := gocql.NewCluster(hostname)
 cluster.Port = port
 ```
 
 Next, we'll define our connection authenticator and pass our credentials to it.
 
-```
+```go
 cluster.Authenticator = gocql.PasswordAuthenticator{
 			Username: username,
 			Password: password,
@@ -124,7 +124,7 @@ cluster.Authenticator = gocql.PasswordAuthenticator{
 
 Finally, we'll need to process the filepaths of our TLS/X509 certificate, key, and certificate authority files.
 
-```
+```go
 cert, _ := tls.LoadX509KeyPair(certPath, keyPath)
 caCert, err := ioutil.ReadFile(caPath)
 caCertPool := x509.NewCertPool()
@@ -137,7 +137,7 @@ tlsConfig := &tls.Config{
 
 We'll them pass our `tlsConfig` to the `SslOpts` property on the `cluster` object.
 
-```
+```go
 cluster.SslOpts = &gocql.SslOptions{
 		Config:                 tlsConfig,
 		EnableHostVerification: false,
@@ -146,7 +146,7 @@ cluster.SslOpts = &gocql.SslOptions{
 
 With all of that defined, we can open a connection to our cluster:
 
-```
+```go
 session, err := cluster.CreateSession()
 if err != nil {
 		fmt.Println(err)
@@ -157,13 +157,13 @@ ctx := context.Background()
 
 If you get an error concerning a mismatch of the CQL protocol version at this point, try forcing protocol version 4 _before_ the session code block above.
 
-```
+```go
 cluster.ProtoVersion = 4
 ```
 
 With a connection made, we can run a simple query to return the name of the cluster from the `system.local` table:
 
-```
+```go
 var strClusterName string
 err2 := session.Query(`SELECT cluster_name FROM system.local`).WithContext(ctx).Scan(&strClusterName)
 if err2 != nil {
@@ -176,7 +176,7 @@ if err2 != nil {
 Running this code with arguments in the proper order should yield output similar to this:
 
 ```
-$ go run testCassandraSSL.go ce111111-1111-1111-1111-d11b1d4bc111-us-east1.db.astra.datastax.com token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/ca.crt /Users/aaronploetz/mySecureBundleDir/cert /Users/aaronploetz/mySecureBundleDir/key
+go run testCassandraSSL.go ce111111-1111-1111-1111-d11b1d4bc111-us-east1.db.astra.datastax.com token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/ca.crt /Users/aaronploetz/mySecureBundleDir/cert /Users/aaronploetz/mySecureBundleDir/key
 
 cluster_name: cndb
 ```
