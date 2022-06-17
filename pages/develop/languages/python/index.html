@@ -2644,13 +2644,13 @@
 </ul>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
 <p>You will need a recent version of Python 3.  Visit <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> for more information on downloads and installation instructions for your machine architecture.  To verify your Python install, run the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ python -V
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python -V
 </code></pre></div>
 <p>With Python installed locally, you can now use Pip (Python's package manager) to install the DataStax Python driver.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ pip install cassandra-driver
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install cassandra-driver
 </code></pre></div>
 <p>You can verify that the DataStax Python driver was installed successfully with this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ python -c &#39;import cassandra; print (cassandra.__version__)&#39;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python -c &#39;import cassandra; print (cassandra.__version__)&#39;
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
 <p>Create a new file and/or directory for your Python program.</p>
@@ -2660,9 +2660,9 @@
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
 <p>To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ mkdir ~/mySecureBundleDir
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ cd ~/mySecureBundleDir
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$ mv ~/Downloads/secure-connect-bundle.zip .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir ~/mySecureBundleDir
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cd ~/mySecureBundleDir
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mv ~/Downloads/secure-connect-bundle.zip .
 </code></pre></div>
 <p>Open up your favorite editor or IDE, and add 3 imports:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
@@ -2695,7 +2695,7 @@
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred.&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Running this code with arguments in the proper order should yield output similar to this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ python testAstra.py token &quot;AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b&quot; /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python testAstra.py token &quot;AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b&quot; /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>cndb
 </code></pre></div>
