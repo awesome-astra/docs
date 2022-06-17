@@ -2213,7 +2213,7 @@
 
   <h1>• Quine</h1>
 
-<p><em>Last Update 2022-06-16</em></p>
+<p><em>Last Update 2022-06-17</em></p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" /></p>
 <p>Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.</p>
@@ -2223,17 +2223,17 @@
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>You should have an <a href="http://astra.datastax.com/">Astra account</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create and Astra Database</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Have an Astra Token</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
+<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
 <li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your Secure bundle</a></li>
 <li>You should install a JDK (version 11 or higher).</li>
 </ul>
-<p>This article was written for Quine version <code>1.2.0</code> on <code>MacOS</code> with Java <code>11.10</code>.</p>
+<p>This article was written for Quine version <code>1.2.1</code> on <code>MacOS</code> with Java <code>11.10</code>.</p>
 <h2 id="c-installation">C - Installation<a class="headerlink" href="#c-installation" title="Permanent link">&para;</a></h2>
 <p><strong>✅ Step 1 Download and install</strong></p>
-<p>Following the [Download Quine] page (https://quine.io/download) download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:</p>
+<p>Follow the <a href="https://quine.io/download">Download Quine page</a> to download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir ~/local/quine
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp ~/Downloads/quine-1.2.0.jar ~/local/quine
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 </code></pre></div>
 <p><strong>✅ Step 2 Create the keyspace <code>quine</code></strong></p>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>quine</code>.</p>
@@ -2242,7 +2242,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd ~/local/quine
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>touch quine.conf
 </code></pre></div>
-<p>The <code>quine.conf</code> file should look like the following:</p>
+<p>Edit the <code>quine.conf</code> file to look like the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>quine.store {
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  # store data in an Apache Cassandra instance
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  type = cassandra
@@ -2287,22 +2287,22 @@
 <p><code>local-datacenter = "us-east1"</code> - Set Astra DB's cloud region as the local DC.</p>
 <p><code>username = "token"</code> - No need to mess with this.  Just leave it as the literal word "token."</p>
 <p><code>password</code> - A valid token for an Astra DB cluster.</p>
-<p><code>secure-connect-bundle</code> - A valid, local file location of a downloaded secure connect bundle.</p>
+<p><code>secure-connect-bundle</code> - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname from the secure bundle, so there is no need to specify endpoints separately.</p>
 <p><strong>✅ Step 4 Run Quine</strong></p>
 <p>To run Quine, invoke the JAR with Java, while passing the <code>quine.conf</code> in the <code>config.file</code> parameter:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ java -Dconfig.file=quine.conf -jar quine-1.2.0.jar
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2022-06-15 15:11:52,666 WARN [NotFromActor] [s0-io-4] com.datastax.oss.driver.internal.core.cql.CqlRequestHandler - Query &#39;[0 values] CREATE TABLE IF NOT EXISTS journals (quine_id blob,timestamp bigint,data blob,PRIMARY KEY(quine_id,timestamp)) WITH CLUSTERING ORDER BY (timestamp ASC) AND compaction={&#39;class&#39;:&#39;TimeWindowCompactionStrategy&#39;}&#39; generated server side warning(s): Ignoring provided values [compaction] as they are not supported for Table Properties (ignored values are: [additional_write_policy, bloom_filter_fp_chance, caching, cdc, compaction, compression, crc_check_chance, dclocal_read_repair_chance, extensions, gc_grace_seconds, id, max_index_interval, memtable_flush_period_in_ms, min_index_interval, nodesync, read_repair, read_repair_chance, speculative_retry])
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Graph is ready!
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Application state loaded.
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Quine app web server available at (http://0.0.0.0:8080)[http://0.0.0.0:8080]
 </code></pre></div>
-<p>As shown above, Astra DB will return a warning about table compaction options which it will ignore.</p>
+<p>As shown above, Astra DB will return a warning about table valid options which it will ignore.</p>
 <p>You can now use Quine's visual graph explorer in a web browser, and create/traverse data with either Gremlin or Cypher: <a href="http://localhost:8080/">http://localhost:8080/</a></p>
 <p><img src="https://awesome-astra.github.io/docs/img/quine/quine-browser-apollo13.png?raw=true" height="300px" /></p>
 <p>The Swagger spec for the Quine API can also be found locally at: <a href="http://localhost:8080/docs">http://localhost:8080/docs</a></p>
 <h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
-<p>Special thanks goes out to Ryan Wright and Leif Warner of thatDot for their help with getting Quine running and connected.</p>
+<p>Special thanks goes out to Ryan Wright and Leif Warner of <a href="https://www.thatdot.com/">thatDot</a> for their help with getting Quine running and connected.</p>
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
 
   <hr>
@@ -2310,7 +2310,7 @@
   <small>
     
       Last update:
-      2022-06-16
+      2022-06-17
     
   </small>
 </div>
