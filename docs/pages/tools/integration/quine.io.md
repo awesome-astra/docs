@@ -106,7 +106,7 @@ Astra-Specific Settings:
 To run Quine, invoke the JAR with Java, while passing the `quine.conf` in the `config.file` parameter:
 
 ```
-$ java -Dconfig.file=quine.conf -jar quine-1.2.0.jar
+$ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 
 2022-06-15 15:11:52,666 WARN [NotFromActor] [s0-io-4] com.datastax.oss.driver.internal.core.cql.CqlRequestHandler - Query '[0 values] CREATE TABLE IF NOT EXISTS journals (quine_id blob,timestamp bigint,data blob,PRIMARY KEY(quine_id,timestamp)) WITH CLUSTERING ORDER BY (timestamp ASC) AND compaction={'class':'TimeWindowCompactionStrategy'}' generated server side warning(s): Ignoring provided values [compaction] as they are not supported for Table Properties (ignored values are: [additional_write_policy, bloom_filter_fp_chance, caching, cdc, compaction, compression, crc_check_chance, dclocal_read_repair_chance, extensions, gc_grace_seconds, id, max_index_interval, memtable_flush_period_in_ms, min_index_interval, nodesync, read_repair, read_repair_chance, speculative_retry])
 Graph is ready!
