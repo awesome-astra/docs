@@ -11,22 +11,22 @@ Quine is a streaming graph capable of building high-volumes of data into a state
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
+- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
+- You should [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
 - You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
 - You should install a JDK (version 11 or higher).
 
-This article was written for Quine version `1.2.0` on `MacOS` with Java `11.10`.
+This article was written for Quine version `1.2.1` on `MacOS` with Java `11.10`.
 
 ## C - Installation
 
 **✅ Step 1 Download and install**
 
-Following the [Download Quine] page (https://quine.io/download) download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:
+Follow the [Download Quine page](https://quine.io/download) to download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:
 
 ```
 mkdir ~/local/quine
-cp ~/Downloads/quine-1.2.0.jar ~/local/quine
+cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 ```
 
 **✅ Step 2 Create the keyspace `quine`**
@@ -42,7 +42,7 @@ cd ~/local/quine
 touch quine.conf
 ```
 
-The `quine.conf` file should look like the following:
+Edit the `quine.conf` file to look like the following:
 
 ```
 quine.store {
@@ -99,14 +99,14 @@ Astra-Specific Settings:
 
 `password` - A valid token for an Astra DB cluster.
 
-`secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.
+`secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname from the secure bundle, so there is no need to specify endpoints separately.
 
 **✅ Step 4 Run Quine**
 
 To run Quine, invoke the JAR with Java, while passing the `quine.conf` in the `config.file` parameter:
 
 ```
-$ java -Dconfig.file=quine.conf -jar quine-1.2.0.jar
+$ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 
 2022-06-15 15:11:52,666 WARN [NotFromActor] [s0-io-4] com.datastax.oss.driver.internal.core.cql.CqlRequestHandler - Query '[0 values] CREATE TABLE IF NOT EXISTS journals (quine_id blob,timestamp bigint,data blob,PRIMARY KEY(quine_id,timestamp)) WITH CLUSTERING ORDER BY (timestamp ASC) AND compaction={'class':'TimeWindowCompactionStrategy'}' generated server side warning(s): Ignoring provided values [compaction] as they are not supported for Table Properties (ignored values are: [additional_write_policy, bloom_filter_fp_chance, caching, cdc, compaction, compression, crc_check_chance, dclocal_read_repair_chance, extensions, gc_grace_seconds, id, max_index_interval, memtable_flush_period_in_ms, min_index_interval, nodesync, read_repair, read_repair_chance, speculative_retry])
 Graph is ready!
@@ -114,7 +114,7 @@ Application state loaded.
 Quine app web server available at (http://0.0.0.0:8080)[http://0.0.0.0:8080]
 ```
 
-As shown above, Astra DB will return a warning about table compaction options which it will ignore.
+As shown above, Astra DB will return a warning about table valid options which it will ignore.
 
 You can now use Quine's visual graph explorer in a web browser, and create/traverse data with either Gremlin or Cypher: [http://localhost:8080/](http://localhost:8080/)
 
@@ -124,6 +124,6 @@ The Swagger spec for the Quine API can also be found locally at: [http://localho
 
 ## D - Acknowledgements
 
-Special thanks goes out to Ryan Wright and Leif Warner of thatDot for their help with getting Quine running and connected.
+Special thanks goes out to Ryan Wright and Leif Warner of [thatDot](https://www.thatdot.com/) for their help with getting Quine running and connected.
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)
