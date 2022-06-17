@@ -6,7 +6,7 @@
 
 [Grafana](https://grafana.com/) is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. A licensed Grafana Enterprise version with additional capabilities is also available as a self-hosted installation or an account on the Grafana Labs cloud service. It is expandable through a plug-in system. End users can create complex dashboards using interactive query builders.
 
-Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesArchitect/GrafanaCassandraDatasource) supports both Apache Cassandra as well as DataStax AstraDB, allowing to use Cassandra as a data backend for Grafana. Data can be pulled using simple Qquery Configurator or more advanced but powerful Query Editor.
+Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesArchitect/GrafanaCassandraDatasource) supports both Apache Cassandra as well as DataStax AstraDB, allowing to use Cassandra as a data backend for Grafana. Data can be pulled using simple Query Configurator or more advanced but powerful Query Editor.
 
 <img src="../../../../img/grafana/grafana_demo.png" />
 
