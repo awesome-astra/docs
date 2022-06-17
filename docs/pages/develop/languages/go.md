@@ -28,7 +28,7 @@ Pick the interface in the table below to get relevant instructions. In most case
 **ℹ️ Overview**
 
 ```
-These instructions are aimed at helping people connect to Astra DB programatically using the community-driven Gocql driver.  This driver does not have an option to process the Astra secure connect bundle, so part of connecting is completing that process manually, as is shown below.
+These instructions are aimed at helping people connect to Astra DB programmatically using the community-driven Gocql driver.  This driver does not have an option to process the Astra secure connect bundle, so part of connecting is completing that process manually, as is shown below.
 ```
 
 **📦 Prerequisites [ASTRA]**
@@ -65,7 +65,7 @@ $ unzip secure-connect-bundle.zip
 
 Inside your editor/IDE, create a new code file with a `.go` extension, and import several libraries.
 
-```
+```go
 import (
     "crypto/tls"
     "crypto/x509"
@@ -90,7 +90,7 @@ func main() {
 
 As seen above, we'll define Astra DB's default CQL port to 29042 as well as an error variable (which we'll use later).
 
-Next you will want inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
+Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
 
 This example will be done using command line arguments:
 
