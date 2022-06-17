@@ -41,19 +41,19 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 You will need a recent version of Python 3.  Visit [https://www.python.org/downloads/](https://www.python.org/downloads/) for more information on downloads and installation instructions for your machine architecture.  To verify your Python install, run the following command:
 
 ```
-$ python -V
+python -V
 ```
 
 With Python installed locally, you can now use Pip (Python's package manager) to install the DataStax Python driver.
 
 ```
-$ pip install cassandra-driver
+pip install cassandra-driver
 ```
 
 You can verify that the DataStax Python driver was installed successfully with this command:
 
 ```
-$ python -c 'import cassandra; print (cassandra.__version__)'
+python -c 'import cassandra; print (cassandra.__version__)'
 ```
 
 **📦 Setup Project**
@@ -71,9 +71,9 @@ touch testAstra.py
 To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.
 
 ```
-$ mkdir ~/mySecureBundleDir
-$ cd ~/mySecureBundleDir
-$ mv ~/Downloads/secure-connect-bundle.zip .
+mkdir ~/mySecureBundleDir
+cd ~/mySecureBundleDir
+mv ~/Downloads/secure-connect-bundle.zip .
 ```
 
 Open up your favorite editor or IDE, and add 3 imports:
@@ -128,7 +128,7 @@ else:
 Running this code with arguments in the proper order should yield output similar to this:
 
 ```
-$ python testAstra.py token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
+python testAstra.py token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
 
 cndb
 ```
