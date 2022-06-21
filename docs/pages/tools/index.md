@@ -12,9 +12,9 @@
 
 - **[Cloud Functions (Python SDK)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.
 
-- **[Cql Proxy](../astra/cqlproxy)**: cql-proxy is designed to forward your application's CQL traffic to an appropriate database service. It listens on a local address and securely forwards that traffic.
+- **[CQL Proxy](../astra/cqlproxy)**: cql-proxy is designed to forward your application's CQL traffic to an appropriate database service. It listens on a local address and securely forwards that traffic.
 
-- **[Cql Shell](../data/explore/cqlsh)**: the standalone CQLSH client is a separate, lightweight tool you can use to interact with your database.
+- **[CQL Shell](../data/explore/cqlsh)**: the standalone CQLSH client is a separate, lightweight tool you can use to interact with your database.
 
 - **[Datagrip Jetbrains](../data/explore/datagrip.md):** DataGrip is a database management environment for developers. It is designed to query, create, and manage databases. Databases can work locally, on a server, or in the cloud. Supports MySQL, PostgreSQL, Microsoft SQL Server, Oracle, and more. If you have a JDBC driver, add it to DataGrip, connect to your DBMS, and start working.
 
@@ -23,6 +23,8 @@
 - **[DBeaver](../data/explore/dbeaver.md)**: DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.
 
 - **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
+
+- **[Grafana](integration/grafana):** Grafana is an industry standard tool for data visualisation. With Grafana, you can explore your time-series data using different visualisations: charts, plots, diagrams and even configure alerting if a value exceeds some desired range.
 
 - **[HashiCorp Vault](integration/vault.md):** Vault is an identity-based secrets and encryption management system. A secret is anything that you want to tightly control access to, such as API encryption keys, passwords, or certificates. Vault provides encryption services that are gated by authentication and authorization methods.
     - [Astra DB Plugin](plugins/astradb-vault-plugin.md)
