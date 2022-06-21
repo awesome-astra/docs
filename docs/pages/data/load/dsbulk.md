@@ -40,7 +40,7 @@ You can use `dsbulk` as a standalone tool to remotely connect to a cluster. The 
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 

@@ -31,7 +31,7 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 ## B - Prerequisites
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should install a `Java JDK 1.8+` and [Apache Maven](https://maven.apache.org/)
 - [Download and install Apache Nifi](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi)

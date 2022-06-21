@@ -36,7 +36,7 @@ Driver reference documentation can be found [HERE](https://docs.datastax.com/en/
       **Astra**
 
       - You should have an [Astra account](http://astra.datastax.com/)
-      - You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+      - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
       - You should [Have an Astra Token](/docs/pages/astra/create-token/)
       - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
@@ -252,7 +252,7 @@ To know more regarding this interface specially you can have a look to [dedicate
 **📦 Prerequisites [ASTRA]**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 
 **📦 Prerequisites [Development Environment]**
@@ -456,7 +456,7 @@ The Document API is an HTTP REST API and part of the open source Stargate.io. Th
 - **📦 Prerequisites**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
 - You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
@@ -525,7 +525,7 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.
 - **📦 Prerequisites**
 
 - You should have an [Astra account](http://astra.datastax.com/)
-- You should [Create and Astra Database](/docs/pages/astra/create-instance/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
 - You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
