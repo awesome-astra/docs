@@ -276,6 +276,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/grafana/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/liquibase/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
