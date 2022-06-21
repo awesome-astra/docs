@@ -66,16 +66,13 @@ Notice the final **Path** that should be used to access the secure connect bundl
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 import os
-from shutil import copyfile
-
-# Copy the secure connect bundle file to the writable part of the file system /tmp
-copyfile('/secrets/secure-connect-secret', '/tmp/secure-connect-for-my-database.zip')
 
 ASTRA_DB_CLIENT_ID = os.environ.get('ASTRA_DB_CLIENT_ID')
 ASTRA_DB_CLIENT_SECRET = os.environ.get('ASTRA_DB_CLIENT_SECRET')
 
 cloud_config= {
-    'secure_connect_bundle': '/tmp/secure-connect-for-my-database.zip'
+    'secure_connect_bundle': '/secrets/secure-connect-secret',
+    'use_default_tempdir': True
 }
 auth_provider = PlainTextAuthProvider(ASTRA_DB_CLIENT_ID, ASTRA_DB_CLIENT_SECRET)
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider, protocol_version=4)
