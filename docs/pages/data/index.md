@@ -43,6 +43,9 @@ In this section are listed third party tools that will help you browse your data
 <a href="explore/presto">
  <img src="../../img/data/tile-presto.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<a href="../tools/integration/grafana">
+ <img src="../../img/data/tile-grafana.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 
 
 ### 📋 Data Modelling
