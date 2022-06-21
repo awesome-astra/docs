@@ -27,33 +27,113 @@ Pick the interface in the table below to get relevant instructions. In most case
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+These instructions are aimed at helping people connect to Astra DB programmatically using the DataStax Python driver.
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](http://astra.datastax.com/)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
 **📦 Prerequisites [Development Environment]**
 
+You will need a recent version of Python 3.  Visit [https://www.python.org/downloads/](https://www.python.org/downloads/) for more information on downloads and installation instructions for your machine architecture.  To verify your Python install, run the following command:
+
 ```
-TODO
+python -V
+```
+
+With Python installed locally, you can now use Pip (Python's package manager) to install the DataStax Python driver.
+
+```
+pip install cassandra-driver
+```
+
+You can verify that the DataStax Python driver was installed successfully with this command:
+
+```
+python -c 'import cassandra; print (cassandra.__version__)'
 ```
 
 **📦 Setup Project**
 
+Create a new file and/or directory for your Python program.
+
 ```
-TODO
+mkdir python_project
+cd python_project
+touch testAstra.py
 ```
 
 **🖥️ Sample Code**
 
+To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.
+
 ```
-TODO
+mkdir ~/mySecureBundleDir
+cd ~/mySecureBundleDir
+mv ~/Downloads/secure-connect-bundle.zip .
 ```
+
+Open up your favorite editor or IDE, and add 3 imports:
+
+```Python
+from cassandra.cluster import Cluster
+from cassandra.auth import PlainTextAuthProvider
+import sys
+```
+
+Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
+
+This example will be done using command line arguments:
+
+```Python
+clientID=sys.argv[1]
+secret=sys.argv[2]
+secureBundleLocation=sys.argv[3]
+```
+
+We'll also define the location of our secure connect bundle, and set that as a property in our `cloud_config`:
+
+```Python
+cloud_config= {
+    'secure_connect_bundle': secureBundleLocation
+}
+```
+
+Next, we'll define our authenticator and pass our credentials to it.
+
+```Python
+auth_provider = PlainTextAuthProvider(clientID, secret)
+```
+
+With all of that defined, we can build a cluster object and a connection:
+
+```Python
+cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
+session = cluster.connect()
+```
+
+With a connection made, we can run a simple query to return the name of the cluster from the `system.local` table:
+
+```Python
+row = session.execute("select cluster_name from system.local").one()
+if row:
+    print(row[0])
+else:
+    print("An error occurred.")
+```
+
+Running this code with arguments in the proper order should yield output similar to this:
+
+```
+python testAstra.py token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
+
+cndb
+```
+
+The complete code to this example can be found [here](https://github.com/aar0np/DS_Python_stuff/blob/main/testAstra.py).
 
 ### 3.2 Astra SDK
 

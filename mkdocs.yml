@@ -84,6 +84,7 @@ nav:
       - • HashiCorp Vault : pages/tools/integration/vault.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
+      - • Quine : pages/tools/integration/quine.io.md
       - • StepZen : pages/tools/integration/stepzen.md
       - • Temporal : pages/tools/integration/temporal.md
     - Plugins:
