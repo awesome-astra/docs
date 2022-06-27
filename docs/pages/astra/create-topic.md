@@ -1,7 +1,7 @@
 <details>
 <summary><b> 📖 Reference Documentation and resources</b></summary>
 <ol>
-<li><a href="https://docs.datastax.com/en/astra-streaming/docs/astream-quick-start.html)"><b>📖  Astra Docs</b> - Reference documentation</a>
+<li><a href="https://docs.datastax.com/en/astra-streaming/docs/astream-quick-start.html"><b>📖  Astra Docs</b> - Reference documentation</a>
 <li><a href="https://www.youtube.com/watch?v=MCj58S56Z2U&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=14"><b>🎥 Youtube Video</b> - Astra Streaming demo</a>
 <li><a href="https://pulsar.apache.org/docs/en/standalone/"><b>🎥 Pulsar Documentation</b> - Getting Started</a>
 </ol>
