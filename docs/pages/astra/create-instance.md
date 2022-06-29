@@ -44,8 +44,18 @@ hit the "Create database" button in your existing Astra account._
 
 - ℹ️ You will see your new database `pending` in the Dashboard. The status will change to `Active` when the database is ready, which will only take 2-3 minutes. You will also receive an email when it is ready.
 
-<img src="../../../img/astra/astra-create-db-pending.png" />
+**✅ Step 3: Download your token**
 
-**👁️ Walkthrough**
+The database will take about a minute to inialize. Progression can be seen on the right panel  (_**Pending - Deployed to region...**, in the screenshot below_).
 
-<img src="../../../img/astra/astra-create-db.gif" />
+- Download your token file it will be useful later to use the DB.
+
+<img src="../../../img/astra/astra-create-db-2.png" />
+
+**✅ Step 4: You are all set**
+
+When the status is changed to `Your Database is now active` you are good to go
+
+- Click `[Go To Database]`.
+
+<img src="../../../img/astra/astra-create-db-3.png" />
