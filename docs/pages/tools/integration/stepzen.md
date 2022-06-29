@@ -44,10 +44,11 @@ stepzen import graphql
 ```
 5. When prompted, enter your GraphQL API details:
 
-| What is your GraphQL endpoint?           | `https://<ASTRA_DB_ID>-<ASTRA_DB_REGION>.apps.astra.datastax.com/api/graphql/<KEYSPACE_NAME>` |
+| What is the GraphQL endpoint URL?           | `https://<ASTRA_DB_ID>-<ASTRA_DB_REGION>.apps.astra.datastax.com/api/graphql/<KEYSPACE_NAME>` |
 |------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| **Do you want to add an extra HTTP header?** | `X-Cassandra-Token: <APPLICATION_TOKEN>`                                              |
-| **Do you want to add a prefix?**	            | *Optional. Adviced to use when you're importing multiple data sources.*                       |
+| **Prefix to add to all generated type names (leave blank for none)**                | *Optional. Adviced to use when you're importing multiple data sources.*                       |
+| **Add an HTTP header, e.g. Header-Name: header value (leave blank for none)** | `X-Cassandra-Token: <APPLICATION_TOKEN>`                                              |
+
 
 Once successful, you should see the following output:
 ```
