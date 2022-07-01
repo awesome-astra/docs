@@ -1,9 +1,8 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/tableplus/download.png" height="500px" />
 
 
-- _Last Update `2/11/2022`_
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html)_
 
 
@@ -56,20 +55,15 @@ Obtain information about your database from the config.json file. Here is an exa
 
 ```
 {
-  "host": "70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com",
+  "host": "<YOUR_ENDPOINT>.db.astra.datastax.com",
   "port": 98765,
   "cql_port": 34567,
-  "keyspace": "getvaxxed",
+  "keyspace": "<KEYSPACE_NAME>",
   "localDC": "us-west-2",
   "caCertLocation": "./ca.crt",
   "keyLocation": "./key",
   "certLocation": "./cert",
-  "keyStoreLocation": "./identity.jks",
-  "keyStorePassword": "***REMOVED***",
-  "trustStoreLocation": "./trustStore.jks",
-  "trustStorePassword": "***REMOVED***",
-  "csvLocation": "./data",
-  "pfxCertPassword": "9b3HgFChtY60m4nfJ"
+  ...
 }
 ```
 
