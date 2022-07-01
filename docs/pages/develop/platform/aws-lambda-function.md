@@ -186,6 +186,8 @@ Under the **Test** tab, click the **Test** button and observe the output.
 <br/><img src="../../../../img/aws-lambda-functions-python-sdk/test.png" /><br/>
 Notice the CQL version output and return value of **3.4.5**.
 
+## E - Using Java Driver
 
+Coming soon.
 
 
