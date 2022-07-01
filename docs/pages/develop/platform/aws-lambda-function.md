@@ -18,8 +18,88 @@
 
 ## C - Using Python Driver
 
-### COMING SOON
+### ✅ 1. Create a deployment package.
 
+A deployment package is a `.zip` file with a function source code and dependencies. To access Astra DB from a function using Python Driver, we must add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, as a dependency. In addition, as part of the deployment package, we need to include a secure connect bundle for a database in Astra DB that we want to query.
+
+1. Open a command prompt and create a project directory:
+```bash
+mkdir lambda-astra-db-project
+cd lambda-astra-db-project
+```
+
+2. Create file `lambda_function.py` with the function source code:
+```python
+from cassandra.cluster import Cluster
+from cassandra.auth import PlainTextAuthProvider
+import os
+
+ASTRA_DB_CLIENT_ID = os.environ.get('ASTRA_DB_CLIENT_ID')
+ASTRA_DB_CLIENT_SECRET = os.environ.get('ASTRA_DB_CLIENT_SECRET')
+
+cloud_config= {
+    'secure_connect_bundle': 'secure-connect-bundle-for-your-database.zip',
+    'use_default_tempdir': True
+}
+auth_provider = PlainTextAuthProvider(ASTRA_DB_CLIENT_ID, ASTRA_DB_CLIENT_SECRET)
+cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider, protocol_version=4)
+session = cluster.connect()
+
+def lambda_handler(event, context):
+
+    row = session.execute("SELECT cql_version FROM system.local WHERE key = 'local';").one()
+    cql_version = row[0]
+
+    print(cql_version) 
+    print('Success')
+
+    return cql_version
+```
+You can learn more about the code above by reading the [**cassandra-driver**](https://github.com/datastax/python-driver) documentation.
+
+3. Install the [**cassandra-driver**](https://github.com/datastax/python-driver) library:
+```bash
+pip install --target . cassandra-driver
+```
+
+4. [Download the Secure Connect Bundle](/docs/pages/astra/download-scb/) for your database and copy it into the project directory.
+
+5. Create a deployment package with `lambda_function.py`, `cassandra-driver`, and secure connect bundle:
+```bash
+zip -r lambda-astra-db-deployment-package.zip .
+```
+
+### ✅ 2. Create a function.
+
+1. Go to [the Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and click **Create function**.
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/functions-page.png" />
+
+2. Choose **Author from scratch**.
+
+3. Under the **Basic information** section, specify preferred **Function name**, **Runtime**, and **Architecture**.
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/create-function.png" />
+
+4. Click **Create function**.
+
+5. Under the **Code** tab and the **Code source** section, select **Upload from** and upload the deployment package created in the previous steps.
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/upload.png" /><br/>
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/upload-zip.png" />
+<br/>
+<br/>
+Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/too-large.png" /><br/>
+
+6. Under the **Configuration** tab, select and create these **Environment variables**:
+    - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
+    - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/variables.png" /><br/>
+Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage client id and secret, and then retrieve them programmatically. 
+
+### ✅ 3. Test the function.
+
+Under the **Test** tab, click the **Test** button and observe the output.
+<br/><img src="../../../../img/aws-lambda-functions-python-driver/test.png" /><br/>
+Notice the CQL version output and return value of **3.4.5**.
 
 ## D - Using Python SDK
 
