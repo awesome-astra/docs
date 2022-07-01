@@ -2340,10 +2340,9 @@
 
   <h1>‣ TablePlus</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-07-01</em> </p>
 <p><img src="../../../../img/tableplus/download.png" height="500px" /></p>
 <ul>
-<li><em>Last Update <code>2/11/2022</code></em></li>
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html">DataStax Community</a></em></li>
 </ul>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
@@ -2382,21 +2381,16 @@
 </code></pre></div>
 <p>Obtain information about your database from the config.json file. Here is an example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &quot;host&quot;: &quot;70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com&quot;,
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &quot;host&quot;: &quot;&lt;YOUR_ENDPOINT&gt;.db.astra.datastax.com&quot;,
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;port&quot;: 98765,
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;cql_port&quot;: 34567,
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  &quot;keyspace&quot;: &quot;getvaxxed&quot;,
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  &quot;keyspace&quot;: &quot;&lt;KEYSPACE_NAME&gt;&quot;,
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  &quot;localDC&quot;: &quot;us-west-2&quot;,
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  &quot;caCertLocation&quot;: &quot;./ca.crt&quot;,
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  &quot;keyLocation&quot;: &quot;./key&quot;,
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  &quot;certLocation&quot;: &quot;./cert&quot;,
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  &quot;keyStoreLocation&quot;: &quot;./identity.jks&quot;,
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  &quot;keyStorePassword&quot;: &quot;Kga1OJ83EF2oBQYR5&quot;,
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  &quot;trustStoreLocation&quot;: &quot;./trustStore.jks&quot;,
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  &quot;trustStorePassword&quot;: &quot;n8F9ptJO3H7YRxTW1&quot;,
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  &quot;csvLocation&quot;: &quot;./data&quot;,
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  &quot;pfxCertPassword&quot;: &quot;9b3HgFChtY60m4nfJ&quot;
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ...
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>}
 </code></pre></div>
 <p>We will use this information to configure Astra DB as the data source in Tableplus.</p>
 <h3 id="step-2-new-connection">✅ Step 2: New Connection<a class="headerlink" href="#step-2-new-connection" title="Permanent link">&para;</a></h3>
@@ -2438,7 +2432,7 @@
   <small>
     
       Last update:
-      2022-06-09
+      2022-07-01
     
   </small>
 </div>
