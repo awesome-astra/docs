@@ -190,4 +190,3 @@ Notice the CQL version output and return value of **3.4.5**.
 
 Coming soon.
 
-
