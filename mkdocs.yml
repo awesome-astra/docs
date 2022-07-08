@@ -67,10 +67,11 @@ nav:
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
     - Developers IDE:
-      - • IntelliJ : pages/tools/ide/intellij.md
+      - • DataStation :  pages/tools/ide/datastation.md
       - • Eclipse :  pages/tools/ide/eclipse.md
-      - • VSCode :  pages/tools/ide/vscode.md
       - • Gitpod :  pages/tools/ide/gitpod.md
+      - • IntelliJ : pages/tools/ide/intellij.md
+      - • VSCode :  pages/tools/ide/vscode.md
     - Notebooks:
       - • Jupyter Notebooks :  pages/tools/notebooks/jupyter.md
       - • DataStax Studio : pages/tools/notebooks/datastax-studio.md
