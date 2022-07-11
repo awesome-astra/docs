@@ -237,7 +237,7 @@ Notice the final **Path** that should be used to access the secure connect bundl
 10. Enter **com.example.AstraDBFunction** in the **Entry point** field.
 
 11. Add [**java-driver**](https://github.com/datastax/java-driver), a Java client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `pom.xml` file:
-```
+```xml
     <dependency>
       <groupId>com.datastax.oss</groupId>
       <artifactId>java-driver-core</artifactId>
@@ -336,7 +336,7 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
 9. Enter **com.example.AstraDBFunction** in the **Entry point** field.
 
 10. Add gRPC dependencies to the `pom.xml` file:
-```
+```xml
     <dependency>
       <groupId>io.stargate.grpc</groupId>
       <artifactId>grpc-proto</artifactId>
