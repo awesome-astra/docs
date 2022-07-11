@@ -2932,11 +2932,11 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 </li>
 <li>
 <p>Add <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a>, a Java client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>pom.xml</code> file:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    &lt;dependency&gt;
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      &lt;groupId&gt;com.datastax.oss&lt;/groupId&gt;
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      &lt;artifactId&gt;java-driver-core&lt;/artifactId&gt;
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      &lt;version&gt;4.13.0&lt;/version&gt;
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    &lt;/dependency&gt;  
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      <span class="nt">&lt;groupId&gt;</span>com.datastax.oss<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      <span class="nt">&lt;artifactId&gt;</span>java-driver-core<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      <span class="nt">&lt;version&gt;</span>4.13.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="nt">&lt;/dependency&gt;</span>  
 </code></pre></div>
 <br/><img src="../../../../img/google-cloud-functions-java-driver/pom_xml.png" /></p>
 </li>
@@ -3043,16 +3043,16 @@ Note that, for better security, you can alternatively use the <a href="https://c
 </li>
 <li>
 <p>Add gRPC dependencies to the <code>pom.xml</code> file:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    &lt;dependency&gt;
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>      &lt;groupId&gt;io.stargate.grpc&lt;/groupId&gt;
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      &lt;artifactId&gt;grpc-proto&lt;/artifactId&gt;
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>      &lt;version&gt;1.0.41&lt;/version&gt;
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    &lt;/dependency&gt;
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    &lt;dependency&gt;
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      &lt;groupId&gt;io.grpc&lt;/groupId&gt;
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      &lt;artifactId&gt;grpc-netty-shaded&lt;/artifactId&gt;
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      &lt;version&gt;1.41.0&lt;/version&gt;
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    &lt;/dependency&gt;   
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>      <span class="nt">&lt;groupId&gt;</span>io.stargate.grpc<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      <span class="nt">&lt;artifactId&gt;</span>grpc-proto<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>      <span class="nt">&lt;version&gt;</span>1.0.41<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      <span class="nt">&lt;groupId&gt;</span>io.grpc<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      <span class="nt">&lt;artifactId&gt;</span>grpc-netty-shaded<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      <span class="nt">&lt;version&gt;</span>1.41.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="nt">&lt;/dependency&gt;</span>   
 </code></pre></div>
 <br/><img src="../../../../img/google-cloud-functions-java-grpc/pom_xml.png" /></p>
 </li>
@@ -3140,7 +3140,7 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
   <small>
     
       Last update:
-      2022-06-20
+      2022-07-10
     
   </small>
 </div>
