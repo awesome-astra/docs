@@ -1609,6 +1609,33 @@
     E - Using Java Driver
   </a>
   
+    <nav class="md-nav" aria-label="E - Using Java Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-deployment-package_2" class="md-nav__link">
+    ✅ 1. Create a deployment package.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function_2" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-the-function_2" class="md-nav__link">
+    ✅ 3. Test the function.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2426,6 +2453,33 @@
     E - Using Java Driver
   </a>
   
+    <nav class="md-nav" aria-label="E - Using Java Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-deployment-package_2" class="md-nav__link">
+    ✅ 1. Create a deployment package.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function_2" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-the-function_2" class="md-nav__link">
+    ✅ 3. Test the function.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2643,14 +2697,181 @@ Note that, for better security, you can alternatively use the <a href="https://d
 <br/><img src="../../../../img/aws-lambda-functions-python-sdk/test.png" /><br/>
 Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 <h2 id="e-using-java-driver">E - Using Java Driver<a class="headerlink" href="#e-using-java-driver" title="Permanent link">&para;</a></h2>
-<p>Coming soon.</p>
+<h3 id="1-create-a-deployment-package_2">✅ 1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_2" title="Permanent link">&para;</a></h3>
+<p>A deployment package is a <code>.zip</code> or <code>.jar</code> file archive with compiled function code and dependencies. In this tutorial, we use <a href="https://maven.apache.org/">Apache Maven™</a> to create, compile and package a function into a <code>.jar</code> file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) <a href="https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core"><strong>aws-lambda-java-core</strong></a> that defines necessary interfaces and classes to create functions; b) <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) <a href="/docs/pages/astra/download-scb/"><strong>secure connect bundle</strong></a> for a database in Astra DB that we want to query.</p>
+<ol>
+<li>
+<p>Open a command prompt and create a new project using <a href="https://maven.apache.org/">Apache Maven™</a>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mvn archetype:generate -DgroupId<span class="o">=</span>com.example -DartifactId<span class="o">=</span>AstraDBFunction -DinteractiveMode<span class="o">=</span><span class="nb">false</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Rename file <code>App.java</code> to <code>AstraDBFunction.java</code> and replace its content with the function source code:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.amazonaws.services.lambda.runtime.Context</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.amazonaws.services.lambda.runtime.RequestHandler</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.amazonaws.services.lambda.runtime.LambdaLogger</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.cql.ResultSet</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.cql.Row</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDBFunction</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RequestHandler</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;ASTRA_DB_CLIENT_ID&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_CLIENT_SECRET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;ASTRA_DB_CLIENT_SECRET&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CqlSession</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">           </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;secure-connect-bundle-for-your-database.zip&quot;</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">           </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="n">ASTRA_DB_CLIENT_ID</span><span class="p">,</span><span class="n">ASTRA_DB_CLIENT_SECRET</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">           </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">handleRequest</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="n">LambdaLogger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">getLogger</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">    </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="s">&quot;SELECT cql_version FROM system.local WHERE key = &#39;local&#39;;&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">    </span><span class="n">Row</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">one</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;cql_version&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="n">logger</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">response</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Success \n&quot;</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">  </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+You can learn more about the code above by reading the <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> documentation.</p>
+</li>
+<li>
+<p>In the project directory, under <code>/src/main</code>, create directory <code>resources</code>.</p>
+</li>
+<li>
+<p><a href="/docs/pages/astra/download-scb/">Download the Secure Connect Bundle</a> for your database and copy it into the <code>resources</code> directory. The project directory structure should look like this:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/project-structure.png" /></p>
+</li>
+<li>
+<p>Add AWS Lambda and Java Driver dependencies to the <code>pom.xml</code> file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>      <span class="nt">&lt;groupId&gt;</span>com.amazonaws<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>      <span class="nt">&lt;artifactId&gt;</span>aws-lambda-java-core<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>      <span class="nt">&lt;version&gt;</span>1.2.1<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>      <span class="nt">&lt;groupId&gt;</span>com.amazonaws<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>      <span class="nt">&lt;artifactId&gt;</span>aws-lambda-java-events<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>      <span class="nt">&lt;version&gt;</span>3.11.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>      <span class="nt">&lt;groupId&gt;</span>com.amazonaws<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>      <span class="nt">&lt;artifactId&gt;</span>aws-lambda-java-log4j2<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>      <span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>      <span class="nt">&lt;groupId&gt;</span>com.datastax.oss<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>      <span class="nt">&lt;artifactId&gt;</span>java-driver-core<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>      <span class="nt">&lt;version&gt;</span>4.14.1<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="nt">&lt;/dependency&gt;</span>  
+</code></pre></div></p>
+</li>
+<li>
+<p>Add or replace an existing <code>build</code> section in the <code>pom.xml</code> file with the following:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  <span class="nt">&lt;build&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="nt">&lt;plugins&gt;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>      <span class="nt">&lt;plugin&gt;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="nt">&lt;version&gt;</span>2.22.2<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>      <span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>      <span class="nt">&lt;plugin&gt;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="nt">&lt;version&gt;</span>3.2.2<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        <span class="nt">&lt;configuration&gt;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>          <span class="nt">&lt;createDependencyReducedPom&gt;</span>false<span class="nt">&lt;/createDependencyReducedPom&gt;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>        <span class="nt">&lt;/configuration&gt;</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>        <span class="nt">&lt;executions&gt;</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>          <span class="nt">&lt;execution&gt;</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>            <span class="nt">&lt;goals&gt;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>              <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>            <span class="nt">&lt;/goals&gt;</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>          <span class="nt">&lt;/execution&gt;</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        <span class="nt">&lt;/executions&gt;</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>      <span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>      <span class="nt">&lt;plugin&gt;</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>        <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>        <span class="nt">&lt;configuration&gt;</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>           <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>           <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>        <span class="nt">&lt;/configuration&gt;</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>      <span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>    <span class="nt">&lt;/plugins&gt;</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>  <span class="nt">&lt;/build&gt;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the Maven command in the project directory to compile code and create a <code>.jar</code> file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a> mvn clean compile package
+</code></pre></div>
+Find the deployment package file <code>AstraDBFunction-1.0-SNAPSHOT.jar</code> under the <code>target</code> directory:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/final-project-structure.png" /></p>
+</li>
+</ol>
+<h3 id="2-create-a-function_2">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Go to <a href="https://console.aws.amazon.com/lambda/home#/functions">the Functions page</a> of the Lambda console and click <strong>Create function</strong>.
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/functions-page.png" /></p>
+</li>
+<li>
+<p>Choose <strong>Author from scratch</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Basic information</strong> section, specify preferred <strong>Function name</strong>, <strong>Runtime</strong>, and <strong>Architecture</strong>.
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/create-function.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create function</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload.png" /><br/>
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-zip.png" />
+<br/>
+<br/>
+Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/too-large.png" /><br/></p>
+</li>
+<li>
+<p>Under the <strong>Configuration</strong> tab, select and create these <strong>Environment variables</strong>:</p>
+<ul>
+<li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
+<li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/variables.png" /><br/>
+Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. </li>
+</ul>
+</li>
+<li>
+<p>Under the <strong>Code</strong> tab, change <strong>Handler</strong> in section <strong>Runtime settings</strong> to <code>com.example.AstraDBFunction::handleRequest</code>:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" /><br/></p>
+</li>
+</ol>
+<h3 id="3-test-the-function_2">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_2" title="Permanent link">&para;</a></h3>
+<p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/test.png" /><br/>
+Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-07-05
+      2022-07-12
     
   </small>
 </div>
