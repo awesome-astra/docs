@@ -1,3 +1,3 @@
 !!! note "Check back soon"
 
-    Nothing to see here yet! Check back for updates! 
+    Can't wait? See [this DataStax Community page on how to connect DataStax Studio with Astra DB](https://community.datastax.com/articles/12265/). Check back for updates!
