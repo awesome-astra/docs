@@ -2909,11 +2909,15 @@ Find the deployment package file <code>AstraDBFunction-1.0-SNAPSHOT.jar</code> u
 <li>
 <p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-zip.png" />
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-jar.png" />
 <br/>
 <br/>
 Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/too-large.png" /><br/></p>
+</li>
+<li>
+<p>Under the <strong>Code</strong> tab, change <strong>Handler</strong> in section <strong>Runtime settings</strong> to <code>com.example.AstraDBFunction::handleRequest</code>:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" /></p>
 </li>
 <li>
 <p>Under the <strong>Configuration</strong> tab, select and create these <strong>Environment variables</strong>:</p>
@@ -2921,12 +2925,8 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
 <li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/variables.png" /><br/>
-Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. </li>
+Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. <br/></li>
 </ul>
-</li>
-<li>
-<p>Under the <strong>Code</strong> tab, change <strong>Handler</strong> in section <strong>Runtime settings</strong> to <code>com.example.AstraDBFunction::handleRequest</code>:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" /><br/></p>
 </li>
 </ol>
 <h3 id="3-test-the-function_2">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_2" title="Permanent link">&para;</a></h3>
