@@ -1,6 +1,6 @@
 # AWS Lambda Functions
 
-[🏠 Back to home](https://awesome-astra.github.io/docs/) | Written by **Artem Chebotko**
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
 
 ## A - Overview
 
