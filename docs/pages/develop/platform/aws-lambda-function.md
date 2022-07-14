@@ -325,20 +325,20 @@ Find the deployment package file `AstraDBFunction-1.0-SNAPSHOT.jar` under the `t
 
 5. Under the **Code** tab and the **Code source** section, select **Upload from** and upload the deployment package created in the previous steps.
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-zip.png" />
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-jar.png" />
 <br/>
 <br/>
 Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/too-large.png" /><br/>
 
-6. Under the **Configuration** tab, select and create these **Environment variables**:
+6. Under the **Code** tab, change **Handler** in section **Runtime settings** to `com.example.AstraDBFunction::handleRequest`:
+<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" />
+
+7. Under the **Configuration** tab, select and create these **Environment variables**:
     - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
     - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/variables.png" /><br/>
-Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage client id and secret, and then retrieve them programmatically. 
-
-7. Under the **Code** tab, change **Handler** in section **Runtime settings** to `com.example.AstraDBFunction::handleRequest`:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" /><br/>
+Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage client id and secret, and then retrieve them programmatically. <br/>
 
 ### ✅ 3. Test the function.
 
