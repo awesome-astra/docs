@@ -345,3 +345,178 @@ Note that, for better security, you can alternatively use the [AWS Secret Manage
 Under the **Test** tab, click the **Test** button and observe the output.
 <br/><img src="../../../../img/aws-lambda-functions-java-driver/test.png" /><br/>
 Notice the CQL version output and return value of **3.4.5**.
+
+## F - Using Java gRPC
+
+### ✅ 1. Create a deployment package.
+
+A deployment package is a `.zip` or `.jar` file archive with compiled function code and dependencies. In this tutorial, we use [Apache Maven™](https://maven.apache.org/) to create, compile and package a function into a `.jar` file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) [**aws-lambda-java-core**](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) that defines necessary interfaces and classes to create functions; b) [**Stargate**](https://stargate.io/) that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) [**gRPC**](https://grpc.io/) that works as a high performance Remote Procedure Call (RPC) framework.
+
+1. Open a command prompt and create a new project using [Apache Maven™](https://maven.apache.org/):
+```bash
+mvn archetype:generate -DgroupId=com.example -DartifactId=AstraDBFunction -DinteractiveMode=false
+```
+<br/>
+The project directory structure should look like this:
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/project-structure.png" />
+
+2. Rename file `App.java` to `AstraDBFunction.java` and replace its content with the function source code:
+```java
+package com.example;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+
+import java.util.Map;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.stargate.grpc.StargateBearerToken;
+import io.stargate.proto.QueryOuterClass;
+import io.stargate.proto.QueryOuterClass.Row;
+import io.stargate.proto.StargateGrpc;
+
+public class AstraDBFunction implements RequestHandler<Map<String,String>, String>{
+
+  private static final String ASTRA_DB_TOKEN    = System.getenv("ASTRA_DB_APPLICATION_TOKEN");
+  private static final String ASTRA_DB_ID       = System.getenv("ASTRA_DB_ID");
+  private static final String ASTRA_DB_REGION   = System.getenv("ASTRA_DB_REGION");
+  
+  public static ManagedChannel channel = ManagedChannelBuilder
+            .forAddress(ASTRA_DB_ID + "-" + ASTRA_DB_REGION + ".apps.astra.datastax.com", 443)
+            .useTransportSecurity()
+            .build();
+
+  public static StargateGrpc.StargateBlockingStub blockingStub =
+        StargateGrpc.newBlockingStub(channel).withCallCredentials(new StargateBearerToken(ASTRA_DB_TOKEN));
+
+  public String handleRequest(Map<String,String> event, Context context)
+  {
+    LambdaLogger logger = context.getLogger();
+
+    QueryOuterClass.Response queryString = blockingStub.executeQuery(QueryOuterClass
+        .Query.newBuilder()
+        .setCql("SELECT cql_version FROM system.local WHERE key = 'local';")
+        .build());
+
+    QueryOuterClass.ResultSet rs = queryString.getResultSet();
+    String response = rs.getRows(0).getValues(0).getString();
+
+    logger.log(response + " Success \n"); 
+
+    return response;
+  }  
+}
+```
+You can learn more about the code above by reading the [**Stargate**](https://stargate.io/) documentation.
+
+3. Add AWS Lambda, Stargate and gRPC dependencies to the `pom.xml` file:
+```xml
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-lambda-java-core</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-lambda-java-events</artifactId>
+      <version>3.11.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-lambda-java-log4j2</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.stargate.grpc</groupId>
+      <artifactId>grpc-proto</artifactId>
+      <version>1.0.41</version>
+    </dependency>
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-netty-shaded</artifactId>
+      <version>1.41.0</version>
+    </dependency>   
+```
+
+4. Add or replace an existing `build` section in the `pom.xml` file with the following:
+```xml
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+           <source>1.8</source>
+           <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+```
+
+5. Run the Maven command in the project directory to compile code and create a `.jar` file:
+```bash
+ mvn clean compile package
+```
+Find the deployment package file `AstraDBFunction-1.0-SNAPSHOT.jar` under the `target` directory:
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/final-project-structure.png" />
+
+### ✅ 2. Create a function.
+
+1. Go to [the Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and click **Create function**.
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/functions-page.png" />
+
+2. Choose **Author from scratch**.
+
+3. Under the **Basic information** section, specify preferred **Function name**, **Runtime**, and **Architecture**.
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/create-function.png" />
+
+4. Click **Create function**.
+
+5. Under the **Code** tab and the **Code source** section, select **Upload from** and upload the deployment package created in the previous steps.
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/upload.png" /><br/>
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/upload-jar.png" />
+<br/>
+<br/>
+Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/too-large.png" /><br/>
+
+6. Under the **Code** tab, change **Handler** in section **Runtime settings** to `com.example.AstraDBFunction::handleRequest`:
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/handler.png" />
+
+7. Under the **Configuration** tab, select and create these **Environment variables**:
+    - `ASTRA_DB_ID`: A **Database ID** value can be found on the [Astra DB](https://astra.datastax.com/) dashboard.
+    - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
+    - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/variables.png" /><br/>
+Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage an application token as a secret. A secret can then be retrieved programmatically.
+<br/>
+
+### ✅ 3. Test the function.
+
+Under the **Test** tab, click the **Test** button and observe the output.
+<br/><img src="../../../../img/aws-lambda-functions-java-grpc/test.png" /><br/>
+Notice the CQL version output and return value of **3.4.5**.
