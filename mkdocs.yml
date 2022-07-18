@@ -199,7 +199,8 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-ZMZXZME49E
+    #property: G-ZMZXZME49E
+    property: G-MDYTQ5XG33
   social:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCAIQY251avaMv7bBv5PCo-A
