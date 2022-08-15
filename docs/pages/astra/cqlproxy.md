@@ -140,6 +140,7 @@ There are three methods for using `cql-proxy`:
 
 - Locally build and run `cql-proxy`
 - Run a docker image that has `cql-proxy` installed
+- Install locally on a Mac with Homebrew
 - Use a Kubernetes container to run `cql-proxy`
 
 ### Locally build and run
@@ -200,6 +201,13 @@ There are three methods for using `cql-proxy`:
           ```
 
       If you wish to have the docker image removed after you are done with it, add `--rm` before the image name `datastax/cql-proxy:v0.1.2`.
+
+### Homebrew on a Mac
+
+Install with one simple command:
+```bash
+brew install cql-proxy
+```
 
 ### Use Kubernetes
 
