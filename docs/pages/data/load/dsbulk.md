@@ -44,16 +44,19 @@ You can use `dsbulk` as a standalone tool to remotely connect to a cluster. The 
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
-This article was written for Datastax Bulk Loader version `1.8.0`.
+This article was written for Datastax Bulk Loader version `1.9.1`.
+
+> Starting with version `1.9`, `dsbulk` can detect and respect server-side rate limiting.
+> This is very useful when working with Astra DB, which by default has some throughput guardrails in place.
 
 ## C - Installation
 
 **✅ Step 1 : Download the archive and unzip locally**
 
 ```bash
-curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
-          && tar xvzf dsbulk-1.8.0.tar.gz \
-          && rm -f dsbulk-1.8.0.tar.gz
+curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.9.1.tar.gz \
+          && tar xvzf dsbulk-1.9.1.tar.gz \
+          && rm -f dsbulk-1.9.1.tar.gz
 ```
 
 _it will take a few seconds (file is about 30M)..._
@@ -135,7 +138,7 @@ dsbulk count \
 - Produces the following output:
 
 ```
-Operation directory: /local/dsbulk-1.8.0/logs/COUNT_20220223-213637-046128
+Operation directory: /local/dsbulk-1.9.1/logs/COUNT_20220223-213637-046128
   total | failed | rows/s |  p50ms |  p99ms | p999ms
 143,475 |      0 | 87,509 | 155.34 | 511.71 | 511.71
 Operation COUNT_20220223-213637-046128 completed successfully in 1 second.

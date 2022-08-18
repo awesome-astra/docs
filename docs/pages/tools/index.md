@@ -18,7 +18,7 @@
 
 - **[Datagrip Jetbrains](../data/explore/datagrip.md):** DataGrip is a database management environment for developers. It is designed to query, create, and manage databases. Databases can work locally, on a server, or in the cloud. Supports MySQL, PostgreSQL, Microsoft SQL Server, Oracle, and more. If you have a JDBC driver, add it to DataGrip, connect to your DBMS, and start working.
 
-- **[DataStation](../data/tools/databases/.md):** DataStation is an open-source data IDE for developers.
+- **[DataStation](ide/datastation.md):** DataStation is an open-source data IDE for developers.
 
 - **[DataStax Bulk](../data/load/dsbulk.md):** The DataStax Bulk Loader tool (DSBulk) is a unified tool for loading into and unloading from Cassandra-compatible storage engines, such as OSS Apache Cassandra®, DataStax Astra and DataStax Enterprise (DSE).
 
