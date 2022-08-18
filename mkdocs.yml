@@ -17,6 +17,7 @@ nav:
       - ‣ FAQ: pages/astra/faq.md
     - Astra Streaming:
       - ‣ Create Topic: pages/astra/create-topic.md
+      - ‣ CDC for Astra Streaming: pages/astra/cdc-for-astra.md
 
   - Data Management:
     - Home: pages/data/index.md
