@@ -8,6 +8,8 @@
 
 - **[Authorizer](integration/authorizer):** Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data.
 
+- **[CDC for Astra](../astra/cdc-for-astra)**: Change Data Capture (CDC) sends mutations for tables with CDC enabled to Luna Streaming or Astra Streaming, which in turn can write the data to platforms such as Elasticsearch® or Snowflake®.
+
 - **[Celery](integration/celery):** Celery is an open-source, distributed task queue written in Python. With Celery you can run tasks (e.g. processing of messages) in an asynchronous fashion. Celery supports a variety of message buses and backends; among the supported backends are Cassandra and Astra DB.
 
 - **[Cloud Functions (Python Driver)](../develop/platform/google-cloud-function.md)**: Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.

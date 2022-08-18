@@ -96,6 +96,7 @@ nav:
       - • Temporal : pages/tools/integration/temporal.md
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
+      - ‣ CDC for Astra Streaming: pages/tools/plugins/cdc-for-astra.md
 
 # ------------------------------------------------------
 # Settings
