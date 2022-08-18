@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/astra/cdc-for-astra/</loc>
+         <lastmod>2022-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/astra/cqlproxy/</loc>
          <lastmod>2022-08-18</lastmod>
          <changefreq>daily</changefreq>
