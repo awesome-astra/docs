@@ -109,7 +109,7 @@ wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
 ```bash
 $ cd /cqlsh-astra/bin
 
-$ ./cqlsh -u ${CLIENT_ID} -p ${CLIENT_SECRET} -b ${PATH_TO_SECURE_BUNBLE.zip}
+$ ./cqlsh -u ${CLIENT_ID} -p ${CLIENT_SECRET} -b ${PATH_TO_SECURE_BUNDLE.zip}
 ```
 
 - `-u` (username) - Client ID as provided in the token generation page
@@ -126,7 +126,7 @@ username = ${CLIENT_ID}
 password = ${CLIENT_SECRET}
 
 [connection]
-secure_connect_bundle = ${PATH_TO_SECURE_BUNBLE.zip}
+secure_connect_bundle = ${PATH_TO_SECURE_BUNDLE.zip}
 ```
 
 ## D - Tips and tricks
