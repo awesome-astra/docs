@@ -4,7 +4,7 @@
 
 ## Overview
 
-Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, CockroachDB and Apache CassandraⓇ as backend dependencies. 
+Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies. 
 
 - ℹ️ [Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
 - 📥 [Temporal Quick Install](https://docs.temporal.io/docs/clusters/quick-install/)
