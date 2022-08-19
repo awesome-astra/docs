@@ -8,7 +8,7 @@ Temporal.io is an open source microservice orchestration platform that assists i
 
 - ℹ️ [Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
 - 📥 [Temporal Quick Install](https://docs.temporal.io/docs/clusters/quick-install/)
-- ℹ️ [Why Temporal and Astra DB?](https://www.datastax.com/blog/easily-manage-workflows-at-scale-with-temporal-io-and-astra-db)
+- ℹ️ [Introduction to Temporal and Cassandra, Astra DB](https://medium.com/building-the-open-data-stack/easily-manage-workflows-at-scale-with-temporal-io-and-astra-db-144f93a21ff3)
 
 ## - Prerequisites
 
