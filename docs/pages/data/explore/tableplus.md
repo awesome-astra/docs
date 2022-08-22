@@ -82,14 +82,15 @@ We will use this information to configure Astra DB as the data source in Tablepl
 5. Choose `SSL VERIFY NONE` for the **SSL mode.**
 
 6. For SSL keys, select the secure bundle files:
+!!! note "Secure Bundle Files"
+    - `key` for Private Key (leave the password blank when prompted)
+    - `cert` for Cert
+    - `ca.crt` for Trusted Cert
 
-- `key` for Key (leave the password blank when prompted)
-- `cert` for Cert
-- `ca.crt` for CA Cert
 
 Here's an example of what the **Cassandra Connection** dialog box should look like:
 
-<img src="../../../../img/tableplus/2383-tableplus-cassandra-connection.png" height="350px" />
+<img src="../../../../img/tableplus/tableplus_connection_page_updated.png" height="350px" />
 
 ### ✅ Step 3: Final Test
 
