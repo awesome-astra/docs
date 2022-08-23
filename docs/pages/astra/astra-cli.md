@@ -582,9 +582,9 @@ To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL 
 astra db cqlsh demo -f sample.cql
 ```
 
-### 6. DSBulk
+### 7. DSBulk
 
-**✅ 6a - Setup** 
+**✅ 7a - Setup** 
 
 [Dsbulk](https://github.com/datastax/dsbulk) stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.
 
@@ -597,7 +597,7 @@ As for `Cqlsh` the cli will **download**, **install**, **setup** and **wrap** th
 astra db create demo
 ```
 
-- Looking at a dataset of cities in the world. [cities.csv]. We can show here the first lines of the 
+- Looking at a dataset of cities in the world. [cities.csv](https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/cities.csv). We can show here the first lines of the 
 file.
 
 ```
@@ -636,18 +636,110 @@ describe table cities_by_country;
 quit
 ```
 
-**✅ 6b - Load Data** 
+**✅ 7b - Load Data** 
 
+```
+astra db dsbulk demo load \
+  -url https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/cities.csv \
+  -k demo \
+  -t cities_by_country \
+  --schema.allowMissingFields true
+```
 
+The first time the line `DSBulk is starting please wait` can take a few seconds to appear. The reason is the cli is download `dsbulk` if not downloaded before.
 
-**✅ 6c - Count** 
+???+ abstract "🖥️ Sample output" 
 
-**✅ 6c - UnLoad Data** 
+    ```
+    DSBulk is starting please wait ...
+    Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+    A cloud secure connect bundle was provided: ignoring all explicit contact points.
+    A cloud secure connect bundle was provided and selected operation performs writes: changing default consistency level to LOCAL_QUORUM.
+    Operation directory: /Users/cedricklunven/Downloads/logs/LOAD_20220823-182343-074618
+    Setting executor.maxPerSecond not set when connecting to DataStax Astra: applying a limit of 9,000 ops/second based on the number of coordinators (3).
+    If your Astra database has higher limits, please define executor.maxPerSecond explicitly.
+      total | failed | rows/s |  p50ms |  p99ms | p999ms | batches
+    148,266 |      0 |  8,361 | 663.86 | 767.56 | 817.89 |   30.91
+    Operation LOAD_20220823-182343-074618 completed successfully in 17 seconds.
+    Last processed positions can be found in positions.txt
+    ```
 
+**✅ 7c - Count** 
 
-### 7. Download Secure bundle
+Check than the data has been imported with cqlsh SH
 
-**✅ 7a - Default values** 
+```
+astra db cqlsh demo -e "select * from demo.cities_by_country LIMIT 20;"
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    Cqlsh is starting please wait for connection establishment...
+
+    country_name | name                | country_code | country_id | id   | latitude | longitude | state_code | state_id | state_name          | wikidataid
+    --------------+---------------------+--------------+------------+------+----------+-----------+------------+----------+---------------------+------------
+      Bangladesh |             Azimpur |           BD |         19 | 8454 |  23.7298 |   90.3854 |         13 |      771 |      Dhaka District |       null
+      Bangladesh |           Badarganj |           BD |         19 | 8455 | 25.67419 |  89.05377 |         55 |      759 |    Rangpur District |       null
+      Bangladesh |            Bagerhat |           BD |         19 | 8456 |     22.4 |     89.75 |         27 |      811 |     Khulna District |       null
+      Bangladesh |           Bandarban |           BD |         19 | 8457 |       22 |  92.33333 |          B |      803 | Chittagong Division |       null
+      Bangladesh |          Baniachang |           BD |         19 | 8458 | 24.51863 |  91.35787 |         60 |      767 |     Sylhet District |       null
+      Bangladesh |             Barguna |           BD |         19 | 8459 | 22.13333 |  90.13333 |         06 |      818 |    Barisal District |       null
+      Bangladesh |             Barisal |           BD |         19 | 8460 |     22.8 |      90.5 |         06 |      818 |    Barisal District |       null
+      Bangladesh |                Bera |           BD |         19 | 8462 | 24.07821 |  89.63262 |         54 |      813 |   Rajshahi District |       null
+      Bangladesh |       Bhairab Bāzār |           BD |         19 | 8463 |  24.0524 |   90.9764 |         13 |      771 |      Dhaka District |       null
+      Bangladesh |           Bherāmāra |           BD |         19 | 8464 | 24.02452 |  88.99234 |         27 |      811 |     Khulna District |       null
+      Bangladesh |               Bhola |           BD |         19 | 8465 | 22.36667 |  90.81667 |         06 |      818 |    Barisal District |       null
+      Bangladesh |           Bhāndāria |           BD |         19 | 8466 | 22.48898 |  90.06273 |         06 |      818 |    Barisal District |       null
+      Bangladesh | Bhātpāra Abhaynagar |           BD |         19 | 8467 | 23.01472 |  89.43936 |         27 |      811 |     Khulna District |       null
+      Bangladesh |           Bibir Hat |           BD |         19 | 8468 | 22.68347 |  91.79058 |          B |      803 | Chittagong Division |       null
+      Bangladesh |               Bogra |           BD |         19 | 8469 | 24.78333 |     89.35 |         54 |      813 |   Rajshahi District |       null
+      Bangladesh |        Brahmanbaria |           BD |         19 | 8470 | 23.98333 |  91.16667 |          B |      803 | Chittagong Division |       null
+      Bangladesh |         Burhānuddin |           BD |         19 | 8471 | 22.49518 |  90.72391 |         06 |      818 |    Barisal District |       null
+      Bangladesh |            Bājitpur |           BD |         19 | 8472 | 24.21623 |  90.95002 |         13 |      771 |      Dhaka District |       null
+      Bangladesh |            Chandpur |           BD |         19 | 8474 |    23.25 |  90.83333 |          B |      803 | Chittagong Division |       null
+      Bangladesh |    Chapai Nababganj |           BD |         19 | 8475 | 24.68333 |     88.25 |         54 |      813 |   Rajshahi District |       null
+    ```
+
+- Count with ds bulkd
+
+```
+astra db dsbulk demo count -k demo -t cities_by_country
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    DSBulk is starting please wait ...
+    [INFO ] - RUNNING: /Users/cedricklunven/.astra/dsbulk-1.9.1/bin/dsbulk count -k demo -t cities_by_country -u token -p AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44 -b /Users/cedricklunven/.astra/scb/scb_071d7059-d55b-4cdb-90c6-41c26da1a029_us-east-1.zip
+    Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+    A cloud secure connect bundle was provided: ignoring all explicit contact points.
+    Operation directory: /Users/cedricklunven/Downloads/logs/COUNT_20220823-182833-197954
+      total | failed | rows/s |  p50ms |  p99ms | p999ms
+    134,574 |      0 | 43,307 | 315.71 | 457.18 | 457.18
+    ```
+
+**✅ 7d - UnLoad Data** 
+
+```
+astra db dsbulk demo unload -k demo -t cities_by_country -url /tmp/unload
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    DSBulk is starting please wait ...
+    Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+    A cloud secure connect bundle was provided: ignoring all explicit contact points.
+    Operation directory: /Users/cedricklunven/Downloads/logs/UNLOAD_20220823-183054-208353
+      total | failed | rows/s |  p50ms |    p99ms |   p999ms
+    134,574 |      0 | 14,103 | 927.51 | 1,853.88 | 1,853.88
+    Operation UNLOAD_20220823-183054-208353 completed successfully in 9 seconds.
+    ```
+
+### 8. Download Secure bundle
+
+**✅ 8a - Default values** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the current folder.
 
@@ -658,7 +750,7 @@ astra db download-scb demo
 ls
 ```
 
-**✅ 7b - Download in target folder** 
+**✅ 8b - Download in target folder** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the  folder provide with option `-d` (`--output-director`).
 
@@ -666,7 +758,7 @@ Download the different secure bundles (one per region) with the pattern `scb_${d
 astra db download-scb demo -d /tmp
 ```
 
-**✅ 7c - Download in target folder** 
+**✅ 8c - Download in target folder** 
 
 Provide the target filename with `-f` (`--output-file`). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag `-d`)
 
@@ -799,11 +891,3 @@ astra config delete dev
 ```
 astra config list
 ```
-
-
-
-
-
-
-
-
