@@ -662,35 +662,42 @@
         
           <li class="md-nav__item">
   <a href="#1-list-databases" class="md-nav__link">
-    1. List Databases
+    1. List databases
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-create-database" class="md-nav__link">
-    2. Create Database
+    2. Create database
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-get-db-infos" class="md-nav__link">
-    3. Get DB infos
+  <a href="#3-resume-database" class="md-nav__link">
+    3. Resume database
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-create-a-keyspace" class="md-nav__link">
-    4. Create a keyspace
+  <a href="#4-get-database-details" class="md-nav__link">
+    4. Get database details
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-cqlsh" class="md-nav__link">
-    5. Cqlsh
+  <a href="#5-create-keyspace" class="md-nav__link">
+    5. Create keyspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-cqlsh" class="md-nav__link">
+    6. Cqlsh
   </a>
   
 </li>
@@ -698,6 +705,13 @@
           <li class="md-nav__item">
   <a href="#6-dsbulk" class="md-nav__link">
     6. DSBulk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-download-secure-bundle" class="md-nav__link">
+    7. Download Secure bundle
   </a>
   
 </li>
@@ -2511,35 +2525,42 @@
         
           <li class="md-nav__item">
   <a href="#1-list-databases" class="md-nav__link">
-    1. List Databases
+    1. List databases
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-create-database" class="md-nav__link">
-    2. Create Database
+    2. Create database
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-get-db-infos" class="md-nav__link">
-    3. Get DB infos
+  <a href="#3-resume-database" class="md-nav__link">
+    3. Resume database
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-create-a-keyspace" class="md-nav__link">
-    4. Create a keyspace
+  <a href="#4-get-database-details" class="md-nav__link">
+    4. Get database details
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-cqlsh" class="md-nav__link">
-    5. Cqlsh
+  <a href="#5-create-keyspace" class="md-nav__link">
+    5. Create keyspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-cqlsh" class="md-nav__link">
+    6. Cqlsh
   </a>
   
 </li>
@@ -2547,6 +2568,13 @@
           <li class="md-nav__item">
   <a href="#6-dsbulk" class="md-nav__link">
     6. DSBulk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-download-secure-bundle" class="md-nav__link">
+    7. Download Secure bundle
   </a>
   
 </li>
@@ -2663,7 +2691,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
 </code></pre></div>
 <p>You can notice that the installation script also check the pre-requisites. It will download expected archive and update your bash profile to have <code>astra</code> in your path.</p>
-<details class="abstract" open="open">
+<details class="abstract">
 <summary>🖥️ Installation script output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>   █████╗ ███████╗████████╗██████╗  █████╗     ███████╗██╗  ██╗███████╗██╗     ██╗
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║  ██║██╔════╝██║     ██║  
@@ -2752,7 +2780,7 @@
 </code></pre></div>
 <details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
-<p><code>0.1.alpha3</code></p>
+<p><code>0.1.alpha4</code></p>
 </details>
 <p>You created a default configuration pointing to your organization. If you want to work with multiple organizations look at <code>Config Management</code> chapter below.</p>
 <ul>
@@ -2884,11 +2912,12 @@
 </code></pre></div>
 </details>
 <h2 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h2>
-<h3 id="1-list-databases">1. List Databases<a class="headerlink" href="#1-list-databases" title="Permanent link">&para;</a></h3>
+<h3 id="1-list-databases">1. List databases<a class="headerlink" href="#1-list-databases" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 1a - list</strong></p>
+<p>To get the list of non terminated database in your oganization use the command <code>list</code> in the group <code>db</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>astra db list
 </code></pre></div>
-<details class="abstract">
+<details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>+---------------------+--------------------------------------+---------------------+----------------+
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>| Name                | id                                   | Default Region      | Status         |
@@ -2903,9 +2932,10 @@
 </code></pre></div>
 </details>
 <p><strong>✅ 1b - Get Help</strong></p>
+<p>To get help on a command always prefix with <code>astra help XXX</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>astra help db list
 </code></pre></div>
-<details class="abstract">
+<details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>NAME
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>        astra db list - Display the list of Databases in an organization
@@ -2953,170 +2983,306 @@
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>ac201,48c7178c-58cb-4657-b3d2-8a9e3cc89461,us-east-1,ACTIVE
 </code></pre></div>
 </details>
-<h3 id="2-create-database">2. Create Database<a class="headerlink" href="#2-create-database" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>astra db list -o json
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;astra db list -o json&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-central-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dde308f5-a8b0-474d-afd6-81e5689e3e25&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mtg&quot;</span><span class="w"></span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workshops&quot;</span><span class="w"></span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;06a9675a-ca62-4cd0-9b94-aefaf395922b&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sdk_tests&quot;</span><span class="w"></span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-central-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7677a789-bd57-455d-ab2c-a3bdfa35ba68&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"></span>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;071d7059-d55b-4cdb-90c6-41c26da1a029&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo&quot;</span><span class="w"></span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="w">      </span><span class="nt">&quot;Status&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a><span class="w">      </span><span class="nt">&quot;Default Region&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;48c7178c-58cb-4657-b3d2-8a9e3cc89461&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ac201&quot;</span><span class="w"></span>
+<a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h3 id="2-create-database">2. Create database<a class="headerlink" href="#2-create-database" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 2a - Create Database</strong> </p>
 <p>If not provided the region will be the default free region and the keyspace will be the database name but you can change then with <code>-r</code> and <code>-k</code> respectivitely.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>astra db create demo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>astra db create demo
 </code></pre></div>
 <p><strong>✅ 2b - If not Exists</strong> </p>
 <p>Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use <code>--if-not-exist</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>astra db create demo -k demo --if-not-exist
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>astra db create demo -k ks2 --if-not-exist
 </code></pre></div>
 <p><strong>✅ 2c - Get help</strong> </p>
 <p>Better doc the cli itself.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>astra help db create
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>astra help db create
 </code></pre></div>
-<h3 id="3-get-db-infos">3. Get DB infos<a class="headerlink" href="#3-get-db-infos" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>astra db get demo
+<h3 id="3-resume-database">3. Resume database<a class="headerlink" href="#3-resume-database" title="Permanent link">&para;</a></h3>
+<p>In the free tier, after 23H of inactivity your database got hibernated. To wake up the db you can use the <code>resume command</code></p>
+<p><strong>✅ 2a - Resuming</strong> </p>
+<p>Assuming you have an hibernating database.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>astra db list
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>| Name                | id                                   | Default Region      | Status         |
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>| hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | HIBERNATED     |
 </code></pre></div>
-<details class="abstract">
-<summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>+------------------------+-----------------------------------------+
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>| Attribute              | Value                                   |
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>+------------------------+-----------------------------------------+
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>| Name                   | demo                                    |
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>| id                     | 071d7059-d55b-4cdb-90c6-41c26da1a029    |
-<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>| Status                 | ACTIVE                                  |
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>| Default Cloud Provider | AWS                                     |
-<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>| Default Region         | us-east-1                               |
-<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>| Default Keyspace       | demo                                    |
-<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>| Creation Time          | 2022-07-26T15:41:18Z                    |
-<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>|                        |                                         |
-<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>| Keyspaces              | [0] ks2                                 |
-<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>|                        | [1] demo                                |
-<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>|                        |                                         |
-<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>| Regions                | [0] us-east-1                           |
-<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>|                        |                                         |
-<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>+------------------------+-----------------------------------------+
-</code></pre></div>
-</details>
-<p>Noticed the Status:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>astra db get demo | grep Status
-</code></pre></div>
-<h3 id="4-create-a-keyspace">4. Create a keyspace<a class="headerlink" href="#4-create-a-keyspace" title="Permanent link">&para;</a></h3>
-<p><strong>✅ 4a - Create new keyspace</strong> </p>
-<p>To add a keyspace <code>ks</code> to a database <code>demo</code> use the following. The database nust exists. The option <code>--if-not-exist</code> is also available</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>astra db create-keyspace demo -k ks1
-</code></pre></div>
-<p>If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can show informations of your database.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>astra db get demo
-</code></pre></div>
-<p><strong>✅ 4b - Get help</strong> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>astra help db create-keyspace
-</code></pre></div>
-<h3 id="5-cqlsh">5. Cqlsh<a class="headerlink" href="#5-cqlsh" title="Permanent link">&para;</a></h3>
-<p>Astra Cli will install, setup and wrap <code>cqlsh</code> for you to interact with Astra. Provide the database you want to work with and get the full power of cqlsh.</p>
-<p><strong>✅ 5a - Interactive mode</strong> </p>
-<p>If no option provide you enter interactive mode</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>astra db cqlsh demo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>astra db resume hemidactylus
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Cqlsh is starting please wait for connection establishment...
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Connected to cndb at 127.0.0.1:9042.
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>[cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Use HELP for help.
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>token@cqlsh&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>| Name                | id                                   | Default Region      | Status         |
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>| hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | RESUMING       |
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>And after a few time
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>| Name                | id                                   | Default Region      | Status         |
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>+---------------------+--------------------------------------+---------------------+----------------+
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>| hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | ACTIVE         |
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>+---------------------+--------------------------------------+---------------------+----------------+
 </code></pre></div>
 </details>
-<p><strong>✅ 5b - Execute CQL</strong> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>astra db cqlsh demo -e &quot;describe keyspaces;&quot;
+<h3 id="4-get-database-details">4. Get database details<a class="headerlink" href="#4-get-database-details" title="Permanent link">&para;</a></h3>
+<p>To get information or details on an entity use the command <code>get</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>astra db get demo
+</code></pre></div>
+<p>In the output you specially see the list of keyspaces available and the different regions.</p>
+<details class="abstract" open="open">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>+------------------------+-----------------------------------------+
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>| Attribute              | Value                                   |
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>+------------------------+-----------------------------------------+
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>| Name                   | demo                                    |
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>| id                     | 071d7059-d55b-4cdb-90c6-41c26da1a029    |
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>| Status                 | ACTIVE                                  |
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>| Default Cloud Provider | AWS                                     |
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>| Default Region         | us-east-1                               |
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>| Default Keyspace       | demo                                    |
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>| Creation Time          | 2022-07-26T15:41:18Z                    |
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>|                        |                                         |
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>| Keyspaces              | [0] demo                                |
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>|                        |                                         |
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>| Regions                | [0] us-east-1                           |
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>+------------------------+-----------------------------------------+
+</code></pre></div>
+</details>
+<p>To get the status of your db (<code>ACTIVE</code>, <code>HIBERNATED</code>, <code>RESUMING</code>) you can use the pip and <code>grep</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>astra db get demo | grep Status
+</code></pre></div>
+<details class="abstract" open="open">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>| Status                 | ACTIVE                                  |
+</code></pre></div>
+</details>
+<h3 id="5-create-keyspace">5. Create keyspace<a class="headerlink" href="#5-create-keyspace" title="Permanent link">&para;</a></h3>
+<p>A keyspace is created when you create the database. Default CLI behaviour is to provide same values for keyspace
+and database names. But you can define your own keyspace name with the flag <code>-k</code>.</p>
+<p><strong>✅ 5a - Create new keyspace</strong> </p>
+<p>To add a keyspace <code>ks2</code> to an existing database <code>demo</code> use the following. The option <code>--if-not-exist</code> is optional but could help you providing idempotent scripts.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>astra db create-keyspace demo -k ks2
+</code></pre></div>
+<p>If the database is not found you will get a warning message and dedicated code returned. </p>
+<p>To see your new keyspace you can display your database details</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>astra db get demo
+</code></pre></div>
+<p><strong>✅ 5b - Get help</strong> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>astra help db create-keyspace
+</code></pre></div>
+<h3 id="6-cqlsh">6. Cqlsh<a class="headerlink" href="#6-cqlsh" title="Permanent link">&para;</a></h3>
+<p><a href="https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html">Cqlsh</a> is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with <code>cqlsh</code> and do the integration for you.</p>
+<p>Astra Cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> <code>cqlsh</code> for you to interact with Astra.</p>
+<p><strong>✅ 6a - Interactive mode</strong> </p>
+<p>If no option are provided,  you enter <code>cqlsh</code> interactive mode</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>astra db cqlsh demo
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Cqlsh is starting please wait for connection establishment...
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Connected to cndb at 127.0.0.1:9042.
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>[cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>Use HELP for help.
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>token@cqlsh&gt;
+</code></pre></div>
+</details>
+<p><strong>✅ 6b - Execute CQL</strong> </p>
+<p>To execute CQL Statement with <code>cqlsh</code> use the flag <code>-e</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>astra db cqlsh demo -e &quot;describe keyspaces;&quot;
 </code></pre></div>
 <p><strong>✅ 5b - Execute CQL Files</strong> </p>
-<p>Cqlsh provides options <code>-f</code> to load a file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>astra db cqlsh demo -f &quot;sample.cql&quot;
+<p>To execute CQL Files with <code>cqlsh</code> use the flag <code>-f</code>. You could also use the CQL syntax SOURCE.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>astra db cqlsh demo -f sample.cql
 </code></pre></div>
 <h3 id="6-dsbulk">6. DSBulk<a class="headerlink" href="#6-dsbulk" title="Permanent link">&para;</a></h3>
-<p>Assuming we have a csv looking like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>52,Ashkāsham,3901,BDS,Badakhshan,1,AF,Afghanistan,36.68333000,71.53333000,Q4805192
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>68,Fayzabad,3901,BDS,Badakhshan,1,AF,Afghanistan,37.11664000,70.58002000,Q156558
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>...
+<p><strong>✅ 6a - Setup</strong> </p>
+<p><a href="https://github.com/datastax/dsbulk">Dsbulk</a> stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.</p>
+<p>As for <code>Cqlsh</code> the cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.</p>
+<ul>
+<li>Make sure we have a db <code>demo</code> with a keyspace <code>demo</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>astra db create demo
+</code></pre></div>
+<ul>
+<li>Looking at a dataset of cities in the world. [cities.csv]. We can show here the first lines of the 
+file.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>52,Ashkāsham,3901,BDS,Badakhshan,1,AF,Afghanistan,36.68333000,71.53333000,Q4805192
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>68,Fayzabad,3901,BDS,Badakhshan,1,AF,Afghanistan,37.11664000,70.58002000,Q156558
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>...
+</code></pre></div>
+<ul>
+<li>Let's create a table to store those values. Connect to CQHSH</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>astra db cqlsh demo -k demo
+</code></pre></div>
+<ul>
+<li>Create the table </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">cities_by_country</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w"> </span><span class="n">country_name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w"> </span><span class="n">name</span><span class="w">       </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w"> </span><span class="n">id</span><span class="w">         </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w"> </span><span class="n">state_id</span><span class="w">   </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w"> </span><span class="n">state_code</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w"> </span><span class="n">state_name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w"> </span><span class="n">country_id</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w"> </span><span class="n">country_code</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w"> </span><span class="n">longitude</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w"> </span><span class="n">wikiDataId</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">((</span><span class="n">country_name</span><span class="p">),</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a><span class="k">describe</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">cities_by_country</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a><span class="n">quit</span><span class="w"></span>
+</code></pre></div>
+<p><strong>✅ 6b - Load Data</strong> </p>
+<p><strong>✅ 6c - Count</strong> </p>
+<p><strong>✅ 6c - UnLoad Data</strong> </p>
+<h3 id="7-download-secure-bundle">7. Download Secure bundle<a class="headerlink" href="#7-download-secure-bundle" title="Permanent link">&para;</a></h3>
+<p><strong>✅ 7a - Default values</strong> </p>
+<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the current folder.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>mkdir db-demo
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>cd db-demo
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>astra db download-scb demo
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>ls
+</code></pre></div>
+<p><strong>✅ 7b - Download in target folder</strong> </p>
+<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the  folder provide with option <code>-d</code> (<code>--output-director</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>astra db download-scb demo -d /tmp
+</code></pre></div>
+<p><strong>✅ 7c - Download in target folder</strong> </p>
+<p>Provide the target filename with <code>-f</code> (<code>--output-file</code>). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag <code>-d</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>astra db download-scb demo -f /tmp/demo.zip
 </code></pre></div>
 <h2 id="user-and-roles">User and Roles<a class="headerlink" href="#user-and-roles" title="Permanent link">&para;</a></h2>
 <h3 id="1-list-users">1. List users<a class="headerlink" href="#1-list-users" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>astra user list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>astra user list
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="2-invite-user">2. Invite User<a class="headerlink" href="#2-invite-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>astra user invite cedrick.lunven@gmail.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>astra user invite cedrick.lunven@gmail.com
 </code></pre></div>
 <p>Check the list of user and notice the new user invited.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>astra user list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra user list
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>| 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>| 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="3-revoke-user">3. Revoke User<a class="headerlink" href="#3-revoke-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>astra user delete cedrick.lunven@gmail.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>astra user delete cedrick.lunven@gmail.com
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="4-list-roles">4. List roles<a class="headerlink" href="#4-list-roles" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>astra role list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>astra role list
 </code></pre></div>
 <h3 id="6-get-role-infos">6. Get role infos<a class="headerlink" href="#6-get-role-infos" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>astra role get &quot;Database Administrator&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>astra role get &quot;Database Administrator&quot;
 </code></pre></div>
 <h2 id="advanced-topics">Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permanent link">&para;</a></h2>
 <h3 id="1-config-management">1 Config Management<a class="headerlink" href="#1-config-management" title="Permanent link">&para;</a></h3>
 <p>If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.</p>
 <p><strong>✅ 1a - List available configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>astra config list
 </code></pre></div>
 <p><strong>✅ 1b - Create a new section</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
 </code></pre></div>
 <p><strong>✅ 1c - Use your section config anywhere</strong></p>
 <p>You can use any organization anytime with <code>--config &lt;onfig_name&gt;</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>astra user list --config dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>astra user list --config dev
 </code></pre></div>
 <p><strong>✅ 1d - Select a section as defaul</strong></p>
 <ul>
 <li>Change the current org</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>astra config use dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>astra config use dev
 </code></pre></div>
 <ul>
 <li>See your new list </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>astra config list
 </code></pre></div>
 <p><strong>✅ 1e - Delete a section</strong></p>
 <p>You can delete any organization. If you delete the selected organization you will have to pick a new one.</p>
 <ul>
 <li>
 <p>Delete you config
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>astra config delete dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>astra config delete dev
 </code></pre></div></p>
 </li>
 <li>
 <p>See the new list</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>astra config list
 </code></pre></div>
 
   <hr>
