@@ -422,13 +422,22 @@ astra db get demo | grep Status
 
 ### 4. Create a keyspace
 
+**✅ 4a - Create new keyspace** 
+
 To add a keyspace `ks` to a database `demo` use the following. The database nust exists. The option `--if-not-exist` is also available
 
 ```
 astra db create-keyspace demo -k ks1
 ```
 
-If the database is not found you will get a warning message and dedicated code returned.
+If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can show informations of your database.
+
+```
+astra db get demo
+```
+
+
+**✅ 4b - Get help** 
 
 ```
 astra help db create-keyspace
@@ -465,10 +474,10 @@ astra db cqlsh demo -e "describe keyspaces;"
 
 **✅ 5b - Execute CQL Files** 
 
-We create a sample file for you here
+Cqlsh provides options `-f` to load a file.
 
 ```
-astra db cqlsh demo -f "/tmp"
+astra db cqlsh demo -f "sample.cql"
 ```
 
 ### 6. DSBulk
@@ -482,41 +491,109 @@ id,name,state_id,state_code,state_name,country_id,country_code,country_name,lati
 ...
 ```
 
+## User and Roles
 
-## 4. User and Roles
+### 1. List users
 
-### 4.1 List users
+```
+astra user list
+```
 
-### 4.2 Invite User
+??? abstract "🖥️ Sample output" 
 
-### 4.3 Revoke User
+    ```
+    +--------------------------------------+-----------------------------+---------------------+
+    | User Id                              | User Email                  | Status              |
+    +--------------------------------------+-----------------------------+---------------------+
+    | b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+    +--------------------------------------+-----------------------------+---------------------+
+    ```
 
-### 4.4 List roles
+### 2. Invite User
 
-## 5. Advanced
+```
+astra user invite cedrick.lunven@gmail.com
+```
 
-### 5.1 Config Management
+Check the list of user and notice the new user invited.
+
+```
+astra user list
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    +--------------------------------------+-----------------------------+---------------------+
+    | User Id                              | User Email                  | Status              |
+    +--------------------------------------+-----------------------------+---------------------+
+    | 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
+    | b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+    +--------------------------------------+-----------------------------+---------------------+
+    ```
+
+### 3. Revoke User
+
+```
+astra user delete cedrick.lunven@gmail.com
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    +--------------------------------------+-----------------------------+---------------------+
+    | User Id                              | User Email                  | Status              |
+    +--------------------------------------+-----------------------------+---------------------+
+    | b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+    +--------------------------------------+-----------------------------+---------------------+
+    ```
+
+
+### 4. List roles
+
+```
+astra role list
+```
+
+### 6. Get role infos
+
+```
+astra role get "Database Administrator"
+```
+
+## Advanced Topics
+
+### 1 Config Management
 
 If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.
 
-**✅ 5.1.a - List available configuration**
+**✅ 1a - List available configuration**
 
 ```
 astra config list
 ```
 
-**✅ 5.1.b - Create a new section `dev`**
+**✅ 1b - Create a new section**
 
 ```
 astra config create dev --token <token_of_org_2>
 ```
 
-**✅ 5.1.c - Select a section `dev` to work with**
+**✅ 1c - Use your section config anywhere**
+
+You can use any organization anytime with `--config <onfig_name>`.
+
+```
+astra user list --config dev
+```
+
+
+**✅ 1d - Select a section as defaul**
 
 - Change the current org
 
 ```
-astra config default dev
+astra config use dev
 ```
 
 - See your new list 
@@ -525,7 +602,7 @@ astra config default dev
  astra config list
  ```
 
-**✅ 5.1.d - Delete a section `dev`**
+**✅ 1e - Delete a section**
 
 You can delete any organization. If you delete the selected organization you will have to pick a new one.
 
