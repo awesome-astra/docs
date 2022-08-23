@@ -703,15 +703,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-dsbulk" class="md-nav__link">
-    6. DSBulk
+  <a href="#7-dsbulk" class="md-nav__link">
+    7. DSBulk
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-download-secure-bundle" class="md-nav__link">
-    7. Download Secure bundle
+  <a href="#8-download-secure-bundle" class="md-nav__link">
+    8. Download Secure bundle
   </a>
   
 </li>
@@ -2566,15 +2566,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-dsbulk" class="md-nav__link">
-    6. DSBulk
+  <a href="#7-dsbulk" class="md-nav__link">
+    7. DSBulk
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-download-secure-bundle" class="md-nav__link">
-    7. Download Secure bundle
+  <a href="#8-download-secure-bundle" class="md-nav__link">
+    8. Download Secure bundle
   </a>
   
 </li>
@@ -3135,8 +3135,8 @@ and database names. But you can define your own keyspace name with the flag <cod
 <p>To execute CQL Files with <code>cqlsh</code> use the flag <code>-f</code>. You could also use the CQL syntax SOURCE.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>astra db cqlsh demo -f sample.cql
 </code></pre></div>
-<h3 id="6-dsbulk">6. DSBulk<a class="headerlink" href="#6-dsbulk" title="Permanent link">&para;</a></h3>
-<p><strong>✅ 6a - Setup</strong> </p>
+<h3 id="7-dsbulk">7. DSBulk<a class="headerlink" href="#7-dsbulk" title="Permanent link">&para;</a></h3>
+<p><strong>✅ 7a - Setup</strong> </p>
 <p><a href="https://github.com/datastax/dsbulk">Dsbulk</a> stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.</p>
 <p>As for <code>Cqlsh</code> the cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.</p>
 <ul>
@@ -3145,7 +3145,7 @@ and database names. But you can define your own keyspace name with the flag <cod
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>astra db create demo
 </code></pre></div>
 <ul>
-<li>Looking at a dataset of cities in the world. [cities.csv]. We can show here the first lines of the 
+<li>Looking at a dataset of cities in the world. <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/cities.csv">cities.csv</a>. We can show here the first lines of the 
 file.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
@@ -3180,109 +3180,191 @@ file.</li>
 <a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>
 <a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a><span class="n">quit</span><span class="w"></span>
 </code></pre></div>
-<p><strong>✅ 6b - Load Data</strong> </p>
-<p><strong>✅ 6c - Count</strong> </p>
-<p><strong>✅ 6c - UnLoad Data</strong> </p>
-<h3 id="7-download-secure-bundle">7. Download Secure bundle<a class="headerlink" href="#7-download-secure-bundle" title="Permanent link">&para;</a></h3>
-<p><strong>✅ 7a - Default values</strong> </p>
+<p><strong>✅ 7b - Load Data</strong> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>astra db dsbulk demo load \
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>  -url https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/cities.csv \
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>  -k demo \
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>  -t cities_by_country \
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>  --schema.allowMissingFields true
+</code></pre></div>
+<p>The first time the line <code>DSBulk is starting please wait</code> can take a few seconds to appear. The reason is the cli is download <code>dsbulk</code> if not downloaded before.</p>
+<details class="abstract" open="open">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>DSBulk is starting please wait ...
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>A cloud secure connect bundle was provided: ignoring all explicit contact points.
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>A cloud secure connect bundle was provided and selected operation performs writes: changing default consistency level to LOCAL_QUORUM.
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>Operation directory: /Users/cedricklunven/Downloads/logs/LOAD_20220823-182343-074618
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>Setting executor.maxPerSecond not set when connecting to DataStax Astra: applying a limit of 9,000 ops/second based on the number of coordinators (3).
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>If your Astra database has higher limits, please define executor.maxPerSecond explicitly.
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>  total | failed | rows/s |  p50ms |  p99ms | p999ms | batches
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>148,266 |      0 |  8,361 | 663.86 | 767.56 | 817.89 |   30.91
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a>Operation LOAD_20220823-182343-074618 completed successfully in 17 seconds.
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>Last processed positions can be found in positions.txt
+</code></pre></div>
+</details>
+<p><strong>✅ 7c - Count</strong> </p>
+<p>Check than the data has been imported with cqlsh SH</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>astra db cqlsh demo -e &quot;select * from demo.cities_by_country LIMIT 20;&quot;
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Cqlsh is starting please wait for connection establishment...
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>country_name | name                | country_code | country_id | id   | latitude | longitude | state_code | state_id | state_name          | wikidataid
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>--------------+---------------------+--------------+------------+------+----------+-----------+------------+----------+---------------------+------------
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>  Bangladesh |             Azimpur |           BD |         19 | 8454 |  23.7298 |   90.3854 |         13 |      771 |      Dhaka District |       null
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>  Bangladesh |           Badarganj |           BD |         19 | 8455 | 25.67419 |  89.05377 |         55 |      759 |    Rangpur District |       null
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>  Bangladesh |            Bagerhat |           BD |         19 | 8456 |     22.4 |     89.75 |         27 |      811 |     Khulna District |       null
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>  Bangladesh |           Bandarban |           BD |         19 | 8457 |       22 |  92.33333 |          B |      803 | Chittagong Division |       null
+<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a>  Bangladesh |          Baniachang |           BD |         19 | 8458 | 24.51863 |  91.35787 |         60 |      767 |     Sylhet District |       null
+<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a>  Bangladesh |             Barguna |           BD |         19 | 8459 | 22.13333 |  90.13333 |         06 |      818 |    Barisal District |       null
+<a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>  Bangladesh |             Barisal |           BD |         19 | 8460 |     22.8 |      90.5 |         06 |      818 |    Barisal District |       null
+<a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a>  Bangladesh |                Bera |           BD |         19 | 8462 | 24.07821 |  89.63262 |         54 |      813 |   Rajshahi District |       null
+<a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a>  Bangladesh |       Bhairab Bāzār |           BD |         19 | 8463 |  24.0524 |   90.9764 |         13 |      771 |      Dhaka District |       null
+<a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a>  Bangladesh |           Bherāmāra |           BD |         19 | 8464 | 24.02452 |  88.99234 |         27 |      811 |     Khulna District |       null
+<a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>  Bangladesh |               Bhola |           BD |         19 | 8465 | 22.36667 |  90.81667 |         06 |      818 |    Barisal District |       null
+<a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a>  Bangladesh |           Bhāndāria |           BD |         19 | 8466 | 22.48898 |  90.06273 |         06 |      818 |    Barisal District |       null
+<a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a>  Bangladesh | Bhātpāra Abhaynagar |           BD |         19 | 8467 | 23.01472 |  89.43936 |         27 |      811 |     Khulna District |       null
+<a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a>  Bangladesh |           Bibir Hat |           BD |         19 | 8468 | 22.68347 |  91.79058 |          B |      803 | Chittagong Division |       null
+<a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a>  Bangladesh |               Bogra |           BD |         19 | 8469 | 24.78333 |     89.35 |         54 |      813 |   Rajshahi District |       null
+<a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a>  Bangladesh |        Brahmanbaria |           BD |         19 | 8470 | 23.98333 |  91.16667 |          B |      803 | Chittagong Division |       null
+<a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a>  Bangladesh |         Burhānuddin |           BD |         19 | 8471 | 22.49518 |  90.72391 |         06 |      818 |    Barisal District |       null
+<a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a>  Bangladesh |            Bājitpur |           BD |         19 | 8472 | 24.21623 |  90.95002 |         13 |      771 |      Dhaka District |       null
+<a id="__codelineno-48-23" name="__codelineno-48-23" href="#__codelineno-48-23"></a>  Bangladesh |            Chandpur |           BD |         19 | 8474 |    23.25 |  90.83333 |          B |      803 | Chittagong Division |       null
+<a id="__codelineno-48-24" name="__codelineno-48-24" href="#__codelineno-48-24"></a>  Bangladesh |    Chapai Nababganj |           BD |         19 | 8475 | 24.68333 |     88.25 |         54 |      813 |   Rajshahi District |       null
+</code></pre></div>
+</details>
+<ul>
+<li>Count with ds bulkd</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>astra db dsbulk demo count -k demo -t cities_by_country
+</code></pre></div>
+<details class="abstract" open="open">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>DSBulk is starting please wait ...
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>[INFO ] - RUNNING: /Users/cedricklunven/.astra/dsbulk-1.9.1/bin/dsbulk count -k demo -t cities_by_country -u token -p AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44 -b /Users/cedricklunven/.astra/scb/scb_071d7059-d55b-4cdb-90c6-41c26da1a029_us-east-1.zip
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>A cloud secure connect bundle was provided: ignoring all explicit contact points.
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>Operation directory: /Users/cedricklunven/Downloads/logs/COUNT_20220823-182833-197954
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>  total | failed | rows/s |  p50ms |  p99ms | p999ms
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>134,574 |      0 | 43,307 | 315.71 | 457.18 | 457.18
+</code></pre></div>
+</details>
+<p><strong>✅ 7d - UnLoad Data</strong> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra db dsbulk demo unload -k demo -t cities_by_country -url /tmp/unload
+</code></pre></div>
+<details class="abstract" open="open">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>DSBulk is starting please wait ...
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>A cloud secure connect bundle was provided: ignoring all explicit contact points.
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>Operation directory: /Users/cedricklunven/Downloads/logs/UNLOAD_20220823-183054-208353
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>134,574 |      0 | 14,103 | 927.51 | 1,853.88 | 1,853.88
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>Operation UNLOAD_20220823-183054-208353 completed successfully in 9 seconds.
+</code></pre></div>
+</details>
+<h3 id="8-download-secure-bundle">8. Download Secure bundle<a class="headerlink" href="#8-download-secure-bundle" title="Permanent link">&para;</a></h3>
+<p><strong>✅ 8a - Default values</strong> </p>
 <p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the current folder.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>mkdir db-demo
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>cd db-demo
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>astra db download-scb demo
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>ls
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>mkdir db-demo
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>cd db-demo
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>astra db download-scb demo
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>ls
 </code></pre></div>
-<p><strong>✅ 7b - Download in target folder</strong> </p>
+<p><strong>✅ 8b - Download in target folder</strong> </p>
 <p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the  folder provide with option <code>-d</code> (<code>--output-director</code>).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>astra db download-scb demo -d /tmp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>astra db download-scb demo -d /tmp
 </code></pre></div>
-<p><strong>✅ 7c - Download in target folder</strong> </p>
+<p><strong>✅ 8c - Download in target folder</strong> </p>
 <p>Provide the target filename with <code>-f</code> (<code>--output-file</code>). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag <code>-d</code>)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>astra db download-scb demo -f /tmp/demo.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>astra db download-scb demo -f /tmp/demo.zip
 </code></pre></div>
 <h2 id="user-and-roles">User and Roles<a class="headerlink" href="#user-and-roles" title="Permanent link">&para;</a></h2>
 <h3 id="1-list-users">1. List users<a class="headerlink" href="#1-list-users" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>astra user list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>astra user list
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="2-invite-user">2. Invite User<a class="headerlink" href="#2-invite-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>astra user invite cedrick.lunven@gmail.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>astra user invite cedrick.lunven@gmail.com
 </code></pre></div>
 <p>Check the list of user and notice the new user invited.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra user list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>astra user list
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>| 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
-<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>| 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="3-revoke-user">3. Revoke User<a class="headerlink" href="#3-revoke-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>astra user delete cedrick.lunven@gmail.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>astra user delete cedrick.lunven@gmail.com
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>| User Id                              | User Email                  | Status              |
-<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>+--------------------------------------+-----------------------------+---------------------+
-<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
-<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>+--------------------------------------+-----------------------------+---------------------+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>+--------------------------------------+-----------------------------+---------------------+
 </code></pre></div>
 </details>
 <h3 id="4-list-roles">4. List roles<a class="headerlink" href="#4-list-roles" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>astra role list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>astra role list
 </code></pre></div>
 <h3 id="6-get-role-infos">6. Get role infos<a class="headerlink" href="#6-get-role-infos" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>astra role get &quot;Database Administrator&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>astra role get &quot;Database Administrator&quot;
 </code></pre></div>
 <h2 id="advanced-topics">Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permanent link">&para;</a></h2>
 <h3 id="1-config-management">1 Config Management<a class="headerlink" href="#1-config-management" title="Permanent link">&para;</a></h3>
 <p>If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.</p>
 <p><strong>✅ 1a - List available configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>astra config list
 </code></pre></div>
 <p><strong>✅ 1b - Create a new section</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
 </code></pre></div>
 <p><strong>✅ 1c - Use your section config anywhere</strong></p>
 <p>You can use any organization anytime with <code>--config &lt;onfig_name&gt;</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>astra user list --config dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>astra user list --config dev
 </code></pre></div>
 <p><strong>✅ 1d - Select a section as defaul</strong></p>
 <ul>
 <li>Change the current org</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>astra config use dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>astra config use dev
 </code></pre></div>
 <ul>
 <li>See your new list </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>astra config list
 </code></pre></div>
 <p><strong>✅ 1e - Delete a section</strong></p>
 <p>You can delete any organization. If you delete the selected organization you will have to pick a new one.</p>
 <ul>
 <li>
 <p>Delete you config
-<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>astra config delete dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>astra config delete dev
 </code></pre></div></p>
 </li>
 <li>
 <p>See the new list</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>astra config list
 </code></pre></div>
 
   <hr>
