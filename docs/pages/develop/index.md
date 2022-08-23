@@ -67,4 +67,7 @@ Click the tile and learn how to interact with each language-specific interface e
 <a href="frameworks/lagom">
 <img src="../../img/tile-lagom.png" height="130px" width="130px"/>
 </a>
+<a href="frameworks/fastapi">
+<img src="../../img/tile-fastapi.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 </p>
