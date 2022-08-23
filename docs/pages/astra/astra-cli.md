@@ -29,7 +29,7 @@ curl -Ls "https://dtsx.io/get-astra-cli" | bash
 
 You can notice that the installation script also check the pre-requisites. It will download expected archive and update your bash profile to have `astra` in your path.
 
-???+ abstract "🖥️ Installation script output"
+??? abstract "🖥️ Installation script output"
 
     ```
        █████╗ ███████╗████████╗██████╗  █████╗     ███████╗██╗  ██╗███████╗██╗     ██╗
@@ -127,7 +127,7 @@ astra --version
 
 ???+ abstract "🖥️ Sample output" 
 
-    `0.1.alpha3`
+    `0.1.alpha4`
 
 You created a default configuration pointing to your organization. If you want to work with multiple organizations look at `Config Management` chapter below.
 
@@ -278,15 +278,17 @@ astra help db list
 
 ## Databases
 
-### 1. List Databases
+### 1. List databases
 
 **✅ 1a - list**
+
+To get the list of non terminated database in your oganization use the command `list` in the group `db`.
 
 ```
 astra db list
 ```
 
-??? abstract "🖥️ Sample output" 
+???+ abstract "🖥️ Sample output" 
 
     ```
     +---------------------+--------------------------------------+---------------------+----------------+
@@ -303,11 +305,13 @@ astra db list
 
 **✅ 1b - Get Help**
 
+To get help on a command always prefix with `astra help XXX`
+
 ```
 astra help db list
 ```
 
-??? abstract "🖥️ Sample output" 
+???+ abstract "🖥️ Sample output" 
 
     ```
     NAME
@@ -350,7 +354,7 @@ astra db list -o csv
 
 ??? abstract "🖥️ Sample output" 
 
-    ```
+    ```csv
     Name,id,Default Region,Status
     mtg,dde308f5-a8b0-474d-afd6-81e5689e3e25,eu-central-1,ACTIVE
     workshops,3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23,eu-west-1,ACTIVE
@@ -360,7 +364,51 @@ astra db list -o csv
     ac201,48c7178c-58cb-4657-b3d2-8a9e3cc89461,us-east-1,ACTIVE
     ```
 
-### 2. Create Database
+```
+astra db list -o json
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```json
+      {
+        "code" : 0,
+        "message" : "astra db list -o json",
+        "data" : [ {
+          "Status" : "ACTIVE",
+          "Default Region" : "eu-central-1",
+          "id" : "dde308f5-a8b0-474d-afd6-81e5689e3e25",
+          "Name" : "mtg"
+        }, {
+          "Status" : "ACTIVE",
+          "Default Region" : "eu-west-1",
+          "id" : "3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23",
+          "Name" : "workshops"
+        }, {
+          "Status" : "ACTIVE",
+          "Default Region" : "us-east-1",
+          "id" : "06a9675a-ca62-4cd0-9b94-aefaf395922b",
+          "Name" : "sdk_tests"
+        }, {
+          "Status" : "ACTIVE",
+          "Default Region" : "eu-central-1",
+          "id" : "7677a789-bd57-455d-ab2c-a3bdfa35ba68",
+          "Name" : "test"
+        }, {
+          "Status" : "ACTIVE",
+          "Default Region" : "us-east-1",
+          "id" : "071d7059-d55b-4cdb-90c6-41c26da1a029",
+          "Name" : "demo"
+        }, {
+          "Status" : "ACTIVE",
+          "Default Region" : "us-east-1",
+          "id" : "48c7178c-58cb-4657-b3d2-8a9e3cc89461",
+          "Name" : "ac201"
+        } ]
+      }
+    ```
+
+### 2. Create database
 
 **✅ 2a - Create Database** 
 
@@ -375,7 +423,7 @@ astra db create demo
 Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use `--if-not-exist`
 
 ```
-astra db create demo -k demo --if-not-exist
+astra db create demo -k ks2 --if-not-exist
 ```
 
 **✅ 2c - Get help** 
@@ -386,13 +434,55 @@ Better doc the cli itself.
 astra help db create
 ```
 
-### 3. Get DB infos
+### 3. Resume database
+
+In the free tier, after 23H of inactivity your database got hibernated. To wake up the db you can use the `resume command`
+
+**✅ 2a - Resuming** 
+
+Assuming you have an hibernating database.
+
+```
+astra db list
++---------------------+--------------------------------------+---------------------+----------------+
+| Name                | id                                   | Default Region      | Status         |
++---------------------+--------------------------------------+---------------------+----------------+
+| hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | HIBERNATED     |
+```
+
+
+```
+astra db resume hemidactylus
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    +---------------------+--------------------------------------+---------------------+----------------+
+    | Name                | id                                   | Default Region      | Status         |
+    +---------------------+--------------------------------------+---------------------+----------------+
+    | hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | RESUMING       |
+    +---------------------+--------------------------------------+---------------------+----------------+
+
+    And after a few time
+    +---------------------+--------------------------------------+---------------------+----------------+
+    | Name                | id                                   | Default Region      | Status         |
+    +---------------------+--------------------------------------+---------------------+----------------+
+    | hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | ACTIVE         |
+    +---------------------+--------------------------------------+---------------------+----------------+
+    ```
+
+### 4. Get database details
+
+To get information or details on an entity use the command `get`.
 
 ```
 astra db get demo
 ```
 
-??? abstract "🖥️ Sample output" 
+In the output you specially see the list of keyspaces available and the different regions.
+
+???+ abstract "🖥️ Sample output" 
 
     ```
     +------------------------+-----------------------------------------+
@@ -406,50 +496,61 @@ astra db get demo
     | Default Keyspace       | demo                                    |
     | Creation Time          | 2022-07-26T15:41:18Z                    |
     |                        |                                         |
-    | Keyspaces              | [0] ks2                                 |
-    |                        | [1] demo                                |
+    | Keyspaces              | [0] demo                                |
     |                        |                                         |
     | Regions                | [0] us-east-1                           |
-    |                        |                                         |
     +------------------------+-----------------------------------------+
     ```
 
-Noticed the Status:
+To get the status of your db (`ACTIVE`, `HIBERNATED`, `RESUMING`) you can use the pip and `grep`
 
 ```
 astra db get demo | grep Status
 ```
 
-### 4. Create a keyspace
+???+ abstract "🖥️ Sample output" 
 
-**✅ 4a - Create new keyspace** 
+    ```
+    | Status                 | ACTIVE                                  |
+    ```
 
-To add a keyspace `ks` to a database `demo` use the following. The database nust exists. The option `--if-not-exist` is also available
+### 5. Create keyspace
+
+A keyspace is created when you create the database. Default CLI behaviour is to provide same values for keyspace
+and database names. But you can define your own keyspace name with the flag `-k`.
+
+**✅ 5a - Create new keyspace** 
+
+To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you providing idempotent scripts.
 
 ```
-astra db create-keyspace demo -k ks1
+astra db create-keyspace demo -k ks2
 ```
 
-If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can show informations of your database.
+If the database is not found you will get a warning message and dedicated code returned. 
+
+To see your new keyspace you can display your database details
 
 ```
 astra db get demo
 ```
 
 
-**✅ 4b - Get help** 
+**✅ 5b - Get help** 
 
 ```
 astra help db create-keyspace
 ```
 
-### 5. Cqlsh
+### 6. Cqlsh
 
-Astra Cli will install, setup and wrap `cqlsh` for you to interact with Astra. Provide the database you want to work with and get the full power of cqlsh.
+[Cqlsh](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `cqlsh` and do the integration for you.
 
-**✅ 5a - Interactive mode** 
+Astra Cli will **download**, **install**, **setup** and **wrap** `cqlsh` for you to interact with Astra.
 
-If no option provide you enter interactive mode
+**✅ 6a - Interactive mode** 
+
+If no option are provided,  you enter `cqlsh` interactive mode
 
 ```
 astra db cqlsh demo
@@ -465,8 +566,9 @@ astra db cqlsh demo
     token@cqlsh>
     ```
 
+**✅ 6b - Execute CQL** 
 
-**✅ 5b - Execute CQL** 
+To execute CQL Statement with `cqlsh` use the flag `-e`.
 
 ```
 astra db cqlsh demo -e "describe keyspaces;"
@@ -474,21 +576,102 @@ astra db cqlsh demo -e "describe keyspaces;"
 
 **✅ 5b - Execute CQL Files** 
 
-Cqlsh provides options `-f` to load a file.
+To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL syntax SOURCE.
 
 ```
-astra db cqlsh demo -f "sample.cql"
+astra db cqlsh demo -f sample.cql
 ```
 
 ### 6. DSBulk
 
-Assuming we have a csv looking like:
+**✅ 6a - Setup** 
+
+[Dsbulk](https://github.com/datastax/dsbulk) stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.
+
+As for `Cqlsh` the cli will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
+
+
+- Make sure we have a db `demo` with a keyspace `demo`
+
+```
+astra db create demo
+```
+
+- Looking at a dataset of cities in the world. [cities.csv]. We can show here the first lines of the 
+file.
 
 ```
 id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
 52,Ashkāsham,3901,BDS,Badakhshan,1,AF,Afghanistan,36.68333000,71.53333000,Q4805192
 68,Fayzabad,3901,BDS,Badakhshan,1,AF,Afghanistan,37.11664000,70.58002000,Q156558
 ...
+```
+
+- Let's create a table to store those values. Connect to CQHSH
+
+```
+astra db cqlsh demo -k demo
+```
+
+- Create the table 
+
+```sql
+CREATE TABLE cities_by_country (
+ country_name text,
+ name       text,
+ id         int,
+ state_id   text,
+ state_code text,
+ state_name text,
+ country_id text,
+ country_code text,
+ latitude double,
+ longitude double,
+ wikiDataId text,
+ PRIMARY KEY ((country_name), name)
+);
+
+describe table cities_by_country;
+
+quit
+```
+
+**✅ 6b - Load Data** 
+
+
+
+**✅ 6c - Count** 
+
+**✅ 6c - UnLoad Data** 
+
+
+### 7. Download Secure bundle
+
+**✅ 7a - Default values** 
+
+Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the current folder.
+
+```
+mkdir db-demo
+cd db-demo
+astra db download-scb demo
+ls
+```
+
+**✅ 7b - Download in target folder** 
+
+Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the  folder provide with option `-d` (`--output-director`).
+
+```
+astra db download-scb demo -d /tmp
+```
+
+**✅ 7c - Download in target folder** 
+
+Provide the target filename with `-f` (`--output-file`). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag `-d`)
+
+```
+astra db download-scb demo -f /tmp/demo.zip
 ```
 
 ## User and Roles
