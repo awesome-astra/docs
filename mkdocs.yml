@@ -14,6 +14,7 @@ nav:
       - ‣ Resume a database: pages/astra/resume-db.md
       - ‣ Multi Regions: pages/astra/multi-regions.md
       - ‣ CQL Proxy: pages/astra/cqlproxy.md
+      - ‣ Astra Cli: pages/astra/astra-cli.md
       - ‣ FAQ: pages/astra/faq.md
     - Astra Streaming:
       - ‣ Create Topic: pages/astra/create-topic.md
