@@ -161,6 +161,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/develop/frameworks/fastapi/</loc>
+         <lastmod>2022-08-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/lagom/</loc>
          <lastmod>2022-08-23</lastmod>
          <changefreq>daily</changefreq>
