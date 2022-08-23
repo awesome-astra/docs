@@ -708,37 +708,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-user-and-roles" class="md-nav__link">
-    4. User and Roles
+  <a href="#user-and-roles" class="md-nav__link">
+    User and Roles
   </a>
   
-    <nav class="md-nav" aria-label="4. User and Roles">
+    <nav class="md-nav" aria-label="User and Roles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-list-users" class="md-nav__link">
-    4.1 List users
+  <a href="#1-list-users" class="md-nav__link">
+    1. List users
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-invite-user" class="md-nav__link">
-    4.2 Invite User
+  <a href="#2-invite-user" class="md-nav__link">
+    2. Invite User
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-revoke-user" class="md-nav__link">
-    4.3 Revoke User
+  <a href="#3-revoke-user" class="md-nav__link">
+    3. Revoke User
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#44-list-roles" class="md-nav__link">
-    4.4 List roles
+  <a href="#4-list-roles" class="md-nav__link">
+    4. List roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-get-role-infos" class="md-nav__link">
+    6. Get role infos
   </a>
   
 </li>
@@ -749,16 +756,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-advanced" class="md-nav__link">
-    5. Advanced
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
   </a>
   
-    <nav class="md-nav" aria-label="5. Advanced">
+    <nav class="md-nav" aria-label="Advanced Topics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-config-management" class="md-nav__link">
-    5.1 Config Management
+  <a href="#1-config-management" class="md-nav__link">
+    1 Config Management
   </a>
   
 </li>
@@ -2534,37 +2541,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-user-and-roles" class="md-nav__link">
-    4. User and Roles
+  <a href="#user-and-roles" class="md-nav__link">
+    User and Roles
   </a>
   
-    <nav class="md-nav" aria-label="4. User and Roles">
+    <nav class="md-nav" aria-label="User and Roles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-list-users" class="md-nav__link">
-    4.1 List users
+  <a href="#1-list-users" class="md-nav__link">
+    1. List users
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-invite-user" class="md-nav__link">
-    4.2 Invite User
+  <a href="#2-invite-user" class="md-nav__link">
+    2. Invite User
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-revoke-user" class="md-nav__link">
-    4.3 Revoke User
+  <a href="#3-revoke-user" class="md-nav__link">
+    3. Revoke User
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#44-list-roles" class="md-nav__link">
-    4.4 List roles
+  <a href="#4-list-roles" class="md-nav__link">
+    4. List roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-get-role-infos" class="md-nav__link">
+    6. Get role infos
   </a>
   
 </li>
@@ -2575,16 +2589,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-advanced" class="md-nav__link">
-    5. Advanced
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
   </a>
   
-    <nav class="md-nav" aria-label="5. Advanced">
+    <nav class="md-nav" aria-label="Advanced Topics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-config-management" class="md-nav__link">
-    5.1 Config Management
+  <a href="#1-config-management" class="md-nav__link">
+    1 Config Management
   </a>
   
 </li>
@@ -2964,79 +2978,129 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>astra db get demo | grep Status
 </code></pre></div>
 <h3 id="4-create-a-keyspace">4. Create a keyspace<a class="headerlink" href="#4-create-a-keyspace" title="Permanent link">&para;</a></h3>
+<p><strong>✅ 4a - Create new keyspace</strong> </p>
 <p>To add a keyspace <code>ks</code> to a database <code>demo</code> use the following. The database nust exists. The option <code>--if-not-exist</code> is also available</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>astra db create-keyspace demo -k ks1
 </code></pre></div>
-<p>If the database is not found you will get a warning message and dedicated code returned.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>astra help db create-keyspace
+<p>If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can show informations of your database.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>astra db get demo
+</code></pre></div>
+<p><strong>✅ 4b - Get help</strong> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>astra help db create-keyspace
 </code></pre></div>
 <h3 id="5-cqlsh">5. Cqlsh<a class="headerlink" href="#5-cqlsh" title="Permanent link">&para;</a></h3>
 <p>Astra Cli will install, setup and wrap <code>cqlsh</code> for you to interact with Astra. Provide the database you want to work with and get the full power of cqlsh.</p>
 <p><strong>✅ 5a - Interactive mode</strong> </p>
 <p>If no option provide you enter interactive mode</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>astra db cqlsh demo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>astra db cqlsh demo
 </code></pre></div>
 <details class="abstract">
 <summary>🖥️ Sample output</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Cqlsh is starting please wait for connection establishment...
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Connected to cndb at 127.0.0.1:9042.
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>[cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>Use HELP for help.
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>token@cqlsh&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Cqlsh is starting please wait for connection establishment...
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Connected to cndb at 127.0.0.1:9042.
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>[cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Use HELP for help.
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>token@cqlsh&gt;
 </code></pre></div>
 </details>
 <p><strong>✅ 5b - Execute CQL</strong> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>astra db cqlsh demo -e &quot;describe keyspaces;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>astra db cqlsh demo -e &quot;describe keyspaces;&quot;
 </code></pre></div>
 <p><strong>✅ 5b - Execute CQL Files</strong> </p>
-<p>We create a sample file for you here</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>astra db cqlsh demo -f &quot;/tmp&quot;
+<p>Cqlsh provides options <code>-f</code> to load a file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>astra db cqlsh demo -f &quot;sample.cql&quot;
 </code></pre></div>
 <h3 id="6-dsbulk">6. DSBulk<a class="headerlink" href="#6-dsbulk" title="Permanent link">&para;</a></h3>
 <p>Assuming we have a csv looking like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>52,Ashkāsham,3901,BDS,Badakhshan,1,AF,Afghanistan,36.68333000,71.53333000,Q4805192
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>68,Fayzabad,3901,BDS,Badakhshan,1,AF,Afghanistan,37.11664000,70.58002000,Q156558
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>id,name,state_id,state_code,state_name,country_id,country_code,country_name,latitude,longitude,wikiDataId
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>52,Ashkāsham,3901,BDS,Badakhshan,1,AF,Afghanistan,36.68333000,71.53333000,Q4805192
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>68,Fayzabad,3901,BDS,Badakhshan,1,AF,Afghanistan,37.11664000,70.58002000,Q156558
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>...
 </code></pre></div>
-<h2 id="4-user-and-roles">4. User and Roles<a class="headerlink" href="#4-user-and-roles" title="Permanent link">&para;</a></h2>
-<h3 id="41-list-users">4.1 List users<a class="headerlink" href="#41-list-users" title="Permanent link">&para;</a></h3>
-<h3 id="42-invite-user">4.2 Invite User<a class="headerlink" href="#42-invite-user" title="Permanent link">&para;</a></h3>
-<h3 id="43-revoke-user">4.3 Revoke User<a class="headerlink" href="#43-revoke-user" title="Permanent link">&para;</a></h3>
-<h3 id="44-list-roles">4.4 List roles<a class="headerlink" href="#44-list-roles" title="Permanent link">&para;</a></h3>
-<h2 id="5-advanced">5. Advanced<a class="headerlink" href="#5-advanced" title="Permanent link">&para;</a></h2>
-<h3 id="51-config-management">5.1 Config Management<a class="headerlink" href="#51-config-management" title="Permanent link">&para;</a></h3>
+<h2 id="user-and-roles">User and Roles<a class="headerlink" href="#user-and-roles" title="Permanent link">&para;</a></h2>
+<h3 id="1-list-users">1. List users<a class="headerlink" href="#1-list-users" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>astra user list
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>+--------------------------------------+-----------------------------+---------------------+
+</code></pre></div>
+</details>
+<h3 id="2-invite-user">2. Invite User<a class="headerlink" href="#2-invite-user" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>astra user invite cedrick.lunven@gmail.com
+</code></pre></div>
+<p>Check the list of user and notice the new user invited.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>astra user list
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>| 825bd3d3-82ae-404b-9aad-bbb4c53da315 | cedrick.lunven@gmail.com    | invited             |
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>+--------------------------------------+-----------------------------+---------------------+
+</code></pre></div>
+</details>
+<h3 id="3-revoke-user">3. Revoke User<a class="headerlink" href="#3-revoke-user" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>astra user delete cedrick.lunven@gmail.com
+</code></pre></div>
+<details class="abstract">
+<summary>🖥️ Sample output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>| User Id                              | User Email                  | Status              |
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>+--------------------------------------+-----------------------------+---------------------+
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>| b665658a-ae6a-4f30-a740-2342a7fb469c | cedrick.lunven@datastax.com | active              |
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>+--------------------------------------+-----------------------------+---------------------+
+</code></pre></div>
+</details>
+<h3 id="4-list-roles">4. List roles<a class="headerlink" href="#4-list-roles" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>astra role list
+</code></pre></div>
+<h3 id="6-get-role-infos">6. Get role infos<a class="headerlink" href="#6-get-role-infos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>astra role get &quot;Database Administrator&quot;
+</code></pre></div>
+<h2 id="advanced-topics">Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permanent link">&para;</a></h2>
+<h3 id="1-config-management">1 Config Management<a class="headerlink" href="#1-config-management" title="Permanent link">&para;</a></h3>
 <p>If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.</p>
-<p><strong>✅ 5.1.a - List available configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>astra config list
+<p><strong>✅ 1a - List available configuration</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>astra config list
 </code></pre></div>
-<p><strong>✅ 5.1.b - Create a new section <code>dev</code></strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
+<p><strong>✅ 1b - Create a new section</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>astra config create dev --token &lt;token_of_org_2&gt;
 </code></pre></div>
-<p><strong>✅ 5.1.c - Select a section <code>dev</code> to work with</strong></p>
+<p><strong>✅ 1c - Use your section config anywhere</strong></p>
+<p>You can use any organization anytime with <code>--config &lt;onfig_name&gt;</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>astra user list --config dev
+</code></pre></div>
+<p><strong>✅ 1d - Select a section as defaul</strong></p>
 <ul>
 <li>Change the current org</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>astra config default dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>astra config use dev
 </code></pre></div>
 <ul>
 <li>See your new list </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>astra config list
 </code></pre></div>
-<p><strong>✅ 5.1.d - Delete a section <code>dev</code></strong></p>
+<p><strong>✅ 1e - Delete a section</strong></p>
 <p>You can delete any organization. If you delete the selected organization you will have to pick a new one.</p>
 <ul>
 <li>
 <p>Delete you config
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>astra config delete dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>astra config delete dev
 </code></pre></div></p>
 </li>
 <li>
 <p>See the new list</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>astra config list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra config list
 </code></pre></div>
 
   <hr>
