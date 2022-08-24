@@ -1,14 +1,16 @@
 *Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/temporal/temporal-logo-dark.svg" height="100px" />
-
 ## Overview
 
 Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies. 
 
-- ℹ️ [Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
 - 📥 [Temporal Quick Install](https://docs.temporal.io/docs/clusters/quick-install/)
-- ℹ️ [Introduction to Temporal and Cassandra, Astra DB](https://medium.com/building-the-open-data-stack/easily-manage-workflows-at-scale-with-temporal-io-and-astra-db-144f93a21ff3)
+- ℹ️ [Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
+- ℹ️ [Part 1: Introduction to Temporal and Cassandra, Astra DB](https://medium.com/building-the-open-data-stack/easily-manage-workflows-at-scale-with-temporal-io-and-astra-db-144f93a21ff3)
+- ℹ️ [Part 2: Connect Temporalio to Astra DB in 5 Easy Steps](https://medium.com/building-the-open-data-stack/connect-temporal-io-to-astra-db-in-5-easy-steps-with-cql-proxy-768c62579289)
+- ℹ️ [Part 3: Connect Temporalio to Astra DB With Kubernetes](https://medium.com/building-the-open-data-stack/how-to-connect-temporal-io-to-astra-db-with-kubernetes-3a6337900eb)
+- 🎥 [Workflow with Temporal and Astra DB in 5 minutes](https://www.youtube.com/watch?v=rdmJErBLxtE)
 
 ## - Prerequisites
 
