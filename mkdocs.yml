@@ -96,6 +96,8 @@ nav:
       - • Temporal : pages/tools/integration/temporal.md
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
+  - Contact Us:
+    - • Contact Us : pages/contact/index.md
 
 # ------------------------------------------------------
 # Settings
