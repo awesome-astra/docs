@@ -1,6 +1,17 @@
 ---
-tags: integration, middleware, python, IoT
-icon: https://awesome-astra.github.io/docs/img/pentaho-data-integration/logo-pentaho.png
+tags: 'integration, middleware, python, IoT'
+icon: 'https://awesome-astra.github.io/docs/img/pentaho-data-integration/logo-pentaho.png'
+developer_title: 'Hitachi'
+developer_url: 'https://sourceforge.net/projects/pentaho/'
+links:
+- title: "Introduction to PDI"
+  url: "https://blog.knoldus.com/introduction-to-pdi/"
+- title: "PDI Download Link"
+  url: "https://sourceforge.net/projects/pentaho/"
+- title: "Linux Installation Guide"
+  url: "https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf"
+- title: "Windows Installation Guide"
+  url: "https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf"
 ---
 
 <div class="nosurface" markdown="1">
@@ -17,10 +28,12 @@ _This article was originally written by **Erick Ramirez** on [community.datastax
 
 Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
-- <span class="nosurface">ℹ️ </span>[Introduction to PDI](https://blog.knoldus.com/introduction-to-pdi/)
-- <span class="nosurface">📥 </span>[PDI Download Link](https://sourceforge.net/projects/pentaho/)
-- <span class="nosurface">📘 </span>[Installation Guide on Linux](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf)
-- <span class="nosurface">📘 </span>[Installation Guide on Windows](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf)
+<div class="nosurface" markdown="1">
+- ℹ️ [Introduction to PDI](https://blog.knoldus.com/introduction-to-pdi/)
+- 📥 [PDI Download Link](https://sourceforge.net/projects/pentaho/)
+- 📘 [Installation Guide on Linux](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf)
+- 📘 [Installation Guide on Windows](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf)
+</div>
 
 ## Prerequisites
 
