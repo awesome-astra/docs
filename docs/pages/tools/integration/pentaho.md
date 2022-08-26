@@ -17,10 +17,10 @@ _This article was originally written by **Erick Ramirez** on [community.datastax
 
 Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
 
-- [Introduction to PDI](https://blog.knoldus.com/introduction-to-pdi/)
-- [PDI Download Link](https://sourceforge.net/projects/pentaho/)
-- [Installation Guide on Linux](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf)
-- [Installation Guide on Windows](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf)
+- <span class="nosurface">ℹ️ </span>[Introduction to PDI](https://blog.knoldus.com/introduction-to-pdi/)
+- <span class="nosurface">📥 </span>[PDI Download Link](https://sourceforge.net/projects/pentaho/)
+- <span class="nosurface">📘 </span>[Installation Guide on Linux](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf)
+- <span class="nosurface">📘 </span>[Installation Guide on Windows](https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf)
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This article was written for version `9.1` on `MacOS` but it should also work fo
 
 ## Installation and Setup
 
-### Step 1: Download JDBC Driver
+### <span class="nosurface">✅ </span>Step 1: Download JDBC Driver
 
 Download the JDBC driver from the DataStax website:
 
@@ -47,7 +47,7 @@ Download the JDBC driver from the DataStax website:
 5. Hit the blue **Download** button.
 6. Once the download completes, **unzip** the downloaded file.
 
-### Step 2: Import Driver JAR in Pentaho
+### <span class="nosurface">✅ </span>Step 2: Import Driver JAR in Pentaho
 
 Deploy the Simba driver to Pentaho servers using the distribution tool:
 
@@ -89,7 +89,7 @@ Deploy the Simba driver to Pentaho servers using the distribution tool:
 
 4. Restart Pentaho on your workstation for the Simba driver to be loaded.
 
-### Step 3: Define a connection in Pentaho
+### <span class="nosurface">✅ </span>Step 3: Define a connection in Pentaho
 
 > In this section we assume that your database in Astra is called `pentaho` and as such the download secure bundle is called `secure-connect-pentaho.zip`
 
@@ -110,7 +110,7 @@ Deploy the Simba driver to Pentaho servers using the distribution tool:
    <img src="https://awesome-astra.github.io/docs/img/pentaho-data-integration/pentaho-02-test-connection.png" />
 9. Click on the OK button to save the connection settings.
 
-### Step 4: Final Test
+### <span class="nosurface">✅ </span>Step 4: Final Test
 
 Connect to your Astra DB by launching the SQL Editor in Pentaho and run a simple CQL statement. For example:
 
