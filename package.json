@@ -1,0 +1,19 @@
+{
+  "name": "@awesome-astra/integrations",
+  "version": "0.1",
+  "description": "Integrations Content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awesome-astra/docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awesome-astra/docs/issues"
+  },
+  "homepage": "https://github.com/awesome-astra/docs#readme"
+}
