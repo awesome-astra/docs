@@ -1,6 +1,6 @@
 {
   "name": "@awesome-astra/integrations",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "description": "Integrations Content",
   "main": "index.js",
   "scripts": {
