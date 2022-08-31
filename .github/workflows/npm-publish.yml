@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.KEY }}
+          token: ${{ secrets.ASTRA_PORTAL }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
