@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.ASTRA_PORTAL }}
+          token: ${{ secrets.AWESOME_ASTRA }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -19,5 +19,5 @@ jobs:
       - run: git push
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.AWESOME_ASTRA }}
           registry: https://npm.pkg.github.com
