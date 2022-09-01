@@ -16,10 +16,6 @@ jobs:
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
       - run: npm version patch -m "[RELEASE] %s"
-      - run: npm install
       - run: npm publish
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.AA_NPM }}
-          registry: https://npm.pkg.github.com
-          access: public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.AA_NPM }}
