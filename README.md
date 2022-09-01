@@ -50,3 +50,5 @@ then screw up once deployed**.
 
 Also, when calculating the number of `..` to insert, count ONE LESS for `index.md` files as opposed to all other `md` files:
 `index.md` renders as the page for the path containing it (`a/b/c/index.md` renders the URL `a/b/c`).
+
+For company logo files, SVG format is preferred to PNG.
