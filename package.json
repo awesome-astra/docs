@@ -2,6 +2,9 @@
   "name": "@awesome-astra/integrations",
   "version": "0.1.73",
   "description": "Integrations Content",
+  "files": [
+    "./docs/pages"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
