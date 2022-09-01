@@ -14,7 +14,7 @@ Temporal.io is an open source microservice orchestration platform that assists i
 
 ## - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B1Hyj8)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should have an [Astra Token](/docs/pages/astra/create-token/)
 
