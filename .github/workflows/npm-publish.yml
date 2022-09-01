@@ -19,7 +19,9 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
-      - run: npm version minor
+      - run: npm version patch -m "[RELEASE] %s"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
