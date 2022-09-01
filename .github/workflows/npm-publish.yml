@@ -17,5 +17,3 @@ jobs:
       - run: git config --global user.email 'dieter.randolph@datastax.com'
       - run: npm version patch -m "[RELEASE] %s"
       - run: npm publish
-        with:
-          token: ${{ secrets.AA_NPM }}
