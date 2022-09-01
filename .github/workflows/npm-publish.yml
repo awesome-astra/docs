@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
+      - run: git config --global user.name 'dieterrandolph'
+      - run: git config --global user.email 'dieter.randolph@datastax.com'
       - run: npm version patch -m "[RELEASE] %s"
       - run: npm publish
         env:
