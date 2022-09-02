@@ -1,9 +1,9 @@
 {
   "name": "@awesome-astra/integrations",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "description": "Integrations Content",
   "files": [
-    "**/*.md"
+    "docs/**/*.md"
   ],
   "main": "index.js",
   "scripts": {
