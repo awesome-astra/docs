@@ -1,4 +1,4 @@
-const context = require.context("./docs/pages/tools/", true, /\.md$/);
+const context = require.context("./", true, /\.md$/);
 const all = [];
 context.keys().forEach((key) => {
   console.log({ key });
