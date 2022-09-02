@@ -1,8 +1,8 @@
-const context = require.context("./docs", true, /\.md$/);
+const context = require.context("./", true, /\.md$/);
 const all = [];
 context.keys().forEach((key) => {
   console.log({ key });
-  if (key.includes("@riptano")) {
+  if (key.includes("@awesome-astra")) {
     return;
   }
   const fileName = key.replace("./", "");
