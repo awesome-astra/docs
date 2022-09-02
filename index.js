@@ -1,6 +1,7 @@
 const context = require.context("./docs/pages/tools/", true, /\.md$/);
 const all = [];
 context.keys().forEach((key) => {
+  console.log({ key });
   if (key.includes("@riptano")) {
     return;
   }
