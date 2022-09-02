@@ -1,7 +1,6 @@
 const context = require.context("./", true, /\.md$/);
-const all = [];
+const all = {};
 context.keys().forEach((key) => {
-  console.log({ key });
   if (key.includes("@awesome-astra")) {
     return;
   }
