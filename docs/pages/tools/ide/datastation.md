@@ -12,7 +12,7 @@ DataStation is an open-source data IDE for developers. It allows you to easily b
 
 ## Prerequisites
 - You should [Install DataStation](https://datastation.multiprocess.io/docs/)
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/), create a table, and load some data.
 - You should have an [Astra Token](/docs/pages/astra/create-token/)
 - Clone this [repository](https://github.com/datastax/cql-proxy) to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
