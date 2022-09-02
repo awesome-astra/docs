@@ -4,7 +4,7 @@ In the free tier _(serverless)_, after `23 hours`, your database will be **hiber
 
 ## B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 
 ## C - Procedure
 
