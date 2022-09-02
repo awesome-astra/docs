@@ -29,7 +29,7 @@ Astra DB serverless replicates all data in the database to all of a database’s
 
 ## B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 
 - You should have a **CREDIT CARD** in the system **AND/OR** have **MORE THAN 25$** in Astra Credits.
 

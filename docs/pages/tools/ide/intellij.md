@@ -12,7 +12,7 @@ Astra DB is a serverless NoSQL database as a service, built on Apache Cassandra 
 
 ## B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should download either Community or ultimate edition of intelliJ from [Download Page](https://www.jetbrains.com/idea/download/?fromIDE=#section=mac)

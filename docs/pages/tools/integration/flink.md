@@ -14,7 +14,7 @@ This code is intended as a fairly simple demonstration of how to enable an Apach
 - 📥 [Download Apache Flink](https://flink.apache.org/downloads.html)
 
 ## Prerequisites
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/), create a table, and load some data.
 - You should have an [Astra Token](/docs/pages/astra/create-token/)
 - You should clone this [GitHub repository](https://github.com/absurdfarce/flink-astra)

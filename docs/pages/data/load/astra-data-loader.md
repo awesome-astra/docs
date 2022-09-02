@@ -12,7 +12,7 @@ Astra DB conveniently has its own data loader built in to the user interface. Us
 
 ### B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 
 ### C - Procedure

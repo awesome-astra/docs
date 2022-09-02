@@ -45,7 +45,7 @@ It is also possible to create custom roles and associate fined grained permissio
 
 **To create a new token:**
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 
 ## C - Procedure
 
