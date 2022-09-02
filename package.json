@@ -3,7 +3,7 @@
   "version": "0.2.8",
   "description": "Integrations Content",
   "files": [
-    "docs/**/*.md"
+    "docs/pages/**/*.md"
   ],
   "main": "index.js",
   "scripts": {
