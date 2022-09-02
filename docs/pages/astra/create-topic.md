@@ -19,12 +19,12 @@ Also instructions are given to retrieve the connection parameters to later conne
 
 ## B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/).
+- You should have an [Astra account](https://astra.dev/3B7HcYo).
 - Have a `tenant_name`, optionally a `namespace` (if not using "default"), and a `topic_name` ready to create the topic.
 
 ## C - Procedure
 
-Make sure you are logged in to your [Astra account](http://astra.datastax.com/)
+Make sure you are logged in to your [Astra account](https://astra.dev/3B7HcYo)
 before proceeding.
 
 **✅ Step 1: Create a tenant**

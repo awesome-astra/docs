@@ -12,7 +12,7 @@
 
 ## B - Prerequisites
 
-- You should have an [Astra account](http://astra.datastax.com/). If you don't have one yet, keep reading and we'll show you how to create it.
+- You should have an [Astra account](https://astra.dev/3B7HcYo). If you don't have one yet, keep reading and we'll show you how to create it.
 
 ## C - Procedure
 

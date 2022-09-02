@@ -16,7 +16,7 @@ On your machine you will need the following components
 
 You will also need an Astra token. As such, make sure you completed those 2 steps before
 
-- Create an [Astra account](http://astra.datastax.com/)
+- Create an [Astra account](https://astra.dev/3B7HcYo)
 - Generate an [Astra Token](/docs/pages/astra/create-token/)
 
 **✅ 1b Installation**

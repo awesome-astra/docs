@@ -16,7 +16,7 @@ The purpose of this document is to guide you through the process of creating a n
 - [Download](https://github.com/liquibase/liquibase-cassandra/releases/) the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory 
 
 ### Astra Prerequisites
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should have an [Astra Token](/docs/pages/astra/create-token/)
 - [Download](https://downloads.datastax.com/#odbc-jdbc-drivers) the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory 

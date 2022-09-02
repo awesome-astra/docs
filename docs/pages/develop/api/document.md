@@ -67,7 +67,7 @@ The **Document API** is an HTTP REST API and part of the open source [Stargate.i
 
 ## 2. Prerequesites
 
-- You should have an [Astra account](http://astra.datastax.com/)
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 
