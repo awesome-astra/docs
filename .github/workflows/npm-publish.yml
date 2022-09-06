@@ -17,10 +17,12 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
-      - run: npm version patch -m "[RELEASE] %s"
-      - run: git tag package.${{github.run_id}}
-      - run: git push
-      - uses: JS-DevTools/npm-publish@v1
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.AA_NPM }}
-          registry: https://npm.pkg.github.com
+          tag-prefix: "package"
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
