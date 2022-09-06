@@ -20,6 +20,8 @@ jobs:
       - run: npm version patch -m "[RELEASE] %s"
       - run: git tag package.${{github.run_id}}
       - run: git push origin package.${{github.run_id}}
+        with:
+          token: ${{ secrets.AA_NPM }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.AA_NPM }}
