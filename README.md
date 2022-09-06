@@ -4,6 +4,10 @@ Markdowns to generate the static site https://awesome-astra.github.io/docs
 
 Static site is generated on branch `gh-pages` using a github action
 
+## Deployments
+
+**NOTE:** When updating documentation, please also update the `version` line in [package.json](./package.json). If you do not update the version, you'll see a build error when you merge your updates into the `main` branch -- however, this error does _not_ impact the Awesome Astra website publication process. Instead, it only impacts whether or not your changes will surface in Astra Portal.
+
 ## Run the website locally
 
 ### 1. Installation 
