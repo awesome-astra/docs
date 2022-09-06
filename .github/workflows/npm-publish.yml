@@ -10,8 +10,6 @@ jobs:
       contents: read
       packages: write
     steps:
-      - env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
