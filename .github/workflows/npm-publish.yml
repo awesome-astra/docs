@@ -11,18 +11,15 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.AA_NPM }}
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
-      - name: "Automated Version Bump"
-        uses: "phips28/gh-action-bump-version@master"
-        env:
-          GITHUB_TOKEN: ${{ secrets.AA_NPM }}
-        with:
-          tag-prefix: "package"
+      - run: npm version patch -m "[RELEASE] %s"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
