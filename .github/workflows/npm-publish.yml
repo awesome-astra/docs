@@ -11,8 +11,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.AA_NPM }}
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
@@ -23,5 +21,5 @@ jobs:
       - run: git push
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           registry: https://npm.pkg.github.com
