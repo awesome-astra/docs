@@ -11,10 +11,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      - uses: rickstaa/action-create-tag@v1
-        with:
-          tag: "package"
-          message: "Package Publish"
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
@@ -22,7 +18,8 @@ jobs:
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
       - run: npm version patch -m "[RELEASE] %s"
-      - run: git push
+      - run: git tag package.${{github.run_id}}
+      - run: git push origin package.${{github.run_id}}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.AA_NPM }}
