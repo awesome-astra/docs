@@ -1,4 +1,7 @@
-if (typeof require.context === "undefined") {
+let context;
+try {
+  context = require.context("./", true, /\.md$/);
+} catch (error) {
   const fs = require("fs");
   const path = require("path");
   require.context = (
@@ -25,9 +28,10 @@ if (typeof require.context === "undefined") {
     Module.keys = () => Object.keys(files);
     return Module;
   };
+  context = require.context("./", true, /\.md$/);
 }
 
-const context = require.context("./", true, /\.md$/);
+// const context = require.context("./", true, /\.md$/);
 const allMarkdown = [];
 context.keys().forEach((key) => {
   if (key.includes("@awesome-astra")) {
