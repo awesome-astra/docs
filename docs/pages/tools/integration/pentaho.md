@@ -1,17 +1,15 @@
 ---
-tags: 'integration, middleware, python, IoT'
-icon: 'https://awesome-astra.github.io/docs/img/pentaho-data-integration/logo-pentaho.png'
-developer_title: 'Hitachi'
-developer_url: 'https://sourceforge.net/projects/pentaho/'
+title: "Pentaho"
+description: "Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies."
+tags: "integration, middleware, python, IoT"
+icon: "https://awesome-astra.github.io/docs/img/pentaho-data-integration/logo-pentaho.png"
+developer_title: "Hitachi"
+developer_url: "https://sourceforge.net/projects/pentaho/"
 links:
-- title: "Introduction to PDI"
-  url: "https://blog.knoldus.com/introduction-to-pdi/"
-- title: "PDI Download Link"
-  url: "https://sourceforge.net/projects/pentaho/"
-- title: "Linux Installation Guide"
-  url: "https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-ce-installation-guide-on-linux-operating-system-whitepaper.pdf"
-- title: "Windows Installation Guide"
-  url: "https://www.hitachivantara.com/en-us/pdf/white-paper/pentaho-community-edition-installation-guide-for-windows-whitepaper.pdf"
+- title: "foo"
+  url: "http://google.com"
+- title: "bar"
+  url: "http://yahoo.com"
 ---
 
 <div class="nosurface" markdown="1">
