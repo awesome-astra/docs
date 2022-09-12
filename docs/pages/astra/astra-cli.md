@@ -127,7 +127,7 @@ astra --version
 
 ???+ abstract "🖥️ Sample output" 
 
-    `0.1.alpha4`
+    `0.1.alpha5`
 
 You created a default configuration pointing to your organization. If you want to work with multiple organizations look at `Config Management` chapter below.
 
@@ -276,7 +276,7 @@ astra help db list
                 Verbose mode with log in console
     ```
 
-## Databases
+## Astra DB
 
 ### 1. List databases
 
@@ -418,12 +418,16 @@ If not provided the region will be the default free region and the keyspace will
 astra db create demo
 ```
 
-**✅ 2b - If not Exists** 
+**✅ 2b - Options ` --if-not-exist` and `--wait`** 
 
-Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use `--if-not-exist`
+- Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use `--if-not-exist`
+
+- Database creation is asynchronous operation. Still during your CI/CD you want the Db to be `ACTIVE` before moving forward. The option `--wait` will trigger a blocking command until the db is ready
+
+- On the free tier, after a period of inactivity the database moves to `HIBERNATED` state. The creation command, will resume the db when needed.
 
 ```
-astra db create demo -k ks2 --if-not-exist
+astra db create demo -k ks2 --if-not-exist --wait
 ```
 
 **✅ 2c - Get help** 
@@ -440,16 +444,21 @@ In the free tier, after 23H of inactivity your database got hibernated. To wake 
 
 **✅ 2a - Resuming** 
 
-Assuming you have an hibernating database.
+- Assuming you have an hibernating database.
 
 ```
 astra db list
+```
+
+```
 +---------------------+--------------------------------------+---------------------+----------------+
 | Name                | id                                   | Default Region      | Status         |
 +---------------------+--------------------------------------+---------------------+----------------+
 | hemidactylus        | 643c6bb8-2336-4649-97d5-39c33491f5c1 | eu-central-1        | HIBERNATED     |
++---------------------+--------------------------------------+---------------------+----------------+
 ```
 
+- Trigger an explicit resuming with:
 
 ```
 astra db resume hemidactylus
@@ -474,7 +483,7 @@ astra db resume hemidactylus
 
 ### 4. Get database details
 
-To get information or details on an entity use the command `get`.
+**✅ 4a. To get general information or details on an entity use the command `get`.**
 
 ```
 astra db get demo
@@ -502,53 +511,71 @@ In the output you specially see the list of keyspaces available and the differen
     +------------------------+-----------------------------------------+
     ```
 
-To get the status of your db (`ACTIVE`, `HIBERNATED`, `RESUMING`) you can use the pip and `grep`
+**✅ 4b. To get a special property you can add the option `--key`. Multiple keys are available: `id`, `status`, `cloud`, `keyspace`, `keyspaces`, `region`, `regions`. Notice that the output is raw. This command is expected to be used in scripts**
 
 ```
-astra db get demo | grep Status
+astra db get demo --key id
 ```
 
 ???+ abstract "🖥️ Sample output" 
 
     ```
-    | Status                 | ACTIVE                                  |
+    dde308f5-a8b0-474d-afd6-81e5689e3e25
     ```
 
-### 5. Create keyspace
+**✅ 4c. To get database status in a human readble for use `status` command**
+
+```
+astra db status demo
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    [ INFO ] - Database 'demo' has status 'ACTIVE'
+    ```
+
+### 5. Delete Database
+
+**✅ 5a. To delete a db use the command `delete`.**
+
+```
+astra db delete demo2
+```
+
+### 6. Working with keyspaces
 
 A keyspace is created when you create the database. Default CLI behaviour is to provide same values for keyspace
 and database names. But you can define your own keyspace name with the flag `-k`.
 
-**✅ 5a - Create new keyspace** 
+**✅ 6a - Create new keyspace** 
 
-To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you providing idempotent scripts.
-
-```
-astra db create-keyspace demo -k ks2
-```
-
-If the database is not found you will get a warning message and dedicated code returned. 
-
-To see your new keyspace you can display your database details
+- To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you providing idempotent scripts.
 
 ```
-astra db get demo
+astra db create-keyspace demo -k ks2 --if-not-exist
+```
+
+- If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can display your database details
+
+```
+astra db list-keyspaces demo
 ```
 
 
-**✅ 5b - Get help** 
+**✅ 6b - Get help** 
 
 ```
 astra help db create-keyspace
 ```
 
-### 6. Cqlsh
+### 7. Cqlsh
 
 [Cqlsh](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `cqlsh` and do the integration for you.
 
 Astra Cli will **download**, **install**, **setup** and **wrap** `cqlsh` for you to interact with Astra.
 
-**✅ 6a - Interactive mode** 
+**✅ 7a - Interactive mode** 
 
 If no option are provided,  you enter `cqlsh` interactive mode
 
@@ -566,7 +593,7 @@ astra db cqlsh demo
     token@cqlsh>
     ```
 
-**✅ 6b - Execute CQL** 
+**✅ 7b - Execute CQL** 
 
 To execute CQL Statement with `cqlsh` use the flag `-e`.
 
@@ -574,7 +601,7 @@ To execute CQL Statement with `cqlsh` use the flag `-e`.
 astra db cqlsh demo -e "describe keyspaces;"
 ```
 
-**✅ 5b - Execute CQL Files** 
+**✅ 7b - Execute CQL Files** 
 
 To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL syntax SOURCE.
 
@@ -582,9 +609,9 @@ To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL 
 astra db cqlsh demo -f sample.cql
 ```
 
-### 7. DSBulk
+### 8. DSBulk
 
-**✅ 7a - Setup** 
+**✅ 8a - Setup** 
 
 [Dsbulk](https://github.com/datastax/dsbulk) stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.
 
@@ -636,7 +663,7 @@ describe table cities_by_country;
 quit
 ```
 
-**✅ 7b - Load Data** 
+**✅ 8b - Load Data** 
 
 ```
 astra db dsbulk demo load \
@@ -664,7 +691,7 @@ The first time the line `DSBulk is starting please wait` can take a few seconds 
     Last processed positions can be found in positions.txt
     ```
 
-**✅ 7c - Count** 
+**✅ 8c - Count** 
 
 Check than the data has been imported with cqlsh SH
 
@@ -719,7 +746,7 @@ astra db dsbulk demo count -k demo -t cities_by_country
     134,574 |      0 | 43,307 | 315.71 | 457.18 | 457.18
     ```
 
-**✅ 7d - UnLoad Data** 
+**✅ 8d - Unload Data** 
 
 ```
 astra db dsbulk demo unload -k demo -t cities_by_country -url /tmp/unload
@@ -737,9 +764,9 @@ astra db dsbulk demo unload -k demo -t cities_by_country -url /tmp/unload
     Operation UNLOAD_20220823-183054-208353 completed successfully in 9 seconds.
     ```
 
-### 8. Download Secure bundle
+### 9. Download Secure bundle
 
-**✅ 8a - Default values** 
+**✅ 9a - Default values** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the current folder.
 
@@ -750,7 +777,7 @@ astra db download-scb demo
 ls
 ```
 
-**✅ 8b - Download in target folder** 
+**✅ 9b - Download in target folder** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the  folder provide with option `-d` (`--output-director`).
 
@@ -758,13 +785,303 @@ Download the different secure bundles (one per region) with the pattern `scb_${d
 astra db download-scb demo -d /tmp
 ```
 
-**✅ 8c - Download in target folder** 
+**✅ 9c - Download in target folder** 
 
 Provide the target filename with `-f` (`--output-file`). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag `-d`)
 
 ```
 astra db download-scb demo -f /tmp/demo.zip
 ```
+
+## Astra STREAMING
+
+### 1. List tenants
+
+**✅ 1a - list**
+
+To get the list of tenant in your oganization use the command `list` in the group `streaming`.
+
+```
+astra streaming list
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    +---------------------+-----------+----------------+----------------+
+    | name                | cloud     | region         | Status         |
+    +---------------------+-----------+----------------+----------------+
+    | cedrick-20220910    | aws       | useast2        | active         |
+    | trollsquad-2022     | aws       | useast2        | active         |
+    +---------------------+-----------+----------------+----------------+
+    ```
+
+**✅ 1b - Change output as `csv` amd `json`**
+
+```
+astra streaming list -o csv
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```csv
+    name,cloud,region,Status
+    cedrick-20220910,aws,useast2,active
+    trollsquad-2022,aws,useast2,active
+    ```
+
+```
+astra streaming list -o json
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```json
+    {
+    "code" : 0,
+    "message" : "astra streaming list -o json",
+    "data" : [ {
+        "cloud" : "aws",
+        "Status" : "active",
+        "name" : "cedrick-20220910",
+        "region" : "useast2"
+    }, {
+        "cloud" : "aws",
+        "Status" : "active",
+        "name" : "trollsquad-2022",
+        "region" : "useast2"
+    } ]
+    }
+    ```
+
+### 2. Create tenant
+
+**✅ 2a - Check tenant existence with `exist`** 
+
+The tenant name needs to be unique for the cluster (Cloud provider / region). It may be useful to check if the name is already in use by somebody else.
+
+```
+astra streaming exist new_tenant_from_cli
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```bash
+    [ INFO ] - Tenant 'new_tenant_from_cli' does not exist.
+    ```
+
+**✅ 2b - Create tenant** 
+
+To create a tenant with default cloud (`aws`), default region (`useast2`), plan (`free`) and namespace (`default`):
+
+```
+astra streaming create new_tenant_from_cli
+```
+
+To know all supported option please use
+
+```
+astra help streaming create
+```
+
+### 3. Get tenant details
+
+**✅ 3a - To get i nformation or details on an entity use the command `get`.**
+
+```
+astra streaming get trollsquad-2022
+```
+
+The pulsar token is not displayed in this view as too loong, there are dedicated command to display it.
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    +------------------+-------------------------------------------------------------+
+    | Attribute        | Value                                                       |
+    +------------------+-------------------------------------------------------------+
+    | Name             | trollsquad-2022                                             |
+    | Status           | active                                                      |
+    | Cloud Provider   | aws                                                         |
+    | Cloud region     | useast2                                                     |
+    | Cluster Name     | pulsar-aws-useast2                                          |
+    | Pulsar Version   | 2.10                                                        |
+    | Jvm Version      | JDK11                                                       |
+    | Plan             | payg                                                        |
+    | WebServiceUrl    | https://pulsar-aws-useast2.api.streaming.datastax.com       |
+    | BrokerServiceUrl | pulsar+ssl://pulsar-aws-useast2.streaming.datastax.com:6651 |
+    | WebSocketUrl     | wss://pulsar-aws-useast2.streaming.datastax.com:8001/ws/v2  |
+    +------------------+-------------------------------------------------------------+
+    ```
+
+**✅ 3b. To get a special property you can add the option `--key`. Multiple keys are available: `status`, `cloud`, `pulsar_token`. Notice that the output is raw. This command is expected to be used in scripts**
+
+```
+astra streaming get trollsquad-2022 --key cloud
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    aws
+    ```
+
+**✅ 3c. To get tenant pulsar-token please use ` pulsar-token` command**
+
+```
+astra streaming pulsar-token trollsquad-2022
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjI5NzcyNzksImlzcyI6ImRhdGFzdGF4Iiwic3ViIjoiY2xpZW50O2Y5NDYwZjE0LTk4NzktNGViZS04M2YyLTQ4ZDNmM2RjZTEzYztkSEp2Ykd4emNYVmhaQzB5TURJeTsxOTZlYjg0YTMzIiwidG9rZW5pZCI6IjE5NmViODRhMzMifQ.rjJYDG_nJu0YpgATfjeKeUUAqwJGyVlvzpA5iP-d5-bReQf1FPaDlGxo40ADHHn2kx2NOdgMsm-Ys4K...
+    ```
+
+**✅ 3d. To get tenant status in a human readble for use `status` command**
+
+```
+astra streaming status trollsquad-2022
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    [ INFO ] - Tenant 'trollsquad-2022' has status 'active'
+    ```
+
+### 4. Delete Tenant
+
+**✅ 4a. To delete a tenant simply use the command `delete`**
+
+```
+astra streaming delete trollsquad
+```
+
+### 5. Pulsar-Shell
+
+[Pulsar-Shell](https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/) is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `pulsar-shell` and do the integration for you.
+
+Astra Cli will **download**, **install**, **setup** and **wrap** `pulsar-shell` for you to interact with Astra.
+
+**✅ 5a - Interactive mode** 
+
+If no option are provided,  you enter `pulsar-shell` interactive mode
+
+```
+astra streaming pulsar-shell trollsquad-2022
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    /Users/cedricklunven/.astra/lunastreaming-shell-2.10.1.1/conf/client-aws-useast2-trollsquad-2022.conf
+    Pulsar-shell is starting please wait for connection establishment...
+    Using directory: /Users/cedricklunven/.pulsar-shell
+    Welcome to Pulsar shell!
+        Service URL: pulsar+ssl://pulsar-aws-useast2.streaming.datastax.com:6651
+        Admin URL: https://pulsar-aws-useast2.api.streaming.datastax.com
+
+    Type help to get started or try the autocompletion (TAB button).
+    Type exit or quit to end the shell session.
+
+    default(pulsar-aws-useast2.streaming.datastax.com)>
+    ```
+
+You can quit with exit.
+
+**✅ 5b - Execute Pulsar Shell command** 
+
+To execute command with `pushar-shell` use the flag `-e`.
+
+```
+astra streaming pulsar-shell trollsquad-2022 -e "admin namespaces list trollsquad-2022"
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    /Users/cedricklunven/.astra/lunastreaming-shell-2.10.1.1/conf/client-aws-useast2-trollsquad-2022.conf
+    Pulsar-shell is starting please wait for connection establishment...
+    Using directory: /Users/cedricklunven/.pulsar-shell
+    [1/1] Executing admin namespaces list trollsquad-2022
+    [1/1] ✔ admin namespaces list trollsquad-2022
+    ```
+
+**✅ 5c - Execute Pulsar Shell files** 
+
+To execute CQL Files with  `pushar-shell` use the flag `-e`.
+
+```
+astra streaming pulsar-shell trollsquad-2022 -f create_topics.txt
+```
+
+### 6. Pulsar-client and Admin
+
+Pulsar client and admin are provided within pulsar-shell. This section simply provide some examples to write and read in a topic with client.
+
+**✅ 6a - Create a topic `demo`**.
+
+
+- First start the pulsar-shell on 2 different terminal
+
+```
+astra streaming pulsar-shell trollsquad-2022
+```
+
+- Then on first terminal create a topic `demo` in namespace `default`
+
+```
+admin topics create persistent://trollsquad-2022/default/demo
+```
+
+- You can now list the different topics in namespace `default`
+
+```
+admin topics list trollsquad-2022/default
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    persistent://trollsquad-2022/default/demo
+    ```
+
+- Start a consumer on this topic
+
+```
+client consume persistent://trollsquad-2022/default/demo -s astra_cli_tuto -n 0
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    .. init ...
+    83 - R:pulsar-aws-useast2.streaming.datastax.com/3.16.119.226:6651]] Connected to server
+    2022-09-12T12:28:34,869+0200 [pulsar-client-io-1-1] INFO  org.apache.pulsar.client.impl.ClientCnx - [id: 0xc5ce3ec4, L:/192.168.82.1:53683 - R:pulsar-aws-useast2.streaming.datastax.com/3.16.119.226:6651] Connected through proxy to target broker at 192.168.7.141:6650
+    2022-09-12T12:28:35,460+0200 [pulsar-client-io-1-1] INFO  org.apache.pulsar.client.impl.ConsumerImpl - [persistent://trollsquad-2022/default/demo][astra_cli_tuto] Subscribing to topic on cnx [id: 0xc5ce3ec4, L:/192.168.82.1:53683 - R:pulsar-aws-useast2.streaming.datastax.com/3.16.119.226:6651], consumerId 0
+    2022-09-12T12:28:35,645+0200 [pulsar-client-io-1-1] INFO  org.apache.pulsar.client.impl.ConsumerImpl - [persistent://trollsquad-2022/default/demo][astra_cli_tuto] Subscribed to topic on pulsar-aws-useast2.streaming.datastax.com/3.16.119.226:6651 -- consumer: 0
+    ```
+
+- On the second terminal you can now start a producer
+
+```
+client produce persistent://trollsquad-2022/default/demo -m "hello,world" -n 20 
+```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    2022-09-12T12:36:28,684+0200 [pulsar-client-io-14-1] INFO  org.apache.pulsar.client.impl.ClientCnx - [id: 0x682890b5, L:/192.168.1.106:53796 ! R:pulsar-aws-useast2.streaming.datastax.com/3.138.177.230:6651] Disconnected
+    2022-09-12T12:36:30,756+0200 [main] INFO  org.apache.pulsar.client.cli.PulsarClientTool - 40 messages successfully produced
+
+
+    And on the client side
+    key:[null], properties:[], content:world
+    ----- got message -----
+    key:[null], properties:[], content:hello
+    ```
+    
 
 ## User and Roles
 
