@@ -2551,38 +2551,43 @@
 <p>The Swagger spec for the Quine API can also be found locally at: <a href="http://localhost:8080/docs">http://localhost:8080/docs</a></p>
 <p><strong>✅ Troubleshooting</strong></p>
 <p>If the output does not read: </p>
-<p>Graph is ready!
-Application state loaded.
-Quine app web server available at http://0.0.0.0:8080</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Graph is ready!
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Application state loaded.
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Quine app web server available at http://0.0.0.0:8080
+</code></pre></div>
 <p>Then look for exceptions.</p>
-<p>If you see an error 
-com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive</p>
-<p>Check to ensure the snapshots table exists</p>
-<p>cqlsh&gt; use quine;</p>
-<p>cqlsh&gt; desc quine;</p>
+<p>If you see an error:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive
+</code></pre></div>
+<p>Check to ensure the snapshots table exists:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cqlsh&gt; use quine;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cqlsh&gt; desc quine;
+</code></pre></div>
 <p>If not, execute this command in CQLSH to create it:</p>
-<p>CREATE TABLE quine.snapshots (
-    quine_id blob,
-    timestamp bigint,
-    multipart_index int,
-    data blob,
-    multipart_count int,
-    PRIMARY KEY (quine_id, timestamp, multipart_index)
-) WITH CLUSTERING ORDER BY (timestamp DESC, multipart_index ASC)
-    AND additional_write_policy = '99PERCENTILE'
-    AND bloom_filter_fp_chance = 0.01
-    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
-    AND comment = ''
-    AND compaction = {'class': 'org.apache.cassandra.db.compaction.UnifiedCompactionStrategy'}
-    AND compression = {'chunk_length_in_kb': '64', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
-    AND crc_check_chance = 1.0
-    AND default_time_to_live = 0
-    AND gc_grace_seconds = 864000
-    AND max_index_interval = 2048
-    AND memtable_flush_period_in_ms = 0
-    AND min_index_interval = 128
-    AND read_repair = 'BLOCKING'
-    AND speculative_retry = '99PERCENTILE';</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>CREATE TABLE quine.snapshots (
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    quine_id blob,
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    timestamp bigint,
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    multipart_index int,
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    data blob,
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    multipart_count int,
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    PRIMARY KEY (quine_id, timestamp, multipart_index)
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>) WITH CLUSTERING ORDER BY (timestamp DESC, multipart_index ASC)
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    AND additional_write_policy = &#39;99PERCENTILE&#39;
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    AND bloom_filter_fp_chance = 0.01
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    AND caching = {&#39;keys&#39;: &#39;ALL&#39;, &#39;rows_per_partition&#39;: &#39;NONE&#39;}
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    AND comment = &#39;&#39;
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    AND compaction = {&#39;class&#39;: &#39;org.apache.cassandra.db.compaction.UnifiedCompactionStrategy&#39;}
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    AND compression = {&#39;chunk_length_in_kb&#39;: &#39;64&#39;, &#39;class&#39;: &#39;org.apache.cassandra.io.compress.LZ4Compressor&#39;}
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    AND crc_check_chance = 1.0
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    AND default_time_to_live = 0
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    AND gc_grace_seconds = 864000
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    AND max_index_interval = 2048
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    AND memtable_flush_period_in_ms = 0
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    AND min_index_interval = 128
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    AND read_repair = &#39;BLOCKING&#39;
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    AND speculative_retry = &#39;99PERCENTILE&#39;;
+</code></pre></div>
 <h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
 <p>Special thanks goes out to Ryan Wright and Leif Warner of <a href="https://www.thatdot.com/">thatDot</a> for their help with getting Quine running and connected.</p>
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
