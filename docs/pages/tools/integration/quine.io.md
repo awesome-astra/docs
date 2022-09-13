@@ -102,7 +102,7 @@ Astra-Specific Settings:
 `secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.
 
 **✅ Step 4 Download Secure Connect Bundle (SCB)**
-In your [Astra DB console](https://astra.datastax.com) navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , then the Java Driver.  In the Java section, click the 'download bundle'. Without unzipping it, move the downloaded file to the directory containg the quine-1.2.1.jar.  The file will be named `secure-connect-[your databasename].zip`, so in this example `secure-connect-quine.zip`.  You will reference this file directly in the previous configation file step above.
+In your [Astra DB console](https://astra.datastax.com) navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , and then the click 'Java' Java section. Then click the 'download bundle' on the right. Without unzipping it, move the downloaded file to the directory you created in step 1, that contains the quine-1.2.1.jar.  The file will be named `secure-connect-[your databasename].zip`, so in this example `secure-connect-quine.zip`.  You will reference this file directly in the previous configation file step above.
 
 **✅ Step 5 Run Quine**
 
