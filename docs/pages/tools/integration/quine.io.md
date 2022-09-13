@@ -31,7 +31,7 @@ cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 
 **✅ Step 2 Create the keyspace `quine`**
 
-From the [Astra DB dashboard](https://astra.datastax.com), click on your database name. Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `quine`.
+From the [Astra DB console](https://astra.datastax.com), click on your database name, or create a new one called `quine` (or another name of your preference). Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `quine`.
 
 **✅ Step 3 Configuration**
 
@@ -75,7 +75,7 @@ datastax-java-driver {
   }
   basic {
     cloud {
-      secure-connect-bundle = "/Users/aaronploetz/local/secure-connect-bundle.zip"
+      secure-connect-bundle = "/Users/aaronploetz/local/secure-connect-quine.zip"
     }
   }
 }
@@ -99,9 +99,12 @@ Astra-Specific Settings:
 
 `password` - A valid token for an Astra DB cluster.
 
-`secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname from the secure bundle, so there is no need to specify endpoints separately.
+`secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.
 
-**✅ Step 4 Run Quine**
+**✅ Step 4 Download Secure Connect Bundle (SCB)**
+In your [Astra DB console](https://astra.datastax.com) navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , then the Java Driver.  In the Java section, click the 'download bundle'. Without unzipping it, move the downloaded file to the directory containg the quine-1.2.1.jar.  The file will be named `secure-connect-[your databasename].zip`, so in this example `secure-connect-quine.zip`.  You will reference this file directly in the previous configation file step above.
+
+**✅ Step 5 Run Quine**
 
 To run Quine, invoke the JAR with Java, while passing the `quine.conf` in the `config.file` parameter:
 
@@ -122,9 +125,9 @@ You can now use Quine's visual graph explorer in a web browser, and create/trave
 
 The Swagger spec for the Quine API can also be found locally at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
-**✅ Optional Step 5: Loading some sample data**
+**✅ Optional Step 6: Loading some sample data**
 
-Download attempts.json(https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
+Download [attempts.json](https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running - kill any running processes by running $ ps -ef and kill -9 as needed.
 
 Then execute 
@@ -132,7 +135,8 @@ Then execute
 ```
 java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
 
-Note that it will take a few minutes to load!  When its' completed successfully you will see:
+Note that it will take a few minutes to load!  When it is completed successfully you will see:
+
 
 ```
 INGEST-1 status is completed and ingested 55000
