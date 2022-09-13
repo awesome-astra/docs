@@ -126,23 +126,31 @@ The Swagger spec for the Quine API can also be found locally at: [http://localho
 
 If the output does not read: 
 
+```
 Graph is ready!
 Application state loaded.
 Quine app web server available at http://0.0.0.0:8080
+```
 
 Then look for exceptions.
 
-If you see an error 
+If you see an error:
+
+```
 com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive
+```
 
-Check to ensure the snapshots table exists
+Check to ensure the snapshots table exists:
 
+```
 cqlsh> use quine;
 
 cqlsh> desc quine;
+```
 
 If not, execute this command in CQLSH to create it:
 
+```
 CREATE TABLE quine.snapshots (
     quine_id blob,
     timestamp bigint,
@@ -165,6 +173,7 @@ CREATE TABLE quine.snapshots (
     AND min_index_interval = 128
     AND read_repair = 'BLOCKING'
     AND speculative_retry = '99PERCENTILE';
+```
 
 ## D - Acknowledgements
 
