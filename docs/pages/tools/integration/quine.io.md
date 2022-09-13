@@ -114,7 +114,7 @@ $ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 2022-06-15 15:11:52,666 WARN [NotFromActor] [s0-io-4] com.datastax.oss.driver.internal.core.cql.CqlRequestHandler - Query '[0 values] CREATE TABLE IF NOT EXISTS journals (quine_id blob,timestamp bigint,data blob,PRIMARY KEY(quine_id,timestamp)) WITH CLUSTERING ORDER BY (timestamp ASC) AND compaction={'class':'TimeWindowCompactionStrategy'}' generated server side warning(s): Ignoring provided values [compaction] as they are not supported for Table Properties (ignored values are: [additional_write_policy, bloom_filter_fp_chance, caching, cdc, compaction, compression, crc_check_chance, dclocal_read_repair_chance, extensions, gc_grace_seconds, id, max_index_interval, memtable_flush_period_in_ms, min_index_interval, nodesync, read_repair, read_repair_chance, speculative_retry])
 Graph is ready!
 Application state loaded.
-Quine app web server available at http://0.0.0.0:8080
+Quine app web server available at http://localhost:8080
 ```
 
 As shown above, Astra DB will return a warning about table valid options which it will ignore.
@@ -128,7 +128,8 @@ The Swagger spec for the Quine API can also be found locally at: [http://localho
 **✅ Optional Step 6: Loading some sample data**
 
 Download [attempts.json](https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
-Make sure the Quine server is not running - kill any running processes by running $ ps -ef and kill -9 as needed.
+Make sure the Quine server is not running -- it's requires graceful shutdown. 
+Simply call the http://localhost:8080/api/v1/admin/shutdown to do so.
 
 Then execute 
 
@@ -148,7 +149,7 @@ If the output does not read:
 ```
 Graph is ready!
 Application state loaded.
-Quine app web server available at http://0.0.0.0:8080
+Quine app web server available at http://locahost:8080
 ```
 
 Then look for exceptions.
