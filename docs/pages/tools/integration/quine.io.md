@@ -138,6 +138,7 @@ com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering 
 Check to ensure the snapshots table exists
 
 cqlsh> use quine;
+
 cqlsh> desc quine;
 
 If not, execute this command in CQLSH to create it:
