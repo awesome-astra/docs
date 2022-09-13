@@ -135,12 +135,14 @@ Then execute
 
 ```
 java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
+```
 
 Note that it will take a few minutes to load!  When it is completed successfully you will see:
 
-
 ```
 INGEST-1 status is completed and ingested 55000
+```
+
 
 **✅ Troubleshooting**
 
