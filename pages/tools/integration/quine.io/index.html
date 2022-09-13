@@ -2556,49 +2556,49 @@ In your <a href="https://astra.datastax.com">Astra DB console</a> navigate to yo
 Make sure the Quine server is not running -- it's requires graceful shutdown. 
 Simply call the http://localhost:8080/api/v1/admin/shutdown to do so.</p>
 <p>Then execute </p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Note that it will take a few minutes to load!  When it is completed successfully you will see:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
 </code></pre></div>
-INGEST-1 status is completed and ingested 55000</p>
+<p>Note that it will take a few minutes to load!  When it is completed successfully you will see:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>INGEST-1 status is completed and ingested 55000
+</code></pre></div>
 <p><strong>✅ Troubleshooting</strong></p>
 <p>If the output does not read: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Graph is ready!
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Application state loaded.
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Quine app web server available at http://locahost:8080
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Graph is ready!
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Application state loaded.
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Quine app web server available at http://locahost:8080
 </code></pre></div>
 <p>Then look for exceptions.</p>
 <p>If you see an error:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive
 </code></pre></div>
 <p>Check to ensure the snapshots table exists:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cqlsh&gt; use quine;
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>cqlsh&gt; desc quine;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cqlsh&gt; use quine;
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>cqlsh&gt; desc quine;
 </code></pre></div>
 <p>If not, execute this command in CQLSH to create it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CREATE TABLE quine.snapshots (
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    quine_id blob,
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    timestamp bigint,
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    multipart_index int,
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    data blob,
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    multipart_count int,
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    PRIMARY KEY (quine_id, timestamp, multipart_index)
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>) WITH CLUSTERING ORDER BY (timestamp DESC, multipart_index ASC)
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    AND additional_write_policy = &#39;99PERCENTILE&#39;
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    AND bloom_filter_fp_chance = 0.01
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    AND caching = {&#39;keys&#39;: &#39;ALL&#39;, &#39;rows_per_partition&#39;: &#39;NONE&#39;}
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    AND comment = &#39;&#39;
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    AND compaction = {&#39;class&#39;: &#39;org.apache.cassandra.db.compaction.UnifiedCompactionStrategy&#39;}
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    AND compression = {&#39;chunk_length_in_kb&#39;: &#39;64&#39;, &#39;class&#39;: &#39;org.apache.cassandra.io.compress.LZ4Compressor&#39;}
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    AND crc_check_chance = 1.0
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    AND default_time_to_live = 0
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    AND gc_grace_seconds = 864000
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    AND max_index_interval = 2048
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    AND memtable_flush_period_in_ms = 0
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    AND min_index_interval = 128
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    AND read_repair = &#39;BLOCKING&#39;
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    AND speculative_retry = &#39;99PERCENTILE&#39;;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CREATE TABLE quine.snapshots (
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    quine_id blob,
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    timestamp bigint,
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    multipart_index int,
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    data blob,
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    multipart_count int,
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    PRIMARY KEY (quine_id, timestamp, multipart_index)
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>) WITH CLUSTERING ORDER BY (timestamp DESC, multipart_index ASC)
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    AND additional_write_policy = &#39;99PERCENTILE&#39;
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    AND bloom_filter_fp_chance = 0.01
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    AND caching = {&#39;keys&#39;: &#39;ALL&#39;, &#39;rows_per_partition&#39;: &#39;NONE&#39;}
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    AND comment = &#39;&#39;
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    AND compaction = {&#39;class&#39;: &#39;org.apache.cassandra.db.compaction.UnifiedCompactionStrategy&#39;}
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    AND compression = {&#39;chunk_length_in_kb&#39;: &#39;64&#39;, &#39;class&#39;: &#39;org.apache.cassandra.io.compress.LZ4Compressor&#39;}
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    AND crc_check_chance = 1.0
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    AND default_time_to_live = 0
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    AND gc_grace_seconds = 864000
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    AND max_index_interval = 2048
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    AND memtable_flush_period_in_ms = 0
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>    AND min_index_interval = 128
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    AND read_repair = &#39;BLOCKING&#39;
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    AND speculative_retry = &#39;99PERCENTILE&#39;;
 </code></pre></div>
 <h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
 <p>Special thanks goes out to Ryan Wright and Leif Warner of <a href="https://www.thatdot.com/">thatDot</a> for their help with getting Quine running and connected.</p>
