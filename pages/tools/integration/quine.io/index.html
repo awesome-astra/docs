@@ -2484,7 +2484,7 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 </code></pre></div>
 <p><strong>✅ Step 2 Create the keyspace <code>quine</code></strong></p>
-<p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>quine</code>.</p>
+<p>From the <a href="https://astra.datastax.com">Astra DB console</a>, click on your database name, or create a new one called <code>quine</code> (or another name of your preference). Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>quine</code>.</p>
 <p><strong>✅ Step 3 Configuration</strong></p>
 <p>Create a <code>quine.conf</code> file inside the <code>quine</code> directory:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd ~/local/quine
@@ -2521,7 +2521,7 @@
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>  }
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>  basic {
 <a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    cloud {
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>      secure-connect-bundle = &quot;/Users/aaronploetz/local/secure-connect-bundle.zip&quot;
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>      secure-connect-bundle = &quot;/Users/aaronploetz/local/secure-connect-quine.zip&quot;
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    }
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>  }
 <a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>}
@@ -2535,8 +2535,10 @@
 <p><code>local-datacenter = "us-east1"</code> - Set Astra DB's cloud region as the local DC.</p>
 <p><code>username = "token"</code> - No need to mess with this.  Just leave it as the literal word "token."</p>
 <p><code>password</code> - A valid token for an Astra DB cluster.</p>
-<p><code>secure-connect-bundle</code> - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname from the secure bundle, so there is no need to specify endpoints separately.</p>
-<p><strong>✅ Step 4 Run Quine</strong></p>
+<p><code>secure-connect-bundle</code> - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.</p>
+<p><strong>✅ Step 4 Download Secure Connect Bundle (SCB)</strong>
+In your <a href="https://astra.datastax.com">Astra DB console</a> navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , then the Java Driver.  In the Java section, click the 'download bundle'. Without unzipping it, move the downloaded file to the directory containg the quine-1.2.1.jar.  The file will be named <code>secure-connect-[your databasename].zip</code>, so in this example <code>secure-connect-quine.zip</code>.  You will reference this file directly in the previous configation file step above.</p>
+<p><strong>✅ Step 5 Run Quine</strong></p>
 <p>To run Quine, invoke the JAR with Java, while passing the <code>quine.conf</code> in the <code>config.file</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
@@ -2549,13 +2551,13 @@
 <p>You can now use Quine's visual graph explorer in a web browser, and create/traverse data with either Gremlin or Cypher: <a href="http://localhost:8080/">http://localhost:8080/</a></p>
 <p><img src="https://awesome-astra.github.io/docs/img/quine/quine-browser-apollo13.png?raw=true" height="300px" /></p>
 <p>The Swagger spec for the Quine API can also be found locally at: <a href="http://localhost:8080/docs">http://localhost:8080/docs</a></p>
-<p><strong>✅ Optional Step 5: Loading some sample data</strong></p>
-<p>Download attempts.json(https://that.re/attempts) (74.MB) from the <a href="https://quine.io/recipes/password-spraying">Quine Password Spraying example</a> and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
+<p><strong>✅ Optional Step 6: Loading some sample data</strong></p>
+<p>Download <a href="https://that.re/attempts">attempts.json</a> (74.MB) from the <a href="https://quine.io/recipes/password-spraying">Quine Password Spraying example</a> and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running - kill any running processes by running $ ps -ef and kill -9 as needed.</p>
 <p>Then execute </p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Note that it will take a few minutes to load!  When its&#39; completed successfully you will see:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Note that it will take a few minutes to load!  When it is completed successfully you will see:
 </code></pre></div>
 INGEST-1 status is completed and ingested 55000</p>
 <p><strong>✅ Troubleshooting</strong></p>
