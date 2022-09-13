@@ -122,6 +122,21 @@ You can now use Quine's visual graph explorer in a web browser, and create/trave
 
 The Swagger spec for the Quine API can also be found locally at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
+**✅ Optional Step 5: Loading some sample data**
+
+Download attempts.json(https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
+Make sure the Quine server is not running - kill any running processes by running $ ps -ef and kill -9 as needed.
+
+Then execute 
+
+```
+java -Dconfig.file=quine.conf -jar quine-1.2.1.jar -r passwordspraying
+
+Note that it will take a few minutes to load!  When its' completed successfully you will see:
+
+```
+INGEST-1 status is completed and ingested 55000
+
 **✅ Troubleshooting**
 
 If the output does not read: 
