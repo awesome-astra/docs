@@ -2558,8 +2558,8 @@ Quine app web server available at http://0.0.0.0:8080</p>
 <p>If you see an error 
 com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive</p>
 <p>Check to ensure the snapshots table exists</p>
-<p>cqlsh&gt; use quine;
-cqlsh&gt; desc quine;</p>
+<p>cqlsh&gt; use quine;</p>
+<p>cqlsh&gt; desc quine;</p>
 <p>If not, execute this command in CQLSH to create it:</p>
 <p>CREATE TABLE quine.snapshots (
     quine_id blob,
