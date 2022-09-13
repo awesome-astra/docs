@@ -122,6 +122,49 @@ You can now use Quine's visual graph explorer in a web browser, and create/trave
 
 The Swagger spec for the Quine API can also be found locally at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
+**✅ Troubleshooting**
+
+If the output does not read: 
+
+Graph is ready!
+Application state loaded.
+Quine app web server available at http://0.0.0.0:8080
+
+Then look for exceptions.
+
+If you see an error 
+com.datastax.oss.driver.api.core.servererrors.InvalidQueryException: Clustering key columns must exactly match columns in CLUSTERING ORDER BY directive
+
+Check to ensure the snapshots table exists
+
+cqlsh> use quine;
+cqlsh> desc quine;
+
+If not, execute this command in CQLSH to create it:
+
+CREATE TABLE quine.snapshots (
+    quine_id blob,
+    timestamp bigint,
+    multipart_index int,
+    data blob,
+    multipart_count int,
+    PRIMARY KEY (quine_id, timestamp, multipart_index)
+) WITH CLUSTERING ORDER BY (timestamp DESC, multipart_index ASC)
+    AND additional_write_policy = '99PERCENTILE'
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.UnifiedCompactionStrategy'}
+    AND compression = {'chunk_length_in_kb': '64', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair = 'BLOCKING'
+    AND speculative_retry = '99PERCENTILE';
+
 ## D - Acknowledgements
 
 Special thanks goes out to Ryan Wright and Leif Warner of [thatDot](https://www.thatdot.com/) for their help with getting Quine running and connected.
