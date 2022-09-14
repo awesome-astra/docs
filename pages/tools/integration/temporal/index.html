@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Temporal - Awesome-Astra</title>
+        <title>Temporal - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Temporal
+              Temporal
             
           </span>
         </div>
@@ -2297,7 +2297,7 @@
         
           <li class="md-nav__item">
   <a href="#step-5-test-and-validate" class="md-nav__link">
-    ✅ Step 5: Test and Validate
+    ✅  Step 5: Test and Validate
   </a>
   
 </li>
@@ -2502,7 +2502,7 @@
         
           <li class="md-nav__item">
   <a href="#step-5-test-and-validate" class="md-nav__link">
-    ✅ Step 5: Test and Validate
+    ✅  Step 5: Test and Validate
   </a>
   
 </li>
@@ -2529,10 +2529,13 @@
 
   <h1>• Temporal</h1>
 
-<p><em>Last Update 2022-09-01</em> </p>
-<p><img src="../../../../img/temporal/temporal-logo-dark.svg" height="100px" /></p>
+<div class="nosurface">
+<p><em>Last Update 2022-09-14</em> </p>
+<p><img src="https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg" height="100px" /></p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies. </p>
+<div class="nosurface">
 <ul>
 <li>📥 <a href="https://docs.temporal.io/docs/clusters/quick-install/">Temporal Quick Install</a></li>
 <li>ℹ️ <a href="https://docs.temporal.io/docs/temporal-explained/introduction">Introduction to Temporal</a></li>
@@ -2541,18 +2544,20 @@
 <li>ℹ️ <a href="https://medium.com/building-the-open-data-stack/how-to-connect-temporal-io-to-astra-db-with-kubernetes-3a6337900eb">Part 3: Connect Temporalio to Astra DB With Kubernetes</a></li>
 <li>🎥 <a href="https://www.youtube.com/watch?v=rdmJErBLxtE">Workflow with Temporal and Astra DB in 5 minutes</a></li>
 </ul>
+</div>
 <h2 id="-prerequisites">- Prerequisites<a class="headerlink" href="#-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B1Hyj8">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should have an <a href="/docs/pages/astra/create-token/">Astra Token</a></li>
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.  </p>
 </div>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-setup-astra">✅ Step 1: Setup Astra<a class="headerlink" href="#step-1-setup-astra" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-setup-astra"><span class="nosurface">✅ </span>Step 1: Setup Astra<a class="headerlink" href="#step-1-setup-astra" title="Permanent link">&para;</a></h3>
 <ol>
 <li>In your Astra database, create two new keyspaces called <strong>"temporal"</strong> and <strong>"temporal_visibility".</strong> You will be using both of these in the next steps.</li>
 <li>Make sure to create an Astra token with <strong>Admin Role</strong></li>
@@ -2565,37 +2570,37 @@
 <li>Copy and paste the <strong>Datacenter ID</strong> without the trailing <code>-1</code> from the <strong>Regions</strong> section of your Astra Dashboard. </li>
 </ol>
 </details>
-<h3 id="step-2-temporal-pre-setup">✅ Step 2: Temporal Pre-setup<a class="headerlink" href="#step-2-temporal-pre-setup" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-temporal-pre-setup"><span class="nosurface">✅ </span>Step 2: Temporal Pre-setup<a class="headerlink" href="#step-2-temporal-pre-setup" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Clone this GitHub <a href="https://github.com/mpenick/temporal-astra-cql-proxy">repository</a></li>
 <li>Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above. 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ASTRA_TOKEN=&lt;your Astra token&gt;
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ASTRA_DATABASE_ID=&lt;your DB ID&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your Astra token&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span>&lt;your DB ID&gt;
 </code></pre></div></li>
 </ol>
-<h3 id="step-3-temporal-schema-migration-to-astra-db">✅ Step 3: Temporal Schema Migration to Astra DB<a class="headerlink" href="#step-3-temporal-schema-migration-to-astra-db" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-temporal-schema-migration-to-astra-db"><span class="nosurface">✅ </span>Step 3: Temporal Schema Migration to Astra DB<a class="headerlink" href="#step-3-temporal-schema-migration-to-astra-db" title="Permanent link">&para;</a></h3>
 <p>For this step, you will set up the keyspaces you created earlier in the Astra prerequisites (<strong>temporal</strong> and <strong>temporal_visibility</strong>). You will be using <code>temporal-cassandra-tool</code> which is part of the Temporal repo and it relies on schema definition. </p>
 <ol>
 <li>Navigate to your cloned <code>temporal-astra-cql-proxy</code> directory</li>
 <li>Run the following commands to initialize the keyspaces that we created through Astra. Note that there are two sets of commands, one for <code>temporal</code> keyspace and one for <code>temporal_visibility</code> keyspace:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools \
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  -ep cql-proxy -k temporal setup-schema -v 0.0
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools \
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools <span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  -ep cql-proxy -k temporal setup-schema -v <span class="m">0</span>.0
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools <span class="se">\</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  -ep cql-proxy -k temporal update-schema -d schema/cassandra/temporal/versioned/
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools \
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  -ep cql-proxy -k temporal_visibility setup-schema -v 0.0
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools \
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools <span class="se">\</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  -ep cql-proxy -k temporal_visibility setup-schema -v <span class="m">0</span>.0
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker-compose -f docker-compose-schema.yaml run temporal-admin-tools <span class="se">\</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  -ep cql-proxy -k temporal_visibility update-schema -d schema/cassandra/visibility/versioned/
 </code></pre></div>
 <p>Once the process is completed, you should see a message similar to this: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>2022-03-02T22:23:27.618Z    INFO    Validating connection to cassandra cluster. {&quot;logging-call-at&quot;: &quot;cqlclient.go:112&quot;}
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2022-03-02T22:42:53.526Z    INFO    Connection validation succeeded.    {&quot;logging-call-at&quot;: &quot;cqlclient.go:118&quot;}
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2022-03-02T22:42:53.526Z    INFO    Starting schema setup   {&quot;config&quot;: {&quot;SchemaFilePath&quot;:&quot;&quot;,&quot;InitialVersion&quot;:&quot;0.0&quot;,&quot;Overwrite&quot;:false,&quot;DisableVersioning&quot;:false}, &quot;logging-call-at&quot;: &quot;setuptask.go:57&quot;}
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2022-03-02T22:42:53.526Z    DEBUG   Setting up version tables   {&quot;logging-call-at&quot;: &quot;setuptask.go:67&quot;}
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2022-03-02T22:42:54.120Z    DEBUG   Current database schema version 1.6 is greater than initial schema version 0.0. Skip version upgrade    {&quot;logging-call-at&quot;: &quot;setuptask.go:116&quot;}
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>2022-03-02T22:42:54.120Z    INFO    Schema setup complete   {&quot;logging-call-at&quot;: &quot;setuptask.go:131&quot;}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="m">2022</span>-03-02T22:23:27.618Z    INFO    Validating connection to cassandra cluster. <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;cqlclient.go:112&quot;</span><span class="o">}</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="m">2022</span>-03-02T22:42:53.526Z    INFO    Connection validation succeeded.    <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;cqlclient.go:118&quot;</span><span class="o">}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="m">2022</span>-03-02T22:42:53.526Z    INFO    Starting schema setup   <span class="o">{</span><span class="s2">&quot;config&quot;</span>: <span class="o">{</span><span class="s2">&quot;SchemaFilePath&quot;</span>:<span class="s2">&quot;&quot;</span>,<span class="s2">&quot;InitialVersion&quot;</span>:<span class="s2">&quot;0.0&quot;</span>,<span class="s2">&quot;Overwrite&quot;</span>:false,<span class="s2">&quot;DisableVersioning&quot;</span>:false<span class="o">}</span>, <span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;setuptask.go:57&quot;</span><span class="o">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="m">2022</span>-03-02T22:42:53.526Z    DEBUG   Setting up version tables   <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;setuptask.go:67&quot;</span><span class="o">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="m">2022</span>-03-02T22:42:54.120Z    DEBUG   Current database schema version <span class="m">1</span>.6 is greater than initial schema version <span class="m">0</span>.0. Skip version upgrade    <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;setuptask.go:116&quot;</span><span class="o">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">2022</span>-03-02T22:42:54.120Z    INFO    Schema setup <span class="nb">complete</span>   <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;setuptask.go:131&quot;</span><span class="o">}</span>
 </code></pre></div>
 <p>Great! Your schemas have been migrated with Astra DB. </p>
 <details class="info">
@@ -2604,8 +2609,8 @@
 <li>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. </li>
 <li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use temporal;
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:temporal&gt; desc tables;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use temporal<span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:temporal&gt; desc tables<span class="p">;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>history_node        tasks             cluster_metadata_info
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cluster_membership  namespaces        cluster_metadata     
@@ -2613,40 +2618,40 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>executions          queue_metadata  
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>queue               history_tree    
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>token@cqlsh:temporal&gt; use temporal_visibility;
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>token@cqlsh:temporal_visibility&gt; desc tables;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>token@cqlsh:temporal&gt; use temporal_visibility<span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>token@cqlsh:temporal_visibility&gt; desc tables<span class="p">;</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>open_executions  schema_update_history  schema_version  closed_executions
 </code></pre></div>
 </details>
-<h3 id="step-4-run-docker-compose">✅ Step 4: Run Docker Compose<a class="headerlink" href="#step-4-run-docker-compose" title="Permanent link">&para;</a></h3>
+<h3 id="step-4-run-docker-compose"><span class="nosurface">✅ </span>Step 4: Run Docker Compose<a class="headerlink" href="#step-4-run-docker-compose" title="Permanent link">&para;</a></h3>
 <p>In this step, the <code>docker-compose.yaml</code> file is already provided for you in the <code>temporal-astra-cql-proxy</code> repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with <code>cql-proxy</code>, and it should pull your Astra credentials from when you set it earlier:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>services:
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> cql-proxy:
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   container_name: cqlproxy
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   image: datastax/cql-proxy:v${CQL_PROXY_VERSION}
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   image: datastax/cql-proxy:v<span class="si">${</span><span class="nv">CQL_PROXY_VERSION</span><span class="si">}</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   ...
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   environment:
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>     - ASTRA_TOKEN=${ASTRA_TOKEN}
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     - ASTRA_DATABASE_ID=${ASTRA_DATABASE_ID}
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     - HEALTH_CHECK=true
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>     - <span class="nv">ASTRA_TOKEN</span><span class="o">=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     - <span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">ASTRA_DATABASE_ID</span><span class="si">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     - <span class="nv">HEALTH_CHECK</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 <p>Now you can run the docker-compose command to start up Temporal: 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose up
 </code></pre></div></p>
-<h3 id="step-5-test-and-validate">✅ Step 5: Test and Validate<a class="headerlink" href="#step-5-test-and-validate" title="Permanent link">&para;</a></h3>
+<h3 id="step-5-test-and-validate"><span class="nosurface">✅ </span> Step 5: Test and Validate<a class="headerlink" href="#step-5-test-and-validate" title="Permanent link">&para;</a></h3>
 <p>You can test your connection and play with your Temporal cluster with these instructions.</p>
 <ol>
 <li>Make sure to use tctl to create namespaces dedicated to certain workflows:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>bash-5.0# tctl --namespace test namespace re
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Namespace test successfully registered.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>bash-5.0# tctl --namespace <span class="nb">test</span> namespace re
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Namespace <span class="nb">test</span> successfully registered.
 </code></pre></div></li>
 <li>When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>c, err := client.NewClient(client.Options{HostPort: &quot;127.0.0.1:7233&quot;, Namespace: &quot;test&quot;})
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>c, err :<span class="o">=</span> client.NewClient<span class="o">(</span>client.Options<span class="o">{</span>HostPort: <span class="s2">&quot;127.0.0.1:7233&quot;</span>, Namespace: <span class="s2">&quot;test&quot;</span><span class="o">})</span>
 </code></pre></div></li>
 </ol>
 <p>Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.</p>
-<p><img src="../../../../img/temporal/temporal-06-test-validate.png"  /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/temporal/temporal-06-test-validate.png"  /></p>
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
 
   <hr>
@@ -2654,7 +2659,7 @@
   <small>
     
       Last update:
-      2022-09-01
+      2022-09-14
     
   </small>
 </div>
