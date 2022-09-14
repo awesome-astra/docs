@@ -46,11 +46,7 @@ Temporal.io is an open source microservice orchestration platform that assists i
 
 1. In your Astra database, create two new keyspaces called **"temporal"** and **"temporal_visibility".** You will be using both of these in the next steps.
 2. Make sure to create an Astra token with **Admin Role**
-3. Get your **Database ID**
-
-???+ tip "Find your Database ID in one of two ways:"
-    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard. 
+3. Get your **Database ID** in your Astra Dashboard under in the **Active Databases** section.
 
 
 ### <span class="nosurface">✅ </span>Step 2: Temporal Pre-setup
@@ -133,12 +129,6 @@ Now you can run the docker-compose command to start up Temporal:
 ```bash
 docker-compose up
 ```
-
-
-
-
-
-
 ### <span class="nosurface">✅ </span> Step 5: Test and Validate
 You can test your connection and play with your Temporal cluster with these instructions.
 
