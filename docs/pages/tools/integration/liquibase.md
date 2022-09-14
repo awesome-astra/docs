@@ -28,9 +28,9 @@ The purpose of this document is to guide you through the process of creating a n
 ## Prerequisites
 ### Liquibase Prerequisites
 <ul class="prerequisites">
-    <li>Install the [latest version](https://www.liquibase.org/download) of Liquibase</li>
+    <li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase</li>
     <li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
-    <li>[Download](https://github.com/liquibase/liquibase-cassandra/releases/) the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
+    <li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
 </ul>
 
 ### Astra Prerequisites
