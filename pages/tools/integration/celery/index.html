@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages. With Celery one can define units of work called 'tasks' and dispatch them for execution, in a distributed way if desired. Celery is a Python package and as such is easily integrated in any Python project.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Celery - Awesome-Astra</title>
+        <title>Celery - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Celery
+              Celery
             
           </span>
         </div>
@@ -2171,10 +2171,10 @@
         
           <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
-    ✅ Steps:
+    Steps:
   </a>
   
-    <nav class="md-nav" aria-label="✅ Steps:">
+    <nav class="md-nav" aria-label="Steps:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2501,10 +2501,10 @@
         
           <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
-    ✅ Steps:
+    Steps:
   </a>
   
-    <nav class="md-nav" aria-label="✅ Steps:">
+    <nav class="md-nav" aria-label="Steps:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2583,8 +2583,10 @@
 
   <h1>• Celery</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-06-09</em> </p>
-<p><img src="../../../../img/celery/celery_logo.png" height="60px" /></p>
+<div class="nosurface">
+<p><em>Last Update 2022-09-14</em></p>
+<p><img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" /></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages.
 With Celery one can define units of work called "tasks" and dispatch them for execution, in a distributed way if desired.
@@ -2600,17 +2602,19 @@ back to the caller through a backend (de/serialization is transparently handled 
 Among the supported backends are Cassandra and (starting with <code>v5.2</code>) Astra DB.
 In the following we assume familiarity with the <code>celeryconfig</code> configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:</p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/index.html">Celery documentation</a></li>
 <li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration">The <code>celeryconfig</code> object</a></li>
 <li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">Cassandra/AstraDB backend configuration guide</a> (which covers the instructions on this page as well)</li>
 <li>📥 <a href="https://pypi.org/project/celery/">Celery installation instructions</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery).</li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.</li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery). <em>You should have received your token while creating the database in the previous step.</em></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.</li>
 <li>Install Celery with the Cassandra backend in your local Python environment, e.g. <code>pip install celery[cassandra]</code>. See <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">the backend-settings page</a> for additional info.</li>
 </ul>
 <p>Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.</p>
@@ -2618,7 +2622,7 @@ as backend. See the Celery documentation for more details:</p>
 <p>Here a minimal Celery setup that makes use of the Astra DB backend is described start-to-end.</p>
 <p>A task will be defined and executed through Celery: afterwards, its return value will be retrieved on the client side.
 For this example to work, a message bus is needed - here, in line with a <a href="https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#choosing-a-broker">quickstart</a> on Celery's documentation, a dockerized RabbitMQ is used.</p>
-<h3 id="steps">✅ Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<h3 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <h4 id="1-start-a-message-broker">1. Start a message broker<a class="headerlink" href="#1-start-a-message-broker" title="Permanent link">&para;</a></h4>
 <p>Make sure you have a RabbitMQ instance running in Docker with <code>docker run -d -p 5672:5672 rabbitmq</code> (it might take a while for the image to be downloaded and complete startup).</p>
 <h4 id="2-define-a-task">2. Define a task<a class="headerlink" href="#2-define-a-task" title="Permanent link">&para;</a></h4>
@@ -2695,7 +2699,7 @@ For this example to work, a message bus is needed - here, in line with a <a href
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>SELECT * FROM celery_tasks; // &lt;== enter your table name here
 </code></pre></div>
-<p><img src="../../../../img/celery/celery_cql_console.png" height="100px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/celery/celery_cql_console.png" height="100px" /></p>
 <h2 id="d-additional-configuration">D - Additional configuration<a class="headerlink" href="#d-additional-configuration" title="Permanent link">&para;</a></h2>
 <p>Celery uses the DataStax Python driver for Cassandra; hence, the choice of connection parameters
 is that for the generic driver-based usage of Cassandra in Python.</p>
@@ -2703,14 +2707,16 @@ is that for the generic driver-based usage of Cassandra in Python.</p>
 protocol level, load-balancing policy and so on. Refer to the
 <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#additional-configuration">"Additional configuration"</a>
 section in the Celery documentation for a more comprehensive setup.</p>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> |</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-09
+      2022-09-14
     
   </small>
 </div>
