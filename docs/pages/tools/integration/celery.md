@@ -1,6 +1,22 @@
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
+---
+title: "Celery"
+description: "Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages. With Celery one can define units of work called 'tasks' and dispatch them for execution, in a distributed way if desired. Celery is a Python package and as such is easily integrated in any Python project."
+tags: "python, third party tools"
+icon: "https://awesome-astra.github.io/docs/img/celery/celery_logo.png"
+developer_title: "The Celery Collective"
+developer_url: "https://docs.celeryq.dev/en/stable/index.html"
+links:
+- title: "Install Celery"
+  url: "https://pypi.org/project/celery/"
+- title: "Celery on Github"
+  url: "https://github.com/celery/celery"
+---
 
-<img src="../../../../img/celery/celery_logo.png" height="60px" />
+<div class="nosurface" markdown="1">
+_Last Update {{ git_revision_date }}_
+
+<img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" />
+</div>
 
 ## A - Overview
 
@@ -20,16 +36,20 @@ Among the supported backends are Cassandra and (starting with `v5.2`) Astra DB.
 In the following we assume familiarity with the `celeryconfig` configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:
 
+<div class="nosurface" markdown="1">
+
 - ℹ️ [Celery documentation](https://docs.celeryq.dev/en/stable/index.html)
 - ℹ️ [The `celeryconfig` object](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration)
 - ℹ️ [Cassandra/AstraDB backend configuration guide](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) (which covers the instructions on this page as well)
 - 📥 [Celery installation instructions](https://pypi.org/project/celery/)
 
+</div>
+
 ## B - Prerequisites
 
-- [Create an Astra Database](/docs/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
-- [Create an Astra Token](/docs/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery).
-- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/).
+- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
+- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery). _You should have received your token while creating the database in the previous step._
+- [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/).
 - Install Celery with the Cassandra backend in your local Python environment, e.g. `pip install celery[cassandra]`. See [the backend-settings page](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) for additional info.
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.
@@ -41,7 +61,7 @@ Here a minimal Celery setup that makes use of the Astra DB backend is described 
 A task will be defined and executed through Celery: afterwards, its return value will be retrieved on the client side.
 For this example to work, a message bus is needed - here, in line with a [quickstart](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#choosing-a-broker) on Celery's documentation, a dockerized RabbitMQ is used.
 
-### ✅ Steps:
+### Steps:
 
 #### 1. Start a message broker
 
@@ -141,7 +161,7 @@ DESCRIBE TABLES;            // the output, e.g. "celery_tasks", lists the tables
 SELECT * FROM celery_tasks; // <== enter your table name here
 ```
 
-<img src="../../../../img/celery/celery_cql_console.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/celery/celery_cql_console.png" height="100px" />
 
 ## D - Additional configuration
 
@@ -153,4 +173,6 @@ protocol level, load-balancing policy and so on. Refer to the
 ["Additional configuration"](https://docs.celeryq.dev/en/stable/userguide/configuration.html#additional-configuration)
 section in the Celery documentation for a more comprehensive setup.
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+<div class="nosurface" markdown="1">
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/) |
+</div>
