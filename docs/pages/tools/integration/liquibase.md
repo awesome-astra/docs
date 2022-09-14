@@ -1,32 +1,52 @@
+---
+title: "Liquibase"
+description: "Liquibase is a database schema change management solution that enables you to revise and release database changes faster and safer from development to production."
+tags: "jdbc, third party tools, devops"
+icon: "https://awesome-astra.github.io/docs/img/liquibase/logo.png"
+developer_title: "Liquibase"
+developer_url: "https://docs.liquibase.com/home.html"
+links:
+- title: "Liquibase Quick Install"
+  url: "https://docs.liquibase.com/install/liquibase-windows.html"
+---
+
+<div class="nosurface" markdown="1">
 _Last Update {{ git_revision_date }}_
 
 <img src="../../../../img/liquibase/logo.png" height="100px" />
+</div>
 
 ## Overview
 
-The purpose of this document is to guide you through the process of creating a new Liquibase project with Cassandra. In this tutorial, you will generate an example project and follow the instructions to apply and learn concepts associated with creating new Liquibase projects with Cassandra on DataStax Astra.
+The purpose of this document is to guide you through the process of creating a new Liquibase project with Cassandra. In this tutorial, you will generate an example project and follow the instructions to apply and learn concepts associated with creating new Liquibase projects with Cassandra on DataStax Astra. 
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to Liquibase](https://docs.liquibase.com/home.html)
 - 📥 [Liquibase Quick Install](https://docs.liquibase.com/install/liquibase-windows.html)
+</div>
 
 ## Prerequisites
 ### Liquibase Prerequisites
-- Install the [latest version](https://www.liquibase.org/download) of Liquibase 
-- Ensure the Liquibase install directory path is set to a location in the PATH System variable
-- [Download](https://github.com/liquibase/liquibase-cassandra/releases/) the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory 
+<ul class="prerequisites">
+    <li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase</li>
+    <li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
+    <li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
+</ul>
 
 ### Astra Prerequisites
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should have an [Astra Token](/docs/pages/astra/create-token/)
-- [Download](https://downloads.datastax.com/#odbc-jdbc-drivers) the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory 
-- Clone this [repository](https://github.com/datastax/cql-proxy) to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    - You need your Astra Token and Astra Database ID to use CQL-Proxy
-    - Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li><a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Download</a> the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory</li>
+    <li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra</li>
+    <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+    <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
 
 ```
 {"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
 ```
+</ul>
 
 ## Installation and Setup
 To create a Liquibase project with Cassandra on DataStax Astra on your machine, begin with the following steps:
