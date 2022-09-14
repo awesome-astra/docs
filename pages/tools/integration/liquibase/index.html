@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Liquibase is a database schema change management solution that enables you to revise and release database changes faster and safer from development to production.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Liquibase - Awesome-Astra</title>
+        <title>Liquibase - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Liquibase
+              Liquibase
             
           </span>
         </div>
@@ -2487,35 +2487,40 @@
 
   <h1>• Liquibase</h1>
 
-<p><em>Last Update 2022-09-02</em></p>
+<div class="nosurface">
+<p><em>Last Update 2022-09-14</em></p>
 <p><img src="../../../../img/liquibase/logo.png" height="100px" /></p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The purpose of this document is to guide you through the process of creating a new Liquibase project with Cassandra. In this tutorial, you will generate an example project and follow the instructions to apply and learn concepts associated with creating new Liquibase projects with Cassandra on DataStax Astra.</p>
+<p>The purpose of this document is to guide you through the process of creating a new Liquibase project with Cassandra. In this tutorial, you will generate an example project and follow the instructions to apply and learn concepts associated with creating new Liquibase projects with Cassandra on DataStax Astra. </p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://docs.liquibase.com/home.html">Introduction to Liquibase</a></li>
 <li>📥 <a href="https://docs.liquibase.com/install/liquibase-windows.html">Liquibase Quick Install</a></li>
 </ul>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <h3 id="liquibase-prerequisites">Liquibase Prerequisites<a class="headerlink" href="#liquibase-prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase </li>
-<li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
-<li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the <code>liquibase/lib</code> install directory </li>
+<ul class="prerequisites">
+    <li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase</li>
+    <li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
+    <li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
 </ul>
+
 <h3 id="astra-prerequisites">Astra Prerequisites<a class="headerlink" href="#astra-prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should have an <a href="/docs/pages/astra/create-token/">Astra Token</a></li>
-<li><a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Download</a> the Simba JDBC Jar driver file for Apache Cassandra and place this file in the <code>liquibase/lib</code> install directory </li>
-<li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra<ul>
-<li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
-<li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
-</ul>
-</li>
-</ul>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li><a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Download</a> the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory</li>
+    <li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra</li>
+    <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+    <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{&quot;level&quot;:&quot;info&quot;,&quot;ts&quot;:1651012815.176512,&quot;caller&quot;:&quot;proxy/proxy.go:222&quot;,&quot;msg&quot;:&quot;proxy is listening&quot;,&quot;address&quot;:&quot;[::]:9042&quot;}
 </code></pre></div>
+</ul>
+
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p>To create a Liquibase project with Cassandra on DataStax Astra on your machine, begin with the following steps:</p>
 <ol>
@@ -2578,7 +2583,7 @@ Run the following command: liquibase update</li>
   <small>
     
       Last update:
-      2022-09-02
+      2022-09-14
     
   </small>
 </div>
