@@ -1,3 +1,13 @@
+---
+title: "Google Cloud Functions"
+description: "Cloud Functions is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines."
+tags: "FaaS, serverless, GCP, Java, Python"
+icon: "https://awesome-astra.github.io/docs/img/google-cloud-functions/logo-google-cloud-functions.svg"
+developer_title: "Google Cloud Functions"
+developer_url: "https://cloud.google.com/functions"
+links:
+---
+
 # Google Cloud Functions
 
 [🏠 Back to home](https://awesome-astra.github.io/docs/) 
