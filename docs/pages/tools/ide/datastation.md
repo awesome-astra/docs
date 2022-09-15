@@ -1,26 +1,44 @@
+---
+title: "DataStation"
+description: "DataStation is an open-source data IDE which allows you to easily build graphs and tables with data pulled from SQL databases, logging databases, metrics databases, HTTP servers, and more."
+tags: "ide plugins"
+icon: "https://awesome-astra.github.io/docs/img/datastation/datastation_logo.png"
+developer_title: "DataStation"
+developer_url: "https://datastation.multiprocess.io"
+links:
+  - title: "DataStation Quick Install"
+  url: "https://datastation.multiprocess.io/docs"
+---
+
+<div class="nosurface" markdown="1">
 _Last Update {{ git_revision_date }}_
 
 <img src="../../../../img/datastation/datastation_logo.png" height="60px" />
+</div>
 
 ## Overview
 
 DataStation is an open-source data IDE for developers. It allows you to easily build graphs and tables with data pulled from SQL databases, logging databases, metrics databases, HTTP servers, and all kinds of text and binary files. Need to join or munge data? Write embedded scripts as needed in languages like Python, JavaScript, R or SQL. All in one application. This tutorial will show you step-by-step how to connect your Astra DB with DataStation. 
 
-
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to DataStation](https://datastation.multiprocess.io/)
 - 📥 [DataStation Quick Install](https://datastation.multiprocess.io/docs/)
+</div>
 
 ## Prerequisites
-- You should [Install DataStation](https://datastation.multiprocess.io/docs/)
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/), create a table, and load some data.
-- You should have an [Astra Token](/docs/pages/astra/create-token/)
-- Clone this [repository](https://github.com/datastax/cql-proxy) to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    - You need your Astra Token and Astra Database ID to use CQL-Proxy
-    - Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
+<ul class="prerequisites">
+    <li>You should <a href="https://datastation.multiprocess.io/docs">Install DataStation</a></li>
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra</li>
+    <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+    <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
+
 ```
 {"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
 ```
+</ul>
 
 ## C - Installation and Setup
 Once you have completed all of the **Prerequisites** and confirmed CQL Proxy is running, you are now able to move on to setting up your Astra DB with DataStation IDE. 
@@ -50,4 +68,6 @@ Once you have completed all of the **Prerequisites** and confirmed CQL Proxy is 
 
 ...and you're done! This tutorial quickly shows you how you can easily integrate your Astra DB with the DataStation IDE to run queries, build tables, and further enhance how you interact with your data. 
 
+<div class="nosurface" markdown="1">
 [🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
