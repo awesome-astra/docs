@@ -8,7 +8,7 @@ developer_url: "https://prestodb.io/"
 links:
 - title: "Deploying Presto"
   url: "https://prestodb.io/docs/current/installation/deployment.html"
-- title: "Cassandra Connector"
+- title: "Cassandra connector"
   url: "https://prestodb.io/docs/current/connector/cassandra.html"
 - title: "Command line interface"
   url: "https://prestodb.io/docs/current/installation/cli.html"
