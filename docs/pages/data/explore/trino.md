@@ -1,3 +1,17 @@
+---
+title: "Trino"
+description: "Trino is a distributed SQL query engine for big data analytics. Trino can query data from over 30 different data sources, including Cassandra and Astra DB."
+tags: "SQL, query engine, analytics"
+icon: "https://awesome-astra.github.io/docs/img/trino/logo-trino.png"
+developer_title: "Trino"
+developer_url: "https://trino.io/"
+links:
+- title: "Deploying Trino"
+  url: "https://trino.io/docs/current/installation/deployment.html"
+- title: "Command line interface"
+  url: "https://trino.io/docs/current/client/cli.html"
+---
+
 <img src="../../../../img/trino/logo-trino.png" height="100px" />
 
 ## A - Overview
@@ -164,7 +178,7 @@ In this section you will execute SQL Queries against Astra DB using Trino CLI Cl
 
 **✅ 7. Install Trino Client**
 
-Follow [the instructions](https://trino.io/docs/current/installation/cli.html) to download and install a _CLI Trino Client_.
+Follow [the instructions](https://trino.io/docs/current/client/cli.html) to download and install a _CLI Trino Client_.
 
 **✅ 8. Start the _CLI Trino Client_:**
 
