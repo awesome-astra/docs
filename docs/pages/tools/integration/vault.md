@@ -1,32 +1,62 @@
+---
+title: "Vault"
+description: "The purpose of this document is to guide you through the process using Astra DB as the storage configuration for your 
+HashiCorp Vault instance. In this tutorial, you will install Vault and edit the configuration file to point to Astra DB."
+tags: "third party tools, devops"
+icon: "https://awesome-astra.github.io/docs/img/vault/vaultlogo.png"
+developer_title: "HashiCorp"
+developer_url: "https://www.vaultproject.io/docs/install"
+links:
+- title: "foo"
+  url: "http://google.com"
+- title: "bar"
+  url: "http://yahoo.com"
+---
+
+<div class="nosurface" markdown="1">
 _Last Update {{ git_revision_date }}_
 
 
-<img src="../../../../img/vault/vaultlogo.png" />
+<img src="https://awesome-astra.github.io/docs/img/vault/vaultlogo.png" />
+</div>
 
 ## Overview
 
 The purpose of this document is to guide you through the process using Astra DB as the storage configuration for your 
 HashiCorp Vault instance. In this tutorial, you will install Vault and edit the configuration file to point to Astra DB.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to Vault](https://www.vaultproject.io/docs/what-is-vault)
 - 📥 [Vault Quick Install](https://www.vaultproject.io/docs/install)
+</div>
 
 ## Prerequisites
-- You should [Install Vault](https://www.vaultproject.io/docs/install)
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should have an [Astra Token](/docs/pages/astra/create-token/)
-- Clone this [repository](https://github.com/datastax/cql-proxy) to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    - You need your Astra Token and Astra Database ID to use CQL-Proxy
-    - Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
-```
-{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
-```
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Bundle</a></li>
+<li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
+<li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
+    <ul>
+    <li>
+    You need your Astra Token and Astra Database ID to use CQL-Proxy
+    </li>
+    <li>
+    Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
+    </li>
+    </ul>
+    </li>
+    ```bash
+    {"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
+    ```
+</ul>
+  
 
 ## Installation and Setup
 1. In the Astra UI, create a keyspace called **vault**. 
 2. Navigate to your *CQL Console* in the Astra UI. Issue the following statement to create a table called **entries**
-```
+```bash
 CREATE TABLE vault."entries" (
     bucket text,
     key text,
@@ -37,7 +67,7 @@ CREATE TABLE vault."entries" (
 2. Navigate to your terminal. Create a Vault configuration file `config.hcl` in your local directory.
 3. Edit your `config.hcl` file. Copy and paste the following to your configuration file:
 
-```
+```bash
 storage "cassandra" {
   hosts            = "localhost"
   consistency      = "LOCAL_QUORUM"
@@ -58,7 +88,7 @@ ui = true
 `vault server -config=config.hcl`
 
 Successful output should look like this:
-```
+```bash
 ==> Vault server configuration:
 
              Api Address: http://127.0.0.1:8200
@@ -83,7 +113,6 @@ Successful output should look like this:
 ## Test and Validate
 1. Once you see the above message that you successfully started Vault server, open a new terminal window.
 2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
-
 !!! info "Note"
     You may get an error that looks like this
     ```
@@ -93,10 +122,8 @@ Successful output should look like this:
     ```
     vault operator init -address=http://127.0.0.1:8200
     ```
-
 Once Vault is initialized, it should give you an output of your Unseal Keys:
-
-```
+```bash
 % vault operator init
 Unseal Key 1: rVRPym...
 Unseal Key 2: 71tY5X...
@@ -119,16 +146,16 @@ reconstruct the root key, Vault will remain permanently sealed!
 3. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
 4. Enter your Unseal Keys and Root Token
 
-<img src="../../../../img/vault/vault_key.png" style="width:250px;"/> 
-<img src="../../../../img/vault/vault_token.png" style="width:250px;"/>
+<img src="https://awesome-astra.github.io/docs/img/vault/vault_key.png" style="width:250px;"/> 
+<img src="https://awesome-astra.github.io/docs/img/vault/vault_token.png" style="width:250px;"/>
 
 5. You should now be able to access the Vault UI as well as cross-reference your CQL Console to make sure the requests are properly being written to your **entries** table! 
 
 **Note:** When querying from the **entries** table, you must use double-quotes as `entries` is a reserved word for CQL.
 
-<img src="../../../../img/vault/vaultui.png"/> 
+<img src="https://awesome-astra.github.io/docs/img/vault/vaultui.png"/> 
 
-```
+```bash
 token@cqlsh:vault> use vault;                           //Switches to Vault keyspace
 token@cqlsh:vault> expand on;                           //Prints output in readable format
 token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from "entries" table
@@ -141,3 +168,5 @@ token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from 
 
 (1 rows)
 ```
+
+
