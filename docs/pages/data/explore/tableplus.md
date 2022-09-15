@@ -1,10 +1,24 @@
+---
+title: "TablePlus"
+description: "TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more."
+tags: "jdbc, data management, ide"
+icon: "https://awesome-astra.github.io/docs/img/tableplus/download.png"
+developer_title: "TablePlus"
+developer_url: "https://tableplus.com/download"
+links:
+- title: "foo"
+  url: "http://google.com"
+- title: "bar"
+  url: "http://yahoo.com"
+---
+<div class="nosurface" markdown="1">
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
-<img src="../../../../img/tableplus/download.png" height="500px" />
+<img src="https://awesome-astra.github.io/docs/img/tableplus/download.png" />
 
 
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html)_
-
+</div>
 
 ## A - Overview
 
@@ -15,9 +29,12 @@ TablePlus is a modern, native tool with elegant UI that allows you to simultaneo
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/docs/pages/astra/create-token/)
-- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+</ul>
 
 This article assumes you have a running installation of Tableplus on your laptop or PC. It was written for the MacOS version but it should also work for the Windows version.
 
@@ -25,7 +42,7 @@ This article assumes you have a running installation of Tableplus on your laptop
 
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
-### ✅ Step 1: DB Information
+### <span class="nosurface">✅ </span>Step 1: DB Information
 
 On your laptop or PC where Tableplus is installed, unpack your secure bundle. For example:
 
@@ -36,7 +53,7 @@ $ unzip secure-connect-getvaxxed.zip
 
 Here is an example file listing after unpacking the bundle:
 
-```
+```bash
 /
   path/
     to/
@@ -53,7 +70,7 @@ Here is an example file listing after unpacking the bundle:
 
 Obtain information about your database from the config.json file. Here is an example:
 
-```
+```bash
 {
   "host": "<YOUR_ENDPOINT>.db.astra.datastax.com",
   "port": 98765,
@@ -69,7 +86,7 @@ Obtain information about your database from the config.json file. Here is an exa
 
 We will use this information to configure Astra DB as the data source in Tableplus.
 
-### ✅ Step 2: New Connection
+### <span class="nosurface">✅ </span>Step 2: New Connection
 
 1. In Tableplus, create a new connection and select **Cassandra** as the target database.
 
@@ -90,14 +107,14 @@ We will use this information to configure Astra DB as the data source in Tablepl
 
 Here's an example of what the **Cassandra Connection** dialog box should look like:
 
-<img src="../../../../img/tableplus/tableplus_connection_page_updated.png" height="350px" />
+<img src="https://awesome-astra.github.io/docs/img/tableplus/tableplus_connection_page_updated.png" height="350px" />
 
-### ✅ Step 3: Final Test
+### <span class="nosurface">✅ </span>Step 3: Final Test
 
 Connect to your Astra DB. If the connection was successful, you should be able to see all the tables on the left-hand side of the UI.
 
 Here's an example output:
 
-<img src="../../../../img/tableplus/2384-tableplus-astra-connected.png" height="350px" />
+<img src="https://awesome-astra.github.io/docs/img/tableplus/2384-tableplus-astra-connected.png" height="350px" />
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)
