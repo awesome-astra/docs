@@ -2447,28 +2447,37 @@
 
   <h1>• DataStation</h1>
 
-<p><em>Last Update 2022-09-02</em></p>
+<ul>
+<li>title: "DataStation Quick Install"
+  url: "https://datastation.multiprocess.io/docs"</li>
+</ul>
+<hr />
+<div class="nosurface">
+<p><em>Last Update 2022-09-15</em></p>
 <p><img src="../../../../img/datastation/datastation_logo.png" height="60px" /></p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>DataStation is an open-source data IDE for developers. It allows you to easily build graphs and tables with data pulled from SQL databases, logging databases, metrics databases, HTTP servers, and all kinds of text and binary files. Need to join or munge data? Write embedded scripts as needed in languages like Python, JavaScript, R or SQL. All in one application. This tutorial will show you step-by-step how to connect your Astra DB with DataStation. </p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://datastation.multiprocess.io/">Introduction to DataStation</a></li>
 <li>📥 <a href="https://datastation.multiprocess.io/docs/">DataStation Quick Install</a></li>
 </ul>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should <a href="https://datastation.multiprocess.io/docs/">Install DataStation</a></li>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a>, create a table, and load some data.</li>
-<li>You should have an <a href="/docs/pages/astra/create-token/">Astra Token</a></li>
-<li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra<ul>
-<li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
-<li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
+<ul class="prerequisites">
+    <li>You should <a href="https://datastation.multiprocess.io/docs">Install DataStation</a></li>
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra</li>
+    <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+    <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{&quot;level&quot;:&quot;info&quot;,&quot;ts&quot;:1651012815.176512,&quot;caller&quot;:&quot;proxy/proxy.go:222&quot;,&quot;msg&quot;:&quot;proxy is listening&quot;,&quot;address&quot;:&quot;[::]:9042&quot;}
-</code></pre></div></li>
+</code></pre></div>
 </ul>
-</li>
-</ul>
+
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
 <p>Once you have completed all of the <strong>Prerequisites</strong> and confirmed CQL Proxy is running, you are now able to move on to setting up your Astra DB with DataStation IDE. </p>
 <ol>
@@ -2509,14 +2518,16 @@
     <img src="../../../../img/datastation/6_run_query.png" /></li>
 </ol>
 <p>...and you're done! This tutorial quickly shows you how you can easily integrate your Astra DB with the DataStation IDE to run queries, build tables, and further enhance how you interact with your data. </p>
+<div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-02
+      2022-09-15
     
   </small>
 </div>
