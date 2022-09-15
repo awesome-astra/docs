@@ -8,6 +8,8 @@ developer_url: "https://trino.io/"
 links:
 - title: "Deploying Trino"
   url: "https://trino.io/docs/current/installation/deployment.html"
+- title: "Cassandra connector"
+  url: "https://trino.io/docs/current/connector/cassandra.html"
 - title: "Command line interface"
   url: "https://trino.io/docs/current/client/cli.html"
 ---
