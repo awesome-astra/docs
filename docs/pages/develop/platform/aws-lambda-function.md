@@ -1,3 +1,13 @@
+---
+title: "AWS Lambda Functions"
+description: "AWS Lambda is AWS's function-as-a-service offering that provides a serverless execution environment for your code. AWS Lambda are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines."
+tags: "FaaS, serverless, AWS, Java, Python"
+icon: "https://awesome-astra.github.io/docs/img/aws-lambda-functions/logo-aws-lambda.svg"
+developer_title: "AWS Lambda Functions"
+developer_url: "https://docs.aws.amazon.com/lambda/"
+links:
+---
+
 # AWS Lambda Functions
 
 [🏠 Back to home](https://awesome-astra.github.io/docs/) 
