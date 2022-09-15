@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>‣ TablePlus - Awesome-Astra</title>
+        <title>TablePlus - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ TablePlus
+              TablePlus
             
           </span>
         </div>
@@ -2501,11 +2501,13 @@
 
   <h1>‣ TablePlus</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-08-22</em> </p>
-<p><img src="../../../../img/tableplus/download.png" height="500px" /></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-09-15</em> </p>
+<p><img src="https://awesome-astra.github.io/docs/img/tableplus/download.png" /></p>
 <ul>
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html">DataStax Community</a></em></li>
 </ul>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.</p>
 <ul>
@@ -2513,15 +2515,17 @@
 <li>📥 <a href="https://docs.tableplus.com/#download-and-install">TablePlus Download Link</a></li>
 </ul>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
+
 <p>This article assumes you have a running installation of Tableplus on your laptop or PC. It was written for the MacOS version but it should also work for the Windows version.</p>
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
-<h3 id="step-1-db-information">✅ Step 1: DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-db-information"><span class="nosurface">✅ </span>Step 1: DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
 <p>On your laptop or PC where Tableplus is installed, unpack your secure bundle. For example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ cd /path/to/scb
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ unzip secure-connect-getvaxxed.zip
@@ -2541,20 +2545,20 @@
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        trustStore.jks
 </code></pre></div>
 <p>Obtain information about your database from the config.json file. Here is an example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &quot;host&quot;: &quot;&lt;YOUR_ENDPOINT&gt;.db.astra.datastax.com&quot;,
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;port&quot;: 98765,
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;cql_port&quot;: 34567,
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  &quot;keyspace&quot;: &quot;&lt;KEYSPACE_NAME&gt;&quot;,
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  &quot;localDC&quot;: &quot;us-west-2&quot;,
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  &quot;caCertLocation&quot;: &quot;./ca.crt&quot;,
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  &quot;keyLocation&quot;: &quot;./key&quot;,
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  &quot;certLocation&quot;: &quot;./cert&quot;,
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;&lt;YOUR_ENDPOINT&gt;.db.astra.datastax.com&quot;</span>,
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="s2">&quot;port&quot;</span>: <span class="m">98765</span>,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="s2">&quot;cql_port&quot;</span>: <span class="m">34567</span>,
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="s2">&quot;keyspace&quot;</span>: <span class="s2">&quot;&lt;KEYSPACE_NAME&gt;&quot;</span>,
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  <span class="s2">&quot;localDC&quot;</span>: <span class="s2">&quot;us-west-2&quot;</span>,
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  <span class="s2">&quot;caCertLocation&quot;</span>: <span class="s2">&quot;./ca.crt&quot;</span>,
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  <span class="s2">&quot;keyLocation&quot;</span>: <span class="s2">&quot;./key&quot;</span>,
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  <span class="s2">&quot;certLocation&quot;</span>: <span class="s2">&quot;./cert&quot;</span>,
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ...
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>}
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="o">}</span>
 </code></pre></div>
 <p>We will use this information to configure Astra DB as the data source in Tableplus.</p>
-<h3 id="step-2-new-connection">✅ Step 2: New Connection<a class="headerlink" href="#step-2-new-connection" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-new-connection"><span class="nosurface">✅ </span>Step 2: New Connection<a class="headerlink" href="#step-2-new-connection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>In Tableplus, create a new connection and select <strong>Cassandra</strong> as the target database.</p>
@@ -2584,11 +2588,11 @@
 </ul>
 </div>
 <p>Here's an example of what the <strong>Cassandra Connection</strong> dialog box should look like:</p>
-<p><img src="../../../../img/tableplus/tableplus_connection_page_updated.png" height="350px" /></p>
-<h3 id="step-3-final-test">✅ Step 3: Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
+<p><img src="https://awesome-astra.github.io/docs/img/tableplus/tableplus_connection_page_updated.png" height="350px" /></p>
+<h3 id="step-3-final-test"><span class="nosurface">✅ </span>Step 3: Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB. If the connection was successful, you should be able to see all the tables on the left-hand side of the UI.</p>
 <p>Here's an example output:</p>
-<p><img src="../../../../img/tableplus/2384-tableplus-astra-connected.png" height="350px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/tableplus/2384-tableplus-astra-connected.png" height="350px" /></p>
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
 
   <hr>
@@ -2596,7 +2600,7 @@
   <small>
     
       Last update:
-      2022-08-22
+      2022-09-15
     
   </small>
 </div>
