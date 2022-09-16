@@ -6,6 +6,10 @@ icon: "https://awesome-astra.github.io/docs/img/aws-lambda-functions/logo-aws-la
 developer_title: "AWS Lambda Functions"
 developer_url: "https://docs.aws.amazon.com/lambda/"
 links:
+- title: "foo"
+  url: "http://google.com"
+- title: "bar"
+  url: "http://yahoo.com"
 ---
 
 # AWS Lambda Functions
