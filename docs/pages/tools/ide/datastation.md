@@ -6,7 +6,7 @@ icon: "https://awesome-astra.github.io/docs/img/datastation/datastation_logo.png
 developer_title: "DataStation"
 developer_url: "https://datastation.multiprocess.io"
 links:
-  - title: "DataStation Quick Install"
+- title: "DataStation Quick Install"
   url: "https://datastation.multiprocess.io/docs"
 ---
 
