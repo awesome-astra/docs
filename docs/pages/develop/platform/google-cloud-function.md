@@ -6,6 +6,10 @@ icon: "https://awesome-astra.github.io/docs/img/google-cloud-functions/logo-goog
 developer_title: "Google Cloud Functions"
 developer_url: "https://cloud.google.com/functions"
 links:
+- title: "foo"
+  url: "http://google.com"
+- title: "bar"
+  url: "http://yahoo.com"
 ---
 
 # Google Cloud Functions
