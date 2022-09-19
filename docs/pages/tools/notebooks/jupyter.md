@@ -7,10 +7,8 @@ coming_soon: “true”
 developer_title: "Jupyter"
 developer_url: "https://jupyter.org/"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Jupyter Notebook Installation"
+  url: "https://jupyter.org/install"
 ---
 
 <div class="nosurface" markdown="1">
