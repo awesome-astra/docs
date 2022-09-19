@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>‣ DBSchema - Awesome-Astra</title>
+        <title>DbSchema - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ DBSchema
+              DbSchema
             
           </span>
         </div>
@@ -2447,16 +2447,19 @@
 
   <h1>‣ DBSchema</h1>
 
-<p><em>Last Update 2022-06-09</em> </p>
+<div class="nosurface">
+<p><em>Last Update 2022-09-19</em> </p>
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/db-integration-dbschema.html"><b>📖 Astra Docs</b> - Reference documentation</a>
 <li><a href="https://www.sestevez.com/astra-datagrip/">Instructions described in **Sebastian Estevez Blog post**</a>
+</li>
+</li>
 </ol>
 </details>
-
-<p><img src="../../../../img/dbschema/download.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/dbschema/download.png" /></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.</p>
 <ul>
@@ -2465,14 +2468,16 @@
 </ul>
 <p>DBSchema uses the <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
+
 <p>This article assumes you have installed the latest version of DBSchema on your laptop or PC.</p>
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1: JDBC Driver</strong></p>
+<p><strong><span class="nosurface">✅ </span>Step 1: JDBC Driver</strong></p>
 <p>Download the JDBC driver from the DataStax website:</p>
 <ol>
 <li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
@@ -2482,50 +2487,52 @@
 <li>Hit the blue <strong>Download</strong> button.</li>
 <li>Once the download completes, unzip the downloaded file.</li>
 </ol>
-<p><strong>✅ Step 2: Establish the Connection</strong></p>
+<p><strong><span class="nosurface">✅ </span>Step 2: Establish the Connection</strong></p>
 <ol>
 <li>Open <a href="https://dbschema.com/">DB Schema</a></li>
 <li>Select <strong>Connect to the Database</strong></li>
 <li>
 <p>Select <strong>Start</strong>
-<img src="../../../../img/dbschema/dbschema-start.png"/></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-start.png"/></p>
 </li>
 <li>
 <p>In the <strong>Choose your database</strong> menu, select Cassandra.</p>
 </li>
 <li>
 <p>Select <strong>Next.</strong>
-<img src="../../../../img/dbschema/dbschema-cass-sel.png" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-cass-sel.png" /></p>
 </li>
 <li>
 <p>Select <strong>JDBC Driver</strong> edit option.
-<img src="../../../../img/dbschema/dbschema-connection-d.png" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection-d.png" /></p>
 </li>
 <li>
 <p>In the JDBC Driver Manager, select <strong>New</strong>.</p>
 </li>
 <li>
 <p>In the Add RDBMS window, enter <strong>Astra</strong> and select <strong>OK</strong>
-<img src="../../../../img/dbschema/dbschema-driver-manager.png" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-driver-manager.png" /></p>
 </li>
 <li>
 <p>Select <strong>OK</strong> in the confirmation message.
-<img src="../../../../img/dbschema/dbschema-connection.png" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection.png" /></p>
 </li>
 <li>
 <p>Upload the Simba JDBC Driver.</p>
 </li>
 <li>
 <p>Select <strong>Open</strong>
-<img src="../../../../img/dbschema/dbschema-simba-driver.png" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-simba-driver.png" /></p>
 </li>
 <li>
 <p>Once you upload the Simba JDBC Driver, you will see <strong>Astra</strong> in the <strong>Choose your Database **window. Select **Next</strong>.
-<img src="../../../../img/dbschema/dbschema-astra.png" height="500px" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra.png" height="500px" /></p>
 </li>
 <li>
 <p>In the Astra Connection Dialog, add JDBC URL as
-    <code>jdbc:cassandra://;AuthMech=&lt;2&gt;;UID=token;PWD=&lt;ApplicationToken&gt;;SecureConnectionBundlePath=&lt;PATH TO YOUR SECURE CONNECT BUNDLE&gt;;TunableConsistency=&lt;6&gt;</code> with the following variables:</p>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jdbc:cassandra://<span class="p">;</span><span class="nv">AuthMech</span><span class="o">=</span>&lt;<span class="m">2</span>&gt;<span class="p">;</span><span class="nv">UID</span><span class="o">=</span>token<span class="p">;</span><span class="nv">PWD</span><span class="o">=</span>&lt;ApplicationToken&gt;<span class="p">;</span><span class="nv">SecureConnectionBundlePath</span><span class="o">=</span>&lt;PATH TO YOUR SECURE CONNECT BUNDLE&gt;<span class="p">;</span><span class="nv">TunableConsistency</span><span class="o">=</span>&lt;<span class="m">6</span>&gt;
+</code></pre></div>
+    with the following variables:</p>
 <ul>
 <li><strong>AuthMech:</strong> Specifies whether the driver connects to a Cassandra or Astra DB database and whether the driver authenticates the connection.</li>
 <li><strong>ApplicationToken:</strong> Generated from Astra DB console. See <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Manage application tokens.</a></li>
@@ -2535,25 +2542,27 @@
 </li>
 <li>
 <p>Select <strong>Connect</strong>
-<img src="../../../../img/dbschema/dbschema-url.png" height="500px" /></p>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-url.png" height="500px" /></p>
 </li>
 <li>
 <p>In the <strong>Select Schemas/Catalogs</strong>, select the keyspace to which you want to connect.</p>
 </li>
 <li>Select <strong>OK.</strong>
-<img src="../../../../img/dbschema/dbschema-connetion-established.png" height="500px" /></li>
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connetion-established.png" height="500px" /></li>
 </ol>
-<p><strong>✅ Step 4: Final Test</strong></p>
+<p><strong><span class="nosurface">✅ </span> Step 3: Final Test</strong></p>
 <p>Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.</p>
 <p>To learn more about DBSchema, see <a href="https://dbschema.com/tutorials.html">Quick start with DBSchema</a></p>
+<div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-09
+      2022-09-19
     
   </small>
 </div>
