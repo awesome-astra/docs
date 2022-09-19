@@ -1,15 +1,13 @@
 ---
 title: "Flink"
 description: "Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream."
-tags: ""
+tags: "java, third party tools, middleware"
 icon: "https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png"
 developer_title: "Apache"
 developer_url: "https://flink.apache.org/"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Apache Flink Home"
+  url: "https://flink.apache.org/"
 ---
 
 _Last Update {{ git_revision_date }}_
