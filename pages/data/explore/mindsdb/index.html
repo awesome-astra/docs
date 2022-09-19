@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="MindsDB enables you to use your data and make forecasts. It speeds up the ML development process by bringing machine learning into the database. With MindsDB, you can build, train, optimize, and deploy your ML models without the need for other platforms. And to get the forecasts, simply query your data and ML models.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>‣ MindsDB - Awesome-Astra</title>
+        <title>MindsDB - Awesome-Astra</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#files-i-changed" class="md-skip">
+        <a href="#files-changed" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ MindsDB
+              MindsDB
             
           </span>
         </div>
@@ -1014,8 +1014,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#files-i-changed" class="md-nav__link">
-    Files I Changed
+  <a href="#files-changed" class="md-nav__link">
+    Files Changed
   </a>
   
 </li>
@@ -2410,8 +2410,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#files-i-changed" class="md-nav__link">
-    Files I Changed
+  <a href="#files-changed" class="md-nav__link">
+    Files Changed
   </a>
   
 </li>
@@ -2447,17 +2447,19 @@
 
   <h1>‣ MindsDB</h1>
 
+<div class="nosurface">
 <ul>
 <li><em>This article was originally written by <strong>Steven Matison</strong> on <a href="https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB">Datastax JIRA</a></em></li>
 </ul>
 <p><img src="../../../../img/mindsdb/MindsDBColorPurp_3x.png" height="50px" /></p>
+</div>
 <p>This page will go into details about what I had to do to build the project, modify the <code>cassandra.py</code> and <code>scylla_ds.py</code>, and get mindsdb GUI connected to Astra.</p>
 <ul>
 <li><strong>Source Repo:</strong> <a href="https://github.com/mindsdb/mindsdb">GitHub - mindsdb/mindsdb</a></li>
 <li><strong>My Fork:</strong> <a href="https://github.com/ds-steven-matison/mindsdb">ds-steven-matison/mindsdb</a></li>
 <li><strong>Docs:</strong> <a href="https://docs.mindsdb.com/">https://docs.mindsdb.com/</a></li>
 </ul>
-<h4 id="files-i-changed">Files I Changed<a class="headerlink" href="#files-i-changed" title="Permanent link">&para;</a></h4>
+<h4 id="files-changed">Files Changed<a class="headerlink" href="#files-changed" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/datasources/scylla_ds.py
 </code></pre></div>
 <ul>
@@ -2470,7 +2472,7 @@
 </ul>
 <h3 id="git-status">Git Status<a class="headerlink" href="#git-status" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Untracked files:
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    LICENSE.txt
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    MindsDB.egg-info/
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    bin/
@@ -2484,58 +2486,58 @@
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    share/
 </code></pre></div>
 <h3 id="terminal-history">Terminal History<a class="headerlink" href="#terminal-history" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  503  python -v
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  504  python -version
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  505  ls
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  506  python3 -v
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  507  python3 -m venv mindsdb
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  508  source mindsdb/bin/activate
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  509  pip3 install mindsdb
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  510  pip3 install Cython
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  511  pip3 install mindsdb
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  512  pip3 install sentencepiece
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  513  pip3 freeze
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  514  pip install --upgrade pip
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  515  pip3 install sentencepiece
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  516  pip3 install mindsdb
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  517  pip3 freeze
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  518  python3 -m mindsdb
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  533  pip3 install mindsdb
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  548  pip3 install cassandra-driver
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  549  python3 -c &#39;import cassandra; print (cassandra.__version__)&#39;
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  570  python3 mindsdb_cassandra.py
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  571  nano mindsdb_cassandra.py
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>  572  python3 mindsdb_cassandra.py
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>  573  python3 -m mindsdb --api=mysql --config=config.json
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>  574  pip3 uninstall mindsdb
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>  577  git clone https://github.com/ds-steven-matison/mindsdb.git
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>  578  cd mindsdb/mindsdb/integrations/cassandra/
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  579  ls
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  580  nano cassandra.py
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>  581  cp cassandra.py cassandra.py.bk
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>  582  nano cassandra.py
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>  588  pip3 install -r requirements.txt
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>  592  pip3 install cassandra-driver
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  636  cp secure-connect-mindsdb.zip /tmp
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>  637  chmod 755 /tmp/secure-connect-mindsdb.zip
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>  654  pip3 freeze
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>  658  pip3 install cassandra-driver
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>  659  python3 -c &#39;import cassandra; print (cassandra.__version__)&#39;
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>  662  nano /root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/cassandra.py
-<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>  669  nano ./mindsdb/lib/python3.6/site-packages/cassandra/cluster.py
-<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>  670  nano /root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/datasources/scylla_ds.py
-<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>  672  python3 -m venv mindsdb
-<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>  673  source mindsdb/bin/activate
-<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>  674  cd mindsdb &amp;&amp; pip3 install -r requirements.txt
-<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>  675  pip install --upgrade pip
-<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>  676  pip3 install --upgrade pip
-<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>  677  pip3 install -r requirements.txt
-<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>  678  python setup.py develop
-<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>  683  mkdir /storage
-<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>  695  install mindsdb_native[cassandra]
-<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>  696  pip3 install mindsdb-sdk
-<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>  721  nano config.json
-<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>  722  python3 -m mindsdb --config=config.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  <span class="m">503</span>  python -v
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="m">504</span>  python -version
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="m">505</span>  ls
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  <span class="m">506</span>  python3 -v
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  <span class="m">507</span>  python3 -m venv mindsdb
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  <span class="m">508</span>  <span class="nb">source</span> mindsdb/bin/activate
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  <span class="m">509</span>  pip3 install mindsdb
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  <span class="m">510</span>  pip3 install Cython
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  <span class="m">511</span>  pip3 install mindsdb
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  <span class="m">512</span>  pip3 install sentencepiece
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  <span class="m">513</span>  pip3 freeze
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  <span class="m">514</span>  pip install --upgrade pip
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  <span class="m">515</span>  pip3 install sentencepiece
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  <span class="m">516</span>  pip3 install mindsdb
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  <span class="m">517</span>  pip3 freeze
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  <span class="m">518</span>  python3 -m mindsdb
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  <span class="m">533</span>  pip3 install mindsdb
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  <span class="m">548</span>  pip3 install cassandra-driver
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  <span class="m">549</span>  python3 -c <span class="s1">&#39;import cassandra; print (cassandra.__version__)&#39;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  <span class="m">570</span>  python3 mindsdb_cassandra.py
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  <span class="m">571</span>  nano mindsdb_cassandra.py
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>  <span class="m">572</span>  python3 mindsdb_cassandra.py
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>  <span class="m">573</span>  python3 -m mindsdb --api<span class="o">=</span>mysql --config<span class="o">=</span>config.json
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>  <span class="m">574</span>  pip3 uninstall mindsdb
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>  <span class="m">577</span>  git clone https://github.com/ds-steven-matison/mindsdb.git
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>  <span class="m">578</span>  <span class="nb">cd</span> mindsdb/mindsdb/integrations/cassandra/
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  <span class="m">579</span>  ls
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  <span class="m">580</span>  nano cassandra.py
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>  <span class="m">581</span>  cp cassandra.py cassandra.py.bk
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>  <span class="m">582</span>  nano cassandra.py
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>  <span class="m">588</span>  pip3 install -r requirements.txt
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>  <span class="m">592</span>  pip3 install cassandra-driver
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  <span class="m">636</span>  cp secure-connect-mindsdb.zip /tmp
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>  <span class="m">637</span>  chmod <span class="m">755</span> /tmp/secure-connect-mindsdb.zip
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>  <span class="m">654</span>  pip3 freeze
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>  <span class="m">658</span>  pip3 install cassandra-driver
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>  <span class="m">659</span>  python3 -c <span class="s1">&#39;import cassandra; print (cassandra.__version__)&#39;</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>  <span class="m">662</span>  nano /root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/cassandra.py
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>  <span class="m">669</span>  nano ./mindsdb/lib/python3.6/site-packages/cassandra/cluster.py
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>  <span class="m">670</span>  nano /root/mindsdb/lib64/python3.6/site-packages/mindsdb_datasources/datasources/scylla_ds.py
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>  <span class="m">672</span>  python3 -m venv mindsdb
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>  <span class="m">673</span>  <span class="nb">source</span> mindsdb/bin/activate
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>  <span class="m">674</span>  <span class="nb">cd</span> mindsdb <span class="o">&amp;&amp;</span> pip3 install -r requirements.txt
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>  <span class="m">675</span>  pip install --upgrade pip
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>  <span class="m">676</span>  pip3 install --upgrade pip
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>  <span class="m">677</span>  pip3 install -r requirements.txt
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>  <span class="m">678</span>  python setup.py develop
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>  <span class="m">683</span>  mkdir /storage
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>  <span class="m">695</span>  install mindsdb_native<span class="o">[</span>cassandra<span class="o">]</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>  <span class="m">696</span>  pip3 install mindsdb-sdk
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>  <span class="m">721</span>  nano config.json
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>  <span class="m">722</span>  python3 -m mindsdb --config<span class="o">=</span>config.json
 </code></pre></div>
 
   <hr>
@@ -2543,7 +2545,7 @@
   <small>
     
       Last update:
-      2022-05-14
+      2022-09-19
     
   </small>
 </div>
