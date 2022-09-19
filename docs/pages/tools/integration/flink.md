@@ -1,8 +1,22 @@
+---
+title: "Flink"
+description: "Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream."
+tags: "third party tools"
+icon: "https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png"
+developer_title: "Apache"
+developer_url: "https://flink.apache.org/"
+links:
+- title: "Apache Flink Home"
+  url: "https://flink.apache.org/"
+---
+
 _Last Update {{ git_revision_date }}_
 
-<img src="../../../../img/Apache_Flink_logo.svg.png" height="30px" />
+<div class="nosurface" markdown="1">
+<img src="https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png" height="30px" />
 
 - _This article includes information that was originally written by **Bret McGuire** on [GitHub](https://github.com/absurdfarce/flink-astra)_ 
+</div>
 
 ## Overview
 
@@ -14,11 +28,13 @@ This code is intended as a fairly simple demonstration of how to enable an Apach
 - 📥 [Download Apache Flink](https://flink.apache.org/downloads.html)
 
 ## Prerequisites
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/), create a table, and load some data.
-- You should have an [Astra Token](/docs/pages/astra/create-token/)
-- You should clone this [GitHub repository](https://github.com/absurdfarce/flink-astra)
-- You should have [Apache Flink](https://flink.apache.org/downloads.html), [Gradle](https://gradle.org/install/), and [Java](https://www.oracle.com/java/technologies/downloads/) installed in your system
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li>You should clone this <a href="https://github.com/absurdfarce/flink-astra">GitHub Repository</a></li>
+<li>You should have <a href="https://flink.apache.org/downloads.html">Apache Flink</a>, <a href="https://gradle.org/install/">Gradle</a>, and <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> installed in your system. </li>
+</ul>
 
 !!! note "Note"
 
@@ -32,7 +48,7 @@ Now that you have gathered all of your prerequisites, you are ready to configure
 3. Once you have downloaded your secure connect bundle, place it in `app/src/main/resources` in your GitHub directory (You do not have to unzip the file).
 4. Create a properties file titled `app.properties`, and place it in `app/src/main/resources/`.
 5. Add properties specifying your **Astra client ID, Astra secret, and SCB file name**. These should map to the "astra.clientid", "astra.secret", and "astra.scb" properties respectively. Your `app.properties` file should look something like this:
-```
+```bash
 astra.clientid=Bwy...
 astra.secret=E4dfE...
 astra.scb=secure-connect-test.zip
@@ -43,7 +59,7 @@ Once you have completed all of the prerequisites along with the section above, y
 
 1. In your `flink-astra` cloned GitHub directory, run `./gradlew run`
 2. Verify that the application runs and exits normally. If this completed successfully you should see the following message:
-```
+```bash
 BUILD SUCCESSFUL in 31s
 3 actionable tasks: 2 executed, 1 up-to-date
 ```

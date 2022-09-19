@@ -7,10 +7,8 @@ coming_soon: “true”
 developer_title: "Microsoft"
 developer_url: "https://code.visualstudio.com/"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "VSCode Install"
+  url: "https://code.visualstudio.com/download"
 ---
 
 <div class="nosurface" markdown="1">

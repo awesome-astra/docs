@@ -6,10 +6,10 @@ icon: "https://awesome-astra.github.io/docs/img/tableplus/download.png"
 developer_title: "TablePlus"
 developer_url: "https://tableplus.com/download"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Download TablePlus"
+  url: "https://tableplus.com/"
+- title: "TablePlus Linux Installation"
+  url: "https://tableplus.com/blog/2019/10/tableplus-linux-installation.html"
 ---
 <div class="nosurface" markdown="1">
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 

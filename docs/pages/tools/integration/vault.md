@@ -7,10 +7,8 @@ icon: "https://awesome-astra.github.io/docs/img/vault/vaultlogo.png"
 developer_title: "HashiCorp"
 developer_url: "https://www.vaultproject.io/docs/install"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Install Vault"
+  url: "https://www.vaultproject.io/"
 ---
 
 <div class="nosurface" markdown="1">

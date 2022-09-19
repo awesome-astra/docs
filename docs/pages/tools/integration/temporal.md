@@ -6,10 +6,10 @@ icon: "https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg"
 developer_title: "Temporal"
 developer_url: "https://docs.temporal.io/"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Temporal on Github"
+  url: "https://github.com/temporalio/temporal"
+- title: "Install Temporal Docs"
+  url: "https://docs.temporal.io/clusters/quick-install/"
 ---
 
 <div class="nosurface" markdown="1">
