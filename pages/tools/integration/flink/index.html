@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Apache Flink - Awesome-Astra</title>
+        <title>Flink - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Apache Flink
+              Flink
             
           </span>
         </div>
@@ -2461,11 +2461,13 @@
 
   <h1>• Apache Flink</h1>
 
-<p><em>Last Update 2022-09-02</em></p>
-<p><img src="../../../../img/Apache_Flink_logo.svg.png" height="30px" /></p>
+<p><em>Last Update 2022-09-16</em></p>
+<div class="nosurface">
+<p><img src="https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png" height="30px" /></p>
 <ul>
 <li><em>This article includes information that was originally written by <strong>Bret McGuire</strong> on <a href="https://github.com/absurdfarce/flink-astra">GitHub</a></em> </li>
 </ul>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream.</p>
 <p>This code is intended as a fairly simple demonstration of how to enable an Apache Flink job to interact with DataStax Astra. There is certainly room for optimization here. A simple example: Flink's CassandraSink will open a new Session on each open() call even though these Session objects are thread-safe. A more robust implementation would be more aggressive about memoizing Sessions, encouraging a minimal number of open sessions for multiple operations on the same JVM. This work may be undertaken in the future, but for the moment it is beyond the scope of what we're aiming for here.</p>
@@ -2474,13 +2476,14 @@
 <li>📥 <a href="https://flink.apache.org/downloads.html">Download Apache Flink</a></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a>, create a table, and load some data.</li>
-<li>You should have an <a href="/docs/pages/astra/create-token/">Astra Token</a></li>
-<li>You should clone this <a href="https://github.com/absurdfarce/flink-astra">GitHub repository</a></li>
-<li>You should have <a href="https://flink.apache.org/downloads.html">Apache Flink</a>, <a href="https://gradle.org/install/">Gradle</a>, and <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> installed in your system</li>
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li>You should clone this <a href="https://github.com/absurdfarce/flink-astra">GitHub Repository</a></li>
+<li>You should have <a href="https://flink.apache.org/downloads.html">Apache Flink</a>, <a href="https://gradle.org/install/">Gradle</a>, and <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> installed in your system. </li>
 </ul>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For this tutorial, you will need either Java 8 or Java 11 to run it. Any other version might run into an exception and cause build failure.</p>
@@ -2493,9 +2496,9 @@
 <li>Once you have downloaded your secure connect bundle, place it in <code>app/src/main/resources</code> in your GitHub directory (You do not have to unzip the file).</li>
 <li>Create a properties file titled <code>app.properties</code>, and place it in <code>app/src/main/resources/</code>.</li>
 <li>Add properties specifying your <strong>Astra client ID, Astra secret, and SCB file name</strong>. These should map to the "astra.clientid", "astra.secret", and "astra.scb" properties respectively. Your <code>app.properties</code> file should look something like this:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>astra.clientid=Bwy...
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>astra.secret=E4dfE...
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>astra.scb=secure-connect-test.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>astra.clientid<span class="o">=</span>Bwy...
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>astra.secret<span class="o">=</span>E4dfE...
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>astra.scb<span class="o">=</span>secure-connect-test.zip
 </code></pre></div></li>
 </ol>
 <h2 id="test-and-validate">Test and Validate<a class="headerlink" href="#test-and-validate" title="Permanent link">&para;</a></h2>
@@ -2503,8 +2506,8 @@
 <ol>
 <li>In your <code>flink-astra</code> cloned GitHub directory, run <code>./gradlew run</code></li>
 <li>Verify that the application runs and exits normally. If this completed successfully you should see the following message:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>BUILD SUCCESSFUL in 31s
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>3 actionable tasks: 2 executed, 1 up-to-date
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>BUILD SUCCESSFUL <span class="k">in</span> 31s
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="m">3</span> actionable tasks: <span class="m">2</span> executed, <span class="m">1</span> up-to-date
 </code></pre></div></li>
 <li>Navigate back to the Astra UI to use the CQL Console. You can run this sample query to confirm that the defined data from the sample app has been loaded properly:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>token@cqlsh:example&gt; select * from wordcount ;
@@ -2541,7 +2544,7 @@
   <small>
     
       Last update:
-      2022-09-02
+      2022-09-16
     
   </small>
 </div>
