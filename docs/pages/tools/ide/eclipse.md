@@ -7,10 +7,8 @@ coming_soon: “true”
 developer_title: "Eclipse Foundation"
 developer_url: "https://www.eclipse.org/downloads/"
 links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
+- title: "Eclipse Install"
+  url: "https://www.eclipse.org/downloads/"
 ---
 
 <div class="nosurface" markdown="1">
