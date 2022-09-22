@@ -1,28 +1,49 @@
+---
+title: "Apache Spark"
+description: "Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size."
+tags: "java, third party tools, machine learning, middleware"
+icon: "https://awesome-astra.github.io/docs/img/apache-spark/Apache_Spark_logo.png"
+developer_title: "Apache"
+developer_url: "https://spark.apache.org"
+links:
+- title: "Introduction to Apache Spark"
+  url: "https://aws.amazon.com/big-data/what-is-spark"
+  - title: "Apache Spark Download"
+  url: "hhttps://spark.apache.org/downloads.html"
+---
+
+<div class="nosurface" markdown="1">
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 
 <img src="../../../../img/apache-spark/Apache_Spark_logo.png" height="100px" />
+</div>
 
 ## A - Overview
 
 Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to Apache Spark](https://aws.amazon.com/big-data/what-is-spark/)
 - 📥 [Apache Spark Download Link](https://spark.apache.org/downloads.html)
+</div>
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/docs/pages/astra/create-token/) (RO User is needed for this example)
-- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
-- Download and install the latest version of [Spark Cassandra Connector](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility [here.](https://github.com/datastax/spark-cassandra-connector#version-compatibility)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
+    <li>Download and install the latest version of <a href="https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector">Spark Cassandra Connector</a> that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility <a href="https://github.com/datastax/spark-cassandra-connector#version-compatibility">here.</a></li>
+</ul>
 
 ## C - Installation and Setup
 
 These steps assume you will be using Apache Spark in local mode. For help using Spark cluster mode click the chat button on the bottom of the screen.
 
-### ✅ Steps:
+### <span class="nosurface">✅ </span>Steps:
 
 1. Expand the downloaded Apache Spark package into a directory, and assign the directory name to `$SPARK_HOME`.
 
@@ -79,4 +100,6 @@ res0: Long = 25
 scala> :quit
 ```
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
