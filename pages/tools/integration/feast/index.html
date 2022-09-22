@@ -2583,8 +2583,19 @@
 
   <h1>• Feast</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-05-16</em> </p>
+<ul>
+<li>title: "Feast Documentation"
+  url: "https://docs.feast.dev"</li>
+<li>title: "Minimal quickstart with Feast"
+  url: "https://docs.feast.dev/getting-started/quickstart"</li>
+<li>title: "The feast-cassandra plugin"
+  url: "https://pypi.org/project/feast-cassandra/"</li>
+</ul>
+<hr />
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-09-21</em> </p>
 <p><img src="../../../../img/feast/feast_logo.png" height="100px" /></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://feast.dev/">Feast</a>
 is a (Apache-licensed) open-source feature store for machine learning.
@@ -2602,21 +2613,24 @@ goals is to free MLOps practitioners and data engineers from having to manage
 their own infrastructure.</p>
 <p>In this spirit, the
 <a href="https://pypi.org/project/feast-cassandra/">Feast online store plugin for Cassandra</a>
-flexibly supports
-both Cassandra and Astra DB, as will be explained below.</p>
+flexibly supports both Cassandra and Astra DB, as will be explained below.</p>
+<div class="nosurface">
 <p>Reference documentation:</p>
 <ul>
 <li>ℹ️ <a href="https://docs.feast.dev/">Feast documentation</a></li>
 <li>ℹ️ <a href="https://docs.feast.dev/getting-started/quickstart">Minimal quickstart with Feast</a></li>
 <li>ℹ️ <a href="https://pypi.org/project/feast-cassandra/">The <code>feast-cassandra</code> plugin</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>feastks</code> is created in the database.</li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.</li>
-<li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. <code>pip install feast feast-cassandra</code>. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a> In the following example, a keyspace called `feastks` is created in the database.</li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a>.</li>
+    <li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. `pip install feast feast-cassandra`. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
 </ul>
+
 <p>Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.</p>
 <h2 id="c-quickstart">C - Quickstart<a class="headerlink" href="#c-quickstart" title="Permanent link">&para;</a></h2>
 <p><em>Note: this quickstart is modeled after the one
@@ -2627,7 +2641,7 @@ All credits for the sample code given here goes to the Feast documentation.</em>
 <p>A new feature store is created and configured to use Astra DB as online store;
 next, it will be materialized to database using sample feature definitions and
 sample data; finally, historical/online feature retrieval is demonstrated.</p>
-<h3 id="steps">✅ Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<h3 id="steps"><span class="nosurface">✅ </span>Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <h4 id="1-install-feast-and-the-plugin">1. Install Feast and the plugin<a class="headerlink" href="#1-install-feast-and-the-plugin" title="Permanent link">&para;</a></h4>
 <p>See last item in the "Prerequisites" above.</p>
 <h4 id="2-create-a-feature-repository">2. Create a feature repository<a class="headerlink" href="#2-create-a-feature-repository" title="Permanent link">&para;</a></h4>
@@ -2771,14 +2785,16 @@ and return the required features, as resulting from the last
 
 </details>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-05-16
+      2022-09-21
     
   </small>
 </div>
