@@ -42,7 +42,6 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 ## B - Prerequisites
 
 <ul class="prerequisites">
-    <li>You should <a href="https://datastation.multiprocess.io/docs">Install DataStation</a></li>
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
     <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
