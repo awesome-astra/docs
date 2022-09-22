@@ -2473,27 +2473,40 @@
 
   <h1>• Apache Spark</h1>
 
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-06-09</em> </p>
+<ul>
+<li>title: "Introduction to Apache Spark"
+  url: "https://aws.amazon.com/big-data/what-is-spark"</li>
+<li>title: "Apache Spark Download"
+  url: "hhttps://spark.apache.org/downloads.html"</li>
+</ul>
+<hr />
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> | <em>Last Update 2022-09-22</em> </p>
 <ul>
 <li><em>This article includes information that was originally written by <strong>Arpan Patel</strong> on <a href="https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md">Anant Github</a> and Astra DataStax</em></li>
 </ul>
 <p><img src="../../../../img/apache-spark/Apache_Spark_logo.png" height="100px" /></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.</p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://aws.amazon.com/big-data/what-is-spark/">Introduction to Apache Spark</a></li>
 <li>📥 <a href="https://spark.apache.org/downloads.html">Apache Spark Download Link</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a> (RO User is needed for this example)</li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
-<li>Download and install the latest version of <a href="https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector">Spark Cassandra Connector</a> that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility <a href="https://github.com/datastax/spark-cassandra-connector#version-compatibility">here.</a></li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
+    <li>Download and install the latest version of <a href="https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector">Spark Cassandra Connector</a> that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility <a href="https://github.com/datastax/spark-cassandra-connector#version-compatibility">here.</a></li>
 </ul>
+
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
 <p>These steps assume you will be using Apache Spark in local mode. For help using Spark cluster mode click the chat button on the bottom of the screen.</p>
-<h3 id="steps">✅ Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<h3 id="steps"><span class="nosurface">✅ </span>Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Expand the downloaded Apache Spark package into a directory, and assign the directory name to <code>$SPARK_HOME</code>.</p>
@@ -2548,14 +2561,16 @@
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>scala&gt; :quit
 </code></pre></div>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-09
+      2022-09-22
     
   </small>
 </div>
