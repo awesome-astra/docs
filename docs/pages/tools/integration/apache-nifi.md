@@ -1,3 +1,13 @@
+---
+title: "Apache NiFi"
+description: "Apache NiFi  is a powerful enterprise-grade dataflow management tool that can collect, route, enrich, transform and process data in a reliable and scalable manner."
+tags: "java, third party tools, etl, workflow"
+icon: "https://awesome-astra.github.io/docs/img/apache_nifi/apache-nifi-logo.svg"
+developer_title: "Apache"
+developer_url: "https://nifi.apache.org"
+---
+
+<div class="nosurface" markdown="1">
 *Last Update {{ git_revision_date }}* 
 
 > This is an adaptation of the [Steven Matison Blogpost](https://ds-steven-matison.github.io/astra/nifi/)
@@ -7,6 +17,7 @@
 - [A - Overview](#a---overview)
 - [B - Prerequisites](#b---prerequisites)
 - [C - Log Ingestion to Astra with Stargate Document Api](#c---log-ingestion-to-astra-with-nifi)
+</div>
 
 ## A - Overview
 
@@ -30,17 +41,20 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should install a `Java JDK 1.8+` and [Apache Maven](https://maven.apache.org/)
-- [Download and install Apache Nifi](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi)
+<ul class="prerequisites">
+    <li>You should <a href="https://datastation.multiprocess.io/docs">Install DataStation</a></li>
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li>You should install a `Java JDK 1.8+` and <a href="https://maven.apache.org">Apache Maven</a></li>
+    <li><a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi">Download and install Apache Nifi</a></li>
 
 <img src="../../../../img/apache_nifi/nifi-flow-authenticated.png" height="400px"/>
 
-- You should add `invokeHttp` and `Cassandra` [processors](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor)
+  <li>You should add `invokeHttp` and `Cassandra` [processors](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor)</li>
 
 <img src="../../../../img/apache_nifi/add-processor.png" height="400px"/>
+</ul>
 
 ## C - Log Ingestion to Astra with NiFi
 
@@ -50,7 +64,7 @@ In this demo I am going to remove that constraint and ingest all raw data using 
 
 In this demo we are going to communicate with Astra via **Stargate’s Documement APIs.**
 
-### ✅ Step 1 : Get NiFi Authorized for Astra Calls
+### <span class="nosurface">✅ </span>Step 1 : Get NiFi Authorized for Astra Calls
 
 #### GetAuthToken
 
@@ -69,7 +83,7 @@ In this demo we are going to communicate with Astra via **Stargate’s Documemen
 - For sake of this demo, all variables are included in GetAuthToken Process Group. In production or in your data flow you will want those variables in the parent location. Adjust your own flow accordingly.
 - For demo purposes failure routes are visible. In production, these may be auto terminated or routed to exception handling.
 
-### ✅ Step 2 : Create Data Flow for Log Ingestion
+### <span class="nosurface">✅ </span>Step 2 : Create Data Flow for Log Ingestion
 
 <img src="../../../../img/apache_nifi/apache_log_flow.png" height="600px"/>
 
@@ -111,12 +125,12 @@ And the output of the JSON Writer is as follows:
 
 ⚠️ Notice this JSON structure is exactly what we need to insert into Astra. We do not have to create the collection or schema ahead of time. This collection creation will automatically happen with the delivery of the first document. 💡
 
-> ℹ️ **Things to Note:**
+> <span class="nosurface">ℹ️ </span>**Things to Note:**
 
 - For portability of the log data flow template, the SSL Context Service is duplicated. You can adjust your flow to use a single context service at the root canvas level.
 - Some of the NiFi Variables from above template are referenced in this template. Adjust your flow accordingly with root level variables or import this template into same Process Group above.
 
-### ✅ Step 3 : Verify Log Data With Cql Console
+### <span class="nosurface">✅ </span>Step 3 : Verify Log Data With Cql Console
 
 Login to the Astra and navigate to your Cql Consoe and execute the following query:
 
@@ -130,4 +144,6 @@ select count(*) FROM apache_log;
 
 We can now use Stargate Document API to query this data source and even search into the JSON Object. We can have conversations about the raw data, build cassandra data models, and investigate how this log data can be used downtream from cassandra. Stay tuned as I add other Log Ingestion Use Cases, a UUID Generator, and more Astra NiFi content here.
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) 
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
