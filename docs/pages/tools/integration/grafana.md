@@ -1,6 +1,17 @@
+---
+title: "Grafana"
+description: "Grafana is a multi-platform open source analytics and interactive visualization web application."
+tags: "go, javascript, cql, data management, data visualization, devops"
+icon: "https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg"
+developer_title: "Grafana"
+developer_url: "https://grafana.com"
+---
+
+<div class="nosurface" markdown="1">
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/grafana/grafana_logo.svg" height="100px" />
+</div>
 
 ## A - Overview
 
@@ -14,10 +25,12 @@ Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesA
 
 ## B - Prerequisites
 
-- To use Grafana, you will need a running Grafana instance deployed locally or in a cloud. Locally launched [Grafana in Docker](https://grafana.com/docs/grafana/next/setup-grafana/installation/docker/) works well too.
-- [Create an Astra Database](/docs/pages/astra/create-instance/).
-- [Create an Astra Token](/docs/pages/astra/create-token/) with the role "Read Only User". We strictly don't recommend using any priveleged roles as it may lead to a security breach.
-- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/) and unpack it.
+<ul class="prerequisites">
+    <li>To use Grafana, you will need a running Grafana instance deployed locally or in a cloud. Locally launched <a href="https://grafana.com/docs/grafana/next/setup-grafana/installation/docker/">Grafana in Docker</a> works well too.</li>
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the datasource configuration.
 
@@ -133,4 +146,6 @@ All other properties will be ignored
 
 We hope it works well for you! In case of any questions please contact developers using [GitHub Discussions](https://github.com/HadesArchitect/GrafanaCassandraDatasource/discussions).
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
