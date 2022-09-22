@@ -17,6 +17,7 @@ links:
 
 <img src="../../../../img/stepzen/stepzen_logo.png" height="100px" />
 </div>
+
 ## Overview
 
 StepZen helps developers build GraphQL faster, deploy in seconds, and run on StepZen. It simplifies how you access the data you need, and with zero infrastructure to build or manage, you can focus on crafting modern data-driven experiences. 
