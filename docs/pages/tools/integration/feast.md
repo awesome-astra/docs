@@ -9,9 +9,9 @@ developer_url: "https://feast.dev"
 links:
 - title: "Feast Documentation"
   url: "https://docs.feast.dev"
-  - title: "Minimal quickstart with Feast"
+- title: "Minimal quickstart with Feast"
   url: "https://docs.feast.dev/getting-started/quickstart"
-  - title: "The feast-cassandra plugin"
+- title: "The feast-cassandra plugin"
   url: "https://pypi.org/project/feast-cassandra/"
 ---
 
