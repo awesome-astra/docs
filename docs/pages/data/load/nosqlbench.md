@@ -71,7 +71,7 @@ The following installation instructions are taken from
 [the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
-** Step 1 : Download the binaries**
+#### Step 1 : Download the binaries
 
 Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
 and download the latest version.
@@ -81,7 +81,7 @@ here we assume the Linux binary is used, please see the
 [NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
 for more on using the JAR.
 
-** Step 2 : Make executable and put in search path**
+#### Step 2 : Make executable and put in search path
 
 Once the file is downloaded, make it executable with `chmod +x nb`
 and put it (or make a symlink) somewhere in your system's search path,
@@ -98,7 +98,7 @@ parameters to locate an Astra DB instance and authenticate to it:
 
 ```bash
 nb \
-  [...] \
+  [...]                                              \
   username=CLIENT_ID                                 \
   password=CLIENT_SECRET                             \
   secureconnectbundle=/PATH/TO/SECURE-CONNECT-DB.zip \
