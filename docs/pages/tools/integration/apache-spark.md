@@ -9,7 +9,7 @@ links:
 - title: "Introduction to Apache Spark"
   url: "https://aws.amazon.com/big-data/what-is-spark"
   - title: "Apache Spark Download"
-  url: "hhttps://spark.apache.org/downloads.html"
+  url: "https://spark.apache.org/downloads.html"
 ---
 
 <div class="nosurface" markdown="1">
