@@ -897,6 +897,26 @@
     C - Installation
   </a>
   
+    <nav class="md-nav" aria-label="C - Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-binaries" class="md-nav__link">
+    Step 1 : Download the binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-executable-and-put-in-search-path" class="md-nav__link">
+    Step 2 : Make executable and put in search path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2495,6 +2515,26 @@
     C - Installation
   </a>
   
+    <nav class="md-nav" aria-label="C - Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-binaries" class="md-nav__link">
+    Step 1 : Download the binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-executable-and-put-in-search-path" class="md-nav__link">
+    Step 2 : Make executable and put in search path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2587,7 +2627,7 @@ NoSQLBench).</p>
 <p>The following installation instructions are taken from
 <a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">the official NoSQLBench documentation</a>.
 Please refer to it for more details and updates.</p>
-<p>** Step 1 : Download the binaries**</p>
+<h4 id="step-1-download-the-binaries">Step 1 : Download the binaries<a class="headerlink" href="#step-1-download-the-binaries" title="Permanent link">&para;</a></h4>
 <p>Go to the <a href="https://github.com/nosqlbench/nosqlbench/releases">releases page</a>
 and download the latest version.
 The suggested option is to download the Linux binary (<code>nb</code>),
@@ -2595,7 +2635,7 @@ but as an alternative the <code>nb.jar</code> version can also be used:
 here we assume the Linux binary is used, please see the
 <a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">NoSQLBench documentation</a>
 for more on using the JAR.</p>
-<p>** Step 2 : Make executable and put in search path**</p>
+<h4 id="step-2-make-executable-and-put-in-search-path">Step 2 : Make executable and put in search path<a class="headerlink" href="#step-2-make-executable-and-put-in-search-path" title="Permanent link">&para;</a></h4>
 <p>Once the file is downloaded, make it executable with <code>chmod +x nb</code>
 and put it (or make a symlink) somewhere in your system's search path,
 such as <code>/home/${USER}/.local/bin/</code>.</p>
@@ -2605,7 +2645,7 @@ such as <code>/home/${USER}/.local/bin/</code>.</p>
 <p>If you already use NoSQLBench... then all you need to know is that invocations should include the following
 parameters to locate an Astra DB instance and authenticate to it:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nb <span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="o">[</span>...<span class="o">]</span> <span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="o">[</span>...<span class="o">]</span>                                              <span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
