@@ -1,14 +1,34 @@
-<details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
-<ol>
-<li><a href="https://docs.nosqlbench.io/docs/nosqlbench/introduction/"><b>📖  NoSQLBench Docs</b> - Reference documentation</a>
-<li><a href="https://docs.datastax.com/en/astra/docs/develop/dev-upload-data.html#_test_loading_data_with_nosqlbench"><b>📖  Astra Docs</b> - Reference Documentation</a>
-</ol>
-</details>
+---
+title: "NoSQLBench"
+description: "NoSQLBench is a powerful, state-of-the-art tool for emulating real application workloads and direct them to actual target data stores for reliable, reproducible benchmarking."
+tags: "java, cql, data management"
+icon: "https://awesome-astra.github.io/docs/img/nosqlbench/nb.png"
+developer_title: "NoSQLBench Github Org"
+developer_url: "https://github.com/nosqlbench"
+links:
+- title: "NoSQLBench documentation"
+  url: "https://docs.nosqlbench.io/docs/nosqlbench/introduction/"
+- title: "Astra Docs on NoSQLBench"
+  url: "https://docs.datastax.com/en/astra/docs/develop/dev-upload-data.html#_test_loading_data_with_nosqlbench"
+---
+
+<div class="nosurface" markdown="1">
+_Last Update {{ git_revision_date }}_
+
+<img src="https://awesome-astra.github.io/docs/img/nosqlbench/nb.png" height="60px" />
+
+</div>
 
 ## A - Overview
 
-### 📘 What is NoSQLBench ?
+<div class="nosurface" markdown="1">
+
+- ℹ️ [NoSQLBench documentation](https://docs.nosqlbench.io/docs/nosqlbench/introduction/)
+- ℹ️ [Astra Docs on NoSQLBench](https://docs.datastax.com/en/astra/docs/develop/dev-upload-data.html#_test_loading_data_with_nosqlbench)
+
+</div>
+
+### What is NoSQLBench ?
 
 NoSQLBench is a powerful, state-of-the-art tool for emulating real application
 workloads and direct them to actual target data stores for reliable,
@@ -26,9 +46,9 @@ At the heart of NoSQLBench are a few principles:
 - workloads are reproducible down to the individual statement (no "actual randomness" involved);
 - reliable performance timing, i.e. care is taken on the client side to avoid unexpected JVM pauses.
 
-### 📘 NoSQLBench and Astra DB
+### NoSQLBench and Astra DB
 
-NoSQLBench uses the (CQL-based) Cassandra Java Drivers, which mean that it
+NoSQLBench uses the (CQL-based) Cassandra Java Drivers, which means that it
 supports Astra DB natively with its drivers. The only care is in providing
 access to an Astra DB instance, which is done via command-line parameters.
 
@@ -41,9 +61,9 @@ NoSQLBench).
 ## B - Prerequisites
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+- You should [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 
 ## C - Installation
 
@@ -51,7 +71,7 @@ The following installation instructions are taken from
 [the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
-**✅ Step 1 : Download the binaries**
+** Step 1 : Download the binaries**
 
 Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
 and download the latest version.
@@ -61,7 +81,7 @@ here we assume the Linux binary is used, please see the
 [NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
 for more on using the JAR.
 
-**✅ Step 2 : Make executable and put in search path**
+** Step 2 : Make executable and put in search path**
 
 Once the file is downloaded, make it executable with `chmod +x nb`
 and put it (or make a symlink) somewhere in your system's search path,
@@ -76,7 +96,7 @@ As a quick test, try the command `nb --version`.
 If you already use NoSQLBench... then all you need to know is that invocations should include the following
 parameters to locate an Astra DB instance and authenticate to it:
 
-```
+```bash
 nb \
   [...] \
   username=CLIENT_ID                                 \
@@ -88,7 +108,7 @@ nb \
 
 In the above, you should pass your Client ID and Client Secret as found in
 the Astra DB Token, and the path to the Secure Bundle zipfile you obtained
-earlier (see [Prerequisites](#b---prerequisites)). Please prepend `./` to
+earlier (see [Prerequisites](https://awesome-astra.github.io/docs/pages/data/load/nosqlbench/#b-prerequisites)). Please prepend `./` to
 the bundle path if it is a relative path.
 
 You may want to specify a keyspace, as seen in the sample command quoted here,
@@ -193,7 +213,7 @@ nb cql-iot astra                                     \
 
 You can inspect all available workloads with:
 
-```
+```bash
 nb --list-scenarios
 ```
 
