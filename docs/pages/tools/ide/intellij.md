@@ -1,6 +1,23 @@
-[🏠 Back to home](https://awesome-astra.github.io/docs/) | _Written by **Cedrick Lunven**, Last Update `2/18/2022`_
+---
+title: "IntelliJ"
+description: "IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages. It is developed by JetBrains, and is available as an Apache 2 Licensed community edition, and in a proprietary commercial edition."
+tags: "ide, ide plugins"
+icon: "https://commons.wikimedia.org/wiki/File:IntelliJ_IDEA_Icon.svg"
+developer_title: "JetBrains"
+developer_url: "https://www.jetbrains.com/idea/"
+links:
+- title: "IntelliJ Idea Install"
+  url: "https://www.jetbrains.com/idea/download/#section=mac"
+- title: "IntelliJ IDEA Resources"
+  url: "https://www.jetbrains.com/idea/resources/"
+---
+
+<div class="nosurface" markdown="1">
+_Written by **Cedrick Lunven**, Last Update {{ git_revision_date }}_
+
 
 - This content has been built using [Reference Documentation ](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
+</div>
 
 ## A - Overview
 
@@ -8,18 +25,21 @@
 
 <img src="https://plugins.jetbrains.com/files/17013/screenshot_04795b62-5479-42c8-b97d-04f0d5459e19" height="200px"/>
 
-Astra DB is a serverless NoSQL database as a service, built on Apache Cassandra (tm). Navigate, insert and edit data in your Astra DB without coding, directly in your favorite JetBrains IDE using this plugin from DataStax. This plugin also works with open source Apache Cassandra 4.0 once a Stargate Data API gateway has been configured.
+IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages. It is developed by JetBrains, and is available as an Apache 2 Licensed community edition, and in a proprietary commercial edition.
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should download either Community or ultimate edition of intelliJ from [Download Page](https://www.jetbrains.com/idea/download/?fromIDE=#section=mac)
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should download either Community or Ultimate edition of IntelliJ from <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
+</ul>
+
 
 ## C - Installation Guide
 
-### ✅ 1. Download Plugin
+### <span class="nosurface">✅ </span> 1. Download Plugin
 
 > _[Astra DB Explorer Installation Page](https://github.com/datastax/astra-ide-plugin/wiki/Getting-Started)_
 
@@ -37,7 +57,7 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png)
 
-### ✅ 2. Setup Plugin
+### <span class="nosurface">✅ </span> 2. Setup Plugin
 
 - During the first restart you will got an `IDE error occured` message it is expected we will now configure the plugin
 
@@ -51,7 +71,7 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png)
 
-### ✅ 3. Edit Profiles
+### <span class="nosurface">✅ </span> 3. Edit Profiles
 
 - In the drop down menu select `Edit Profiles` the configuration file is referred as a profile
 
@@ -73,12 +93,12 @@ File > Preferences > Plugins
 default = "AstraCS:XXXX"
 ```
 
-### ✅ 4. Reload Profiles
+### <span class="nosurface">✅ </span> 4. Reload Profiles
 
 - Now on the drop down menu select `Reload Profiles`
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-5.png)
 
-- Et voila you can now list databases on your Astra organization and for each you can see the different keyspaces
+- Et voila! You can now list databases on your Astra organization and for each you can see the different keyspaces
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png)
