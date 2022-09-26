@@ -1,5 +1,17 @@
+---
+title: "Astra Data Loader"
+description: "Astra DB conveniently has its own data loader built in to the user interface. Use this DataStax Astra DB Data Loader to load your own data into your database or try one of our sample datasets."
+tags: "data management"
+icon: "https://awesome-astra.github.io/docs/img/astra/astra-negative-square.png"
+developer_title: "Astra"
+developer_url: "https://www.datastax.com/products/datastax-astra"
+links:
+  - title: "DataStax Astra"
+    url: "https://www.datastax.com/products/datastax-astra"
+---
+
 <details>
-<summary><b> 📖 Reference Documentations and resources</b></summary>
+<summary><b> 📖 Reference Documentations and Resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/manage/upload/astra-data-loader.html"><b>📖  Data Loader</b> - Astra Reference documentation</a>
 <li><a href="https://www.youtube.com/watch?v=xg3SPqKpP7Q&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=5"><b>🎥 Youtube Video</b> - Walk through data loader usage</a>
@@ -12,12 +24,14 @@ Astra DB conveniently has its own data loader built in to the user interface. Us
 
 ### B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+<ul class="prerequisites">
+  <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+</ul>
 
 ### C - Procedure
 
-**✅ Step 1 : From your Astra DB Dashboard, select Load Data for the database where you want to load data.**
+**<span class="nosurface">✅ </span> Step 1 : From your Astra DB Dashboard, select Load Data for the database where you want to load data.**
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-dashboard.png)
 
@@ -25,7 +39,7 @@ The Astra DB Data Loader launches.
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-createscreen.png)
 
-**✅ Step 2 : Load your data using one of the options:**
+**<span class="nosurface">✅ </span> Step 2 : Load your data using one of the options:**
 
 #### Upload your dataset
 
