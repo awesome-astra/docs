@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-*Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/stepzen/stepzen_logo.png" height="100px" />
 </div>

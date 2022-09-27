@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-*Last Update {{ git_revision_date }}* 
 
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>

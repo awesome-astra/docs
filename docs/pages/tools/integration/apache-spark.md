@@ -8,12 +8,11 @@ developer_url: "https://spark.apache.org"
 links:
 - title: "Introduction to Apache Spark"
   url: "https://aws.amazon.com/big-data/what-is-spark"
-  - title: "Apache Spark Download"
-  url: "hhttps://spark.apache.org/downloads.html"
+- title: "Apache Spark Download"
+  url: "https://spark.apache.org/downloads.html"
 ---
 
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 

@@ -12,7 +12,6 @@ links:
   url: "https://tableplus.com/blog/2019/10/tableplus-linux-installation.html"
 ---
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="https://awesome-astra.github.io/docs/img/tableplus/download.png" />
 

@@ -1,5 +1,3 @@
-*Last Update {{ git_revision_date }}*
-
 ## A - Overview
 
 <img src="https://camo.githubusercontent.com/1f675c076a58e2faa3e81a84a959432d0edb4846212913efd212bde95191803e/68747470733a2f2f617574686f72697a65722e6465762f696d616765732f6c6f676f2e706e67" height="100px" />

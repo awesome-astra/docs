@@ -1,5 +1,3 @@
-*Last Update {{ git_revision_date }}* 
-
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html)_ 
 - *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#:~:text=large%20graphs%20effectively.-,Deploying%20on%20DataStax%20Astra,-Astra%20DB%20simplifies)*
 

@@ -10,8 +10,6 @@ links:
   url: "https://flink.apache.org/"
 ---
 
-_Last Update {{ git_revision_date }}_
-
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png" height="30px" />
 

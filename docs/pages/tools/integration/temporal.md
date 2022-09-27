@@ -14,7 +14,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-*Last Update {{ git_revision_date }}* 
 
 <img src="https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg" height="100px" />
 </div>
