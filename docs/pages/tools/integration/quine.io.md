@@ -129,7 +129,7 @@ The Swagger spec for the Quine API can also be found locally at: [http://localho
 
 Download [attempts.json](https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running -- it's requires graceful shutdown. 
-Simply call the http://localhost:8080/api/v1/admin/shutdown to do so.
+Simply issue a curl -X "POST" "http://127.0.0.1:8080/api/v1/admin/shutdown" in a seperate terminal or command prompt window to do so.
 
 Then execute 
 
