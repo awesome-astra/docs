@@ -12,7 +12,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 
 <img src="https://awesome-astra.github.io/docs/img/vault/vaultlogo.png" />

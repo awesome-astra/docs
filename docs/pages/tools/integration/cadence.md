@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 <img src="https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png" height="100px" />
 </div>

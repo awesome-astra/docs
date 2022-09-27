@@ -1,5 +1,3 @@
-*Last Update {{ git_revision_date }}*
-
 ## A - Overview
 
 <img src="../../../../img/airflow/airflow-image.png" height="100px" />
