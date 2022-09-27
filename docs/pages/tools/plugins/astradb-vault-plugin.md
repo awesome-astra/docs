@@ -1,5 +1,3 @@
-*Last Update {{ git_revision_date }}* 
-
 <img src="../../../../img/vault/vaultlogo.png" height="50px"  />
 
 ## Overview
@@ -17,7 +15,7 @@ Consequently, there’s no audit trail of who has downloaded and used tokens, an
 
 Astra DB Plugin for HashiCorp Vault solves these security management issues. To ensure that your token ownership and usage are well understood, the plugin gives you the ability to associate metadata with tokens—such as the user who created each token, and what it is being used for. The plugin also logs who has accessed the tokens.
 
-## What is Hashi Vault? 
+## What is Hashi Vault?
 
 [HashiCorp Vault](https://www.hashicorp.com/products/vault) is a widely-used solution across the tech industry. It’s an identity-based secrets and encryption management system. HashiCorp Vault from HashiCorp provides key-value encryption services that are gated by authentication and authorization methods. Access to tokens, secrets, and other sensitive data are securely stored, managed, and tightly controlled. Audit trails are provided. HashiCorp Vault is also extensible via a variety of interfaces, allowing plugins (including Astra DB Plugin for HashiCorp Vault) to contribute to this ecosystem.
 

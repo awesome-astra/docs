@@ -9,7 +9,6 @@ developer_url: "https://grafana.com"
 ---
 
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/grafana/grafana_logo.svg" height="100px" />
 </div>
@@ -32,12 +31,13 @@ Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesA
     <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
     <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
     <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
+</ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the datasource configuration.
 
 ## C - Quickstart
 
-### Install the plugin using CLI or using web-interface 
+### Install the plugin using CLI or using web-interface
 
 - Install the plugin using grafana console tool:
 
@@ -65,7 +65,7 @@ Push the `Save and Test` button, if everything is right, you will see a `Databas
 
 If the database cannot be connected, check the following known common issues:
 
-####  Known issues:
+#### Known issues:
 
 ##### Misconfigured Port (Using `port` instead of `cql-port`)
 

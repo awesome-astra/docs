@@ -11,7 +11,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 <img src="../../../../img/datastation/datastation_logo.png" height="60px" />
 </div>
