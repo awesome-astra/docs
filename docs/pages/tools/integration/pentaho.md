@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 _This article was originally written by **Erick Ramirez** on [community.datastax.com](https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html)_
 

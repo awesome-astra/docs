@@ -1,5 +1,3 @@
-*Last Update {{ git_revision_date }}*
-
 ## A - Overview
 
 <img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" />

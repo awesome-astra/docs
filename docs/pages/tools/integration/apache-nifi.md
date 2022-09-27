@@ -8,7 +8,6 @@ developer_url: "https://nifi.apache.org"
 ---
 
 <div class="nosurface" markdown="1">
-*Last Update {{ git_revision_date }}* 
 
 > This is an adaptation of the [Steven Matison Blogpost](https://ds-steven-matison.github.io/astra/nifi/)
 

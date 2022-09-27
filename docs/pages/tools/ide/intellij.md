@@ -1,5 +1,3 @@
-[🏠 Back to home](https://awesome-astra.github.io/docs/) | _Written by **Cedrick Lunven**, Last Update `2/18/2022`_
-
 - This content has been built using [Reference Documentation ](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
 
 ## A - Overview
