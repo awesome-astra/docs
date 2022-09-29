@@ -1,29 +1,47 @@
-## A - Overview
+---
+title: "Authorizer"
+description: "Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data."
+tags: "python, third party tools, machine learning, workflow, etl"
+icon: "https://awesome-astra.github.io/docs/img/authorizer/authorizer.png"
+developer_title: "Authorizer"
+developer_url: "https://authorizer.dev"
+links:
+- title: "Authorizer Documentation"
+  url: "https://docs.authorizer.dev"
+---
 
-<img src="https://camo.githubusercontent.com/1f675c076a58e2faa3e81a84a959432d0edb4846212913efd212bde95191803e/68747470733a2f2f617574686f72697a65722e6465762f696d616765732f6c6f676f2e706e67" height="100px" />
+<div class="nosurface" markdown="1">
+<img src="../../../../img/authorizer/authorizer.png" height="100px" />
+</div>
+
+## A - Overview
 
 Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Authorizer Documentation](https://docs.authorizer.dev/)
+</div>
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Have an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+</ul>
 
 ## C - Installation
 
-**✅ Step 0 Download and install**
+**span class="nosurface">✅</span> Step 0 Download and install**
 
 Following the [Authorizer documentation](https://docs.authorizer.dev/deployment/binary) download and untar the software where you would like to install it.
 
-**✅ Step 1 Create the keyspace `authorizer`**
+**span class="nosurface">✅</span> Step 1 Create the keyspace `authorizer`**
 
 From the [Astra DB dashboard](https://astra.datastax.com), click on your database name. Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `authorizer`.
 
-**✅ Step 2 Create configuration file**
+**span class="nosurface">✅</span> Step 2 Create configuration file**
 
 Use the delivered `.env.sample` file to create a new `.env` file for your configuration.  Edit this file with Atom, Vi, or whichever editor you choose.
 ```bash
@@ -32,7 +50,7 @@ Use the delivered `.env.sample` file to create a new `.env` file for your config
     atom .env
 ```
 
-**✅ Step 3 Create base64 encoded strings from your cert, ca.crt, and key files**
+**span class="nosurface">✅</span> Step 3 Create base64 encoded strings from your cert, ca.crt, and key files**
 
 To successfully connect with Astra DB, you will need to open the secure bundle and convert the following files into base64 encoded strings:
 
@@ -50,7 +68,7 @@ base64 key key_base64_file
 
 Note that you can omit the file parameter and output the base64 encoded string to STDOUT for easy copy/paste accessibility.
 
-**✅ Step 4 Connect to Astra DB**
+**span class="nosurface">✅</span> Step 4 Connect to Astra DB**
 
 To connect to Astra DB, you will need to specify the following variables in the `.env` file:
 
@@ -66,7 +84,7 @@ DATABASE_CERT_KEY="RXNRNVcKYXkwblahblahblahnotrealkt4b1FnL2s4K29IaD"
 DATABASE_CA_CERT="WVhneERqQU1CZblahblahblahnotrealWQkFzVEJVTnNiM1Z"
 ```
 
-**✅ Step 5 Start Authorizer**
+**span class="nosurface">✅</span> Step 5 Start Authorizer**
 
 From the `authorizer` directory, run the `server` binary from the `build` directory.  It will run in the foreground.
 ```
@@ -81,4 +99,6 @@ Special thanks goes out to Lakhan Samani of Authorizer.
 [YouTube channel](https://www.youtube.com/c/LakhanSamani/featured)
 [GitHub repo](https://github.com/authorizerdev/authorizer)
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
