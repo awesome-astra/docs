@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Apache Airflow - Awesome-Astra</title>
+        <title>Apache Airflow - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Apache Airflow
+              Apache Airflow
             
           </span>
         </div>
@@ -2461,27 +2461,31 @@
 
   <h1>• Apache Airflow</h1>
 
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<div class="nosurface">
 <p><img src="../../../../img/airflow/airflow-image.png" height="100px" /></p>
+</div>
+<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems. These instructions will step through tasks/adjustments to be done in each product (Astra DB, cql-proxy, Apache Airflow), ultimately resulting in Airflow being able to work with AstraDB in its directed acyclic graphs (DAG).</p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://airflow.apache.org/docs/apache-airflow/stable/index.html">Apache Airflow Documentation</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-<li>You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
-<li>You should install <code>python3</code> and <code>pip3</code> (local deployment of Airflow) or Docker (docker)</li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should install `python3` and `pip3` (local deployment of Airflow) or Docker (docker)</li>
 </ul>
 <p>This article was written for Apache Airflow version <code>2.2.3</code> on <code>MacOS</code> with Python <code>3.9</code>.</p>
 <h2 id="c-installation">C - Installation<a class="headerlink" href="#c-installation" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 0 Download and install</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 0 Download and install</strong></p>
 <p>Following the <a href="https://airflow.apache.org/docs/apache-airflow/stable/installation/index.html">Apache Airflow reference documentation</a> download and install the software.</p>
-<p><strong>✅ Step 1 Create the keyspace <code>airflow</code></strong></p>
+<p><strong><span class="nosurface">✅</span> Step 1 Create the keyspace <code>airflow</code></strong></p>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>airflow</code>.</p>
-<p><strong>✅ Step 2 Start Cql Proxy</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 2 Start Cql Proxy</strong></p>
 <p>DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in <a href="/docs/pages/astra/cqlproxy">CQL-PROXY</a>.</p>
 <p>Be sure to start <code>cql-proxy</code> with the following settings:</p>
 <ul>
@@ -2497,7 +2501,7 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    --password AstraCS:rtFckUZblahblahblahblahblahblaha3953d799a525
 </code></pre></div>
 <p>Important to note that the command shown above binds <code>cql-proxy</code> to localhost (127.0.0.1), meaning it is not reachable (by Airflow) from outside the server instance.</p>
-<p><strong>✅ Step 3 Create a new connection in Apache Airflow</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 3 Create a new connection in Apache Airflow</strong></p>
 <p>Inside Apache Airflow, click <code>Connections</code> from underneath the <code>Admin</code> drop-down menu. Then click on the blue button labeled with the plus sign (<code>+</code>) to add a new connection. Fill out the form as shown in Figure 2:</p>
 <ul>
 <li><strong>Connection Id:</strong> A unique identifier for the connection in Apache Airflow, which will be referenced inside the DAG code. We will use “cassandra_cqlproxy.”</li>
@@ -2511,7 +2515,7 @@
 <p><img src="../../../../img/airflow/airflow-connection.png" height="400px" /></p>
 <p><em>Figure 2 - Create a new Cassandra connection for Apache Airflow.</em></p>
 <p>Click the blue <code>Save</code> button to persist the new connection.</p>
-<p><strong>✅ Step 4 Create a new DAG in Apache Airflow</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 4 Create a new DAG in Apache Airflow</strong></p>
 <p>A directed acyclic graph (DAG) is essentially a Python script which imports one or more libraries specific to Airflow. To create a new DAG, first locate your DAG directory. By default, Airflow looks for custom DAGs in the <code>~/airflow/dags/</code> directory.</p>
 <p>For testing, there is a sample DAG out in the following GitHub repository:
 https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
@@ -2527,7 +2531,7 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
 <li><code>check_table_exists</code></li>
 <li><code>query_system_local</code></li>
 </ul>
-<p><strong>✅ Step 5 Final Test</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 5 Final Test</strong></p>
 <p>To test the connection, copy the DAG mentioned above into the <code>/dags/</code> directory. Then we will invoke Airflow’s task testing functionality, by running airflow tasks test and specifying:</p>
 <ul>
 <li>The DAG’s unique identifier</li>
@@ -2543,14 +2547,16 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
 </code></pre></div>
 <h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
 <p>Special thanks goes out to Obioma Anomnachi of Anant. Obi’s <a href="https://www.youtube.com/watch?v=h2OCveciEIA">video</a> and <a href="https://github.com/anomnaco/AirflowCassandra">GitHub repo</a> proved quite helpful in building out this tutorial.</p>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-27
+      2022-09-29
     
   </small>
 </div>
