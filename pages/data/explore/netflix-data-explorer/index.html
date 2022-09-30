@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="The Netflix Data Explorer is a web-based tool that will help you navigate and edit your data.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>‣ Netflix Data Explorer - Awesome-Astra</title>
+        <title>Netflix Data Explorer - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ Netflix Data Explorer
+              Netflix Data Explorer
             
           </span>
         </div>
@@ -2487,17 +2487,21 @@
 
   <h1>‣ Netflix Data Explorer</h1>
 
+<div class="nosurface">
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
 <li><a href="https://netflixtechblog.com/exploring-data-netflix-9d87e20072e3"><b>📖 Netlix Blog</b> - Introduction of the tool by Netflix</a>
 <li><a href="https://github.com/Netflix/nf-data-explorer"><i class="fa fa-github"></i><b>Github Repository</b> - Core project </a>
 <li><a href="https://github.com/DataStax-Examples/nf-data-explorer"><b>Github Repository</b> - Fork for Astra </a>
+</li>
+</li>
+</li>
 </ol>
 </details>
-
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p>The Data Explorer by netflix is a web-based tools that will help you navigating and editing your data. It supports both <strong>Cassandra</strong> and <strong>Dynomite</strong> but here we will focus on <strong>Astra</strong>. There a few killer features</p>
+<p>The Data Explorer by netflix is a web-based tools that will help you navigate and edit your data. It supports both <strong>Cassandra</strong> and <strong>Dynomite</strong> but here we will focus on <strong>Astra</strong>. There a few killer features</p>
 <ul>
 <li><strong>Multi Cluster Access</strong></li>
 </ul>
@@ -2520,12 +2524,13 @@
 <p>The Query Mode provides a powerful IDE-like experience for writing free-form CQL queries.</p>
 <p><img src="../../../../img/netflix-data-explorer/query_ide.gif" /></p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-<li>You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
+
 <h2 id="c-procedure">C - Procedure<a class="headerlink" href="#c-procedure" title="Permanent link">&para;</a></h2>
 <h3 id="c1-run-locally">C.1 Run Locally<a class="headerlink" href="#c1-run-locally" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -2571,13 +2576,16 @@
 <ul>
 <li>Import your bundle</li>
 </ul>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-02
+      2022-09-29
     
   </small>
 </div>
