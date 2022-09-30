@@ -1,16 +1,33 @@
+---
+title: "Lagom"
+description: "Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code."
+tags: "java, scala, framework"
+icon: "https://awesome-astra.github.io/docs/img/tile-lagom.png"
+developer_title: "Lightbend"
+developer_url: "https://www.lagomframework.com"
+links:
+- title: "Lagom Documentation"
+  url: "https://www.lagomframework.com/documentation"
+---
+
+
 ### Working with Lagom
 
+<div class="nosurface" markdown="1">
 <img src="../../../../img/tile-lagom.png" align="left" height="180px"/>
+</div>
 
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
 
-#### 📦. Prerequisites [ASTRA DB]
+#### <span class="nosurface">📦.</span> Prerequisites [ASTRA DB]
 
-- You should have an [Astra DB account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+</ul>
 
-#### 📦. Prerequisites [Development Environment]
+#### <span class="nosurface">📦.</span> Prerequisites [Development Environment]
 
 - You should install the **Java Development Kit (JDK)**, of at least version 8: Use the reference documentation to install a **Java Development Kit**.
 
@@ -175,3 +192,7 @@ Note the options for `keyspace-autocreate` and `tables-autocreate` are shown set
 - Keyspaces must be created before connecting a Lagom microservice to Astra DB.
 - Lagom's attempts to create keyspaces will fail (due to a permissions error).
 - Table creation should function appropriately, assuming the required keyspaces already exist.
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
