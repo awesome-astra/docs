@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="DBeaver is a universal database management tool which allows you to manipulate your data like a regular spreadsheet, create analytical reports based on records from different data storages, and more.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>‣ DBeaver - Awesome-Astra</title>
+        <title>DBeaver - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ‣ DBeaver
+              DBeaver
             
           </span>
         </div>
@@ -2515,25 +2515,31 @@
 
   <h1>‣ DBeaver</h1>
 
+<div class="nosurface">
 <ul>
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12287/how-to-connect-to-astra-db-from-dbeaver.html">DataStax Community</a></em></li>
 </ul>
 <p><img src="../../../../img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" /></p>
+</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.</p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://dbeaver.com/docs/wiki/Application-Window-Overview">Introduction to DBeaver</a></li>
 <li>📥 <a href="https://dbeaver.com/docs/wiki/Installation">DBeaver Download Link</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
-<li><a href="/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a></li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
+
 <p>This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.</p>
 <h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-jdbc-driver">✅ Step 1: JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-jdbc-driver"><span class="nosurface">✅</span> Step 1: JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
 <p>Download the JDBC driver from the DataStax website:</p>
 <ol>
 <li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
@@ -2543,7 +2549,7 @@
 <li>Hit the blue <strong>Download</strong> button.</li>
 <li>Once the download completes, unzip the downloaded file.</li>
 </ol>
-<h3 id="step-2-import-driver">✅ Step 2: Import Driver<a class="headerlink" href="#step-2-import-driver" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-import-driver"><span class="nosurface">✅</span> Step 2: Import Driver<a class="headerlink" href="#step-2-import-driver" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Go to the <strong>Driver Manager.</strong></li>
 <li>Click the <strong>New</strong> button.</li>
@@ -2567,7 +2573,7 @@
 </ol>
 <p>At this point, you should see <strong>Astra DB</strong> as one of the drivers on the list:</p>
 <p><img src="../../../../img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" /></p>
-<h3 id="step-3-create-new-connection">✅ Step 3: Create New Connection<a class="headerlink" href="#step-3-create-new-connection" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-create-new-connection"><span class="nosurface">✅</span> Step 3: Create New Connection<a class="headerlink" href="#step-3-create-new-connection" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB in DBeaver:</p>
 <ol>
 <li>Open the <strong>New Database Connection</strong> dialog box.</li>
@@ -2589,18 +2595,20 @@
 <li>Click on the <strong>Test Connection</strong> button to confirm that the driver configuration is working:</li>
 </ol>
 <p><img src="../../../../img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" /></p>
-<h3 id="step-4-final-test">✅ Step 4: Final Test<a class="headerlink" href="#step-4-final-test" title="Permanent link">&para;</a></h3>
+<h3 id="step-4-final-test"><span class="nosurface">✅</span> Step 4: Final Test<a class="headerlink" href="#step-4-final-test" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB. If the connection was successful, you should be able to explore the keyspaces and tables in your DB on the left-hand side of the UI.</p>
 <p>Here's an example output:</p>
 <p><img src="../../../../img/dbeaver/2396-dbeaver-06-explore.png" height="350px" /></p>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-09
+      2022-09-29
     
   </small>
 </div>
