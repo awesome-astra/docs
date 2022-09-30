@@ -2,7 +2,7 @@
 title: "StepZen"
 description: "StepZen helps developers build GraphQL faster, deploy in seconds, and run on StepZen. It simplifies how you access the data you need, and with zero infrastructure to build or manage, you can focus on crafting modern data-driven experiences."
 tags: "javascript, graphql, third party tools"
-icon: "https://awesome-astra.github.io/docs/img/stepzen/stepzen_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/stepzen/stepzen.svg"
 developer_title: "StepZen"
 developer_url: "https://stepzen.com/"
 links:

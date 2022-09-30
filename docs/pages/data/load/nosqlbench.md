@@ -2,7 +2,7 @@
 title: "NoSQLBench"
 description: "NoSQLBench is a powerful, state-of-the-art tool for emulating real application workloads and direct them to actual target data stores for reliable, reproducible benchmarking."
 tags: "java, cql, data management"
-icon: "https://awesome-astra.github.io/docs/img/nosqlbench/nosqlbench_logo.svg"
+icon: "https://awesome-astra.github.io/docs/img/nosqlbench/nosqlbench.svg"
 developer_title: "NoSQLBench Github Org"
 developer_url: "https://github.com/nosqlbench"
 links:

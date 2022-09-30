@@ -2,7 +2,7 @@
 title: "Authorizer"
 description: "Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data."
 tags: "python, third party tools, machine learning, workflow, etl"
-icon: "https://awesome-astra.github.io/docs/img/authorizer/authorizer.png"
+icon: "https://awesome-astra.github.io/docs/img/authorizer/authorizer.svg"
 developer_title: "Authorizer"
 developer_url: "https://authorizer.dev"
 links:

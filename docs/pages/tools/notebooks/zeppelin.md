@@ -2,7 +2,7 @@
 title: "Apache Zeppelin"
 description: "Apache Zeppelin is a new and incubating multi-purposed web-based notebook which brings data ingestion, data exploration, visualization, sharing and collaboration features to Hadoop and Spark."
 tags: "third party tools, notebooks"
-icon: "https://awesome-astra.github.io/docs/img/apachezeplogo.png"
+icon: "https://awesome-astra.github.io/docs/img/zeppelin/zeppelin.svg"
 coming_soon: “true”
 developer_title: "Apache"
 developer_url: "https://zeppelin.apache.org/"

@@ -2,7 +2,7 @@
 title: "Temporal"
 description: "Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies."
 tags: "go, cql, third party tools, framework"
-icon: "https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg"
+icon: "https://awesome-astra.github.io/docs/img/temporal/temporal.svg"
 recommended: "true"
 developer_title: "Temporal"
 developer_url: "https://docs.temporal.io/"

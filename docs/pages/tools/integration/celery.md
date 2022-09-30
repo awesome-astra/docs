@@ -2,7 +2,7 @@
 title: "Celery"
 description: "Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages. With Celery one can define units of work called 'tasks' and dispatch them for execution, in a distributed way if desired. Celery is a Python package and as such is easily integrated in any Python project."
 tags: "python, third party tools"
-icon: "https://awesome-astra.github.io/docs/img/celery/celery_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/celery/celery.svg"
 developer_title: "The Celery Collective"
 developer_url: "https://docs.celeryq.dev/en/stable/index.html"
 links:

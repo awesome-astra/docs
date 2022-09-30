@@ -2,12 +2,14 @@
 title: "Flink"
 description: "Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream."
 tags: "java, third party tools, middleware"
-icon: "https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png"
+icon: "https://awesome-astra.github.io/docs/img/flink/flink.svg"
 developer_title: "Apache"
 developer_url: "https://flink.apache.org/"
 links:
-- title: "Apache Flink Home"
-  url: "https://flink.apache.org/"
+- title: "Introduction to Apache Flink"
+  url: "https://flink.apache.org/flink-architecture.html"
+- title: "Download Apache Flink"
+  url: "https://flink.apache.org/downloads.html"
 ---
 
 <div class="nosurface" markdown="1">
@@ -22,8 +24,10 @@ Apache Flink is a framework and distributed processing engine for stateful compu
 
 This code is intended as a fairly simple demonstration of how to enable an Apache Flink job to interact with DataStax Astra. There is certainly room for optimization here. A simple example: Flink's CassandraSink will open a new Session on each open() call even though these Session objects are thread-safe. A more robust implementation would be more aggressive about memoizing Sessions, encouraging a minimal number of open sessions for multiple operations on the same JVM. This work may be undertaken in the future, but for the moment it is beyond the scope of what we're aiming for here.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to Apache Flink](https://flink.apache.org/flink-architecture.html)
 - 📥 [Download Apache Flink](https://flink.apache.org/downloads.html)
+</div>
 
 ## Prerequisites
 <ul class="prerequisites">
