@@ -1,4 +1,19 @@
+---
+title: "Micronaut"
+description: "Micronaut is a modern, JVM-based, full stack Java framework designed for building modular, easily testable JVM applications with support for Java, Kotlin, and Groovy."
+tags: "java, cql, framework"
+icon: "https://awesome-astra.github.io/docs/img/micronaut/micronaut_stacked_black.svg"
+developer_title: "Micronaut"
+developer_url: "https://micronaut.io/"
+links:
+- title: "Micronaut Cassandra Guide"
+  url: "https://micronaut-projects.github.io/micronaut-cassandra/latest/guide/"
+---
+
+<div class="nosurface" markdown="1">
 > This guide was built base on the [Micronaut Cassandra Guide](https://micronaut-projects.github.io/micronaut-cassandra/latest/guide/)
+<img src="../../../../img/micronaut/micronaut_stacked_black.svg" height="100px" />
+</div>
 
 ## A - Overview
 
@@ -8,17 +23,19 @@ The [micronaut-cassandra](https://micronaut-projects.github.io/micronaut-cassand
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
-- You should install a `Java JDK 1.8+` and [Apache Maven](https://maven.apache.org/)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li>You should install `Java JDK 1.8+` and <a href="https://maven.apache.org/">Apache Maven</a></li>
+</ul>
 
 ## C - Configuration
 
 > You can find a working sample [here](https://github.com/clun/astra-native-java/tree/main/astra-todo-micronaut)
 
-**✅ Step 1: Create your project**
+**<span class="nosurface">✅</span> Step 1: Create your project**
 
 - To create a micronaut project and CLI `mn` is provided. You can install it using `sdkman` as describe in the [doc](https://micronaut.io/download/)
 
@@ -49,7 +66,7 @@ mn create-app astra-todo-micronaut --features cassandra
 </dependency>
 ```
 
-**✅ Step 2: Setup your project**
+**<span class="nosurface">✅</span> Step 2: Setup your project**
 
 All configuration of your project will be defined in `application.yaml` in `src/main/resources`. The module is clever enough to **load all properties as if it was the driver configuration file**.
 
@@ -84,7 +101,7 @@ cassandra:
       control-connection.timeout: 10 seconds
 ```
 
-**✅ Step 3: Application Startup**
+**<span class="nosurface">✅</span> Step 3: Application Startup**
 
 At startup you may want create the different tables needed for you application. _In Astra you can only create keyspaces from the devops API or the user interface._.
 
@@ -116,7 +133,7 @@ public class TodoApplicationStartup  implements ApplicationEventListener<Service
 }
 ```
 
-**✅ Step 4: Use Cassandra**
+**<span class="nosurface">✅</span> Step 4: Use Cassandra**
 
 To use Cassandra you will reuse the `CqlSession` from the Datastax drivers. You can simply inject it where you needed as [shown in this sample code](https://github.com/clun/astra-native-java/blob/main/astra-todo-micronaut/src/main/java/com/datastaxdev/todo/TodoRestController.java)
 
@@ -134,3 +151,7 @@ public class TodoRestController {
 ```
 
 Happy coding.
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
