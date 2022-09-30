@@ -2,7 +2,7 @@
 title: "Quine"
 description: "Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing."
 tags: "java, scala, graph, third party tools, streaming, etl"
-icon: "https://awesome-astra.github.io/docs/img/quine/quine-image.png"
+icon: "https://awesome-astra.github.io/docs/img/quine/quine-blue.svg"
 developer_title: "thatDot"
 developer_url: "https://quine.io/"
 links:

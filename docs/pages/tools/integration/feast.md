@@ -2,7 +2,7 @@
 title: "Feast"
 description: "Feast is an open-source feature store for machine learning."
 tags: "python, third party tools, machine learning"
-icon: "https://awesome-astra.github.io/docs/img/feast/feast_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/feast/feast.svg"
 recommended: "true"
 developer_title: "Tecton"
 developer_url: "https://feast.dev"

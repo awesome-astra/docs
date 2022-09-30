@@ -2,7 +2,7 @@
 title: "Grafana"
 description: "Grafana is a multi-platform open source analytics and interactive visualization web application."
 tags: "go, javascript, cql, data management, data visualization, devops"
-icon: "https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg"
+icon: "https://awesome-astra.github.io/docs/img/grafana/grafana.svg"
 recommended: "true"
 developer_title: "Grafana"
 developer_url: "https://grafana.com"

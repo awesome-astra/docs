@@ -2,7 +2,7 @@
 title: "Jupyter Notebook"
 description: "JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality."
 tags: "ide plugins"
-icon: "https://awesome-astra.github.io/docs/img/jupyter/logo.png"
+icon: "https://awesome-astra.github.io/docs/img/jupyter/Jupyter.png"
 coming_soon: “true”
 developer_title: "Jupyter"
 developer_url: "https://jupyter.org/"

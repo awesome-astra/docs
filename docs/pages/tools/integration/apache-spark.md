@@ -2,7 +2,7 @@
 title: "Apache Spark"
 description: "Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size."
 tags: "java, third party tools, machine learning, middleware"
-icon: "https://awesome-astra.github.io/docs/img/apache-spark/Apache_Spark_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/apache-spark/spark_star.svg"
 developer_title: "Apache"
 developer_url: "https://spark.apache.org"
 links:

@@ -2,7 +2,7 @@
 title: "JanusGraph"
 description: "JanusGraph is a scalable graph database optimized for storing and querying graphs containing hundreds of billions of vertices and edges distributed across a multi-machine cluster."
 tags: "java, graph, jdbc, third party tools, database"
-icon: "https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png"
+icon: "https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.svg"
 developer_title: "Linux Foundation"
 developer_url: "https://janusgraph.org"
 links:
