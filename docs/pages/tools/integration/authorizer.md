@@ -33,15 +33,15 @@ Authorizer is an open source auth solution for application.  It works with many 
 
 ## C - Installation
 
-**span class="nosurface">✅</span> Step 0 Download and install**
+**<span class="nosurface">✅</span> Step 0 Download and install**
 
 Following the [Authorizer documentation](https://docs.authorizer.dev/deployment/binary) download and untar the software where you would like to install it.
 
-**span class="nosurface">✅</span> Step 1 Create the keyspace `authorizer`**
+**<span class="nosurface">✅</span> Step 1 Create the keyspace `authorizer`**
 
 From the [Astra DB dashboard](https://astra.datastax.com), click on your database name. Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `authorizer`.
 
-**span class="nosurface">✅</span> Step 2 Create configuration file**
+**<span class="nosurface">✅</span> Step 2 Create configuration file**
 
 Use the delivered `.env.sample` file to create a new `.env` file for your configuration.  Edit this file with Atom, Vi, or whichever editor you choose.
 ```bash
@@ -50,7 +50,7 @@ Use the delivered `.env.sample` file to create a new `.env` file for your config
     atom .env
 ```
 
-**span class="nosurface">✅</span> Step 3 Create base64 encoded strings from your cert, ca.crt, and key files**
+**<span class="nosurface">✅</span> Step 3 Create base64 encoded strings from your cert, ca.crt, and key files**
 
 To successfully connect with Astra DB, you will need to open the secure bundle and convert the following files into base64 encoded strings:
 
@@ -68,7 +68,7 @@ base64 key key_base64_file
 
 Note that you can omit the file parameter and output the base64 encoded string to STDOUT for easy copy/paste accessibility.
 
-**span class="nosurface">✅</span> Step 4 Connect to Astra DB**
+**<span class="nosurface">✅</span> Step 4 Connect to Astra DB**
 
 To connect to Astra DB, you will need to specify the following variables in the `.env` file:
 
@@ -84,7 +84,7 @@ DATABASE_CERT_KEY="RXNRNVcKYXkwblahblahblahnotrealkt4b1FnL2s4K29IaD"
 DATABASE_CA_CERT="WVhneERqQU1CZblahblahblahnotrealWQkFzVEJVTnNiM1Z"
 ```
 
-**span class="nosurface">✅</span> Step 5 Start Authorizer**
+**<span class="nosurface">✅</span> Step 5 Start Authorizer**
 
 From the `authorizer` directory, run the `server` binary from the `build` directory.  It will run in the foreground.
 ```
