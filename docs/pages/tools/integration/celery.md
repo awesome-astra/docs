@@ -47,27 +47,10 @@ as backend. See the Celery documentation for more details:
 ## B - Prerequisites
 
 <ul class="prerequisites">
-
-<li class="nosurface" markdown="1">
-
-[Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
-
-</li>
-<li class="nosurface" markdown="1">
-
-[Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery). _You should have received your token while creating the database in the previous step._
-
-</li>
-<li class="nosurface" markdown="1">
-
-[Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/).
-
-</li>
-<li markdown="1">
-
-Install Celery with the Cassandra backend in your local Python environment, e.g. `pip install celery[cassandra]`. See [the backend-settings page](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) for additional info.
-
-</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery). <em>You should have received your token while creating the database in the previous step.</em></li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.
+  <li>Install Celery with the Cassandra backend in your local Python environment, e.g. <code>pip install celery[cassandra]</code>. See <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">the backend-settings page</a> for additional info.</li>
 </ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.
