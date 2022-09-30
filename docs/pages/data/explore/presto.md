@@ -2,7 +2,7 @@
 title: "Presto"
 description: "Presto is a distributed SQL query engine for big data analytics. Presto can query data from over 30 different data sources, including Cassandra and Astra DB."
 tags: "SQL, query engine, analytics"
-icon: "https://awesome-astra.github.io/docs/img/presto/logo-presto.png"
+icon: "https://awesome-astra.github.io/docs/img/presto/prestodb.svg"
 developer_title: "Presto"
 developer_url: "https://prestodb.io/"
 links:

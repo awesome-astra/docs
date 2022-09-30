@@ -2,7 +2,7 @@
 title: "Cadence"
 description: "Cadence is a multi-tenant orchestration framework that helps with managing workflows. It scales horizontally to handle millions of concurrent executions from various customers. Cadence Open Sources uses docker compose to run their server, and uses Apache CassandraⓇ as its default backend dependency."
 tags: "go, cql, third party tools, workflow"
-icon: "https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png"
+icon: "https://awesome-astra.github.io/docs/img/cadence/cadence.svg"
 developer_title: "Cadence"
 developer_url: "https://cadenceworkflow.io/"
 links:

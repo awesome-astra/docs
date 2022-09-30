@@ -2,7 +2,7 @@
 title: "MindsDB"
 description: "MindsDB enables you to use your data and make forecasts. It speeds up the ML development process by bringing machine learning into the database. With MindsDB, you can build, train, optimize, and deploy your ML models without the need for other platforms. And to get the forecasts, simply query your data and ML models."
 tags: "python, data management, machine learning"
-icon: "https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png"
+icon: "https://awesome-astra.github.io/docs/img/mindsdb/mindsDB.svg"
 developer_title: "MindsDB"
 developer_url: "https://mindsdb.com/"
 links:

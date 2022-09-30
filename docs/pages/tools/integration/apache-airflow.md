@@ -2,7 +2,7 @@
 title: "Apache Airflow"
 description: "Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems."
 tags: "python, third party tools, machine learning, workflow, etl"
-icon: "https://awesome-astra.github.io/docs/img/airflow/airflow-image.png"
+icon: "https://awesome-astra.github.io/docs/img/airflow/airflow.svg"
 developer_title: "Apache"
 developer_url: "https://airflow.apache.org"
 links:

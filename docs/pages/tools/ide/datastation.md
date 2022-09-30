@@ -2,7 +2,7 @@
 title: "DataStation"
 description: "DataStation is an open-source data IDE which allows you to easily build graphs and tables with data pulled from SQL databases, logging databases, metrics databases, HTTP servers, and more."
 tags: "ide plugins"
-icon: "https://awesome-astra.github.io/docs/img/datastation/datastation_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/datastation/datastation.svg"
 developer_title: "DataStation"
 developer_url: "https://datastation.multiprocess.io"
 links:
