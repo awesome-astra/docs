@@ -3,7 +3,7 @@ title: "Vault"
 description: "The purpose of this document is to guide you through the process using Astra DB as the storage configuration for your 
 HashiCorp Vault instance. In this tutorial, you will install Vault and edit the configuration file to point to Astra DB."
 tags: "third party tools, devops"
-icon: "https://awesome-astra.github.io/docs/img/vault/vaultlogo.png"
+icon: "https://awesome-astra.github.io/docs/img/vault/hashicorp.svg"
 developer_title: "HashiCorp"
 developer_url: "https://www.vaultproject.io/docs/install"
 links:
@@ -28,6 +28,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </div>
 
 ## Prerequisites
+
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -165,5 +166,9 @@ token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from 
 
 (1 rows)
 ```
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
 
 

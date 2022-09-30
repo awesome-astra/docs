@@ -2,7 +2,7 @@
 title: "Apache NiFi"
 description: "Apache NiFi  is a powerful enterprise-grade dataflow management tool that can collect, route, enrich, transform and process data in a reliable and scalable manner."
 tags: "java, third party tools, etl, workflow"
-icon: "https://awesome-astra.github.io/docs/img/apache_nifi/apache-nifi-logo.svg"
+icon: "https://awesome-astra.github.io/docs/img/apache_nifi/apache_nifi.svg"
 developer_title: "Apache"
 developer_url: "https://nifi.apache.org"
 ---

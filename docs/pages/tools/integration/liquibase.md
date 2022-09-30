@@ -2,7 +2,7 @@
 title: "Liquibase"
 description: "Liquibase is a database schema change management solution that enables you to revise and release database changes faster and safer from development to production."
 tags: "jdbc, third party tools, devops"
-icon: "https://awesome-astra.github.io/docs/img/liquibase/logo.png"
+icon: "https://awesome-astra.github.io/docs/img/liquibase/liquibase.svg"
 developer_title: "Liquibase"
 developer_url: "https://docs.liquibase.com/home.html"
 links:
