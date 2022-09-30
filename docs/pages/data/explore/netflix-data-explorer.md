@@ -1,3 +1,18 @@
+---
+title: "Netflix Data Explorer"
+description: "The Netflix Data Explorer is a web-based tool that will help you navigate and edit your data."
+tags: "cql, data management, ide"
+icon: "https://awesome-astra.github.io/docs/img/netflix-data-explorer/netflix_oss.png"
+developer_title: "Netflix"
+developer_url: "https://github.com/Netflix/nf-data-explorer"
+links:
+- title: "Data Explorer Blog"
+  url: "https://netflixtechblog.com/exploring-data-netflix-9d87e20072e3"
+- title: "Data Explorer for Astra"
+  url: "https://github.com/DataStax-Examples/nf-data-explorer"
+---
+
+<div class="nosurface" markdown="1">
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
@@ -6,10 +21,11 @@
 <li><a href="https://github.com/DataStax-Examples/nf-data-explorer"><b>Github Repository</b> - Fork for Astra </a>
 </ol>
 </details>
+</div>
 
 ## A - Overview
 
-The Data Explorer by netflix is a web-based tools that will help you navigating and editing your data. It supports both **Cassandra** and **Dynomite** but here we will focus on **Astra**. There a few killer features
+The Data Explorer by netflix is a web-based tools that will help you navigate and edit your data. It supports both **Cassandra** and **Dynomite** but here we will focus on **Astra**. There a few killer features
 
 - **Multi Cluster Access**
 
@@ -39,10 +55,12 @@ The Query Mode provides a powerful IDE-like experience for writing free-form CQL
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+</ul>
 
 ## C - Procedure
 
@@ -92,3 +110,7 @@ yarn start
 <img src="../../../../img/netflix-data-explorer/import-bundle.png" />
 
 - Import your bundle
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
