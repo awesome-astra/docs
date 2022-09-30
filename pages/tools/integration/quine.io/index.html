@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -20,7 +20,7 @@
     
     
       
-        <title>• Quine - Awesome-Astra</title>
+        <title>Quine - Awesome-Astra</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Quine
+              Quine
             
           </span>
         </div>
@@ -2462,29 +2462,34 @@
   <h1>• Quine</h1>
 
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<div class="nosurface">
 <p><img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" /></p>
+</div>
 <p>Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.</p>
+<div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://docs.quine.io/core-concepts/core-concepts.html">Quine Documentation - Core Concepts</a></li>
 </ul>
+</div>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance">Create an Astra Database</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token">Create an Astra Token</a></li>
-<li>You should <a href="https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle">Download your Secure bundle</a></li>
-<li>You should install a JDK (version 11 or higher).</li>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li>You should install a JDK (version 11 or higher).</li>
 </ul>
+
 <p>This article was written for Quine version <code>1.2.1</code> on <code>MacOS</code> with Java <code>11.10</code>.</p>
 <h2 id="c-installation">C - Installation<a class="headerlink" href="#c-installation" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1 Download and install</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 1 Download and install</strong></p>
 <p>Follow the <a href="https://quine.io/download">Download Quine page</a> to download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir ~/local/quine
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 </code></pre></div>
-<p><strong>✅ Step 2 Create the keyspace <code>quine</code></strong></p>
+<p><strong><span class="nosurface">✅</span> Step 2 Create the keyspace <code>quine</code></strong></p>
 <p>From the <a href="https://astra.datastax.com">Astra DB console</a>, click on your database name, or create a new one called <code>quine</code> (or another name of your preference). Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>quine</code>.</p>
-<p><strong>✅ Step 3 Configuration</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 3 Configuration</strong></p>
 <p>Create a <code>quine.conf</code> file inside the <code>quine</code> directory:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd ~/local/quine
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>touch quine.conf
@@ -2535,9 +2540,9 @@
 <p><code>username = "token"</code> - No need to mess with this.  Just leave it as the literal word "token."</p>
 <p><code>password</code> - A valid token for an Astra DB cluster.</p>
 <p><code>secure-connect-bundle</code> - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.</p>
-<p><strong>✅ Step 4 Download Secure Connect Bundle (SCB)</strong>
+<p><strong><span class="nosurface">✅</span> Step 4 Download Secure Connect Bundle (SCB)</strong>
 In your <a href="https://astra.datastax.com">Astra DB console</a> navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , and then the click 'Java' Java section. Then click the 'download bundle' on the right. Without unzipping it, move the downloaded file to the directory you created in step 1, that contains the quine-1.2.1.jar.  The file will be named <code>secure-connect-[your databasename].zip</code>, so in this example <code>secure-connect-quine.zip</code>.  You will reference this file directly in the previous configation file step above.</p>
-<p><strong>✅ Step 5 Run Quine</strong></p>
+<p><strong><span class="nosurface">✅</span> Step 5 Run Quine</strong></p>
 <p>To run Quine, invoke the JAR with Java, while passing the <code>quine.conf</code> in the <code>config.file</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ java -Dconfig.file=quine.conf -jar quine-1.2.1.jar
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
@@ -2550,7 +2555,7 @@ In your <a href="https://astra.datastax.com">Astra DB console</a> navigate to yo
 <p>You can now use Quine's visual graph explorer in a web browser, and create/traverse data with either Gremlin or Cypher: <a href="http://localhost:8080/">http://localhost:8080/</a></p>
 <p><img src="https://awesome-astra.github.io/docs/img/quine/quine-browser-apollo13.png?raw=true" height="300px" /></p>
 <p>The Swagger spec for the Quine API can also be found locally at: <a href="http://localhost:8080/docs">http://localhost:8080/docs</a></p>
-<p><strong>✅ Optional Step 6: Loading some sample data</strong></p>
+<p><strong><span class="nosurface">✅</span> Optional Step 6: Loading some sample data</strong></p>
 <p>Download <a href="https://that.re/attempts">attempts.json</a> (74.MB) from the <a href="https://quine.io/recipes/password-spraying">Quine Password Spraying example</a> and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running -- it's requires graceful shutdown. 
 Simply issue a curl -X "POST" "http://127.0.0.1:8080/api/v1/admin/shutdown" in a seperate terminal or command prompt window to do so.</p>
@@ -2560,7 +2565,7 @@ Simply issue a curl -X "POST" "http://127.0.0.1:8080/api/v1/admin/shutdown" in a
 <p>Note that it will take a few minutes to load!  When it is completed successfully you will see:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>INGEST-1 status is completed and ingested 55000
 </code></pre></div>
-<p><strong>✅ Troubleshooting</strong></p>
+<p><strong><span class="nosurface">✅</span> Troubleshooting</strong></p>
 <p>If the output does not read: </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Graph is ready!
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Application state loaded.
@@ -2601,14 +2606,16 @@ Simply issue a curl -X "POST" "http://127.0.0.1:8080/api/v1/admin/shutdown" in a
 </code></pre></div>
 <h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
 <p>Special thanks goes out to Ryan Wright and Leif Warner of <a href="https://www.thatdot.com/">thatDot</a> for their help with getting Quine running and connected.</p>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a></p>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-27
+      2022-09-29
     
   </small>
 </div>
