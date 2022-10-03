@@ -12,7 +12,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="../../../../img/airflow/airflow-image.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/airflow/airflow-image.png" height="100px" />
 </div>
 
 ## A - Overview
@@ -27,9 +27,9 @@ Apache Airflow is an open source workflow management system. It provides compone
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
     <li class="nosurface">You should install `python3` and `pip3` (local deployment of Airflow) or Docker (docker)</li>
 </ul>
 This article was written for Apache Airflow version `2.2.3` on `MacOS` with Python `3.9`.
@@ -46,7 +46,7 @@ From the [Astra DB dashboard](https://astra.datastax.com), click on your databas
 
 **<span class="nosurface">✅</span> Step 2 Start Cql Proxy**
 
-DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in [CQL-PROXY](/docs/pages/astra/cqlproxy).
+DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in [`cql-proxy`](https://awesome-astra.github.io/docs/pages/astra/cqlproxy).
 
 Be sure to start `cql-proxy` with the following settings:
 
@@ -78,7 +78,7 @@ Inside Apache Airflow, click `Connections` from underneath the `Admin` drop-down
 - **Password:** Your Astra DB client secret.
 - **Port:** The port that cql-proxy is listening on for the CQL native binary protocol, most likely 9042.
 
-<img src="../../../../img/airflow/airflow-connection.png" height="400px" />
+<img src="https://awesome-astra.github.io/docs/img/airflow/airflow-connection.png" height="400px" />
 
 _Figure 2 - Create a new Cassandra connection for Apache Airflow._
 

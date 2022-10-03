@@ -11,7 +11,7 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-- This content has been built using [Reference Documentation ](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
+- This content has been built using [Reference Documentation](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
 </div>
 
 ## A - Overview
@@ -26,8 +26,8 @@ Astra DB is a serverless NoSQL database as a service, built on Apache Cassandra 
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
   <li>You should download either Community or ultimate edition of intelliJ from the <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
 </ul>
 
