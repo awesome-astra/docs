@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/databases/janusgraph/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2506,7 +2506,7 @@
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">DataStax Community</a></em> </li>
 <li><em>Documented on JanusGraph <a href="https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra">official documentation</a></em></li>
 </ul>
-<p><img src="../../../../img/janusgraph/janusgraph.png" height="180px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" /></p>
 </div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.</p>
@@ -2527,9 +2527,9 @@ However, JanusGraph does not expose this functionality so you will need to manua
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
 <p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. </p>
@@ -2650,7 +2650,7 @@ Load a graph using Astra as the storage backend with:
 </code></pre></div></p>
 <div class="admonition abstract">
 <p class="admonition-title">Note</p>
-<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="../../../../img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.</p>
+<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.</p>
 </div>
 <p>In the <a href="https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html">Astra CQL Console</a>, I can see JanusGraph created the following tables in the <code>janusgraph</code> keyspace:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>token@cqlsh&gt; USE janusgraph;
@@ -2669,7 +2669,7 @@ Load a graph using Astra as the storage backend with:
   <small>
     
       Last update:
-      2022-09-30
+      2022-10-03
     
   </small>
 </div>
@@ -2760,7 +2760,7 @@ Load a graph using Astra as the storage backend with:
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

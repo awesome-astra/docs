@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/apache-nifi/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2593,7 +2593,7 @@
 </ul>
 </div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-nifi">📘 What is NiFi?<a class="headerlink" href="#what-is-nifi" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-nifi"><span class="nosurface" markdown="1">📘 </span>What is NiFi?<a class="headerlink" href="#what-is-nifi" title="Permanent link">&para;</a></h3>
 <p><a href="http://nifi.apache.org/">Apache NiFi</a> is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It is super powerful tool I have been using for a few years to develop data flows and data pipelines. With NiFi I can do just about anything without writing a single line of code.</p>
 <p>You can use NiFi’s <code>invokeHttp processor</code> for any Astra API calls.</p>
 <p>You can also use native <a href="https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-cassandra-nar/1.5.0/org.apache.nifi.processors.cassandra.QueryCassandra/index.html">NiFi Cassandra Processors</a>:</p>
@@ -2602,7 +2602,7 @@
 <li>PutCassandraRecord</li>
 <li>and PutCassandraQL against Astra.</li>
 </ul>
-<h3 id="my-astra-nifi-templates">📘 My Astra NiFi Templates<a class="headerlink" href="#my-astra-nifi-templates" title="Permanent link">&para;</a></h3>
+<h3 id="my-astra-nifi-templates"><span class="nosurface" markdown="1">📘 </span>My Astra NiFi Templates<a class="headerlink" href="#my-astra-nifi-templates" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>You can find my official NiFi Astra Cassandra templates <a href="https://github.com/ds-steven-matison/NiFi-Templates">here</a></p>
@@ -2614,16 +2614,16 @@
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
     <li>You should install a `Java JDK 1.8+` and <a href="https://maven.apache.org">Apache Maven</a></li>
     <li><a href="https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#downloading-and-installing-nifi">Download and install Apache Nifi</a></li>
 
-<img src="../../../../img/apache_nifi/nifi-flow-authenticated.png" height="400px"/>
+<img src="https://awesome-astra.github.io/docs/img/apache_nifi/nifi-flow-authenticated.png" height="400px"/>
 
   <li>You should add `invokeHttp` and `Cassandra` [processors](https://nifi.apache.org/docs/nifi-docs/html/getting-started.html#adding-a-processor)</li>
 
-<img src="../../../../img/apache_nifi/add-processor.png" height="400px"/>
+<img src="https://awesome-astra.github.io/docs/img/apache_nifi/add-processor.png" height="400px"/>
 </ul>
 
 <h2 id="c-log-ingestion-to-astra-with-nifi">C - Log Ingestion to Astra with NiFi<a class="headerlink" href="#c-log-ingestion-to-astra-with-nifi" title="Permanent link">&para;</a></h2>
@@ -2632,7 +2632,7 @@
 <p>In this demo we are going to communicate with Astra via <strong>Stargate’s Documement APIs.</strong></p>
 <h3 id="step-1-get-nifi-authorized-for-astra-calls"><span class="nosurface">✅ </span>Step 1 : Get NiFi Authorized for Astra Calls<a class="headerlink" href="#step-1-get-nifi-authorized-for-astra-calls" title="Permanent link">&para;</a></h3>
 <h4 id="getauthtoken">GetAuthToken<a class="headerlink" href="#getauthtoken" title="Permanent link">&para;</a></h4>
-<p><img src="../../../../img/apache_nifi/get-auth-token.png" height="600px"/></p>
+<p><img src="https://awesome-astra.github.io/docs/img/apache_nifi/get-auth-token.png" height="600px"/></p>
 <ul>
 <li>Upload and add Get <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_GetAuthToken.xml">Astra Get Auth Token Template</a> to your canvas. Record the Process Group Id for later.</li>
 <li>Collect Astra details needed: astra databaseid, region, api url, username, password.</li>
@@ -2642,7 +2642,7 @@
 <li>Play the data flow and confirm variable astraToken is filled with authorization token.</li>
 </ul>
 <blockquote>
-<p>ℹ️ <strong>Things to Note:</strong></p>
+<p><span class="nosurface" markdown="1">ℹ️ </span><strong>Things to Note:</strong></p>
 </blockquote>
 <ul>
 <li>Top of flow (GenerateFlowFile) will kick off the auth process every 30 minutes.</li>
@@ -2650,7 +2650,7 @@
 <li>For demo purposes failure routes are visible. In production, these may be auto terminated or routed to exception handling.</li>
 </ul>
 <h3 id="step-2-create-data-flow-for-log-ingestion"><span class="nosurface">✅ </span>Step 2 : Create Data Flow for Log Ingestion<a class="headerlink" href="#step-2-create-data-flow-for-log-ingestion" title="Permanent link">&para;</a></h3>
-<p><img src="../../../../img/apache_nifi/apache_log_flow.png" height="600px"/></p>
+<p><img src="https://awesome-astra.github.io/docs/img/apache_nifi/apache_log_flow.png" height="600px"/></p>
 <p>In this first example, we are going to ingest apache log data from a custom log file. Reference the template Astra Apache Logs to <a href="https://github.com/ds-steven-matison/NiFi-Templates/blob/main/Astra_Apache_Logs_to_Cassandra_with_Stargate.xml">Cassandra with Stargate for this data flow</a>. This log data happens to be on the same NiFi host in the normal /var/log/httpd/ location. The custom apache log file is in the format of:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;IfModule</span> <span class="err">log_config_module</span><span class="nt">&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    LogFormat &quot;%&gt;s  %U  %h  %{%Y-%m-%d %H:%M:%S}t&quot; urlsdetails
@@ -2678,7 +2678,7 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;apachetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-26 14:16:58&quot;</span><span class="w"></span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>⚠️ Notice this JSON structure is exactly what we need to insert into Astra. We do not have to create the collection or schema ahead of time. This collection creation will automatically happen with the delivery of the first document. 💡</p>
+<p><span class="nosurface" markdown="1">⚠️ </span>Notice this JSON structure is exactly what we need to insert into Astra. We do not have to create the collection or schema ahead of time. This collection creation will automatically happen with the delivery of the first document.<span class="nosurface" markdown="1"> 💡</span></p>
 <blockquote>
 <p><span class="nosurface">ℹ️ </span><strong>Things to Note:</strong></p>
 </blockquote>
@@ -2690,7 +2690,7 @@
 <p>Login to the Astra and navigate to your Cql Consoe and execute the following query:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">apache_log</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-<p>⚠️ For this demo it is not important to look at the data, only important to verify results are in Astra. In future updates I will go into Postman and show how to access the data in a meaningful manner. For now, let us just bask in the glory of being able to ingest log data to cassandra without data modeling. <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:" /> :collision: <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:" /></p>
+<p><span class="nosurface" markdown="1">⚠️ </span>For this demo it is not important to look at the data, only important to verify results are in Astra. In future updates I will go into Postman and show how to access the data in a meaningful manner. For now, let us just bask in the glory of being able to ingest log data to cassandra without data modeling.</p>
 <h3 id="whats-next">What’s Next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h3>
 <p>We can now use Stargate Document API to query this data source and even search into the JSON Object. We can have conversations about the raw data, build cassandra data models, and investigate how this log data can be used downtream from cassandra. Stay tuned as I add other Log Ingestion Use Cases, a UUID Generator, and more Astra NiFi content here.</p>
 <div class="nosurface">
@@ -2702,7 +2702,7 @@
   <small>
     
       Last update:
-      2022-09-30
+      2022-10-03
     
   </small>
 </div>
@@ -2793,7 +2793,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

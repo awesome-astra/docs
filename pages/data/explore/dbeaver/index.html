@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/data/explore/dbeaver/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2519,7 +2519,7 @@
 <ul>
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12287/how-to-connect-to-astra-db-from-dbeaver.html">DataStax Community</a></em></li>
 </ul>
-<p><img src="../../../../img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" /></p>
 </div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.</p>
@@ -2532,9 +2532,9 @@
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
 <p>This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.</p>
@@ -2565,14 +2565,14 @@
 <li>Driver Type: <code>Generic</code></li>
 <li>
 <p>Class Name: <code>com.simba.cassandra.jdbc42.Driver</code>
-  <img src="../../../../img/dbeaver/2385-dbeaver-01-create-driver.png" height="350px" /></p>
+  <img src="https://awesome-astra.github.io/docs/img/dbeaver/2385-dbeaver-01-create-driver.png" height="350px" /></p>
 </li>
 <li>
 <p>Click the <strong>OK</strong> button to save the driver</p>
 </li>
 </ol>
 <p>At this point, you should see <strong>Astra DB</strong> as one of the drivers on the list:</p>
-<p><img src="../../../../img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" /></p>
 <h3 id="step-3-create-new-connection"><span class="nosurface">✅</span> Step 3: Create New Connection<a class="headerlink" href="#step-3-create-new-connection" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB in DBeaver:</p>
 <ol>
@@ -2584,21 +2584,21 @@
 <li>In the <strong>Username</strong> field, enter the string <code>token</code></li>
 <li>
 <p>In the <strong>Password</strong> field, paste the value of the token you created in the <strong>Prerequisites</strong> section above. The token looks like <code>AstraCS:AbC...XYz:123...edf0</code>.
-   <img src="../../../../img/dbeaver/2374-dbeaver-03-new-connection.png" height="350px" /></p>
+   <img src="https://awesome-astra.github.io/docs/img/dbeaver/2374-dbeaver-03-new-connection.png" height="350px" /></p>
 </li>
 <li>
 <p>Click on the <strong>Connection details</strong> button</p>
 </li>
 <li>In <strong>Connection name</strong> field, give your DB connection a name:
-<img src="../../../../img/dbeaver/2402-dbeaver-04-connection-details.png" height="350px" /></li>
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/2402-dbeaver-04-connection-details.png" height="350px" /></li>
 <li>Click the <strong>Finish</strong> button</li>
 <li>Click on the <strong>Test Connection</strong> button to confirm that the driver configuration is working:</li>
 </ol>
-<p><img src="../../../../img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" /></p>
 <h3 id="step-4-final-test"><span class="nosurface">✅</span> Step 4: Final Test<a class="headerlink" href="#step-4-final-test" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB. If the connection was successful, you should be able to explore the keyspaces and tables in your DB on the left-hand side of the UI.</p>
 <p>Here's an example output:</p>
-<p><img src="../../../../img/dbeaver/2396-dbeaver-06-explore.png" height="350px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/dbeaver/2396-dbeaver-06-explore.png" height="350px" /></p>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 </div>
@@ -2608,7 +2608,7 @@
   <small>
     
       Last update:
-      2022-09-29
+      2022-10-03
     
   </small>
 </div>
@@ -2699,7 +2699,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

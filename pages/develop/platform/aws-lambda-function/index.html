@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/platform/aws-lambda-function/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2710,7 +2710,6 @@
 
 
 <h1 id="aws-lambda-functions">AWS Lambda Functions<a class="headerlink" href="#aws-lambda-functions" title="Permanent link">&para;</a></h1>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> is AWS' function-as-a-service offering that provides a serverless execution environment for your code. AWS Lambda functions are commonly used to:</p>
 <ul>
@@ -2719,13 +2718,13 @@
 </ul>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
-<li><a href="/docs/pages/astra/download-scb/">Download a Secure Connect Bundle</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download a Secure Connect Bundle</a></li>
 <li>Optionally, if you are new to AWS Lambda, practice <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html">creating a simpler function</a> first</li>
 </ul>
 <h2 id="c-using-python-driver">C - Using Python Driver<a class="headerlink" href="#c-using-python-driver" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-deployment-package">✅ 1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-deployment-package"><span class="nosurface" markdown="1">✅ </span>1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package" title="Permanent link">&para;</a></h3>
 <p>A deployment package is a <code>.zip</code> file with a function source code and dependencies. To access Astra DB from a function using Python Driver, we must add <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a>, a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, as a dependency. In addition, as part of the deployment package, we need to include a secure connect bundle for a database in Astra DB that we want to query.</p>
 <ol>
 <li>
@@ -2769,7 +2768,7 @@ You can learn more about the code above by reading the <a href="https://github.c
 </code></pre></div></p>
 </li>
 <li>
-<p><a href="/docs/pages/astra/download-scb/">Download the Secure Connect Bundle</a> for your database and copy it into the project directory.</p>
+<p><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download the Secure Connect Bundle</a> for your database and copy it into the project directory.</p>
 </li>
 <li>
 <p>Create a deployment package with <code>lambda_function.py</code>, <code>cassandra-driver</code>, and secure connect bundle:
@@ -2777,47 +2776,47 @@ You can learn more about the code above by reading the <a href="https://github.c
 </code></pre></div></p>
 </li>
 </ol>
-<h3 id="2-create-a-function">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.aws.amazon.com/lambda/home#/functions">the Functions page</a> of the Lambda console and click <strong>Create function</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/functions-page.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/functions-page.png" /></p>
 </li>
 <li>
 <p>Choose <strong>Author from scratch</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Basic information</strong> section, specify preferred <strong>Function name</strong>, <strong>Runtime</strong>, and <strong>Architecture</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/create-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/create-function.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create function</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/upload-zip.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/upload.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/upload-zip.png" />
 <br/>
 <br/>
 Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/too-large.png" /><br/></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/too-large.png" /><br/></p>
 </li>
 <li>
 <p>Under the <strong>Configuration</strong> tab, select and create these <strong>Environment variables</strong>:</p>
 <ul>
 <li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/variables.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/variables.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. </li>
 </ul>
 </li>
 </ol>
-<h3 id="3-test-the-function">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
 <p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
-<br/><img src="../../../../img/aws-lambda-functions-python-driver/test.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/test.png" /><br/>
 Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 <h2 id="d-using-python-sdk">D - Using Python SDK<a class="headerlink" href="#d-using-python-sdk" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-deployment-package_1">✅ 1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_1" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-deployment-package_1"><span class="nosurface" markdown="1">✅ </span>1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_1" title="Permanent link">&para;</a></h3>
 <p>A deployment package is a <code>.zip</code> file with a function source code and dependencies. To access Astra DB from a function using REST API, we must add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, as a dependency.</p>
 <ol>
 <li>
@@ -2865,30 +2864,30 @@ You can learn more about the code above by reading the <a href="https://github.c
 </code></pre></div></p>
 </li>
 </ol>
-<h3 id="2-create-a-function_1">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function_1"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.aws.amazon.com/lambda/home#/functions">the Functions page</a> of the Lambda console and click <strong>Create function</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/functions-page.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/functions-page.png" /></p>
 </li>
 <li>
 <p>Choose <strong>Author from scratch</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Basic information</strong> section, specify preferred <strong>Function name</strong>, <strong>Runtime</strong>, and <strong>Architecture</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/create-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/create-function.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create function</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/upload-zip.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/upload.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/upload-zip.png" /></p>
 </li>
 <li>
 <p>Verify that the uploaded function has the correct <code>lambda_function.py</code> and dependencies:
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/lambda_function_py.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/lambda_function_py.png" /><br/>
 You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
 </li>
 <li>
@@ -2900,18 +2899,18 @@ You can learn more about the code above by reading the <a href="https://github.c
 <li><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</li>
 <li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
 <li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/variables.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/variables.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage an application token as a secret. A secret can then be retrieved programmatically. </li>
 </ul>
 </li>
 </ol>
-<h3 id="3-test-the-function_1">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function_1"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function_1" title="Permanent link">&para;</a></h3>
 <p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
-<br/><img src="../../../../img/aws-lambda-functions-python-sdk/test.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/test.png" /><br/>
 Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 <h2 id="e-using-java-driver">E - Using Java Driver<a class="headerlink" href="#e-using-java-driver" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-deployment-package_2">✅ 1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_2" title="Permanent link">&para;</a></h3>
-<p>A deployment package is a <code>.zip</code> or <code>.jar</code> file archive with compiled function code and dependencies. In this tutorial, we use <a href="https://maven.apache.org/">Apache Maven™</a> to create, compile and package a function into a <code>.jar</code> file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) <a href="https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core"><strong>aws-lambda-java-core</strong></a> that defines necessary interfaces and classes to create functions; b) <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) <a href="/docs/pages/astra/download-scb/"><strong>secure connect bundle</strong></a> for a database in Astra DB that we want to query.</p>
+<h3 id="1-create-a-deployment-package_2"><span class="nosurface" markdown="1">✅ </span>1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_2" title="Permanent link">&para;</a></h3>
+<p>A deployment package is a <code>.zip</code> or <code>.jar</code> file archive with compiled function code and dependencies. In this tutorial, we use <a href="https://maven.apache.org/">Apache Maven™</a> to create, compile and package a function into a <code>.jar</code> file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) <a href="https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core"><strong>aws-lambda-java-core</strong></a> that defines necessary interfaces and classes to create functions; b) <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/"><strong>secure connect bundle</strong></a> for a database in Astra DB that we want to query.</p>
 <ol>
 <li>
 <p>Open a command prompt and create a new project using <a href="https://maven.apache.org/">Apache Maven™</a>:
@@ -2963,8 +2962,8 @@ You can learn more about the code above by reading the <a href="https://github.c
 <p>In the project directory, under <code>/src/main</code>, create directory <code>resources</code>.</p>
 </li>
 <li>
-<p><a href="/docs/pages/astra/download-scb/">Download the Secure Connect Bundle</a> for your database and copy it into the <code>resources</code> directory. The project directory structure should look like this:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/project-structure.png" /></p>
+<p><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download the Secure Connect Bundle</a> for your database and copy it into the <code>resources</code> directory. The project directory structure should look like this:
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/project-structure.png" /></p>
 </li>
 <li>
 <p>Add AWS Lambda and Java Driver dependencies to the <code>pom.xml</code> file:
@@ -3032,54 +3031,54 @@ You can learn more about the code above by reading the <a href="https://github.c
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a> mvn clean compile package
 </code></pre></div>
 Find the deployment package file <code>AstraDBFunction-1.0-SNAPSHOT.jar</code> under the <code>target</code> directory:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/final-project-structure.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/final-project-structure.png" /></p>
 </li>
 </ol>
-<h3 id="2-create-a-function_2">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_2" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function_2"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function_2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.aws.amazon.com/lambda/home#/functions">the Functions page</a> of the Lambda console and click <strong>Create function</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/functions-page.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/functions-page.png" /></p>
 </li>
 <li>
 <p>Choose <strong>Author from scratch</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Basic information</strong> section, specify preferred <strong>Function name</strong>, <strong>Runtime</strong>, and <strong>Architecture</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/create-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/create-function.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create function</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/upload-jar.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/upload.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/upload-jar.png" />
 <br/>
 <br/>
 Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/too-large.png" /><br/></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/too-large.png" /><br/></p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab, change <strong>Handler</strong> in section <strong>Runtime settings</strong> to <code>com.example.AstraDBFunction::handleRequest</code>:
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/handler.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/handler.png" /></p>
 </li>
 <li>
 <p>Under the <strong>Configuration</strong> tab, select and create these <strong>Environment variables</strong>:</p>
 <ul>
 <li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/variables.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/variables.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. <br/></li>
 </ul>
 </li>
 </ol>
-<h3 id="3-test-the-function_2">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_2" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function_2"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function_2" title="Permanent link">&para;</a></h3>
 <p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
-<br/><img src="../../../../img/aws-lambda-functions-java-driver/test.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/test.png" /><br/>
 Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 <h2 id="f-using-java-grpc">F - Using Java gRPC<a class="headerlink" href="#f-using-java-grpc" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-deployment-package_3">✅ 1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_3" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-deployment-package_3"><span class="nosurface" markdown="1">✅ </span>1. Create a deployment package.<a class="headerlink" href="#1-create-a-deployment-package_3" title="Permanent link">&para;</a></h3>
 <p>A deployment package is a <code>.zip</code> or <code>.jar</code> file archive with compiled function code and dependencies. In this tutorial, we use <a href="https://maven.apache.org/">Apache Maven™</a> to create, compile and package a function into a <code>.jar</code> file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) <a href="https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core"><strong>aws-lambda-java-core</strong></a> that defines necessary interfaces and classes to create functions; b) <a href="https://stargate.io/"><strong>Stargate</strong></a> that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) <a href="https://grpc.io/"><strong>gRPC</strong></a> that works as a high performance Remote Procedure Call (RPC) framework.</p>
 <ol>
 <li>
@@ -3088,7 +3087,7 @@ Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 </code></pre></div>
 <br/>
 The project directory structure should look like this:
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/project-structure.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/project-structure.png" /></p>
 </li>
 <li>
 <p>Rename file <code>App.java</code> to <code>AstraDBFunction.java</code> and replace its content with the function source code:
@@ -3212,37 +3211,37 @@ You can learn more about the code above by reading the <a href="https://stargate
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a> mvn clean compile package
 </code></pre></div>
 Find the deployment package file <code>AstraDBFunction-1.0-SNAPSHOT.jar</code> under the <code>target</code> directory:
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/final-project-structure.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/final-project-structure.png" /></p>
 </li>
 </ol>
-<h3 id="2-create-a-function_3">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_3" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function_3"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function_3" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.aws.amazon.com/lambda/home#/functions">the Functions page</a> of the Lambda console and click <strong>Create function</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/functions-page.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/functions-page.png" /></p>
 </li>
 <li>
 <p>Choose <strong>Author from scratch</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Basic information</strong> section, specify preferred <strong>Function name</strong>, <strong>Runtime</strong>, and <strong>Architecture</strong>.
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/create-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/create-function.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create function</strong>.</p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab and the <strong>Code source</strong> section, select <strong>Upload from</strong> and upload the deployment package created in the previous steps.
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/upload.png" /><br/>
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/upload-jar.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/upload.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/upload-jar.png" />
 <br/>
 <br/>
 Since the deployment package exceeds 3 MBs, the Console Editor may not be available to view the source code:
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/too-large.png" /><br/></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/too-large.png" /><br/></p>
 </li>
 <li>
 <p>Under the <strong>Code</strong> tab, change <strong>Handler</strong> in section <strong>Runtime settings</strong> to <code>com.example.AstraDBFunction::handleRequest</code>:
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/handler.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/handler.png" /></p>
 </li>
 <li>
 <p>Under the <strong>Configuration</strong> tab, select and create these <strong>Environment variables</strong>:</p>
@@ -3250,15 +3249,15 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
 <li><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</li>
 <li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
 <li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/variables.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/variables.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage an application token as a secret. A secret can then be retrieved programmatically.
 <br/></li>
 </ul>
 </li>
 </ol>
-<h3 id="3-test-the-function_3">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_3" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function_3"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function_3" title="Permanent link">&para;</a></h3>
 <p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
-<br/><img src="../../../../img/aws-lambda-functions-java-grpc/test.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/test.png" /><br/>
 Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
 
   <hr>
@@ -3266,7 +3265,7 @@ Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
   <small>
     
       Last update:
-      2022-09-30
+      2022-10-03
     
   </small>
 </div>
@@ -3357,7 +3356,7 @@ Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

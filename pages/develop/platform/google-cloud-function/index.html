@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/platform/google-cloud-function/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2794,7 +2794,6 @@
 
 
 <h1 id="google-cloud-functions">Google Cloud Functions<a class="headerlink" href="#google-cloud-functions" title="Permanent link">&para;</a></h1>
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://cloud.google.com/functions">Cloud Functions</a> is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:</p>
 <ul>
@@ -2803,36 +2802,36 @@
 </ul>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
-<li><a href="/docs/pages/astra/download-scb/">Download a Secure Connect Bundle</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download a Secure Connect Bundle</a></li>
 <li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first</li>
 </ul>
 <h2 id="c-using-python-driver">C - Using Python Driver<a class="headerlink" href="#c-using-python-driver" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file">✅ 1. Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file"><span class="nosurface" markdown="1">✅ </span>1. Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</p>
 </li>
 <li>
 <p>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/create-secret.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/create-secret.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create secret</strong>.</p>
 </li>
 <li>
 <p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/secret-manager.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/secret-manager.png" /></p>
 </li>
 </ol>
-<h3 id="2-create-a-function">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
 <li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
 <li>
 <p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/basics.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/basics.png" /></p>
 </li>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -2842,13 +2841,13 @@
 <ul>
 <li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/google-cloud-functions-python-driver/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
 </ul>
 </li>
 <li>
 <p>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/reference-secret.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/reference-secret.png" /><br/>
 Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
 </li>
 <li>
@@ -2865,7 +2864,7 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 </li>
 <li>
 <p>Add <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a>, a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>requirements.txt</code> file.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/requirements_txt.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/requirements_txt.png" /></p>
 </li>
 <li>
 <p>Replace the <code>main.py</code> content with:
@@ -2892,38 +2891,38 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-python-driver/main_py.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/main_py.png" /><br/>
 You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>python-driver</strong></a> documentation.</p>
 </li>
 </ol>
-<h3 id="3-deploy-the-function">✅ 3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function" title="Permanent link">&para;</a></h3>
+<h3 id="3-deploy-the-function"><span class="nosurface" markdown="1">✅ </span>3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Deploy</strong>.</p>
 </li>
 <li>
 <p>On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/deploy.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/deploy.png" /></p>
 </li>
 </ol>
-<h3 id="4-test-the-function">✅ 4. Test the function.<a class="headerlink" href="#4-test-the-function" title="Permanent link">&para;</a></h3>
+<h3 id="4-test-the-function"><span class="nosurface" markdown="1">✅ </span>4. Test the function.<a class="headerlink" href="#4-test-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/test-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-function.png" /></p>
 </li>
 <li>
 <p>On the testing page, click <strong>Test the function</strong> and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-results.png" /><br/>
 Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 </li>
 </ol>
-<h3 id="5-view-logs">✅ 5. View logs.<a class="headerlink" href="#5-view-logs" title="Permanent link">&para;</a></h3>
+<h3 id="5-view-logs"><span class="nosurface" markdown="1">✅ </span>5. View logs.<a class="headerlink" href="#5-view-logs" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs-explorer.png" /></p>
 <h2 id="d-using-python-sdk">D - Using Python SDK<a class="headerlink" href="#d-using-python-sdk" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-function">✅ 1. Create a function.<a class="headerlink" href="#1-create-a-function" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-function"><span class="nosurface" markdown="1">✅ </span>1. Create a function.<a class="headerlink" href="#1-create-a-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select a project that has Cloud Functions enabled, and click <strong>Create function</strong>.</p>
@@ -2933,7 +2932,7 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
 </li>
 <li>
 <p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/basics.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/basics.png" /></p>
 </li>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -2944,7 +2943,7 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
 <li><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</li>
 <li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
 <li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
 </ul>
 </li>
@@ -2962,7 +2961,7 @@ Note that, for better security, you can alternatively use the <a href="https://c
 </li>
 <li>
 <p>Add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the <code>requirements.txt</code> file.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/requirements_txt.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/requirements_txt.png" /></p>
 </li>
 <li>
 <p>Replace the <code>main.py</code> content with:
@@ -2990,61 +2989,61 @@ Note that, for better security, you can alternatively use the <a href="https://c
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/main_py.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/main_py.png" /><br/>
 You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
 </li>
 </ol>
-<h3 id="2-deploy-the-function">✅ 2. Deploy the function.<a class="headerlink" href="#2-deploy-the-function" title="Permanent link">&para;</a></h3>
+<h3 id="2-deploy-the-function"><span class="nosurface" markdown="1">✅ </span>2. Deploy the function.<a class="headerlink" href="#2-deploy-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Deploy</strong>.</p>
 </li>
 <li>
 <p>On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/deploy.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/deploy.png" /></p>
 </li>
 </ol>
-<h3 id="3-test-the-function">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/test-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/test-function.png" /></p>
 </li>
 <li>
 <p>On the testing page, click <strong>Test the function</strong> and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/test-results.png" /><br/>
 Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 </li>
 </ol>
-<h3 id="4-view-logs">✅ 4. View logs.<a class="headerlink" href="#4-view-logs" title="Permanent link">&para;</a></h3>
+<h3 id="4-view-logs"><span class="nosurface" markdown="1">✅ </span>4. View logs.<a class="headerlink" href="#4-view-logs" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs-explorer.png" /></p>
 <h2 id="e-using-java-driver">E - Using Java Driver<a class="headerlink" href="#e-using-java-driver" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file_1">✅ 1. Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file_1" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file_1"><span class="nosurface" markdown="1">✅ </span>1. Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</p>
 </li>
 <li>
 <p>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/create-secret.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/create-secret.png" /></p>
 </li>
 <li>
 <p>Click <strong>Create secret</strong>.</p>
 </li>
 <li>
 <p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/secret-manager.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/secret-manager.png" /></p>
 </li>
 </ol>
-<h3 id="2-create-a-function_1">✅ 2. Create a function.<a class="headerlink" href="#2-create-a-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="2-create-a-function_1"><span class="nosurface" markdown="1">✅ </span>2. Create a function.<a class="headerlink" href="#2-create-a-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
 <li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
 <li>
 <p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/basics.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/basics.png" /></p>
 </li>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -3054,13 +3053,13 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
 <ul>
 <li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
 <li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/google-cloud-functions-java-driver/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
 </ul>
 </li>
 <li>
 <p>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
 Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
 </li>
 <li>
@@ -3083,7 +3082,7 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      <span class="nt">&lt;version&gt;</span>4.13.0<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="nt">&lt;/dependency&gt;</span>  
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-java-driver/pom_xml.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/pom_xml.png" /></p>
 </li>
 <li>
 <p>Rename the <code>Example.java</code> file to <code>AstraDBFunction.java</code> and replace its content with:
@@ -3122,44 +3121,44 @@ Notice the final <strong>Path</strong> that should be used to access the secure 
 <a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-java-driver/source_code.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/source_code.png" /><br/>
 You can learn more about the code above by reading the <a href="https://github.com/datastax/java-driver"><strong>java-driver</strong></a> documentation.</p>
 </li>
 </ol>
-<h3 id="3-deploy-the-function_1">✅ 3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="3-deploy-the-function_1"><span class="nosurface" markdown="1">✅ </span>3. Deploy the function.<a class="headerlink" href="#3-deploy-the-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Deploy</strong>.</p>
 </li>
 <li>
 <p>On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/deploy.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/deploy.png" /></p>
 </li>
 </ol>
-<h3 id="4-test-the-function_1">✅ 4. Test the function.<a class="headerlink" href="#4-test-the-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="4-test-the-function_1"><span class="nosurface" markdown="1">✅ </span>4. Test the function.<a class="headerlink" href="#4-test-the-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/test-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/test-function.png" /></p>
 </li>
 <li>
 <p>On the testing page, click <strong>Test the function</strong> and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/test-results.png" /><br/>
 Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 </li>
 </ol>
-<h3 id="5-view-logs_1">✅ 5. View logs.<a class="headerlink" href="#5-view-logs_1" title="Permanent link">&para;</a></h3>
+<h3 id="5-view-logs_1"><span class="nosurface" markdown="1">✅ </span>5. View logs.<a class="headerlink" href="#5-view-logs_1" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-java-driver/logs-explorer.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs-explorer.png" /></p>
 <h2 id="f-using-java-grpc">F - Using Java gRPC<a class="headerlink" href="#f-using-java-grpc" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-function_1">✅ 1. Create a function.<a class="headerlink" href="#1-create-a-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-a-function_1"><span class="nosurface" markdown="1">✅ </span>1. Create a function.<a class="headerlink" href="#1-create-a-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select a project that has Cloud Functions enabled, and click <strong>Create function</strong>.</li>
 <li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
 <li>
 <p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/basics.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/basics.png" /></p>
 </li>
 <li>
 <p>Click <strong>Save</strong>.</p>
@@ -3170,7 +3169,7 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
 <li><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</li>
 <li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
 <li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
 </ul>
 </li>
@@ -3199,7 +3198,7 @@ Note that, for better security, you can alternatively use the <a href="https://c
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      <span class="nt">&lt;version&gt;</span>1.41.0<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="nt">&lt;/dependency&gt;</span>   
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/pom_xml.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/pom_xml.png" /></p>
 </li>
 <li>
 <p>Rename the <code>Example.java</code> file to <code>AstraDBFunction.java</code> and replace its content with:
@@ -3249,43 +3248,43 @@ Note that, for better security, you can alternatively use the <a href="https://c
 <a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/source_code.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/source_code.png" /><br/>
 You can learn more about the code above by reading the <a href="https://stargate.io/"><strong>Stargate</strong></a> documentation.</p>
 </li>
 </ol>
-<h3 id="2-deploy-the-function_1">✅ 2. Deploy the function.<a class="headerlink" href="#2-deploy-the-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="2-deploy-the-function_1"><span class="nosurface" markdown="1">✅ </span>2. Deploy the function.<a class="headerlink" href="#2-deploy-the-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Deploy</strong>.</p>
 </li>
 <li>
 <p>On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/deploy.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/deploy.png" /></p>
 </li>
 </ol>
-<h3 id="3-test-the-function_1">✅ 3. Test the function.<a class="headerlink" href="#3-test-the-function_1" title="Permanent link">&para;</a></h3>
+<h3 id="3-test-the-function_1"><span class="nosurface" markdown="1">✅ </span>3. Test the function.<a class="headerlink" href="#3-test-the-function_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-function.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/test-function.png" /></p>
 </li>
 <li>
 <p>On the testing page, click <strong>Test the function</strong> and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/test-results.png" /><br/>
 Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
 </li>
 </ol>
-<h3 id="4-view-logs_1">✅ 4. View logs.<a class="headerlink" href="#4-view-logs_1" title="Permanent link">&para;</a></h3>
+<h3 id="4-view-logs_1"><span class="nosurface" markdown="1">✅ </span>4. View logs.<a class="headerlink" href="#4-view-logs_1" title="Permanent link">&para;</a></h3>
 <p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs-explorer.png" /></p>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs-explorer.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-30
+      2022-10-03
     
   </small>
 </div>
@@ -3376,7 +3375,7 @@ Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

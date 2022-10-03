@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/data/explore/presto/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2489,7 +2489,7 @@
 
   <h1>‣ Presto</h1>
 
-<p><img src="../../../../img/presto/logo-presto.png" height="100px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/presto/logo-presto.png" height="100px" /></p>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://prestodb.io">Presto</a> is a distributed SQL query engine for big data analytics. Presto can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Presto use cases include:</p>
 <ul>
@@ -2511,13 +2511,13 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 </center></p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li><a href="/docs/pages/astra/create-token/">Create an Astra Token</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+<li><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a></li>
 </ul>
 <h2 id="c-setup-astra-db">C - Setup Astra DB<a class="headerlink" href="#c-setup-astra-db" title="Permanent link">&para;</a></h2>
-<p><strong>✅ 1. <a href="https://astra.datastax.com/">Sign in</a></strong></p>
-<p>Connect to your Astra account and <a href="/docs/pages/astra/create-instance/">create a new Astra database</a> or select an existing one. Add a new keyspace with name <code>banking_db</code> or use an existing one.</p>
-<p><strong>✅ 2. Create the following tables using the CQL Console</strong></p>
+<p><strong><span class="nosurface">✅ </span>1. <a href="https://astra.datastax.com/">Sign in</a></strong></p>
+<p>Connect to your Astra account and <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">create a new Astra database</a> or select an existing one. Add a new keyspace with name <code>banking_db</code> or use an existing one.</p>
+<p><strong><span class="nosurface">✅ </span>2. Create the following tables using the CQL Console</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">banking_db</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
@@ -2536,7 +2536,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">((</span><span class="n">customer_id</span><span class="p">),</span><span class="w"> </span><span class="n">account_number</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<p><strong>✅ 3. Insert the rows using the CQL Console</strong></p>
+<p><strong><span class="nosurface">✅ </span>3. Insert the rows using the CQL Console</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="n">d6c1271</span><span class="o">-</span><span class="mi">16</span><span class="n">b6</span><span class="o">-</span><span class="mi">479</span><span class="n">d</span><span class="o">-</span><span class="mi">8</span><span class="n">ea9</span><span class="o">-</span><span class="mi">546</span><span class="n">c37381ab3</span><span class="p">,</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="s1">&#39;alice@example.org&#39;</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="s1">&#39;bob@example.org&#39;</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -2551,7 +2551,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;B-102&#39;</span><span class="p">,</span><span class="s1">&#39;Savings&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">.</span><span class="mi">04</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h2 id="d-deploy-cql-proxy">D - Deploy CQL Proxy<a class="headerlink" href="#d-deploy-cql-proxy" title="Permanent link">&para;</a></h2>
-<p><strong>✅ 4. Installation</strong></p>
+<p><strong><span class="nosurface">✅ </span>4. Installation</strong></p>
 <p>Follow <a href="https://github.com/datastax/cql-proxy">the instructions</a> to deploy a <em>CQL Proxy</em> as close to a <em>Presto Server</em> as possible, preferrably deploying both components on the same server. The simplest way to start <code>cql-proxy</code> is to use an <code>&lt;astra-token&gt;</code> and <code>&lt;astra-database-id&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./cql-proxy <span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--astra-token &lt;astra-token&gt; <span class="se">\</span>
@@ -2563,7 +2563,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>--astra-database-id e5e4e925-289a-8231-83fd-25918093257b
 </code></pre></div>
 <h2 id="e-setup-presto-server">E - Setup Presto Server<a class="headerlink" href="#e-setup-presto-server" title="Permanent link">&para;</a></h2>
-<p><strong>✅ 5. Presto intallation</strong></p>
+<p><strong><span class="nosurface">✅ </span>5. Presto intallation</strong></p>
 <p>Follow <a href="https://prestodb.io/docs/current/installation/deployment.html">the instructions</a> to download, install and configure a <em>Presto Server</em> or use an existing deployment. The minimal configuration requirements for a local single-machine deployment are:</p>
 <ul>
 <li>Node properties in file <code>etc/node.properties</code></li>
@@ -2605,19 +2605,19 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>cassandra.consistency-level=QUORUM
 </code></pre></div>
 <p>The above configuration uses <a href="https://prestodb.io/docs/current/connector/cassandra.html">the Cassandra connector</a> to interact with <code>cql-proxy</code>.</p>
-<p><strong>✅ 6. Start the Presto Server:</strong></p>
+<p><strong><span class="nosurface">✅ </span>6. Start the Presto Server:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>bin/launcher run
 </code></pre></div>
 <p>Wait for message <code>======== SERVER STARTED ========</code> to confirm a successful start.</p>
 <h2 id="f-sql-queries-with-presto-client">F - SQL Queries with Presto Client<a class="headerlink" href="#f-sql-queries-with-presto-client" title="Permanent link">&para;</a></h2>
 <p>In this section you will execute SQL Queries against Astra DB using Presto CLI Client.</p>
-<p><strong>✅ 7. Install Presto Client</strong></p>
+<p><strong><span class="nosurface">✅ </span>7. Install Presto Client</strong></p>
 <p>Follow <a href="https://prestodb.io/docs/current/installation/cli.html">the instructions</a> to download and install a <em>CLI Presto Client</em>.</p>
-<p><strong>✅ 8. Start the <em>CLI Presto Client</em>:</strong></p>
+<p><strong><span class="nosurface">✅ </span>8. Start the <em>CLI Presto Client</em>:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./presto --server http://localhost:8080 --catalog cassandra
 </code></pre></div>
 <p>The <code>server</code> option specifies the HTTP(S) address and port of the Presto coordinator, and the <code>catalog</code> option sets the default catalog.</p>
-<p><strong>✅ 9. Execute the SQL query to find the total number of customers:</strong></p>
+<p><strong><span class="nosurface">✅ </span>9. Execute the SQL query to find the total number of customers:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">customer_count</span><span class="w"></span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">banking_db</span><span class="p">.</span><span class="n">customer</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -2627,7 +2627,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>              2
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>(1 row)
 </code></pre></div>
-<p><strong>✅ 10. Execute the SQL query to find emails of customers with account balances of <code>300.00</code> or higher:</strong></p>
+<p><strong><span class="nosurface">✅ </span>10. Execute the SQL query to find emails of customers with account balances of <code>300.00</code> or higher:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">customer_email</span><span class="w"></span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">banking_db</span><span class="p">.</span><span class="n">customer</span><span class="w"></span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">     </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">banking_db</span><span class="p">.</span><span class="n">accounts_by_customer</span><span class="w"></span>
@@ -2640,7 +2640,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a> bob@example.org
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>(1 row)
 </code></pre></div>
-<p><strong>✅ 11. Execute the SQL query to find customers and sums of their account balances:</strong></p>
+<p><strong><span class="nosurface">✅ </span>11. Execute the SQL query to find customers and sums of their account balances:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">customer_id</span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">       </span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">customer_name</span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">       </span><span class="n">email</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">customer_email</span><span class="p">,</span><span class="w"></span>
@@ -2665,7 +2665,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
   <small>
     
       Last update:
-      2022-09-30
+      2022-10-03
     
   </small>
 </div>
@@ -2756,7 +2756,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>
