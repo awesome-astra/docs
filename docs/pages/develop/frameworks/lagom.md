@@ -1,6 +1,6 @@
 ---
 title: "Lagom"
-description: "Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code."
+description: "Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of 'boiler-plate' code."
 tags: "java, scala, framework"
 icon: "https://awesome-astra.github.io/docs/img/tile-lagom.png"
 developer_title: "Lightbend"
@@ -14,7 +14,7 @@ links:
 ### Working with Lagom
 
 <div class="nosurface" markdown="1">
-<img src="../../../../img/tile-lagom.png" align="left" height="180px"/>
+<img src="https://awesome-astra.github.io/docs/img/tile-lagom.png" align="left" height="180px"/>
 </div>
 
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
@@ -23,8 +23,8 @@ Lagom is an open source framework for building out Reactive microservices.  Lago
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
 #### <span class="nosurface">📦.</span> Prerequisites [Development Environment]

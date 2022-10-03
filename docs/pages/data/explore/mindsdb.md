@@ -13,7 +13,7 @@ links:
 <div class="nosurface" markdown="1">
 - _This article was originally written by **Steven Matison** on [Datastax JIRA](https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB)_
 
-<img src="../../../../img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
+<img src="https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
 </div>
 
 This page will go into details about what I had to do to build the project, modify the `cassandra.py` and `scylla_ds.py`, and get mindsdb GUI connected to Astra.

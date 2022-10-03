@@ -18,7 +18,7 @@ links:
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html)_ 
 - *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra)*
 
-<img src="../../../../img/janusgraph/janusgraph.png" height="180px" />
+<img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" />
 </div>
 
 ## A - Overview
@@ -43,9 +43,9 @@ However, JanusGraph does not expose this functionality so you will need to manua
 ## B - Prerequisites
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
 This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. 
@@ -185,7 +185,7 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 
 !!! abstract "Note"
 
-    It is normal to see some warnings on the Gremlin console. I have attached a <a href="../../../../img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
+    It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:
 ```

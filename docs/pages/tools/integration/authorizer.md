@@ -11,7 +11,7 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-<img src="../../../../img/authorizer/authorizer.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/authorizer/authorizer.png" height="100px" />
 </div>
 
 ## A - Overview
@@ -26,9 +26,9 @@ Authorizer is an open source auth solution for application.  It works with many 
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
 ## C - Installation
