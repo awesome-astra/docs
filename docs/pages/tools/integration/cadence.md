@@ -21,15 +21,15 @@ links:
 
 Cadence is a multi-tenant orchestration framework that helps with managing workflows. It scales horizontally to handle millions of concurrent executions from various customers. Cadence Open Sources uses docker compose to run their server, and uses Apache CassandraⓇ as its default backend dependency. Using docker compose, users are able to also use Cadence with MySQL, PostgreSQL, Statsd+Graphite, and Elasticsearch.
 
-- ℹ️ [Introduction to Cadence](https://cadenceworkflow.io/docs/get-started/)
-- 📥 [Cadence Quick Install](https://cadenceworkflow.io/docs/get-started/installation/)
+- <span class="nosurface" markdown="1">ℹ️ </span>[Introduction to Cadence](https://cadenceworkflow.io/docs/get-started/)
+- <span class="nosurface" markdown="1">📥 </span>[Cadence Quick Install](https://cadenceworkflow.io/docs/get-started/installation/)
 
 ## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
 !!! note "Note"

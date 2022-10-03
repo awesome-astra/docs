@@ -14,8 +14,6 @@ links:
 
 # Google Cloud Functions
 
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-
 ## A - Overview
 
 [Cloud Functions](https://cloud.google.com/functions) is Google's function-as-a-service offering that provides a serverless execution environment for your code. Cloud Functions are commonly used to:
@@ -25,31 +23,31 @@ links:
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/docs/pages/astra/create-token/)
-- [Download a Secure Connect Bundle](/docs/pages/astra/download-scb/)
+- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
+- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
+- [Download a Secure Connect Bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
 
 ## C - Using Python Driver
 
-### ✅ 1. Create a secret with the secure connect bundle file.
+### <span class="nosurface" markdown="1">✅ </span>1. Create a secret with the secure connect bundle file.
 
 1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
 
 2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/create-secret.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/create-secret.png" />
 
 3. Click **Create secret**.
 
 4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/secret-manager.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/secret-manager.png" />
 
-### ✅ 2. Create a function.
+### <span class="nosurface" markdown="1">✅ </span>2. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select the same project that has Secret Manager and Cloud Functions enabled, and click **Create function**.
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/basics.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/basics.png" />
 
 4. Click **Save**.
 
@@ -57,11 +55,11 @@ links:
 
     - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
     - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
-<br/><img src="../../../../img/google-cloud-functions-python-driver/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/reference-secret.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/reference-secret.png" /><br/>
 Notice the final **Path** that should be used to access the secure connect bundle in the function code.
 
 7. Click **Done** and **Next**.
@@ -73,7 +71,7 @@ Notice the final **Path** that should be used to access the secure connect bundl
 10. Enter **query_astra_db** in the **Entry point** field.
 
 11. Add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `requirements.txt` file.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/requirements_txt.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/requirements_txt.png" />
 
 12. Replace the `main.py` content with:
 ```python
@@ -100,41 +98,41 @@ def query_astra_db(request):
 
     print ('Success')
 ```
-<br/><img src="../../../../img/google-cloud-functions-python-driver/main_py.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/main_py.png" /><br/>
 You can learn more about the code above by reading the [**python-driver**](https://github.com/datastax/python-driver) documentation.
 
-### ✅ 3. Deploy the function.
+### <span class="nosurface" markdown="1">✅ </span>3. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/deploy.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/deploy.png" />
 
-### ✅ 4. Test the function.
+### <span class="nosurface" markdown="1">✅ </span>4. Test the function.
 
 1. Under **Actions**, select **Test function**.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/test-function.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-results.png" /><br/>
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ 5. View logs.
+### <span class="nosurface" markdown="1">✅ </span>5. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
-<br/><img src="../../../../img/google-cloud-functions-python-driver/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-python-driver/logs-explorer.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs-explorer.png" />
 
 ## D - Using Python SDK
 
-### ✅ 1. Create a function.
+### <span class="nosurface" markdown="1">✅ </span>1. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select a project that has Cloud Functions enabled, and click **Create function**.
 
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/basics.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/basics.png" />
 
 4. Click **Save**.
 
@@ -142,7 +140,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
     - `ASTRA_DB_ID`: A **Database ID** value can be found on the [Astra DB](https://astra.datastax.com/) dashboard.
     - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
     - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Click **Next**.
@@ -154,7 +152,7 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
 9. Enter **query_astra_db** in the **Entry point** field.
 
 10. Add [**AstraPy**](https://github.com/datastax/astrapy), a Pythonic SDK for DataStax Astra and Stargate, and its preferred version to the `requirements.txt` file.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/requirements_txt.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/requirements_txt.png" />
 
 11. Replace the `main.py` content with:
 ```python
@@ -182,52 +180,52 @@ def query_astra_db(request):
 
     print ('Success')
 ```
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/main_py.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/main_py.png" /><br/>
 You can learn more about the code above by reading the [AstraPy](https://github.com/datastax/astrapy) documentation.
 
-### ✅ 2. Deploy the function.
+### <span class="nosurface" markdown="1">✅ </span>2. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/deploy.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/deploy.png" />
 
-### ✅ 3. Test the function.
+### <span class="nosurface" markdown="1">✅ </span>3. Test the function.
 
 1. Under **Actions**, select **Test function**.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/test-function.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/test-results.png" /><br/>
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ 4. View logs.
+### <span class="nosurface" markdown="1">✅ </span>4. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-python-sdk/logs-explorer.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs-explorer.png" />
 
 
 ## E - Using Java Driver
 
-### ✅ 1. Create a secret with the secure connect bundle file.
+### <span class="nosurface" markdown="1">✅ </span>1. Create a secret with the secure connect bundle file.
 
 1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
 
 2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/create-secret.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/create-secret.png" />
 
 3. Click **Create secret**.
 
 4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/secret-manager.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/secret-manager.png" />
 
-### ✅ 2. Create a function.
+### <span class="nosurface" markdown="1">✅ </span>2. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select the same project that has Secret Manager and Cloud Functions enabled, and click **Create function**.
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/basics.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/basics.png" />
 
 4. Click **Save**.
 
@@ -235,11 +233,11 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
     - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
     - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
-<br/><img src="../../../../img/google-cloud-functions-java-driver/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/reference-secret.png" /><br/>
 Notice the final **Path** that should be used to access the secure connect bundle in the function code.
 
 7. Click **Done** and **Next**.
@@ -258,7 +256,7 @@ Notice the final **Path** that should be used to access the secure connect bundl
       <version>4.13.0</version>
     </dependency>  
 ```
-<br/><img src="../../../../img/google-cloud-functions-java-driver/pom_xml.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/pom_xml.png" />
 
 12. Rename the `Example.java` file to `AstraDBFunction.java` and replace its content with:
 ```java
@@ -297,40 +295,40 @@ public class AstraDBFunction implements HttpFunction {
   }
 }
 ```
-<br/><img src="../../../../img/google-cloud-functions-java-driver/source_code.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/source_code.png" /><br/>
 You can learn more about the code above by reading the [**java-driver**](https://github.com/datastax/java-driver) documentation.
 
-### ✅ 3. Deploy the function.
+### <span class="nosurface" markdown="1">✅ </span>3. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/deploy.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/deploy.png" />
 
-### ✅ 4. Test the function.
+### <span class="nosurface" markdown="1">✅ </span>4. Test the function.
 
 1. Under **Actions**, select **Test function**.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/test-function.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/test-results.png" /><br/>
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ 5. View logs.
+### <span class="nosurface" markdown="1">✅ </span>5. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
-<br/><img src="../../../../img/google-cloud-functions-java-driver/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-java-driver/logs-explorer.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs-explorer.png" />
 
 
 ## F - Using Java gRPC
 
-### ✅ 1. Create a function.
+### <span class="nosurface" markdown="1">✅ </span>1. Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select a project that has Cloud Functions enabled, and click **Create function**.
 2. Under the **Basics** section, specify preferred **Function name** and **Region**.
 3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/basics.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/basics.png" />
 
 4. Click **Save**.
 
@@ -338,7 +336,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
     - `ASTRA_DB_ID`: A **Database ID** value can be found on the [Astra DB](https://astra.datastax.com/) dashboard.
     - `ASTRA_DB_REGION`: A **Region** name can be found on the overview page for a specific [Astra DB](https://astra.datastax.com/) database.
     - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/runtime.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/runtime.png" /><br/>
 Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage an application token as a secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
 
 6. Click **Next**.
@@ -362,7 +360,7 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
       <version>1.41.0</version>
     </dependency>   
 ```
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/pom_xml.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/pom_xml.png" />
 
 11. Rename the `Example.java` file to `AstraDBFunction.java` and replace its content with:
 ```java
@@ -412,27 +410,27 @@ public class AstraDBFunction implements HttpFunction {
   }
 }
 ```
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/source_code.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/source_code.png" /><br/>
 You can learn more about the code above by reading the [**Stargate**](https://stargate.io/) documentation.
 
-### ✅ 2. Deploy the function.
+### <span class="nosurface" markdown="1">✅ </span>2. Deploy the function.
 
 1. Click **Deploy**.
 
 2. On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/deploy.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/deploy.png" />
 
-### ✅ 3. Test the function.
+### <span class="nosurface" markdown="1">✅ </span>3. Test the function.
 
 1. Under **Actions**, select **Test function**.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-function.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/test-function.png" />
 
 2. On the testing page, click **Test the function** and observe the output.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/test-results.png" /><br/>
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/test-results.png" /><br/>
 Notice the CQL version output **3.4.5** and status code **200**.
 
-### ✅ 4. View logs.
+### <span class="nosurface" markdown="1">✅ </span>4. View logs.
 
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs.png" />
-<br/><img src="../../../../img/google-cloud-functions-java-grpc/logs-explorer.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs.png" />
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs-explorer.png" />
