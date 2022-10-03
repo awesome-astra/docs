@@ -11,8 +11,8 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-> This guide was built base on the [Micronaut Cassandra Guide](https://micronaut-projects.github.io/micronaut-cassandra/latest/guide/)
-<img src="../../../../img/micronaut/micronaut_stacked_black.svg" height="100px" />
+> This guide was built based on the [Micronaut Cassandra Guide](https://micronaut-projects.github.io/micronaut-cassandra/latest/guide/)
+<img src="https://awesome-astra.github.io/docs/img/micronaut/micronaut_stacked_black.svg" height="80px" />
 </div>
 
 ## A - Overview
@@ -25,9 +25,9 @@ The [micronaut-cassandra](https://micronaut-projects.github.io/micronaut-cassand
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
     <li>You should install `Java JDK 1.8+` and <a href="https://maven.apache.org/">Apache Maven</a></li>
 </ul>
 

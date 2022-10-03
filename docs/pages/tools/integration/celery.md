@@ -173,7 +173,3 @@ In particular, one may want to specify additional parameters through the `celery
 protocol level, load-balancing policy and so on. Refer to the
 ["Additional configuration"](https://docs.celeryq.dev/en/stable/userguide/configuration.html#additional-configuration)
 section in the Celery documentation for a more comprehensive setup.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) |
-</div>

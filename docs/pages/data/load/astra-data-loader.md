@@ -10,7 +10,7 @@ links:
     url: "https://www.datastax.com/products/datastax-astra"
 ---
 
-<details>
+<details class="nosurface" markdown="1">
 <summary><b> 📖 Reference Documentations and Resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/manage/upload/astra-data-loader.html"><b>📖  Data Loader</b> - Astra Reference documentation</a>
@@ -26,7 +26,7 @@ Astra DB conveniently has its own data loader built in to the user interface. Us
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 </ul>
 
 ### C - Procedure
