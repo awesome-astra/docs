@@ -11,7 +11,7 @@ Astra CLI provides a command line interface in a terminal to operate Datastax As
 On your machine you will need the following components
 
 - A bash shell ([Bourne Again SHell](https://www.gnu.org/software/bash/))
-- The folowing commands `untar`, `unzip`, `curl`
+- The following commands `untar`, `unzip`, `curl`
 - A Java JRE or JDK version 8+ installed
 
 You will also need an Astra token. As such, make sure you completed those 2 steps before
