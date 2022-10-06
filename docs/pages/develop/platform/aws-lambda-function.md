@@ -288,6 +288,14 @@ You can learn more about the code above by reading the [**java-driver**](https:/
         <version>3.2.2</version>
         <configuration>
           <createDependencyReducedPom>false</createDependencyReducedPom>
+          <filters>
+            <filter>
+               <artifact>*:*</artifact>
+               <excludes>
+                  <exclude>**/Log4j2Plugins.dat</exclude>
+               </excludes>
+            </filter>
+          </filters>
         </configuration>
         <executions>
           <execution>
