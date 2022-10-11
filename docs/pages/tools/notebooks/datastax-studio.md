@@ -37,7 +37,7 @@ DataStax Studio is an interactive developer tool for CQL (Cassandra Query Langua
 </ul>
 
 ## Installation and Setup
-As mentioned in the Prerequisites above, you must have DataStax Studio already installed. You can follow the quick installation steps [here](https://docs.datastax.com/en/installing/docs/installStudio.html). Once you have successfully installed DataStax Studio, you may proceed to the following steps. 
+As mentioned in the **Prerequisites** above, you must have DataStax Studio already installed. You can follow the quick installation steps [here](https://docs.datastax.com/en/installing/docs/installStudio.html). Once you have successfully installed DataStax Studio, you may proceed to the following steps. 
 
 1. Start up DataStax Studio by running the Studio Server shell script:
     - Linux: 
@@ -54,18 +54,16 @@ As mentioned in the Prerequisites above, you must have DataStax Studio already i
     ```bash
     Studio is now running at: http://127.0.0.1:9091
     ```
-2. You may now use to the localhost URL provided in your terminal or command line to navigate to the DataStax Studio UI. This should look something like this:
+2. You may now use the `localhost` URL provided in your terminal or command line to navigate to the DataStax Studio UI. This should look something like this:
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/01_getting_started.png"  />
 
 3. For this example, we will use the **Getting Started with Astra** notebook. A notebook is essentially a workspace used to visualize queries from your database, test and run different commands, and more. 
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/02_astra_tile.png"  />
 
 4. On the top right corner of the notebook, click `default localhost` and then `Add Connection` to configure a new connection for the notebook.
-
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/03_add_connection.png"  />
 
 5. A screen should appear with the options `Standard Connection` and `Astra Connection`. For this example, you will select `Astra Connection`.
-
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/04_create_connection.png"  />
 
 6. Here, you will need the credentials that you gathered in the **Astra Prerequisites**. 
@@ -82,10 +80,9 @@ As mentioned in the Prerequisites above, you must have DataStax Studio already i
 8. In the upper right hand corner, you should be able to switch the connection to the name of the database you just configured. 
 
 ## Test and Validate
-Finally, we will test and validate once more that the connection is validated by submitted a few test queries.
+Finally, we will test and validate once more that the connection is validated by submitting a couple test queries.
 
 1. Click the **+** symbol in the top-middle of the screen to add a new cell. 
-
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/06_add_cell.png"  />
 
 2. In the cell, you can select which **Keyspace** that you want to query from. 
