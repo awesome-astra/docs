@@ -11,12 +11,6 @@ links:
   url: "https://www.datastax.com/dev/datastax-studio"
 ---
 
-<div class="nosurface" markdown="1">
-!!! note "Check back soon"
-
-    Can't wait? See [this DataStax Community page on how to connect DataStax Studio with Astra DB](https://community.datastax.com/articles/12265/). Check back for updates!
-</div>
-
 ## Overview 
 DataStax Studio is an interactive developer tool for CQL (Cassandra Query Language), Spark SQL, and DSE Graph. Developers and analysts collaborate by mixing code, documentation, query results, and visualizations in self-documenting notebooks.
 <div class="nosurface" markdown="1">
@@ -64,11 +58,15 @@ As mentioned in the Prerequisites above, you must have DataStax Studio already i
 <img src="https://awesome-astra.github.io/docs/img/datastaxstudio/01_getting_started.png"  />
 
 3. For this example, we will use the **Getting Started with Astra** notebook. A notebook is essentially a workspace used to visualize queries from your database, test and run different commands, and more. 
-<img src="../../../../img/liquibase/logo.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/02_astra_tile.png"  />
 
 4. On the top right corner of the notebook, click `default localhost` and then `Add Connection` to configure a new connection for the notebook.
 
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/03_add_connection.png"  />
+
 5. A screen should appear with the options `Standard Connection` and `Astra Connection`. For this example, you will select `Astra Connection`.
+
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/04_create_connection.png"  />
 
 6. Here, you will need the credentials that you gathered in the **Astra Prerequisites**. 
     ```
@@ -77,6 +75,7 @@ As mentioned in the Prerequisites above, you must have DataStax Studio already i
     Client ID: <Your Client ID>
     Client Secret: <Your Client Secret>
     ```
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/05_connection_credentials.png"  />
 
 7. Once you have filled this information out, you can select **Test** in the bottom right corner. If this is successful, you should see a message that says `CQL connected successfully`. Once this is completed, click **Save**. 
 
@@ -87,15 +86,23 @@ Finally, we will test and validate once more that the connection is validated by
 
 1. Click the **+** symbol in the top-middle of the screen to add a new cell. 
 
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/06_add_cell.png"  />
+
 2. In the cell, you can select which **Keyspace** that you want to query from. 
 
 3. Run the following queries to confirm that the connection to your Astra Database is successful. 
 
+```
+describe tables;
+select * from <YOUR_TABLE>;
+```
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/07_describe_tables.png"  />
+<img src="https://awesome-astra.github.io/docs/img/datastaxstudio/08_select_statement.png"  />
+
+
 Once you have received the correct results back, that's it! You have successfully connected DataStax Studio to Astra DB and can use this as a tool to help model your queries. You may also scroll down within the **Getting Started with Astra** notebook for more examples and recommendations. 
 
-
-
-
-
-
+<div class="nosurface" markdown="1">
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+</div>
 
