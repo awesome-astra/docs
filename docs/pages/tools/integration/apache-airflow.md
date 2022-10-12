@@ -32,6 +32,7 @@ Apache Airflow is an open source workflow management system. It provides compone
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
     <li class="nosurface">You should install `python3` and `pip3` (local deployment of Airflow) or Docker (docker)</li>
 </ul>
+
 This article was written for Apache Airflow version `2.2.3` on `MacOS` with Python `3.9`.
 
 ## C - Installation
