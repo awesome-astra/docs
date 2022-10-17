@@ -1,6 +1,6 @@
 {
   "name": "@awesome-astra/integrations",
-  "version": "0.2.56",
+  "version": "0.2.57",
   "description": "Integrations Content",
   "files": [
     "docs/pages/**/*.md"
