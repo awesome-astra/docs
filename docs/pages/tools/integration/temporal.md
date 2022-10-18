@@ -38,7 +38,7 @@ Temporal.io is an open source microservice orchestration platform that assists i
 </ul>
 
 !!! note "Note"
-     This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.  
+    This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.  
 
 ## Installation and Setup
 
@@ -49,14 +49,14 @@ Temporal.io is an open source microservice orchestration platform that assists i
 3. Get your **Database ID**
 
 ???+ tip "Find your Database ID in one of two ways:"
-    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard. 
-
+     1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+     2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard. 
 
 ### <span class="nosurface">✅ </span>Step 2: Temporal Pre-setup
 
 1. Clone this GitHub [repository](https://github.com/mpenick/temporal-astra-cql-proxy)
 2. Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above. 
+   
 ```bash
 ASTRA_TOKEN=<your Astra token>
 ASTRA_DATABASE_ID=<your DB ID>
@@ -94,25 +94,24 @@ Once the process is completed, you should see a message similar to this:
 
 Great! Your schemas have been migrated with Astra DB. 
 ??? info "Confirm your tables exist in Astra"
-    * You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. 
-    * Run `DESC tables;` in both your `temporal` and `temporal_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `temporal-cassandra-tool`.
+  * You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. 
+  * Run `DESC tables;` in both your `temporal` and `temporal_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `temporal-cassandra-tool`.
 
-    ```bash
-    token@cqlsh> use temporal;
-    token@cqlsh:temporal> desc tables;
+```bash
+token@cqlsh> use temporal;
+token@cqlsh:temporal> desc tables;
 
-    history_node        tasks             cluster_metadata_info
-    cluster_membership  namespaces        cluster_metadata     
-    schema_version      namespaces_by_id  schema_update_history
-    executions          queue_metadata  
-    queue               history_tree    
+history_node        tasks             cluster_metadata_info
+cluster_membership  namespaces        cluster_metadata     
+schema_version      namespaces_by_id  schema_update_history
+executions          queue_metadata  
+queue               history_tree    
 
-    token@cqlsh:temporal> use temporal_visibility;
-    token@cqlsh:temporal_visibility> desc tables;
+token@cqlsh:temporal> use temporal_visibility;
+token@cqlsh:temporal_visibility> desc tables;
 
-    open_executions  schema_update_history  schema_version  closed_executions
-
-    ```
+open_executions  schema_update_history  schema_version  closed_executions
+```
 
 ### <span class="nosurface">✅ </span>Step 4: Run Docker Compose
 In this step, the `docker-compose.yaml` file is already provided for you in the `temporal-astra-cql-proxy` repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with `cql-proxy`, and it should pull your Astra credentials from when you set it earlier:
@@ -134,11 +133,6 @@ Now you can run the docker-compose command to start up Temporal:
 docker-compose up
 ```
 
-
-
-
-
-
 ### <span class="nosurface">✅ </span> Step 5: Test and Validate
 You can test your connection and play with your Temporal cluster with these instructions.
 
@@ -147,7 +141,7 @@ You can test your connection and play with your Temporal cluster with these inst
 bash-5.0# tctl --namespace test namespace re
 Namespace test successfully registered.
 ```
-2. When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
+1. When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
 ```bash
 c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace: "test"})
 ```
@@ -155,6 +149,5 @@ c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace:
 Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.
 
 <img src="https://awesome-astra.github.io/docs/img/temporal/temporal-06-test-validate.png"  />
-
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)
