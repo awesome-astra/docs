@@ -2572,11 +2572,11 @@
 <h3 id="step-2-temporal-pre-setup"><span class="nosurface">✅ </span>Step 2: Temporal Pre-setup<a class="headerlink" href="#step-2-temporal-pre-setup" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Clone this GitHub <a href="https://github.com/mpenick/temporal-astra-cql-proxy">repository</a></li>
-<li>Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above. 
+<li>Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above. </li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your Astra token&gt;
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span>&lt;your DB ID&gt;
-</code></pre></div></li>
-</ol>
+</code></pre></div>
 <h3 id="step-3-temporal-schema-migration-to-astra-db"><span class="nosurface">✅ </span>Step 3: Temporal Schema Migration to Astra DB<a class="headerlink" href="#step-3-temporal-schema-migration-to-astra-db" title="Permanent link">&para;</a></h3>
 <p>For this step, you will set up the keyspaces you created earlier in the Astra prerequisites (<strong>temporal</strong> and <strong>temporal_visibility</strong>). You will be using <code>temporal-cassandra-tool</code> which is part of the Temporal repo and it relies on schema definition. </p>
 <ol>
@@ -2604,6 +2604,7 @@
 <p>Great! Your schemas have been migrated with Astra DB. </p>
 <details class="info">
 <summary>Confirm your tables exist in Astra</summary>
+</details>
 <ul>
 <li>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. </li>
 <li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>.</li>
@@ -2622,7 +2623,6 @@
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>open_executions  schema_update_history  schema_version  closed_executions
 </code></pre></div>
-</details>
 <h3 id="step-4-run-docker-compose"><span class="nosurface">✅ </span>Step 4: Run Docker Compose<a class="headerlink" href="#step-4-run-docker-compose" title="Permanent link">&para;</a></h3>
 <p>In this step, the <code>docker-compose.yaml</code> file is already provided for you in the <code>temporal-astra-cql-proxy</code> repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with <code>cql-proxy</code>, and it should pull your Astra credentials from when you set it earlier:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>services:
@@ -2658,7 +2658,7 @@
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-18
     
   </small>
 </div>
