@@ -15,7 +15,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/airflow/airflow-image.png" height="100px" />
 </div>
 
-## A - Overview
+## Overview
 
 Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems. These instructions will step through tasks/adjustments to be done in each product (Astra DB, cql-proxy, Apache Airflow), ultimately resulting in Airflow being able to work with AstraDB in its directed acyclic graphs (DAG).
 
@@ -23,7 +23,7 @@ Apache Airflow is an open source workflow management system. It provides compone
 - ℹ️ [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -35,17 +35,17 @@ Apache Airflow is an open source workflow management system. It provides compone
 
 This article was written for Apache Airflow version `2.2.3` on `MacOS` with Python `3.9`.
 
-## C - Installation
+## Installation
 
-**<span class="nosurface">✅</span> Step 0 Download and install**
+### <span class="nosurface">✅</span> Step 0 Download and install**
 
 Following the [Apache Airflow reference documentation](https://airflow.apache.org/docs/apache-airflow/stable/installation/index.html) download and install the software.
 
-**<span class="nosurface">✅</span> Step 1 Create the keyspace `airflow`**
+### <span class="nosurface">✅</span> Step 1 Create the keyspace `airflow`**
 
 From the [Astra DB dashboard](https://astra.datastax.com), click on your database name. Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `airflow`.
 
-**<span class="nosurface">✅</span> Step 2 Start Cql Proxy**
+### <span class="nosurface">✅</span> Step 2 Start Cql Proxy**
 
 DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in [`cql-proxy`](https://awesome-astra.github.io/docs/pages/astra/cqlproxy).
 
@@ -67,7 +67,7 @@ You can run `cql-proxy` (in the foreground) from the command line in this way, l
 
 Important to note that the command shown above binds `cql-proxy` to localhost (127.0.0.1), meaning it is not reachable (by Airflow) from outside the server instance.
 
-**<span class="nosurface">✅</span> Step 3 Create a new connection in Apache Airflow**
+### <span class="nosurface">✅</span> Step 3 Create a new connection in Apache Airflow**
 
 Inside Apache Airflow, click `Connections` from underneath the `Admin` drop-down menu. Then click on the blue button labeled with the plus sign (`+`) to add a new connection. Fill out the form as shown in Figure 2:
 
@@ -85,7 +85,7 @@ _Figure 2 - Create a new Cassandra connection for Apache Airflow._
 
 Click the blue `Save` button to persist the new connection.
 
-**<span class="nosurface">✅</span> Step 4 Create a new DAG in Apache Airflow**
+### <span class="nosurface">✅</span> Step 4 Create a new DAG in Apache Airflow**
 
 A directed acyclic graph (DAG) is essentially a Python script which imports one or more libraries specific to Airflow. To create a new DAG, first locate your DAG directory. By default, Airflow looks for custom DAGs in the `~/airflow/dags/` directory.
 
@@ -110,7 +110,7 @@ It also specifically creates two unique tasks:
 - `check_table_exists`
 - `query_system_local`
 
-**<span class="nosurface">✅</span> Step 5 Final Test**
+### <span class="nosurface">✅</span> Step 5 Final Test**
 
 To test the connection, copy the DAG mentioned above into the `/dags/` directory. Then we will invoke Airflow’s task testing functionality, by running airflow tasks test and specifying:
 
@@ -131,7 +131,7 @@ INFO - Done. Returned value was: True
 INFO - Marking task as SUCCESS. dag_id=cass_hooks_tutorial, task_id=check_table_exists, execution_date=20220208T000000, start_date=20220208T195333, end_date=20220208T195334
 ```
 
-## D - Acknowledgements
+## Acknowledgements
 
 Special thanks goes out to Obioma Anomnachi of Anant. Obi’s [video](https://www.youtube.com/watch?v=h2OCveciEIA) and [GitHub repo](https://github.com/anomnaco/AirflowCassandra) proved quite helpful in building out this tutorial.
 
