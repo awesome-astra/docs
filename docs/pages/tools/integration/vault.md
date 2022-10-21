@@ -34,22 +34,12 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Bundle</a></li>
-<li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
-<li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    <ul>
-    <li>
-    You need your Astra Token and Astra Database ID to use CQL-Proxy
-    </li>
-    <li>
-    Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
-    </li>
-    </ul>
-    </li>
-    ```bash
-    {"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
-    ```
+  <li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
+  <li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
+  <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
+  <li><code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
 </ul>
-  
 
 ## Installation and Setup
 1. In the Astra UI, create a keyspace called **vault**. 
