@@ -2479,68 +2479,60 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Bundle</a></li>
-<li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
-<li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    <ul>
-    <li>
-    You need your Astra Token and Astra Database ID to use CQL-Proxy
-    </li>
-    <li>
-    Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
-    </li>
-    </ul>
-    </li>
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">{</span><span class="s2">&quot;level&quot;</span>:<span class="s2">&quot;info&quot;</span>,<span class="s2">&quot;ts&quot;</span>:1651012815.176512,<span class="s2">&quot;caller&quot;</span>:<span class="s2">&quot;proxy/proxy.go:222&quot;</span>,<span class="s2">&quot;msg&quot;</span>:<span class="s2">&quot;proxy is listening&quot;</span>,<span class="s2">&quot;address&quot;</span>:<span class="s2">&quot;[::]:9042&quot;</span><span class="o">}</span>
-</code></pre></div>
+  <li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
+  <li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
+  <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
+  <li><code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
 </ul>
 
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <ol>
 <li>In the Astra UI, create a keyspace called <strong>vault</strong>. </li>
 <li>Navigate to your <em>CQL Console</em> in the Astra UI. Issue the following statement to create a table called <strong>entries</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CREATE TABLE vault.<span class="s2">&quot;entries&quot;</span> <span class="o">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    bucket text,
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    key text,
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    value blob,
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    PRIMARY KEY <span class="o">(</span>bucket, key<span class="o">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">)</span> WITH CLUSTERING ORDER BY <span class="o">(</span>key ASC<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CREATE TABLE vault.<span class="s2">&quot;entries&quot;</span> <span class="o">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    bucket text,
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    key text,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    value blob,
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    PRIMARY KEY <span class="o">(</span>bucket, key<span class="o">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">)</span> WITH CLUSTERING ORDER BY <span class="o">(</span>key ASC<span class="o">)</span><span class="p">;</span>
 </code></pre></div></li>
 <li>Navigate to your terminal. Create a Vault configuration file <code>config.hcl</code> in your local directory.</li>
 <li>Edit your <code>config.hcl</code> file. Copy and paste the following to your configuration file:</li>
 </ol>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>storage <span class="s2">&quot;cassandra&quot;</span> <span class="o">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="nv">hosts</span>            <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="nv">consistency</span>      <span class="o">=</span> <span class="s2">&quot;LOCAL_QUORUM&quot;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="nv">protocol_version</span> <span class="o">=</span> <span class="m">3</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="o">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>listener <span class="s2">&quot;tcp&quot;</span> <span class="o">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  <span class="nv">address</span>     <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8200&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  <span class="nv">tls_disable</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="o">}</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nv">api_addr</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8200&quot;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nv">cluster_addr</span> <span class="o">=</span> <span class="s2">&quot;https://127.0.0.1:8201&quot;</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nv">ui</span> <span class="o">=</span> <span class="nb">true</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>storage <span class="s2">&quot;cassandra&quot;</span> <span class="o">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="nv">hosts</span>            <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="nv">consistency</span>      <span class="o">=</span> <span class="s2">&quot;LOCAL_QUORUM&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="nv">protocol_version</span> <span class="o">=</span> <span class="m">3</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>listener <span class="s2">&quot;tcp&quot;</span> <span class="o">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  <span class="nv">address</span>     <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8200&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  <span class="nv">tls_disable</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="o">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nv">api_addr</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8200&quot;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nv">cluster_addr</span> <span class="o">=</span> <span class="s2">&quot;https://127.0.0.1:8201&quot;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nv">ui</span> <span class="o">=</span> <span class="nb">true</span>
 </code></pre></div>
 4. Run Vault from your terminal with the following command:</p>
 <p><code>vault server -config=config.hcl</code></p>
 <p>Successful output should look like this:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">==</span>&gt; Vault server configuration:
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>             Api Address: http://127.0.0.1:8200
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                     Cgo: disabled
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>         Cluster Address: https://127.0.0.1:8201
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>              Go Version: go1.17.9
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>              Listener <span class="m">1</span>: tcp <span class="o">(</span>addr: <span class="s2">&quot;127.0.0.1:8200&quot;</span>, cluster address: <span class="s2">&quot;127.0.0.1:8201&quot;</span>, max_request_duration: <span class="s2">&quot;1m30s&quot;</span>, max_request_size: <span class="s2">&quot;33554432&quot;</span>, tls: <span class="s2">&quot;disabled&quot;</span><span class="o">)</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>               Log Level: info
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                   Mlock: supported: false, enabled: <span class="nb">false</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>           Recovery Mode: <span class="nb">false</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                 Storage: cassandra
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                 Version: Vault v1.10.2
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>             Version Sha: <span class="nv">94325865b12662cb72efa3003d6aaa4f5ae57f3a</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="o">==</span>&gt; Vault server started! Log data will stream <span class="k">in</span> below:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">==</span>&gt; Vault server configuration:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>             Api Address: http://127.0.0.1:8200
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                     Cgo: disabled
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>         Cluster Address: https://127.0.0.1:8201
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>              Go Version: go1.17.9
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>              Listener <span class="m">1</span>: tcp <span class="o">(</span>addr: <span class="s2">&quot;127.0.0.1:8200&quot;</span>, cluster address: <span class="s2">&quot;127.0.0.1:8201&quot;</span>, max_request_duration: <span class="s2">&quot;1m30s&quot;</span>, max_request_size: <span class="s2">&quot;33554432&quot;</span>, tls: <span class="s2">&quot;disabled&quot;</span><span class="o">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>               Log Level: info
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                   Mlock: supported: false, enabled: <span class="nb">false</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>           Recovery Mode: <span class="nb">false</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                 Storage: cassandra
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                 Version: Vault v1.10.2
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>             Version Sha: <span class="nv">94325865b12662cb72efa3003d6aaa4f5ae57f3a</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="o">==</span>&gt; Vault server started! Log data will stream <span class="k">in</span> below:
 </code></pre></div></p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
@@ -2559,22 +2551,22 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 <code>vault operator init -address=http://127.0.0.1:8200</code></p>
 </div>
 <p>Once Vault is initialized, it should give you an output of your Unseal Keys:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% vault operator init
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Unseal Key <span class="m">1</span>: rVRPym...
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Unseal Key <span class="m">2</span>: 71tY5X...
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Unseal Key <span class="m">3</span>: ETYWDf...
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Unseal Key <span class="m">4</span>: 4mDtrr...
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Unseal Key <span class="m">5</span>: o9X46m...
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Initial Root Token: hvs.gF14F...
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Vault initialized with <span class="m">5</span> key shares and a key threshold of <span class="m">3</span>. Please securely
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>restarted, or stopped, you must supply at least <span class="m">3</span> of these keys to unseal it
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>before it can start servicing requests.
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Vault does not store the generated root key. Without at least <span class="m">3</span> keys to
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>reconstruct the root key, Vault will remain permanently sealed!
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% vault operator init
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Unseal Key <span class="m">1</span>: rVRPym...
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Unseal Key <span class="m">2</span>: 71tY5X...
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Unseal Key <span class="m">3</span>: ETYWDf...
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Unseal Key <span class="m">4</span>: 4mDtrr...
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Unseal Key <span class="m">5</span>: o9X46m...
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Initial Root Token: hvs.gF14F...
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Vault initialized with <span class="m">5</span> key shares and a key threshold of <span class="m">3</span>. Please securely
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>restarted, or stopped, you must supply at least <span class="m">3</span> of these keys to unseal it
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>before it can start servicing requests.
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>Vault does not store the generated root key. Without at least <span class="m">3</span> keys to
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>reconstruct the root key, Vault will remain permanently sealed!
 </code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Note</p>
@@ -2591,17 +2583,17 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </ol>
 <p><strong>Note:</strong> When querying from the <strong>entries</strong> table, you must use double-quotes as <code>entries</code> is a reserved word for CQL.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/vault/vaultui.png"/> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>token@cqlsh:vault&gt; use vault<span class="p">;</span>                           //Switches to Vault keyspace
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>token@cqlsh:vault&gt; expand on<span class="p">;</span>                           //Prints output <span class="k">in</span> readable format
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>token@cqlsh:vault&gt; <span class="k">select</span> * from <span class="s2">&quot;entries&quot;</span> limit <span class="m">1</span><span class="p">;</span>     //Select statement from <span class="s2">&quot;entries&quot;</span> table
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>@ Row <span class="m">1</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a> bucket <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a> key    <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a> value  <span class="p">|</span> 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="o">(</span><span class="m">1</span> rows<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>token@cqlsh:vault&gt; use vault<span class="p">;</span>                           //Switches to Vault keyspace
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>token@cqlsh:vault&gt; expand on<span class="p">;</span>                           //Prints output <span class="k">in</span> readable format
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>token@cqlsh:vault&gt; <span class="k">select</span> * from <span class="s2">&quot;entries&quot;</span> limit <span class="m">1</span><span class="p">;</span>     //Select statement from <span class="s2">&quot;entries&quot;</span> table
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>@ Row <span class="m">1</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a> bucket <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a> key    <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a> value  <span class="p">|</span> 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="o">(</span><span class="m">1</span> rows<span class="o">)</span>
 </code></pre></div>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
