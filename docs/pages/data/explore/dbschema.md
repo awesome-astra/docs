@@ -83,7 +83,7 @@ Download the JDBC driver from the DataStax website:
 11. Select **Open**
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-simba-driver.png" />
 
-12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database **window. Select **Next**.
+12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database** window. Select **Next**.
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra.png" height="500px" />
 
 13. In the Astra Connection Dialog, add JDBC URL as

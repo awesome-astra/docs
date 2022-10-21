@@ -32,8 +32,8 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
-!!! note "Note"
-This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.
+!!! note "Note" 
+    This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.
 
 ## Installation and Setup
 
@@ -44,9 +44,8 @@ This runbook was written using Mac OS Monterey but it will also work with Window
 3. Get your **Database ID**
 
 ??? tip "Find your Database ID in one of two ways"
-
-    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+     1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+     2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
 
 ### <span class="nosurface">✅ </span> 2. Cadence Pre-setup
 
@@ -94,10 +93,9 @@ Once the process is completed, you should see a message similar to this:
 
 Great! Your schemas have been migrated with Astra DB.
 ??? info "Confirm your tables exist in Astra"
-    
     You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
     Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
-
+  
     ```bash
     token@cqlsh> use cadence;
     token@cqlsh:cadence> desc tables;
@@ -111,7 +109,6 @@ Great! Your schemas have been migrated with Astra DB.
 
     open_executions        closed_executions_v2  closed_executions
     schema_update_history  schema_version
-
     ```
 
 ### <span class="nosurface">✅ </span> 4. Run Docker Compose
