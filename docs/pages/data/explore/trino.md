@@ -28,7 +28,7 @@ links:
 In this tutorial, we show **how to use Trino to explore and query data in [Astra DB](http://astra.datastax.com) with SQL**.
 The overall architecture of this solution is depicted below. _Trino CLI Client_ sends SQL queries to _Trino Server_. _Trino Server_ retrieves data from _Astra DB_ via _CQL Proxy_, computes the query results and returns them to the client.
 
-<img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="https://awesome-astra.github.io/docs/img/trino/trino-solution-architecture.svg" />
+<img style="display: block; margin-left: auto; margin-right: auto; width: 25%;" src="https://awesome-astra.github.io/docs/img/trino/trino-solution-architecture.svg" />
 
 ## B - Prerequisites
 
