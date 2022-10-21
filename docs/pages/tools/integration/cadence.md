@@ -92,6 +92,7 @@ Once the process is completed, you should see a message similar to this:
 ```
 
 Great! Your schemas have been migrated with Astra DB.
+
 ??? info "Confirm your tables exist in Astra"
     You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
     Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
