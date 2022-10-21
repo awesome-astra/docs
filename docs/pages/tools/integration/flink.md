@@ -39,7 +39,6 @@ This code is intended as a fairly simple demonstration of how to enable an Apach
 </ul>
 
 !!! note "Note"
-
     For this tutorial, you will need either Java 8 or Java 11 to run it. Any other version might run into an exception and cause build failure.
 
 ## Installation and Setup
