@@ -37,8 +37,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
   <li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
   <li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
   <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
-  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
-  <li><code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
+  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output: <code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
 </ul>
 
 ## Installation and Setup
@@ -102,11 +101,8 @@ Successful output should look like this:
 2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
    
 !!! info "Note"
-    You may get an error that looks like this:
-    ```Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client```
-    
-    This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
-    ```vault operator init -address=http://127.0.0.1:8200```
+    You may get an error that looks like this: <code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code>
+    This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command: <code>vault operator init -address=http://127.0.0.1:8200</code>
 
 Once Vault is initialized, it should give you an output of your Unseal Keys:
 
@@ -131,6 +127,7 @@ reconstruct the root key, Vault will remain permanently sealed!
 
 !!! danger "Note"
     Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. 
+    
     
 1. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
 2. Enter your Unseal Keys and Root Token
