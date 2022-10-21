@@ -105,22 +105,21 @@ Successful output should look like this:
 ```
 
 !!! info "Note"
-
     If you get a warning message about mlock not being supported, that is okay. However, for maximum security you should run Vault on a system that supports mlock.
 
 ## Test and Validate
 1. Once you see the above message that you successfully started Vault server, open a new terminal window.
 2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
+   
 !!! info "Note"
-    You may get an error that looks like this
-    ```
-    Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client
-    ```
+    You may get an error that looks like this:
+    ```Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client```
+    
     This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
-    ```
-    vault operator init -address=http://127.0.0.1:8200
-    ```
+    ```vault operator init -address=http://127.0.0.1:8200```
+
 Once Vault is initialized, it should give you an output of your Unseal Keys:
+
 ```bash
 % vault operator init
 Unseal Key 1: rVRPym...
@@ -139,10 +138,12 @@ before it can start servicing requests.
 Vault does not store the generated root key. Without at least 3 keys to
 reconstruct the root key, Vault will remain permanently sealed!
 ```
+
 !!! danger "Note"
     Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. 
-3. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
-4. Enter your Unseal Keys and Root Token
+    
+1. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
+2. Enter your Unseal Keys and Root Token
 
 <img src="https://awesome-astra.github.io/docs/img/vault/vault_key.png" style="width:250px;"/> 
 <img src="https://awesome-astra.github.io/docs/img/vault/vault_token.png" style="width:250px;"/>
