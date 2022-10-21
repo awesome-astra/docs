@@ -2553,31 +2553,29 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>You may get an error that looks like this
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Error initializing: Put &quot;https://127.0.0.1:8200/v1/sys/init&quot;: http: server gave HTTP response to HTTPS client
-</code></pre></div>
-This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vault operator init -address=http://127.0.0.1:8200
-</code></pre></div></p>
+<p>You may get an error that looks like this:
+<code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code></p>
+<p>This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
+<code>vault operator init -address=http://127.0.0.1:8200</code></p>
 </div>
-<p>Once Vault is initialized, it should give you an output of your Unseal Keys:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>% vault operator init
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Unseal Key <span class="m">1</span>: rVRPym...
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Unseal Key <span class="m">2</span>: 71tY5X...
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Unseal Key <span class="m">3</span>: ETYWDf...
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Unseal Key <span class="m">4</span>: 4mDtrr...
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Unseal Key <span class="m">5</span>: o9X46m...
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Initial Root Token: hvs.gF14F...
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Vault initialized with <span class="m">5</span> key shares and a key threshold of <span class="m">3</span>. Please securely
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>restarted, or stopped, you must supply at least <span class="m">3</span> of these keys to unseal it
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>before it can start servicing requests.
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Vault does not store the generated root key. Without at least <span class="m">3</span> keys to
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>reconstruct the root key, Vault will remain permanently sealed!
-</code></pre></div></p>
+<p>Once Vault is initialized, it should give you an output of your Unseal Keys:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% vault operator init
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Unseal Key <span class="m">1</span>: rVRPym...
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Unseal Key <span class="m">2</span>: 71tY5X...
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Unseal Key <span class="m">3</span>: ETYWDf...
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Unseal Key <span class="m">4</span>: 4mDtrr...
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Unseal Key <span class="m">5</span>: o9X46m...
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Initial Root Token: hvs.gF14F...
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Vault initialized with <span class="m">5</span> key shares and a key threshold of <span class="m">3</span>. Please securely
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>restarted, or stopped, you must supply at least <span class="m">3</span> of these keys to unseal it
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>before it can start servicing requests.
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Vault does not store the generated root key. Without at least <span class="m">3</span> keys to
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>reconstruct the root key, Vault will remain permanently sealed!
+</code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Note</p>
 <p>Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. </p>
@@ -2593,17 +2591,17 @@ This is because Vault runs on localhost, but the default address is HTTPS. Inste
 </ol>
 <p><strong>Note:</strong> When querying from the <strong>entries</strong> table, you must use double-quotes as <code>entries</code> is a reserved word for CQL.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/vault/vaultui.png"/> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>token@cqlsh:vault&gt; use vault<span class="p">;</span>                           //Switches to Vault keyspace
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>token@cqlsh:vault&gt; expand on<span class="p">;</span>                           //Prints output <span class="k">in</span> readable format
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>token@cqlsh:vault&gt; <span class="k">select</span> * from <span class="s2">&quot;entries&quot;</span> limit <span class="m">1</span><span class="p">;</span>     //Select statement from <span class="s2">&quot;entries&quot;</span> table
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>@ Row <span class="m">1</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a> bucket <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a> key    <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a> value  <span class="p">|</span> 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="o">(</span><span class="m">1</span> rows<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>token@cqlsh:vault&gt; use vault<span class="p">;</span>                           //Switches to Vault keyspace
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>token@cqlsh:vault&gt; expand on<span class="p">;</span>                           //Prints output <span class="k">in</span> readable format
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>token@cqlsh:vault&gt; <span class="k">select</span> * from <span class="s2">&quot;entries&quot;</span> limit <span class="m">1</span><span class="p">;</span>     //Select statement from <span class="s2">&quot;entries&quot;</span> table
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>@ Row <span class="m">1</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a> bucket <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a> key    <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a> value  <span class="p">|</span> 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="o">(</span><span class="m">1</span> rows<span class="o">)</span>
 </code></pre></div>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
@@ -2614,7 +2612,7 @@ This is because Vault runs on localhost, but the default address is HTTPS. Inste
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-21
     
   </small>
 </div>
