@@ -2600,10 +2600,11 @@
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="m">2022</span>/04/05 <span class="m">22</span>:13:16 UpdateSchemeTask <span class="k">done</span>
 </code></pre></div>
 <p>Great! Your schemas have been migrated with Astra DB.</p>
-<details class="info">
-<summary>Confirm your tables exist in Astra</summary>
+<div class="admonition info">
+<p class="admonition-title">Confirm your tables exist in Astra</p>
 <p>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
 Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadence_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>cadence-cassandra-tool</code>.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use cadence<span class="p">;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:cadence&gt; desc tables<span class="p">;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -2617,7 +2618,6 @@ Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadenc
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>open_executions        closed_executions_v2  closed_executions
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>schema_update_history  schema_version
 </code></pre></div>
-</details>
 <h3 id="4-run-docker-compose"><span class="nosurface">✅ </span> 4. Run Docker Compose<a class="headerlink" href="#4-run-docker-compose" title="Permanent link">&para;</a></h3>
 <p>In this step, the <code>docker-compose.yaml</code> file is already provided for you in the <code>cadence-astra-cql-proxy</code> repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with cql-proxy, and it should pull your Astra credentials from when you set it earlier.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>services:

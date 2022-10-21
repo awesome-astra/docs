@@ -2482,8 +2482,7 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
   <li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
   <li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
   <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
-  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:</li>
-  <li><code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
+  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output: <code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
 </ul>
 
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
@@ -2545,10 +2544,8 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>You may get an error that looks like this:
-<code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code></p>
-<p>This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
-<code>vault operator init -address=http://127.0.0.1:8200</code></p>
+<p>You may get an error that looks like this: <code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code>
+This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command: <code>vault operator init -address=http://127.0.0.1:8200</code></p>
 </div>
 <p>Once Vault is initialized, it should give you an output of your Unseal Keys:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% vault operator init
