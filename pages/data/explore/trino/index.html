@@ -2500,15 +2500,7 @@
 </ul>
 <p>In this tutorial, we show <strong>how to use Trino to explore and query data in <a href="http://astra.datastax.com">Astra DB</a> with SQL</strong>.
 The overall architecture of this solution is depicted below. <em>Trino CLI Client</em> sends SQL queries to <em>Trino Server</em>. <em>Trino Server</em> retrieves data from <em>Astra DB</em> via <em>CQL Proxy</em>, computes the query results and returns them to the client.</p>
-<div style="text-align:center;">
-<pre class="mermaid"><code>graph TB
-    A(Trino CLI Client) &lt;--&gt; B(Trino Server)
-    B --&gt; C(CQL Proxy)
-    C --&gt; D(Astra DB)
-    B --&gt; A
-    C --&gt; B
-    D --&gt; C</code></pre>
-</div>
+<p><img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="https://awesome-astra.github.io/docs/img/trino/trino-solution-architecture.svg" /></p>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2673,7 +2665,7 @@ The overall architecture of this solution is depicted below. <em>Trino CLI Clien
   <small>
     
       Last update:
-      2022-10-17
+      2022-10-21
     
   </small>
 </div>
