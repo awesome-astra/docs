@@ -7,7 +7,9 @@ developer_title: "AWS Lambda Functions"
 developer_url: "https://docs.aws.amazon.com/lambda/"
 ---
 
+<div class="nosurface" markdown="1">
 # AWS Lambda Functions
+</div>
 
 ## A - Overview
 
