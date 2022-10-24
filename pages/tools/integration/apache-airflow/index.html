@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/apache-airflow/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
     
     
       
@@ -2086,43 +2086,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-0-download-and-install" class="md-nav__link">
-    ✅ Step 0 Download and install
+  <a href="#download-and-install" class="md-nav__link">
+    ✅ Download and install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-1-create-the-keyspace-airflow" class="md-nav__link">
-    ✅ Step 1 Create the keyspace airflow
+  <a href="#create-the-keyspace-airflow" class="md-nav__link">
+    ✅ Create the keyspace airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-start-cql-proxy" class="md-nav__link">
-    ✅ Step 2 Start Cql Proxy
+  <a href="#start-cql-proxy" class="md-nav__link">
+    ✅ Start Cql Proxy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-create-a-new-connection-in-apache-airflow" class="md-nav__link">
-    ✅ Step 3 Create a new connection in Apache Airflow
+  <a href="#create-a-new-connection-in-apache-airflow" class="md-nav__link">
+    ✅ Create a new connection in Apache Airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-create-a-new-dag-in-apache-airflow" class="md-nav__link">
-    ✅ Step 4 Create a new DAG in Apache Airflow
+  <a href="#create-a-new-dag-in-apache-airflow" class="md-nav__link">
+    ✅ Create a new DAG in Apache Airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-final-test" class="md-nav__link">
-    ✅ Step 5 Final Test
+  <a href="#final-test" class="md-nav__link">
+    ✅ Final Test
   </a>
   
 </li>
@@ -2487,43 +2487,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-0-download-and-install" class="md-nav__link">
-    ✅ Step 0 Download and install
+  <a href="#download-and-install" class="md-nav__link">
+    ✅ Download and install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-1-create-the-keyspace-airflow" class="md-nav__link">
-    ✅ Step 1 Create the keyspace airflow
+  <a href="#create-the-keyspace-airflow" class="md-nav__link">
+    ✅ Create the keyspace airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-start-cql-proxy" class="md-nav__link">
-    ✅ Step 2 Start Cql Proxy
+  <a href="#start-cql-proxy" class="md-nav__link">
+    ✅ Start Cql Proxy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-create-a-new-connection-in-apache-airflow" class="md-nav__link">
-    ✅ Step 3 Create a new connection in Apache Airflow
+  <a href="#create-a-new-connection-in-apache-airflow" class="md-nav__link">
+    ✅ Create a new connection in Apache Airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-create-a-new-dag-in-apache-airflow" class="md-nav__link">
-    ✅ Step 4 Create a new DAG in Apache Airflow
+  <a href="#create-a-new-dag-in-apache-airflow" class="md-nav__link">
+    ✅ Create a new DAG in Apache Airflow
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-final-test" class="md-nav__link">
-    ✅ Step 5 Final Test
+  <a href="#final-test" class="md-nav__link">
+    ✅ Final Test
   </a>
   
 </li>
@@ -2578,11 +2578,11 @@
 
 <p>This article was written for Apache Airflow version <code>2.2.3</code> on <code>MacOS</code> with Python <code>3.9</code>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<h3 id="step-0-download-and-install"><span class="nosurface">✅</span> Step 0 Download and install<a class="headerlink" href="#step-0-download-and-install" title="Permanent link">&para;</a></h3>
+<h3 id="download-and-install"><span class="nosurface">✅</span> Download and install<a class="headerlink" href="#download-and-install" title="Permanent link">&para;</a></h3>
 <p>Following the <a href="https://airflow.apache.org/docs/apache-airflow/stable/installation/index.html">Apache Airflow reference documentation</a> download and install the software.</p>
-<h3 id="step-1-create-the-keyspace-airflow"><span class="nosurface">✅</span> Step 1 Create the keyspace <code>airflow</code><a class="headerlink" href="#step-1-create-the-keyspace-airflow" title="Permanent link">&para;</a></h3>
+<h3 id="create-the-keyspace-airflow"><span class="nosurface">✅</span> Create the keyspace <code>airflow</code><a class="headerlink" href="#create-the-keyspace-airflow" title="Permanent link">&para;</a></h3>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>airflow</code>.</p>
-<h3 id="step-2-start-cql-proxy"><span class="nosurface">✅</span> Step 2 Start Cql Proxy<a class="headerlink" href="#step-2-start-cql-proxy" title="Permanent link">&para;</a></h3>
+<h3 id="start-cql-proxy"><span class="nosurface">✅</span> Start Cql Proxy<a class="headerlink" href="#start-cql-proxy" title="Permanent link">&para;</a></h3>
 <p>DataStax’s cql-proxy is designed to function as an intermediate connection point to allow legacy Apache Cassandra applications to connect to DataStax Astra DB using its new Secure Connect Bundle. There are a few ways to install and run DataStax’s cql-proxy, as outlined in <a href="https://awesome-astra.github.io/docs/pages/astra/cqlproxy"><code>cql-proxy</code></a>.</p>
 <p>Be sure to start <code>cql-proxy</code> with the following settings:</p>
 <ul>
@@ -2598,7 +2598,7 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    --password AstraCS:rtFckUZblahblahblahblahblahblaha3953d799a525
 </code></pre></div>
 <p>Important to note that the command shown above binds <code>cql-proxy</code> to localhost (127.0.0.1), meaning it is not reachable (by Airflow) from outside the server instance.</p>
-<h3 id="step-3-create-a-new-connection-in-apache-airflow"><span class="nosurface">✅</span> Step 3 Create a new connection in Apache Airflow<a class="headerlink" href="#step-3-create-a-new-connection-in-apache-airflow" title="Permanent link">&para;</a></h3>
+<h3 id="create-a-new-connection-in-apache-airflow"><span class="nosurface">✅</span> Create a new connection in Apache Airflow<a class="headerlink" href="#create-a-new-connection-in-apache-airflow" title="Permanent link">&para;</a></h3>
 <p>Inside Apache Airflow, click <code>Connections</code> from underneath the <code>Admin</code> drop-down menu. Then click on the blue button labeled with the plus sign (<code>+</code>) to add a new connection. Fill out the form as shown in Figure 2:</p>
 <ul>
 <li><strong>Connection Id:</strong> A unique identifier for the connection in Apache Airflow, which will be referenced inside the DAG code. We will use “cassandra_cqlproxy.”</li>
@@ -2612,7 +2612,7 @@
 <p><img src="https://awesome-astra.github.io/docs/img/airflow/airflow-connection.png" height="400px" /></p>
 <p><em>Figure 2 - Create a new Cassandra connection for Apache Airflow.</em></p>
 <p>Click the blue <code>Save</code> button to persist the new connection.</p>
-<h3 id="step-4-create-a-new-dag-in-apache-airflow"><span class="nosurface">✅</span> Step 4 Create a new DAG in Apache Airflow<a class="headerlink" href="#step-4-create-a-new-dag-in-apache-airflow" title="Permanent link">&para;</a></h3>
+<h3 id="create-a-new-dag-in-apache-airflow"><span class="nosurface">✅</span> Create a new DAG in Apache Airflow<a class="headerlink" href="#create-a-new-dag-in-apache-airflow" title="Permanent link">&para;</a></h3>
 <p>A directed acyclic graph (DAG) is essentially a Python script which imports one or more libraries specific to Airflow. To create a new DAG, first locate your DAG directory. By default, Airflow looks for custom DAGs in the <code>~/airflow/dags/</code> directory.</p>
 <p>For testing, there is a sample DAG out in the following GitHub repository:
 https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
@@ -2628,7 +2628,7 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
 <li><code>check_table_exists</code></li>
 <li><code>query_system_local</code></li>
 </ul>
-<h3 id="step-5-final-test"><span class="nosurface">✅</span> Step 5 Final Test<a class="headerlink" href="#step-5-final-test" title="Permanent link">&para;</a></h3>
+<h3 id="final-test"><span class="nosurface">✅</span> Final Test<a class="headerlink" href="#final-test" title="Permanent link">&para;</a></h3>
 <p>To test the connection, copy the DAG mentioned above into the <code>/dags/</code> directory. Then we will invoke Airflow’s task testing functionality, by running airflow tasks test and specifying:</p>
 <ul>
 <li>The DAG’s unique identifier</li>
@@ -2653,7 +2653,7 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
   <small>
     
       Last update:
-      2022-10-19
+      2022-10-24
     
   </small>
 </div>
@@ -2741,10 +2741,10 @@ https://github.com/aar0np/DS_Python_stuff/blob/main/cassandra_test_dag.py</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
     
   </body>
