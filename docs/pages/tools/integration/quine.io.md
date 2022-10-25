@@ -1,26 +1,42 @@
-*Last Update {{ git_revision_date }}*
+---
+title: "Quine"
+description: "Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing."
+tags: "java, scala, graph, third party tools, streaming, etl"
+icon: "https://awesome-astra.github.io/docs/img/quine/quine-blue.svg"
+developer_title: "thatDot"
+developer_url: "https://quine.io/"
+links:
+- title: "Quine Documentation"
+  url: "https://docs.quine.io/core-concepts/core-concepts.html"
+---
 
 ## A - Overview
 
+<div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" />
+</div>
 
 Quine is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Quine Documentation - Core Concepts](https://docs.quine.io/core-concepts/core-concepts.html)
+</div>
 
 ## B - Prerequisites
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance)
-- You should [Create an Astra Token](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token)
-- You should [Download your Secure bundle](https://github.com/datastaxdevs/awesome-astra/wiki/Download-the-secure-connect-bundle)
-- You should install a JDK (version 11 or higher).
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li>You should install a JDK (version 11 or higher).</li>
+</ul>
 
 This article was written for Quine version `1.2.1` on `MacOS` with Java `11.10`.
 
 ## C - Installation
 
-**✅ Step 1 Download and install**
+**<span class="nosurface">✅</span> Step 1 Download and install**
 
 Follow the [Download Quine page](https://quine.io/download) to download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:
 
@@ -29,11 +45,11 @@ mkdir ~/local/quine
 cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 ```
 
-**✅ Step 2 Create the keyspace `quine`**
+**<span class="nosurface">✅</span> Step 2 Create the keyspace `quine`**
 
 From the [Astra DB console](https://astra.datastax.com), click on your database name, or create a new one called `quine` (or another name of your preference). Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `quine`.
 
-**✅ Step 3 Configuration**
+**<span class="nosurface">✅</span> Step 3 Configuration**
 
 Create a `quine.conf` file inside the `quine` directory:
 
@@ -101,10 +117,10 @@ Astra-Specific Settings:
 
 `secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.
 
-**✅ Step 4 Download Secure Connect Bundle (SCB)**
+**<span class="nosurface">✅</span> Step 4 Download Secure Connect Bundle (SCB)**
 In your [Astra DB console](https://astra.datastax.com) navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , and then the click 'Java' Java section. Then click the 'download bundle' on the right. Without unzipping it, move the downloaded file to the directory you created in step 1, that contains the quine-1.2.1.jar.  The file will be named `secure-connect-[your databasename].zip`, so in this example `secure-connect-quine.zip`.  You will reference this file directly in the previous configation file step above.
 
-**✅ Step 5 Run Quine**
+**<span class="nosurface">✅</span> Step 5 Run Quine**
 
 To run Quine, invoke the JAR with Java, while passing the `quine.conf` in the `config.file` parameter:
 
@@ -125,11 +141,11 @@ You can now use Quine's visual graph explorer in a web browser, and create/trave
 
 The Swagger spec for the Quine API can also be found locally at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
-**✅ Optional Step 6: Loading some sample data**
+**<span class="nosurface">✅</span> Optional Step 6: Loading some sample data**
 
 Download [attempts.json](https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running -- it's requires graceful shutdown. 
-Simply call the http://localhost:8080/api/v1/admin/shutdown to do so.
+Simply issue a curl -X "POST" "http://127.0.0.1:8080/api/v1/admin/shutdown" in a seperate terminal or command prompt window to do so.
 
 Then execute 
 
@@ -144,7 +160,7 @@ INGEST-1 status is completed and ingested 55000
 ```
 
 
-**✅ Troubleshooting**
+**<span class="nosurface">✅</span> Troubleshooting**
 
 If the output does not read: 
 
@@ -201,4 +217,6 @@ CREATE TABLE quine.snapshots (
 
 Special thanks goes out to Ryan Wright and Leif Warner of [thatDot](https://www.thatdot.com/) for their help with getting Quine running and connected.
 
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>

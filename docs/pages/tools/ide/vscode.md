@@ -2,7 +2,7 @@
 title: "VSCode"
 description: "Visual Studio Code, also commonly referred to as VS Code, is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git."
 tags: "ide plugins"
-icon: "https://awesome-astra.github.io/docs/img/vscode/Visual_Studio_Code_1.35_icon.svg.png"
+icon: "https://awesome-astra.github.io/docs/img/vscode/visualstudio.png"
 coming_soon: “true”
 developer_title: "Microsoft"
 developer_url: "https://code.visualstudio.com/"

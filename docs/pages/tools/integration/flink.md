@@ -2,15 +2,15 @@
 title: "Flink"
 description: "Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale. This tutorial will show you step-by-step how to use Astra as a sink for results computed by Flink. These instructions are intended to demonstrate how to enable such support when using a Flink DataStream."
 tags: "java, third party tools, middleware"
-icon: "https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png"
+icon: "https://awesome-astra.github.io/docs/img/flink/flink.svg"
 developer_title: "Apache"
 developer_url: "https://flink.apache.org/"
 links:
-- title: "Apache Flink Home"
-  url: "https://flink.apache.org/"
+- title: "Introduction to Apache Flink"
+  url: "https://flink.apache.org/flink-architecture.html"
+- title: "Download Apache Flink"
+  url: "https://flink.apache.org/downloads.html"
 ---
-
-_Last Update {{ git_revision_date }}_
 
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/Apache_Flink_logo.svg.png" height="30px" />
@@ -24,20 +24,21 @@ Apache Flink is a framework and distributed processing engine for stateful compu
 
 This code is intended as a fairly simple demonstration of how to enable an Apache Flink job to interact with DataStax Astra. There is certainly room for optimization here. A simple example: Flink's CassandraSink will open a new Session on each open() call even though these Session objects are thread-safe. A more robust implementation would be more aggressive about memoizing Sessions, encouraging a minimal number of open sessions for multiple operations on the same JVM. This work may be undertaken in the future, but for the moment it is beyond the scope of what we're aiming for here.
 
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to Apache Flink](https://flink.apache.org/flink-architecture.html)
 - 📥 [Download Apache Flink](https://flink.apache.org/downloads.html)
+</div>
 
 ## Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
   <li>You should clone this <a href="https://github.com/absurdfarce/flink-astra">GitHub Repository</a></li>
 <li>You should have <a href="https://flink.apache.org/downloads.html">Apache Flink</a>, <a href="https://gradle.org/install/">Gradle</a>, and <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> installed in your system. </li>
 </ul>
 
 !!! note "Note"
-
     For this tutorial, you will need either Java 8 or Java 11 to run it. Any other version might run into an exception and cause build failure.
 
 ## Installation and Setup
