@@ -142,4 +142,5 @@ The query results will look like the following
 
 ## Extra Resources
 
+- Developing with [GraphQL](https://docs.datastax.com/en/astra-serverless/docs/develop/graphql.html)
 - Introduction to [GraphQL Workshop](https://github.com/datastaxdevs/workshop-intro-to-graphql)
