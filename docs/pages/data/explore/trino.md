@@ -14,7 +14,7 @@ links:
   url: "https://trino.io/docs/current/client/cli.html"
 ---
 
-<img src="../../../../img/trino/logo-trino.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/trino/logo-trino.png" height="100px" />
 
 ## A - Overview
 
@@ -28,30 +28,20 @@ links:
 In this tutorial, we show **how to use Trino to explore and query data in [Astra DB](http://astra.datastax.com) with SQL**.
 The overall architecture of this solution is depicted below. _Trino CLI Client_ sends SQL queries to _Trino Server_. _Trino Server_ retrieves data from _Astra DB_ via _CQL Proxy_, computes the query results and returns them to the client.
 
-<center>
-```mermaid
-graph TB
-    A(Trino CLI Client) <--> B(Trino Server)
-    B --> C(CQL Proxy)
-    C --> D(Astra DB)
-    B --> A
-    C --> B
-    D --> C
-```
-</center>
+<img style="display: block; margin-left: auto; margin-right: auto; width: 25%;" src="https://awesome-astra.github.io/docs/img/trino/trino-solution-architecture.svg" />
 
 ## B - Prerequisites
 
-- [Create an Astra Database](/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/docs/pages/astra/create-token/)
+- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
+- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 
 ## C - Setup Astra DB
 
-**✅ 1. [Sign in](https://astra.datastax.com/)**
+**<span class="nosurface">✅ </span>1. [Sign in](https://astra.datastax.com/)**
 
-Connect to your Astra account and [create a new Astra database](/docs/pages/astra/create-instance/) or select an existing one. Add a new keyspace with name `banking_db` or use an existing one.
+Connect to your Astra account and [create a new Astra database](https://awesome-astra.github.io/docs/pages/astra/create-instance/) or select an existing one. Add a new keyspace with name `banking_db` or use an existing one.
 
-**✅ 2. Create the following tables using the CQL Console**
+**<span class="nosurface">✅ </span>2. Create the following tables using the CQL Console**
 
 ```sql
 USE banking_db;
@@ -75,7 +65,7 @@ CREATE TABLE accounts_by_customer (
 );
 ```
 
-**✅ 3. Insert the rows using the CQL Console**
+**<span class="nosurface">✅ </span>3. Insert the rows using the CQL Console**
 
 ```sql
 INSERT INTO customer (id,name,email) VALUES (8d6c1271-16b6-479d-8ea9-546c37381ab3,'Alice','alice@example.org');
@@ -94,7 +84,7 @@ VALUES (0e5d9e8c-2e3b-4576-8515-58b491cb859e,'B-102','Savings',400.04,'Bob');
 
 ## D - Deploy CQL Proxy
 
-**✅ 4. Installation**
+**<span class="nosurface">✅ </span>4. Installation**
 
 Follow [the instructions](https://github.com/datastax/cql-proxy) to deploy a _CQL Proxy_ as close to a _Trino Server_ as possible, preferrably deploying both components on the same server. The simplest way to start `cql-proxy` is to use an `<astra-token>` and `<astra-database-id>`:
 
@@ -114,7 +104,7 @@ An example command with a sample, invalid token and database id:
 
 ## E - Setup Trino Server
 
-**✅ 5. Trino intallation**
+**<span class="nosurface">✅ </span>5. Trino intallation**
 
 Follow [the instructions](https://trino.io/docs/current/installation/deployment.html) to download, install and configure a _Trino Server_ or use an existing deployment. The minimal configuration requirements for a local single-machine deployment are:
 
@@ -166,7 +156,7 @@ cassandra.consistency-level=QUORUM
 
 The above configuration uses [the Cassandra connector](https://trino.io/docs/current/connector/cassandra.html) to interact with `cql-proxy`.
 
-**✅ 6. Start the Trino Server:**
+**<span class="nosurface">✅ </span>6. Start the Trino Server:**
 
 ```bash
 bin/launcher run
@@ -178,11 +168,11 @@ Wait for message `======== SERVER STARTED ========` to confirm a successful star
 
 In this section you will execute SQL Queries against Astra DB using Trino CLI Client.
 
-**✅ 7. Install Trino Client**
+**<span class="nosurface">✅ </span>7. Install Trino Client**
 
 Follow [the instructions](https://trino.io/docs/current/client/cli.html) to download and install a _CLI Trino Client_.
 
-**✅ 8. Start the _CLI Trino Client_:**
+**<span class="nosurface">✅ </span>8. Start the _CLI Trino Client_:**
 
 ```bash
 ./trino --server http://localhost:8080 --catalog cassandra
@@ -190,14 +180,14 @@ Follow [the instructions](https://trino.io/docs/current/client/cli.html) to down
 
 The `server` option specifies the HTTP(S) address and port of the Trino coordinator, and the `catalog` option sets the default catalog.
 
-**✅ 9. Insert a new customer into table `customer`:**
+**<span class="nosurface">✅ </span>9. Insert a new customer into table `customer`:**
 
 ```SQL
 INSERT INTO banking_db.customer (id,name,email)
 VALUES (uuid(),'Luis','luis@example.org');
 ```
 
-**✅ 10. Execute the SQL query to find the total number of customers:**
+**<span class="nosurface">✅ </span>10. Execute the SQL query to find the total number of customers:**
 
 ```SQL
 SELECT COUNT(*) AS customer_count
@@ -213,7 +203,7 @@ Output:
 (1 row)
 ```
 
-**✅ 11. Execute the SQL query to find emails of customers with account balances of `300.00` or higher:**
+**<span class="nosurface">✅ </span>11. Execute the SQL query to find emails of customers with account balances of `300.00` or higher:**
 
 ```SQL
 SELECT DISTINCT email AS customer_email
@@ -232,7 +222,7 @@ Output:
 (1 row)
 ```
 
-**✅ 12. Execute the SQL query to find customers and sums of their account balances:**
+**<span class="nosurface">✅ </span>12. Execute the SQL query to find customers and sums of their account balances:**
 
 ```SQL
 SELECT id AS customer_id,

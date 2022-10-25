@@ -2,7 +2,7 @@
 title: "Celery"
 description: "Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages. With Celery one can define units of work called 'tasks' and dispatch them for execution, in a distributed way if desired. Celery is a Python package and as such is easily integrated in any Python project."
 tags: "python, third party tools"
-icon: "https://awesome-astra.github.io/docs/img/celery/celery_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/celery/celery.svg"
 developer_title: "The Celery Collective"
 developer_url: "https://docs.celeryq.dev/en/stable/index.html"
 links:
@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 <img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" />
 </div>
@@ -47,10 +46,12 @@ as backend. See the Celery documentation for more details:
 
 ## B - Prerequisites
 
-- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/). In the following example, a keyspace called `celeryks` is created in the database.
-- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/) with the role "Database Administrator" (it is desirable to leave table creation to Celery). _You should have received your token while creating the database in the previous step._
-- [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/).
-- Install Celery with the Cassandra backend in your local Python environment, e.g. `pip install celery[cassandra]`. See [the backend-settings page](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) for additional info.
+<ul class="prerequisites">
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (it is desirable to leave table creation to Celery). <em>You should have received your token while creating the database in the previous step.</em></li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your secure connect bundle ZIP</a>.
+  <li>Install Celery with the Cassandra backend in your local Python environment, e.g. <code>pip install celery[cassandra]</code>. See <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">the backend-settings page</a> for additional info.</li>
+</ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.
 
@@ -172,7 +173,3 @@ In particular, one may want to specify additional parameters through the `celery
 protocol level, load-balancing policy and so on. Refer to the
 ["Additional configuration"](https://docs.celeryq.dev/en/stable/userguide/configuration.html#additional-configuration)
 section in the Celery documentation for a more comprehensive setup.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) |
-</div>
