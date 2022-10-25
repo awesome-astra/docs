@@ -8,6 +8,10 @@ developer_url: "https://www.jetbrains.com/idea/"
 links:
 - title: "IntelliJ Astra Documentation"
   url: "https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer"
+- title: "IntelliJ Idea Install"
+  url: "https://www.jetbrains.com/idea/download/#section=mac"
+- title: "IntelliJ IDEA Resources"
+  url: "https://www.jetbrains.com/idea/resources/"
 ---
 
 <div class="nosurface" markdown="1">
@@ -20,7 +24,7 @@ links:
 
 <img src="https://plugins.jetbrains.com/files/17013/screenshot_04795b62-5479-42c8-b97d-04f0d5459e19" height="200px"/>
 
-Astra DB is a serverless NoSQL database as a service, built on Apache Cassandra (tm). Navigate, insert and edit data in your Astra DB without coding, directly in your favorite JetBrains IDE using this plugin from DataStax. This plugin also works with open source Apache Cassandra 4.0 once a Stargate Data API gateway has been configured.
+IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages. It is developed by JetBrains, and is available as an Apache 2 Licensed community edition, and in a proprietary commercial edition.
 
 ## B - Prerequisites
 
@@ -51,7 +55,9 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png)
 
-### <span class="nosurface">✅</span> 2. Setup Plugin
+
+### <span class="nosurface">✅ </span> 2. Setup Plugin
+
 
 - During the first restart you will got an `IDE error occured` message it is expected we will now configure the plugin
 
@@ -65,7 +71,9 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png)
 
-### <span class="nosurface">✅</span> 3. Edit Profiles
+
+### <span class="nosurface">✅ </span> 3. Edit Profiles
+
 
 - In the drop down menu select `Edit Profiles` the configuration file is referred as a profile
 
@@ -87,13 +95,15 @@ File > Preferences > Plugins
 default = "AstraCS:XXXX"
 ```
 
-### <span class="nosurface">✅</span> 4. Reload Profiles
+
+### <span class="nosurface">✅ </span> 4. Reload Profiles
+
 
 - Now on the drop down menu select `Reload Profiles`
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-5.png)
 
-- Et voila you can now list databases on your Astra organization and for each you can see the different keyspaces
+- Et voila! You can now list databases on your Astra organization and for each you can see the different keyspaces
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png)
 
