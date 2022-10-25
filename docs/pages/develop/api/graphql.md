@@ -40,7 +40,19 @@ For this example, we will use a keyspace called `library`:
 
 **✅ Creating a Table** :
 
-- Use this query to create a new table
+There are three Stargate GraphQL API endpoints, one for creating schema in cql-first, one for deploying a schema in the schema-first, and the third for querying or mutating a keyspace.
+
+**Schema**
+    *https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-schema*
+
+**Admin**
+    *https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-admin*
+
+**Querying**
+    *https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql/{keyspace}*
+
+- In the `graphql-schema` endpoint, use this query to create a new table
+
 ```
 mutation {
   books: createTable(
@@ -77,6 +89,7 @@ Any of the created APIs can be used to interact with the GraphQL data, to write 
 First, let’s navigate to your new keyspace `library` inside the playground. Switch to `graphql` tab and pick the url `/graphql/library`.
 
 - Use this query
+
 ```
 mutation insert2Books {
   moby: insertbooks(value: {title:"Moby Dick", author:"Herman Melville"}) {
@@ -93,6 +106,7 @@ mutation insert2Books {
 ```
 
 - Don't forget to update the header again with your token details
+
 ```
 {
   "x-cassandra-token":"your token"
@@ -105,7 +119,8 @@ mutation insert2Books {
 
 **✅ Querying Data** :
 
-Stay on the same screen and sinmply update the query with 
+To query the data, switch to the `graphql/library` endpoint and execute the following
+
 ```
 query oneBook {
     books (value: {title:"Moby Dick"}) {
