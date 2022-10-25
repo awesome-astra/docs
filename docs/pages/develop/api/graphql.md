@@ -115,6 +115,7 @@ mutation insert2Books {
   "x-cassandra-token":"your token"
 }
 ```
+
 - You should see that two books have been added to the table.
 
 <img src="../../../../img/stargate-api-graphql/insertdata.png" />
