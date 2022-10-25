@@ -10,7 +10,7 @@ Static site is generated on branch `gh-pages` using a github action
 
 ## Run the website locally
 
-### 1. Installation 
+### 1. Installation
 
 ```bash
 python3 -m pip install --upgrade pip     # install pip
@@ -26,7 +26,7 @@ Or use this one-liner :)
 python3 -m pip install --upgrade pip && python3 -m pip install mkdocs mkdocs-material https://github.com/bmcorser/fontawesome-markdown/archive/master.zip mkdocs-git-revision-date-plugin
 ```
 
-### 2. Run 
+### 2. Run
 
 ```
 mkdocs serve
@@ -56,3 +56,8 @@ Also, when calculating the number of `..` to insert, count ONE LESS for `index.m
 `index.md` renders as the page for the path containing it (`a/b/c/index.md` renders the URL `a/b/c`).
 
 For company logo files, SVG format is preferred to PNG.
+
+#### WH integration validation
+
+Make sure you pip-install the required package `pip install emoji` and then
+you can run: `./wh_validator.py`. Not perfect, but it helps.

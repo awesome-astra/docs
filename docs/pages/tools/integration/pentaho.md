@@ -2,7 +2,7 @@
 title: "Pentaho"
 description: "Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies."
 tags: "jdbc, third party tools, etl"
-icon: "https://awesome-astra.github.io/docs/img/pentaho-data-integration/logo-pentaho.png"
+icon: "https://awesome-astra.github.io/docs/img/pentaho-data-integration/pentaho.svg"
 developer_title: "Hitachi"
 developer_url: "https://sourceforge.net/projects/pentaho/"
 links:
@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 _This article was originally written by **Erick Ramirez** on [community.datastax.com](https://community.datastax.com/articles/12289/how-to-connect-to-astra-db-from-pentaho-data-integ.html)_
 
@@ -37,9 +36,9 @@ Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) c
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 <li>You should <a href="https://sourceforge.net/projects/pentaho/">Download and install PDI</a></li>
 </ul>
 

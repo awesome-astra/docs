@@ -2,7 +2,7 @@
 title: "Cadence"
 description: "Cadence is a multi-tenant orchestration framework that helps with managing workflows. It scales horizontally to handle millions of concurrent executions from various customers. Cadence Open Sources uses docker compose to run their server, and uses Apache CassandraⓇ as its default backend dependency."
 tags: "go, cql, third party tools, workflow"
-icon: "https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png"
+icon: "https://awesome-astra.github.io/docs/img/cadence/cadence.svg"
 developer_title: "Cadence"
 developer_url: "https://cadenceworkflow.io/"
 links:
@@ -13,7 +13,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 <img src="https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png" height="100px" />
 </div>
@@ -22,19 +21,19 @@ _Last Update {{ git_revision_date }}_
 
 Cadence is a multi-tenant orchestration framework that helps with managing workflows. It scales horizontally to handle millions of concurrent executions from various customers. Cadence Open Sources uses docker compose to run their server, and uses Apache CassandraⓇ as its default backend dependency. Using docker compose, users are able to also use Cadence with MySQL, PostgreSQL, Statsd+Graphite, and Elasticsearch.
 
-- ℹ️ [Introduction to Cadence](https://cadenceworkflow.io/docs/get-started/)
-- 📥 [Cadence Quick Install](https://cadenceworkflow.io/docs/get-started/installation/)
+- <span class="nosurface" markdown="1">ℹ️ </span>[Introduction to Cadence](https://cadenceworkflow.io/docs/get-started/)
+- <span class="nosurface" markdown="1">📥 </span>[Cadence Quick Install](https://cadenceworkflow.io/docs/get-started/installation/)
 
 ## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
-!!! note "Note"
-This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.
+!!! note "Note" 
+    This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.
 
 ## Installation and Setup
 
@@ -45,9 +44,8 @@ This runbook was written using Mac OS Monterey but it will also work with Window
 3. Get your **Database ID**
 
 ??? tip "Find your Database ID in one of two ways"
-
-    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+     1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+     2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
 
 ### <span class="nosurface">✅ </span> 2. Cadence Pre-setup
 
@@ -94,26 +92,25 @@ Once the process is completed, you should see a message similar to this:
 ```
 
 Great! Your schemas have been migrated with Astra DB.
-??? info "Confirm your tables exist in Astra"
-    
+
+!!! info "Confirm your tables exist in Astra"
     You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
     Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
+  
+```bash
+token@cqlsh> use cadence;
+token@cqlsh:cadence> desc tables;
 
-    ```bash
-    token@cqlsh> use cadence;
-    token@cqlsh:cadence> desc tables;
+history_node        schema_version  tasks           history_tree
+domains_by_name_v2  executions      domains         events
+cluster_config      queue           queue_metadata  schema_update_history
 
-    history_node        schema_version  tasks           history_tree
-    domains_by_name_v2  executions      domains         events
-    cluster_config      queue           queue_metadata  schema_update_history
+token@cqlsh:cadence> use cadence_visibility ;
+token@cqlsh:cadence_visibility> desc tables;
 
-    token@cqlsh:cadence> use cadence_visibility ;
-    token@cqlsh:cadence_visibility> desc tables;
-
-    open_executions        closed_executions_v2  closed_executions
-    schema_update_history  schema_version
-
-    ```
+open_executions        closed_executions_v2  closed_executions
+schema_update_history  schema_version
+```
 
 ### <span class="nosurface">✅ </span> 4. Run Docker Compose
 

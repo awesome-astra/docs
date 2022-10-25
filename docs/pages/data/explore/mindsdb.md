@@ -2,7 +2,7 @@
 title: "MindsDB"
 description: "MindsDB enables you to use your data and make forecasts. It speeds up the ML development process by bringing machine learning into the database. With MindsDB, you can build, train, optimize, and deploy your ML models without the need for other platforms. And to get the forecasts, simply query your data and ML models."
 tags: "python, data management, machine learning"
-icon: "https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png"
+icon: "https://awesome-astra.github.io/docs/img/mindsdb/mindsDB.svg"
 developer_title: "MindsDB"
 developer_url: "https://mindsdb.com/"
 links:
@@ -13,7 +13,7 @@ links:
 <div class="nosurface" markdown="1">
 - _This article was originally written by **Steven Matison** on [Datastax JIRA](https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB)_
 
-<img src="../../../../img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
+<img src="https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
 </div>
 
 This page will go into details about what I had to do to build the project, modify the `cassandra.py` and `scylla_ds.py`, and get mindsdb GUI connected to Astra.

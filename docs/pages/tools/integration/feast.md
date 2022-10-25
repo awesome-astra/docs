@@ -2,7 +2,7 @@
 title: "Feast"
 description: "Feast is an open-source feature store for machine learning."
 tags: "python, third party tools, machine learning"
-icon: "https://awesome-astra.github.io/docs/img/feast/feast_logo.png"
+icon: "https://awesome-astra.github.io/docs/img/feast/feast.svg"
 recommended: "true"
 developer_title: "Tecton"
 developer_url: "https://feast.dev"
@@ -16,7 +16,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="../../../../img/feast/feast_logo.png" height="100px" />
 </div>
@@ -56,10 +55,10 @@ Reference documentation:
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a> In the following example, a keyspace called `feastks` is created in the database.</li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a>.</li>
-    <li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. `pip install feast feast-cassandra`. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a> In the following example, a keyspace called `feastks` is created in the database.</li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a>.</li>
+    <li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. <code>pip install feast feast-cassandra</code>. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
 </ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.
@@ -246,7 +245,3 @@ pprint(feature_vector)
 ```
 
 </details>
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

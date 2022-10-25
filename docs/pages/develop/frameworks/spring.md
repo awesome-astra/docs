@@ -1,5 +1,27 @@
+---
+title: "Spring"
+description: "Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework."
+tags: "java, framework"
+icon: "https://awesome-astra.github.io/docs/img/logos/logo-spring-2.png"
+developer_title: "VMWare"
+developer_url: "https://spring.io/"
+links:
+- title: "Spring reference"
+  url: "https://spring.io"
+- title: "Cassandra compatibility matrix"
+  url: "https://docs.datastax.com/en/driver-matrix/doc/java-drivers.html"
+- title: "Astra Spring Boot Starter example"
+  url: "https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip"
+- title: "Spring Data Cassandra example"
+  url: "https://github.com/awesome-astra/sample-java-spring-data/archive/refs/heads/master.zip"
+---
 
-<img src="../../../../img/tile-spring.png" align="left" height="180px"/>
+<div class="nosurface" markdown="1">
+
+<img src="https://awesome-astra.github.io/docs/img/tile-spring.png" align="left" height="180px"/>
+
+</div>
+
 
 *Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world's most popular Java framework.* To get more information regarding the framework visit the reference website [Spring.io](https://spring.io).
 
@@ -7,17 +29,17 @@
 
 ## 1. Overview
 
-### 2.1 Modules dependencies
+### 1.1 Modules dependencies
 
 Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is **Spring Data** and especially **Spring Data Cassandra**. It relies on the Datastax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)
 
-The stateful object `CqlSession` is instanciated and injected in spring `CassandraTemplate` (aka `CassandraOperations`). From there, it is used either directly or injected in different `CassandraRepository` (specialization of Spring Data `CrudRepository` for Apache Cassandra™).
+The stateful object `CqlSession` is instantiated and injected in spring `CassandraTemplate` (aka `CassandraOperations`). From there, it is used either directly or injected in different `CassandraRepository` (specialization of Spring Data `CrudRepository` for Apache Cassandra™).
 
 The configuration of `spring-data-cassandra` in `Spring-Boot` applications is simplified with the usage of *starters*. One is associated to the standard web stack and called `spring-boot-starter-data-cassandra` and the other is named `spring-boot-starter-data-cassandra-reactive` for the reactive stack.
 
-<img src="../../../../img/spring/spring-dependency-graph.png" />
+<img src="https://awesome-astra.github.io/docs/img/spring/spring-dependency-graph.png" />
 
-### 2.2 Compatibility Matrix
+### 1.2 Compatibility Matrix
 
 In January 2019, the native Cassandra Drivers got an important, not backward compatible, upgrade. To get informations regarding Apache Cassandra™ support here is the [Cassandra compatibility matrix](https://docs.datastax.com/en/driver-matrix/doc/java-drivers.html).
 
@@ -48,7 +70,7 @@ As stated in the matrix, even the latest Spring Data `2.2.13.RELEASE` rely on `c
 </dependency>
 ```
 
-You can find [here a sample project](https://github.com/mborges-pivotal/astra-springboot154) that using Spring Boot version as old as `1.5.4`.
+You can find [here a sample project](https://github.com/mborges-pivotal/astra-springboot154) that uses Spring Boot version as old as `1.5.4`.
 
 - Setup **Spring Data 2.2** (and before) to work with **DataStax Enterprise (DSE)**
 
@@ -75,7 +97,7 @@ you need to exclude `cassandra-driver-core` and import `dse-java-driver-core` as
 </dependency>
 ```
 
-### 2.3 Rules and Pitfalls
+### 1.3 Rules and Pitfalls
 
 - **Define your own `CqlSession` bean** (spring-data will find it !)
 
@@ -101,23 +123,23 @@ With the `JPA` (entity, repository) methodology, you are tempting to reuse the s
 
 With real-life applications you might probably need to go back to the `CqlSession` and execute custom fine-grained queries (`Batches`, `TTL`, `LWT`...). The interfaces and `CassandraRepostiory` would not be enough. The class `SimpleCassandraRepository` is an abstract class (not interface0 you can inherit from that give you access to the `CqlSession` and execute your queries as you like, it is a good trade off.
 
-## 2.  Astra Spring Boot Starter
+## 2. Astra Spring Boot Starter
 
 ### 2.1 Introduction
 
 **The Astra Spring Boot Starter** will configure both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration keys are provided in `application.yaml` like any spring applications with a dedicated prefix `astra.*`. The starter will initialize any beans you would need (`AstraClient`, `CqlSession`, `StargateClient`) to use every interfaces exposes by Astra. Not all are activated by default though, you want to initialize only what you need.
 
-<img src="../../../../img/spring/quickstart-spring.png" />
+<img src="https://awesome-astra.github.io/docs/img/spring/quickstart-spring.png" />
 
 ### 2.2 Project Setup
 
-**📦. Prerequisites [ASTRA]**
+#### Prerequisites [ASTRA]
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 
-**📦. Prerequisites [Development Environment]**
+#### Prerequisites [Development Environment]
 
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**, Validate your installation with
 
@@ -131,7 +153,7 @@ java --version
 mvn -version
 ```
 
-**📦. Setup Project**
+#### Setup Project
 
 - Create your project with [Spring Initializr](https://start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.6&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
 
@@ -142,7 +164,7 @@ mvn -version
 |    **name**    | `sdk-quickstart-spring` | **dependencies** | `Spring Web` and `Spring Data for Cassandra` |
 | **packaging**  |          `JAR`          | **Java Version** |                 `8` or `11`                  |
 
-<img src="../../../../img/spring/spring-initializr.png" />
+<img src="https://awesome-astra.github.io/docs/img/spring/spring-initializr.png" />
 
 <p/>
 
@@ -226,9 +248,9 @@ mvn clean install spring-boot:run
 ```
 
 - Access the resources we created
-- Get your Organization ID: http://localhost:8080/api/devops/organizationid
-- Get your Datacenter Name (Spring-data): http://localhost:8080/api/spring-data/datacenter
-- Get your Datacenter Name (cql): http://localhost:8080/api/cql/datacenter
+- Get your Organization ID: `http://localhost:8080/api/devops/organizationid`
+- Get your Datacenter Name (Spring-data): `http://localhost:8080/api/spring-data/datacenter`
+- Get your Datacenter Name (cql): `http://localhost:8080/api/cql/datacenter`
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip)
 
@@ -236,14 +258,14 @@ mvn clean install spring-boot:run
 
 ### 3.1 Project Setup
 
-**📦. Prerequisites [ASTRA]**
+#### Prerequisites [ASTRA]
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Have downloaded your Cloud Secure Bundle](/docs/pages/astra/download-scb/)
+- You should [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
+- You should [Have downloaded your Cloud Secure Bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 
-**📦. Prerequisites [Development Environment]**
+#### Prerequisites [Development Environment]
 
 - You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**, Validate your installation with
 
@@ -257,7 +279,7 @@ java --version
 mvn -version
 ```
 
-**📦. Setup Project**
+#### Setup Project
 
 - Create a Spring Boot application from the initializer and add the `spring-boot-starter-data-cassandra`
 
@@ -322,4 +344,3 @@ public class SpringDataCassandraApplication {
 
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/awesome-astra/sample-java-spring-data/archive/refs/heads/master.zip)
-

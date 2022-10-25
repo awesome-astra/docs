@@ -2,16 +2,15 @@
 title: "Grafana"
 description: "Grafana is a multi-platform open source analytics and interactive visualization web application."
 tags: "go, javascript, cql, data management, data visualization, devops"
-icon: "https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg"
+icon: "https://awesome-astra.github.io/docs/img/grafana/grafana.svg"
 recommended: "true"
 developer_title: "Grafana"
 developer_url: "https://grafana.com"
 ---
 
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
-<img src="../../../../img/grafana/grafana_logo.svg" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg" height="100px" />
 </div>
 
 ## A - Overview
@@ -20,7 +19,7 @@ developer_url: "https://grafana.com"
 
 Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesArchitect/GrafanaCassandraDatasource) supports both Apache Cassandra as well as DataStax AstraDB, allowing to use Cassandra as a data backend for Grafana. Data can be pulled using simple Query Configurator or more advanced but powerful Query Editor.
 
-<img src="../../../../img/grafana/grafana_demo.png" />
+<img src="https://awesome-astra.github.io/docs/img/grafana/grafana_demo.png" />
 
 *(On the picture: Query Editor at work)*
 
@@ -29,15 +28,16 @@ Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesA
 <ul class="prerequisites">
     <li>To use Grafana, you will need a running Grafana instance deployed locally or in a cloud. Locally launched <a href="https://grafana.com/docs/grafana/next/setup-grafana/installation/docker/">Grafana in Docker</a> works well too.</li>
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a> and unpack it.</li>
+</ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the datasource configuration.
 
 ## C - Quickstart
 
-### Install the plugin using CLI or using web-interface 
+### Install the plugin using CLI or using web-interface
 
 - Install the plugin using grafana console tool:
 
@@ -61,11 +61,11 @@ It will be installed into your grafana plugins directory; the default is /var/li
 
 Push the `Save and Test` button, if everything is right, you will see a `Database Connection OK` message.
 
-<img src="../../../../img/grafana/grafana_config.png" />
+<img src="https://awesome-astra.github.io/docs/img/grafana/grafana_config.png" />
 
 If the database cannot be connected, check the following known common issues:
 
-####  Known issues:
+#### Known issues:
 
 ##### Misconfigured Port (Using `port` instead of `cql-port`)
 

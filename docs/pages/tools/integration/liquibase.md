@@ -2,7 +2,7 @@
 title: "Liquibase"
 description: "Liquibase is a database schema change management solution that enables you to revise and release database changes faster and safer from development to production."
 tags: "jdbc, third party tools, devops"
-icon: "https://awesome-astra.github.io/docs/img/liquibase/logo.png"
+icon: "https://awesome-astra.github.io/docs/img/liquibase/liquibase.svg"
 developer_title: "Liquibase"
 developer_url: "https://docs.liquibase.com/home.html"
 links:
@@ -11,7 +11,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 <img src="../../../../img/liquibase/logo.png" height="100px" />
 </div>
@@ -36,8 +35,8 @@ The purpose of this document is to guide you through the process of creating a n
 ### Astra Prerequisites
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-    <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
     <li><a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Download</a> the Simba JDBC Jar driver file for Apache Cassandra and place this file in the `liquibase/lib` install directory</li>
     <li>Clone this <a href="https://github.com/datastax/cql-proxy">repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra</li>
     <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
