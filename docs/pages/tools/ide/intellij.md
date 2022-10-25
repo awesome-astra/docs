@@ -1,11 +1,13 @@
 ---
 title: "IntelliJ"
-description: "IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages. It is developed by JetBrains, and is available as an Apache 2 Licensed community edition, and in a proprietary commercial edition."
-tags: "ide, ide plugins"
-icon: "https://commons.wikimedia.org/wiki/File:IntelliJ_IDEA_Icon.svg"
+description: "IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages."
+tags: "java, ide plugins"
+icon: "https://awesome-astra.github.io/docs/img/intellij/IntelliJ.svg"
 developer_title: "JetBrains"
 developer_url: "https://www.jetbrains.com/idea/"
 links:
+- title: "IntelliJ Astra Documentation"
+  url: "https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer"
 - title: "IntelliJ Idea Install"
   url: "https://www.jetbrains.com/idea/download/#section=mac"
 - title: "IntelliJ IDEA Resources"
@@ -13,10 +15,7 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Written by **Cedrick Lunven**, Last Update {{ git_revision_date }}_
-
-
-- This content has been built using [Reference Documentation ](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
+- This content has been built using [Reference Documentation](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
 </div>
 
 ## A - Overview
@@ -31,15 +30,14 @@ IntelliJ IDEA is an integrated development environment written in Java for devel
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should download either Community or Ultimate edition of IntelliJ from <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li>You should download either Community or ultimate edition of intelliJ from the <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
 </ul>
-
 
 ## C - Installation Guide
 
-### <span class="nosurface">✅ </span> 1. Download Plugin
+### <span class="nosurface">✅</span> 1. Download Plugin
 
 > _[Astra DB Explorer Installation Page](https://github.com/datastax/astra-ide-plugin/wiki/Getting-Started)_
 
@@ -57,7 +55,9 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png)
 
+
 ### <span class="nosurface">✅ </span> 2. Setup Plugin
+
 
 - During the first restart you will got an `IDE error occured` message it is expected we will now configure the plugin
 
@@ -71,7 +71,9 @@ File > Preferences > Plugins
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png)
 
+
 ### <span class="nosurface">✅ </span> 3. Edit Profiles
+
 
 - In the drop down menu select `Edit Profiles` the configuration file is referred as a profile
 
@@ -93,7 +95,9 @@ File > Preferences > Plugins
 default = "AstraCS:XXXX"
 ```
 
+
 ### <span class="nosurface">✅ </span> 4. Reload Profiles
+
 
 - Now on the drop down menu select `Reload Profiles`
 
@@ -102,3 +106,7 @@ default = "AstraCS:XXXX"
 - Et voila! You can now list databases on your Astra organization and for each you can see the different keyspaces
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png)
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>

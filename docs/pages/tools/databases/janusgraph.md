@@ -1,18 +1,34 @@
-*Last Update {{ git_revision_date }}* 
+---
+title: "JanusGraph"
+description: "JanusGraph is a scalable graph database optimized for storing and querying graphs containing hundreds of billions of vertices and edges distributed across a multi-machine cluster."
+tags: "java, graph, jdbc, third party tools, database"
+icon: "https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.svg"
+developer_title: "Linux Foundation"
+developer_url: "https://janusgraph.org"
+links:
+- title: "Introduction to JanusGraph"
+  url: "https://docs.janusgraph.org/"
+- title: "JanusGraph Installation"
+  url: "https://docs.janusgraph.org/getting-started/installation/"
+- title: "JanusGraph and Astra"
+  url: "https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra"
+---
 
+<div class="nosurface" markdown="1">
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html)_ 
-- *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#:~:text=large%20graphs%20effectively.-,Deploying%20on%20DataStax%20Astra,-Astra%20DB%20simplifies)*
+- *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra)*
 
-<img src="../../../../img/janusgraph/janusgraph.png" height="180px" />
-
+<img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" />
+</div>
 
 ## A - Overview
 
 JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.
 
-
+<div class="nosurface" markdown="1">
 - ℹ️ [Introduction to JanusGraph](https://docs.janusgraph.org/)
 - 📥 [JanusGraph Installation](https://docs.janusgraph.org/getting-started/installation/)
+</div>
 
 JanusGraph uses the [Java driver](https://docs.janusgraph.org/changelog/#datastax-cassandra-driver-upgrade-from-390-to-4130) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively. For example:
 ```
@@ -25,9 +41,12 @@ CqlSession session = CqlSession.builder()
 However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the **Prerequisites**.
 
 ## B - Prerequisites
-- [Create an Astra Database](/docs/pages/astra/create-instance/)
-- [Create an Astra Token](/docs/pages/astra/create-token/) 
-- [Download your secure connect bundle ZIP](/docs/pages/astra/download-scb/)
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+</ul>
 
 This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. 
 
@@ -37,7 +56,7 @@ You will need to choose which keyspace to use to store your graph. If it doesn't
 ## C - Installation and Setup
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
-### ✅ Step 1: DB Information
+### <span class="nosurface">✅</span> Step 1: DB Information
 
 On the JanusGraph server, unpack your secure bundle. For example:
 ```
@@ -83,7 +102,7 @@ Obtain information about your database from the config.json file. Here is an exa
 
 We will use this information to configure Astra DB as the storage backend for JanusGraph.
 
-### ✅ Step 2: Graph Storage
+### <span class="nosurface">✅</span> Step 2: Graph Storage
 On the JanusGraph server, modify the CQL storage configuration file:
 ```
 $ cd janusgraph-0.6.0
@@ -148,7 +167,7 @@ storage.cql.ssl.client-authentication-enabled=true
 storage.cql.read-consistency-level=LOCAL_QUORUM
 storage.cql.write-consistency-level=LOCAL_QUORUM
 ```
-### ✅ Step 3: Final Test
+### <span class="nosurface">✅</span> Step 3: Final Test
 Start a Gremlin console:
 ```
 $ bin/gremlin.sh
@@ -166,7 +185,7 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 
 !!! abstract "Note"
 
-    It is normal to see some warnings on the Gremlin console. I have attached a <a href="../../../../img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
+    It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:
 ```
@@ -177,4 +196,7 @@ edgestore_lock_  graphindex_lock_         janusgraph_ids
 txlog            systemlog                graphindex       
 edgestore        system_properties_lock_  system_properties
 ```
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>

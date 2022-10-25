@@ -12,7 +12,6 @@ links:
   url: "https://tableplus.com/blog/2019/10/tableplus-linux-installation.html"
 ---
 <div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) | *Last Update {{ git_revision_date }}* 
 
 <img src="https://awesome-astra.github.io/docs/img/tableplus/download.png" />
 
@@ -24,16 +23,16 @@ links:
 
 TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.
 
-- ℹ️ [Introduction to TablePlus](https://docs.tableplus.com/getting-started)
-- 📥 [TablePlus Download Link](https://docs.tableplus.com/#download-and-install)
+- <span class="nosurface">ℹ️ </span>[Introduction to TablePlus](https://docs.tableplus.com/getting-started)
+- <span class="nosurface">📥 </span>[TablePlus Download Link](https://docs.tableplus.com/#download-and-install)
 
 ## B - Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
 
 This article assumes you have a running installation of Tableplus on your laptop or PC. It was written for the MacOS version but it should also work for the Windows version.
@@ -116,5 +115,3 @@ Connect to your Astra DB. If the connection was successful, you should be able t
 Here's an example output:
 
 <img src="https://awesome-astra.github.io/docs/img/tableplus/2384-tableplus-astra-connected.png" height="350px" />
-
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)

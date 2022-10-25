@@ -13,13 +13,12 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-*Last Update {{ git_revision_date }}* 
 
 <details>
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/astra/docs/db-integration-dbschema.html"><b>📖 Astra Docs</b> - Reference documentation</a>
-<li><a href="https://www.sestevez.com/astra-datagrip/">Instructions described in **Sebastian Estevez Blog post**</a>
+<li><a href="https://dbschema.com/tutorials.html">DBSchema Tutorials</a>
 </ol>
 </details>
 
@@ -30,17 +29,17 @@ links:
 
 DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.
 
-- ℹ️ [Introduction to DBSchema](https://dbschema.com/features.html)
-- 📥 [DBSchema Installation](https://dbschema.com/download.html)
+- <span class="nosurface">ℹ️ </span>[Introduction to DBSchema](https://dbschema.com/features.html)
+- <span class="nosurface">📥 </span>[DBSchema Installation](https://dbschema.com/download.html)
 
 DBSchema uses the [Simba JDBC driver](https://downloads.datastax.com/#odbc-jdbc-drivers) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.
 
 ## B - Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
 
 This article assumes you have installed the latest version of DBSchema on your laptop or PC.
@@ -84,7 +83,7 @@ Download the JDBC driver from the DataStax website:
 11. Select **Open**
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-simba-driver.png" />
 
-12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database **window. Select **Next**.
+12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database** window. Select **Next**.
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra.png" height="500px" />
 
 13. In the Astra Connection Dialog, add JDBC URL as

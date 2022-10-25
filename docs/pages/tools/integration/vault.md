@@ -3,7 +3,7 @@ title: "Vault"
 description: "The purpose of this document is to guide you through the process using Astra DB as the storage configuration for your 
 HashiCorp Vault instance. In this tutorial, you will install Vault and edit the configuration file to point to Astra DB."
 tags: "third party tools, devops"
-icon: "https://awesome-astra.github.io/docs/img/vault/vaultlogo.png"
+icon: "https://awesome-astra.github.io/docs/img/vault/hashicorp.svg"
 developer_title: "HashiCorp"
 developer_url: "https://www.vaultproject.io/docs/install"
 links:
@@ -12,7 +12,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-_Last Update {{ git_revision_date }}_
 
 
 <img src="https://awesome-astra.github.io/docs/img/vault/vaultlogo.png" />
@@ -29,27 +28,17 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 </div>
 
 ## Prerequisites
+
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should <a href="/docs/pages/astra/download-scb/">Download your Secure Bundle</a></li>
-<li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
-<li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
-    <ul>
-    <li>
-    You need your Astra Token and Astra Database ID to use CQL-Proxy
-    </li>
-    <li>
-    Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output:
-    </li>
-    </ul>
-    </li>
-    ```bash
-    {"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}
-    ```
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Bundle</a></li>
+  <li>You should <a href="https://www.vaultproject.io/docs/install">Install Vault</a></li>
+  <li>Clone this<a href="https://www.vaultproject.io/docs/install"> repository</a> to use to set up CQL-Proxy which is a sidecar that enables unsupported CQL drivers to work with DataStax Astra
+  <li>You need your Astra Token and Astra Database ID to use CQL-Proxy</li>
+  <li>Follow the steps in the repo to spin up CQL-Proxy using Terminal/Command Line. Once successfully running, you should see the following output: <code>{"level":"info","ts":1651012815.176512,"caller":"proxy/proxy.go:222","msg":"proxy is listening","address":"[::]:9042"}</code></li>
 </ul>
-  
 
 ## Installation and Setup
 1. In the Astra UI, create a keyspace called **vault**. 
@@ -105,22 +94,18 @@ Successful output should look like this:
 ```
 
 !!! info "Note"
-
     If you get a warning message about mlock not being supported, that is okay. However, for maximum security you should run Vault on a system that supports mlock.
 
 ## Test and Validate
 1. Once you see the above message that you successfully started Vault server, open a new terminal window.
 2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
+   
 !!! info "Note"
-    You may get an error that looks like this
-    ```
-    Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client
-    ```
-    This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command:
-    ```
-    vault operator init -address=http://127.0.0.1:8200
-    ```
+    You may get an error that looks like this: <code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code>
+    This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command: <code>vault operator init -address=http://127.0.0.1:8200</code>
+
 Once Vault is initialized, it should give you an output of your Unseal Keys:
+
 ```bash
 % vault operator init
 Unseal Key 1: rVRPym...
@@ -139,10 +124,13 @@ before it can start servicing requests.
 Vault does not store the generated root key. Without at least 3 keys to
 reconstruct the root key, Vault will remain permanently sealed!
 ```
+
 !!! danger "Note"
     Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. 
-3. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
-4. Enter your Unseal Keys and Root Token
+    
+    
+1. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)
+2. Enter your Unseal Keys and Root Token
 
 <img src="https://awesome-astra.github.io/docs/img/vault/vault_key.png" style="width:250px;"/> 
 <img src="https://awesome-astra.github.io/docs/img/vault/vault_token.png" style="width:250px;"/>
@@ -166,5 +154,9 @@ token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from 
 
 (1 rows)
 ```
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</div>
 
 
