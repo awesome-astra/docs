@@ -20,7 +20,7 @@ links:
 <img src="../../../../img/feast/feast_logo.png" height="100px" />
 </div>
 
-## A - Overview
+## Overview
 
 [Feast](https://feast.dev/)
 is a (Apache-licensed) open-source feature store for machine learning.
@@ -51,7 +51,7 @@ Reference documentation:
 - ℹ️ [The `feast-cassandra` plugin](https://pypi.org/project/feast-cassandra/)
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -63,25 +63,29 @@ Reference documentation:
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.
 
-## C - Quickstart
+## Quickstart
 
-_Note: this quickstart is modeled after the one
+!!! note "Note"
+    This quickstart is modeled after the one found in the [Feast documentation](https://docs.feast.dev/getting-started/quickstart). The numbering of the steps is chosen to be consistent with it. All credits for the sample code given here goes to the Feast documentation.
+
+
+<!---_Note: this quickstart is modeled after the one
 found in the
 [Feast documentation](https://docs.feast.dev/getting-started/quickstart).
 The numbering of the steps is chosen to be consistent with it.
-All credits for the sample code given here goes to the Feast documentation._
+All credits for the sample code given here goes to the Feast documentation._ -->
 
 A new feature store is created and configured to use Astra DB as online store;
 next, it will be materialized to database using sample feature definitions and
 sample data; finally, historical/online feature retrieval is demonstrated.
 
-### <span class="nosurface">✅ </span>Steps:
+<!--- > ### <span class="nosurface">✅ </span>Steps: -->
 
-#### 1. Install Feast and the plugin
+### <!--1.--> Install Feast and the plugin
 
 See last item in the "Prerequisites" above.
 
-#### 2. Create a feature repository
+### <!--2.--> Create a feature repository
 
 In a directory of your choice, create a new repository and `cd` to the
 corresponding directory:
@@ -95,7 +99,7 @@ As you can see, the new feature store already contains sample data
 and a sample feature definition. These will be used in this walkthrough,
 so don't delete them.
 
-#### 2B. Configure Astra DB as online store
+#### <!--2B.--> Configure Astra DB as online store
 
 Locate and open the store configuration file, `feature_store.yaml`. Replace
 the `online_store` portion of the file with something like (_use your values
@@ -110,6 +114,23 @@ online_store:
     keyspace: feastks
 ```
 
+!!! note "Settings in "feature_store.yaml" for usage with Cassandra"
+    If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
+
+    ```
+    online_store:
+    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
+    hosts:
+        - 192.168.1.1
+        - 192.168.1.2
+        - 192.168.1.3
+    keyspace: feastks
+    port: 9042        # optional
+    username: user    # optional
+    password: secret  # optional
+    ```
+
+<!-->
 <details><summary>Settings in "feature_store.yaml" for usage with Cassandra</summary>
 
 If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
@@ -127,8 +148,9 @@ online_store:
     password: secret  # optional
 ```
 </details>
+-->
 
-#### 3. Register feature definitions and deploy the store
+### <!--3.--> Register feature definitions and deploy the store
 
 With the `apply` command, features defined in Python modules (in this case,
 `example.py`) are scanned and used for actual deployment of the infrastructure.
@@ -142,7 +164,7 @@ feast apply
 > you may want to check directly the presence of a new table in the Astra DB
 > keyspace.
 
-#### 4. Generate training data
+### <!--4.--> Generate training data
 
 This illustrates the `get_historical_features` store method,
 which directly scans the offline source data and performs
@@ -151,7 +173,7 @@ up to a certain provided timestamp.
 
 Create a file `generate.py` and run it with `python generate.py`:
 
-<details><summary>Show "generate.py"</summary>
+<!--<details><summary>Show "generate.py"</summary>-->
 
 ```python
 from datetime import datetime, timedelta
@@ -196,9 +218,9 @@ print("----- Example features -----\n")
 print(training_df.head())
 ```
 
-</details>
+<!---</details>-->
 
-#### 5. Load features in the online store
+### <!--5.--> Load features in the online store
 
 With the `materialize-incremental` command, Feast is instructed
 to carry the latest feature values over to the online store, for
@@ -212,7 +234,7 @@ feast materialize-incremental $CURRENT_TIME
 > At this point, inspection of the Astra DB table will show the presence of
 > newly-inserted rows.
 
-#### 6. Fetch feature vectors from the online store
+### <!--6.--> Fetch feature vectors from the online store
 
 The `get_online_features` store method will query the online store
 and return the required features, as resulting from the last
@@ -220,7 +242,7 @@ and return the required features, as resulting from the last
 
 Create a `fetch_online.py` script and run it with `python fetch_online.py`:
 
-<details><summary>Show "fetch_online.py"</summary>
+<!--<details><summary>Show "fetch_online.py"</summary>-->
 
 ```python
 from pprint import pprint
@@ -244,4 +266,4 @@ feature_vector = store.get_online_features(
 pprint(feature_vector)
 ```
 
-</details>
+<!--</details>--->
