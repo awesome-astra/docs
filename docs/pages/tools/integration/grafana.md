@@ -13,7 +13,7 @@ developer_url: "https://grafana.com"
 <img src="https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg" height="100px" />
 </div>
 
-## A - Overview
+## Overview
 
 [Grafana](https://grafana.com/) is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. A licensed Grafana Enterprise version with additional capabilities is also available as a self-hosted installation or an account on the Grafana Labs cloud service. It is expandable through a plug-in system. End users can create complex dashboards using interactive query builders.
 
@@ -23,7 +23,7 @@ Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesA
 
 *(On the picture: Query Editor at work)*
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li>To use Grafana, you will need a running Grafana instance deployed locally or in a cloud. Locally launched <a href="https://grafana.com/docs/grafana/next/setup-grafana/installation/docker/">Grafana in Docker</a> works well too.</li>
