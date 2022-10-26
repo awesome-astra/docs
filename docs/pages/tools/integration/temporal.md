@@ -21,6 +21,7 @@ links:
 ## Overview
 
 Temporal.io is an open source microservice orchestration platform that assists in tracking workflows in your application development. It provides the user with a plug-and-play persistence layer that lets the user choose and configure their Temporal Server with their preferred backend. Currently, Temporal is compatible with Postgres, MySQL, and Apache CassandraⓇ as backend dependencies. 
+
 <div class="nosurface" markdown="1">
 - <span class="nosurface" markdown="1">📥 </span>[Temporal Quick Install](https://docs.temporal.io/docs/clusters/quick-install/)
 - <span class="nosurface" markdown="1">ℹ️ </span>[Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
@@ -30,7 +31,7 @@ Temporal.io is an open source microservice orchestration platform that assists i
 - <span class="nosurface" markdown="1">🎥 </span>[Workflow with Temporal and Astra DB in 5 minutes](https://www.youtube.com/watch?v=rdmJErBLxtE)
 </div>
 
-## - Prerequisites
+## Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -141,7 +142,7 @@ You can test your connection and play with your Temporal cluster with these inst
 bash-5.0# tctl --namespace test namespace re
 Namespace test successfully registered.
 ```
-1. When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
+2. When using the sample apps, keep in mind that you want to modify the starter and worker code so that it points to this specific Temporal deployment. For example:
 ```bash
 c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace: "test"})
 ```
@@ -149,5 +150,6 @@ c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace:
 Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.
 
 <img src="https://awesome-astra.github.io/docs/img/temporal/temporal-06-test-validate.png"  />
+
 
 [🏠 Back to HOME](https://awesome-astra.github.io/docs/)

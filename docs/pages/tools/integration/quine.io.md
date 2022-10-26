@@ -10,7 +10,7 @@ links:
   url: "https://docs.quine.io/core-concepts/core-concepts.html"
 ---
 
-## A - Overview
+## Overview
 
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/quine/quine-image.png?raw=true" height="50px" />
@@ -22,7 +22,7 @@ Quine is a streaming graph capable of building high-volumes of data into a state
 - ℹ️ [Quine Documentation - Core Concepts](https://docs.quine.io/core-concepts/core-concepts.html)
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -34,9 +34,9 @@ Quine is a streaming graph capable of building high-volumes of data into a state
 
 This article was written for Quine version `1.2.1` on `MacOS` with Java `11.10`.
 
-## C - Installation
+## Installation
 
-**<span class="nosurface">✅</span> Step 1 Download and install**
+**<span class="nosurface">✅ Step 1 </span>Download and install**
 
 Follow the [Download Quine page](https://quine.io/download) to download the JAR.  Choose/create a directory for Quine, and copy the JAR to this location:
 
@@ -45,11 +45,11 @@ mkdir ~/local/quine
 cp ~/Downloads/quine-1.2.1.jar ~/local/quine
 ```
 
-**<span class="nosurface">✅</span> Step 2 Create the keyspace `quine`**
+**<span class="nosurface">✅Step 2 </span>Create the keyspace `quine`**
 
 From the [Astra DB console](https://astra.datastax.com), click on your database name, or create a new one called `quine` (or another name of your preference). Scroll down to where the keyspaces are listed, and click the `Add Keyspace` button to create a new keyspace. Name this keyspace `quine`.
 
-**<span class="nosurface">✅</span> Step 3 Configuration**
+**<span class="nosurface">✅ </span>Step 3 Configuration**
 
 Create a `quine.conf` file inside the `quine` directory:
 
@@ -117,10 +117,10 @@ Astra-Specific Settings:
 
 `secure-connect-bundle` - A valid, local file location of a downloaded secure connect bundle.  Also, the driver gets the Astra DB hostname and Cloud provider from the secure bundle, so there is no need to specify endpoints separately.
 
-**<span class="nosurface">✅</span> Step 4 Download Secure Connect Bundle (SCB)**
+**<span class="nosurface">✅ Step 4 </span>Download Secure Connect Bundle (SCB)**
 In your [Astra DB console](https://astra.datastax.com) navigate to your database in the dashboard, then the connect tab.  In the 'Connect using a Driver' , and then the click 'Java' Java section. Then click the 'download bundle' on the right. Without unzipping it, move the downloaded file to the directory you created in step 1, that contains the quine-1.2.1.jar.  The file will be named `secure-connect-[your databasename].zip`, so in this example `secure-connect-quine.zip`.  You will reference this file directly in the previous configation file step above.
 
-**<span class="nosurface">✅</span> Step 5 Run Quine**
+**<span class="nosurface">✅ Step 5 </span>Run Quine**
 
 To run Quine, invoke the JAR with Java, while passing the `quine.conf` in the `config.file` parameter:
 
@@ -141,7 +141,7 @@ You can now use Quine's visual graph explorer in a web browser, and create/trave
 
 The Swagger spec for the Quine API can also be found locally at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
-**<span class="nosurface">✅</span> Optional Step 6: Loading some sample data**
+**<span class="nosurface">✅ Optional Step 6: </span>Loading some sample data**
 
 Download [attempts.json](https://that.re/attempts) (74.MB) from the [Quine Password Spraying example](https://quine.io/recipes/password-spraying) and locate it in the root of your Quine directory alongside the quine-1.2.1.jar file.
 Make sure the Quine server is not running -- it's requires graceful shutdown. 
@@ -160,7 +160,7 @@ INGEST-1 status is completed and ingested 55000
 ```
 
 
-**<span class="nosurface">✅</span> Troubleshooting**
+**<span class="nosurface">✅ </span>Troubleshooting**
 
 If the output does not read: 
 
@@ -213,7 +213,7 @@ CREATE TABLE quine.snapshots (
     AND speculative_retry = '99PERCENTILE';
 ```
 
-## D - Acknowledgements
+## Acknowledgements
 
 Special thanks goes out to Ryan Wright and Leif Warner of [thatDot](https://www.thatdot.com/) for their help with getting Quine running and connected.
 
