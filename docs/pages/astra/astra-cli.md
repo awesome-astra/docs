@@ -1,10 +1,12 @@
 !!! warning "Astra Cli is not released yet. It is in active developement "
 
-Astra CLI provides a command line interface in a terminal to operate Datastax Astra. The goal is to offer access to any feature without accessing the user interface.
+Astra CLI provides a command line interface in a terminal to operate Datastax Astra. The goal is to offer access to any feature without user interface.
 
 ## Getting Started
 
 ### 1. Installation
+
+The Astra CLI is available to install in Windows, macOS and Linux environments. It can also be run in a Docker container 
 
 **📘 1a Prequisites**
 
@@ -1208,3 +1210,4 @@ astra config delete dev
 ```
 astra config list
 ```
+
