@@ -38,12 +38,85 @@ As a consequence a grpc API layer is available within [Stargate](stargate.io). S
 
 - Download to the `.proto` files. For Stargate they can be found [here]()
 
-- Generate the stubs base on the proto files. In the case of Stargate gRPC apis datastax has already generated those stubs for a couple of languagues
+- Generate stubs base on the proto files. In the case of Stargate gRPC apis datastax has  generated those stubs for a couple of languages already
     - [Java grpcClient](https://github.com/stargate/stargate-grpc-java-client)
     - [Rust grpcClient](https://github.com/stargate/stargate-grpc-rust-client)
     - [Go grpcClient](https://github.com/stargate/stargate-grpc-go-client)
     - [Node grpcClient](https://github.com/stargate/stargate-grpc-node-client)
 
-- 
+- To use those a [complete documentation](https://stargate.io/docs/latest/develop/dev-with-grpc.html) can be found on Stargate.io.
+
+- A SDK has been implemented on top of those client to propose fluent Apis. Here are the different links
+    - [Java SDK](https://github.com/datastax/astra-sdk-java/wiki)
+    - [Python SDK](https://github.com/datastax/astrapy)
+    - [JavaScript SDK](https://github.com/datastax/astrajs)
+    - [Go SDK](https://github.com/datastax-ext/astra-go-sdk)
+
+### 3.3 Sample codes
+
+To illustrate the usage of the grpc againt astra with and without the SDK look at the following code
+
+#### Code with gRPC client
+
+```java
+// Initialize Astra Client with token and database identifiers
+        try(AstraClient astraClient = AstraClient.builder()
+                .withDatabaseId(ASTRA_DB_ID)
+                .withDatabaseRegion(ASTRA_DB_REGION)
+                .withToken(ASTRA_DB_TOKEN)
+                .enableGrpc()
+                .build()) {
+            
+            // Accessin the gRPC API
+            ApiGrpcClient cloudNativeClient = astraClient.apiStargateGrpc();
+            
+            // Reuse cql query
+            String cqlQuery = "SELECT data_center from system.local";
+            
+            // Executing Query
+            ResultSetGrpc rs = cloudNativeClient.execute(cqlQuery);
+            
+            // Accessing reulst
+            String datacenterName = rs.one().getString("data_center");
+            System.out.println("You are connected to '%s'".formatted(datacenterName));
+            
+            // Validating the test
+            Assertions.assertNotNull(datacenterName);
+        }
+```        
+
+#### Code with gRPC SDK
+
+```java
+// Open Grpc communicatino 
+        ManagedChannel channel = ManagedChannelBuilder
+            .forAddress(ASTRA_DB_ID + "-" + ASTRA_DB_REGION + ".apps.astra.datastax.com", 443)
+            .useTransportSecurity()
+            .build();
+        
+        // use Grpc Stub generated from .proto as a client
+        StargateGrpc.StargateBlockingStub cloudNativeClient = StargateGrpc
+                .newBlockingStub(channel)
+                .withCallCredentials(new StargateBearerToken(ASTRA_DB_TOKEN))
+                .withDeadlineAfter(5, TimeUnit.SECONDS);
+        
+        // create Query
+        String cqlQuery = "SELECT data_center from system.local";
+        
+        // Execute the Query
+        Response res = cloudNativeClient.executeQuery(QueryOuterClass
+                        .Query.newBuilder().setCql(cqlQuery).build());
+
+        // Accessing Row result
+        QueryOuterClass.Row row = res.getResultSet().getRowsList().get(0);
+        
+        // Access the single value
+        String datacenterName = row.getValues(0).getString();
+        System.out.println("You are connected to '%s'".formatted(datacenterName));
+        
+        // Validating the test
+        Assertions.assertNotNull(datacenterName);
+```
+
 
 
