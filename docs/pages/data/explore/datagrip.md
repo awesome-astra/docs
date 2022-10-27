@@ -20,7 +20,7 @@ links:
 
 </div>
 
-## A - Overview
+## Overview
 
 <div class="nosurface" markdown="1">
 
@@ -32,16 +32,16 @@ links:
 
 DataGrip is a database management environment for developers. It is designed to query, create, and manage databases. Databases can work locally, on a server, or in the cloud. Supports MySQL, PostgreSQL, Microsoft SQL Server, Oracle, and more. If you have a JDBC driver, add it to DataGrip, connect to your DBMS, and start working.
 
-## B - Prerequisites
+## Prerequisites
 
 - [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
 - [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 - [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
-## C - Installation and Setup
+## Installation and Setup
 
-#### Step 1: Download JDBC Driver
+### <span class="nosurface">Step 1: </span>Download JDBC Driver
 
 Download the JDBC driver from the DataStax website:
 
@@ -54,13 +54,13 @@ Download the JDBC driver from the DataStax website:
 
 <img src="https://awesome-astra.github.io/docs/img/pentaho-data-integration/download-drivers.png" />
 
-#### Step 2: Download `Settings.zip`
+### <span class="nosurface">Step 2: </span> Download `Settings.zip`
 
 - Download the [settings.zip](https://datastax-21b7c7df5342.intercom-attachments-7.com/i/o/232268459/929cbfa881f4423cceb8b3b2/settings.zip) locally
 
 > If you are already a DataGrip user, back up your existing settings because downloading `settings.zip` might override your existing settings.
 
-#### Step 3: Import the settings.zip into DataGrip
+### <span class="nosurface">Step 3: </span> Import the settings.zip into DataGrip
 
 - Selecting `File` → `Manage IDE Settings` → `Import Settings` in DataGrip.
 
@@ -76,7 +76,7 @@ You will see a new database connection type called Astra: _Simba Cassandra JDBC 
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic2.png" />
 
-#### Step 4: Establish the connection
+### <span class="nosurface">Step 4: </span> Establish the connection
 
 When you create your connection, the URL will look like this: `jdbc:cassandra://;AuthMech=<2>;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;TunableConsistency=<6>`
 
