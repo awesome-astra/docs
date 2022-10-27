@@ -1999,11 +1999,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-quickstart" class="md-nav__link">
-    C - Quickstart
+  <a href="#quickstart" class="md-nav__link">
+    Quickstart
   </a>
   
-    <nav class="md-nav" aria-label="C - Quickstart">
+    <nav class="md-nav" aria-label="Quickstart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2025,26 +2025,6 @@
   <a href="#known-issues" class="md-nav__link">
     Known issues:
   </a>
-  
-    <nav class="md-nav" aria-label="Known issues:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#misconfigured-port-using-port-instead-of-cql-port" class="md-nav__link">
-    Misconfigured Port (Using port instead of cql-port)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unavailable-tls-files" class="md-nav__link">
-    Unavailable TLS files
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2511,11 +2491,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-quickstart" class="md-nav__link">
-    C - Quickstart
+  <a href="#quickstart" class="md-nav__link">
+    Quickstart
   </a>
   
-    <nav class="md-nav" aria-label="C - Quickstart">
+    <nav class="md-nav" aria-label="Quickstart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2537,26 +2517,6 @@
   <a href="#known-issues" class="md-nav__link">
     Known issues:
   </a>
-  
-    <nav class="md-nav" aria-label="Known issues:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#misconfigured-port-using-port-instead-of-cql-port" class="md-nav__link">
-    Misconfigured Port (Using port instead of cql-port)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unavailable-tls-files" class="md-nav__link">
-    Unavailable TLS files
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2639,7 +2599,7 @@
 </ul>
 
 <p>Keep the token information and the bundle file location ready: these will be soon provided in the datasource configuration.</p>
-<h2 id="c-quickstart">C - Quickstart<a class="headerlink" href="#c-quickstart" title="Permanent link">&para;</a></h2>
+<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
 <h3 id="install-the-plugin-using-cli-or-using-web-interface">Install the plugin using CLI or using web-interface<a class="headerlink" href="#install-the-plugin-using-cli-or-using-web-interface" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Install the plugin using grafana console tool:</li>
@@ -2666,9 +2626,9 @@
 <p><img src="https://awesome-astra.github.io/docs/img/grafana/grafana_config.png" /></p>
 <p>If the database cannot be connected, check the following known common issues:</p>
 <h4 id="known-issues">Known issues:<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h4>
-<h5 id="misconfigured-port-using-port-instead-of-cql-port">Misconfigured Port (Using <code>port</code> instead of <code>cql-port</code>)<a class="headerlink" href="#misconfigured-port-using-port-instead-of-cql-port" title="Permanent link">&para;</a></h5>
+<p><strong>Misconfigured Port (Using <code>port</code> instead of <code>cql-port</code>)</strong></p>
 <p>Sometimes users specify the wrong port and a connection cannot be established. If you can't connect to your Astra instance, please check if the correct port specified in the datasource config (See step 3 above)</p>
-<h5 id="unavailable-tls-files">Unavailable TLS files<a class="headerlink" href="#unavailable-tls-files" title="Permanent link">&para;</a></h5>
+<p><strong>Unavailable TLS files</strong></p>
 <p>if you have an error message like <code>[ERROR] cassandra-backend-datasource: Unable create tls config, open /cert: permission denied</code>, it means that Grafana cannot open TLS certificate files. Set the proper permission f.e. using <code>chown</code> command. If you copied the files using <code>docker cp</code> command, they'll be copied by a root user and grafana will have no access to them.</p>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
 <p>First, to visualize the data, you have to create a panel. Choose or create a dashboard and create a panel. In the panel setup, choose the correct datasource from the previous steps.</p>
@@ -2736,7 +2696,7 @@ All other properties will be ignored</p>
   <small>
     
       Last update:
-      2022-10-26
+      2022-10-27
     
   </small>
 </div>

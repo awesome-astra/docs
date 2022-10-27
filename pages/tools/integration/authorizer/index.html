@@ -2138,6 +2138,54 @@
     Installation
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0-download-and-install" class="md-nav__link">
+    ✅ Step 0  Download and install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-keyspace-authorizer" class="md-nav__link">
+    ✅ Step 1  Create the keyspace authorizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-configuration-file" class="md-nav__link">
+    ✅ Step 2  Create configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-base64-encoded-strings-from-your-cert-cacrt-and-key-files" class="md-nav__link">
+    ✅ Step 3  Create base64 encoded strings from your cert, ca.crt, and key files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-to-astra-db" class="md-nav__link">
+    ✅ Step 4  Connect to Astra DB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-authorizer" class="md-nav__link">
+    ✅ Step 5  Start Authorizer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2435,6 +2483,54 @@
     Installation
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0-download-and-install" class="md-nav__link">
+    ✅ Step 0  Download and install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-keyspace-authorizer" class="md-nav__link">
+    ✅ Step 1  Create the keyspace authorizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-configuration-file" class="md-nav__link">
+    ✅ Step 2  Create configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-base64-encoded-strings-from-your-cert-cacrt-and-key-files" class="md-nav__link">
+    ✅ Step 3  Create base64 encoded strings from your cert, ca.crt, and key files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-to-astra-db" class="md-nav__link">
+    ✅ Step 4  Connect to Astra DB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-authorizer" class="md-nav__link">
+    ✅ Step 5  Start Authorizer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2480,17 +2576,17 @@
 </ul>
 
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p><strong><span class="nosurface">✅ Step 0 </span> Download and install</strong></p>
+<h3 id="step-0-download-and-install"><span class="nosurface">✅ Step 0 </span> Download and install<a class="headerlink" href="#step-0-download-and-install" title="Permanent link">&para;</a></h3>
 <p>Following the <a href="https://docs.authorizer.dev/deployment/binary">Authorizer documentation</a> download and untar the software where you would like to install it.</p>
-<p><strong><span class="nosurface">✅ Step 1 </span> Create the keyspace <code>authorizer</code></strong></p>
+<h3 id="step-1-create-the-keyspace-authorizer"><span class="nosurface">✅ Step 1 </span> Create the keyspace <code>authorizer</code><a class="headerlink" href="#step-1-create-the-keyspace-authorizer" title="Permanent link">&para;</a></h3>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>authorizer</code>.</p>
-<p><strong><span class="nosurface">✅ Step 2 </span> Create configuration file</strong></p>
+<h3 id="step-2-create-configuration-file"><span class="nosurface">✅ Step 2 </span> Create configuration file<a class="headerlink" href="#step-2-create-configuration-file" title="Permanent link">&para;</a></h3>
 <p>Use the delivered <code>.env.sample</code> file to create a new <code>.env</code> file for your configuration.  Edit this file with Atom, Vi, or whichever editor you choose.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    <span class="nb">cd</span> authorizer
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    cp .env.sample .env
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    atom .env
 </code></pre></div></p>
-<p><strong><span class="nosurface">✅ Step 3 </span> Create base64 encoded strings from your cert, ca.crt, and key files</strong></p>
+<h3 id="step-3-create-base64-encoded-strings-from-your-cert-cacrt-and-key-files"><span class="nosurface">✅ Step 3 </span> Create base64 encoded strings from your cert, ca.crt, and key files<a class="headerlink" href="#step-3-create-base64-encoded-strings-from-your-cert-cacrt-and-key-files" title="Permanent link">&para;</a></h3>
 <p>To successfully connect with Astra DB, you will need to open the secure bundle and convert the following files into base64 encoded strings:</p>
 <ul>
 <li>cert</li>
@@ -2503,7 +2599,7 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>base64 key key_base64_file
 </code></pre></div>
 <p>Note that you can omit the file parameter and output the base64 encoded string to STDOUT for easy copy/paste accessibility.</p>
-<p><strong><span class="nosurface">✅ Step 4 </span> Connect to Astra DB</strong></p>
+<h3 id="step-4-connect-to-astra-db"><span class="nosurface">✅ Step 4 </span> Connect to Astra DB<a class="headerlink" href="#step-4-connect-to-astra-db" title="Permanent link">&para;</a></h3>
 <p>To connect to Astra DB, you will need to specify the following variables in the <code>.env</code> file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DATABASE_HOST=&quot;ASTRA_DB_ID-ASTRA_DB_REGION.db.astra.datastax.com&quot;
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DATABASE_TYPE=&quot;cassandradb&quot;
@@ -2515,7 +2611,7 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>DATABASE_CERT_KEY=&quot;RXNRNVcKYXkwblahblahblahnotrealkt4b1FnL2s4K29IaD&quot;
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>DATABASE_CA_CERT=&quot;WVhneERqQU1CZblahblahblahnotrealWQkFzVEJVTnNiM1Z&quot;
 </code></pre></div>
-<p><strong><span class="nosurface">✅ Step 5 </span> Start Authorizer</strong></p>
+<h3 id="step-5-start-authorizer"><span class="nosurface">✅ Step 5 </span> Start Authorizer<a class="headerlink" href="#step-5-start-authorizer" title="Permanent link">&para;</a></h3>
 <p>From the <code>authorizer</code> directory, run the <code>server</code> binary from the <code>build</code> directory.  It will run in the foreground.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>build/server
 </code></pre></div></p>
