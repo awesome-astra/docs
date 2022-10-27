@@ -37,7 +37,7 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
 
 ## Installation and Setup
 
-### <span class="nosurface">✅ </span> 1. Setup Astra
+### <span class="nosurface">✅ 1. </span> Setup Astra
 
 1. In your Astra database, create two new keyspaces called **"cadence"** and **"cadence_visibility".** You will be using both of these in the next steps.
 2. Make sure to create an Astra token with **Admin Role**
@@ -47,7 +47,7 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
      1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
      2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
 
-### <span class="nosurface">✅ </span> 2. Cadence Pre-setup
+### <span class="nosurface">✅ 2. </span> Cadence Pre-setup
 
 1. Clone this GitHub [repository](https://github.com/melienherrera/cadence-astra-cql-proxy)
 2. Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above.
@@ -57,7 +57,7 @@ ASTRA_TOKEN=<your Astra token>
 ASTRA_DATABASE_ID=<your DB ID>
 ```
 
-### <span class="nosurface">✅ </span> 3. Cadence Schema Migration to Astra DB
+### <span class="nosurface">✅ 3. </span> Cadence Schema Migration to Astra DB
 
 For this step, you will set up the keyspaces you created earlier in the Astra prerequisites (**cadence** and **cadence_visibility**). You will be using `cadence-cassandra-tool` which is part of the Temporal repo and it relies on schema definition.
 
@@ -112,7 +112,7 @@ open_executions        closed_executions_v2  closed_executions
 schema_update_history  schema_version
 ```
 
-### <span class="nosurface">✅ </span> 4. Run Docker Compose
+### <span class="nosurface">✅ 4. </span> Run Docker Compose
 
 In this step, the `docker-compose.yaml` file is already provided for you in the `cadence-astra-cql-proxy` repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with cql-proxy, and it should pull your Astra credentials from when you set it earlier.
 
@@ -134,7 +134,7 @@ Now you can run the docker-compose command to start up Cadence:
 docker-compose up
 ```
 
-### <span class="nosurface">✅ </span> 5. Test and Validate
+### <span class="nosurface">✅ 5. </span> Test and Validate
 
 You can test your connection and play with your Cadence cluster with these instructions.
 Using Cadence’s Command Line tool, you will be able to interact with your local Temporal server.

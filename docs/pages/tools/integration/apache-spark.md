@@ -19,7 +19,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/apache-spark/Apache_Spark_logo.png" height="100px" />
 </div>
 
-## A - Overview
+## Overview
 
 Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. Use Apache Spark to connect to your database and begin accessing your Astra DB tables using Scala in spark-shell.
 
@@ -28,7 +28,7 @@ Apache Spark is an open-source, distributed processing system used for big data 
 - 📥 [Apache Spark Download Link](https://spark.apache.org/downloads.html)
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -38,11 +38,11 @@ Apache Spark is an open-source, distributed processing system used for big data 
     <li>Download and install the latest version of <a href="https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector">Spark Cassandra Connector</a> that matches with your Apache Spark and Scala version from the maven central repository. To find the right version of SCC, please check SCC compatibility <a href="https://github.com/datastax/spark-cassandra-connector#version-compatibility">here.</a></li>
 </ul>
 
-## C - Installation and Setup
+## Installation and Setup
 
 These steps assume you will be using Apache Spark in local mode. For help using Spark cluster mode click the chat button on the bottom of the screen.
 
-### <span class="nosurface">✅ </span>Steps:
+### <span class="nosurface">✅ </span> Steps:
 
 1. Expand the downloaded Apache Spark package into a directory, and assign the directory name to `$SPARK_HOME`.
 

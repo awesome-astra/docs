@@ -16,7 +16,7 @@ links:
 
 <img src="https://awesome-astra.github.io/docs/img/presto/logo-presto.png" height="100px" />
 
-## A - Overview
+## Overview
 
 [Presto](https://prestodb.io) is a distributed SQL query engine for big data analytics. Presto can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Presto use cases include:
 
@@ -31,12 +31,12 @@ The overall architecture of this solution is depicted below. _Presto CLI Client_
 <img style="display: block; margin-left: auto; margin-right: auto; width: 25%;" src="https://awesome-astra.github.io/docs/img/presto/presto-solution-architecture.svg" />
 
 
-## B - Prerequisites
+## Prerequisites
 
 - [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
 - [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 
-## C - Setup Astra DB
+## Setup Astra DB
 
 **<span class="nosurface">✅ </span>1. [Sign in](https://astra.datastax.com/)**
 
@@ -83,7 +83,7 @@ INSERT INTO accounts_by_customer (customer_id,account_number,account_type,accoun
 VALUES (0e5d9e8c-2e3b-4576-8515-58b491cb859e,'B-102','Savings',400.04,'Bob');
 ```
 
-## D - Deploy CQL Proxy
+## Deploy CQL Proxy
 
 **<span class="nosurface">✅ </span>4. Installation**
 
@@ -103,7 +103,7 @@ An example command with a sample, invalid token and database id:
 --astra-database-id e5e4e925-289a-8231-83fd-25918093257b
 ```
 
-## E - Setup Presto Server
+## Setup Presto Server
 
 **<span class="nosurface">✅ </span>5. Presto intallation**
 
@@ -162,7 +162,7 @@ bin/launcher run
 
 Wait for message `======== SERVER STARTED ========` to confirm a successful start.
 
-## F - SQL Queries with Presto Client
+## SQL Queries with Presto Client
 
 In this section you will execute SQL Queries against Astra DB using Presto CLI Client.
 
