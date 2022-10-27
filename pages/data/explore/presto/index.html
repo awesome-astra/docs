@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1028,43 +1028,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-setup-astra-db" class="md-nav__link">
-    C - Setup Astra DB
+  <a href="#setup-astra-db" class="md-nav__link">
+    Setup Astra DB
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-deploy-cql-proxy" class="md-nav__link">
-    D - Deploy CQL Proxy
+  <a href="#deploy-cql-proxy" class="md-nav__link">
+    Deploy CQL Proxy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#e-setup-presto-server" class="md-nav__link">
-    E - Setup Presto Server
+  <a href="#setup-presto-server" class="md-nav__link">
+    Setup Presto Server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#f-sql-queries-with-presto-client" class="md-nav__link">
-    F - SQL Queries with Presto Client
+  <a href="#sql-queries-with-presto-client" class="md-nav__link">
+    SQL Queries with Presto Client
   </a>
   
 </li>
@@ -2431,43 +2431,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-setup-astra-db" class="md-nav__link">
-    C - Setup Astra DB
+  <a href="#setup-astra-db" class="md-nav__link">
+    Setup Astra DB
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-deploy-cql-proxy" class="md-nav__link">
-    D - Deploy CQL Proxy
+  <a href="#deploy-cql-proxy" class="md-nav__link">
+    Deploy CQL Proxy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#e-setup-presto-server" class="md-nav__link">
-    E - Setup Presto Server
+  <a href="#setup-presto-server" class="md-nav__link">
+    Setup Presto Server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#f-sql-queries-with-presto-client" class="md-nav__link">
-    F - SQL Queries with Presto Client
+  <a href="#sql-queries-with-presto-client" class="md-nav__link">
+    SQL Queries with Presto Client
   </a>
   
 </li>
@@ -2490,7 +2490,7 @@
   <h1>‣ Presto</h1>
 
 <p><img src="https://awesome-astra.github.io/docs/img/presto/logo-presto.png" height="100px" /></p>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://prestodb.io">Presto</a> is a distributed SQL query engine for big data analytics. Presto can query data from over 30 different data sources, including Cassandra, MongoDB, MySQL, PostgresSQL, and Redis. Common Presto use cases include:</p>
 <ul>
 <li>interactive data analytics,</li>
@@ -2501,12 +2501,12 @@
 <p>In this tutorial, we show <strong>how to use Presto to explore and query data in <a href="http://astra.datastax.com">Astra DB</a> with SQL</strong>.
 The overall architecture of this solution is depicted below. <em>Presto CLI Client</em> sends SQL queries to <em>Presto Server</em>. <em>Presto Server</em> retrieves data from <em>Astra DB</em> via <em>CQL Proxy</em>, computes the query results and returns them to the client.</p>
 <p><img style="display: block; margin-left: auto; margin-right: auto; width: 25%;" src="https://awesome-astra.github.io/docs/img/presto/presto-solution-architecture.svg" /></p>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 <li><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a></li>
 </ul>
-<h2 id="c-setup-astra-db">C - Setup Astra DB<a class="headerlink" href="#c-setup-astra-db" title="Permanent link">&para;</a></h2>
+<h2 id="setup-astra-db">Setup Astra DB<a class="headerlink" href="#setup-astra-db" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface">✅ </span>1. <a href="https://astra.datastax.com/">Sign in</a></strong></p>
 <p>Connect to your Astra account and <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">create a new Astra database</a> or select an existing one. Add a new keyspace with name <code>banking_db</code> or use an existing one.</p>
 <p><strong><span class="nosurface">✅ </span>2. Create the following tables using the CQL Console</strong></p>
@@ -2542,7 +2542,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts_by_customer</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="n">account_number</span><span class="p">,</span><span class="n">account_type</span><span class="p">,</span><span class="n">account_balance</span><span class="p">,</span><span class="n">customer_name</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">e5d9e8c</span><span class="o">-</span><span class="mi">2</span><span class="n">e3b</span><span class="o">-</span><span class="mi">4576</span><span class="o">-</span><span class="mi">8515</span><span class="o">-</span><span class="mi">58</span><span class="n">b491cb859e</span><span class="p">,</span><span class="s1">&#39;B-102&#39;</span><span class="p">,</span><span class="s1">&#39;Savings&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">.</span><span class="mi">04</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<h2 id="d-deploy-cql-proxy">D - Deploy CQL Proxy<a class="headerlink" href="#d-deploy-cql-proxy" title="Permanent link">&para;</a></h2>
+<h2 id="deploy-cql-proxy">Deploy CQL Proxy<a class="headerlink" href="#deploy-cql-proxy" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface">✅ </span>4. Installation</strong></p>
 <p>Follow <a href="https://github.com/datastax/cql-proxy">the instructions</a> to deploy a <em>CQL Proxy</em> as close to a <em>Presto Server</em> as possible, preferrably deploying both components on the same server. The simplest way to start <code>cql-proxy</code> is to use an <code>&lt;astra-token&gt;</code> and <code>&lt;astra-database-id&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./cql-proxy <span class="se">\</span>
@@ -2554,7 +2554,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>--astra-token AstraCS:NoBhcuwCrIhZxqzjEMCSuGos:8a85142b47a588472a1f3b1314e2141f098785895411dee9db11f2a7ade457ce <span class="se">\</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>--astra-database-id e5e4e925-289a-8231-83fd-25918093257b
 </code></pre></div>
-<h2 id="e-setup-presto-server">E - Setup Presto Server<a class="headerlink" href="#e-setup-presto-server" title="Permanent link">&para;</a></h2>
+<h2 id="setup-presto-server">Setup Presto Server<a class="headerlink" href="#setup-presto-server" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface">✅ </span>5. Presto intallation</strong></p>
 <p>Follow <a href="https://prestodb.io/docs/current/installation/deployment.html">the instructions</a> to download, install and configure a <em>Presto Server</em> or use an existing deployment. The minimal configuration requirements for a local single-machine deployment are:</p>
 <ul>
@@ -2601,7 +2601,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>bin/launcher run
 </code></pre></div>
 <p>Wait for message <code>======== SERVER STARTED ========</code> to confirm a successful start.</p>
-<h2 id="f-sql-queries-with-presto-client">F - SQL Queries with Presto Client<a class="headerlink" href="#f-sql-queries-with-presto-client" title="Permanent link">&para;</a></h2>
+<h2 id="sql-queries-with-presto-client">SQL Queries with Presto Client<a class="headerlink" href="#sql-queries-with-presto-client" title="Permanent link">&para;</a></h2>
 <p>In this section you will execute SQL Queries against Astra DB using Presto CLI Client.</p>
 <p><strong><span class="nosurface">✅ </span>7. Install Presto Client</strong></p>
 <p>Follow <a href="https://prestodb.io/docs/current/installation/cli.html">the instructions</a> to download and install a <em>CLI Presto Client</em>.</p>
@@ -2657,7 +2657,7 @@ The overall architecture of this solution is depicted below. <em>Presto CLI Clie
   <small>
     
       Last update:
-      2022-10-21
+      2022-10-27
     
   </small>
 </div>

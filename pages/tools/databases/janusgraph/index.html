@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1730,25 +1730,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
   
-    <nav class="md-nav" aria-label="C - Installation and Setup">
+    <nav class="md-nav" aria-label="Installation and Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2437,25 +2437,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
   
-    <nav class="md-nav" aria-label="C - Installation and Setup">
+    <nav class="md-nav" aria-label="Installation and Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2508,7 +2508,7 @@
 </ul>
 <p><img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" /></p>
 </div>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.</p>
 <div class="nosurface">
 <ul>
@@ -2524,7 +2524,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  .build();
 </code></pre></div>
 However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the <strong>Prerequisites</strong>.</p>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2534,9 +2534,9 @@ However, JanusGraph does not expose this functionality so you will need to manua
 
 <p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. </p>
 <p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI</p>
-<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
-<h3 id="step-1-db-information"><span class="nosurface">✅</span> Step 1: DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-db-information"><span class="nosurface">✅ Step 1:</span> DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
 <p>On the JanusGraph server, unpack your secure bundle. For example:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ cd /path/to/scb
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ unzip secure-connect-janusgraph.zip
@@ -2574,7 +2574,7 @@ Obtain information about your database from the config.json file. Here is an exa
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>}
 </code></pre></div>
 <p>We will use this information to configure Astra DB as the storage backend for JanusGraph.</p>
-<h3 id="step-2-graph-storage"><span class="nosurface">✅</span> Step 2: Graph Storage<a class="headerlink" href="#step-2-graph-storage" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-graph-storage"><span class="nosurface">✅ Step 2:</span> Graph Storage<a class="headerlink" href="#step-2-graph-storage" title="Permanent link">&para;</a></h3>
 <p>On the JanusGraph server, modify the CQL storage configuration file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ cd janusgraph-0.6.0
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ vi conf/janusgraph-cql.properties
@@ -2635,7 +2635,7 @@ Make the necessary changes using this template:
 <a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>storage.cql.read-consistency-level=LOCAL_QUORUM
 <a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>storage.cql.write-consistency-level=LOCAL_QUORUM
 </code></pre></div></p>
-<h3 id="step-3-final-test"><span class="nosurface">✅</span> Step 3: Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3:</span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
 <p>Start a Gremlin console:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ bin/gremlin.sh
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
@@ -2669,7 +2669,7 @@ Load a graph using Astra as the storage backend with:
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-27
     
   </small>
 </div>

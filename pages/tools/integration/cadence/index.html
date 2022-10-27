@@ -2157,35 +2157,35 @@
         
           <li class="md-nav__item">
   <a href="#1-setup-astra" class="md-nav__link">
-    ✅  1. Setup Astra
+    ✅ 1.  Setup Astra
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-cadence-pre-setup" class="md-nav__link">
-    ✅  2. Cadence Pre-setup
+    ✅ 2.  Cadence Pre-setup
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-cadence-schema-migration-to-astra-db" class="md-nav__link">
-    ✅  3. Cadence Schema Migration to Astra DB
+    ✅ 3.  Cadence Schema Migration to Astra DB
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4-run-docker-compose" class="md-nav__link">
-    ✅  4. Run Docker Compose
+    ✅ 4.  Run Docker Compose
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#5-test-and-validate" class="md-nav__link">
-    ✅  5. Test and Validate
+    ✅ 5.  Test and Validate
   </a>
   
 </li>
@@ -2474,35 +2474,35 @@
         
           <li class="md-nav__item">
   <a href="#1-setup-astra" class="md-nav__link">
-    ✅  1. Setup Astra
+    ✅ 1.  Setup Astra
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-cadence-pre-setup" class="md-nav__link">
-    ✅  2. Cadence Pre-setup
+    ✅ 2.  Cadence Pre-setup
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-cadence-schema-migration-to-astra-db" class="md-nav__link">
-    ✅  3. Cadence Schema Migration to Astra DB
+    ✅ 3.  Cadence Schema Migration to Astra DB
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4-run-docker-compose" class="md-nav__link">
-    ✅  4. Run Docker Compose
+    ✅ 4.  Run Docker Compose
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#5-test-and-validate" class="md-nav__link">
-    ✅  5. Test and Validate
+    ✅ 5.  Test and Validate
   </a>
   
 </li>
@@ -2550,7 +2550,7 @@
 <p>This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.</p>
 </div>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
-<h3 id="1-setup-astra"><span class="nosurface">✅ </span> 1. Setup Astra<a class="headerlink" href="#1-setup-astra" title="Permanent link">&para;</a></h3>
+<h3 id="1-setup-astra"><span class="nosurface">✅ 1. </span> Setup Astra<a class="headerlink" href="#1-setup-astra" title="Permanent link">&para;</a></h3>
 <ol>
 <li>In your Astra database, create two new keyspaces called <strong>"cadence"</strong> and <strong>"cadence_visibility".</strong> You will be using both of these in the next steps.</li>
 <li>Make sure to create an Astra token with <strong>Admin Role</strong></li>
@@ -2563,7 +2563,7 @@
 <li>Copy and paste the <strong>Datacenter ID</strong> without the trailing <code>-1</code> from the <strong>Regions</strong> section of your Astra Dashboard.</li>
 </ol>
 </details>
-<h3 id="2-cadence-pre-setup"><span class="nosurface">✅ </span> 2. Cadence Pre-setup<a class="headerlink" href="#2-cadence-pre-setup" title="Permanent link">&para;</a></h3>
+<h3 id="2-cadence-pre-setup"><span class="nosurface">✅ 2. </span> Cadence Pre-setup<a class="headerlink" href="#2-cadence-pre-setup" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Clone this GitHub <a href="https://github.com/melienherrera/cadence-astra-cql-proxy">repository</a></li>
 <li>Navigate to your cloned repository and using your preferred text editor (e.g. VisualStudio or Sublime), update the .env file with your Astra Token and Astra Database ID that you obtained above.</li>
@@ -2571,7 +2571,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your Astra token&gt;
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span>&lt;your DB ID&gt;
 </code></pre></div>
-<h3 id="3-cadence-schema-migration-to-astra-db"><span class="nosurface">✅ </span> 3. Cadence Schema Migration to Astra DB<a class="headerlink" href="#3-cadence-schema-migration-to-astra-db" title="Permanent link">&para;</a></h3>
+<h3 id="3-cadence-schema-migration-to-astra-db"><span class="nosurface">✅ 3. </span> Cadence Schema Migration to Astra DB<a class="headerlink" href="#3-cadence-schema-migration-to-astra-db" title="Permanent link">&para;</a></h3>
 <p>For this step, you will set up the keyspaces you created earlier in the Astra prerequisites (<strong>cadence</strong> and <strong>cadence_visibility</strong>). You will be using <code>cadence-cassandra-tool</code> which is part of the Temporal repo and it relies on schema definition.</p>
 <ol>
 <li>Navigate to your cloned <code>cadence-astra-cql-proxy</code> directory</li>
@@ -2618,7 +2618,7 @@ Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadenc
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>open_executions        closed_executions_v2  closed_executions
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>schema_update_history  schema_version
 </code></pre></div>
-<h3 id="4-run-docker-compose"><span class="nosurface">✅ </span> 4. Run Docker Compose<a class="headerlink" href="#4-run-docker-compose" title="Permanent link">&para;</a></h3>
+<h3 id="4-run-docker-compose"><span class="nosurface">✅ 4. </span> Run Docker Compose<a class="headerlink" href="#4-run-docker-compose" title="Permanent link">&para;</a></h3>
 <p>In this step, the <code>docker-compose.yaml</code> file is already provided for you in the <code>cadence-astra-cql-proxy</code> repo. This file creates different docker containers to run Temporal server. The persistence layer is configured for you to connect with cql-proxy, and it should pull your Astra credentials from when you set it earlier.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>services:
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> cql-proxy:
@@ -2633,7 +2633,7 @@ Run <code>DESC tables;</code> in both your <code>cadence</code> and <code>cadenc
 <p>Now you can run the docker-compose command to start up Cadence:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose up
 </code></pre></div>
-<h3 id="5-test-and-validate"><span class="nosurface">✅ </span> 5. Test and Validate<a class="headerlink" href="#5-test-and-validate" title="Permanent link">&para;</a></h3>
+<h3 id="5-test-and-validate"><span class="nosurface">✅ 5. </span> Test and Validate<a class="headerlink" href="#5-test-and-validate" title="Permanent link">&para;</a></h3>
 <p>You can test your connection and play with your Cadence cluster with these instructions.
 Using Cadence’s Command Line tool, you will be able to interact with your local Temporal server.</p>
 <ol>
@@ -2657,7 +2657,7 @@ Using Cadence’s Command Line tool, you will be able to interact with your loca
   <small>
     
       Last update:
-      2022-10-21
+      2022-10-27
     
   </small>
 </div>

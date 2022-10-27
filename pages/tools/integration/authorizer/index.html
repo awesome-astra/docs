@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -2120,29 +2120,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation" class="md-nav__link">
-    C - Installation
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-acknowledgements" class="md-nav__link">
-    D - Acknowledgements
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -2417,29 +2417,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation" class="md-nav__link">
-    C - Installation
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-acknowledgements" class="md-nav__link">
-    D - Acknowledgements
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -2464,14 +2464,14 @@
 <div class="nosurface">
 <p><img src="https://awesome-astra.github.io/docs/img/authorizer/authorizer.png" height="100px" /></p>
 </div>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Authorizer is an open source auth solution for application.  It works with many different databases, allowing the developers to use a single datastore for the entire application stack and have complete control over all user data.</p>
 <div class="nosurface">
 <ul>
 <li>ℹ️ <a href="https://docs.authorizer.dev/">Authorizer Documentation</a></li>
 </ul>
 </div>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2479,18 +2479,18 @@
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
-<h2 id="c-installation">C - Installation<a class="headerlink" href="#c-installation" title="Permanent link">&para;</a></h2>
-<p><strong><span class="nosurface">✅</span> Step 0 Download and install</strong></p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p><strong><span class="nosurface">✅ Step 0 </span> Download and install</strong></p>
 <p>Following the <a href="https://docs.authorizer.dev/deployment/binary">Authorizer documentation</a> download and untar the software where you would like to install it.</p>
-<p><strong><span class="nosurface">✅</span> Step 1 Create the keyspace <code>authorizer</code></strong></p>
+<p><strong><span class="nosurface">✅ Step 1 </span> Create the keyspace <code>authorizer</code></strong></p>
 <p>From the <a href="https://astra.datastax.com">Astra DB dashboard</a>, click on your database name. Scroll down to where the keyspaces are listed, and click the <code>Add Keyspace</code> button to create a new keyspace. Name this keyspace <code>authorizer</code>.</p>
-<p><strong><span class="nosurface">✅</span> Step 2 Create configuration file</strong></p>
+<p><strong><span class="nosurface">✅ Step 2 </span> Create configuration file</strong></p>
 <p>Use the delivered <code>.env.sample</code> file to create a new <code>.env</code> file for your configuration.  Edit this file with Atom, Vi, or whichever editor you choose.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    <span class="nb">cd</span> authorizer
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    cp .env.sample .env
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    atom .env
 </code></pre></div></p>
-<p><strong><span class="nosurface">✅</span> Step 3 Create base64 encoded strings from your cert, ca.crt, and key files</strong></p>
+<p><strong><span class="nosurface">✅ Step 3 </span> Create base64 encoded strings from your cert, ca.crt, and key files</strong></p>
 <p>To successfully connect with Astra DB, you will need to open the secure bundle and convert the following files into base64 encoded strings:</p>
 <ul>
 <li>cert</li>
@@ -2503,7 +2503,7 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>base64 key key_base64_file
 </code></pre></div>
 <p>Note that you can omit the file parameter and output the base64 encoded string to STDOUT for easy copy/paste accessibility.</p>
-<p><strong><span class="nosurface">✅</span> Step 4 Connect to Astra DB</strong></p>
+<p><strong><span class="nosurface">✅ Step 4 </span> Connect to Astra DB</strong></p>
 <p>To connect to Astra DB, you will need to specify the following variables in the <code>.env</code> file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DATABASE_HOST=&quot;ASTRA_DB_ID-ASTRA_DB_REGION.db.astra.datastax.com&quot;
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DATABASE_TYPE=&quot;cassandradb&quot;
@@ -2515,12 +2515,12 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>DATABASE_CERT_KEY=&quot;RXNRNVcKYXkwblahblahblahnotrealkt4b1FnL2s4K29IaD&quot;
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>DATABASE_CA_CERT=&quot;WVhneERqQU1CZblahblahblahnotrealWQkFzVEJVTnNiM1Z&quot;
 </code></pre></div>
-<p><strong><span class="nosurface">✅</span> Step 5 Start Authorizer</strong></p>
+<p><strong><span class="nosurface">✅ Step 5 </span> Start Authorizer</strong></p>
 <p>From the <code>authorizer</code> directory, run the <code>server</code> binary from the <code>build</code> directory.  It will run in the foreground.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>build/server
 </code></pre></div></p>
 <p>Verify that it is running by bringing up the Authorizer dashboard in a browser: http://127.0.0.1:8080/dashboard/</p>
-<h2 id="d-acknowledgements">D - Acknowledgements<a class="headerlink" href="#d-acknowledgements" title="Permanent link">&para;</a></h2>
+<h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&para;</a></h2>
 <p>Special thanks goes out to Lakhan Samani of Authorizer.
 <a href="https://www.youtube.com/c/LakhanSamani/featured">YouTube channel</a>
 <a href="https://github.com/authorizerdev/authorizer">GitHub repo</a></p>
@@ -2533,7 +2533,7 @@
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-27
     
   </small>
 </div>

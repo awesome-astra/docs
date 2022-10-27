@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -972,23 +972,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-jdbc-driver" class="md-nav__link">
+    ✅ Step 1:  JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-establish-the-connection" class="md-nav__link">
+    ✅ Step 2:  Establish the Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-final-test" class="md-nav__link">
+    ✅ Step 3:  Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2410,23 +2437,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-jdbc-driver" class="md-nav__link">
+    ✅ Step 1:  JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-establish-the-connection" class="md-nav__link">
+    ✅ Step 2:  Establish the Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-final-test" class="md-nav__link">
+    ✅ Step 3:  Final Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2459,14 +2513,14 @@
 </details>
 <p><img src="https://awesome-astra.github.io/docs/img/dbschema/download.png" /></p>
 </div>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.</p>
 <ul>
 <li><span class="nosurface">ℹ️ </span><a href="https://dbschema.com/features.html">Introduction to DBSchema</a></li>
 <li><span class="nosurface">📥 </span><a href="https://dbschema.com/download.html">DBSchema Installation</a></li>
 </ul>
 <p>DBSchema uses the <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2475,8 +2529,8 @@
 </ul>
 
 <p>This article assumes you have installed the latest version of DBSchema on your laptop or PC.</p>
-<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
-<p><strong><span class="nosurface">✅ </span>Step 1: JDBC Driver</strong></p>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-jdbc-driver"><span class="nosurface">✅ Step 1: </span> JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
 <p>Download the JDBC driver from the DataStax website:</p>
 <ol>
 <li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
@@ -2486,7 +2540,7 @@
 <li>Hit the blue <strong>Download</strong> button.</li>
 <li>Once the download completes, unzip the downloaded file.</li>
 </ol>
-<p><strong><span class="nosurface">✅ </span>Step 2: Establish the Connection</strong></p>
+<h3 id="step-2-establish-the-connection"><span class="nosurface">✅ Step 2: </span> Establish the Connection<a class="headerlink" href="#step-2-establish-the-connection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open <a href="https://dbschema.com/">DB Schema</a></li>
 <li>Select <strong>Connect to the Database</strong></li>
@@ -2549,7 +2603,7 @@
 <li>Select <strong>OK.</strong>
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connetion-established.png" height="500px" /></li>
 </ol>
-<p><strong><span class="nosurface">✅ </span> Step 3: Final Test</strong></p>
+<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3: </span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
 <p>Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.</p>
 <p>To learn more about DBSchema, see <a href="https://dbschema.com/tutorials.html">Quick start with DBSchema</a></p>
 <div class="nosurface">

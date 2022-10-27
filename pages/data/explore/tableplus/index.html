@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1042,25 +1042,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
   
-    <nav class="md-nav" aria-label="C - Installation and Setup">
+    <nav class="md-nav" aria-label="Installation and Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2437,25 +2437,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-installation-and-setup" class="md-nav__link">
-    C - Installation and Setup
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
   </a>
   
-    <nav class="md-nav" aria-label="C - Installation and Setup">
+    <nav class="md-nav" aria-label="Installation and Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2507,13 +2507,13 @@
 <li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html">DataStax Community</a></em></li>
 </ul>
 </div>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.</p>
 <ul>
 <li><span class="nosurface">ℹ️ </span><a href="https://docs.tableplus.com/getting-started">Introduction to TablePlus</a></li>
 <li><span class="nosurface">📥 </span><a href="https://docs.tableplus.com/#download-and-install">TablePlus Download Link</a></li>
 </ul>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2522,9 +2522,9 @@
 </ul>
 
 <p>This article assumes you have a running installation of Tableplus on your laptop or PC. It was written for the MacOS version but it should also work for the Windows version.</p>
-<h2 id="c-installation-and-setup">C - Installation and Setup<a class="headerlink" href="#c-installation-and-setup" title="Permanent link">&para;</a></h2>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
-<h3 id="step-1-db-information"><span class="nosurface">✅ </span>Step 1: DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-db-information"><span class="nosurface">✅ Step 1:</span> DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
 <p>On your laptop or PC where Tableplus is installed, unpack your secure bundle. For example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ cd /path/to/scb
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ unzip secure-connect-getvaxxed.zip
@@ -2557,7 +2557,7 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="o">}</span>
 </code></pre></div>
 <p>We will use this information to configure Astra DB as the data source in Tableplus.</p>
-<h3 id="step-2-new-connection"><span class="nosurface">✅ </span>Step 2: New Connection<a class="headerlink" href="#step-2-new-connection" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-new-connection"><span class="nosurface">✅ Step 2:</span> New Connection<a class="headerlink" href="#step-2-new-connection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>In Tableplus, create a new connection and select <strong>Cassandra</strong> as the target database.</p>
@@ -2588,7 +2588,7 @@
 </div>
 <p>Here's an example of what the <strong>Cassandra Connection</strong> dialog box should look like:</p>
 <p><img src="https://awesome-astra.github.io/docs/img/tableplus/tableplus_connection_page_updated.png" height="350px" /></p>
-<h3 id="step-3-final-test"><span class="nosurface">✅ </span>Step 3: Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3:</span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
 <p>Connect to your Astra DB. If the connection was successful, you should be able to see all the tables on the left-hand side of the UI.</p>
 <p>Here's an example output:</p>
 <p><img src="https://awesome-astra.github.io/docs/img/tableplus/2384-tableplus-astra-connected.png" height="350px" /></p>
@@ -2598,7 +2598,7 @@
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-27
     
   </small>
 </div>

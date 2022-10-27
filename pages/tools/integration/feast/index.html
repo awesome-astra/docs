@@ -2185,22 +2185,22 @@
         
           <li class="md-nav__item">
   <a href="#install-feast-and-the-plugin" class="md-nav__link">
-     Install Feast and the plugin
+    Install Feast and the plugin
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-a-feature-repository" class="md-nav__link">
-     Create a feature repository
+    Create a feature repository
   </a>
   
-    <nav class="md-nav" aria-label=" Create a feature repository">
+    <nav class="md-nav" aria-label="Create a feature repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#configure-astra-db-as-online-store" class="md-nav__link">
-     Configure Astra DB as online store
+    Configure Astra DB as online store
   </a>
   
 </li>
@@ -2212,28 +2212,28 @@
         
           <li class="md-nav__item">
   <a href="#register-feature-definitions-and-deploy-the-store" class="md-nav__link">
-     Register feature definitions and deploy the store
+    Register feature definitions and deploy the store
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#generate-training-data" class="md-nav__link">
-     Generate training data
+    Generate training data
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#load-features-in-the-online-store" class="md-nav__link">
-     Load features in the online store
+    Load features in the online store
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#fetch-feature-vectors-from-the-online-store" class="md-nav__link">
-     Fetch feature vectors from the online store
+    Fetch feature vectors from the online store
   </a>
   
 </li>
@@ -2494,22 +2494,22 @@
         
           <li class="md-nav__item">
   <a href="#install-feast-and-the-plugin" class="md-nav__link">
-     Install Feast and the plugin
+    Install Feast and the plugin
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-a-feature-repository" class="md-nav__link">
-     Create a feature repository
+    Create a feature repository
   </a>
   
-    <nav class="md-nav" aria-label=" Create a feature repository">
+    <nav class="md-nav" aria-label="Create a feature repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#configure-astra-db-as-online-store" class="md-nav__link">
-     Configure Astra DB as online store
+    Configure Astra DB as online store
   </a>
   
 </li>
@@ -2521,28 +2521,28 @@
         
           <li class="md-nav__item">
   <a href="#register-feature-definitions-and-deploy-the-store" class="md-nav__link">
-     Register feature definitions and deploy the store
+    Register feature definitions and deploy the store
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#generate-training-data" class="md-nav__link">
-     Generate training data
+    Generate training data
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#load-features-in-the-online-store" class="md-nav__link">
-     Load features in the online store
+    Load features in the online store
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#fetch-feature-vectors-from-the-online-store" class="md-nav__link">
-     Fetch feature vectors from the online store
+    Fetch feature vectors from the online store
   </a>
   
 </li>
@@ -2613,20 +2613,12 @@ flexibly supports both Cassandra and Astra DB, as will be explained below.</p>
 <p class="admonition-title">Note</p>
 <p>This quickstart is modeled after the one found in the <a href="https://docs.feast.dev/getting-started/quickstart">Feast documentation</a>. The numbering of the steps is chosen to be consistent with it. All credits for the sample code given here goes to the Feast documentation.</p>
 </div>
-<!---_Note: this quickstart is modeled after the one
-found in the
-[Feast documentation](https://docs.feast.dev/getting-started/quickstart).
-The numbering of the steps is chosen to be consistent with it.
-All credits for the sample code given here goes to the Feast documentation._ -->
-
 <p>A new feature store is created and configured to use Astra DB as online store;
 next, it will be materialized to database using sample feature definitions and
 sample data; finally, historical/online feature retrieval is demonstrated.</p>
-<!--- > ### <span class="nosurface">✅ </span>Steps: -->
-
-<h3 id="install-feast-and-the-plugin"><!--1.--> Install Feast and the plugin<a class="headerlink" href="#install-feast-and-the-plugin" title="Permanent link">&para;</a></h3>
+<h3 id="install-feast-and-the-plugin">Install Feast and the plugin<a class="headerlink" href="#install-feast-and-the-plugin" title="Permanent link">&para;</a></h3>
 <p>See last item in the "Prerequisites" above.</p>
-<h3 id="create-a-feature-repository"><!--2.--> Create a feature repository<a class="headerlink" href="#create-a-feature-repository" title="Permanent link">&para;</a></h3>
+<h3 id="create-a-feature-repository">Create a feature repository<a class="headerlink" href="#create-a-feature-repository" title="Permanent link">&para;</a></h3>
 <p>In a directory of your choice, create a new repository and <code>cd</code> to the
 corresponding directory:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>feast init astra_feature_repo
@@ -2635,7 +2627,7 @@ corresponding directory:</p>
 <p>As you can see, the new feature store already contains sample data
 and a sample feature definition. These will be used in this walkthrough,
 so don't delete them.</p>
-<h4 id="configure-astra-db-as-online-store"><!--2B.--> Configure Astra DB as online store<a class="headerlink" href="#configure-astra-db-as-online-store" title="Permanent link">&para;</a></h4>
+<h4 id="configure-astra-db-as-online-store">Configure Astra DB as online store<a class="headerlink" href="#configure-astra-db-as-online-store" title="Permanent link">&para;</a></h4>
 <p>Locate and open the store configuration file, <code>feature_store.yaml</code>. Replace
 the <code>online_store</code> portion of the file with something like (<em>use your values
 for the bundle path and the token authentication info</em>):</p>
@@ -2648,7 +2640,7 @@ for the bundle path and the token authentication info</em>):</p>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Settings in "feature_store.yaml" for usage with Cassandra</p>
-<p>If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:</p>
+<p>If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>online_store:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>hosts:
@@ -2659,135 +2651,109 @@ for the bundle path and the token authentication info</em>):</p>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>port: 9042        # optional
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>username: user    # optional
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>password: secret  # optional
-</code></pre></div>
+</code></pre></div></p>
 </div>
-<!-->
-<details><summary>Settings in "feature_store.yaml" for usage with Cassandra</summary>
-
-If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>online_store:
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    hosts:
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        - 192.168.1.1
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        - 192.168.1.2
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        - 192.168.1.3
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    keyspace: feastks
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    port: 9042        # optional
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    username: user    # optional
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    password: secret  # optional
-</code></pre></div>
-</details>
--->
-
-<h3 id="register-feature-definitions-and-deploy-the-store"><!--3.--> Register feature definitions and deploy the store<a class="headerlink" href="#register-feature-definitions-and-deploy-the-store" title="Permanent link">&para;</a></h3>
+<h3 id="register-feature-definitions-and-deploy-the-store">Register feature definitions and deploy the store<a class="headerlink" href="#register-feature-definitions-and-deploy-the-store" title="Permanent link">&para;</a></h3>
 <p>With the <code>apply</code> command, features defined in Python modules (in this case,
 <code>example.py</code>) are scanned and used for actual deployment of the infrastructure.</p>
 <p>Run the command
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>feast apply
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>feast apply
 </code></pre></div></p>
 <blockquote>
 <p>This is the step that actually accesses the database. After running it,
 you may want to check directly the presence of a new table in the Astra DB
 keyspace.</p>
 </blockquote>
-<h3 id="generate-training-data"><!--4.--> Generate training data<a class="headerlink" href="#generate-training-data" title="Permanent link">&para;</a></h3>
+<h3 id="generate-training-data">Generate training data<a class="headerlink" href="#generate-training-data" title="Permanent link">&para;</a></h3>
 <p>This illustrates the <code>get_historical_features</code> store method,
 which directly scans the offline source data and performs
 a point-in-time join to construct the features requested
 up to a certain provided timestamp.</p>
 <p>Create a file <code>generate.py</code> and run it with <code>python generate.py</code>:</p>
-<!--<details><summary>Show "generate.py"</summary>-->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># The entity dataframe is the dataframe we want to enrich with feature values</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">entity_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="p">{</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="c1"># entity&#39;s join key -&gt; entity values</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1001</span><span class="p">,</span> <span class="mi">1002</span><span class="p">,</span> <span class="mi">1003</span><span class="p">],</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="c1"># label name -&gt; label values</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="s2">&quot;label_driver_reported_satisfaction&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="c1"># &quot;event_timestamp&quot; (reserved key) -&gt; timestamps</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="s2">&quot;event_timestamp&quot;</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">36</span><span class="p">),</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">73</span><span class="p">),</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>        <span class="p">],</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="p">}</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">)</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="n">store</span> <span class="o">=</span> <span class="n">FeatureStore</span><span class="p">(</span><span class="n">repo_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="n">training_df</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_historical_features</span><span class="p">(</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="n">entity_df</span><span class="o">=</span><span class="n">entity_df</span><span class="p">,</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="n">features</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>        <span class="s2">&quot;driver_hourly_stats:conv_rate&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>        <span class="s2">&quot;driver_hourly_stats:acc_rate&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        <span class="s2">&quot;driver_hourly_stats:avg_daily_trips&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    <span class="p">],</span>
-<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="p">)</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span>
-<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
-<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----- Feature schema -----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="nb">print</span><span class="p">(</span><span class="n">training_df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
-<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="nb">print</span><span class="p">()</span>
-<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----- Example features -----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="nb">print</span><span class="p">(</span><span class="n">training_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># The entity dataframe is the dataframe we want to enrich with feature values</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">entity_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="c1"># entity&#39;s join key -&gt; entity values</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1001</span><span class="p">,</span> <span class="mi">1002</span><span class="p">,</span> <span class="mi">1003</span><span class="p">],</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="c1"># label name -&gt; label values</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="s2">&quot;label_driver_reported_satisfaction&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="c1"># &quot;event_timestamp&quot; (reserved key) -&gt; timestamps</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="s2">&quot;event_timestamp&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">36</span><span class="p">),</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>            <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">73</span><span class="p">),</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>        <span class="p">],</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">store</span> <span class="o">=</span> <span class="n">FeatureStore</span><span class="p">(</span><span class="n">repo_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">training_df</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_historical_features</span><span class="p">(</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">entity_df</span><span class="o">=</span><span class="n">entity_df</span><span class="p">,</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="n">features</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="s2">&quot;driver_hourly_stats:conv_rate&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>        <span class="s2">&quot;driver_hourly_stats:acc_rate&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>        <span class="s2">&quot;driver_hourly_stats:avg_daily_trips&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="p">],</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="p">)</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----- Feature schema -----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="nb">print</span><span class="p">(</span><span class="n">training_df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="nb">print</span><span class="p">()</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----- Example features -----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="nb">print</span><span class="p">(</span><span class="n">training_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
-<!---</details>-->
-
-<h3 id="load-features-in-the-online-store"><!--5.--> Load features in the online store<a class="headerlink" href="#load-features-in-the-online-store" title="Permanent link">&para;</a></h3>
+<h3 id="load-features-in-the-online-store">Load features in the online store<a class="headerlink" href="#load-features-in-the-online-store" title="Permanent link">&para;</a></h3>
 <p>With the <code>materialize-incremental</code> command, Feast is instructed
 to carry the latest feature values over to the online store, for
 quick access during feature serving:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>CURRENT_TIME=$(date -u +&quot;%Y-%m-%dT%H:%M:%S&quot;)
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>feast materialize-incremental $CURRENT_TIME
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>CURRENT_TIME=$(date -u +&quot;%Y-%m-%dT%H:%M:%S&quot;)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>feast materialize-incremental $CURRENT_TIME
 </code></pre></div>
 <blockquote>
 <p>At this point, inspection of the Astra DB table will show the presence of
 newly-inserted rows.</p>
 </blockquote>
-<h3 id="fetch-feature-vectors-from-the-online-store"><!--6.--> Fetch feature vectors from the online store<a class="headerlink" href="#fetch-feature-vectors-from-the-online-store" title="Permanent link">&para;</a></h3>
+<h3 id="fetch-feature-vectors-from-the-online-store">Fetch feature vectors from the online store<a class="headerlink" href="#fetch-feature-vectors-from-the-online-store" title="Permanent link">&para;</a></h3>
 <p>The <code>get_online_features</code> store method will query the online store
 and return the required features, as resulting from the last
 "materialize" operation.</p>
 <p>Create a <code>fetch_online.py</code> script and run it with <code>python fetch_online.py</code>:</p>
-<!--<details><summary>Show "fetch_online.py"</summary>-->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">store</span> <span class="o">=</span> <span class="n">FeatureStore</span><span class="p">(</span><span class="n">repo_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">feature_vector</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_online_features</span><span class="p">(</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">features</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="s2">&quot;driver_hourly_stats:conv_rate&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        <span class="s2">&quot;driver_hourly_stats:acc_rate&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="s2">&quot;driver_hourly_stats:avg_daily_trips&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="p">],</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">entity_rows</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="c1"># {join_key: entity_value}</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="p">{</span><span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="mi">1004</span><span class="p">},</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="p">{</span><span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="mi">1005</span><span class="p">},</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="p">],</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="n">pprint</span><span class="p">(</span><span class="n">feature_vector</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">store</span> <span class="o">=</span> <span class="n">FeatureStore</span><span class="p">(</span><span class="n">repo_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">feature_vector</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_online_features</span><span class="p">(</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">features</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="s2">&quot;driver_hourly_stats:conv_rate&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="s2">&quot;driver_hourly_stats:acc_rate&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="s2">&quot;driver_hourly_stats:avg_daily_trips&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="p">],</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">entity_rows</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="c1"># {join_key: entity_value}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="p">{</span><span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="mi">1004</span><span class="p">},</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="p">{</span><span class="s2">&quot;driver_id&quot;</span><span class="p">:</span> <span class="mi">1005</span><span class="p">},</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="p">],</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="n">pprint</span><span class="p">(</span><span class="n">feature_vector</span><span class="p">)</span>
 </code></pre></div>
-<!--</details>--->
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-10-25
+      2022-10-26
     
   </small>
 </div>

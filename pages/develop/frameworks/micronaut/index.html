@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1506,23 +1506,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-configuration" class="md-nav__link">
-    C - Configuration
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-your-project" class="md-nav__link">
+    ✅ Step 1: Create your project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-setup-your-project" class="md-nav__link">
+    ✅ Step 2: Setup your project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-application-startup" class="md-nav__link">
+    ✅ Step 3: Application Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-use-cassandra" class="md-nav__link">
+    ✅ Step 4: Use Cassandra
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2410,23 +2444,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-overview" class="md-nav__link">
-    A - Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-prerequisites" class="md-nav__link">
-    B - Prerequisites
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-configuration" class="md-nav__link">
-    C - Configuration
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-your-project" class="md-nav__link">
+    ✅ Step 1: Create your project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-setup-your-project" class="md-nav__link">
+    ✅ Step 2: Setup your project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-application-startup" class="md-nav__link">
+    ✅ Step 3: Application Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-use-cassandra" class="md-nav__link">
+    ✅ Step 4: Use Cassandra
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2453,10 +2521,10 @@
 <img src="https://awesome-astra.github.io/docs/img/micronaut/micronaut_stacked_black.svg" height="80px" /></p>
 </blockquote>
 </div>
-<h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Micronaut is a modern, JVM-based, full stack Java framework designed for building modular, easily testable JVM applications with support for Java, Kotlin, and Groovy. Micronaut is developed by the creators of the Grails framework and takes inspiration from lessons learnt over the years building real-world applications from monoliths to microservices using Spring, Spring Boot and Grails. For more information refer to the <a href="https://docs.micronaut.io/latest/guide/">user guide</a></p>
 <p>The <a href="https://micronaut-projects.github.io/micronaut-cassandra/latest/guide/">micronaut-cassandra</a> module includes support for integrating Micronaut services with Cassandra.</p>
-<h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2465,11 +2533,11 @@
     <li>You should install `Java JDK 1.8+` and <a href="https://maven.apache.org/">Apache Maven</a></li>
 </ul>
 
-<h2 id="c-configuration">C - Configuration<a class="headerlink" href="#c-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>You can find a working sample <a href="https://github.com/clun/astra-native-java/tree/main/astra-todo-micronaut">here</a></p>
 </blockquote>
-<p><strong><span class="nosurface">✅</span> Step 1: Create your project</strong></p>
+<h3 id="step-1-create-your-project"><span class="nosurface">✅ Step 1:</span> Create your project<a class="headerlink" href="#step-1-create-your-project" title="Permanent link">&para;</a></h3>
 <ul>
 <li>To create a micronaut project and CLI <code>mn</code> is provided. You can install it using <code>sdkman</code> as describe in the <a href="https://micronaut.io/download/">doc</a></li>
 </ul>
@@ -2496,7 +2564,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-<p><strong><span class="nosurface">✅</span> Step 2: Setup your project</strong></p>
+<h3 id="step-2-setup-your-project"><span class="nosurface">✅ Step 2:</span> Setup your project<a class="headerlink" href="#step-2-setup-your-project" title="Permanent link">&para;</a></h3>
 <p>All configuration of your project will be defined in <code>application.yaml</code> in <code>src/main/resources</code>. The module is clever enough to <strong>load all properties as if it was the driver configuration file</strong>.</p>
 <p>You can defined multiple profiles and each profile will be identified with key <code>cassandra.${profile_name}</code>. There is a <code>default</code> profile. In the following sample file we provide 2 profiles one for local and one for Astra. There is no extra code needed, simply configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">cassandra</span><span class="p">:</span><span class="w"></span>
@@ -2526,7 +2594,7 @@
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="nt">set-keyspace-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 seconds</span><span class="w"></span>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="nt">control-connection.timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 seconds</span><span class="w"></span>
 </code></pre></div>
-<p><strong><span class="nosurface">✅</span> Step 3: Application Startup</strong></p>
+<h3 id="step-3-application-startup"><span class="nosurface">✅ Step 3:</span> Application Startup<a class="headerlink" href="#step-3-application-startup" title="Permanent link">&para;</a></h3>
 <p>At startup you may want create the different tables needed for you application. <em>In Astra you can only create keyspaces from the devops API or the user interface.</em>.</p>
 <p>To enable content at startup simple implement <code>ApplicationEventListener&lt;ServiceReadyEvent&gt;</code> as shown below</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Singleton</span><span class="w"></span>
@@ -2553,7 +2621,7 @@
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p><strong><span class="nosurface">✅</span> Step 4: Use Cassandra</strong></p>
+<h3 id="step-4-use-cassandra"><span class="nosurface">✅ Step 4:</span> Use Cassandra<a class="headerlink" href="#step-4-use-cassandra" title="Permanent link">&para;</a></h3>
 <p>To use Cassandra you will reuse the <code>CqlSession</code> from the Datastax drivers. You can simply inject it where you needed as <a href="https://github.com/clun/astra-native-java/blob/main/astra-todo-micronaut/src/main/java/com/datastaxdev/todo/TodoRestController.java">shown in this sample code</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Validated</span><span class="w"></span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@Controller</span><span class="p">(</span><span class="s">&quot;/api/v1&quot;</span><span class="p">)</span><span class="w"></span>
@@ -2576,7 +2644,7 @@
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-27
     
   </small>
 </div>

@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#working-with-lagom" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1520,11 +1520,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#working-with-lagom" class="md-nav__link">
     Working with Lagom
   </a>
   
-    <nav class="md-nav" aria-label="Working with Lagom">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1547,23 +1567,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#building-a-sample-lagom-project" class="md-nav__link">
     Building a sample Lagom project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#using-with-apache-cassandra" class="md-nav__link">
     Using with Apache Cassandra
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#using-with-datastax-astra-db" class="md-nav__link">
     Using with DataStax Astra DB
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2437,11 +2470,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#working-with-lagom" class="md-nav__link">
     Working with Lagom
   </a>
   
-    <nav class="md-nav" aria-label="Working with Lagom">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2464,23 +2517,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    Installation and Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#building-a-sample-lagom-project" class="md-nav__link">
     Building a sample Lagom project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#using-with-apache-cassandra" class="md-nav__link">
     Using with Apache Cassandra
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#using-with-datastax-astra-db" class="md-nav__link">
     Using with DataStax Astra DB
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2501,11 +2567,13 @@
 
   <h1>• Lagom</h1>
 
-<h3 id="working-with-lagom">Working with Lagom<a class="headerlink" href="#working-with-lagom" title="Permanent link">&para;</a></h3>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <div class="nosurface">
 <p><img src="https://awesome-astra.github.io/docs/img/tile-lagom.png" align="left" height="180px"/></p>
 </div>
+<h4 id="working-with-lagom">Working with Lagom<a class="headerlink" href="#working-with-lagom" title="Permanent link">&para;</a></h4>
 <p>Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ <a href="https://www.lagomframework.com/">lagomframework.com</a>.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <h4 id="prerequisites-astra-db"><span class="nosurface">📦.</span> Prerequisites [ASTRA DB]<a class="headerlink" href="#prerequisites-astra-db" title="Permanent link">&para;</a></h4>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -2532,6 +2600,7 @@
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn -version
 </code></pre></div>
+<h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <h3 id="building-a-sample-lagom-project">Building a sample Lagom project<a class="headerlink" href="#building-a-sample-lagom-project" title="Permanent link">&para;</a></h3>
 <p>Create a new Maven project in your IDE which uses the <code>maven-archetype-lagom-java</code> archetype.  You can also do this from the command line:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mvn archetype:generate -DarchetypeGroupId<span class="o">=</span>com.lightbend.lagom <span class="se">\</span>

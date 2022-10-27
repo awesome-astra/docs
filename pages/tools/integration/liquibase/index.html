@@ -2499,14 +2499,14 @@
 </ul>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<h3 id="liquibase-prerequisites">Liquibase Prerequisites<a class="headerlink" href="#liquibase-prerequisites" title="Permanent link">&para;</a></h3>
+<h4 id="liquibase-prerequisites">Liquibase Prerequisites<a class="headerlink" href="#liquibase-prerequisites" title="Permanent link">&para;</a></h4>
 <ul class="prerequisites">
     <li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase</li>
     <li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
     <li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
 </ul>
 
-<h3 id="astra-prerequisites">Astra Prerequisites<a class="headerlink" href="#astra-prerequisites" title="Permanent link">&para;</a></h3>
+<h4 id="astra-prerequisites">Astra Prerequisites<a class="headerlink" href="#astra-prerequisites" title="Permanent link">&para;</a></h4>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -2523,8 +2523,12 @@
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p>To create a Liquibase project with Cassandra on DataStax Astra on your machine, begin with the following steps:</p>
 <ol>
-<li>Create a new project folder and name it LiquibaseProj.</li>
-<li>In your LiquibaseProj folder, create a new text file and name it dbchangelog.sql.</li>
+<li>
+<p>Create a new project folder and name it LiquibaseProj.</p>
+</li>
+<li>
+<p>In your LiquibaseProj folder, create a new text file and name it dbchangelog.sql.</p>
+</li>
 <li>
 <p>Open the dbchangelog.sql file and update the changelog file with the following code snippet: 
 <code>--liquibase formatted sql</code> </p>
@@ -2532,7 +2536,9 @@
 <li>
 <p>In your LiquibaseProj folder, create a new text file and name it liquibase.properties.</p>
 </li>
-<li>Edit the liquibase.properties file to add the following properties:</li>
+<li>
+<p>Edit the liquibase.properties file to add the following properties:</p>
+</li>
 </ol>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>changelog-file: dbchangelog.sql
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>url: jdbc:cassandra://localhost:9042/test;DefaultKeyspace=test;TunableConsistency=6
@@ -2550,10 +2556,14 @@ In <code>liquibase.properties</code> above, replace test with the name of your o
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>CREATE TABLE test.DEPARTMENT (id int PRIMARY KEY, NAME text, ACTIVE BOOLEAN);
 </code></pre></div>
 <ol>
-<li>Open the command prompt. Navigate to the LiquibaseProj directory.
-Run the following command: liquibase update</li>
-<li>From a SQL Client User Interface, check your database changes. You should see a new department table added to the database. For example:
-<code>SELECT * FROM "keyspace"."department";</code></li>
+<li>
+<p>Open the command prompt. Navigate to the LiquibaseProj directory.
+Run the following command: liquibase update</p>
+</li>
+<li>
+<p>From a SQL Client User Interface, check your database changes. You should see a new department table added to the database. For example:
+<code>SELECT * FROM "keyspace"."department";</code></p>
+</li>
 </ol>
 <table>
 <thead>
@@ -2582,7 +2592,7 @@ Run the following command: liquibase update</li>
   <small>
     
       Last update:
-      2022-10-03
+      2022-10-27
     
   </small>
 </div>
