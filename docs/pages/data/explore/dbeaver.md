@@ -2,7 +2,7 @@
 title: "DBeaver"
 description: "DBeaver is a universal database management tool which allows you to manipulate your data like a regular spreadsheet, create analytical reports based on records from different data storages, and more."
 tags: "python, third party tools, machine learning, workflow, etl"
-icon: "https://awesome-astra.github.io/docs/img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png"
+icon: "https://awesome-astra.github.io/docs/img/dbeaver/dbeaver.svg"
 developer_title: "DBeaver"
 developer_url: "https://dbeaver.com"
 links:

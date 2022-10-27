@@ -2,7 +2,7 @@
 title: "DbSchema"
 description: "DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data."
 tags: "jdbc, data management, ide"
-icon: "https://awesome-astra.github.io/docs/img/dbschema/download.png"
+icon: "https://awesome-astra.github.io/docs/img/dbschema/dbschema.svg"
 developer_title: "DbSchema"
 developer_url: "https://dbschema.com/"
 links:

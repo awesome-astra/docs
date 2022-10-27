@@ -24,11 +24,13 @@ To know more regarding this interface specially you can have a look to [dedicate
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 
+<!--
 ## Swagger Sandbox
 
 ```
 todo
 ```
+-->
 
 ## Operations
 

@@ -44,15 +44,15 @@ There are three Stargate GraphQL API endpoints, one for creating schema in cql-f
 
 **Schema**
 
-&nbsp;&nbsp;&nbsp;&nbsp;*https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-schema*
+&nbsp;&nbsp;&nbsp;&nbsp;`https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-schema`
 
 **Admin**
 
-&nbsp;&nbsp;&nbsp;&nbsp;*https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-admin*
+&nbsp;&nbsp;&nbsp;&nbsp;`https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql-admin`
 
 **Querying**
 
-&nbsp;&nbsp;&nbsp;&nbsp;*https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql/{keyspace}*
+&nbsp;&nbsp;&nbsp;&nbsp;`https://$ASTRA_CLUSTER_ID-$ASTRA_REGION.apps.astra.datastax.com:8080/api/graphql/{keyspace}`
 
 - In the `graphql-schema` endpoint, use this query to create a new table
 
@@ -115,6 +115,7 @@ mutation insert2Books {
   "x-cassandra-token":"your token"
 }
 ```
+
 - You should see that two books have been added to the table.
 
 <img src="../../../../img/stargate-api-graphql/insertdata.png" />
