@@ -39,7 +39,7 @@ DataStation is an open-source data IDE for developers. It allows you to easily b
 ```
 </ul>
 
-## C - Installation and Setup
+## Installation and Setup
 Once you have completed all of the **Prerequisites** and confirmed CQL Proxy is running, you are now able to move on to setting up your Astra DB with DataStation IDE. 
 
 1. First, launch your DataStation IDE. 

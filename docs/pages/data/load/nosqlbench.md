@@ -18,7 +18,7 @@ links:
 
 </div>
 
-## A - Overview
+## Overview
 
 <div class="nosurface" markdown="1">
 
@@ -57,20 +57,22 @@ when benchmarking Astra DB you should **make sure the keyspace exists already**
 (the keyspace name can be passed as a command-line parameter when launching
 NoSQLBench).
 
-## B - Prerequisites
+## Prerequisites
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
 - You should [Have an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 
-## C - Installation
+## Installation
 
 The following installation instructions are taken from
 [the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
-#### Step 1 : Download the binaries
+<div class="counterReset">
+
+### <span class="nosurface">Step 1 :</span> Download the binaries
 
 Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
 and download the latest version.
@@ -80,7 +82,7 @@ here we assume the Linux binary is used, please see the
 [NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
 for more on using the JAR.
 
-#### Step 2 : Make executable and put in search path
+### <span class="nosurface">Step 2 :</span> Make executable and put in search path
 
 Once the file is downloaded, make it executable with `chmod +x nb`
 and put it (or make a symlink) somewhere in your system's search path,
@@ -88,7 +90,11 @@ such as `/home/${USER}/.local/bin/`.
 
 As a quick test, try the command `nb --version`.
 
-## D - Usage
+</div>
+
+## Usage
+
+<div class="counterReset">
 
 ### Command
 
@@ -219,3 +225,5 @@ nb --list-scenarios
 and look for `astra` in the output example scenario invocations there.
 
 Moreover, you can [design your own workload](https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/).
+
+</div>

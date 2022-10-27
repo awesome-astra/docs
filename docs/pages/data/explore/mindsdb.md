@@ -16,11 +16,16 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
 </div>
 
+## Overview
+
 This page will go into details about what I had to do to build the project, modify the `cassandra.py` and `scylla_ds.py`, and get mindsdb GUI connected to Astra.
 
 - **Source Repo:** [GitHub - mindsdb/mindsdb](https://github.com/mindsdb/mindsdb)
 - **My Fork:** [ds-steven-matison/mindsdb](https://github.com/ds-steven-matison/mindsdb)
 - **Docs:** [https://docs.mindsdb.com/](https://docs.mindsdb.com/)
+
+
+## Process
 
 #### Files Changed
 

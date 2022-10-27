@@ -25,7 +25,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/dbschema/download.png" />
 </div>
 
-## A - Overview
+## Overview
 
 DbSchema is a universal database designer for out-of-the-box schema management and documentation, sharing the schema in the team, and deploying on different databases. Visual tools can help developers, database administrators, and decision-makers to query, explore and manage the data.
 
@@ -34,7 +34,7 @@ DbSchema is a universal database designer for out-of-the-box schema management a
 
 DBSchema uses the [Simba JDBC driver](https://downloads.datastax.com/#odbc-jdbc-drivers) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.
 
-## B - Prerequisites
+## Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -44,9 +44,9 @@ DBSchema uses the [Simba JDBC driver](https://downloads.datastax.com/#odbc-jdbc-
 
 This article assumes you have installed the latest version of DBSchema on your laptop or PC.
 
-## C - Installation and Setup
+## Installation and Setup
 
-**<span class="nosurface">✅ </span>Step 1: JDBC Driver**
+### <span class="nosurface">✅ Step 1: </span> JDBC Driver
 
 Download the JDBC driver from the DataStax website:
 
@@ -57,7 +57,7 @@ Download the JDBC driver from the DataStax website:
 5. Hit the blue **Download** button.
 6. Once the download completes, unzip the downloaded file.
 
-**<span class="nosurface">✅ </span>Step 2: Establish the Connection**
+### <span class="nosurface">✅ Step 2: </span> Establish the Connection
 
 1. Open [DB Schema](https://dbschema.com/)
 2. Select **Connect to the Database**
@@ -104,7 +104,7 @@ Download the JDBC driver from the DataStax website:
 16. Select **OK.**
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connetion-established.png" height="500px" />
 
-**<span class="nosurface">✅ </span> Step 3: Final Test**
+### <span class="nosurface">✅ Step 3: </span> Final Test
 
 Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.
 

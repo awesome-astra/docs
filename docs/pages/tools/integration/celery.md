@@ -17,7 +17,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" />
 </div>
 
-## A - Overview
+## Overview
 
 Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages.
 With Celery one can define units of work called "tasks" and dispatch them for execution, in a distributed way if desired.
@@ -44,7 +44,7 @@ as backend. See the Celery documentation for more details:
 
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>celeryks</code> is created in the database.</li>
@@ -55,20 +55,20 @@ as backend. See the Celery documentation for more details:
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Celery configuration.
 
-## C - Installation and Setup
+## Installation and Setup
 
 Here a minimal Celery setup that makes use of the Astra DB backend is described start-to-end.
 
 A task will be defined and executed through Celery: afterwards, its return value will be retrieved on the client side.
 For this example to work, a message bus is needed - here, in line with a [quickstart](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#choosing-a-broker) on Celery's documentation, a dockerized RabbitMQ is used.
 
-### Steps:
+<!--### Steps:-->
 
-#### 1. Start a message broker
+### <span class="nosurface"> 1. </span> Start a message broker
 
 Make sure you have a RabbitMQ instance running in Docker with `docker run -d -p 5672:5672 rabbitmq` (it might take a while for the image to be downloaded and complete startup).
 
-#### 2. Define a task
+### <span class="nosurface"> 2. </span> Define a task
 
 Create a `tasks.py` module with the definition of a task, to be later executed through Celery:
 
@@ -89,7 +89,7 @@ def sortWords(text, capitalize):
     ])
 ```
 
-#### 3. Configure Celery
+### <span class="nosurface"> 3. </span> Configure Celery
 
 Create a module `celeryconfig.py` in the same directory, providing (among other things) the broker and backend configuration:
 
@@ -123,7 +123,7 @@ In the above, take care of inserting your values for:
 - the Client ID and Client Secret generated in your Astra DB token earlier (resp. as username and password in `cassandra_auth_kwargs`);
 - the path to the Secure Connect Bundle you downloaded earlier.
 
-#### 4. Start the worker
+### <span class="nosurface"> 4. </span> Start the worker
 
 Start a Celery worker with:
 
@@ -131,7 +131,7 @@ Start a Celery worker with:
 celery -A tasks worker --loglevel=INFO
 ```
 
-#### 5. Run and check a task
+### <span class="nosurface"> 5. </span> Run and check a task
 
 In a different shell, open a Python REPL and type the following commands to run a couple of tasks and retrieve their result:
 
@@ -150,7 +150,7 @@ sorted2.get()
 # Returns:     'ANOTHER DAY IN LAND OF THE WIZARDS'
 ```
 
-#### 6. (optional) Look at the database
+### <span class="nosurface"> 6. </span> (Optional) Look at the database
 
 Check the corresponding data stored on Astra DB. Navigate to the CQL Console for the database you created and enter the following commands:
 
@@ -164,7 +164,7 @@ SELECT * FROM celery_tasks; // <== enter your table name here
 
 <img src="https://awesome-astra.github.io/docs/img/celery/celery_cql_console.png" height="100px" />
 
-## D - Additional configuration
+## Additional configuration
 
 Celery uses the DataStax Python driver for Cassandra; hence, the choice of connection parameters
 is that for the generic driver-based usage of Cassandra in Python.

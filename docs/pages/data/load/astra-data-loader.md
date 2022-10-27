@@ -18,20 +18,20 @@ links:
 </ol>
 </details>
 
-### A - Overview
+## Overview
 
 Astra DB conveniently has its own data loader built in to the user interface. Use this DataStax Astra DB Data Loader to load your own data into your database or try one of our sample datasets.
 
-### B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 </ul>
 
-### C - Procedure
+## Procedure
 
-**<span class="nosurface">✅ </span> Step 1 : From your Astra DB Dashboard, select Load Data for the database where you want to load data.**
+**<span class="nosurface">✅ Step 1 : </span>From your Astra DB Dashboard, select Load Data for the database where you want to load data.**
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-dashboard.png)
 
@@ -39,7 +39,7 @@ The Astra DB Data Loader launches.
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-createscreen.png)
 
-**<span class="nosurface">✅ </span> Step 2 : Load your data using one of the options:**
+**<span class="nosurface">✅ Step 2 : </span>Load your data using one of the options:**
 
 #### Upload your dataset
 

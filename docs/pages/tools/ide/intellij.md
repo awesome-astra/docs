@@ -18,7 +18,7 @@ links:
 - This content has been built using [Reference Documentation](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
 </div>
 
-## A - Overview
+## Overview
 
 <img src="https://plugins.jetbrains.com/files/17013/screenshot_8180f398-3612-4990-9d5b-d1b3917c40fc" height="200px"/>
 
@@ -26,7 +26,7 @@ links:
 
 IntelliJ IDEA is an integrated development environment written in Java for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages. It is developed by JetBrains, and is available as an Apache 2 Licensed community edition, and in a proprietary commercial edition.
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -35,9 +35,9 @@ IntelliJ IDEA is an integrated development environment written in Java for devel
   <li>You should download either Community or ultimate edition of intelliJ from the <a href="https://www.jetbrains.com/idea/download/?fromIDE=#section=mac">Download Page</a></li>
 </ul>
 
-## C - Installation Guide
+## Installation Guide
 
-### <span class="nosurface">✅</span> 1. Download Plugin
+### <span class="nosurface">✅ 1.</span> Download Plugin
 
 > _[Astra DB Explorer Installation Page](https://github.com/datastax/astra-ide-plugin/wiki/Getting-Started)_
 
@@ -56,8 +56,7 @@ File > Preferences > Plugins
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png)
 
 
-### <span class="nosurface">✅ </span> 2. Setup Plugin
-
+### <span class="nosurface">✅ 2.</span> Setup Plugin
 
 - During the first restart you will got an `IDE error occured` message it is expected we will now configure the plugin
 
@@ -72,8 +71,7 @@ File > Preferences > Plugins
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png)
 
 
-### <span class="nosurface">✅ </span> 3. Edit Profiles
-
+### <span class="nosurface">✅ 3.</span> Edit Profiles
 
 - In the drop down menu select `Edit Profiles` the configuration file is referred as a profile
 
@@ -96,8 +94,7 @@ default = "AstraCS:XXXX"
 ```
 
 
-### <span class="nosurface">✅ </span> 4. Reload Profiles
-
+### <span class="nosurface">✅ 4.</span> Reload Profiles
 
 - Now on the drop down menu select `Reload Profiles`
 

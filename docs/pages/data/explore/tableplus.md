@@ -19,14 +19,14 @@ links:
 - _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12299/how-to-connect-to-astra-db-from-tableplus.html)_
 </div>
 
-## A - Overview
+## Overview
 
 TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more.
 
 - <span class="nosurface">ℹ️ </span>[Introduction to TablePlus](https://docs.tableplus.com/getting-started)
 - <span class="nosurface">📥 </span>[TablePlus Download Link](https://docs.tableplus.com/#download-and-install)
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -37,11 +37,11 @@ TablePlus is a modern, native tool with elegant UI that allows you to simultaneo
 
 This article assumes you have a running installation of Tableplus on your laptop or PC. It was written for the MacOS version but it should also work for the Windows version.
 
-## C - Installation and Setup
+## Installation and Setup
 
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
-### <span class="nosurface">✅ </span>Step 1: DB Information
+### <span class="nosurface">✅ Step 1:</span> DB Information
 
 On your laptop or PC where Tableplus is installed, unpack your secure bundle. For example:
 
@@ -85,7 +85,7 @@ Obtain information about your database from the config.json file. Here is an exa
 
 We will use this information to configure Astra DB as the data source in Tableplus.
 
-### <span class="nosurface">✅ </span>Step 2: New Connection
+### <span class="nosurface">✅ Step 2:</span> New Connection
 
 1. In Tableplus, create a new connection and select **Cassandra** as the target database.
 
@@ -108,7 +108,7 @@ Here's an example of what the **Cassandra Connection** dialog box should look li
 
 <img src="https://awesome-astra.github.io/docs/img/tableplus/tableplus_connection_page_updated.png" height="350px" />
 
-### <span class="nosurface">✅ </span>Step 3: Final Test
+### <span class="nosurface">✅ Step 3:</span> Final Test
 
 Connect to your Astra DB. If the connection was successful, you should be able to see all the tables on the left-hand side of the UI.
 

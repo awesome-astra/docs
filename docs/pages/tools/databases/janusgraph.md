@@ -21,7 +21,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" />
 </div>
 
-## A - Overview
+## Overview
 
 JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.
 
@@ -40,7 +40,7 @@ CqlSession session = CqlSession.builder()
 ```
 However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the **Prerequisites**.
 
-## B - Prerequisites
+## Prerequisites
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -53,10 +53,10 @@ This article assumes you have a running installation of JanusGraph server. This 
 You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to [create the keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html) on the Astra UI
 
 
-## C - Installation and Setup
+## Installation and Setup
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
-### <span class="nosurface">✅</span> Step 1: DB Information
+### <span class="nosurface">✅ Step 1:</span> DB Information
 
 On the JanusGraph server, unpack your secure bundle. For example:
 ```
@@ -102,7 +102,7 @@ Obtain information about your database from the config.json file. Here is an exa
 
 We will use this information to configure Astra DB as the storage backend for JanusGraph.
 
-### <span class="nosurface">✅</span> Step 2: Graph Storage
+### <span class="nosurface">✅ Step 2:</span> Graph Storage
 On the JanusGraph server, modify the CQL storage configuration file:
 ```
 $ cd janusgraph-0.6.0
@@ -135,11 +135,9 @@ storage.cql.write-consistency-level=LOCAL_QUORUM
 ```
 
 !!! warning "WARNING"
-
     The username to connect to Astra is the literal string `token`. Do NOT set this value to your DB's client ID.
 
 !!! info "IMPORTANT"
-
     The **ASTRA_APP_TOKEN** is from the token you generated in the **Prerequisites** section above.
 
 Using the example values in the config.json above, my conf/janusgraph-cql.properties would contain:
@@ -167,7 +165,7 @@ storage.cql.ssl.client-authentication-enabled=true
 storage.cql.read-consistency-level=LOCAL_QUORUM
 storage.cql.write-consistency-level=LOCAL_QUORUM
 ```
-### <span class="nosurface">✅</span> Step 3: Final Test
+### <span class="nosurface">✅ Step 3:</span> Final Test
 Start a Gremlin console:
 ```
 $ bin/gremlin.sh
@@ -184,7 +182,6 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 ```
 
 !!! abstract "Note"
-
     It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:

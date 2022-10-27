@@ -26,7 +26,7 @@ StepZen helps developers build GraphQL faster, deploy in seconds, and run on Ste
 - 📥 [StepZen Quick Install](https://stepzen.com/getting-started?details=nosql)
 </div>
 
-## - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>

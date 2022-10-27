@@ -18,7 +18,7 @@ links:
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/f3f5c080-808b-11ea-9713-2bea65875d95.png" height="180px" />
 </div>
 
-## A - Overview
+## Overview
 
 DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate with your data like in a regular spreadsheet, create analytical reports based on records from different data storages, export information in an appropriate format.
 
@@ -27,7 +27,7 @@ DBeaver is a universal database management tool for everyone who needs to work w
 - 📥 [DBeaver Download Link](https://dbeaver.com/docs/wiki/Installation)
 </div>
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -38,9 +38,9 @@ DBeaver is a universal database management tool for everyone who needs to work w
 
 This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.
 
-## C - Installation and Setup
+## Installation and Setup
 
-### <span class="nosurface">✅</span> Step 1: JDBC Driver
+### <span class="nosurface">✅ Step 1: </span> JDBC Driver
 
 Download the JDBC driver from the DataStax website:
 
@@ -51,7 +51,7 @@ Download the JDBC driver from the DataStax website:
 5. Hit the blue **Download** button.
 6. Once the download completes, unzip the downloaded file.
 
-### <span class="nosurface">✅</span> Step 2: Import Driver
+### <span class="nosurface">✅ Step 2: </span> Import Driver
 
 1. Go to the **Driver Manager.**
 2. Click the **New** button.
@@ -71,7 +71,7 @@ At this point, you should see **Astra DB** as one of the drivers on the list:
 
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" />
 
-### <span class="nosurface">✅</span> Step 3: Create New Connection
+### <span class="nosurface">✅ Step 3: </span> Create New Connection
 
 Connect to your Astra DB in DBeaver:
 
@@ -92,7 +92,7 @@ Connect to your Astra DB in DBeaver:
 
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" />
 
-### <span class="nosurface">✅</span> Step 4: Final Test
+### <span class="nosurface">✅ Step 4: </span> Final Test
 
 Connect to your Astra DB. If the connection was successful, you should be able to explore the keyspaces and tables in your DB on the left-hand side of the UI.
 
