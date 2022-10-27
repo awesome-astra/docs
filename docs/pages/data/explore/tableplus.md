@@ -39,7 +39,8 @@ This article assumes you have a running installation of Tableplus on your laptop
 
 ## Installation and Setup
 
-**Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
+!!! note "Note" 
+  For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
 ### <span class="nosurface">✅ Step 1:</span> DB Information
 
@@ -107,6 +108,7 @@ We will use this information to configure Astra DB as the data source in Tablepl
 Here's an example of what the **Cassandra Connection** dialog box should look like:
 
 <img src="https://awesome-astra.github.io/docs/img/tableplus/tableplus_connection_page_updated.png" height="350px" />
+<br /><br />
 
 ### <span class="nosurface">✅ Step 3:</span> Final Test
 

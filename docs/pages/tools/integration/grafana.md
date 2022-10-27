@@ -35,7 +35,7 @@ Community-developed [Cassandra Datasource for Grafana](https://github.com/HadesA
 
 Keep the token information and the bundle file location ready: these will be soon provided in the datasource configuration.
 
-## C - Quickstart
+## Quickstart
 
 ### Install the plugin using CLI or using web-interface
 
@@ -67,11 +67,11 @@ If the database cannot be connected, check the following known common issues:
 
 #### Known issues:
 
-##### Misconfigured Port (Using `port` instead of `cql-port`)
+**Misconfigured Port (Using `port` instead of `cql-port`)**
 
 Sometimes users specify the wrong port and a connection cannot be established. If you can't connect to your Astra instance, please check if the correct port specified in the datasource config (See step 3 above)
 
-##### Unavailable TLS files
+**Unavailable TLS files**
 
 if you have an error message like `[ERROR] cassandra-backend-datasource: Unable create tls config, open /cert: permission denied`, it means that Grafana cannot open TLS certificate files. Set the proper permission f.e. using `chown` command. If you copied the files using `docker cp` command, they'll be copied by a root user and grafana will have no access to them.
 

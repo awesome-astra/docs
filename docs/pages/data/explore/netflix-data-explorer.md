@@ -32,12 +32,14 @@ The Data Explorer by netflix is a web-based tools that will help you navigate an
 Multi-cluster access provides easy access to all of the clusters in your environment. The cluster selector in the top nav allows you to switch to any of your discovered clusters quickly.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/cluster_selector.png" />
+<br /><br />
 
 #### Explore your data
 
 The Explore view provides a simple way to explore your data quickly. You can query by partition and clustering keys, insert and edit records, and easily export the results or download them as CQL statements.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/explore_view.png" />
+<br /><br />
 
 #### Schema Designer
 
@@ -46,6 +48,7 @@ Creating a new Keyspace and Table by hand can be error-prone
 Our schema designer UI streamlines creating a new Table with improved validation and enforcement of best practices.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/schema_designer.gif" />
+<br /><br />
 
 #### Query IDE
 
