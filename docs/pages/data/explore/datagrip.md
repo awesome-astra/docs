@@ -2,7 +2,7 @@
 title: "DataGrip"
 description: "DataGrip is a database management environment for developers. It is designed to query, create, and manage databases. Databases can work locally, on a server, or in the cloud. Supports MySQL, PostgreSQL, Microsoft SQL Server, Oracle, and more. If you have a JDBC driver, add it to DataGrip, connect to your DBMS, and start working."
 tags: "jdbc, data management, ide"
-icon: "https://awesome-astra.github.io/docs/img/datagrip/logo-datagrip.png"
+icon: "https://awesome-astra.github.io/docs/img/datagrip/DataGrip.svg"
 developer_title: "JetBrains"
 developer_url: "https://www.jetbrains.com/datagrip/"
 links:

@@ -2,7 +2,7 @@
 title: "Lagom"
 description: "Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of 'boiler-plate' code."
 tags: "java, scala, framework"
-icon: "https://awesome-astra.github.io/docs/img/tile-lagom.png"
+icon: "https://awesome-astra.github.io/docs/img/lagom/lagom-icon.svg"
 developer_title: "Lightbend"
 developer_url: "https://www.lagomframework.com"
 links:

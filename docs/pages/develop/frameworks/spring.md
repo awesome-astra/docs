@@ -155,7 +155,7 @@ mvn -version
 
 #### Setup Project
 
-- Create your project with [Spring Initializr](https://start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.6&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
+- Create your project with [Spring Initializr](https://start.spring.io). Dependencies needed are `web` and `data-cassandra` but we did the work for you if you click the [template link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.11&packaging=jar&jvmVersion=1.8&groupId=com.datastax.tutorial&artifactId=sdk-quickstart-spring&name=sdk-quickstart-spring&description=Use%20Astra%20Spring%20Boot%20Starter&packageName=com.datastax.tutorial&dependencies=web,data-cassandra)
 
 |    Property    |          Value          |     Property     |                    Value                     |
 | :------------: | :---------------------: | :--------------: | :------------------------------------------: |
@@ -176,7 +176,7 @@ mvn -version
   <dependency>
     <groupId>com.datastax.astra</groupId>
     <artifactId>astra-spring-boot-starter</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.3</version>
   </dependency>
   ```
 
