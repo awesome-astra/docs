@@ -25,14 +25,15 @@ The purpose of this document is to guide you through the process of creating a n
 </div>
 
 ## Prerequisites
-### Liquibase Prerequisites
+
+#### Liquibase Prerequisites
 <ul class="prerequisites">
     <li>Install the <a href="https://www.liquibase.org/download">latest version</a> of Liquibase</li>
     <li>Ensure the Liquibase install directory path is set to a location in the PATH System variable</li>
     <li><a href="https://github.com/liquibase/liquibase-cassandra/releases/">Download</a> the liquibase-cassandra-<version>.jar latest release extension jar file and place this file in the `liquibase/lib` install directory</li>
 </ul>
 
-### Astra Prerequisites
+#### Astra Prerequisites
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
@@ -51,11 +52,14 @@ The purpose of this document is to guide you through the process of creating a n
 To create a Liquibase project with Cassandra on DataStax Astra on your machine, begin with the following steps:
 
 1. Create a new project folder and name it LiquibaseProj.
+
 2. In your LiquibaseProj folder, create a new text file and name it dbchangelog.sql.
+
 3. Open the dbchangelog.sql file and update the changelog file with the following code snippet: 
 `--liquibase formatted sql` 
 
 4. In your LiquibaseProj folder, create a new text file and name it liquibase.properties.
+
 5. Edit the liquibase.properties file to add the following properties:
 
 ```
@@ -78,6 +82,7 @@ CREATE TABLE test.DEPARTMENT (id int PRIMARY KEY, NAME text, ACTIVE BOOLEAN);
 
 7. Open the command prompt. Navigate to the LiquibaseProj directory.
 Run the following command: liquibase update
+
 8. From a SQL Client User Interface, check your database changes. You should see a new department table added to the database. For example:
 `SELECT * FROM "keyspace"."department";`
 

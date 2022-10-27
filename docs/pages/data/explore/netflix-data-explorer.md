@@ -23,23 +23,23 @@ links:
 </details>
 </div>
 
-## A - Overview
+## Overview
 
 The Data Explorer by netflix is a web-based tools that will help you navigate and edit your data. It supports both **Cassandra** and **Dynomite** but here we will focus on **Astra**. There a few killer features
 
-- **Multi Cluster Access**
+#### Multi Cluster Access
 
 Multi-cluster access provides easy access to all of the clusters in your environment. The cluster selector in the top nav allows you to switch to any of your discovered clusters quickly.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/cluster_selector.png" />
 
-- **Explore your data**
+#### Explore your data
 
 The Explore view provides a simple way to explore your data quickly. You can query by partition and clustering keys, insert and edit records, and easily export the results or download them as CQL statements.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/explore_view.png" />
 
-- **Schema Designer**
+#### Schema Designer
 
 Creating a new Keyspace and Table by hand can be error-prone
 
@@ -47,13 +47,13 @@ Our schema designer UI streamlines creating a new Table with improved validation
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/schema_designer.gif" />
 
-- **Query IDE**
+#### Query IDE
 
 The Query Mode provides a powerful IDE-like experience for writing free-form CQL queries.
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/query_ide.gif" />
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -62,9 +62,9 @@ The Query Mode provides a powerful IDE-like experience for writing free-form CQL
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
-## C - Procedure
+## Procedure
 
-### C.1 Run Locally
+### <span class="nosurface">1</span> Run Locally
 
 > **Prerequisites:** You need `node`, `npm` and `yarn`
 
@@ -99,7 +99,7 @@ yarn start
 
 [![Open in IDE](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Examples/nf-data-explorer)
 
-### C.2 Execute with Gitpod
+### <span class="nosurface">2</span> Execute with Gitpod
 
 - Click the button
 

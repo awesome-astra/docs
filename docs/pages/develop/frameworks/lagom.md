@@ -11,13 +11,17 @@ links:
 ---
 
 
-### Working with Lagom
+## Overview
 
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/tile-lagom.png" align="left" height="180px"/>
 </div>
 
+#### Working with Lagom
+
 Lagom is an open source framework for building out Reactive microservices.  Lagom essentially wires-up your services, freeing you from having to spend time writing lots of "boiler-plate" code.  To get more information regarding the framework visit its website @ [lagomframework.com](https://www.lagomframework.com/).
+
+## Prerequisites
 
 #### <span class="nosurface">📦.</span> Prerequisites [ASTRA DB]
 
@@ -46,6 +50,8 @@ java --version
 ```bash
 mvn -version
 ```
+
+## Installation and Setup
 
 ### Building a sample Lagom project
 

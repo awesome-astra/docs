@@ -18,9 +18,9 @@ developer_url: "https://nifi.apache.org"
 - [C - Log Ingestion to Astra with Stargate Document Api](#c---log-ingestion-to-astra-with-nifi)
 </div>
 
-## A - Overview
+## Overview
 
-### <span class="nosurface" markdown="1">📘 </span>What is NiFi?
+#### <span class="nosurface" markdown="1">📘 </span> What is NiFi?
 
 [Apache NiFi](http://nifi.apache.org/) is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It is super powerful tool I have been using for a few years to develop data flows and data pipelines. With NiFi I can do just about anything without writing a single line of code.
 
@@ -32,13 +32,13 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 - PutCassandraRecord
 - and PutCassandraQL against Astra.
 
-### <span class="nosurface" markdown="1">📘 </span>My Astra NiFi Templates
+#### <span class="nosurface" markdown="1">📘 </span> My Astra NiFi Templates
 
 - You can find my official NiFi Astra Cassandra templates [here](https://github.com/ds-steven-matison/NiFi-Templates)
 
 - You can also find templates from my previous life [here](https://github.com/steven-matison/NiFi-Templates)
 
-## B - Prerequisites
+## Prerequisites
 
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -54,7 +54,7 @@ You can also use native [NiFi Cassandra Processors](https://nifi.apache.org/docs
 <img src="https://awesome-astra.github.io/docs/img/apache_nifi/add-processor.png" height="400px"/>
 </ul>
 
-## C - Log Ingestion to Astra with NiFi
+## Log Ingestion to Astra with NiFi
 
 In this blog I am going to show you how to ingest raw log data into cassandra using NiFi and Astra. With NiFi ingesting data from any source is super easy. With Astra and Cassandra ingesting raw data can be a challenge due to data model constraints (primary keys and clustering columns).
 
@@ -62,7 +62,7 @@ In this demo I am going to remove that constraint and ingest all raw data using 
 
 In this demo we are going to communicate with Astra via **Stargate’s Documement APIs.**
 
-### <span class="nosurface">✅ </span>Step 1 : Get NiFi Authorized for Astra Calls
+### <span class="nosurface">✅ Step 1 : </span> Get NiFi Authorized for Astra Calls
 
 #### GetAuthToken
 
@@ -81,7 +81,7 @@ In this demo we are going to communicate with Astra via **Stargate’s Documemen
 - For sake of this demo, all variables are included in GetAuthToken Process Group. In production or in your data flow you will want those variables in the parent location. Adjust your own flow accordingly.
 - For demo purposes failure routes are visible. In production, these may be auto terminated or routed to exception handling.
 
-### <span class="nosurface">✅ </span>Step 2 : Create Data Flow for Log Ingestion
+### <span class="nosurface">✅ Step 2 : </span> Create Data Flow for Log Ingestion
 
 <img src="https://awesome-astra.github.io/docs/img/apache_nifi/apache_log_flow.png" height="600px"/>
 
@@ -128,7 +128,7 @@ And the output of the JSON Writer is as follows:
 - For portability of the log data flow template, the SSL Context Service is duplicated. You can adjust your flow to use a single context service at the root canvas level.
 - Some of the NiFi Variables from above template are referenced in this template. Adjust your flow accordingly with root level variables or import this template into same Process Group above.
 
-### <span class="nosurface">✅ </span>Step 3 : Verify Log Data With Cql Console
+### <span class="nosurface">✅ Step 3 : </span> Verify Log Data With Cql Console
 
 Login to the Astra and navigate to your Cql Consoe and execute the following query:
 
