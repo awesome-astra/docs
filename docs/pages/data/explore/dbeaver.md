@@ -70,6 +70,8 @@ Download the JDBC driver from the DataStax website:
 At this point, you should see **Astra DB** as one of the drivers on the list:
 
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/2373-dbeaver-02-driver-manager.png" height="350px" />
+<br /><br />
+
 
 ### <span class="nosurface">✅ Step 3: </span> Create New Connection
 
@@ -91,6 +93,8 @@ Connect to your Astra DB in DBeaver:
 9. Click on the **Test Connection** button to confirm that the driver configuration is working:
 
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/2395-dbeaver-05-test-connection.png" height="200px" />
+<br /><br />
+
 
 ### <span class="nosurface">✅ Step 4: </span> Final Test
 

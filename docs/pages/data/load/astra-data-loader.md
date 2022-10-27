@@ -31,7 +31,7 @@ Astra DB conveniently has its own data loader built in to the user interface. Us
 
 ## Procedure
 
-**<span class="nosurface">✅ Step 1 : </span>From your Astra DB Dashboard, select Load Data for the database where you want to load data.**
+### <span class="nosurface">✅ Step 1 : </span>From your Astra DB Dashboard, select Load Data for the database where you want to load data.
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-dashboard.png)
 
@@ -39,7 +39,7 @@ The Astra DB Data Loader launches.
 
 ![](https://docs.datastax.com/en/astra/docs/_images/dataloader-createscreen.png)
 
-**<span class="nosurface">✅ Step 2 : </span>Load your data using one of the options:**
+### <span class="nosurface">✅ Step 2 : </span>Load your data using one of the options:
 
 #### Upload your dataset
 
