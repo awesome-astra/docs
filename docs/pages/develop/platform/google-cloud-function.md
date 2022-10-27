@@ -12,7 +12,9 @@ links:
   url: "http://yahoo.com"
 ---
 
+<div class="nosurface" markdown="1">
 # Google Cloud Functions
+</div>
 
 ## Overview
 
@@ -125,6 +127,8 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 ## Using Python SDK
 
+<div class="counterReset">
+
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
 
 1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select a project that has Cloud Functions enabled, and click **Create function**.
@@ -183,6 +187,7 @@ def query_astra_db(request):
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/main_py.png" /><br/>
 You can learn more about the code above by reading the [AstraPy](https://github.com/datastax/astrapy) documentation.
 
+
 ### <span class="nosurface" markdown="1">✅ 2.</span> Deploy the function.
 
 1. Click **Deploy**.
@@ -205,8 +210,11 @@ You can further explore the log history by either clicking on the **Logs** tab o
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs.png" />
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-sdk/logs-explorer.png" />
 
+</div>
 
 ## Using Java Driver
+
+<div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a secret with the secure connect bundle file.
 
@@ -320,8 +328,11 @@ You can further explore the log history by either clicking on the **Logs** tab o
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs.png" />
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/logs-explorer.png" />
 
+</div>
 
 ## Using Java gRPC
+
+<div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
 
@@ -434,3 +445,5 @@ Notice the CQL version output **3.4.5** and status code **200**.
 You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs.png" />
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-grpc/logs-explorer.png" />
+
+</div>

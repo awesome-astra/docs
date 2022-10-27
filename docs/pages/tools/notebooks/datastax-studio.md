@@ -18,7 +18,7 @@ DataStax Studio is an interactive developer tool for CQL (Cassandra Query Langua
 </div>
 
 ## Prerequisites
-### DataStax Studio Prerequisites
+#### DataStax Studio Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have a <a href="https://docs.datastax.com/en/home/docs/supportedPlatforms.html#supportedPlatforms__browser-support">supported browser</a></li>
   <li class="nosurface">You should have a supported version of Java</li>
@@ -28,7 +28,7 @@ DataStax Studio is an interactive developer tool for CQL (Cassandra Query Langua
     </ul></li>
 </ul>
 
-### Astra Prerequisites
+#### Astra Prerequisites
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>

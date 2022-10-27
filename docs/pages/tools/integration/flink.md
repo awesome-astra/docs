@@ -92,5 +92,6 @@ token@cqlsh:example> select * from wordcount ;
 (18 rows)
 token@cqlsh:example> 
 ```
-
+<span class="nosurface">
 [🏠 Back to home](https://awesome-astra.github.io/docs/) 
+</span>
