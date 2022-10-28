@@ -2602,13 +2602,13 @@
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">2022</span>-03-02T22:42:54.120Z    INFO    Schema setup <span class="nb">complete</span>   <span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>: <span class="s2">&quot;setuptask.go:131&quot;</span><span class="o">}</span>
 </code></pre></div>
 <p>Great! Your schemas have been migrated with Astra DB. </p>
-<details class="info">
+<details class="info" open="open">
 <summary>Confirm your tables exist in Astra</summary>
-</details>
 <ul>
-<li>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console. </li>
-<li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>.</li>
+<li>You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.</li>
+<li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>. </li>
 </ul>
+</details>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt; use temporal<span class="p">;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:temporal&gt; desc tables<span class="p">;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -2660,7 +2660,7 @@
   <small>
     
       Last update:
-      2022-10-27
+      2022-10-28
     
   </small>
 </div>
