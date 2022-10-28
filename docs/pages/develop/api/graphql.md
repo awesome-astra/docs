@@ -136,7 +136,7 @@ query oneBook {
 }
 ```
 
-The query results will look like the following
+The query results will look like the following 
 
 <img src="../../../../img/stargate-api-graphql/readdata.png" />
 
