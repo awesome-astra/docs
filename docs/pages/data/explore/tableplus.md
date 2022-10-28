@@ -2,7 +2,7 @@
 title: "TablePlus"
 description: "TablePlus is a modern, native tool with elegant UI that allows you to simultaneously manage multiple databases such as MySQL, PostgreSQL, SQLite, Microsoft SQL Server and more."
 tags: "jdbc, data management, ide"
-icon: "https://awesome-astra.github.io/docs/img/tableplus/download.png"
+icon: "https://awesome-astra.github.io/docs/img/tableplus/tableplus.svg"
 developer_title: "TablePlus"
 developer_url: "https://tableplus.com/download"
 links:
