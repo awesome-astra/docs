@@ -2,7 +2,7 @@
 title: "Trino"
 description: "Trino is a distributed SQL query engine for big data analytics. Trino can query data from over 30 different data sources, including Cassandra and Astra DB."
 tags: "SQL, query engine, analytics"
-icon: "https://awesome-astra.github.io/docs/img/trino/logo-trino.png"
+icon: "https://awesome-astra.github.io/docs/img/trino/trino.svg"
 developer_title: "Trino"
 developer_url: "https://trino.io/"
 links:
