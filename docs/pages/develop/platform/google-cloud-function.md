@@ -25,10 +25,12 @@ links:
 
 ## Prerequisites
 
-- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
-- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
-- [Download a Secure Connect Bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
-- Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li>Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first.</li>
 
 ## Using Python Driver
 

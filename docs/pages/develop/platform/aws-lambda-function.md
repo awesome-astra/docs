@@ -20,10 +20,13 @@ developer_url: "https://docs.aws.amazon.com/lambda/"
 
 ## Prerequisites
 
-- [Create an Astra Database](https://awesome-astra.github.io/docs/pages/astra/create-instance/)
-- [Create an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
-- [Download a Secure Connect Bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
-- Optionally, if you are new to AWS Lambda, practice [creating a simpler function](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) first
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+    <li>Optionally, if you are new to AWS Lambda, practice [creating a simpler function](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) first.</li>
+</ul>
 
 ## Using Python Driver
 
