@@ -1,3 +1,4 @@
+<!--
 ---
 title: "Apache Zeppelin"
 description: "Apache Zeppelin is a new and incubating multi-purposed web-based notebook which brings data ingestion, data exploration, visualization, sharing and collaboration features to Hadoop and Spark."
@@ -10,7 +11,8 @@ links:
 - title: "Apache Zeppelin Install"
   url: "https://zeppelin.apache.org/download.html"
 ---
-
+-->
+s
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/apachezeplogo.png" height="100px" />
 !!! note "Check back soon"
