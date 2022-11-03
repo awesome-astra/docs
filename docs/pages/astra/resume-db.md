@@ -18,7 +18,15 @@ In the free tier _(serverless)_, after `23 hours`, your database will be **hiber
 
 <img src="../../../img/astra/db-hibernate-hibernated.png" />
 
-**✅ Option 2: Resume with a first request to the database**
+**✅ Option 2: Resume with the CLI**
+
+Assuming you have the [Astra CLi](astra-cli.md) installed and setup.
+
+```
+astra db resume <my_db>
+```
+
+**✅ Option 3: Resume with a first request to the database**
 
 Invoking and Stargate endpoints associated with your database will also trigger resuming. You would have to replace the `dbId`, `dbRegion` and `token` below with values for your environment.
 
