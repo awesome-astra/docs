@@ -107,7 +107,7 @@ online_store:
     keyspace: feastks
 ```
 
-!!! note "Settings in "feature_store.yaml" for usage with Cassandra"
+!!! note "Settings in 'feature_store.yaml' for usage with Cassandra"
     If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
     ```
     online_store:
