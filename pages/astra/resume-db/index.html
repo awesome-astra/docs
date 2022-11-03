@@ -2463,16 +2463,20 @@
 <li>Once the database is selected, on any tab you will get the <code>Resume Database</code> button available at top.</li>
 </ul>
 <p><img src="../../../img/astra/db-hibernate-hibernated.png" /></p>
-<p><strong>✅ Option 2: Resume with a first request to the database</strong></p>
+<p><strong>✅ Option 2: Resume with the CLI</strong></p>
+<p>Assuming you have the <a href="../astra-cli/">Astra CLi</a> installed and setup.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>astra db resume &lt;my_db&gt;
+</code></pre></div>
+<p><strong>✅ Option 3: Resume with a first request to the database</strong></p>
 <p>Invoking and Stargate endpoints associated with your database will also trigger resuming. You would have to replace the <code>dbId</code>, <code>dbRegion</code> and <code>token</code> below with values for your environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl --location <span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>     --request GET <span class="s1">&#39;https://{dbId}-{dbRegion}.apps.astra.datastax.com/api/rest/v2/schemas/keyspaces/&#39;</span> <span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>     --header <span class="s1">&#39;X-Cassandra-Token: {token}&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --location <span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>     --request GET <span class="s1">&#39;https://{dbId}-{dbRegion}.apps.astra.datastax.com/api/rest/v2/schemas/keyspaces/&#39;</span> <span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>     --header <span class="s1">&#39;X-Cassandra-Token: {token}&#39;</span>
 </code></pre></div>
 <p>You will get a <code>503</code> error with the following payload.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Resuming your database, please try again shortly.&quot;</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Resuming your database, please try again shortly.&quot;</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li>In the user interface the status changes to <code>resuming...</code></li>
@@ -2488,7 +2492,7 @@
   <small>
     
       Last update:
-      2022-09-02
+      2022-11-03
     
   </small>
 </div>
