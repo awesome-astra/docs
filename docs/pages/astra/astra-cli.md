@@ -1,80 +1,82 @@
-!!! warning "Astra Cli is not released yet. It is in active developement "
+The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The AStra CLI is available across astra services and is designed to get you working quickly with Astra, with an emphasis on automation.
 
-Astra CLI provides a command line interface in a terminal to operate Datastax Astra. The goal is to offer access to any feature without user interface.
+???+ info "Setup your Astra account "
 
-## Getting Started
+    To use the Astra CLI you need to create a [Datastax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with `Organization Administration` role.
 
-### 1. Installation
+## Installation
 
-The Astra CLI is available to install in Windows, macOS and Linux environments. It can also be run in a Docker container 
+The current release of the Astra CLI is: ![Latest Release](https://img.shields.io/github/v/release/datastax/astra-cli)
 
-**📘 1a Prequisites**
 
-On your machine you will need the following components
+- For information about the latest release, see the [release notes](https://github.com/datastax/astra-cli/releases). 
+- To find your installed version and see if you need to update, run `astra --version`
 
-- A bash shell ([Bourne Again SHell](https://www.gnu.org/software/bash/))
-- The following commands `untar`, `unzip`, `curl`
-- A Java JRE or JDK version 8+ installed
+The Astra CLI is available to install in **Windows**, **MacOS** and **Linux** environments.
 
-You will also need an Astra token. As such, make sure you completed those 2 steps before
+### 1. Install on `MAC OS`
 
-- Create an [Astra account](https://astra.dev/3B7HcYo)
-- Generate an [Astra Token](/docs/pages/astra/create-token/)
+**✅ 1.1 Homebrew**
 
-**✅ 1b Installation**
+Homebrew is the easiest way to manage your CLI install. It provides convenient ways to install, update, and uninstall. If you don't have homebrew available on your system, install homebrew before continuing.
 
-To install or reinstall the CLI use the following command. Previous installations will be cleaned but configuration will NOT be lost. The cli is installed in `~/.astra/cli` folder whereas your configuration is saved in `~/.astrarc` file. 
+You can install the Astra CLI on macOS by updating your brew repository information, and then running the install command:
+
+```
+brew install datastax/astra-cli/astra-cli
+```
+
+The Homebrew formula of Astra CLI installs a completion file named astra in the Homebrew-managed completions directory (default location is /usr/local/etc/bash_completion.d/). To enable completion, please follow Homebrew's instructions [here](https://docs.brew.sh/Shell-Completion).
+
+**✅ 1.2 Manual Installation**
+
+To install (or reinstall) the CLI uses command in a terminal:
 
 ```
 curl -Ls "https://dtsx.io/get-astra-cli" | bash
 ```
 
-You can notice that the installation script also check the pre-requisites. It will download expected archive and update your bash profile to have `astra` in your path.
+??? question "Where is Astra CLI installed on my machine ?"
 
-??? abstract "🖥️ Installation script output"
-
-    ```
-       █████╗ ███████╗████████╗██████╗  █████╗     ███████╗██╗  ██╗███████╗██╗     ██╗
-      ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║  ██║██╔════╝██║     ██║  
-      ███████║███████╗   ██║   ██████╔╝███████║    ███████╗███████║█████╗  ██║     ██║ 
-      ██╔══██║╚════██║   ██║   ██╔══██╗██╔══██║    ╚════██║██╔══██║██╔══╝  ██║     ██║
-      ██║  ██║███████║   ██║   ██║  ██║██║  ██║    ███████║██║  ██║███████╗███████╗███████╗
-      ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+    - The Astra CLI is installed in `~/.astra/cli`. This folder is deleted and recreated during installation.
     
-    Installing Astra Cli 0.1.alpha3, please wait...      
+    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallations.
 
-    Checking prerequisites:
-    [OK] - Ready to install.
-    [OK] - unzip command is available
-    [OK] - zip command is available
-    [OK] - curl command is available
+### 2. Install on `LINUX`
 
-    Preparing directories:
-    [OK] - Created /Users/cedricklunven/.astra/tmp
-    [OK] - Created /Users/cedricklunven/.astra/cli
-    [OK] - Created /Users/cedricklunven/.astra/scb
+**✅ 2.1 Manual Installation**
 
-    Downloading archive:
-    ######################################################################## 100.0%
-    [OK] - File downloaded
-    [OK] - Integrity of the archive checked
+To install (or reinstall) the CLI uses command in a terminal:
 
-    Extracting and installation:
-    [OK] - Extraction is successful
-    [OK] - File moved to /Users/cedricklunven/.astra/cli
-    [OK] - Installation cleaned up
-    [OK] - Installation Successful
+```
+curl -Ls "https://dtsx.io/get-astra-cli" | bash
+```
 
-    Open A NEW TERMINAL and run: astra setup
+??? question "Where is Astra CLI installed on my machine ?"
 
-    You can close this window.
-    ```
+    - The Astra CLI is installed in `~/.astra/cli`. This folder is deleted and recreated during installation.
+    
+    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallations.
 
-### 2. Setup
+**✅ 2.2 Using sdkman**
 
-!!! info "After installing, make sure to open a new terminal to have `astra` in the `PATH`."
+_Installation with SDK MAN is not available yet but is high in the roadmap_
 
-**✅ 2a - Run Setup**
+**✅ 2.3 Using a package Manager**
+
+_Installation with package managers (yum, apt) is not available yet but is high in the roadmap_
+
+### 3. Install on `WINDOWS`
+
+- Download windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip)
+
+- Unzip archive in folder or your choice for instance `C:/Programs/astra-cli`
+
+- Add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
+
+## Getting Started
+
+### 1. Setup
 
 Before issuing commands to init to initialize the configuration file `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reuse for your commands.
 
@@ -85,41 +87,23 @@ astra setup
 ???+ abstract "🖥️ `astra setup` command output"
 
     ```
-    +-------------------------------+
-    +-     Astra CLI SETUP         -+
-    +-------------------------------+
+        _____            __                
+       /  _  \   _______/  |_____________   
+      /  /_\  \ /  ___/\   __\_  __ \__  \ 
+    /    |    \\___ \  |  |  |  | \// __ \_
+    \____|__  /____  > |__|  |__|  (____  /
+             \/     \/                   \/
 
-    Welcome to Astra Cli. We will guide you to start.
+            ------------------------
+            ---       SETUP      ---
+            ------------------------
 
-    [Astra Setup]
-    To use the cli you need to:
-    • Create an Astra account on : https://astra.datastax.com
-    • Create an Authentication token following: https://dtsx.io/create-astra-token
-
-    [Cli Setup]
-    You will be asked to enter your token, it will be saved locally in ~/.astrarc
-
-    • Enter your token (starting with AstraCS) : 
-     AstraCS:lorem_ipsum
+    🔑 Enter token (starting with AstraCS...):
     ```
-
-- Copy paste the value of your token and press enter.
-
-???+ abstract "🖥️ `astra setup` command output"
-
-    ```
-    [What's NEXT ?]
-    You are all set.(configuration is stored in ~/.astrarc) You can now:
-      • Use any command, 'astra help' will get you the list
-      • Try with 'astra db list'
-      • Enter interactive mode using 'astra'
-
-    Happy Coding !
-    ```
-
-**✅ 2b - Setup validation**
 
 You are all set. The configuration (mainly your token) is stored in file `~/.astrarc`.
+
+### 2. First commands
 
 - Display current version of the cli, validating setup is complete.
 
@@ -127,13 +111,7 @@ You are all set. The configuration (mainly your token) is stored in file `~/.ast
 astra --version
 ```
 
-???+ abstract "🖥️ Sample output" 
-
-    `0.1.alpha5`
-
-You created a default configuration pointing to your organization. If you want to work with multiple organizations look at `Config Management` chapter below.
-
-- After setup you have 1 configuration automaticall set as default. You can have more than one configuration is you work with multiple organizations for instance. To know more about multi-organizations configuration check chapter `5.1`.
+- Display your configuration list.
 
 ```bash
 astra config list
@@ -434,11 +412,69 @@ astra db create demo -k ks2 --if-not-exist --wait
 
 **✅ 2c - Get help** 
 
-Better doc the cli itself.
+To show help enter following command: 
 
 ```
 astra help db create
 ```
+
+??? abstract "🖥️ Sample output" 
+
+    ```
+    NAME
+            astra db create - Create a database with cli
+
+    SYNOPSIS
+            astra db create [ {-cf | --config-file} <CONFIG_FILE> ]
+                    [ {-conf | --config} <CONFIG_SECTION> ]
+                    [ {--if-not-exist | --if-not-exists} ]
+                    [ {-k | --keyspace} <KEYSPACE> ] [ --no-color ]
+                    [ {-o | --output} <FORMAT> ] [ {-r | --region} <DB_REGION> ]
+                    [ --timeout <timeout> ] [ --token <AUTH_TOKEN> ]
+                    [ {-v | --verbose} ] [ --wait ] [--] <DB>
+
+    OPTIONS
+            -cf <CONFIG_FILE>, --config-file <CONFIG_FILE>
+                Configuration file (default = ~/.astrarc)
+
+            -conf <CONFIG_SECTION>, --config <CONFIG_SECTION>
+                Section in configuration file (default = ~/.astrarc)
+
+            --if-not-exist, --if-not-exists
+                will create a new DB only if none with same name
+
+            -k <KEYSPACE>, --keyspace <KEYSPACE>
+                Default keyspace created with the Db
+
+            --no-color
+                Remove all colors in output
+
+            -o <FORMAT>, --output <FORMAT>
+                Output format, valid values are: human,json,csv
+
+            -r <DB_REGION>, --region <DB_REGION>
+                Cloud provider region to provision
+
+            --timeout <timeout>
+                Provide a limit to the wait period in seconds, default is 300s.
+
+            --token <AUTH_TOKEN>
+                Key to use authenticate each call.
+
+            -v, --verbose
+                Verbose mode with log in console
+
+            --wait
+                Will wait until the database become ACTIVE
+
+            --
+                This option can be used to separate command-line options from the
+                list of arguments (useful when arguments might be mistaken for
+                command-line options)
+
+            <DB>
+                Database name (not unique)
+    ```
 
 ### 3. Resume database
 
@@ -564,7 +600,6 @@ astra db create-keyspace demo -k ks2 --if-not-exist
 astra db list-keyspaces demo
 ```
 
-
 **✅ 6b - Get help** 
 
 ```
@@ -611,14 +646,13 @@ To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL 
 astra db cqlsh demo -f sample.cql
 ```
 
-### 8. DSBulk
+### 8. DSBulk Commands
 
 **✅ 8a - Setup** 
 
 [Dsbulk](https://github.com/datastax/dsbulk) stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.
 
 As for `Cqlsh` the cli will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
-
 
 - Make sure we have a db `demo` with a keyspace `demo`
 
@@ -668,7 +702,7 @@ quit
 **✅ 8b - Load Data** 
 
 ```
-astra db dsbulk demo load \
+astra db load demo \
   -url https://raw.githubusercontent.com/awesome-astra/docs/main/docs/assets/cities.csv \
   -k demo \
   -t cities_by_country \
@@ -733,10 +767,10 @@ astra db cqlsh demo -e "select * from demo.cities_by_country LIMIT 20;"
 - Count with ds bulkd
 
 ```
-astra db dsbulk demo count -k demo -t cities_by_country
+astra db count demo -k demo -t cities_by_country
 ```
 
-???+ abstract "🖥️ Sample output" 
+???+ abstract "🖥️ Sample output"
 
     ```
     DSBulk is starting please wait ...
@@ -751,7 +785,7 @@ astra db dsbulk demo count -k demo -t cities_by_country
 **✅ 8d - Unload Data** 
 
 ```
-astra db dsbulk demo unload -k demo -t cities_by_country -url /tmp/unload
+astra db unload demo -k demo -t cities_by_country -url /tmp/unload
 ```
 
 ???+ abstract "🖥️ Sample output" 
@@ -793,6 +827,79 @@ Provide the target filename with `-f` (`--output-file`). It will work only if yo
 
 ```
 astra db download-scb demo -f /tmp/demo.zip
+```
+
+### 10. Create `.env` file
+
+To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APis.... 
+
+This command will create a file `.env` with a set of variables that are relevant to be defined as environment variables
+
+```
+astra db create-dotenv -f /tmp/.env
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    ASTRA_DB_APPLICATION_TOKEN="AstraCS:QeUmROP..."
+    ASTRA_DB_GRAPHQL_URL="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/graphql/order_management_data"
+    ASTRA_DB_GRAPHQL_URL_ADMIN="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/graphql-admin"
+    ASTRA_DB_GRAPHQL_URL_PLAYGROUND="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/playground"
+    ASTRA_DB_GRAPHQL_URL_SCHEMA="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/graphql-schema"
+    ASTRA_DB_ID="a6b5cb4c-3267-4414-8bba-6706086a943a"
+    ASTRA_DB_KEYSPACE="order_management_data"
+    ASTRA_DB_REGION="us-east-1"
+    ASTRA_DB_REST_URL="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/rest"
+    ASTRA_DB_REST_URL_SWAGGER="https://a6b5cb4c-3267-4414-8bba-6706086a943a-us-east-1.apps.astra.datastax.com/api/rest/swagger-ui/"
+    ASTRA_DB_SECURE_BUNDLE_PATH="/Users/cedricklunven/.astra/scb/scb_a6b5cb4c-3267-4414-8bba-6706086a943a_us-east-1.zip"
+    ASTRA_DB_SECURE_BUNDLE_URL="https://datastax-cluster-config-prod.s3.us-east-2.amazonaws.com/a6b5cb4c-3267-4414-8bba-6706086....X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2AI....."
+    ASTRA_ORG_ID="f9460f14-9879-...."
+    ASTRA_ORG_NAME="ced..."
+    ASTRA_ORG_TOKEN="AstraCS:QeUmROPLeNbd..."
+    ```
+
+11. List Regions
+
+For database creation or regions management, the region name is expected. Depending on the cloud provider provider needed or even the Astra service the region name are not exactly the same.
+
+With Astra CLI, one can list every available regions per service.
+
+**List Serverless regions**
+
+```
+astra db list-regions-serverless -c aws
+```
+
+???+ abstract "🖥️ Sample output" 
+
+    ```
+    +----------------+---------------------+-------------------------------+
+    | Cloud Provider | Region              | Full Name                     |
+    +----------------+---------------------+-------------------------------+
+    | aws            | ap-east-1           | Asia Pacific (Hong Kong)      |
+    | aws            | ap-south-1          | Asia Pacific (Mumbai)         |
+    | aws            | ap-southeast-1      | Asia Pacific (Singapore)      |
+    | aws            | ap-southeast-2      | Asia Pacific (Sydney)         |
+    | aws            | eu-central-1        | Europe (Frankfurt)            |
+    | aws            | eu-west-1           | Europe (Ireland)              |
+    | aws            | sa-east-1           | South America (Sao Paulo)     |
+    | aws            | us-east-1           | US East (N. Virginia)         |
+    | aws            | us-east-2           | US East (Ohio)                |
+    | aws            | us-west-2           | US West (Oregon)              |
+    +----------------+---------------------+-------------------------------+
+    ```
+
+- `-c` or `--cloud` allows to selectr a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
+- `-f` or `--filter` allows to look for either a location of region (eg. `-f France`, -f `us`
+- `-o` or `--output` to change output from table (human) to csv or json
+- `-v` for verbose mode
+- `-t` to provide token of organization if not default selected
+
+**List Serverless regions**
+
+```
+astra db list-regions-classic
 ```
 
 ## Astra STREAMING
@@ -1083,7 +1190,25 @@ client produce persistent://trollsquad-2022/default/demo -m "hello,world" -n 20
     ----- got message -----
     key:[null], properties:[], content:hello
     ```
-    
+
+### 7. List Regions
+
+```
+astra streaming list-regions
+```
+
+- `-c` or `--cloud` allows to selectr a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
+- `-f` or `--filter` allows to look for either a location of region (eg. `-f France`, -f `us`
+- `-o` or `--output` to change output from table (human) to csv or json
+- `-v` for verbose mode
+- `-t` to provide token of organization if not default selected
+
+
+### 8. Create `.env` file
+
+```
+astra streaming create-dot-env <tenant> [-d <destination_folder>]
+```
 
 ## User and Roles
 
@@ -1142,7 +1267,6 @@ astra user delete cedrick.lunven@gmail.com
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-
 ### 4. List roles
 
 ```
@@ -1155,9 +1279,7 @@ astra role list
 astra role get "Database Administrator"
 ```
 
-## Advanced Topics
-
-### 1 Config Management
+## Configuration
 
 If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.
 
@@ -1180,7 +1302,6 @@ You can use any organization anytime with `--config <onfig_name>`.
 ```
 astra user list --config dev
 ```
-
 
 **✅ 1d - Select a section as defaul**
 
@@ -1210,4 +1331,3 @@ astra config delete dev
 ```
 astra config list
 ```
-
