@@ -22,7 +22,7 @@ Apache Cassandra is a NoSQL Distributed database built for performance. This fit
 
 The stargate team considers that gRPC could become the future of drivers for Apache Cassandra as describe in the [following blogpost](https://stargate.io/2022/01/15/stargate-grpc-the-better-way-to-cql.html).
 
-As a consequence a grpc API layer is available within [Stargate](stargate.io). Stargate is deployed within Astra and this is how Astra can provides a gRPC Api.
+As a consequence a grpc API layer is available within [Stargate](http://stargate.io). Stargate is deployed within Astra and this is how Astra can provides a gRPC Api.
 
 <img src="../../../../img/stargate-api-grpc/architecture.png" />
 
