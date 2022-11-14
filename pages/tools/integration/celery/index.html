@@ -2575,10 +2575,10 @@ Communication between these two parts happens through a message bus (such as Rab
 back to the caller through a backend (de/serialization is transparently handled by the Celery infrastructure).</p>
 <p>Celery supports several backends for storing and exposing task results.
 Among the supported backends are Cassandra and (starting with <code>v5.3</code>) Astra DB.</p>
-<p><strong>Note:</strong> Support for Astra DB starts with version <code>v5.3</code>. At the time of writing,
-the latest stable is still <code>5.2</code>: in order to use Astra DB you must
-<a href="https://github.com/celery/celery#using-the-development-version">install the development version</a>.
-Likewise, the documentation links below refer to the "development docs".</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for Astra DB starts with version <code>v5.3</code>. At the time of writing, the latest stable is still <code>5.2</code>: in order to use Astra DB you must <a href="https://github.com/celery/celery#using-the-development-version">install the development version</a>. Likewise, the documentation links below refer to the "development docs".</p>
+</div>
 <p>In the following we assume familiarity with the <code>celeryconfig</code> configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:</p>
 <div class="nosurface">
