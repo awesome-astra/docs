@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/celery/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.815d1a91.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -128,6 +128,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -135,6 +136,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
@@ -2565,22 +2567,26 @@
 With Celery one can define units of work called "tasks" and dispatch them for execution, in a distributed way if desired.
 Celery is a Python package and as such is easily integrated in any Python project.</p>
 <blockquote>
-<p>Typical use cases might be: a queue of uploaded images to resize in the background, long-running tasks initiated by a Web application's API, a batch of email scheduled to be sent, ...</p>
+<p>Typical use cases might be: a queue of uploaded images to resize in the background, long-running tasks initiated by a Web application's API, a batch of emails scheduled for sending, ...</p>
 </blockquote>
 <p>Celery is composed of two parts: on one side, one or more <em>clients</em> define the tasks to be run and enqueue/schedule them for execution;
 on the other side, one or more <em>workers</em> pick up these tasks, execute them and optionally store the resulting values.
 Communication between these two parts happens through a message bus (such as RabbitMQ) acting as broker, while the return value of a task is made available
 back to the caller through a backend (de/serialization is transparently handled by the Celery infrastructure).</p>
 <p>Celery supports several backends for storing and exposing task results.
-Among the supported backends are Cassandra and (starting with <code>v5.2</code>) Astra DB.
-In the following we assume familiarity with the <code>celeryconfig</code> configuration object for Celery and with the usage of Cassandra
+Among the supported backends are Cassandra and (starting with <code>v5.3</code>) Astra DB.</p>
+<p><strong>Note:</strong> Support for Astra DB starts with version <code>v5.3</code>. At the time of writing,
+the latest stable is still <code>5.2</code>: in order to use Astra DB you must
+<a href="https://github.com/celery/celery#using-the-development-version">install the development version</a>.
+Likewise, the documentation links below refer to the "development docs".</p>
+<p>In the following we assume familiarity with the <code>celeryconfig</code> configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:</p>
 <div class="nosurface">
 <ul>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/index.html">Celery documentation</a></li>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration">The <code>celeryconfig</code> object</a></li>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">Cassandra/AstraDB backend configuration guide</a> (which covers the instructions on this page as well)</li>
-<li>📥 <a href="https://pypi.org/project/celery/">Celery installation instructions</a></li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/index.html">Celery documentation</a></li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/getting-started/first-steps-with-celery.html#configuration">The <code>celeryconfig</code> object</a></li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/userguide/configuration.html#cassandra-astradb-backend-settings">Cassandra/AstraDB backend configuration guide</a> (which covers the instructions on this page as well)</li>
+<li>📥 <a href="https://github.com/celery/celery#using-the-development-version">Celery installation instructions</a> (dev version to support Astra DB)</li>
 </ul>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
@@ -2688,7 +2694,7 @@ section in the Celery documentation for a more comprehensive setup.</p>
   <small>
     
       Last update:
-      2022-10-27
+      2022-11-14
     
   </small>
 </div>
