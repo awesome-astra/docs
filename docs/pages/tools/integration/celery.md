@@ -33,10 +33,8 @@ back to the caller through a backend (de/serialization is transparently handled 
 Celery supports several backends for storing and exposing task results.
 Among the supported backends are Cassandra and (starting with `v5.3`) Astra DB.
 
-**Note:** Support for Astra DB starts with version `v5.3`. At the time of writing,
-the latest stable is still `5.2`: in order to use Astra DB you must
-[install the development version](https://github.com/celery/celery#using-the-development-version).
-Likewise, the documentation links below refer to the "development docs".
+!!! note "Note"
+    Support for Astra DB starts with version `v5.3`. At the time of writing, the latest stable is still `5.2`: in order to use Astra DB you must [install the development version](https://github.com/celery/celery#using-the-development-version). Likewise, the documentation links below refer to the "development docs".
 
 In the following we assume familiarity with the `celeryconfig` configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:
