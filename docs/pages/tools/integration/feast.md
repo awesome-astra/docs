@@ -9,10 +9,10 @@ developer_url: "https://feast.dev"
 links:
 - title: "Feast Documentation"
   url: "https://docs.feast.dev"
-- title: "Minimal quickstart with Feast"
+- title: "Cassandra online store"
+  url: "https://docs.feast.dev/reference/online-stores/cassandra"
+- title: "Feast minimal quickstart"
   url: "https://docs.feast.dev/getting-started/quickstart"
-- title: "The feast-cassandra plugin"
-  url: "https://pypi.org/project/feast-cassandra/"
 ---
 
 <div class="nosurface" markdown="1">
@@ -34,21 +34,23 @@ point-in-time historical retrievals.
 
 This feature store supports several backends, both as offline store (for historical
 time-series data) and online store (with the latest features, synced from the former
-by Feast itself). Some of the backends are native in Feast, but several more are
-available as external plugins. Feast is built with the cloud in mind: one of its
+by Feast itself). Besides a few core backends, the Feast project features
+additional backends contributed by the community.
+
+Feast is built with the cloud in mind: one of its
 goals is to free MLOps practitioners and data engineers from having to manage
 their own infrastructure.
-
-In this spirit, the
-[Feast online store plugin for Cassandra](https://pypi.org/project/feast-cassandra/)
-flexibly supports both Cassandra and Astra DB, as will be explained below.
+In this spirit, starting with version `0.24`,
+the [Feast online store for Cassandra](https://docs.feast.dev/reference/online-stores/cassandra)
+contribution flexibly supports both Cassandra and Astra DB, as will be explained below.
 
 <div class="nosurface" markdown="1">
 Reference documentation:
 
-- ℹ️ [Feast documentation](https://docs.feast.dev/)
-- ℹ️ [Minimal quickstart with Feast](https://docs.feast.dev/getting-started/quickstart)
-- ℹ️ [The `feast-cassandra` plugin](https://pypi.org/project/feast-cassandra/)
+- ℹ️ [Feast Documentation](https://docs.feast.dev)
+- ℹ️ [Cassandra online store](https://docs.feast.dev/reference/online-stores/cassandra)
+- ℹ️ [Feast minimal quickstart](https://docs.feast.dev/getting-started/quickstart)
+
 </div>
 
 ## Prerequisites
@@ -58,7 +60,7 @@ Reference documentation:
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a> In the following example, a keyspace called `feastks` is created in the database.</li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a>.</li>
-    <li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. <code>pip install feast feast-cassandra</code>. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
+    <li>Install Feast, including the dependencies for the Cassandra/Astra DB backend, in your local Python environment: <code>pip install feast[cassandra]</code>.</li>
 </ul>
 
 Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.
@@ -66,15 +68,18 @@ Keep the token information and the bundle file location ready: these will be soo
 ## Quickstart
 
 !!! note "Note"
-    This quickstart is modeled after the one found in the [Feast documentation](https://docs.feast.dev/getting-started/quickstart). The numbering of the steps is chosen to be consistent with it. All credits for the sample code given here goes to the Feast documentation.
+    In this minimal quickstart, modeled after the one found in the [Feast documentation](https://docs.feast.dev/getting-started/quickstart), you will be providing the store configuration file by hand.
 
+    Alternatively, an **interactive command-line procedure** to help you set up your store is available by launching `feast init REPO_NAME -t cassandra`.
+    
+    All credits for the sample code given here goes to the Feast documentation.
 
 A new feature store is created and configured to use Astra DB as online store;
-next, it will be materialized to database using sample feature definitions and
-sample data; finally, historical/online feature retrieval is demonstrated.
+next, a few sample features will be materialized to database;
+finally, historical/online feature retrieval is demonstrated.
 
 
-### Install Feast and the plugin
+### Install Feast
 
 See last item in the "Prerequisites" above.
 
@@ -95,12 +100,13 @@ so don't delete them.
 #### Configure Astra DB as online store
 
 Locate and open the store configuration file, `feature_store.yaml`. Replace
-the `online_store` portion of the file with something like (_use your values
-for the bundle path and the token authentication info_):
+the `online_store` portion of the file with something like the following.
+Make sure you use your values for the Secure Bundle file full path,
+the Client ID and Client Secret from your token and the keyspace name:
 
 ```
 online_store:
-    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
+    type: cassandra
     secure_bundle_path: /path/to/secure/bundle.zip
     username: Client_ID
     password: Client_Secret
@@ -111,16 +117,20 @@ online_store:
     If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
     ```
     online_store:
-    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
-    hosts:
-        - 192.168.1.1
-        - 192.168.1.2
-        - 192.168.1.3
-    keyspace: feastks
-    port: 9042        # optional
-    username: user    # optional
-    password: secret  # optional
+        type: cassandra
+        hosts:
+            - 192.168.1.1
+            - 192.168.1.2
+            - 192.168.1.3
+        keyspace: feastks
+        port: 9042        # optional
+        username: user    # optional
+        password: 123456  # optional
     ```
+
+Additional settings are available when configuring your Cassandra/Astra DB
+online store: check out [the full examples](https://docs.feast.dev/reference/online-stores/cassandra#getting-started)
+on the Feast documentation.
 
 
 ### Register feature definitions and deploy the store
@@ -129,6 +139,7 @@ With the `apply` command, features defined in Python modules (in this case,
 `example.py`) are scanned and used for actual deployment of the infrastructure.
 
 Run the command
+
 ```
 feast apply
 ```
@@ -204,6 +215,8 @@ feast materialize-incremental $CURRENT_TIME
 > At this point, inspection of the Astra DB table will show the presence of
 > newly-inserted rows.
 
+
+
 ### Fetch feature vectors from the online store
 
 The `get_online_features` store method will query the online store
@@ -235,3 +248,11 @@ feature_vector = store.get_online_features(
 pprint(feature_vector)
 ```
 
+### Next steps
+
+Have a look at the `feature_store.yaml`
+[examples](https://docs.feast.dev/reference/online-stores/cassandra#getting-started)
+for Cassandra and Astra DB to check the full set of options available.
+
+Head over to the [Feast documentation](https://docs.feast.dev/)
+to find out what you can do with your newly-deployed feature store.
