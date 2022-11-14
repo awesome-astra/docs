@@ -2186,8 +2186,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-feast-and-the-plugin" class="md-nav__link">
-    Install Feast and the plugin
+  <a href="#install-feast" class="md-nav__link">
+    Install Feast
   </a>
   
 </li>
@@ -2236,6 +2236,13 @@
           <li class="md-nav__item">
   <a href="#fetch-feature-vectors-from-the-online-store" class="md-nav__link">
     Fetch feature vectors from the online store
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -2495,8 +2502,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-feast-and-the-plugin" class="md-nav__link">
-    Install Feast and the plugin
+  <a href="#install-feast" class="md-nav__link">
+    Install Feast
   </a>
   
 </li>
@@ -2549,6 +2556,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2585,19 +2599,20 @@ to standardize the data engineering workflows (thus avoiding having to
 point-in-time historical retrievals.</p>
 <p>This feature store supports several backends, both as offline store (for historical
 time-series data) and online store (with the latest features, synced from the former
-by Feast itself). Some of the backends are native in Feast, but several more are
-available as external plugins. Feast is built with the cloud in mind: one of its
+by Feast itself). Besides a few core backends, the Feast project features
+additional backends contributed by the community.</p>
+<p>Feast is built with the cloud in mind: one of its
 goals is to free MLOps practitioners and data engineers from having to manage
-their own infrastructure.</p>
-<p>In this spirit, the
-<a href="https://pypi.org/project/feast-cassandra/">Feast online store plugin for Cassandra</a>
-flexibly supports both Cassandra and Astra DB, as will be explained below.</p>
+their own infrastructure.
+In this spirit, starting with version <code>0.24</code>,
+the <a href="https://docs.feast.dev/reference/online-stores/cassandra">Feast online store for Cassandra</a>
+contribution flexibly supports both Cassandra and Astra DB, as will be explained below.</p>
 <div class="nosurface">
 <p>Reference documentation:</p>
 <ul>
-<li>ℹ️ <a href="https://docs.feast.dev/">Feast documentation</a></li>
-<li>ℹ️ <a href="https://docs.feast.dev/getting-started/quickstart">Minimal quickstart with Feast</a></li>
-<li>ℹ️ <a href="https://pypi.org/project/feast-cassandra/">The <code>feast-cassandra</code> plugin</a></li>
+<li>ℹ️ <a href="https://docs.feast.dev">Feast Documentation</a></li>
+<li>ℹ️ <a href="https://docs.feast.dev/reference/online-stores/cassandra">Cassandra online store</a></li>
+<li>ℹ️ <a href="https://docs.feast.dev/getting-started/quickstart">Feast minimal quickstart</a></li>
 </ul>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
@@ -2606,19 +2621,21 @@ flexibly supports both Cassandra and Astra DB, as will be explained below.</p>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a> In the following example, a keyspace called `feastks` is created in the database.</li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a>.</li>
-    <li>Install Feast and the Cassandra/Astra DB plugin in your local Python environment, i.e. <code>pip install feast feast-cassandra</code>. See the specific pages (<a href="https://docs.feast.dev/getting-started/quickstart#step-1-install-feast">Feast</a>, <a href="https://pypi.org/project/feast-cassandra/">Cassandra plugin</a>) for additional installation info.</li>
+    <li>Install Feast, including the dependencies for the Cassandra/Astra DB backend, in your local Python environment: <code>pip install feast[cassandra]</code>.</li>
 </ul>
 
 <p>Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.</p>
 <h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This quickstart is modeled after the one found in the <a href="https://docs.feast.dev/getting-started/quickstart">Feast documentation</a>. The numbering of the steps is chosen to be consistent with it. All credits for the sample code given here goes to the Feast documentation.</p>
+<p>In this minimal quickstart, modeled after the one found in the <a href="https://docs.feast.dev/getting-started/quickstart">Feast documentation</a>, you will be providing the store configuration file by hand.</p>
+<p>Alternatively, an <strong>interactive command-line procedure</strong> to help you set up your store is available by launching <code>feast init REPO_NAME -t cassandra</code>.</p>
+<p>All credits for the sample code given here goes to the Feast documentation.</p>
 </div>
 <p>A new feature store is created and configured to use Astra DB as online store;
-next, it will be materialized to database using sample feature definitions and
-sample data; finally, historical/online feature retrieval is demonstrated.</p>
-<h3 id="install-feast-and-the-plugin">Install Feast and the plugin<a class="headerlink" href="#install-feast-and-the-plugin" title="Permanent link">&para;</a></h3>
+next, a few sample features will be materialized to database;
+finally, historical/online feature retrieval is demonstrated.</p>
+<h3 id="install-feast">Install Feast<a class="headerlink" href="#install-feast" title="Permanent link">&para;</a></h3>
 <p>See last item in the "Prerequisites" above.</p>
 <h3 id="create-a-feature-repository">Create a feature repository<a class="headerlink" href="#create-a-feature-repository" title="Permanent link">&para;</a></h3>
 <p>In a directory of your choice, create a new repository and <code>cd</code> to the
@@ -2631,10 +2648,11 @@ and a sample feature definition. These will be used in this walkthrough,
 so don't delete them.</p>
 <h4 id="configure-astra-db-as-online-store">Configure Astra DB as online store<a class="headerlink" href="#configure-astra-db-as-online-store" title="Permanent link">&para;</a></h4>
 <p>Locate and open the store configuration file, <code>feature_store.yaml</code>. Replace
-the <code>online_store</code> portion of the file with something like (<em>use your values
-for the bundle path and the token authentication info</em>):</p>
+the <code>online_store</code> portion of the file with something like the following.
+Make sure you use your values for the Secure Bundle file full path,
+the Client ID and Client Secret from your token and the keyspace name:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>online_store:
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    type: cassandra
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    secure_bundle_path: /path/to/secure/bundle.zip
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    username: Client_ID
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    password: Client_Secret
@@ -2644,23 +2662,26 @@ for the bundle path and the token authentication info</em>):</p>
 <p class="admonition-title">Settings in 'feature_store.yaml' for usage with Cassandra</p>
 <p>If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>online_store:
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>type: feast_cassandra_online_store.cassandra_online_store.CassandraOnlineStore
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>hosts:
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    - 192.168.1.1
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    - 192.168.1.2
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    - 192.168.1.3
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>keyspace: feastks
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>port: 9042        # optional
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>username: user    # optional
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>password: secret  # optional
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    type: cassandra
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    hosts:
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        - 192.168.1.1
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        - 192.168.1.2
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        - 192.168.1.3
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    keyspace: feastks
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    port: 9042        # optional
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    username: user    # optional
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    password: 123456  # optional
 </code></pre></div></p>
 </div>
+<p>Additional settings are available when configuring your Cassandra/Astra DB
+online store: check out <a href="https://docs.feast.dev/reference/online-stores/cassandra#getting-started">the full examples</a>
+on the Feast documentation.</p>
 <h3 id="register-feature-definitions-and-deploy-the-store">Register feature definitions and deploy the store<a class="headerlink" href="#register-feature-definitions-and-deploy-the-store" title="Permanent link">&para;</a></h3>
 <p>With the <code>apply</code> command, features defined in Python modules (in this case,
 <code>example.py</code>) are scanned and used for actual deployment of the infrastructure.</p>
-<p>Run the command
+<p>Run the command</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>feast apply
-</code></pre></div></p>
+</code></pre></div>
 <blockquote>
 <p>This is the step that actually accesses the database. After running it,
 you may want to check directly the presence of a new table in the Astra DB
@@ -2749,13 +2770,19 @@ and return the required features, as resulting from the last
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="n">pprint</span><span class="p">(</span><span class="n">feature_vector</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<p>Have a look at the <code>feature_store.yaml</code>
+<a href="https://docs.feast.dev/reference/online-stores/cassandra#getting-started">examples</a>
+for Cassandra and Astra DB to check the full set of options available.</p>
+<p>Head over to the <a href="https://docs.feast.dev/">Feast documentation</a>
+to find out what you can do with your newly-deployed feature store.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-11-03
+      2022-11-14
     
   </small>
 </div>
