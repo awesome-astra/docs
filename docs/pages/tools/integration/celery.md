@@ -7,7 +7,7 @@ developer_title: "The Celery Collective"
 developer_url: "https://docs.celeryq.dev/en/stable/index.html"
 links:
 - title: "Install Celery"
-  url: "https://pypi.org/project/celery/"
+  url: "https://github.com/celery/celery#using-the-development-version"
 - title: "Celery on Github"
   url: "https://github.com/celery/celery"
 ---
@@ -23,7 +23,7 @@ Celery is a (BSD-licensed) open source, simple and flexible distributed task que
 With Celery one can define units of work called "tasks" and dispatch them for execution, in a distributed way if desired.
 Celery is a Python package and as such is easily integrated in any Python project.
 
-> Typical use cases might be: a queue of uploaded images to resize in the background, long-running tasks initiated by a Web application's API, a batch of email scheduled to be sent, ...
+> Typical use cases might be: a queue of uploaded images to resize in the background, long-running tasks initiated by a Web application's API, a batch of emails scheduled for sending, ...
 
 Celery is composed of two parts: on one side, one or more _clients_ define the tasks to be run and enqueue/schedule them for execution;
 on the other side, one or more _workers_ pick up these tasks, execute them and optionally store the resulting values.
@@ -31,16 +31,22 @@ Communication between these two parts happens through a message bus (such as Rab
 back to the caller through a backend (de/serialization is transparently handled by the Celery infrastructure).
 
 Celery supports several backends for storing and exposing task results.
-Among the supported backends are Cassandra and (starting with `v5.2`) Astra DB.
+Among the supported backends are Cassandra and (starting with `v5.3`) Astra DB.
+
+**Note:** Support for Astra DB starts with version `v5.3`. At the time of writing,
+the latest stable is still `5.2`: in order to use Astra DB you must
+[install the development version](https://github.com/celery/celery#using-the-development-version).
+Likewise, the documentation links below refer to the "development docs".
+
 In the following we assume familiarity with the `celeryconfig` configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:
 
 <div class="nosurface" markdown="1">
 
-- ℹ️ [Celery documentation](https://docs.celeryq.dev/en/stable/index.html)
-- ℹ️ [The `celeryconfig` object](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration)
-- ℹ️ [Cassandra/AstraDB backend configuration guide](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) (which covers the instructions on this page as well)
-- 📥 [Celery installation instructions](https://pypi.org/project/celery/)
+- ℹ️ [Celery documentation](https://docs.celeryq.dev/en/master/index.html)
+- ℹ️ [The `celeryconfig` object](https://docs.celeryq.dev/en/master/getting-started/first-steps-with-celery.html#configuration)
+- ℹ️ [Cassandra/AstraDB backend configuration guide](https://docs.celeryq.dev/en/master/userguide/configuration.html#cassandra-astradb-backend-settings) (which covers the instructions on this page as well)
+- 📥 [Celery installation instructions](https://github.com/celery/celery#using-the-development-version) (dev version to support Astra DB)
 
 </div>
 
