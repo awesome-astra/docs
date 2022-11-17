@@ -86,11 +86,11 @@ See last item in the "Prerequisites" above.
 ### Create a feature repository
 
 In a directory of your choice, create a new repository and `cd` to the
-corresponding directory:
+corresponding repo-definition directory:
 
 ```
-feast init astra_feature_repo
-cd astra_feature_repo
+feast init astraFeatures
+cd astraFeatures/feature_repo
 ```
 
 As you can see, the new feature store already contains sample data
