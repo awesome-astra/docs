@@ -2,7 +2,7 @@ The DataStax Astra command-line interface (Astra CLI) is a set of commands used 
 
 ???+ info "Setup your Astra account "
 
-    To use the Astra CLI you need to create a [Datastax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with `Organization Administration` role.
+    To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with `Organization Administration` role.
 
 ## Installation
 
@@ -650,9 +650,9 @@ astra db cqlsh demo -f sample.cql
 
 **✅ 8a - Setup** 
 
-[Dsbulk](https://github.com/datastax/dsbulk) stands for Datastax bulk loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with Datastax Astra.
+[Dsbulk](https://github.com/datastax/dsbulk) stands for DataStax Bulk Loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.
 
-As for `Cqlsh` the cli will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
+As for `cqlsh` the cli will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
 
 - Make sure we have a db `demo` with a keyspace `demo`
 
