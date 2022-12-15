@@ -135,7 +135,7 @@ public class TodoApplicationStartup  implements ApplicationEventListener<Service
 
 ### <span class="nosurface">✅ Step 4:</span> Use Cassandra
 
-To use Cassandra you will reuse the `CqlSession` from the Datastax drivers. You can simply inject it where you needed as [shown in this sample code](https://github.com/clun/astra-native-java/blob/main/astra-todo-micronaut/src/main/java/com/datastaxdev/todo/TodoRestController.java)
+To use Cassandra you will reuse the `CqlSession` from the DataStax drivers. You can simply inject it where you needed as [shown in this sample code](https://github.com/clun/astra-native-java/blob/main/astra-todo-micronaut/src/main/java/com/datastaxdev/todo/TodoRestController.java)
 
 ```java
 @Validated

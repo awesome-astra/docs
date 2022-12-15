@@ -2,7 +2,7 @@
 <summary><b> 📖 Reference Documentations and resources</b></summary>
 <ol>
 <li><a href="https://docs.datastax.com/en/dsbulk/doc/"><b>📖  DSBulks Docs</b> - Reference documentation</a>
-<li><a href="https://docs.datastax.com/en/astra/docs/loading-and-unloading-data-with-datastax-bulk-loader.html"><b>📖  Datastax Docs</b> - Reference Documentation</a>
+<li><a href="https://docs.datastax.com/en/astra/docs/loading-and-unloading-data-with-datastax-bulk-loader.html"><b>📖  DataStax Docs</b> - Reference Documentation</a>
 </ol>
 </details>
 
@@ -31,7 +31,7 @@ dsbulk count <options>
 
 Currently, CSV and Json formats are supported for both loading and unloading data.
 
-### 📘 Datastax Bulk Loader with Astra
+### 📘 DataStax Bulk Loader with Astra
 
 Use DataStax Bulk Loader `(dsbulk)` to load and unload data in CSV or JSON format with your DataStax Astra DB database efficiently and reliably.
 
@@ -44,7 +44,7 @@ You can use `dsbulk` as a standalone tool to remotely connect to a cluster. The 
 - You should [Have an Astra Token](/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
-This article was written for Datastax Bulk Loader version `1.9.1`.
+This article was written for DataStax Bulk Loader version `1.9.1`.
 
 > Starting with version `1.9`, `dsbulk` can detect and respect server-side rate limiting.
 > This is very useful when working with Astra DB, which by default has some throughput guardrails in place.
