@@ -2712,7 +2712,7 @@
 <p><code>Spring-Data</code> is the module use to interact with Databases whereas <a href="https://spring.io/projects/spring-boot"><code>Spring Boot</code></a> is the runtime for microservices. In this page we detail how to setup both modules to interact with Astra.</p>
 <h2 id="1-overview"><span class="nosurface">1.</span> Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <h3 id="11-modules-dependencies"><span class="nosurface">1.1</span> Modules dependencies<a class="headerlink" href="#11-modules-dependencies" title="Permanent link">&para;</a></h3>
-<p>Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is <strong>Spring Data</strong> and especially <strong>Spring Data Cassandra</strong>. It relies on the Datastax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)</p>
+<p>Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is <strong>Spring Data</strong> and especially <strong>Spring Data Cassandra</strong>. It relies on the DataStax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)</p>
 <p>The stateful object <code>CqlSession</code> is instantiated and injected in spring <code>CassandraTemplate</code> (aka <code>CassandraOperations</code>). From there, it is used either directly or injected in different <code>CassandraRepository</code> (specialization of Spring Data <code>CrudRepository</code> for Apache Cassandra™).</p>
 <p>The configuration of <code>spring-data-cassandra</code> in <code>Spring-Boot</code> applications is simplified with the usage of <em>starters</em>. One is associated to the standard web stack and called <code>spring-boot-starter-data-cassandra</code> and the other is named <code>spring-boot-starter-data-cassandra-reactive</code> for the reactive stack.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/spring/spring-dependency-graph.png" /></p>
@@ -3051,7 +3051,7 @@ you need to exclude <code>cassandra-driver-core</code> and import <code>dse-java
   <small>
     
       Last update:
-      2022-10-28
+      2022-12-15
     
   </small>
 </div>
@@ -3082,7 +3082,7 @@ you need to exclude <code>cassandra-driver-core</code> and import <code>dse-java
             <!-- Copyright and theme information -->
             <div class="md-footer-copyright">
                 
-                Build by DataStax powered by
+                Built by DataStax powered by
                 <a href="https://www.mkdocs.org" title="MkDocs">MkDocs</a>
                 and
                 <a href="https://squidfunk.github.io/mkdocs-material/"
