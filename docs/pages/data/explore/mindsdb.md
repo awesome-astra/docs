@@ -11,7 +11,7 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-- _This article was originally written by **Steven Matison** on [Datastax JIRA](https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB)_
+- _This article was originally written by **Steven Matison** on [DataStax JIRA](https://datastax.jira.com/wiki/spaces/TIB/blog/2022/01/26/3284566227/How+to+use+Astra+with+MindsDB)_
 
 <img src="https://awesome-astra.github.io/docs/img/mindsdb/MindsDBColorPurp_3x.png" height="50px" />
 </div>

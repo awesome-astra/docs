@@ -31,7 +31,7 @@ links:
 
 ### <span class="nosurface">1.1</span> Modules dependencies
 
-Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is **Spring Data** and especially **Spring Data Cassandra**. It relies on the Datastax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)
+Spring is an ecosystem with dozens of modules. The component used to connect a Spring application to Astra (Cassandra) is **Spring Data** and especially **Spring Data Cassandra**. It relies on the DataStax native java cassandra drivers and only provides an abstraction with Spring concepts (templates, repository, Entities...)
 
 The stateful object `CqlSession` is instantiated and injected in spring `CassandraTemplate` (aka `CassandraOperations`). From there, it is used either directly or injected in different `CassandraRepository` (specialization of Spring Data `CrudRepository` for Apache Cassandra™).
 
