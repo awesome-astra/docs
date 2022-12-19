@@ -8,7 +8,7 @@ nav:
     - Astra Core:
       - ‣ Create Account: pages/astra/create-account.md
       - ‣ Create Token: pages/astra/create-token.md
-      - ‣ Astra Cli: pages/astra/astra-cli.md
+      - ‣ Astra CLI: pages/astra/astra-cli.md
       - ‣ FAQ: pages/astra/faq.md
     - AstraDB:
       - ‣ Create Database: pages/astra/create-instance.md
