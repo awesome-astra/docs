@@ -2957,10 +2957,10 @@
 
   <h1>‣ Astra Cli</h1>
 
-<p>The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The AStra CLI is available across astra services and is designed to get you working quickly with Astra, with an emphasis on automation.</p>
+<p>The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The Astra CLI is available across Astra services and is designed to get you working quickly with Astra, with an emphasis on automation.</p>
 <details class="info" open="open">
 <summary>Setup your Astra account </summary>
-<p>To use the Astra CLI you need to create a <a href="https://astra.datastax.com">DataStax Astra</a> account. You also need to <a href="/docs/pages/astra/create-token/">create a token</a> with <code>Organization Administration</code> role.</p>
+<p>To use the Astra CLI you need to create a <a href="https://astra.datastax.com">DataStax Astra</a> account. You also need to <a href="/docs/pages/astra/create-token/">create a token</a> with the <code>Organization Administration</code> role.</p>
 </details>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The current release of the Astra CLI is: <img alt="Latest Release" src="https://img.shields.io/github/v/release/datastax/astra-cli" /></p>
@@ -2968,16 +2968,16 @@
 <li>For information about the latest release, see the <a href="https://github.com/datastax/astra-cli/releases">release notes</a>. </li>
 <li>To find your installed version and see if you need to update, run <code>astra --version</code></li>
 </ul>
-<p>The Astra CLI is available to install in <strong>Windows</strong>, <strong>MacOS</strong> and <strong>Linux</strong> environments.</p>
+<p>The Astra CLI is available to install on <strong>Windows</strong>, <strong>MacOS</strong> and <strong>Linux</strong> environments.</p>
 <h3 id="1-install-on-mac-os">1. Install on <code>MAC OS</code><a class="headerlink" href="#1-install-on-mac-os" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 1.1 Homebrew</strong></p>
 <p>Homebrew is the easiest way to manage your CLI install. It provides convenient ways to install, update, and uninstall. If you don't have homebrew available on your system, install homebrew before continuing.</p>
-<p>You can install the Astra CLI on macOS by updating your brew repository information, and then running the install command:</p>
+<p>You can install the Astra CLI on MacOS by updating your brew repository information, and then running the install command:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew install datastax/astra-cli/astra-cli
 </code></pre></div>
 <p>The Homebrew formula of Astra CLI installs a completion file named astra in the Homebrew-managed completions directory (default location is /usr/local/etc/bash_completion.d/). To enable completion, please follow Homebrew's instructions <a href="https://docs.brew.sh/Shell-Completion">here</a>.</p>
 <p><strong>✅ 1.2 Manual Installation</strong></p>
-<p>To install (or reinstall) the CLI uses command in a terminal:</p>
+<p>To install (or reinstall) the CLI use the following command in a terminal:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
 </code></pre></div>
 <details class="question">
@@ -2987,13 +2987,13 @@
 <p>The Astra CLI is installed in <code>~/.astra/cli</code>. This folder is deleted and recreated during installation.</p>
 </li>
 <li>
-<p>Your configuration is saved in <code>~/.astrarc</code> file and will not be lost during reinstallations.</p>
+<p>Your configuration is saved in <code>~/.astrarc</code> file and will not be lost during reinstallation.</p>
 </li>
 </ul>
 </details>
 <h3 id="2-install-on-linux">2. Install on <code>LINUX</code><a class="headerlink" href="#2-install-on-linux" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 2.1 Manual Installation</strong></p>
-<p>To install (or reinstall) the CLI uses command in a terminal:</p>
+<p>To install (or reinstall) the CLI the following command in a terminal:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
 </code></pre></div>
 <details class="question">
@@ -3014,10 +3014,10 @@
 <h3 id="3-install-on-windows">3. Install on <code>WINDOWS</code><a class="headerlink" href="#3-install-on-windows" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Download windows archive <a href="https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip">astra-cli-${version}-windows.zip</a></p>
+<p>Download a Windows archive <a href="https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip">astra-cli-${version}-windows.zip</a></p>
 </li>
 <li>
-<p>Unzip archive in folder or your choice for instance <code>C:/Programs/astra-cli</code></p>
+<p>Unzip the archive in folder or your choice, for instance <code>C:/Programs/astra-cli</code></p>
 </li>
 <li>
 <p>Add <code>C:/Programs/astra-cli/astra.exe</code> to your path using <a href="https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/">this tutorial</a></p>
@@ -3025,7 +3025,7 @@
 </ul>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="1-setup">1. Setup<a class="headerlink" href="#1-setup" title="Permanent link">&para;</a></h3>
-<p>Before issuing commands to init to initialize the configuration file <code>~/.astrarc</code>. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reuse for your commands.</p>
+<p>Before issuing commands to initialize the configuration file <code>~/.astrarc</code>. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>astra setup
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3044,10 +3044,10 @@
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>🔑 Enter token (starting with AstraCS...):
 </code></pre></div>
 </details>
-<p>You are all set. The configuration (mainly your token) is stored in file <code>~/.astrarc</code>.</p>
+<p>You are all set! The configuration (mainly your token) is stored in the file <code>~/.astrarc</code>.</p>
 <h3 id="2-first-commands">2. First commands<a class="headerlink" href="#2-first-commands" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Display current version of the cli, validating setup is complete.</li>
+<li>Display the current version of the CLI, validating setup is complete.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>astra --version
 </code></pre></div>
@@ -3067,7 +3067,7 @@
 </code></pre></div>
 </details>
 <h3 id="3-get-help">3. Get Help<a class="headerlink" href="#3-get-help" title="Permanent link">&para;</a></h3>
-<p>The solution provides extensive documentation for any command. It also provides som bash autocompletion, use the <code>TAB</code> key twice to get a list of propositions.</p>
+<p>The solution provides extensive documentation for any command. It also provides some bash autocompletion, use the <code>TAB</code> key twice to get a list of options.</p>
 <p><strong>✅ 3a - Autocompletion</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>astra &lt;TAB&gt; &lt;TAB&gt;
 </code></pre></div>
@@ -3077,7 +3077,7 @@
 </code></pre></div>
 </details>
 <p><strong>✅ 3b - Documentation</strong></p>
-<p>Groups of command will get you the different command avalable.</p>
+<p>Groups of commands will get you the different commands avalable.</p>
 <ul>
 <li>Display main help</li>
 </ul>
@@ -3100,7 +3100,7 @@
 </code></pre></div>
 </details>
 <ul>
-<li>Display help for command group <code>astra db</code></li>
+<li>Display help for a command group <code>astra db</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>astra help db
 </code></pre></div>
@@ -3142,7 +3142,7 @@
 <ul>
 <li>Display help for unitary command <code>astra db list</code></li>
 </ul>
-<p>For unitary commands all options details are provided. </p>
+<p>For unitary commands, all options and details are provided. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>astra help db list
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3182,7 +3182,7 @@
 <h2 id="astra-db">Astra DB<a class="headerlink" href="#astra-db" title="Permanent link">&para;</a></h2>
 <h3 id="1-list-databases">1. List databases<a class="headerlink" href="#1-list-databases" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 1a - list</strong></p>
-<p>To get the list of non terminated database in your oganization use the command <code>list</code> in the group <code>db</code>.</p>
+<p>To get the list of non terminated database in your oganization, use the command <code>list</code> in the group <code>db</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>astra db list
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3200,7 +3200,7 @@
 </code></pre></div>
 </details>
 <p><strong>✅ 1b - Get Help</strong></p>
-<p>To get help on a command always prefix with <code>astra help XXX</code></p>
+<p>To get help on a command, always prefix with <code>astra help XXX</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>astra help db list
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3294,25 +3294,25 @@
 </details>
 <h3 id="2-create-database">2. Create database<a class="headerlink" href="#2-create-database" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 2a - Create Database</strong> </p>
-<p>If not provided the region will be the default free region and the keyspace will be the database name but you can change then with <code>-r</code> and <code>-k</code> respectivitely.</p>
+<p>If not provided, the region will be the default free region and the keyspace will be the database name but you can change then with <code>-r</code> and <code>-k</code> respectivitely.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>astra db create demo
 </code></pre></div>
 <p><strong>✅ 2b - Options <code>--if-not-exist</code> and <code>--wait</code></strong> </p>
 <ul>
 <li>
-<p>Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use <code>--if-not-exist</code></p>
+<p>The database name does not ensure unicity (the database id does). As such, if you issue the command multiple times you will end up with multiple instances. To change this behavior, you can use <code>--if-not-exist</code></p>
 </li>
 <li>
-<p>Database creation is asynchronous operation. Still during your CI/CD you want the Db to be <code>ACTIVE</code> before moving forward. The option <code>--wait</code> will trigger a blocking command until the db is ready</p>
+<p>Database creation is an asynchronous operation. In some situations, such as during your CI/CD, you likely will want the db to be <code>ACTIVE</code> before moving forward. The option <code>--wait</code> will trigger a blocking command until the db is ready</p>
 </li>
 <li>
-<p>On the free tier, after a period of inactivity the database moves to <code>HIBERNATED</code> state. The creation command, will resume the db when needed.</p>
+<p>On the free tier, after a period of inactivity, the database moves to a <code>HIBERNATED</code> state. The creation command, will resume the db when needed.</p>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>astra db create demo -k ks2 --if-not-exist --wait
 </code></pre></div>
 <p><strong>✅ 2c - Get help</strong> </p>
-<p>To show help enter following command: </p>
+<p>To show help, enter following command: </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>astra help db create
 </code></pre></div>
 <details class="abstract">
@@ -3373,7 +3373,7 @@
 </code></pre></div>
 </details>
 <h3 id="3-resume-database">3. Resume database<a class="headerlink" href="#3-resume-database" title="Permanent link">&para;</a></h3>
-<p>In the free tier, after 23H of inactivity your database got hibernated. To wake up the db you can use the <code>resume command</code></p>
+<p>In the free tier, after 23H of inactivity your database will be hibernated. To wake up the db, you can use the <code>resume</code> command.</p>
 <p><strong>✅ 2a - Resuming</strong> </p>
 <ul>
 <li>Assuming you have an hibernating database.</li>
@@ -3411,7 +3411,7 @@
 <p><strong>✅ 4a. To get general information or details on an entity use the command <code>get</code>.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>astra db get demo
 </code></pre></div>
-<p>In the output you specially see the list of keyspaces available and the different regions.</p>
+<p>In the output, you specially see the list of keyspaces available and the different regions.</p>
 <details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>+------------------------+-----------------------------------------+
@@ -3431,7 +3431,7 @@
 <a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>+------------------------+-----------------------------------------+
 </code></pre></div>
 </details>
-<p><strong>✅ 4b. To get a special property you can add the option <code>--key</code>. Multiple keys are available: <code>id</code>, <code>status</code>, <code>cloud</code>, <code>keyspace</code>, <code>keyspaces</code>, <code>region</code>, <code>regions</code>. Notice that the output is raw. This command is expected to be used in scripts</strong></p>
+<p><strong>✅ 4b. To get a special property, you can add the option <code>--key</code>. Multiple keys are available: <code>id</code>, <code>status</code>, <code>cloud</code>, <code>keyspace</code>, <code>keyspaces</code>, <code>region</code>, <code>regions</code>. Notice that the output is raw. This command is expected to be used in scripts</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>astra db get demo --key id
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3452,16 +3452,16 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>astra db delete demo2
 </code></pre></div>
 <h3 id="6-working-with-keyspaces">6. Working with keyspaces<a class="headerlink" href="#6-working-with-keyspaces" title="Permanent link">&para;</a></h3>
-<p>A keyspace is created when you create the database. Default CLI behaviour is to provide same values for keyspace
-and database names. But you can define your own keyspace name with the flag <code>-k</code>.</p>
+<p>A keyspace is created when you create the database. The default CLI behaviour is to provide the same values for keyspace
+and database names. You can also define your own keyspace name with the flag <code>-k</code>.</p>
 <p><strong>✅ 6a - Create new keyspace</strong> </p>
 <ul>
-<li>To add a keyspace <code>ks2</code> to an existing database <code>demo</code> use the following. The option <code>--if-not-exist</code> is optional but could help you providing idempotent scripts.</li>
+<li>To add a keyspace <code>ks2</code> to an existing database <code>demo</code> use the following. The option <code>--if-not-exist</code> is optional but could help you provide idempotent scripts.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>astra db create-keyspace demo -k ks2 --if-not-exist
 </code></pre></div>
 <ul>
-<li>If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can display your database details</li>
+<li>If the database is not found you will get a warning message and a dedicated code returned. To see your new keyspace you can display your database details</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>astra db list-keyspaces demo
 </code></pre></div>
@@ -3470,9 +3470,9 @@ and database names. But you can define your own keyspace name with the flag <cod
 </code></pre></div>
 <h3 id="7-cqlsh">7. Cqlsh<a class="headerlink" href="#7-cqlsh" title="Permanent link">&para;</a></h3>
 <p><a href="https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html">Cqlsh</a> is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with <code>cqlsh</code> and do the integration for you.</p>
-<p>Astra Cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> <code>cqlsh</code> for you to interact with Astra.</p>
+<p>Astra CLI will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> <code>cqlsh</code> for you to interact with Astra.</p>
 <p><strong>✅ 7a - Interactive mode</strong> </p>
-<p>If no option are provided,  you enter <code>cqlsh</code> interactive mode</p>
+<p>If no options are provided,  you enter <code>cqlsh</code> interactive mode</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>astra db cqlsh demo
 </code></pre></div>
 <details class="abstract">
@@ -3485,7 +3485,7 @@ and database names. But you can define your own keyspace name with the flag <cod
 </code></pre></div>
 </details>
 <p><strong>✅ 7b - Execute CQL</strong> </p>
-<p>To execute CQL Statement with <code>cqlsh</code> use the flag <code>-e</code>.</p>
+<p>To execute CQL Statements with <code>cqlsh</code> use the flag <code>-e</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>astra db cqlsh demo -e &quot;describe keyspaces;&quot;
 </code></pre></div>
 <p><strong>✅ 7b - Execute CQL Files</strong> </p>
@@ -3494,8 +3494,8 @@ and database names. But you can define your own keyspace name with the flag <cod
 </code></pre></div>
 <h3 id="8-dsbulk-commands">8. DSBulk Commands<a class="headerlink" href="#8-dsbulk-commands" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 8a - Setup</strong> </p>
-<p><a href="https://github.com/datastax/dsbulk">Dsbulk</a> stands for DataStax Bulk Loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.</p>
-<p>As for <code>cqlsh</code> the cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.</p>
+<p><a href="https://github.com/datastax/dsbulk">DSBulk</a> stands for DataStax Bulk Loader. It is a standalone program to load, unload, and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.</p>
+<p>Similar to <code>cqlsh</code> the CLI will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.</p>
 <ul>
 <li>Make sure we have a db <code>demo</code> with a keyspace <code>demo</code></li>
 </ul>
@@ -3544,7 +3544,7 @@ file.</li>
 <a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>  -t cities_by_country \
 <a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>  --schema.allowMissingFields true
 </code></pre></div>
-<p>The first time the line <code>DSBulk is starting please wait</code> can take a few seconds to appear. The reason is the cli is download <code>dsbulk</code> if not downloaded before.</p>
+<p>The first time the line <code>DSBulk is starting please wait</code> can take a few seconds to appear. The reason is the CLI is downloading <code>dsbulk</code> if it was not downloaded before.</p>
 <details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>DSBulk is starting please wait ...
@@ -3624,14 +3624,14 @@ file.</li>
 </details>
 <h3 id="9-download-secure-bundle">9. Download Secure bundle<a class="headerlink" href="#9-download-secure-bundle" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 9a - Default values</strong> </p>
-<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the current folder.</p>
+<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in a current folder.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>mkdir db-demo
 <a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>cd db-demo
 <a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>astra db download-scb demo
 <a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>ls
 </code></pre></div>
 <p><strong>✅ 9b - Download in target folder</strong> </p>
-<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the  folder provide with option <code>-d</code> (<code>--output-director</code>).</p>
+<p>Download the different secure bundles (one per region) with the pattern <code>scb_${dbid}-${dbregion}.zip</code> in the folder provided with option <code>-d</code> (<code>--output-director</code>).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>astra db download-scb demo -d /tmp
 </code></pre></div>
 <p><strong>✅ 9c - Download in target folder</strong> </p>
@@ -3639,7 +3639,7 @@ file.</li>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>astra db download-scb demo -f /tmp/demo.zip
 </code></pre></div>
 <h3 id="10-create-env-file">10. Create <code>.env</code> file<a class="headerlink" href="#10-create-env-file" title="Permanent link">&para;</a></h3>
-<p>To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APis.... </p>
+<p>To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APIs.... </p>
 <p>This command will create a file <code>.env</code> with a set of variables that are relevant to be defined as environment variables</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>astra db create-dotenv -f /tmp/.env
 </code></pre></div>
@@ -3701,7 +3701,7 @@ file.</li>
 <h2 id="astra-streaming">Astra STREAMING<a class="headerlink" href="#astra-streaming" title="Permanent link">&para;</a></h2>
 <h3 id="1-list-tenants">1. List tenants<a class="headerlink" href="#1-list-tenants" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 1a - list</strong></p>
-<p>To get the list of tenant in your oganization use the command <code>list</code> in the group <code>streaming</code>.</p>
+<p>To get the list of tenants in your oganization, use the command <code>list</code> in the group <code>streaming</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>astra streaming list
 </code></pre></div>
 <details class="abstract" open="open">
@@ -3759,14 +3759,14 @@ file.</li>
 <p>To create a tenant with default cloud (<code>aws</code>), default region (<code>useast2</code>), plan (<code>free</code>) and namespace (<code>default</code>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>astra streaming create new_tenant_from_cli
 </code></pre></div>
-<p>To know all supported option please use</p>
+<p>To view all supported options please use</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>astra help streaming create
 </code></pre></div>
 <h3 id="3-get-tenant-details">3. Get tenant details<a class="headerlink" href="#3-get-tenant-details" title="Permanent link">&para;</a></h3>
 <p><strong>✅ 3a - To get i nformation or details on an entity use the command <code>get</code>.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>astra streaming get trollsquad-2022
 </code></pre></div>
-<p>The pulsar token is not displayed in this view as too loong, there are dedicated command to display it.</p>
+<p>The pulsar token is not displayed in this view as it is too loong, but there are dedicated commands to display it.</p>
 <details class="abstract" open="open">
 <summary>🖥️ Sample output</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>+------------------+-------------------------------------------------------------+
@@ -3815,10 +3815,10 @@ file.</li>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>astra streaming delete trollsquad
 </code></pre></div>
 <h3 id="5-pulsar-shell">5. Pulsar-Shell<a class="headerlink" href="#5-pulsar-shell" title="Permanent link">&para;</a></h3>
-<p><a href="https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/">Pulsar-Shell</a> is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with <code>pulsar-shell</code> and do the integration for you.</p>
-<p>Astra Cli will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> <code>pulsar-shell</code> for you to interact with Astra.</p>
+<p><a href="https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/">Pulsar-Shell</a> is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with <code>pulsar-shell</code> and do the integration and setup for you.</p>
+<p>Astra CLI will <strong>download</strong>, <strong>install</strong>, <strong>setup</strong> and <strong>wrap</strong> <code>pulsar-shell</code> for you to interact with Astra.</p>
 <p><strong>✅ 5a - Interactive mode</strong> </p>
-<p>If no option are provided,  you enter <code>pulsar-shell</code> interactive mode</p>
+<p>If no options are provided,  you enter <code>pulsar-shell</code> interactive mode</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>astra streaming pulsar-shell trollsquad-2022
 </code></pre></div>
 <details class="abstract">
@@ -3855,20 +3855,20 @@ file.</li>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>astra streaming pulsar-shell trollsquad-2022 -f create_topics.txt
 </code></pre></div>
 <h3 id="6-pulsar-client-and-admin">6. Pulsar-client and Admin<a class="headerlink" href="#6-pulsar-client-and-admin" title="Permanent link">&para;</a></h3>
-<p>Pulsar client and admin are provided within pulsar-shell. This section simply provide some examples to write and read in a topic with client.</p>
+<p>Pulsar client and admin are provided within pulsar-shell. This section simply provides some examples to write and read in a topic with a client.</p>
 <p><strong>✅ 6a - Create a topic <code>demo</code></strong>.</p>
 <ul>
-<li>First start the pulsar-shell on 2 different terminal</li>
+<li>First start the pulsar-shell on 2 different terminals</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>astra streaming pulsar-shell trollsquad-2022
 </code></pre></div>
 <ul>
-<li>Then on first terminal create a topic <code>demo</code> in namespace <code>default</code></li>
+<li>Then on first terminal create a topic <code>demo</code> in the namespace <code>default</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>admin topics create persistent://trollsquad-2022/default/demo
 </code></pre></div>
 <ul>
-<li>You can now list the different topics in namespace <code>default</code></li>
+<li>You can now list the different topics in the namespace <code>default</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>admin topics list trollsquad-2022/default
 </code></pre></div>
@@ -3937,7 +3937,7 @@ file.</li>
 <h3 id="2-invite-user">2. Invite User<a class="headerlink" href="#2-invite-user" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>astra user invite cedrick.lunven@gmail.com
 </code></pre></div>
-<p>Check the list of user and notice the new user invited.</p>
+<p>Check the list of users and notice the new user invited.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>astra user list
 </code></pre></div>
 <details class="abstract">
@@ -3969,7 +3969,7 @@ file.</li>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>astra role get &quot;Database Administrator&quot;
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.</p>
+<p>If you work with multiple organizations it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.</p>
 <p><strong>✅ 1a - List available configuration</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>astra config list
 </code></pre></div>
@@ -4011,7 +4011,7 @@ file.</li>
   <small>
     
       Last update:
-      2022-12-15
+      2022-12-19
     
   </small>
 </div>
