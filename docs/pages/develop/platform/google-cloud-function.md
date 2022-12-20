@@ -30,7 +30,8 @@ links:
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
-    <li>Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first.</li>
+    <li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first.</li>
+</ul>
 
 ## Using Python Driver
 
