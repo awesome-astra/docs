@@ -1636,6 +1636,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-python-driver" class="md-nav__link">
+    Using Python Driver
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Python Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-secret-with-the-secure-connect-bundle-file" class="md-nav__link">
+    ✅ 1. Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-function" class="md-nav__link">
+    ✅ 3. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test-the-function" class="md-nav__link">
+    ✅ 4. Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-logs" class="md-nav__link">
+    ✅ 5. View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-python-sdk" class="md-nav__link">
+    Using Python SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-java-driver" class="md-nav__link">
+    Using Java Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-java-grpc" class="md-nav__link">
+    Using Java gRPC
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2424,6 +2493,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-python-driver" class="md-nav__link">
+    Using Python Driver
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Python Driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-secret-with-the-secure-connect-bundle-file" class="md-nav__link">
+    ✅ 1. Create a secret with the secure connect bundle file.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-function" class="md-nav__link">
+    ✅ 2. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-function" class="md-nav__link">
+    ✅ 3. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test-the-function" class="md-nav__link">
+    ✅ 4. Test the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-logs" class="md-nav__link">
+    ✅ 5. View logs.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-python-sdk" class="md-nav__link">
+    Using Python SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-java-driver" class="md-nav__link">
+    Using Java Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-java-grpc" class="md-nav__link">
+    Using Java gRPC
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2454,54 +2592,70 @@
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
-    <li>Optionally, if you are new to Cloud Functions, practice [creating a simpler function](https://cloud.google.com/functions/docs/quickstart-python) first.</li>
+    <li>Optionally, if you are new to Cloud Functions, practice <a href="https://cloud.google.com/functions/docs/quickstart-python">creating a simpler function</a> first.</li>
+</ul>
 
-## Using Python Driver
-
-### <span class="nosurface" markdown="1">✅ 1.</span> Create a secret with the secure connect bundle file.
-
-1. Go to [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), select a project that has Secret Manager and Cloud Functions enabled, and click **Create secret**.
-
-2. Give a **Name** to the secret and upload the secure connect bundle file as a **Secret value**. (See the **Prerequisites** section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/create-secret.png" />
-
-3. Click **Create secret**.
-
-4. On [the Secret Manager page](https://console.cloud.google.com/security/secret-manager), find the newly created secret.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/secret-manager.png" />
-
-### <span class="nosurface" markdown="1">✅ 2.</span> Create a function.
-
-1. Go to [the Functions Overview page](https://console.cloud.google.com/functions/list), select the same project that has Secret Manager and Cloud Functions enabled, and click **Create function**.
-2. Under the **Basics** section, specify preferred **Function name** and **Region**.
-3. Under the **Trigger** section, select **HTTP**, **Allow unauthenticated invocations**, and **Require HTTPS**.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/basics.png" />
-
-4. Click **Save**.
-
-5. Under the **Runtime, build, connections and security settings** section, customize additional settings and create these **Runtime environment variables**:
-
-    - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
-    - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
+<h2 id="using-python-driver">Using Python Driver<a class="headerlink" href="#using-python-driver" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-a-secret-with-the-secure-connect-bundle-file"><span class="nosurface" markdown="1">✅ 1.</span> Create a secret with the secure connect bundle file.<a class="headerlink" href="#1-create-a-secret-with-the-secure-connect-bundle-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Go to <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, select a project that has Secret Manager and Cloud Functions enabled, and click <strong>Create secret</strong>.</p>
+</li>
+<li>
+<p>Give a <strong>Name</strong> to the secret and upload the secure connect bundle file as a <strong>Secret value</strong>. (See the <strong>Prerequisites</strong> section above if you need to download your secure connect bundle.) Optionally, customize other secret management settings.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/create-secret.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create secret</strong>.</p>
+</li>
+<li>
+<p>On <a href="https://console.cloud.google.com/security/secret-manager">the Secret Manager page</a>, find the newly created secret.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/secret-manager.png" /></p>
+</li>
+</ol>
+<h3 id="2-create-a-function"><span class="nosurface" markdown="1">✅ 2.</span> Create a function.<a class="headerlink" href="#2-create-a-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/functions/list">the Functions Overview page</a>, select the same project that has Secret Manager and Cloud Functions enabled, and click <strong>Create function</strong>.</li>
+<li>Under the <strong>Basics</strong> section, specify preferred <strong>Function name</strong> and <strong>Region</strong>.</li>
+<li>
+<p>Under the <strong>Trigger</strong> section, select <strong>HTTP</strong>, <strong>Allow unauthenticated invocations</strong>, and <strong>Require HTTPS</strong>.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/basics.png" /></p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section, customize additional settings and create these <strong>Runtime environment variables</strong>:</p>
+<ul>
+<li><code>ASTRA_DB_CLIENT_ID</code>: A <strong>Client ID</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).</li>
+<li><code>ASTRA_DB_CLIENT_SECRET</code>: A <strong>Client secret</strong> is generated together with an application token (see the <strong>Prerequisites</strong> section above).
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/runtime.png" /><br/>
-Note that, for better security, you can alternatively use the [Secret Manager](https://console.cloud.google.com/security/secret-manager) service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the **Runtime, build, connections and security settings** section, the **Security** tab, and the **Secrets** field.
-
-6. Under the **Runtime, build, connections and security settings** section and the **Security**, click **Reference a secret**. Select the previously created **Secret** with the secure connect bundle file, **Grant** the service account access to the secret, if needed, use **Mounted as volume** in the **Reference method** field, and enter **secrets** in the **Mount path** field.
+Note that, for better security, you can alternatively use the <a href="https://console.cloud.google.com/security/secret-manager">Secret Manager</a> service to store and manage a client secret. A secret can then be similarly exposed as an environment variable. The settings can be found under the <strong>Runtime, build, connections and security settings</strong> section, the <strong>Security</strong> tab, and the <strong>Secrets</strong> field.</li>
+</ul>
+</li>
+<li>
+<p>Under the <strong>Runtime, build, connections and security settings</strong> section and the <strong>Security</strong>, click <strong>Reference a secret</strong>. Select the previously created <strong>Secret</strong> with the secure connect bundle file, <strong>Grant</strong> the service account access to the secret, if needed, use <strong>Mounted as volume</strong> in the <strong>Reference method</strong> field, and enter <strong>secrets</strong> in the <strong>Mount path</strong> field.
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/reference-secret.png" /><br/>
-Notice the final **Path** that should be used to access the secure connect bundle in the function code.
-
-7. Click **Done** and **Next**.
-
-8. Select **Python 3.7** or your preferred version in the **Runtime** field.
-
-9. Select **Inline Editor** in the **Source code** field.
-
-10. Enter **query_astra_db** in the **Entry point** field.
-
-11. Add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `requirements.txt` file.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/requirements_txt.png" />
-
-12. Replace the `main.py` content with:
+Notice the final <strong>Path</strong> that should be used to access the secure connect bundle in the function code.</p>
+</li>
+<li>
+<p>Click <strong>Done</strong> and <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Python 3.7</strong> or your preferred version in the <strong>Runtime</strong> field.</p>
+</li>
+<li>
+<p>Select <strong>Inline Editor</strong> in the <strong>Source code</strong> field.</p>
+</li>
+<li>
+<p>Enter <strong>query_astra_db</strong> in the <strong>Entry point</strong> field.</p>
+</li>
+<li>
+<p>Add <a href="https://github.com/datastax/python-driver"><strong>cassandra-driver</strong></a>, a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the <code>requirements.txt</code> file.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/requirements_txt.png" /></p>
+</li>
+<li>
+<p>Replace the <code>main.py</code> content with:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">cassandra.auth</span> <span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">os</span>
@@ -2526,32 +2680,36 @@ Notice the final **Path** that should be used to access the secure connect bundl
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">)</span>
 </code></pre></div>
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/main_py.png" /><br/>
-You can learn more about the code above by reading the [**python-driver**](https://github.com/datastax/python-driver) documentation.
-
-### <span class="nosurface" markdown="1">✅ 3.</span> Deploy the function.
-
-1. Click **Deploy**.
-
-2. On the Cloud Functions Overview page, find the newly deployed function.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/deploy.png" />
-
-### <span class="nosurface" markdown="1">✅ 4.</span> Test the function.
-
-1. Under **Actions**, select **Test function**.
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-function.png" />
-
-2. On the testing page, click **Test the function** and observe the output.
+You can learn more about the code above by reading the <a href="https://github.com/datastax/python-driver"><strong>python-driver</strong></a> documentation.</p>
+</li>
+</ol>
+<h3 id="3-deploy-the-function"><span class="nosurface" markdown="1">✅ 3.</span> Deploy the function.<a class="headerlink" href="#3-deploy-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Deploy</strong>.</p>
+</li>
+<li>
+<p>On the Cloud Functions Overview page, find the newly deployed function.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/deploy.png" /></p>
+</li>
+</ol>
+<h3 id="4-test-the-function"><span class="nosurface" markdown="1">✅ 4.</span> Test the function.<a class="headerlink" href="#4-test-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Under <strong>Actions</strong>, select <strong>Test function</strong>.
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-function.png" /></p>
+</li>
+<li>
+<p>On the testing page, click <strong>Test the function</strong> and observe the output.
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/test-results.png" /><br/>
-Notice the CQL version output **3.4.5** and status code **200**.
-
-### <span class="nosurface" markdown="1">✅ 5.</span> View logs.
-
-You can further explore the log history by either clicking on the **Logs** tab or the **View all logs** link that opens **Logs Explorer**.
+Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
+</li>
+</ol>
+<h3 id="5-view-logs"><span class="nosurface" markdown="1">✅ 5.</span> View logs.<a class="headerlink" href="#5-view-logs" title="Permanent link">&para;</a></h3>
+<p>You can further explore the log history by either clicking on the <strong>Logs</strong> tab or the <strong>View all logs</strong> link that opens <strong>Logs Explorer</strong>.
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs.png" />
-<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs-explorer.png" />
-
-## Using Python SDK
-
+<br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-python-driver/logs-explorer.png" /></p>
+<h2 id="using-python-sdk">Using Python SDK<a class="headerlink" href="#using-python-sdk" title="Permanent link">&para;</a></h2>
 <div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
@@ -2636,8 +2794,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 </div>
 
-## Using Java Driver
-
+<h2 id="using-java-driver">Using Java Driver<a class="headerlink" href="#using-java-driver" title="Permanent link">&para;</a></h2>
 <div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a secret with the secure connect bundle file.
@@ -2752,8 +2909,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 </div>
 
-## Using Java gRPC
-
+<h2 id="using-java-grpc">Using Java gRPC<a class="headerlink" href="#using-java-grpc" title="Permanent link">&para;</a></h2>
 <div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
@@ -2873,7 +3029,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
   <small>
     
       Last update:
-      2022-10-28
+      2022-12-20
     
   </small>
 </div>
