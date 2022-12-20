@@ -30,8 +30,7 @@ developer_url: "https://docs.aws.amazon.com/lambda/"
 
 ## Using Python Driver
 
-
-
+<div class="counterReset">
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
 A deployment package is a `.zip` file with a function source code and dependencies. To access Astra DB from a function using Python Driver, we must add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, as a dependency. In addition, as part of the deployment package, we need to include a secure connect bundle for a database in Astra DB that we want to query.
@@ -115,11 +114,11 @@ Under the **Test** tab, click the **Test** button and observe the output.
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/test.png" /><br/>
 Notice the CQL version output and return value of **3.4.5**.
 
-
+</div>
 
 ## Using Python SDK
 
-
+<div class="counterReset">
 
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
@@ -204,7 +203,7 @@ Under the **Test** tab, click the **Test** button and observe the output.
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/test.png" /><br/>
 Notice the CQL version output and return value of **3.4.5**.
 
-
+</div>
 
 ## Using Java Driver
 
