@@ -899,12 +899,52 @@
     Installation
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-binaries" class="md-nav__link">
+    Step 1 : Download the binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-executable-and-put-in-search-path" class="md-nav__link">
+    Step 2 : Make executable and put in search path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick-start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2477,12 +2517,52 @@
     Installation
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-binaries" class="md-nav__link">
+    Step 1 : Download the binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-executable-and-put-in-search-path" class="md-nav__link">
+    Step 2 : Make executable and put in search path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick-start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2549,35 +2629,25 @@ NoSQLBench).</p>
 <a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">the official NoSQLBench documentation</a>.
 Please refer to it for more details and updates.</p>
 <div class="counterReset">
-
-### <span class="nosurface">Step 1 :</span> Download the binaries
-
-Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
+<h3 id="step-1-download-the-binaries"><span class="nosurface">Step 1 :</span> Download the binaries<a class="headerlink" href="#step-1-download-the-binaries" title="Permanent link">&para;</a></h3>
+<p>Go to the <a href="https://github.com/nosqlbench/nosqlbench/releases">releases page</a>
 and download the latest version.
-The suggested option is to download the Linux binary (`nb`),
-but as an alternative the `nb.jar` version can also be used:
+The suggested option is to download the Linux binary (<code>nb</code>),
+but as an alternative the <code>nb.jar</code> version can also be used:
 here we assume the Linux binary is used, please see the
-[NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
-for more on using the JAR.
-
-### <span class="nosurface">Step 2 :</span> Make executable and put in search path
-
-Once the file is downloaded, make it executable with `chmod +x nb`
+<a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">NoSQLBench documentation</a>
+for more on using the JAR.</p>
+<h3 id="step-2-make-executable-and-put-in-search-path"><span class="nosurface">Step 2 :</span> Make executable and put in search path<a class="headerlink" href="#step-2-make-executable-and-put-in-search-path" title="Permanent link">&para;</a></h3>
+<p>Once the file is downloaded, make it executable with <code>chmod +x nb</code>
 and put it (or make a symlink) somewhere in your system's search path,
-such as `/home/${USER}/.local/bin/`.
-
-As a quick test, try the command `nb --version`.
-
+such as <code>/home/${USER}/.local/bin/</code>.</p>
+<p>As a quick test, try the command <code>nb --version</code>.</p>
 </div>
-
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <div class="counterReset">
-
-### Command
-
-If you already use NoSQLBench... then all you need to know is that invocations should include the following
-parameters to locate an Astra DB instance and authenticate to it:
-
+<h3 id="command">Command<a class="headerlink" href="#command" title="Permanent link">&para;</a></h3>
+<p>If you already use NoSQLBench... then all you need to know is that invocations should include the following
+parameters to locate an Astra DB instance and authenticate to it:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nb <span class="se">\</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="o">[</span>...<span class="o">]</span>                                              <span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
@@ -2586,65 +2656,51 @@ parameters to locate an Astra DB instance and authenticate to it:
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME                             <span class="se">\</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div>
-
-In the above, you should pass your Client ID and Client Secret as found in
+<p>In the above, you should pass your Client ID and Client Secret as found in
 the Astra DB Token, and the path to the Secure Bundle zipfile you obtained
-earlier (see [Prerequisites](https://awesome-astra.github.io/docs/pages/data/load/nosqlbench/#b-prerequisites)). Please prepend `./` to
-the bundle path if it is a relative path.
-
-You may want to specify a keyspace, as seen in the sample command quoted here,
-because, as Astra DB does not support the `CREATE KEYSPACE` CQL command,
+earlier (see <a href="https://awesome-astra.github.io/docs/pages/data/load/nosqlbench/#b-prerequisites">Prerequisites</a>). Please prepend <code>./</code> to
+the bundle path if it is a relative path.</p>
+<p>You may want to specify a keyspace, as seen in the sample command quoted here,
+because, as Astra DB does not support the <code>CREATE KEYSPACE</code> CQL command,
 it would be your responsibility to match the keyspace used in the benchmark
 with the name of an existing one. Please inspect the contents of your
-workload `yaml` file more closely for more details on the keyspace name used
-by default.
-
-### Quick-start
-
-There is a comprehensive [Getting Started page](https://docs.nosqlbench.io/docs/getting_started/01-example-commands/)
+workload <code>yaml</code> file more closely for more details on the keyspace name used
+by default.</p>
+<h3 id="quick-start">Quick-start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
+<p>There is a comprehensive <a href="https://docs.nosqlbench.io/docs/getting_started/01-example-commands/">Getting Started page</a>
 on NoSQLBench documentation, so here only a couple of sample full commands will be given.
-Please consult the full documentation for more options and configurations.
-
-Some of the ready-made workloads included with NoSQLBench are specific
+Please consult the full documentation for more options and configurations.</p>
+<p>Some of the ready-made workloads included with NoSQLBench are specific
 for benchmarking realistic usage patterns of Cassandra/Astra DB.
 A quick way to get started is to launch those workloads with the
 "workload scenario" syntax (where the 'scenario' specifies that you are
-targeting an Astra DB instance).
-
-**"cql-keyvalue" workload**
-
-The following will run the "cql-keyvalue" workload, specifically its "astra" scenario,
-on an Astra DB instance:
-
+targeting an Astra DB instance).</p>
+<p><strong>"cql-keyvalue" workload</strong></p>
+<p>The following will run the "cql-keyvalue" workload, specifically its "astra" scenario,
+on an Astra DB instance:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nb cql-keyvalue astra                                <span class="se">\</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
-
-Alternatively, if you are using the `jar` version of the tool,
-
+<p>Alternatively, if you are using the <code>jar</code> version of the tool,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java -jar nb.jar cql-keyvalue astra                  <span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
-
-This workload emulates usage of Astra DB/Cassandra as a simple key-value store,
+<p>This workload emulates usage of Astra DB/Cassandra as a simple key-value store,
 and does so by alternating "random" reads and writes to a single table.
 A preliminar "rampup" phase is run, consisting only of writes, and then the "main"
-phase takes place (this structure is a rather universal features of these benchmarks).
-
-(Note: most likely you may want to add further options, such as
-[`cyclerate`](https://docs.nosqlbench.io/docs/reference/core-activity-parameters/#cyclerate),
-`rampup-cycles`, `main-cycles` or
-[`--progress console`](https://docs.nosqlbench.io/docs/reference/command-line/#execution-options).
-See the NoSQLBench docs and inspect the workload `yaml` for more).
-
-The above command, as things progress, will produce an output similar to:
-
+phase takes place (this structure is a rather universal features of these benchmarks).</p>
+<p>(Note: most likely you may want to add further options, such as
+<a href="https://docs.nosqlbench.io/docs/reference/core-activity-parameters/#cyclerate"><code>cyclerate</code></a>,
+<code>rampup-cycles</code>, <code>main-cycles</code> or
+<a href="https://docs.nosqlbench.io/docs/reference/command-line/#execution-options"><code>--progress console</code></a>.
+See the NoSQLBench docs and inspect the workload <code>yaml</code> for more).</p>
+<p>The above command, as things progress, will produce an output similar to:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cqlkeyvalue_astra_schema: 100.00%/Stopped (details: min=0 cycle=1 max=1) (last report)
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cqlkeyvalue_astra_rampup: 15.60%/Running (details: min=0 cycle=234 max=1500)
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cqlkeyvalue_astra_rampup: 32.40%/Running (details: min=0 cycle=486 max=1500)
@@ -2652,10 +2708,8 @@ The above command, as things progress, will produce an output similar to:
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cqlkeyvalue_astra_main: 96.67%/Running (details: min=0 cycle=1450 max=1500)
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cqlkeyvalue_astra_main: 100.00%/Running (details: min=0 cycle=1500 max=1500) (last report)
 </code></pre></div>
-
-followed by a final summary - reflected also in files in the `logs/` directory,
-similar to:
-
+<p>followed by a final summary - reflected also in files in the <code>logs/</code> directory,
+similar to:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-- Gauges ----------------------------------------------------------------------
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cqlkeyvalue_astra_main.cycles.config.burstrate
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>             value = 55.00000000000001
@@ -2669,33 +2723,23 @@ similar to:
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>     5-minute rate = 939.91 calls/second
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    15-minute rate = 939.71 calls/second
 </code></pre></div>
-
-You may want to check that at this point a new table has been created,
-if it did not exist yet, in the keyspace.
-
-**"cql-iot" workload**
-
-Similar to the above for the "cql-iot" workload, aimed at emulating
-time-series-based reads and writes for a hypothetical IoT system:
-
+<p>You may want to check that at this point a new table has been created,
+if it did not exist yet, in the keyspace.</p>
+<p><strong>"cql-iot" workload</strong></p>
+<p>Similar to the above for the "cql-iot" workload, aimed at emulating
+time-series-based reads and writes for a hypothetical IoT system:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nb cql-iot astra                                     <span class="se">\</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
-
-**Other workloads**
-
-You can inspect all available workloads with:
-
+<p><strong>Other workloads</strong></p>
+<p>You can inspect all available workloads with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nb --list-scenarios
 </code></pre></div>
-
-and look for `astra` in the output example scenario invocations there.
-
-Moreover, you can [design your own workload](https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/).
-
+<p>and look for <code>astra</code> in the output example scenario invocations there.</p>
+<p>Moreover, you can <a href="https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/">design your own workload</a>.</p>
 </div>
 
   <hr>
@@ -2703,7 +2747,7 @@ Moreover, you can [design your own workload](https://docs.nosqlbench.io/docs/wor
   <small>
     
       Last update:
-      2022-10-27
+      2022-12-21
     
   </small>
 </div>
