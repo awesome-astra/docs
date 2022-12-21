@@ -130,7 +130,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 ## Using Python SDK
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
 
@@ -217,7 +217,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 ## Using Java Driver
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a secret with the secure connect bundle file.
 
@@ -335,7 +335,7 @@ You can further explore the log history by either clicking on the **Logs** tab o
 
 ## Using Java gRPC
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
 
