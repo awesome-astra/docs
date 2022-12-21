@@ -30,7 +30,8 @@ developer_url: "https://docs.aws.amazon.com/lambda/"
 
 ## Using Python Driver
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
+
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
 A deployment package is a `.zip` file with a function source code and dependencies. To access Astra DB from a function using Python Driver, we must add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, as a dependency. In addition, as part of the deployment package, we need to include a secure connect bundle for a database in Astra DB that we want to query.
@@ -118,7 +119,7 @@ Notice the CQL version output and return value of **3.4.5**.
 
 ## Using Python SDK
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
@@ -207,7 +208,7 @@ Notice the CQL version output and return value of **3.4.5**.
 
 ## Using Java Driver
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
@@ -379,7 +380,7 @@ Notice the CQL version output and return value of **3.4.5**.
 
 ## Using Java gRPC
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
