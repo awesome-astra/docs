@@ -70,7 +70,7 @@ The following installation instructions are taken from
 [the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### <span class="nosurface">Step 1 :</span> Download the binaries
 
@@ -94,7 +94,7 @@ As a quick test, try the command `nb --version`.
 
 ## Usage
 
-<div class="counterReset">
+<div class="counterReset" markdown="1">
 
 ### Command
 
