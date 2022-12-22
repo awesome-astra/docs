@@ -15,7 +15,21 @@ links:
 
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/jupyter/logo.png" height="100px" />
-!!! note "Check back soon"
+## Overview
+Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, and load and index data into tables. Finally, just because it's a notebook, we'll train and plot the test error from the sample dataset.
 
-    Nothing to see here yet! Check back for updates! 
+<a href="https://colab.research.google.com/github/awesome-astra/docs/blob/hellojupyter/docs/pages/tools/notebooks/HelloAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+
+Or, <a href="HelloAstra.ipynb">download the notebooki</a>.
+<div class="nosurface" markdown="1">
+- ℹ️ [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
+</div>
+
+## Prerequisites
+
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+</ul>
+
 </div>
