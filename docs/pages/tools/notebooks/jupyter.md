@@ -30,6 +30,7 @@ Or, <a href="HelloAstra.ipynb">download the notebook</a>.
 If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!
 
 <div class="nosurface" markdown="1">
+
 - ℹ️ [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
 
 - ℹ️ [Project Jupyter Homepage](https://jupyter.org)
