@@ -84,6 +84,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1878,9 +1883,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Jupyter Notebooks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Jupyter Notebooks
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-started" class="md-nav__link">
+    Get Started
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2357,6 +2405,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-started" class="md-nav__link">
+    Get Started
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2389,10 +2466,28 @@ links:
 
 <div class="nosurface">
 <p><img src="https://awesome-astra.github.io/docs/img/jupyter/logo.png" height="100px" /></p>
-<div class="admonition note">
-<p class="admonition-title">Check back soon</p>
-<p>Nothing to see here yet! Check back for updates! </p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Jupyter Notebooks are an execution environment for Julia, Python and R code (hence, Ju-Py-te-R) in technical computing domains, but are especially popular with data scientists working on machine learning models. Jupyter blends the ability to present explanatory text and imagery with interactive code blocks. Jupyter notebooks can run on your own computer, or via a hoted service like Google Colab. </p>
+<p>Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset.</p>
+<div class="nosurface">
+<ul>
+<li>
+<p>ℹ️ <a href="https://research.google.com/colaboratory/faq.html">Google Colab FAQ</a></p>
+</li>
+<li>
+<p>ℹ️ <a href="https://jupyter.org">Project Jupyter Homepage</a></p>
+</li>
+</ul>
 </div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token (with Administrator privileges)</a></li>
+</ul>
+<h2 id="get-started">Get Started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
+<p><a href="https://colab.research.google.com/github/awesome-astra/docs/blob/hellojupyter/docs/pages/tools/notebooks/HelloAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a></p>
+<p>Or, <a href="HelloAstra.ipynb">download the notebook</a>.</p>
+<p>If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!</p>
 </div>
 
   <hr>
@@ -2400,7 +2495,7 @@ links:
   <small>
     
       Last update:
-      2022-10-31
+      2022-12-23
     
   </small>
 </div>
