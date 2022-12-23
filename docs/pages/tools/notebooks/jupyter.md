@@ -23,12 +23,6 @@ Jupyter Notebooks are an execution environment for Julia, Python and R code (hen
 
 Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset.
 
-<a href="https://colab.research.google.com/github/awesome-astra/docs/blob/hellojupyter/docs/pages/tools/notebooks/HelloAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
-
-Or, <a href="HelloAstra.ipynb">download the notebook</a>.
-
-If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!
-
 <div class="nosurface" markdown="1">
 
 - ℹ️ [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
@@ -42,5 +36,13 @@ If you open the notebook in Colab, and would like to make changes to it, choose 
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token (with Administrator privileges)</a></li>
 </ul>
+
+## Get Started
+
+<a href="https://colab.research.google.com/github/awesome-astra/docs/blob/hellojupyter/docs/pages/tools/notebooks/HelloAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+
+Or, <a href="HelloAstra.ipynb">download the notebook</a>.
+
+If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!
 
 </div>
