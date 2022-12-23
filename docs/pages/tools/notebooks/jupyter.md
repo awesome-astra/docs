@@ -1,8 +1,8 @@
 <!--
 ---
-title: "Jupyter Notebook"
-description: "JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality."
-tags: "ide plugins"
+title: "Jupyter"
+description: "Jupyter is web-based IDE for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, and machine learning."
+tags: "python, machine learning, notebooks, ide"
 icon: "https://awesome-astra.github.io/docs/img/jupyter/Jupyter.png"
 coming_soon: “true”
 developer_title: "Jupyter"
@@ -39,10 +39,16 @@ Astra can be a little tricky to get started with when working inside a Jupyter n
 
 ## Get Started
 
+Click the button below to open the HelloAstra sample notebook in a Google Colab workspace.
+
 <a href="https://colab.research.google.com/github/awesome-astra/docs/blob/hellojupyter/docs/pages/tools/notebooks/HelloAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 Or, <a href="HelloAstra.ipynb">download the notebook</a>.
 
 If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!
 
+</div>
+
+<div class="nosurface" markdown="1">
+[🏠 Back to home](https://awesome-astra.github.io/docs/) 
 </div>
