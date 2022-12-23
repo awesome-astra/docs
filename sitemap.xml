@@ -116,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/data/explore/tableau/</loc>
+         <lastmod>2022-12-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/tableplus/</loc>
          <lastmod>2022-12-23</lastmod>
          <changefreq>daily</changefreq>
