@@ -15,8 +15,10 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/cheatsheet/">
       
+      
+      
       <link rel="icon" href="../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +128,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +135,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2516,6 +2513,7 @@
                   
 
 
+
   <h1>Cheatsheet</h1>
 
 <p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
@@ -2552,26 +2550,26 @@
     Request-- invoke --&gt;cassandra</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph LR
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    user&gt;fa:fa-user Developer<span class="o">]</span>-- Create Database --&gt; cassandra<span class="o">[(</span>fa:fa-database Cassandra<span class="o">)]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph<span class="w"> </span>LR
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>user&gt;fa:fa-user<span class="w"> </span>Developer<span class="o">]</span>--<span class="w"> </span>Create<span class="w"> </span>Database<span class="w"> </span>--&gt;<span class="w"> </span>cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    user-- Design --&gt;usecase<span class="o">{{</span>fa:fa-cube Use Case<span class="o">}}</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    usecase-- Workflow --&gt;queries<span class="o">[</span>fa:fa-bezier-curve queries<span class="o">]</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    usecase-- MCD --&gt;entities<span class="o">[</span>fa:fa-grip-vertical entities<span class="o">]</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    queries-- Chebotko modelization --&gt;schema<span class="o">[</span>fa:fa-list schema<span class="o">]</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    entities-- Chebotko modelization --&gt;schema<span class="o">[</span>fa:fa-list schema<span class="o">]</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    schema<span class="o">[</span>fa:fa-list  schema<span class="o">]</span>-- Inject --&gt;cassandra<span class="o">[(</span>fa:fa-database Cassandra<span class="o">)]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>user--<span class="w"> </span>Design<span class="w"> </span>--&gt;usecase<span class="o">{{</span>fa:fa-cube<span class="w"> </span>Use<span class="w"> </span>Case<span class="o">}}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>usecase--<span class="w"> </span>Workflow<span class="w"> </span>--&gt;queries<span class="o">[</span>fa:fa-bezier-curve<span class="w"> </span>queries<span class="o">]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>usecase--<span class="w"> </span>MCD<span class="w"> </span>--&gt;entities<span class="o">[</span>fa:fa-grip-vertical<span class="w"> </span>entities<span class="o">]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>queries--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>entities--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>schema<span class="o">[</span>fa:fa-list<span class="w">  </span>schema<span class="o">]</span>--<span class="w"> </span>Inject<span class="w"> </span>--&gt;cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    user-- prepare --&gt;dataset<span class="o">{{</span>fa:fa-coings DataSet<span class="o">}}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    dataset-- input --&gt;dsbulk-- load data --&gt;cassandra
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span>user--<span class="w"> </span>prepare<span class="w"> </span>--&gt;dataset<span class="o">{{</span>fa:fa-coings<span class="w"> </span>DataSet<span class="o">}}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span>dataset--<span class="w"> </span>input<span class="w"> </span>--&gt;dsbulk--<span class="w"> </span>load<span class="w"> </span>data<span class="w"> </span>--&gt;cassandra
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    user-- Create Token --&gt;token<span class="o">{{</span>fa:fa-key Token<span class="o">}}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    usecase--&gt;API
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span>user--<span class="w"> </span>Create<span class="w"> </span>Token<span class="w"> </span>--&gt;token<span class="o">{{</span>fa:fa-key<span class="w"> </span>Token<span class="o">}}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span>usecase--&gt;API
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    API--&gt;Request
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    token--&gt;Request
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    schema--&gt;Request
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    Request-- invoke --&gt;cassandra
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span>API--&gt;Request
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span>token--&gt;Request
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span>schema--&gt;Request
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span>Request--<span class="w"> </span>invoke<span class="w"> </span>--&gt;cassandra
 </code></pre></div>
 </div>
 </div>
@@ -2878,7 +2876,7 @@ Crash --&gt; [*]</code></pre>
 <p>quote</p>
 </details>
 <h2 id="tooltip">Tooltip<a class="headerlink" href="#tooltip" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>wanna a tooltip ? <span class="c1"># (1)!</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>wanna<span class="w"> </span>a<span class="w"> </span>tooltip<span class="w"> </span>?<span class="w"> </span><span class="c1"># (1)!</span>
 </code></pre></div>
 <ol>
 <li>
@@ -3006,12 +3004,11 @@ Crash --&gt; [*]</code></pre>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>

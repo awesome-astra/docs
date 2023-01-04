@@ -15,8 +15,14 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/vault/">
       
+      
+        <link rel="prev" href="../feast/">
+      
+      
+        <link rel="next" href="../liquibase/">
+      
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +132,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +139,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2477,6 +2478,7 @@
                   
 
 
+
   <h1>• HashiCorp Vault</h1>
 
 <div class="nosurface">
@@ -2507,49 +2509,49 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 <ol>
 <li>In the Astra UI, create a keyspace called <strong>vault</strong>. </li>
 <li>Navigate to your <em>CQL Console</em> in the Astra UI. Issue the following statement to create a table called <strong>entries</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CREATE TABLE vault.<span class="s2">&quot;entries&quot;</span> <span class="o">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    bucket text,
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    key text,
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    value blob,
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    PRIMARY KEY <span class="o">(</span>bucket, key<span class="o">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">)</span> WITH CLUSTERING ORDER BY <span class="o">(</span>key ASC<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CREATE<span class="w"> </span>TABLE<span class="w"> </span>vault.<span class="s2">&quot;entries&quot;</span><span class="w"> </span><span class="o">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>bucket<span class="w"> </span>text,
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>key<span class="w"> </span>text,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>value<span class="w"> </span>blob,
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>PRIMARY<span class="w"> </span>KEY<span class="w"> </span><span class="o">(</span>bucket,<span class="w"> </span>key<span class="o">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">)</span><span class="w"> </span>WITH<span class="w"> </span>CLUSTERING<span class="w"> </span>ORDER<span class="w"> </span>BY<span class="w"> </span><span class="o">(</span>key<span class="w"> </span>ASC<span class="o">)</span><span class="p">;</span>
 </code></pre></div></li>
 <li>Navigate to your terminal. Create a Vault configuration file <code>config.hcl</code> in your local directory.</li>
 <li>Edit your <code>config.hcl</code> file. Copy and paste the following to your configuration file:</li>
 </ol>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>storage <span class="s2">&quot;cassandra&quot;</span> <span class="o">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="nv">hosts</span>            <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="nv">consistency</span>      <span class="o">=</span> <span class="s2">&quot;LOCAL_QUORUM&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="nv">protocol_version</span> <span class="o">=</span> <span class="m">3</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>storage<span class="w"> </span><span class="s2">&quot;cassandra&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">hosts</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">consistency</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LOCAL_QUORUM&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nv">protocol_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">}</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>listener <span class="s2">&quot;tcp&quot;</span> <span class="o">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  <span class="nv">address</span>     <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8200&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  <span class="nv">tls_disable</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>listener<span class="w"> </span><span class="s2">&quot;tcp&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nv">address</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:8200&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nv">tls_disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="o">}</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nv">api_addr</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8200&quot;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nv">cluster_addr</span> <span class="o">=</span> <span class="s2">&quot;https://127.0.0.1:8201&quot;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nv">ui</span> <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nv">api_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8200&quot;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nv">cluster_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://127.0.0.1:8201&quot;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
 4. Run Vault from your terminal with the following command:</p>
 <p><code>vault server -config=config.hcl</code></p>
 <p>Successful output should look like this:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">==</span>&gt; Vault server configuration:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">==</span>&gt;<span class="w"> </span>Vault<span class="w"> </span>server<span class="w"> </span>configuration:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>             Api Address: http://127.0.0.1:8200
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                     Cgo: disabled
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>         Cluster Address: https://127.0.0.1:8201
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>              Go Version: go1.17.9
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>              Listener <span class="m">1</span>: tcp <span class="o">(</span>addr: <span class="s2">&quot;127.0.0.1:8200&quot;</span>, cluster address: <span class="s2">&quot;127.0.0.1:8201&quot;</span>, max_request_duration: <span class="s2">&quot;1m30s&quot;</span>, max_request_size: <span class="s2">&quot;33554432&quot;</span>, tls: <span class="s2">&quot;disabled&quot;</span><span class="o">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>               Log Level: info
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                   Mlock: supported: false, enabled: <span class="nb">false</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>           Recovery Mode: <span class="nb">false</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                 Storage: cassandra
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                 Version: Vault v1.10.2
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>             Version Sha: <span class="nv">94325865b12662cb72efa3003d6aaa4f5ae57f3a</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">             </span>Api<span class="w"> </span>Address:<span class="w"> </span>http://127.0.0.1:8200
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">                     </span>Cgo:<span class="w"> </span>disabled
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">         </span>Cluster<span class="w"> </span>Address:<span class="w"> </span>https://127.0.0.1:8201
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">              </span>Go<span class="w"> </span>Version:<span class="w"> </span>go1.17.9
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">              </span>Listener<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>tcp<span class="w"> </span><span class="o">(</span>addr:<span class="w"> </span><span class="s2">&quot;127.0.0.1:8200&quot;</span>,<span class="w"> </span>cluster<span class="w"> </span>address:<span class="w"> </span><span class="s2">&quot;127.0.0.1:8201&quot;</span>,<span class="w"> </span>max_request_duration:<span class="w"> </span><span class="s2">&quot;1m30s&quot;</span>,<span class="w"> </span>max_request_size:<span class="w"> </span><span class="s2">&quot;33554432&quot;</span>,<span class="w"> </span>tls:<span class="w"> </span><span class="s2">&quot;disabled&quot;</span><span class="o">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">               </span>Log<span class="w"> </span>Level:<span class="w"> </span>info
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">                   </span>Mlock:<span class="w"> </span>supported:<span class="w"> </span>false,<span class="w"> </span>enabled:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">           </span>Recovery<span class="w"> </span>Mode:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                 </span>Storage:<span class="w"> </span>cassandra
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                 </span>Version:<span class="w"> </span>Vault<span class="w"> </span>v1.10.2
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">             </span>Version<span class="w"> </span>Sha:<span class="w"> </span><span class="nv">94325865b12662cb72efa3003d6aaa4f5ae57f3a</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="o">==</span>&gt; Vault server started! Log data will stream <span class="k">in</span> below:
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="o">==</span>&gt;<span class="w"> </span>Vault<span class="w"> </span>server<span class="w"> </span>started!<span class="w"> </span>Log<span class="w"> </span>data<span class="w"> </span>will<span class="w"> </span>stream<span class="w"> </span><span class="k">in</span><span class="w"> </span>below:
 </code></pre></div></p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
@@ -2566,22 +2568,22 @@ HashiCorp Vault instance. In this tutorial, you will install Vault and edit the 
 This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command: <code>vault operator init -address=http://127.0.0.1:8200</code></p>
 </div>
 <p>Once Vault is initialized, it should give you an output of your Unseal Keys:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% vault operator init
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Unseal Key <span class="m">1</span>: rVRPym...
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Unseal Key <span class="m">2</span>: 71tY5X...
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Unseal Key <span class="m">3</span>: ETYWDf...
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Unseal Key <span class="m">4</span>: 4mDtrr...
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Unseal Key <span class="m">5</span>: o9X46m...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>%<span class="w"> </span>vault<span class="w"> </span>operator<span class="w"> </span>init
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Unseal<span class="w"> </span>Key<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>rVRPym...
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Unseal<span class="w"> </span>Key<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>71tY5X...
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Unseal<span class="w"> </span>Key<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>ETYWDf...
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Unseal<span class="w"> </span>Key<span class="w"> </span><span class="m">4</span>:<span class="w"> </span>4mDtrr...
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Unseal<span class="w"> </span>Key<span class="w"> </span><span class="m">5</span>:<span class="w"> </span>o9X46m...
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Initial Root Token: hvs.gF14F...
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Initial<span class="w"> </span>Root<span class="w"> </span>Token:<span class="w"> </span>hvs.gF14F...
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Vault initialized with <span class="m">5</span> key shares and a key threshold of <span class="m">3</span>. Please securely
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>distribute the key shares printed above. When the Vault is re-sealed,
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>restarted, or stopped, you must supply at least <span class="m">3</span> of these keys to unseal it
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>before it can start servicing requests.
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Vault<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span><span class="m">5</span><span class="w"> </span>key<span class="w"> </span>shares<span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>key<span class="w"> </span>threshold<span class="w"> </span>of<span class="w"> </span><span class="m">3</span>.<span class="w"> </span>Please<span class="w"> </span>securely
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>distribute<span class="w"> </span>the<span class="w"> </span>key<span class="w"> </span>shares<span class="w"> </span>printed<span class="w"> </span>above.<span class="w"> </span>When<span class="w"> </span>the<span class="w"> </span>Vault<span class="w"> </span>is<span class="w"> </span>re-sealed,
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>restarted,<span class="w"> </span>or<span class="w"> </span>stopped,<span class="w"> </span>you<span class="w"> </span>must<span class="w"> </span>supply<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">3</span><span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>keys<span class="w"> </span>to<span class="w"> </span>unseal<span class="w"> </span>it
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>before<span class="w"> </span>it<span class="w"> </span>can<span class="w"> </span>start<span class="w"> </span>servicing<span class="w"> </span>requests.
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>Vault does not store the generated root key. Without at least <span class="m">3</span> keys to
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>reconstruct the root key, Vault will remain permanently sealed!
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>Vault<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>store<span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>root<span class="w"> </span>key.<span class="w"> </span>Without<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">3</span><span class="w"> </span>keys<span class="w"> </span>to
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>reconstruct<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>key,<span class="w"> </span>Vault<span class="w"> </span>will<span class="w"> </span>remain<span class="w"> </span>permanently<span class="w"> </span>sealed!
 </code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Note</p>
@@ -2598,17 +2600,17 @@ This is because Vault runs on localhost, but the default address is HTTPS. Inste
 </ol>
 <p><strong>Note:</strong> When querying from the <strong>entries</strong> table, you must use double-quotes as <code>entries</code> is a reserved word for CQL.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/vault/vaultui.png"/> </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>token@cqlsh:vault&gt; use vault<span class="p">;</span>                           //Switches to Vault keyspace
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>token@cqlsh:vault&gt; expand on<span class="p">;</span>                           //Prints output <span class="k">in</span> readable format
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>token@cqlsh:vault&gt; <span class="k">select</span> * from <span class="s2">&quot;entries&quot;</span> limit <span class="m">1</span><span class="p">;</span>     //Select statement from <span class="s2">&quot;entries&quot;</span> table
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>token@cqlsh:vault&gt;<span class="w"> </span>use<span class="w"> </span>vault<span class="p">;</span><span class="w">                           </span>//Switches<span class="w"> </span>to<span class="w"> </span>Vault<span class="w"> </span>keyspace
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>token@cqlsh:vault&gt;<span class="w"> </span>expand<span class="w"> </span>on<span class="p">;</span><span class="w">                           </span>//Prints<span class="w"> </span>output<span class="w"> </span><span class="k">in</span><span class="w"> </span>readable<span class="w"> </span>format
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>token@cqlsh:vault&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;entries&quot;</span><span class="w"> </span>limit<span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">     </span>//Select<span class="w"> </span>statement<span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;entries&quot;</span><span class="w"> </span>table
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>@ Row <span class="m">1</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>@<span class="w"> </span>Row<span class="w"> </span><span class="m">1</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a> bucket <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a> key    <span class="p">|</span> logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a> value  <span class="p">|</span> 0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w"> </span>bucket<span class="w"> </span><span class="p">|</span><span class="w"> </span>logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w"> </span>key<span class="w">    </span><span class="p">|</span><span class="w"> </span>logical/59ca7834-32f6-a70a-8a61-53dce6dd9c18/oidc_provider/provider/default
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w"> </span>value<span class="w">  </span><span class="p">|</span><span class="w"> </span>0x0000000102002d31867373d44b1ae2412b4a1a2bd895c3eec2b2db671ec6a8e323e69539cf6d5e1b43e2e11fabc9cc76ad3c77a722caac47cc3f877013df200e4e6d268e6dbff10ba4007cef042643721101e669ae35ff08842e2d1f70e19de2
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="o">(</span><span class="m">1</span> rows<span class="o">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="o">(</span><span class="m">1</span><span class="w"> </span>rows<span class="o">)</span>
 </code></pre></div>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
@@ -2707,12 +2709,11 @@ This is because Vault runs on localhost, but the default address is HTTPS. Inste
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>

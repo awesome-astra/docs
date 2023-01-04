@@ -15,8 +15,14 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/frameworks/lagom/">
       
+      
+        <link rel="prev" href="../micronaut/">
+      
+      
+        <link rel="next" href="../fastapi/">
+      
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +132,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +139,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2583,6 +2584,7 @@
                   
 
 
+
   <h1>• Lagom</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
@@ -2611,36 +2613,36 @@
 <li><a href="https://docs.oracle.com/en/java/javase/17/install/index.html">Java 17</a></li>
 </ul>
 <p>Validate your installation with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java --version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>--version
 </code></pre></div>
 <ul>
 <li>You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn -version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <h3 id="building-a-sample-lagom-project">Building a sample Lagom project<a class="headerlink" href="#building-a-sample-lagom-project" title="Permanent link">&para;</a></h3>
 <p>Create a new Maven project in your IDE which uses the <code>maven-archetype-lagom-java</code> archetype.  You can also do this from the command line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mvn archetype:generate -DarchetypeGroupId<span class="o">=</span>com.lightbend.lagom <span class="se">\</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  -DarchetypeArtifactId<span class="o">=</span>maven-archetype-lagom-java -DarchetypeVersion<span class="o">=</span><span class="m">1</span>.2.0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mvn<span class="w"> </span>archetype:generate<span class="w"> </span>-DarchetypeGroupId<span class="o">=</span>com.lightbend.lagom<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>-DarchetypeArtifactId<span class="o">=</span>maven-archetype-lagom-java<span class="w"> </span>-DarchetypeVersion<span class="o">=</span><span class="m">1</span>.2.0
 </code></pre></div>
 <p>This will create a sample Lagom project with two services: Hello and Stream.  The project can be built and run with this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mvn lagom:runAll
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mvn<span class="w"> </span>lagom:runAll
 </code></pre></div>
 <p>Note that by default, Lagom will start using <em>embedded Cassandra</em> as its data store, running on <code>localhost:4000</code>.  Port 4000 was chosen (instead of 9042) so as not to collide with another instance of Cassandra running locally.</p>
 <h3 id="using-with-apache-cassandra">Using with Apache Cassandra<a class="headerlink" href="#using-with-apache-cassandra" title="Permanent link">&para;</a></h3>
 <p>To get Lagom to connect to Cassandra (for local development) there are two places which need changes: Maven's <code>pom.xml</code> and the services' <code>application.conf</code> files.</p>
 <p>Inside the <code>pom.xml</code> file, locate the <code>lagom-maven-plugin</code> and make the following adjustments:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;plugin&gt;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="nt">&lt;groupId&gt;</span>com.lightbend.lagom<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="nt">&lt;artifactId&gt;</span>lagom-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nt">&lt;version&gt;</span>${lagom.version}<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="nt">&lt;configuration&gt;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>            <span class="nt">&lt;unmanagedServices&gt;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                <span class="nt">&lt;cas_native&gt;</span>localhost:9042<span class="nt">&lt;/cas_native&gt;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>            <span class="nt">&lt;/unmanagedServices&gt;</span>                    
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            <span class="nt">&lt;cassandraEnabled&gt;</span>false<span class="nt">&lt;/cassandraEnabled&gt;</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="nt">&lt;/configuration&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.lightbend.lagom<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>lagom-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>${lagom.version}<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="nt">&lt;configuration&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="nt">&lt;unmanagedServices&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                </span><span class="nt">&lt;cas_native&gt;</span>localhost:9042<span class="nt">&lt;/cas_native&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="nt">&lt;/unmanagedServices&gt;</span><span class="w">                    </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="nt">&lt;cassandraEnabled&gt;</span>false<span class="nt">&lt;/cassandraEnabled&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="nt">&lt;/configuration&gt;</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nt">&lt;/plugin&gt;</span>
 </code></pre></div></p>
 <p>That these settings perform two functions:
@@ -2684,10 +2686,10 @@
 <p>For connecting to DataStax Astra DB, it is similar.  You will need to set both authentication <em>and</em> SSL to connect with Astra DB, as well as a few additional properties.</p>
 <p>The <code>pom.xml</code> is largely the same, except that you'll need to add your Astra host name here.  Note that in "production mode," you should not need to modify this file.  But if you're connecting to an Astra DB cluster in "development mode," you'll still need to disable embedded Cassandra and designate the Cassandra service as "unmanaged" with a contact point:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;configuration&gt;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="nt">&lt;unmanagedServices&gt;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="nt">&lt;cas_native&gt;</span>https://ASTRA_DB_ID-ASTRA_DB_REGION.db.astra.datastax.com:29042<span class="nt">&lt;/cas_native&gt;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nt">&lt;/unmanagedServices&gt;</span>                    
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="nt">&lt;cassandraEnabled&gt;</span>false<span class="nt">&lt;/cassandraEnabled&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&lt;unmanagedServices&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="nt">&lt;cas_native&gt;</span>https://ASTRA_DB_ID-ASTRA_DB_REGION.db.astra.datastax.com:29042<span class="nt">&lt;/cas_native&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&lt;/unmanagedServices&gt;</span><span class="w">                    </span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">&lt;cassandraEnabled&gt;</span>false<span class="nt">&lt;/cassandraEnabled&gt;</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div></p>
 <p>The <code>application.conf</code> service files will require similar modifications:
@@ -2840,12 +2842,11 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>

@@ -15,8 +15,14 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/data/load/nosqlbench/">
       
+      
+        <link rel="prev" href="../dsbulk/">
+      
+      
+        <link rel="next" href="../../explore/cqlsh/">
+      
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +132,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +139,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2597,6 +2598,7 @@
                   
 
 
+
   <h1>‣ NoSQL Bench</h1>
 
 <div class="nosurface">
@@ -2664,13 +2666,13 @@ such as <code>/home/${USER}/.local/bin/</code>.</p>
 <h3 id="command">Command<a class="headerlink" href="#command" title="Permanent link">&para;</a></h3>
 <p>If you already use NoSQLBench... then all you need to know is that invocations should include the following
 parameters to locate an Astra DB instance and authenticate to it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nb <span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="o">[</span>...<span class="o">]</span>                                              <span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME                             <span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="o">[</span>...<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="o">[</span>...<span class="o">]</span><span class="w">                                              </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME<span class="w">                             </span><span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">[</span>...<span class="o">]</span>
 </code></pre></div>
 <p>In the above, you should pass your Client ID and Client Secret as found in
 the Astra DB Token, and the path to the Secure Bundle zipfile you obtained
@@ -2694,18 +2696,18 @@ targeting an Astra DB instance).</p>
 <p><strong>"cql-keyvalue" workload</strong></p>
 <p>The following will run the "cql-keyvalue" workload, specifically its "astra" scenario,
 on an Astra DB instance:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nb cql-keyvalue astra                                <span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nb<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                                </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
 <p>Alternatively, if you are using the <code>jar</code> version of the tool,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java -jar nb.jar cql-keyvalue astra                  <span class="se">\</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>-jar<span class="w"> </span>nb.jar<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                  </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
 <p>This workload emulates usage of Astra DB/Cassandra as a simple key-value store,
 and does so by alternating "random" reads and writes to a single table.
@@ -2744,15 +2746,15 @@ if it did not exist yet, in the keyspace.</p>
 <p><strong>"cql-iot" workload</strong></p>
 <p>Similar to the above for the "cql-iot" workload, aimed at emulating
 time-series-based reads and writes for a hypothetical IoT system:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nb cql-iot astra                                     <span class="se">\</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  <span class="nv">username</span><span class="o">=</span>CLIENT_ID                                 <span class="se">\</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  <span class="nv">password</span><span class="o">=</span>CLIENT_SECRET                             <span class="se">\</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip <span class="se">\</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nb<span class="w"> </span>cql-iot<span class="w"> </span>astra<span class="w">                                     </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
 <p><strong>Other workloads</strong></p>
 <p>You can inspect all available workloads with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nb --list-scenarios
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nb<span class="w"> </span>--list-scenarios
 </code></pre></div>
 <p>and look for <code>astra</code> in the output example scenario invocations there.</p>
 <p>Moreover, you can <a href="https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/">design your own workload</a>.</p>
@@ -2851,12 +2853,11 @@ time-series-based reads and writes for a hypothetical IoT system:</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>

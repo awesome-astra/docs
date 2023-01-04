@@ -15,8 +15,14 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/tools/integration/apache-spark/">
       
+      
+        <link rel="prev" href="../apache-nifi/">
+      
+      
+        <link rel="next" href="../authorizer/">
+      
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +132,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +139,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2489,6 +2490,7 @@
                   
 
 
+
   <h1>• Apache Spark</h1>
 
 <div class="nosurface">
@@ -2528,22 +2530,22 @@
 <p>Append the following lines at the end of a file called <code>$SPARK_HOME/conf/spark-defaults.conf</code> (you may be able to find a template under $SPARK_HOME/conf directory), and replace the second column (value) with the first four lines:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">spark.files $SECURE_CONNECT_BUNDLE_FILE_PATH/secure-connect-astraiscool.zip</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">spark.cassandra.connection.config.cloud.path secure-connect-astraiscool.zip</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">spark.cassandra.auth.username &lt;&lt;CLIENT ID&gt;&gt;</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">spark.cassandra.auth.password &lt;&lt;CLIENT SECRET&gt;&gt;</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">spark.dse.continuousPagingEnabled false</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">spark.files $SECURE_CONNECT_BUNDLE_FILE_PATH/secure-connect-astraiscool.zip</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">spark.cassandra.connection.config.cloud.path secure-connect-astraiscool.zip</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">spark.cassandra.auth.username &lt;&lt;CLIENT ID&gt;&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">spark.cassandra.auth.password &lt;&lt;CLIENT SECRET&gt;&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">spark.dse.continuousPagingEnabled false</span>
 </code></pre></div>
 <ol>
 <li>Launch spark-shell and enter the following scala commands:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">datastax</span><span class="p">.</span><span class="nn">spark</span><span class="p">.</span><span class="nn">connector</span><span class="p">.</span><span class="n">_</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">apache</span><span class="p">.</span><span class="nn">spark</span><span class="p">.</span><span class="nn">sql</span><span class="p">.</span><span class="nn">cassandra</span><span class="p">.</span><span class="n">_</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">cassandraFormat</span><span class="p">(</span><span class="s">&quot;tables&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;system_schema&quot;</span><span class="p">).</span><span class="n">load</span><span class="p">().</span><span class="n">count</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">cassandraFormat</span><span class="p">(</span><span class="s">&quot;tables&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;system_schema&quot;</span><span class="p">).</span><span class="n">load</span><span class="p">().</span><span class="n">count</span><span class="p">()</span>
 </code></pre></div>
 <p><strong>You should expect to see the following output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ bin/spark-shell
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Using Spark<span class="s1">&#39;s default log4j profile: org/apache/spark/log4j-defaults.properties</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>bin/spark-shell
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Using<span class="w"> </span>Spark<span class="s1">&#39;s default log4j profile: org/apache/spark/log4j-defaults.properties</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s1">Setting default log level to &quot;WARN&quot;.</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">Spark context Web UI available at http://localhost:4040</span>
@@ -2553,23 +2555,23 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">      ____              __</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1">     / __/__  ___ _____/ /__</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1">    _\ \/ _ \/ _ `/ __/  &#39;</span>_/
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   /___/ .__/<span class="se">\_</span>,_/_/ /_/<span class="se">\_\ </span>  version <span class="m">3</span>.0.1
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>      /_/
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">   </span>/___/<span class="w"> </span>.__/<span class="se">\_</span>,_/_/<span class="w"> </span>/_/<span class="se">\_\ </span><span class="w">  </span>version<span class="w"> </span><span class="m">3</span>.0.1
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span>/_/
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Using Scala version <span class="m">2</span>.12.10 <span class="o">(</span>OpenJDK <span class="m">64</span>-Bit Server VM, Java <span class="m">11</span>.0.9.1<span class="o">)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Type <span class="k">in</span> expressions to have them evaluated.
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>Type :help <span class="k">for</span> more information.
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Using<span class="w"> </span>Scala<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.12.10<span class="w"> </span><span class="o">(</span>OpenJDK<span class="w"> </span><span class="m">64</span>-Bit<span class="w"> </span>Server<span class="w"> </span>VM,<span class="w"> </span>Java<span class="w"> </span><span class="m">11</span>.0.9.1<span class="o">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Type<span class="w"> </span><span class="k">in</span><span class="w"> </span>expressions<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>them<span class="w"> </span>evaluated.
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>Type<span class="w"> </span>:help<span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>scala&gt; import com.datastax.spark.connector._
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>import com.datastax.spark.connector._
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>scala&gt;<span class="w"> </span>import<span class="w"> </span>com.datastax.spark.connector._
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>import<span class="w"> </span>com.datastax.spark.connector._
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>scala&gt; import org.apache.spark.sql.cassandra._
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>import org.apache.spark.sql.cassandra._
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>scala&gt;<span class="w"> </span>import<span class="w"> </span>org.apache.spark.sql.cassandra._
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>import<span class="w"> </span>org.apache.spark.sql.cassandra._
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>scala&gt; spark.read.cassandraFormat<span class="o">(</span><span class="s2">&quot;tables&quot;</span>, <span class="s2">&quot;system_schema&quot;</span><span class="o">)</span>.load<span class="o">()</span>.count<span class="o">()</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>res0: <span class="nv">Long</span> <span class="o">=</span> <span class="m">25</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>scala&gt;<span class="w"> </span>spark.read.cassandraFormat<span class="o">(</span><span class="s2">&quot;tables&quot;</span>,<span class="w"> </span><span class="s2">&quot;system_schema&quot;</span><span class="o">)</span>.load<span class="o">()</span>.count<span class="o">()</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>res0:<span class="w"> </span><span class="nv">Long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>scala&gt; :quit
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>scala&gt;<span class="w"> </span>:quit
 </code></pre></div>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
@@ -2668,12 +2670,11 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>

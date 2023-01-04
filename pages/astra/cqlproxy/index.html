@@ -15,8 +15,14 @@
       
         <link rel="canonical" href="https://awesome-astra.github.io/pages/astra/cqlproxy/">
       
+      
+        <link rel="prev" href="../multi-regions/">
+      
+      
+        <link rel="next" href="../create-topic/">
+      
       <link rel="icon" href="../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -24,11 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -127,8 +132,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
@@ -136,8 +139,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2691,6 +2692,7 @@
                   
 
 
+
   <h1>‣ CQL Proxy</h1>
 
 <div class="admonition warning">
@@ -2708,62 +2710,62 @@
 <p>If you're building a new application using DataStax <a href="https://docs.datastax.com/en/driver-matrix/doc/driver_matrix/common/driverMatrix.html">drivers</a>, <code>cql-proxy</code> is not required, as the drivers can communicate directly with Astra. DataStax drivers have excellent support for Astra out-of-the-box, and are well-documented in the <a href="https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-datastax-drivers.html">driver-guide</a> guide.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Use the <code>-h</code> or <code>--help</code> flag to display a listing all flags and their corresponding descriptions and environment variables (shown below as items starting with <code>$</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ ./cql-proxy -h
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Usage: cql-proxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>./cql-proxy<span class="w"> </span>-h
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Usage:<span class="w"> </span>cql-proxy
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Flags:
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  -h, --help                                              Show context-sensitive help.
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  -b, --astra-bundle<span class="o">=</span>STRING                               Path to secure connect bundle <span class="k">for</span> an Astra database. Requires <span class="s1">&#39;--username&#39;</span> and <span class="s1">&#39;--password&#39;</span>. Ignored <span class="k">if</span> using the token or contact points option
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                                          <span class="o">(</span><span class="nv">$ASTRA_BUNDLE</span><span class="o">)</span>.
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  -t, --astra-token<span class="o">=</span>STRING                                Token used to authenticate to an Astra database. Requires <span class="s1">&#39;--astra-database-id&#39;</span>. Ignored <span class="k">if</span> using the bundle path or contact points option
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                                                          <span class="o">(</span><span class="nv">$ASTRA_TOKEN</span><span class="o">)</span>.
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  -i, --astra-database-id<span class="o">=</span>STRING                          Database ID of the Astra database. Requires <span class="s1">&#39;--astra-token&#39;</span> <span class="o">(</span><span class="nv">$ASTRA_DATABASE_ID</span><span class="o">)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      --astra-api-url<span class="o">=</span><span class="s2">&quot;https://api.astra.datastax.com&quot;</span>    URL <span class="k">for</span> the Astra API <span class="o">(</span><span class="nv">$ASTRA_API_URL</span><span class="o">)</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  -c, --contact-points<span class="o">=</span>CONTACT-POINTS,...                 Contact points <span class="k">for</span> cluster. Ignored <span class="k">if</span> using the bundle path or token option <span class="o">(</span><span class="nv">$CONTACT_POINTS</span><span class="o">)</span>.
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  -u, --username<span class="o">=</span>STRING                                   Username to use <span class="k">for</span> authentication <span class="o">(</span><span class="nv">$USERNAME</span><span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  -p, --password<span class="o">=</span>STRING                                   Password to use <span class="k">for</span> authentication <span class="o">(</span><span class="nv">$PASSWORD</span><span class="o">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  -r, --port<span class="o">=</span><span class="m">9042</span>                                         Default port to use when connecting to cluster <span class="o">(</span><span class="nv">$PORT</span><span class="o">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  -n, --protocol-version<span class="o">=</span><span class="s2">&quot;v4&quot;</span>                             Initial protocol version to use when connecting to the backend cluster <span class="o">(</span>default: v4, options: v3, v4, v5, DSEv1, DSEv2<span class="o">)</span> <span class="o">(</span><span class="nv">$PROTOCOL_VERSION</span><span class="o">)</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  -m, --max-protocol-version<span class="o">=</span><span class="s2">&quot;v4&quot;</span>                         Max protocol version supported by the backend cluster <span class="o">(</span>default: v4, options: v3, v4, v5, DSEv1, DSEv2<span class="o">)</span> <span class="o">(</span><span class="nv">$MAX_PROTOCOL_VERSION</span><span class="o">)</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  -a, --bind<span class="o">=</span><span class="s2">&quot;:9042&quot;</span>                                      Address to use to <span class="nb">bind</span> server <span class="o">(</span><span class="nv">$BIND</span><span class="o">)</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  -f, --config<span class="o">=</span>CONFIG                                     YAML configuration file <span class="o">(</span><span class="nv">$CONFIG_FILE</span><span class="o">)</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>      --debug                                             Show debug logging <span class="o">(</span><span class="nv">$DEBUG</span><span class="o">)</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>      --health-check                                      Enable liveness and readiness checks <span class="o">(</span><span class="nv">$HEALTH_CHECK</span><span class="o">)</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>      --http-bind<span class="o">=</span><span class="s2">&quot;:8000&quot;</span>                                 Address to use to <span class="nb">bind</span> HTTP server used <span class="k">for</span> health checks <span class="o">(</span><span class="nv">$HTTP_BIND</span><span class="o">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>      --heartbeat-interval<span class="o">=</span>30s                            Interval between performing heartbeats to the cluster <span class="o">(</span><span class="nv">$HEARTBEAT_INTERVAL</span><span class="o">)</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>      --idle-timeout<span class="o">=</span>60s                                  Duration between successful heartbeats before a connection to the cluster is considered unresponsive and closed <span class="o">(</span><span class="nv">$IDLE_TIMEOUT</span><span class="o">)</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>      --readiness-timeout<span class="o">=</span>30s                             Duration the proxy is unable to connect to the backend cluster before it is considered not ready <span class="o">(</span><span class="nv">$READINESS_TIMEOUT</span><span class="o">)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>      --num-conns<span class="o">=</span><span class="m">1</span>                                       Number of connection to create to each node of the backend cluster <span class="o">(</span><span class="nv">$NUM_CONNS</span><span class="o">)</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>      --rpc-address<span class="o">=</span>STRING                                Address to advertise <span class="k">in</span> the <span class="s1">&#39;system.local&#39;</span> table <span class="k">for</span> <span class="s1">&#39;rpc_address&#39;</span>. It must be <span class="nb">set</span> <span class="k">if</span> configuring peer proxies <span class="o">(</span><span class="nv">$RPC_ADDRESS</span><span class="o">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>      --data-center<span class="o">=</span>STRING                                Data center to use <span class="k">in</span> system tables <span class="o">(</span><span class="nv">$DATA_CENTER</span><span class="o">)</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>      --tokens<span class="o">=</span>TOKENS,...                                 Tokens to use <span class="k">in</span> the system tables. It<span class="err">&#39;</span>s not recommended <span class="o">(</span><span class="nv">$TOKENS</span><span class="o">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">                                              </span>Show<span class="w"> </span>context-sensitive<span class="w"> </span>help.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-b,<span class="w"> </span>--astra-bundle<span class="o">=</span>STRING<span class="w">                               </span>Path<span class="w"> </span>to<span class="w"> </span>secure<span class="w"> </span>connect<span class="w"> </span>bundle<span class="w"> </span><span class="k">for</span><span class="w"> </span>an<span class="w"> </span>Astra<span class="w"> </span>database.<span class="w"> </span>Requires<span class="w"> </span><span class="s1">&#39;--username&#39;</span><span class="w"> </span>and<span class="w"> </span><span class="s1">&#39;--password&#39;</span>.<span class="w"> </span>Ignored<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>token<span class="w"> </span>or<span class="w"> </span>contact<span class="w"> </span>points<span class="w"> </span>option
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">                                                          </span><span class="o">(</span><span class="nv">$ASTRA_BUNDLE</span><span class="o">)</span>.
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>-t,<span class="w"> </span>--astra-token<span class="o">=</span>STRING<span class="w">                                </span>Token<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>authenticate<span class="w"> </span>to<span class="w"> </span>an<span class="w"> </span>Astra<span class="w"> </span>database.<span class="w"> </span>Requires<span class="w"> </span><span class="s1">&#39;--astra-database-id&#39;</span>.<span class="w"> </span>Ignored<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>bundle<span class="w"> </span>path<span class="w"> </span>or<span class="w"> </span>contact<span class="w"> </span>points<span class="w"> </span>option
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">                                                          </span><span class="o">(</span><span class="nv">$ASTRA_TOKEN</span><span class="o">)</span>.
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span>-i,<span class="w"> </span>--astra-database-id<span class="o">=</span>STRING<span class="w">                          </span>Database<span class="w"> </span>ID<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>Astra<span class="w"> </span>database.<span class="w"> </span>Requires<span class="w"> </span><span class="s1">&#39;--astra-token&#39;</span><span class="w"> </span><span class="o">(</span><span class="nv">$ASTRA_DATABASE_ID</span><span class="o">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span>--astra-api-url<span class="o">=</span><span class="s2">&quot;https://api.astra.datastax.com&quot;</span><span class="w">    </span>URL<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Astra<span class="w"> </span>API<span class="w"> </span><span class="o">(</span><span class="nv">$ASTRA_API_URL</span><span class="o">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span>-c,<span class="w"> </span>--contact-points<span class="o">=</span>CONTACT-POINTS,...<span class="w">                 </span>Contact<span class="w"> </span>points<span class="w"> </span><span class="k">for</span><span class="w"> </span>cluster.<span class="w"> </span>Ignored<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>bundle<span class="w"> </span>path<span class="w"> </span>or<span class="w"> </span>token<span class="w"> </span>option<span class="w"> </span><span class="o">(</span><span class="nv">$CONTACT_POINTS</span><span class="o">)</span>.
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span>-u,<span class="w"> </span>--username<span class="o">=</span>STRING<span class="w">                                   </span>Username<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">for</span><span class="w"> </span>authentication<span class="w"> </span><span class="o">(</span><span class="nv">$USERNAME</span><span class="o">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span>-p,<span class="w"> </span>--password<span class="o">=</span>STRING<span class="w">                                   </span>Password<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">for</span><span class="w"> </span>authentication<span class="w"> </span><span class="o">(</span><span class="nv">$PASSWORD</span><span class="o">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span>-r,<span class="w"> </span>--port<span class="o">=</span><span class="m">9042</span><span class="w">                                         </span>Default<span class="w"> </span>port<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>when<span class="w"> </span>connecting<span class="w"> </span>to<span class="w"> </span>cluster<span class="w"> </span><span class="o">(</span><span class="nv">$PORT</span><span class="o">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span>-n,<span class="w"> </span>--protocol-version<span class="o">=</span><span class="s2">&quot;v4&quot;</span><span class="w">                             </span>Initial<span class="w"> </span>protocol<span class="w"> </span>version<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>when<span class="w"> </span>connecting<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>cluster<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span>v4,<span class="w"> </span>options:<span class="w"> </span>v3,<span class="w"> </span>v4,<span class="w"> </span>v5,<span class="w"> </span>DSEv1,<span class="w"> </span>DSEv2<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="nv">$PROTOCOL_VERSION</span><span class="o">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span>-m,<span class="w"> </span>--max-protocol-version<span class="o">=</span><span class="s2">&quot;v4&quot;</span><span class="w">                         </span>Max<span class="w"> </span>protocol<span class="w"> </span>version<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>cluster<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span>v4,<span class="w"> </span>options:<span class="w"> </span>v3,<span class="w"> </span>v4,<span class="w"> </span>v5,<span class="w"> </span>DSEv1,<span class="w"> </span>DSEv2<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="nv">$MAX_PROTOCOL_VERSION</span><span class="o">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span>-a,<span class="w"> </span>--bind<span class="o">=</span><span class="s2">&quot;:9042&quot;</span><span class="w">                                      </span>Address<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>to<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>server<span class="w"> </span><span class="o">(</span><span class="nv">$BIND</span><span class="o">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span>-f,<span class="w"> </span>--config<span class="o">=</span>CONFIG<span class="w">                                     </span>YAML<span class="w"> </span>configuration<span class="w"> </span>file<span class="w"> </span><span class="o">(</span><span class="nv">$CONFIG_FILE</span><span class="o">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span>--debug<span class="w">                                             </span>Show<span class="w"> </span>debug<span class="w"> </span>logging<span class="w"> </span><span class="o">(</span><span class="nv">$DEBUG</span><span class="o">)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span>--health-check<span class="w">                                      </span>Enable<span class="w"> </span>liveness<span class="w"> </span>and<span class="w"> </span>readiness<span class="w"> </span>checks<span class="w"> </span><span class="o">(</span><span class="nv">$HEALTH_CHECK</span><span class="o">)</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span>--http-bind<span class="o">=</span><span class="s2">&quot;:8000&quot;</span><span class="w">                                 </span>Address<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>to<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>HTTP<span class="w"> </span>server<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>health<span class="w"> </span>checks<span class="w"> </span><span class="o">(</span><span class="nv">$HTTP_BIND</span><span class="o">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span>--heartbeat-interval<span class="o">=</span>30s<span class="w">                            </span>Interval<span class="w"> </span>between<span class="w"> </span>performing<span class="w"> </span>heartbeats<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>cluster<span class="w"> </span><span class="o">(</span><span class="nv">$HEARTBEAT_INTERVAL</span><span class="o">)</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span>--idle-timeout<span class="o">=</span>60s<span class="w">                                  </span>Duration<span class="w"> </span>between<span class="w"> </span>successful<span class="w"> </span>heartbeats<span class="w"> </span>before<span class="w"> </span>a<span class="w"> </span>connection<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>cluster<span class="w"> </span>is<span class="w"> </span>considered<span class="w"> </span>unresponsive<span class="w"> </span>and<span class="w"> </span>closed<span class="w"> </span><span class="o">(</span><span class="nv">$IDLE_TIMEOUT</span><span class="o">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">      </span>--readiness-timeout<span class="o">=</span>30s<span class="w">                             </span>Duration<span class="w"> </span>the<span class="w"> </span>proxy<span class="w"> </span>is<span class="w"> </span>unable<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>cluster<span class="w"> </span>before<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>considered<span class="w"> </span>not<span class="w"> </span>ready<span class="w"> </span><span class="o">(</span><span class="nv">$READINESS_TIMEOUT</span><span class="o">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span>--num-conns<span class="o">=</span><span class="m">1</span><span class="w">                                       </span>Number<span class="w"> </span>of<span class="w"> </span>connection<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>to<span class="w"> </span>each<span class="w"> </span>node<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>cluster<span class="w"> </span><span class="o">(</span><span class="nv">$NUM_CONNS</span><span class="o">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span>--rpc-address<span class="o">=</span>STRING<span class="w">                                </span>Address<span class="w"> </span>to<span class="w"> </span>advertise<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;system.local&#39;</span><span class="w"> </span>table<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;rpc_address&#39;</span>.<span class="w"> </span>It<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>configuring<span class="w"> </span>peer<span class="w"> </span>proxies<span class="w"> </span><span class="o">(</span><span class="nv">$RPC_ADDRESS</span><span class="o">)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span>--data-center<span class="o">=</span>STRING<span class="w">                                </span>Data<span class="w"> </span>center<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">in</span><span class="w"> </span>system<span class="w"> </span>tables<span class="w"> </span><span class="o">(</span><span class="nv">$DATA_CENTER</span><span class="o">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span>--tokens<span class="o">=</span>TOKENS,...<span class="w">                                 </span>Tokens<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>system<span class="w"> </span>tables.<span class="w"> </span>It<span class="err">&#39;</span>s<span class="w"> </span>not<span class="w"> </span>recommended<span class="w"> </span><span class="o">(</span><span class="nv">$TOKENS</span><span class="o">)</span>
 </code></pre></div>
 <p>To pass configuration to <code>cql-proxy</code>, either command-line flags, environment variables, or a configuration file can be used. Using the <code>docker</code> method as an example, the following samples show how the token and database ID are defined with each method.</p>
 <h3 id="using-flags">Using flags<a class="headerlink" href="#using-flags" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker run -p <span class="m">9042</span>:9042 <span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --rm datastax/cql-proxy:v0.1.2 <span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  --astra-token &lt;astra-token&gt; --astra-database-id &lt;astra-datbase-id&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">9042</span>:9042<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--rm<span class="w"> </span>datastax/cql-proxy:v0.1.2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--astra-token<span class="w"> </span>&lt;astra-token&gt;<span class="w"> </span>--astra-database-id<span class="w"> </span>&lt;astra-datbase-id&gt;
 </code></pre></div>
 <h3 id="using-environment-variables">Using environment variables<a class="headerlink" href="#using-environment-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker run -p <span class="m">9042</span>:9042  <span class="se">\</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  --rm datastax/cql-proxy:v0.1.2 <span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -e <span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;astra-token&gt; -e <span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span>&lt;astra-datbase-id&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">9042</span>:9042<span class="w">  </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--rm<span class="w"> </span>datastax/cql-proxy:v0.1.2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;astra-token&gt;<span class="w"> </span>-e<span class="w"> </span><span class="nv">ASTRA_DATABASE_ID</span><span class="o">=</span>&lt;astra-datbase-id&gt;
 </code></pre></div>
 <h3 id="using-a-configuration-file">Using a configuration file<a class="headerlink" href="#using-a-configuration-file" title="Permanent link">&para;</a></h3>
 <p>Proxy settings can also be passed using a configuration file with the <code>--config /path/to/proxy.yaml</code> flag. This can be mixed and matched with command-line flags and environment variables. Here are some example configuration files:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">contact-points</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cassandra</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cassandra</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9042</span><span class="w"></span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9042</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># ...</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">contact-points</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cassandra</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cassandra</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9042</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9042</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># ...</span>
 </code></pre></div>
 <p>or with a Astra token:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">astra-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;astra-token&gt;</span><span class="w"></span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">astra-database-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;astra-database-id&gt;</span><span class="w"></span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9042</span><span class="w"></span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># ...</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">astra-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;astra-token&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">astra-database-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;astra-database-id&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9042</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># ...</span>
 </code></pre></div>
 <p>All configuration keys match their command-line flag counterpart, e.g. <code>--astra-bundle</code> is
 <code>astra-bundle:</code>, <code>--contact-points</code> is <code>contact-points:</code> etc.</p>
@@ -2773,18 +2775,18 @@
 <h5 id="multi-region-setup">Multi-region setup<a class="headerlink" href="#multi-region-setup" title="Permanent link">&para;</a></h5>
 <p>Here's an example of configuring multi-region failover with two proxies. A proxy is started for each region of the cluster connecting to it using that region's bundle. They all share a common configuration file that contains the full list of proxies.</p>
 <p><em>Note:</em> Only bundles are supported for multi-region setups.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cql-proxy --astra-bundle astra-region1-bundle.zip --username token --passowrd &lt;astra-token&gt; <span class="se">\</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  --bind <span class="m">127</span>.0.0.1:9042 --rpc-address <span class="m">127</span>.0.0.1 --data-center dc-1 --config proxy.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cql-proxy<span class="w"> </span>--astra-bundle<span class="w"> </span>astra-region1-bundle.zip<span class="w"> </span>--username<span class="w"> </span>token<span class="w"> </span>--passowrd<span class="w"> </span>&lt;astra-token&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1:9042<span class="w"> </span>--rpc-address<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--data-center<span class="w"> </span>dc-1<span class="w"> </span>--config<span class="w"> </span>proxy.yaml
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cql-proxy ---astra-bundle astra-region2-bundle.zip --username token --passowrd &lt;astra-token&gt; <span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  --bind <span class="m">127</span>.0.0.2:9042 --rpc-address <span class="m">127</span>.0.0.2 --data-center dc-2 --config proxy.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cql-proxy<span class="w"> </span>---astra-bundle<span class="w"> </span>astra-region2-bundle.zip<span class="w"> </span>--username<span class="w"> </span>token<span class="w"> </span>--passowrd<span class="w"> </span>&lt;astra-token&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.2:9042<span class="w"> </span>--rpc-address<span class="w"> </span><span class="m">127</span>.0.0.2<span class="w"> </span>--data-center<span class="w"> </span>dc-2<span class="w"> </span>--config<span class="w"> </span>proxy.yaml
 </code></pre></div>
 <p>The peers settings are configured using a yaml file. It's a good idea to explicitly provide the <code>--data-center</code> flag, otherwise; these values are pulled from the backend cluster and would need to be pulled from the <code>system.local</code> and <code>system.peers</code> table to properly setup the peers <code>data-center:</code> values. Here's an example <code>proxy.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">peers</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rpc-address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"></span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">data-center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc-1</span><span class="w"></span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rpc-address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.2</span><span class="w"></span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">data-center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc-2</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">peers</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rpc-address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">data-center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc-1</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rpc-address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.2</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">data-center</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc-2</span>
 </code></pre></div>
 <p><em>Note:</em> It's okay for the <code>peers:</code> to contain entries for the current proxy itself because they'll just be omitted.</p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
@@ -2799,7 +2801,7 @@
 <ol>
 <li>Build <code>cql-proxy</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>go build
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>go<span class="w"> </span>build
 </code></pre></div>
 <ol>
 <li>
@@ -2807,7 +2809,7 @@
 </li>
 <li>
 <p><a href="https://astra.datastax.com/">DataStax Astra</a> cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>./cql-proxy --astra-token &lt;astra-token&gt; --astra-database-id &lt;astra-database-id&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>./cql-proxy<span class="w"> </span>--astra-token<span class="w"> </span>&lt;astra-token&gt;<span class="w"> </span>--astra-database-id<span class="w"> </span>&lt;astra-database-id&gt;
 </code></pre></div>
 <p>The <code>&lt;astra-token&gt;</code> can be generated using these <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">instructions</a>. The proxy also supports using the <a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html#_getting_your_secure_connect_bundle">Astra Secure Connect Bundle</a> along with a client ID and secret generated using these <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">instructions</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./cql-proxy --astra-bundle &lt;your-secure-connect-zip&gt; \
@@ -2816,7 +2818,7 @@
 </li>
 <li>
 <p><a href="https://cassandra.apache.org/">Apache Cassandra</a> cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./cql-proxy --contact-points &lt;cluster node IPs or DNS names&gt; <span class="o">[</span>--username &lt;username&gt;<span class="o">]</span> <span class="o">[</span>--password &lt;password&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./cql-proxy<span class="w"> </span>--contact-points<span class="w"> </span>&lt;cluster<span class="w"> </span>node<span class="w"> </span>IPs<span class="w"> </span>or<span class="w"> </span>DNS<span class="w"> </span>names&gt;<span class="w"> </span><span class="o">[</span>--username<span class="w"> </span>&lt;username&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--password<span class="w"> </span>&lt;password&gt;<span class="o">]</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2827,21 +2829,21 @@
 <ul>
 <li><a href="https://astra.datastax.com/">DataStax Astra</a> cluster:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker run -p <span class="m">9042</span>:9042 <span class="se">\</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  datastax/cql-proxy:v0.1.2 <span class="se">\</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  --astra-token &lt;astra-token&gt; --astra-database-id &lt;astra-database-id&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">9042</span>:9042<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>datastax/cql-proxy:v0.1.2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--astra-token<span class="w"> </span>&lt;astra-token&gt;<span class="w"> </span>--astra-database-id<span class="w"> </span>&lt;astra-database-id&gt;
 </code></pre></div>
 <p>The <code>&lt;astra-token&gt;</code> can be generated using these <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">instructions</a>. The proxy also supports using the <a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html#_getting_your_secure_connect_bundle">Astra Secure Connect Bundle</a>, but it requires mounting the bundle to a volume in the container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker run -v &lt;your-secure-connect-bundle.zip&gt;:/tmp/scb.zip -p <span class="m">9042</span>:9042 <span class="se">\</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>--rm datastax/cql-proxy:v0.1.2 <span class="se">\</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>--astra-bundle /tmp/scb.zip --username &lt;astra-client-id&gt; --password &lt;astra-client-secret&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>&lt;your-secure-connect-bundle.zip&gt;:/tmp/scb.zip<span class="w"> </span>-p<span class="w"> </span><span class="m">9042</span>:9042<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>--rm<span class="w"> </span>datastax/cql-proxy:v0.1.2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>--astra-bundle<span class="w"> </span>/tmp/scb.zip<span class="w"> </span>--username<span class="w"> </span>&lt;astra-client-id&gt;<span class="w"> </span>--password<span class="w"> </span>&lt;astra-client-secret&gt;
 </code></pre></div>
 <ul>
 <li>
 <p><a href="https://cassandra.apache.org/">Apache Cassandra</a> cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker run -p <span class="m">9042</span>:9042 <span class="se">\</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  datastax/cql-proxy:v0.1.2 <span class="se">\</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  --contact-points &lt;cluster node IPs or DNS names&gt; <span class="o">[</span>--username &lt;username&gt;<span class="o">]</span> <span class="o">[</span>--password &lt;password&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">9042</span>:9042<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>datastax/cql-proxy:v0.1.2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>--contact-points<span class="w"> </span>&lt;cluster<span class="w"> </span>node<span class="w"> </span>IPs<span class="w"> </span>or<span class="w"> </span>DNS<span class="w"> </span>names&gt;<span class="w"> </span><span class="o">[</span>--username<span class="w"> </span>&lt;username&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--password<span class="w"> </span>&lt;password&gt;<span class="o">]</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2850,7 +2852,7 @@
 </ol>
 <h3 id="homebrew-on-a-mac">Homebrew on a Mac<a class="headerlink" href="#homebrew-on-a-mac" title="Permanent link">&para;</a></h3>
 <p>Install with one simple command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>brew install cql-proxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>brew<span class="w"> </span>install<span class="w"> </span>cql-proxy
 </code></pre></div></p>
 <h3 id="use-kubernetes">Use Kubernetes<a class="headerlink" href="#use-kubernetes" title="Permanent link">&para;</a></h3>
 <p>Using Kubernetes with <code>cql-proxy</code> requires a number of steps:</p>
@@ -2886,33 +2888,33 @@
 <p>Create a configmap. Use the same secure bundle that was specified in the <code>cql-proxy.yaml</code>.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>kubectl create configmap cql-proxy-configmap --from-file /tmp/scb.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>configmap<span class="w"> </span>cql-proxy-configmap<span class="w"> </span>--from-file<span class="w"> </span>/tmp/scb.zip
 </code></pre></div>
 <ol>
 <li>Check the configmap that was created.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kubectl describe configmap config
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>configmap<span class="w"> </span>config
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  Name:         config
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  Namespace:    default
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  Labels:       &lt;none&gt;
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  Annotations:  &lt;none&gt;
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>Name:<span class="w">         </span>config
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span>Namespace:<span class="w">    </span>default
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>Labels:<span class="w">       </span>&lt;none&gt;
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span>Annotations:<span class="w">  </span>&lt;none&gt;
 <a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  <span class="nv">Data</span>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  <span class="o">====</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="nv">Data</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span><span class="o">====</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  <span class="nv">BinaryData</span>
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>  <span class="o">====</span>
-<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>  scb.zip: <span class="m">12311</span> bytes
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">  </span><span class="nv">BinaryData</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span><span class="o">====</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">  </span>scb.zip:<span class="w"> </span><span class="m">12311</span><span class="w"> </span>bytes
 </code></pre></div>
 <ol>
 <li>Create a Kubernetes deployment with the YAML file you created:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>kubectl create -f cql-proxy.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>cql-proxy.yaml
 </code></pre></div>
 <ol>
 <li>Check the logs:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>kubectl logs &lt;deployment-name&gt;
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>&lt;deployment-name&gt;
 </code></pre></div></li>
 </ol>
 <h2 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
@@ -3012,12 +3014,11 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>
