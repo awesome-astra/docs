@@ -8,7 +8,7 @@ nav:
     - Astra Core:
       - ‣ Create Account: pages/astra/create-account.md
       - ‣ Create Token: pages/astra/create-token.md
-      - ‣ Astra Cli: pages/astra/astra-cli.md
+      - ‣ Astra CLI: pages/astra/astra-cli.md
       - ‣ FAQ: pages/astra/faq.md
     - AstraDB:
       - ‣ Create Database: pages/astra/create-instance.md
@@ -35,6 +35,7 @@ nav:
       - ‣ Grafana: pages/tools/integration/grafana.md
       - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ Presto: pages/data/explore/presto.md
+      - ‣ Tableau: pages/data/explore/tableau.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
       - ‣ Trino: pages/data/explore/trino.md
     - Data Modelling:
