@@ -23,28 +23,37 @@ The configuration and required certificates are provided to the user through a z
 
 **✅ Step 1 : Select your database**
 
-Once signed in Astra the list of available databases is located in the menu on the left.
+Once you sign in, locate the list of available databases on the left navigation bar.
 
 - Select the database that you want to work with.
 
-- Click on the `CONNECT` tab or the big blue button `[CONNECT]` in the upper right hand corner.
+- Click on the `Connect` tab or the `"Connect"` blue button in the upper right hand corner.
 
 <img src="../../../img/astra/secureconnectbundle-db.png" />
 
 **✅ Step 2 : Download the ZIP**
 
-- On this screen look for **`Connect using a driver`**. You can pick any of the folowing options; `Node.js` (`javascript`), `Python` or `Java`. **It will be the same file download.**
+- On this screen, make sure you pick the **"Drivers"** connection method, and then the **"Native"** type in the drop-down (as opposed to the "Cloud" type).
 
-- Click on `Download Bundle` and  select the region that you want to use.
+- Pick any of the available languages, it does not matter: the bundle zipfile _is one and the same_.
 
-- Click on target region to copy the link locally.
+- Click on `Download Bundle` and select the region that you want to use.
 
 <img src="../../../img/astra/secureconnectbundle-regions.png" />
 
+You now have several options:
+
+1. get the file directly with the "Download Secure Bundle" button;
+2. copy the generated URL to the bundle and use it wherever you want (within a few minutes before the link expires);
+3. directly copy a ready-made `cURL` command to paste in a console and have the downloaded bundle zipfile there;
+4. same as before but using the `wget` console utility.
+
+<img src="../../../img/astra/secureconnectbundle-download.png" />
+
 #### Remarks
 
-- Most browsers will give you the option to open the zip file directly. _Do not do that, save it locally instead_: the bundle zipfile will be passed
+- If you download the file directly, be aware that most browsers will give you the option to open the zip file directly. _Do not do that, save it locally instead_: the bundle zipfile has to be passed
   to the drivers as is!
 
-- The generated link to the bundle zipfile will expire a few minutes after it is generated. If you wait too long on the "Connect" page,
+- The link to the bundle zipfile will expire a few minutes after it is generated. If you wait too long,
   you might end up with a faulty bundle. As a check, make sure the zipfile you downloaded is around 12-13 KB in size.
