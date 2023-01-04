@@ -1,8 +1,8 @@
-The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The AStra CLI is available across astra services and is designed to get you working quickly with Astra, with an emphasis on automation.
+The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The Astra CLI is available across Astra services and is designed to get you working quickly with Astra, with an emphasis on automation.
 
 ???+ info "Setup your Astra account "
 
-    To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with `Organization Administration` role.
+    To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with the `Organization Administration` role.
 
 ## Installation
 
@@ -12,7 +12,7 @@ The current release of the Astra CLI is: ![Latest Release](https://img.shields.i
 - For information about the latest release, see the [release notes](https://github.com/datastax/astra-cli/releases). 
 - To find your installed version and see if you need to update, run `astra --version`
 
-The Astra CLI is available to install in **Windows**, **MacOS** and **Linux** environments.
+The Astra CLI is available to install on **Windows**, **MacOS** and **Linux** environments.
 
 ### 1. Install on `MAC OS`
 
@@ -20,7 +20,7 @@ The Astra CLI is available to install in **Windows**, **MacOS** and **Linux** en
 
 Homebrew is the easiest way to manage your CLI install. It provides convenient ways to install, update, and uninstall. If you don't have homebrew available on your system, install homebrew before continuing.
 
-You can install the Astra CLI on macOS by updating your brew repository information, and then running the install command:
+You can install the Astra CLI on MacOS by updating your brew repository information, and then running the install command:
 
 ```
 brew install datastax/astra-cli/astra-cli
@@ -30,7 +30,7 @@ The Homebrew formula of Astra CLI installs a completion file named astra in the 
 
 **✅ 1.2 Manual Installation**
 
-To install (or reinstall) the CLI uses command in a terminal:
+To install (or reinstall) the CLI use the following command in a terminal:
 
 ```
 curl -Ls "https://dtsx.io/get-astra-cli" | bash
@@ -40,13 +40,13 @@ curl -Ls "https://dtsx.io/get-astra-cli" | bash
 
     - The Astra CLI is installed in `~/.astra/cli`. This folder is deleted and recreated during installation.
     
-    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallations.
+    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallation.
 
 ### 2. Install on `LINUX`
 
 **✅ 2.1 Manual Installation**
 
-To install (or reinstall) the CLI uses command in a terminal:
+To install (or reinstall) the CLI the following command in a terminal:
 
 ```
 curl -Ls "https://dtsx.io/get-astra-cli" | bash
@@ -68,9 +68,9 @@ _Installation with package managers (yum, apt) is not available yet but is high 
 
 ### 3. Install on `WINDOWS`
 
-- Download windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip)
+- Download a Windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip)
 
-- Unzip archive in folder or your choice for instance `C:/Programs/astra-cli`
+- Unzip the archive in folder or your choice, for instance `C:/Programs/astra-cli`
 
 - Add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
 
@@ -78,7 +78,7 @@ _Installation with package managers (yum, apt) is not available yet but is high 
 
 ### 1. Setup
 
-Before issuing commands to init to initialize the configuration file `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reuse for your commands.
+Before issuing commands to initialize the configuration file `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
 
 ```
 astra setup
@@ -101,11 +101,11 @@ astra setup
     🔑 Enter token (starting with AstraCS...):
     ```
 
-You are all set. The configuration (mainly your token) is stored in file `~/.astrarc`.
+You are all set! The configuration (mainly your token) is stored in the file `~/.astrarc`.
 
 ### 2. First commands
 
-- Display current version of the cli, validating setup is complete.
+- Display the current version of the CLI, validating setup is complete.
 
 ```
 astra --version
@@ -130,7 +130,7 @@ astra config list
 
 ### 3. Get Help
 
-The solution provides extensive documentation for any command. It also provides som bash autocompletion, use the `TAB` key twice to get a list of propositions.
+The solution provides extensive documentation for any command. It also provides some bash autocompletion, use the `TAB` key twice to get a list of options.
 
 **✅ 3a - Autocompletion**
 
@@ -146,7 +146,7 @@ astra <TAB> <TAB>
 
 **✅ 3b - Documentation**
 
-Groups of command will get you the different command avalable.
+Groups of commands will get you the different commands avalable.
 
 - Display main help
 
@@ -171,7 +171,7 @@ astra help
     See 'astra help <command>' for more information on a specific command.
     ```
 
-- Display help for command group `astra db`
+- Display help for a command group `astra db`
 
 ```
 astra help db
@@ -215,7 +215,7 @@ astra help db
 
 - Display help for unitary command `astra db list`
 
-For unitary commands all options details are provided. 
+For unitary commands, all options and details are provided. 
 
 ```
 astra help db list
@@ -262,7 +262,7 @@ astra help db list
 
 **✅ 1a - list**
 
-To get the list of non terminated database in your oganization use the command `list` in the group `db`.
+To get the list of non terminated database in your oganization, use the command `list` in the group `db`.
 
 ```
 astra db list
@@ -285,7 +285,7 @@ astra db list
 
 **✅ 1b - Get Help**
 
-To get help on a command always prefix with `astra help XXX`
+To get help on a command, always prefix with `astra help XXX`
 
 ```
 astra help db list
@@ -392,7 +392,7 @@ astra db list -o json
 
 **✅ 2a - Create Database** 
 
-If not provided the region will be the default free region and the keyspace will be the database name but you can change then with `-r` and `-k` respectivitely.
+If not provided, the region will be the default free region and the keyspace will be the database name but you can change then with `-r` and `-k` respectivitely.
 
 ```
 astra db create demo
@@ -400,11 +400,11 @@ astra db create demo
 
 **✅ 2b - Options ` --if-not-exist` and `--wait`** 
 
-- Database name does not ensure unicity (database id does) as such if you issue the command multiple times you will end up with multiple instances. To change this behaviour you can use `--if-not-exist`
+- The database name does not ensure unicity (the database id does). As such, if you issue the command multiple times you will end up with multiple instances. To change this behavior, you can use `--if-not-exist`
 
-- Database creation is asynchronous operation. Still during your CI/CD you want the Db to be `ACTIVE` before moving forward. The option `--wait` will trigger a blocking command until the db is ready
+- Database creation is an asynchronous operation. In some situations, such as during your CI/CD, you likely will want the db to be `ACTIVE` before moving forward. The option `--wait` will trigger a blocking command until the db is ready
 
-- On the free tier, after a period of inactivity the database moves to `HIBERNATED` state. The creation command, will resume the db when needed.
+- On the free tier, after a period of inactivity, the database moves to a `HIBERNATED` state. The creation command, will resume the db when needed.
 
 ```
 astra db create demo -k ks2 --if-not-exist --wait
@@ -412,7 +412,7 @@ astra db create demo -k ks2 --if-not-exist --wait
 
 **✅ 2c - Get help** 
 
-To show help enter following command: 
+To show help, enter following command: 
 
 ```
 astra help db create
@@ -478,7 +478,7 @@ astra help db create
 
 ### 3. Resume database
 
-In the free tier, after 23H of inactivity your database got hibernated. To wake up the db you can use the `resume command`
+In the free tier, after 23H of inactivity your database will be hibernated. To wake up the db, you can use the `resume` command.
 
 **✅ 2a - Resuming** 
 
@@ -527,7 +527,7 @@ astra db resume hemidactylus
 astra db get demo
 ```
 
-In the output you specially see the list of keyspaces available and the different regions.
+In the output, you specially see the list of keyspaces available and the different regions.
 
 ???+ abstract "🖥️ Sample output" 
 
@@ -549,7 +549,7 @@ In the output you specially see the list of keyspaces available and the differen
     +------------------------+-----------------------------------------+
     ```
 
-**✅ 4b. To get a special property you can add the option `--key`. Multiple keys are available: `id`, `status`, `cloud`, `keyspace`, `keyspaces`, `region`, `regions`. Notice that the output is raw. This command is expected to be used in scripts**
+**✅ 4b. To get a special property, you can add the option `--key`. Multiple keys are available: `id`, `status`, `cloud`, `keyspace`, `keyspaces`, `region`, `regions`. Notice that the output is raw. This command is expected to be used in scripts**
 
 ```
 astra db get demo --key id
@@ -583,18 +583,18 @@ astra db delete demo2
 
 ### 6. Working with keyspaces
 
-A keyspace is created when you create the database. Default CLI behaviour is to provide same values for keyspace
-and database names. But you can define your own keyspace name with the flag `-k`.
+A keyspace is created when you create the database. The default CLI behaviour is to provide the same values for keyspace
+and database names. You can also define your own keyspace name with the flag `-k`.
 
 **✅ 6a - Create new keyspace** 
 
-- To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you providing idempotent scripts.
+- To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you provide idempotent scripts.
 
 ```
 astra db create-keyspace demo -k ks2 --if-not-exist
 ```
 
-- If the database is not found you will get a warning message and dedicated code returned. To see your new keyspace you can display your database details
+- If the database is not found you will get a warning message and a dedicated code returned. To see your new keyspace you can display your database details
 
 ```
 astra db list-keyspaces demo
@@ -610,11 +610,11 @@ astra help db create-keyspace
 
 [Cqlsh](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `cqlsh` and do the integration for you.
 
-Astra Cli will **download**, **install**, **setup** and **wrap** `cqlsh` for you to interact with Astra.
+Astra CLI will **download**, **install**, **setup** and **wrap** `cqlsh` for you to interact with Astra.
 
 **✅ 7a - Interactive mode** 
 
-If no option are provided,  you enter `cqlsh` interactive mode
+If no options are provided,  you enter `cqlsh` interactive mode
 
 ```
 astra db cqlsh demo
@@ -632,7 +632,7 @@ astra db cqlsh demo
 
 **✅ 7b - Execute CQL** 
 
-To execute CQL Statement with `cqlsh` use the flag `-e`.
+To execute CQL Statements with `cqlsh` use the flag `-e`.
 
 ```
 astra db cqlsh demo -e "describe keyspaces;"
@@ -650,9 +650,9 @@ astra db cqlsh demo -f sample.cql
 
 **✅ 8a - Setup** 
 
-[Dsbulk](https://github.com/datastax/dsbulk) stands for DataStax Bulk Loader. It is a standalone program to load, unload and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.
+[DSBulk](https://github.com/datastax/dsbulk) stands for DataStax Bulk Loader. It is a standalone program to load, unload, and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.
 
-As for `cqlsh` the cli will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
+Similar to `cqlsh` the CLI will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
 
 - Make sure we have a db `demo` with a keyspace `demo`
 
@@ -709,7 +709,7 @@ astra db load demo \
   --schema.allowMissingFields true
 ```
 
-The first time the line `DSBulk is starting please wait` can take a few seconds to appear. The reason is the cli is download `dsbulk` if not downloaded before.
+The first time the line `DSBulk is starting please wait` can take a few seconds to appear. The reason is the CLI is downloading `dsbulk` if it was not downloaded before.
 
 ???+ abstract "🖥️ Sample output" 
 
@@ -804,7 +804,7 @@ astra db unload demo -k demo -t cities_by_country -url /tmp/unload
 
 **✅ 9a - Default values** 
 
-Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the current folder.
+Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in a current folder.
 
 ```
 mkdir db-demo
@@ -815,7 +815,7 @@ ls
 
 **✅ 9b - Download in target folder** 
 
-Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the  folder provide with option `-d` (`--output-director`).
+Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the folder provided with option `-d` (`--output-director`).
 
 ```
 astra db download-scb demo -d /tmp
@@ -831,7 +831,7 @@ astra db download-scb demo -f /tmp/demo.zip
 
 ### 10. Create `.env` file
 
-To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APis.... 
+To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APIs.... 
 
 This command will create a file `.env` with a set of variables that are relevant to be defined as environment variables
 
@@ -908,7 +908,7 @@ astra db list-regions-classic
 
 **✅ 1a - list**
 
-To get the list of tenant in your oganization use the command `list` in the group `streaming`.
+To get the list of tenants in your oganization, use the command `list` in the group `streaming`.
 
 ```
 astra streaming list
@@ -987,7 +987,7 @@ To create a tenant with default cloud (`aws`), default region (`useast2`), plan 
 astra streaming create new_tenant_from_cli
 ```
 
-To know all supported option please use
+To view all supported options please use
 
 ```
 astra help streaming create
@@ -1001,7 +1001,7 @@ astra help streaming create
 astra streaming get trollsquad-2022
 ```
 
-The pulsar token is not displayed in this view as too loong, there are dedicated command to display it.
+The pulsar token is not displayed in this view as it is too loong, but there are dedicated commands to display it.
 
 ???+ abstract "🖥️ Sample output" 
 
@@ -1069,13 +1069,13 @@ astra streaming delete trollsquad
 
 ### 5. Pulsar-Shell
 
-[Pulsar-Shell](https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/) is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `pulsar-shell` and do the integration for you.
+[Pulsar-Shell](https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/) is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `pulsar-shell` and do the integration and setup for you.
 
-Astra Cli will **download**, **install**, **setup** and **wrap** `pulsar-shell` for you to interact with Astra.
+Astra CLI will **download**, **install**, **setup** and **wrap** `pulsar-shell` for you to interact with Astra.
 
 **✅ 5a - Interactive mode** 
 
-If no option are provided,  you enter `pulsar-shell` interactive mode
+If no options are provided,  you enter `pulsar-shell` interactive mode
 
 ```
 astra streaming pulsar-shell trollsquad-2022
@@ -1127,24 +1127,24 @@ astra streaming pulsar-shell trollsquad-2022 -f create_topics.txt
 
 ### 6. Pulsar-client and Admin
 
-Pulsar client and admin are provided within pulsar-shell. This section simply provide some examples to write and read in a topic with client.
+Pulsar client and admin are provided within pulsar-shell. This section simply provides some examples to write and read in a topic with a client.
 
 **✅ 6a - Create a topic `demo`**.
 
 
-- First start the pulsar-shell on 2 different terminal
+- First start the pulsar-shell on 2 different terminals
 
 ```
 astra streaming pulsar-shell trollsquad-2022
 ```
 
-- Then on first terminal create a topic `demo` in namespace `default`
+- Then on first terminal create a topic `demo` in the namespace `default`
 
 ```
 admin topics create persistent://trollsquad-2022/default/demo
 ```
 
-- You can now list the different topics in namespace `default`
+- You can now list the different topics in the namespace `default`
 
 ```
 admin topics list trollsquad-2022/default
@@ -1234,7 +1234,7 @@ astra user list
 astra user invite cedrick.lunven@gmail.com
 ```
 
-Check the list of user and notice the new user invited.
+Check the list of users and notice the new user invited.
 
 ```
 astra user list
@@ -1281,7 +1281,7 @@ astra role get "Database Administrator"
 
 ## Configuration
 
-If you work with multiple organizations it could be useful to switch from configuration to another, one token to another. The Cli provides a configuration management solution to handle this use case.
+If you work with multiple organizations it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
 
 **✅ 1a - List available configuration**
 
