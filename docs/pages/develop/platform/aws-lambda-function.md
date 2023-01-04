@@ -270,22 +270,26 @@ You can learn more about the code above by reading the [**java-driver**](https:/
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-core</artifactId>
-      <version>1.2.1</version>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-core/1.2.2/versions -->
+      <version>1.2.2</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-events</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-events/3.11.0/versions -->
       <version>3.11.0</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-log4j2</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-log4j2/1.5.1/versions -->
       <version>1.5.1</version>
     </dependency>
     <dependency>
       <groupId>com.datastax.oss</groupId>
       <artifactId>java-driver-core</artifactId>
-      <version>4.14.1</version>
+      <!--Use the latest version from https://search.maven.org/artifact/com.datastax.oss/java-driver-core -->
+      <version>4.15.0</version>
     </dependency>  
 ```
 
@@ -384,7 +388,10 @@ Notice the CQL version output and return value of **3.4.5**.
 
 ### <span class="nosurface" markdown="1">✅ 1. </span> Create a deployment package.
 
-A deployment package is a `.zip` or `.jar` file archive with compiled function code and dependencies. In this tutorial, we use [Apache Maven™](https://maven.apache.org/) to create, compile and package a function into a `.jar` file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function: a) [**aws-lambda-java-core**](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) that defines necessary interfaces and classes to create functions; b) [**Stargate**](https://stargate.io/) that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and c) [**gRPC**](https://grpc.io/) that works as a high performance Remote Procedure Call (RPC) framework.
+A deployment package is a `.zip` or `.jar` file archive with compiled function code and dependencies. In this tutorial, we use [Apache Maven™](https://maven.apache.org/) to create, compile and package a function into a `.jar` file. We need to include the following pieces into a deployment package to access Astra DB from an AWS Lambda function:
+  - [**aws-lambda-java-core**](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) that defines necessary interfaces and classes to create functions;
+  - [**Stargate**](https://stargate.io/) that enables connectivity to Apache Cassandra, DataStax Astra DB and DataStax Enterprise; and
+  - [**gRPC**](https://grpc.io/) that works as a high performance Remote Procedure Call (RPC) framework.
 
 1. Open a command prompt and create a new project using [Apache Maven™](https://maven.apache.org/):
 ```bash
@@ -450,26 +457,31 @@ You can learn more about the code above by reading the [**Stargate**](https://st
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-core</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-core/1.2.2/versions -->
       <version>1.2.1</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-events</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-events/3.11.0/versions -->
       <version>3.11.0</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-log4j2</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/com.amazonaws/aws-lambda-java-log4j2/1.5.1/versions -->
       <version>1.5.1</version>
     </dependency>
     <dependency>
       <groupId>io.stargate.grpc</groupId>
       <artifactId>grpc-proto</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/io.stargate.grpc/grpc-proto/2.0.4/versions -->
       <version>1.0.41</version>
     </dependency>
     <dependency>
       <groupId>io.grpc</groupId>
       <artifactId>grpc-netty-shaded</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/io.grpc/grpc-netty-shaded/1.51.1/versions -->
       <version>1.41.0</version>
     </dependency>   
 ```
