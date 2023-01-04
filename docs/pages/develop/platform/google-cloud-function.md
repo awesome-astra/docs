@@ -264,7 +264,8 @@ Notice the final **Path** that should be used to access the secure connect bundl
     <dependency>
       <groupId>com.datastax.oss</groupId>
       <artifactId>java-driver-core</artifactId>
-      <version>4.13.0</version>
+      <!--Use the latest version from https://search.maven.org/artifact/com.datastax.oss/java-driver-core -->
+      <version>4.15.0</version>
     </dependency>  
 ```
 <br/><img src="https://awesome-astra.github.io/docs/img/google-cloud-functions-java-driver/pom_xml.png" />
@@ -366,11 +367,13 @@ Note that, for better security, you can alternatively use the [Secret Manager](h
     <dependency>
       <groupId>io.stargate.grpc</groupId>
       <artifactId>grpc-proto</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/io.stargate.grpc/grpc-proto/2.0.4/versions -->
       <version>1.0.41</version>
     </dependency>
     <dependency>
       <groupId>io.grpc</groupId>
       <artifactId>grpc-netty-shaded</artifactId>
+      <!-- Use the latest version from https://central.sonatype.dev/artifact/io.grpc/grpc-netty-shaded/1.51.1/versions -->
       <version>1.41.0</version>
     </dependency>   
 ```
