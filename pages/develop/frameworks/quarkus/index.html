@@ -89,6 +89,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1538,9 +1543,66 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Quarkus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         • Quarkus
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-a-data-model" class="md-nav__link">
+    2. Create a Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-try-it-out" class="md-nav__link">
+    3. Try it out!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-next-steps-and-conclusions" class="md-nav__link">
+    4. Next Steps and Conclusions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-more-resources" class="md-nav__link">
+    5. More Resources!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2429,6 +2491,49 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-a-data-model" class="md-nav__link">
+    2. Create a Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-try-it-out" class="md-nav__link">
+    3. Try it out!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-next-steps-and-conclusions" class="md-nav__link">
+    4. Next Steps and Conclusions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-more-resources" class="md-nav__link">
+    5. More Resources!
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2443,24 +2548,92 @@
 
 
 
+  <h1>• Quarkus</h1>
+
+<p><img src="../../../img/tile-quarkus.png" align="left" width="180px"/></p>
+<p><em>Quarkus - Supersonic Subatomic Java</em>
+is a modern Kubernetes-native Java framework tailored for GraalVM and HotSpot to create applications for a modern, cloud-native world. </p>
+<p>The goal is to make Java the leading platform in Kubernetes and serverless environments while offering developers a framework to address a wider range of distributed application architectures.</p>
+<p>Wth its reactive nature, it complements Apache Cassandra and together they are a great fit for responsive microservices.</p>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p><a href="https://quarkus.io/">quarkus.io</a> is the central repoistory for everything Quarkus related.</p>
+<p>The <a href="https://github.com/datastax/cassandra-quarkus">Cassandra Quarkus extension</a> renders cassandra a first class citizen on the platform.</p>
+<p>You can [use the Cassandra client guide for Quarkus] (https://quarkus.io/guides/cassandra) to get started on using Quarkus and Astra together.</p>
+<h2 id="2-create-a-data-model">2. Create a Data Model<a class="headerlink" href="#2-create-a-data-model" title="Permanent link">&para;</a></h2>
+<p>Create a Data model for the simple application using the following CQL statement in the Astra console.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CREATE TABLE k1.Fruit ( name text PRIMARY KEY, description text);
+</code></pre></div>
+<p>where <code>k1</code> is the keyspace.</p>
+<h2 id="3-try-it-out">3. Try it out!<a class="headerlink" href="#3-try-it-out" title="Permanent link">&para;</a></h2>
+<p>Start by cloning the repo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git clone https://github.com/datastaxdevs/Cassandra-Quarkus-Demo
+</code></pre></div>
+<p>Version check.</p>
+<p>Check the Java version with the following command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java -version
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>openjdk version &quot;11.0.14&quot; 2022-01-18
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>OpenJDK Runtime Environment GraalVM CE 22.0.0.2 (build 11.0.14+9-jvmci-22.0-b05)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>OpenJDK 64-Bit Server VM GraalVM CE 22.0.0.2 (build 11.0.14+9-jvmci-22.0-b05, mixed mode, sharing)
+</code></pre></div>
+<p>Setup Astra credentials.</p>
+<p>Include the credentials from the Astra console in the file <code>src/main/resources/application.properties</code> as shown below by downloading and including the path of the <a href="https://docs.datastax.com/en/astra-serverless/docs/connect/secure-connect-bundle.html">security connect bundle</a> and the username and secret for the database.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>-#quarkus.cassandra.cloud.secure-connect-bundle=/path/to/secure-connect-bundle.zip
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>+quarkus.cassandra.cloud.secure-connect-bundle=k1.zip
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> # Authentication
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> # See https://docs.datastax.com/en/developer/java-driver/latest/manual/core/authentication/
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>-#quarkus.cassandra.auth.username=&lt;your username&gt;
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>-#quarkus.cassandra.auth.password=&lt;your password&gt;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>+quarkus.cassandra.auth.username=user
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>+quarkus.cassandra.auth.password=secret
+</code></pre></div>
+<p>Package the app as below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mvn clean package
+</code></pre></div>
+<p>and run the application as below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>java -jar target/cassandra-quarkus-quickstart-1.0.1-runner.jar
+</code></pre></div>
+<p>Check if the REST endpoints are accessible as below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl http://localhost:8080/fruits
+</code></pre></div>
+<p>As we've no data (yet), we should get an empty list.</p>
+<p>Let's add an entry as indicated in the example.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl --header &quot;Content-Type: application/json&quot; \
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  --request POST \          
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  --data &#39;{&quot;name&quot;:&quot;apple&quot;,&quot;description&quot;:&quot;red and tasty&quot;}&#39; \
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  http://localhost:8080/fruits
+</code></pre></div>
+<p>Let's check via the <code>curl</code> command as below</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl http://localhost:8080/fruits
+</code></pre></div>
+<p>and also in the Astra CQL console.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>select * from k1.Fruit;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a> name  | description
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>-------+---------------
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a> apple | red and tasty
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>(1 rows)
+</code></pre></div>
+<h2 id="4-next-steps-and-conclusions">4. Next Steps and Conclusions<a class="headerlink" href="#4-next-steps-and-conclusions" title="Permanent link">&para;</a></h2>
+<p>You can check out the object mapper details, metrics and health reports from the app as outlined in the <a href="https://quarkus.io/guides/cassandra">user guide</a>.</p>
+<p>You could even package it as a native app and realize the full power of the Quarkus platform.</p>
+<h2 id="5-more-resources">5. More Resources!<a class="headerlink" href="#5-more-resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Quarkus Documentation</p>
-</li>
-<li>
-<p>Quarkus Workshop</p>
-</li>
-<li>
-<p>Todo Application Quarkus</p>
-</li>
+<li><a href="https://github.com/datastaxdevs/quarkus-astra-intro-demo">A complete Todo Application with Quarkus</a></li>
+<li>[Workshop outlining a step-by-step approach to run the application] (https://github.com/datastaxdevs/workshop-intro-quarkus-cassandra)</li>
+<li><a href="https://www.youtube.com/watch?v=iz9MGczDA_U">Recording of the workshop</a></li>
 </ul>
+<div class="nosurface">
+<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a></p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-03-19
+      2023-01-06
     
   </small>
 </div>
