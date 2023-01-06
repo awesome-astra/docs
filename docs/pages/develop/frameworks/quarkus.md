@@ -1,4 +1,4 @@
-<img src="../../../../img/tile-quarkus.png" align="left" width="180px"/>
+<img src="../../../img/tile-quarkus.png" align="left" width="180px"/>
 
 *Quarkus - Supersonic Subatomic Java*
 is a modern Kubernetes-native Java framework tailored for GraalVM and HotSpot to create applications for a modern, cloud-native world. 
