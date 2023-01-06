@@ -15,7 +15,7 @@ The [Cassandra Quarkus extension](https://github.com/datastax/cassandra-quarkus)
 
 You can [use the Cassandra client guide for Quarkus] (https://quarkus.io/guides/cassandra) to get started on using Quarkus and Astra together.
 
-##2. Create a Data Model
+## 2. Create a Data Model
 
 Create a Data model for the simple application using the following CQL statement in the Astra console.
 
@@ -25,7 +25,7 @@ CREATE TABLE k1.Fruit ( name text PRIMARY KEY, description text);
 
 where `k1` is the keyspace.
 
-##3. Try it out!
+## 3. Try it out!
 
 Start by cloning the repo.
 
@@ -108,14 +108,14 @@ select * from k1.Fruit;
 (1 rows)
 ```
 
-##4. Next Steps and Conclusions
+## 4. Next Steps and Conclusions
 
 You can check out the object mapper details, metrics and health reports from the app as outlined in the [user guide](https://quarkus.io/guides/cassandra).
 
 You could even package it as a native app and realize the full power of the Quarkus platform.
 
 
-##5. More Resources!
+## 5. More Resources!
 
 - [A complete Todo Application with Quarkus](https://github.com/datastaxdevs/quarkus-astra-intro-demo)
 - [Workshop outlining a step-by-step approach to run the application] (https://github.com/datastaxdevs/workshop-intro-quarkus-cassandra)
