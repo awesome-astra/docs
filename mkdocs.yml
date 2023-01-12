@@ -19,6 +19,8 @@ nav:
     - Astra Streaming:
       - ‣ Create Topic: pages/astra/create-topic.md
       - ‣ CDC for Astra Streaming: pages/astra/cdc-for-astra.md
+    - Explore Stargate:
+      - ‣ HTTPie: pages/astra/astra-httpie.md
 
   - Data Management:
     - Home: pages/data/index.md
@@ -35,6 +37,7 @@ nav:
       - ‣ Grafana: pages/tools/integration/grafana.md
       - ‣ MindsDB: pages/data/explore/mindsdb.md
       - ‣ Presto: pages/data/explore/presto.md
+      - ‣ Tableau: pages/data/explore/tableau.md
       - ‣ TablePlus: pages/data/explore/tableplus.md
       - ‣ Trino: pages/data/explore/trino.md
     - Data Modelling:
