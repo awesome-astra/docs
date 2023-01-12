@@ -46,6 +46,9 @@ In this section are listed third party tools that will help you browse your data
 <a href="../tools/integration/grafana">
  <img src="../../img/data/tile-grafana.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<a href="explore/tableau">
+ <img src="../../img/data/tile-tableau.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 
 
 ### 📋 Data Modelling
