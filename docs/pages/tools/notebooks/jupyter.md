@@ -20,15 +20,16 @@ links:
 
 Jupyter Notebooks are an execution environment for Julia, Python and R code (hence, Ju-Py-te-R) in technical computing domains, but are especially popular with data scientists working on machine learning models. Jupyter blends the ability to present explanatory text and imagery with interactive code blocks. Jupyter notebooks can run on your own computer, or via a hoted service like Google Colab. 
 
-
-Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset.
-
 <div class="nosurface" markdown="1">
 
 - ℹ️ [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
 
 - ℹ️ [Project Jupyter Homepage](https://jupyter.org)
 </div>
+
+
+Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset.
+
 
 ## Prerequisites
 
