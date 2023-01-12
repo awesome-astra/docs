@@ -27,16 +27,11 @@ Jupyter Notebooks are an execution environment for Julia, Python and R code (hen
 - ℹ️ [Project Jupyter Homepage](https://jupyter.org)
 </div>
 
+| Overview | Prerequisites |  |  |  |
+|---|---|---|---|---|
+| Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset. | <ul class="prerequisites">        <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>       <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token (with Administrator privileges)</a></li>   </ul> |  |  |  |
+|  |  |  |  |  |
 
-Astra can be a little tricky to get started with when working inside a Jupyter notebook. This sample notebook shows how to connect to Astra, create a new database, download the secure connect bundle, and load and index data into tables. Finally, just because it's a notebook, we'll train a model and plot the test error from the sample dataset.
-
-
-## Prerequisites
-
-<ul class="prerequisites">
-    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token (with Administrator privileges)</a></li>
-</ul>
 
 ## Get Started
 
