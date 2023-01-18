@@ -22,7 +22,7 @@
         <link rel="next" href="../javascript/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.9c788c91.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.558e4712.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-overview" class="md-skip">
+        <a href="#1-pre-requisites" class="md-skip">
           Skip to content
         </a>
       
@@ -183,7 +183,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -1417,44 +1417,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
-    1. Overview
+  <a href="#1-pre-requisites" class="md-nav__link">
+    1. Pre-requisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-interfaces-list" class="md-nav__link">
-    2. Interfaces list
+  <a href="#2-native-cassandra-drivers" class="md-nav__link">
+    2. Native Cassandra Drivers
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-cql-cassandra-drivers" class="md-nav__link">
-    3. CQL Cassandra Drivers
-  </a>
-  
-    <nav class="md-nav" aria-label="3. CQL Cassandra Drivers">
+    <nav class="md-nav" aria-label="2. Native Cassandra Drivers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-drivers-4x" class="md-nav__link">
-    3.1 Drivers 4.x
+  <a href="#21-cassandra-drivers-4x" class="md-nav__link">
+    2.1 Cassandra Drivers 4.x
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-drivers-3x" class="md-nav__link">
-    3.2 Drivers 3.x
+  <a href="#12-cassandra-drivers-3x" class="md-nav__link">
+    1.2 Cassandra Drivers 3.x
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-astra-sdk" class="md-nav__link">
-    3.3 Astra SDK
+  <a href="#13-astra-sdk" class="md-nav__link">
+    1.3 Astra SDK
   </a>
   
 </li>
@@ -1465,18 +1458,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-stargate-rest-api" class="md-nav__link">
-    4. Stargate REST Api
+  <a href="#3-api-rest" class="md-nav__link">
+    3. Api Rest
   </a>
+  
+    <nav class="md-nav" aria-label="3. Api Rest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-http-client" class="md-nav__link">
+    3.1 Http Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-stargate-document-api" class="md-nav__link">
-    5. Stargate Document Api
+  <a href="#5-api-document" class="md-nav__link">
+    5. Api Document
   </a>
   
-    <nav class="md-nav" aria-label="5. Stargate Document Api">
+    <nav class="md-nav" aria-label="5. Api Document">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1499,11 +1505,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-stargate-graphql" class="md-nav__link">
-    6 Stargate GraphQL
+  <a href="#6-api-graphql" class="md-nav__link">
+    6 Api GraphQL
   </a>
   
-    <nav class="md-nav" aria-label="6 Stargate GraphQL">
+    <nav class="md-nav" aria-label="6 Api GraphQL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1526,11 +1532,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-stargate-grpc" class="md-nav__link">
-    7. Stargate gRPC
+  <a href="#7-api-grpc" class="md-nav__link">
+    7. Api gRPC
   </a>
   
-    <nav class="md-nav" aria-label="7. Stargate gRPC">
+    <nav class="md-nav" aria-label="7. Api gRPC">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1549,47 +1555,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-pulsar-client" class="md-nav__link">
-    8. Pulsar Client
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Pulsar Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-pulsar-client" class="md-nav__link">
-    8.1 Pulsar Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-astra-sdk" class="md-nav__link">
-    8.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-pulsar-admin" class="md-nav__link">
-    9. Pulsar Admin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-devops-api" class="md-nav__link">
-    10 Devops API
-  </a>
   
 </li>
       
@@ -2662,44 +2627,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
-    1. Overview
+  <a href="#1-pre-requisites" class="md-nav__link">
+    1. Pre-requisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-interfaces-list" class="md-nav__link">
-    2. Interfaces list
+  <a href="#2-native-cassandra-drivers" class="md-nav__link">
+    2. Native Cassandra Drivers
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-cql-cassandra-drivers" class="md-nav__link">
-    3. CQL Cassandra Drivers
-  </a>
-  
-    <nav class="md-nav" aria-label="3. CQL Cassandra Drivers">
+    <nav class="md-nav" aria-label="2. Native Cassandra Drivers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-drivers-4x" class="md-nav__link">
-    3.1 Drivers 4.x
+  <a href="#21-cassandra-drivers-4x" class="md-nav__link">
+    2.1 Cassandra Drivers 4.x
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-drivers-3x" class="md-nav__link">
-    3.2 Drivers 3.x
+  <a href="#12-cassandra-drivers-3x" class="md-nav__link">
+    1.2 Cassandra Drivers 3.x
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-astra-sdk" class="md-nav__link">
-    3.3 Astra SDK
+  <a href="#13-astra-sdk" class="md-nav__link">
+    1.3 Astra SDK
   </a>
   
 </li>
@@ -2710,18 +2668,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-stargate-rest-api" class="md-nav__link">
-    4. Stargate REST Api
+  <a href="#3-api-rest" class="md-nav__link">
+    3. Api Rest
   </a>
+  
+    <nav class="md-nav" aria-label="3. Api Rest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-http-client" class="md-nav__link">
+    3.1 Http Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-stargate-document-api" class="md-nav__link">
-    5. Stargate Document Api
+  <a href="#5-api-document" class="md-nav__link">
+    5. Api Document
   </a>
   
-    <nav class="md-nav" aria-label="5. Stargate Document Api">
+    <nav class="md-nav" aria-label="5. Api Document">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2744,11 +2715,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-stargate-graphql" class="md-nav__link">
-    6 Stargate GraphQL
+  <a href="#6-api-graphql" class="md-nav__link">
+    6 Api GraphQL
   </a>
   
-    <nav class="md-nav" aria-label="6 Stargate GraphQL">
+    <nav class="md-nav" aria-label="6 Api GraphQL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2771,11 +2742,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-stargate-grpc" class="md-nav__link">
-    7. Stargate gRPC
+  <a href="#7-api-grpc" class="md-nav__link">
+    7. Api gRPC
   </a>
   
-    <nav class="md-nav" aria-label="7. Stargate gRPC">
+    <nav class="md-nav" aria-label="7. Api gRPC">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2794,47 +2765,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-pulsar-client" class="md-nav__link">
-    8. Pulsar Client
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Pulsar Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-pulsar-client" class="md-nav__link">
-    8.1 Pulsar Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-astra-sdk" class="md-nav__link">
-    8.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-pulsar-admin" class="md-nav__link">
-    9. Pulsar Admin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-devops-api" class="md-nav__link">
-    10 Devops API
-  </a>
   
 </li>
       
@@ -2858,93 +2788,64 @@
 
 <p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
 <hr />
-<h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
-<p><img src="../../../../img/tile-java.png" align="left" height="180px"/></p>
-<p>The Astra platform provides multiple services such as; <strong>Databases</strong> and <strong>Streaming</strong>. For each service there are <strong>multiple Apis and interfaces</strong> available. In this page we will explain how to use each interface with JAVA. For each interface we list <strong>minimal dependencies</strong> and show you the <strong>minimal code</strong>.</p>
-<p>Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a <em>Software developement KIT (SDK)</em> is also available for you to reduce the amount of boilerplate code needed to get started. More information is <a href="https://github.com/datastax/astra-sdk-java/wiki">here</a>.</p>
-<h3 id="2-interfaces-list">2. Interfaces list<a class="headerlink" href="#2-interfaces-list" title="Permanent link">&para;</a></h3>
-<p>Pick the interface you want to use from the list:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Component</th>
-<th align="left">Interface</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="left"><a href="#3-cql-cassandra-drivers"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg></span> Cassandra Native Drivers</a></td>
-<td align="left">Use Cassandra with java native drivers and CQL language.</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="left"><a href="#4-stargate-rest-api"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3z"/></svg></span> Rest</a></td>
-<td align="left">CQL operations exposed as stateless rest resources. You will interact with this interface through an <code>HttpClient</code>.</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="left"><a href="#5-stargate-document-api"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2m-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1Z"/></svg></span> Document</a></td>
-<td align="left">Use Cassandra as a Document-Oriented database. You will interact with this interface through an <code>HttpClient</code>.</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="left"><a href="#6-stargate-graphql"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"/></svg></span> GraphQL</a></td>
-<td align="left">CQL operations exposed as a GraqphQL interface. Each query and mutation definitions are generated from the table schema. You will interact with this interface through an <code>HttpClient</code> or <code>GraphQL</code> client like <code>DGS</code>.</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="left"><a href="#7-stargate-grpc"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25zm7.47 3.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L10.69 8 9.22 6.53a.75.75 0 0 1 0-1.06zM6.78 6.53 5.31 8l1.47 1.47a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042z"/></svg></span> gRPC</a></td>
-<td align="left">CQL operations exposed as a gRPC API. You will interact with this interface through a grpc Client generated from the specification <code>proto</code> files</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Streaming</strong></td>
-<td align="left"><a href="#8-pulsar-client"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v192h96v-32c0-35.3 28.7-64 64-64h224V32c0-17.7-14.3-32-32-32H96zm128 160c-17.7 0-32 14.3-32 32v32h96c35.3 0 64 28.7 64 64v128h192c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H224zm240 64h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zM32 256c-17.7 0-32 14.3-32 32v13l155.1 114.9c1.4 1 3.1 1.6 4.9 1.6s3.5-.6 4.9-1.6L320 301v-13c0-17.7-14.3-32-32-32H32zm288 84.8L184 441.6c-6.9 5.1-15.3 7.9-24 7.9s-17-2.8-24-7.9L0 340.8V480c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32V340.8z"/></svg></span> Pulsar Client</a></td>
-<td align="left">Create Producer, Consumers, Subscriptions..</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Streaming</strong></td>
-<td align="left"><a href="#9-pulsar-admin"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m550.5 241-50.089-86.786c1.071-2.142 1.875-4.553 1.875-7.232 0-8.036-6.696-14.733-14.732-15.001l-55.447-95.893c.536-1.607 1.071-3.214 1.071-4.821 0-8.571-6.964-15.268-15.268-15.268-4.821 0-8.839 2.143-11.786 5.625H299.518C296.839 18.143 292.821 16 288 16s-8.839 2.143-11.518 5.625H170.411C167.464 18.143 163.447 16 158.625 16c-8.303 0-15.268 6.696-15.268 15.268 0 1.607.536 3.482 1.072 4.821l-55.983 97.233c-5.356 2.41-9.107 7.5-9.107 13.661 0 .535.268 1.071.268 1.607l-53.304 92.143c-7.232 1.339-12.59 7.5-12.59 15 0 7.232 5.089 13.393 12.054 15l55.179 95.358c-.536 1.607-.804 2.946-.804 4.821 0 7.232 5.089 13.393 12.054 14.732l51.697 89.732c-.536 1.607-1.071 3.482-1.071 5.357 0 8.571 6.964 15.268 15.268 15.268 4.821 0 8.839-2.143 11.518-5.357h106.875C279.161 493.857 283.447 496 288 496s8.839-2.143 11.518-5.357h107.143c2.678 2.946 6.696 4.821 10.982 4.821 8.571 0 15.268-6.964 15.268-15.268 0-1.607-.267-2.946-.803-4.285l51.697-90.268c6.964-1.339 12.054-7.5 12.054-14.732 0-1.607-.268-3.214-.804-4.821l54.911-95.358c6.964-1.339 12.322-7.5 12.322-15-.002-7.232-5.092-13.393-11.788-14.732zM153.535 450.732l-43.66-75.803h43.66v75.803zm0-83.839h-43.66c-.268-1.071-.804-2.142-1.339-3.214l44.999-47.41v50.624zm0-62.411-50.357 53.304c-1.339-.536-2.679-1.34-4.018-1.607L43.447 259.75c.535-1.339.535-2.679.535-4.018s0-2.41-.268-3.482l51.965-90c2.679-.268 5.357-1.072 7.768-2.679l50.089 51.965v92.946zm0-102.322-45.803-47.41c1.339-2.143 2.143-4.821 2.143-7.767 0-.268-.268-.804-.268-1.072l43.928-15.804v72.053zm0-80.625-43.66 15.804 43.66-75.536v59.732zm326.519 39.108.804 1.339L445.5 329.125l-63.75-67.232 98.036-101.518.268.268zM291.75 355.107l11.518 11.786H280.5l11.25-11.786zm-.268-11.25-83.303-85.446 79.553-84.375 83.036 87.589-79.286 82.232zm5.357 5.893 79.286-82.232 67.5 71.25-5.892 28.125H313.714l-16.875-17.143zM410.411 44.393c1.071.536 2.142 1.072 3.482 1.34l57.857 100.714v.536c0 2.946.803 5.624 2.143 7.767L376.393 256l-83.035-87.589L410.411 44.393zm-9.107-2.143L287.732 162.518l-57.054-60.268 166.339-60h4.287zm-123.483 0c2.678 2.678 6.16 4.285 10.179 4.285s7.5-1.607 10.179-4.285h75L224.786 95.821 173.893 42.25h103.928zm-116.249 5.625 1.071-2.142a33.834 33.834 0 0 0 2.679-.804l51.161 53.84-54.911 19.821V47.875zm0 79.286 60.803-21.964 59.732 63.214-79.553 84.107-40.982-42.053v-83.304zm0 92.678L198 257.607l-36.428 38.304v-76.072zm0 87.858 42.053-44.464 82.768 85.982-17.143 17.678H161.572v-59.196zm6.964 162.053c-1.607-1.607-3.482-2.678-5.893-3.482l-1.071-1.607v-89.732h99.91l-91.607 94.821h-1.339zm129.911 0c-2.679-2.41-6.428-4.285-10.447-4.285s-7.767 1.875-10.447 4.285h-96.429l91.607-94.821h38.304l91.607 94.821H298.447zm120-11.786-4.286 7.5c-1.339.268-2.41.803-3.482 1.339l-89.196-91.875h114.376l-17.412 83.036zm12.856-22.232 12.858-60.803h21.964l-34.822 60.803zm34.822-68.839h-20.357l4.553-21.16 17.143 18.214c-.535.803-1.071 1.874-1.339 2.946zm66.161-107.411-55.447 96.697c-1.339.535-2.679 1.071-4.018 1.874l-20.625-21.964 34.554-163.928 45.803 79.286c-.267 1.339-.803 2.678-.803 4.285 0 1.339.268 2.411.536 3.75z"/></svg></span> Pulsar Admin</a></td>
-<td align="left">Administrate your Pulsar cluster</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Core</strong></td>
-<td align="left"><a href="#10-devops-apis"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.81 3.81 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.81 3.81 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"/></svg></span> Devops Apis</a></td>
-<td align="left">Administration operations for the platform exposed as stateless HTTP Apis. You will interact with this interface through an <code>HttpClient</code>.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-cql-cassandra-drivers">3. CQL Cassandra Drivers<a class="headerlink" href="#3-cql-cassandra-drivers" title="Permanent link">&para;</a></h2>
-<p>Driver reference documentation can be found <a href="https://docs.datastax.com/en/developer/java-driver/4.13/">HERE</a>, this page is focused on connectivity with Astra DB only.</p>
+<p><img src="../../../../img/tile-java.png" align="center" 
+  height="130px" width="130px" style="margin-top:-150px"/></p>
+<p><strong>Select the API you want to connect to Astra with JAVA</strong></p>
+<p>Astra offers different Apis and interfaces. To know more about the ussage of each one check the pages dedicated to each one.</p>
+<ul>
+<li><strong>ASTRA DB (Stargate Apis)</strong></li>
+</ul>
+<p><a href="#3-native-cassandra-drivers">
+ <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="#4-stargate-rest-api">
+<img src="../../../../img/tile-api-rest.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="#5-stargate-document-api">
+ <img src="../../../../img/tile-api-document.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="#6-stargate-graphql">
+<img src="../../../../img/tile-api-graphql.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="7-stargate-grpc">
+<img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;</p>
+<h2 id="1-pre-requisites">1. Pre-requisites<a class="headerlink" href="#1-pre-requisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Java Development Kit (JDK) 8+</strong></li>
+</ul>
+<p>Use <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong> and validate your installation with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>--version
+</code></pre></div>
+<ul>
+<li><strong>Apache Maven (3.8+)</strong></li>
+</ul>
+<p>The different samples and tutorials have been designed with <code>Apache Maven</code>.Use the <a href="https://maven.apache.org/install.html">reference documentation</a> top install maven validate your installation with </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
+</code></pre></div>
+<ul>
+<li><strong>Datastax Astra</strong></li>
+</ul>
 <details class="abstract" open="open">
-<summary>Prerequisites</summary>
-<p><strong>Astra</strong></p>
+<summary>Setup Actions</summary>
 <ul>
 <li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
 <li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 <li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 <li>You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
-<p><strong>Development environment</strong></p>
-<ul>
-<li>You should install <strong>Java Development Kit (JDK) 8</strong>: Use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong>, Validate your installation with</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>--version
-</code></pre></div>
-<ul>
-<li>You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
-</code></pre></div>
 </details>
-<h3 id="31-drivers-4x">3.1 Drivers 4.x<a class="headerlink" href="#31-drivers-4x" title="Permanent link">&para;</a></h3>
+<h2 id="2-native-cassandra-drivers">2. Native Cassandra Drivers<a class="headerlink" href="#2-native-cassandra-drivers" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Driver reference documentation can be found <a href="https://docs.datastax.com/en/developer/java-driver/4.13/">HERE</a>, this page is focused on connectivity with Astra DB only.</p>
+</blockquote>
+<h3 id="21-cassandra-drivers-4x">2.1 Cassandra Drivers 4.x<a class="headerlink" href="#21-cassandra-drivers-4x" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Version 4.x is recommended</p>
 </div>
 <p>Version 4 is major redesign of the internal architecture. As such, it is not binary compatible with previous versions. However, most of the concepts remain unchanged, and the new API will look very familiar to 2.x and 3.x users.</p>
-<details class="abstract annotate">
-<summary>Setup <code>pom.xml</code></summary>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
 <ul>
 <li>
 <p>Any version <code>4.x</code> should be compatible with Astra.</p>
@@ -2973,54 +2874,60 @@
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 </details>
-<details class="abstract">
-<summary>Sample Code</summary>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
+<ul>
+<li>
+<p><code>CqlSession</code> implements Closable. It should be a singleton in your application</p>
+</li>
+<li>
+<p>Spring-Data 3.x+ relies on those Drivers 4x. If you define a <code>CqlSession</code> bean, it will use it.</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.Logger</span><span class="p">;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.LoggerFactory</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver4x</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver4x</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_ZIP_FILE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;path_to_secureConnectBundle.zip&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_USERNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientId&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_keyspace&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AstraDriver4x</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ASTRA_ZIP_FILE</span><span class="p">))</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="n">ASTRA_USERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="p">)</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="n">ASTRA_KEYSPACE</span><span class="p">)</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Welcome to ASTRA. Connected to Keyspace {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cqlSession</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Success&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_ZIP_FILE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;path_to_secureConnectBundle.zip&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_USERNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientId&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_keyspace&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">   </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">     </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ASTRA_ZIP_FILE</span><span class="p">))</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">     </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="n">ASTRA_USERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="p">)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">     </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="n">ASTRA_KEYSPACE</span><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">     </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello keyspace {} !&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cqlSession</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<details class="info">
-<summary>Extra Resources</summary>
+<details class="abstract" open="open">
+<summary>Resources</summary>
+<p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
+  <i class="fa fa-download" ></i>&nbsp;Download This sample code
+  </a></p>
 <ul>
 <li>To learn more about the history of the 4.x Java driver, check out <a href="https://www.datastax.com/blog/introducing-java-driver-4">this blogpost</a>.</li>
-<li>If you are still using <code>3.x</code> and want to migrate you can have a look the <a href="https://docs.datastax.com/en/developer/java-driver/4.13/upgrade_guide/#4-0-0">upgrade guide</a> but you can also keep using <code>3.x</code> as described <a href="#using-java-cassandra-drivers-version-3x">below</a></li>
+<li>To migrate from <code>3.x</code>, use the <a href="https://docs.datastax.com/en/developer/java-driver/4.13/upgrade_guide/#4-0-0">upgrade guide</a> but you can also keep using <code>3.x</code> as described <a href="#using-java-cassandra-drivers-version-3x">below</a></li>
 <li><a href="https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-4x/src/main/java/com/datastax/samples">Multiple Standalone Classes using driver 4.x</a></li>
 <li><a href="https://github.com/spring-petclinic/spring-petclinic-reactive">Spring PetClinic in Reactive</a> and especially the <a href="https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db">mapper</a></li>
 </ul>
 </details>
-<p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
-  <i class="fa fa-download" ></i>&nbsp;Download Driver 4x Sample
-</a></p>
-<h3 id="32-drivers-3x">3.2 Drivers 3.x<a class="headerlink" href="#32-drivers-3x" title="Permanent link">&para;</a></h3>
+<h3 id="12-cassandra-drivers-3x">1.2 Cassandra Drivers 3.x<a class="headerlink" href="#12-cassandra-drivers-3x" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Version 4.x is recommended, it is unlikely that 3.x will get new updates except maintenance and CVE.</p>
+</div>
 <ul>
 <li>Please note that version <strong>3.8+</strong> is required to connect to Astra.</li>
 </ul>
-<details class="abstract">
-<summary>Setup <code>pom.xml</code></summary>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
 <ul>
 <li>Update your <code>pom.xml</code> file with the latest version of the 3.x libraries: <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg" /></a></li>
 </ul>
@@ -3031,348 +2938,308 @@
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 </details>
-<details class="abstract">
-<summary>Sample Code</summary>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.Logger</span><span class="p">;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.LoggerFactory</span><span class="p">;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.driver.core.Cluster</span><span class="p">;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.driver.core.Session</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.driver.core.Cluster</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.driver.core.Session</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver3x</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver3x</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// Define inputs</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_ZIP_FILE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;path_to_secureConnectBundle.zip&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_USERNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientId&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_keyspace&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AstraDriver3x</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">Cluster</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cluster</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">ASTRA_ZIP_FILE</span><span class="p">))</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">.</span><span class="na">withCredentials</span><span class="p">(</span><span class="n">ASTRA_USERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="p">)</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">      </span><span class="n">Session</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="n">ASTRA_KEYSPACE</span><span class="p">);</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Welcome to ASTRA. Connected to Keyspace {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getLoggedKeyspace</span><span class="p">());</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">  </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Success&quot;</span><span class="p">);</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">}</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="c1">// Define inputs</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_ZIP_FILE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;path_to_secureConnectBundle.zip&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_USERNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientId&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_keyspace&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="k">try</span><span class="p">(</span><span class="n">Cluster</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cluster</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">ASTRA_ZIP_FILE</span><span class="p">))</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="p">.</span><span class="na">withCredentials</span><span class="p">(</span><span class="n">ASTRA_USERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_PASSWORD</span><span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="n">Session</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="n">ASTRA_KEYSPACE</span><span class="p">);</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello keyspace &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getLoggedKeyspace</span><span class="p">());</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<details class="info">
-<summary>Extra Resources for Cassandra Drivers 3.x</summary>
+<details class="abstract" open="open">
+<summary>Resources</summary>
+<p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Driver 3x Sample
+  </a></p>
 <ul>
 <li><a href="https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-3x/src/main/java/com/datastax/samples">Multiple Standalone Classes using driver 3.x</a></li>
 </ul>
 </details>
-<p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
-       <i class="fa fa-download" ></i>&nbsp;Download Driver 3x Sample
-</a></p>
-<h3 id="33-astra-sdk">3.3 Astra SDK<a class="headerlink" href="#33-astra-sdk" title="Permanent link">&para;</a></h3>
-<p>This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs.</p>
-<p><img src="../../../../img/java/sdk-overview.png" /></p>
-<p><strong>The Astra SDK</strong> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code> (which configures the <code>StargateClient</code> for you). As you can see on the figure below the <code>AstraClient</code> handles not only Stargate Apis but also the Astra Devops Api and Apache Pulsar. <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
-<details class="abstract annotate">
-<summary>Setup <code>pom.xml</code></summary>
+<h3 id="13-astra-sdk">1.3 Astra SDK<a class="headerlink" href="#13-astra-sdk" title="Permanent link">&para;</a></h3>
+<p>The <code>Astra SDK</code> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code>, <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
 <ul>
-<li>Update your <code>pom.xml</code> file with the latest version of the SDK</li>
+<li>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></li>
 </ul>
-<p><a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;dependencies&gt;</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w"> </span><span class="nt">&lt;dependency&gt;</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">     </span><span class="nt">&lt;groupId&gt;</span>com.datastax.astra<span class="nt">&lt;/groupId&gt;</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">     </span><span class="nt">&lt;artifactId&gt;</span>astra-sdk<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">     </span><span class="nt">&lt;version&gt;</span>0.3.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">     </span><span class="nt">&lt;version&gt;</span>${latestSDK}<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w"> </span><span class="nt">&lt;/dependency&gt;</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
 </details>
-<details class="abstract">
-<summary>Sample Code</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Init Astra Client</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">AstraClient</span><span class="w"> </span><span class="n">cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">   </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">)</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">   </span><span class="p">.</span><span class="na">withDatabaseId</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">)</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">   </span><span class="p">.</span><span class="na">withDatabaseRegion</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">   </span><span class="p">.</span><span class="na">withCqlKeyspace</span><span class="p">(</span><span class="n">ASTRA_DB_KEYSPACE</span><span class="p">)</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">   </span><span class="p">.</span><span class="na">enableCql</span><span class="p">()</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">   </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">// Using Cassandra Interface</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">astraClient</span><span class="p">.</span><span class="na">cqlSession</span><span class="p">();</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">String</span><span class="w"> </span><span class="n">cqlVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cqlSession</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">          </span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="s">&quot;SELECT cql_version from system.local&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">          </span><span class="p">.</span><span class="na">one</span><span class="p">().</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;cql_version&quot;</span><span class="p">));</span>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.astra.sdk.AstraClient</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraSdk</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="c1">// Define inputs</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_TOKEN</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_database_id&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_database_region&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_KEYSPACE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_keyspace&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="c1">// Init Astra Client</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">      </span><span class="k">try</span><span class="p">(</span><span class="n">AstraClient</span><span class="w"> </span><span class="n">cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">        </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">        </span><span class="p">.</span><span class="na">withDatabaseId</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">)</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="p">.</span><span class="na">withDatabaseRegion</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="p">.</span><span class="na">withCqlKeyspace</span><span class="p">(</span><span class="n">ASTRA_DB_KEYSPACE</span><span class="p">)</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="p">.</span><span class="na">enableCql</span><span class="p">()</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;CqlVersion:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">astraClient</span><span class="p">.</span><span class="na">cqlSession</span><span class="p">()</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">                    </span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="s">&quot;SELECT cql_version from system.local&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">                    </span><span class="p">.</span><span class="na">one</span><span class="p">().</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;cql_version&quot;</span><span class="p">));</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<details class="info">
-<summary>Extra Resources</summary>
+<details class="abstract" open="open">
+<summary>Resources</summary>
+<p><a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+    <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+  </a></p>
 <ul>
 <li>To get the full fledged information regarding the SDK check the <a href="https://github.com/datastax/astra-sdk-java/wiki">github repository</a></li>
 </ul>
 </details>
-<p><a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
-  <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
-</a></p>
-<h2 id="4-stargate-rest-api">4. Stargate REST Api<a class="headerlink" href="#4-stargate-rest-api" title="Permanent link">&para;</a></h2>
-<p><strong>ℹ️ Overview</strong></p>
-<p>Stargate is a data gateway (Proxy) on top of Apache Cassandra which exposes new interfaces to simplify application integration. It is a way to create stateless components and ease the integration with 4 different HTTP Apis (rest, doc, graphQL, gRPC). In this chapter we will cover integration with <code>REST Apis</code> also called <code>DATA</code> in the swagger specifications.</p>
-<p>To know more regarding this interface specially you can have a look to <a href="https://awesome-astra.github.io/docs//Stargate-Api-Rest">dedicated section of the wiki</a> or <a href="https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html">reference Stargate Rest Api Quick Start Guide</a>.</p>
-<blockquote>
-<p>⚠️ We recommend to use version <code>V2</code> (<em>with V2 in the URL</em>) as it covers more features and the V1 would be deprecated sooner.</p>
-</blockquote>
+<h2 id="3-api-rest">3. Api Rest<a class="headerlink" href="#3-api-rest" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">⚠️ We recommend to use version <code>V2</code> (<em>with V2 in the URL</em>) as it covers more features and the V1 would be deprecated sooner.</p>
 <p><img src="../../../../img/java/api-data.png" /></p>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-</ul>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<ul>
-<li>
-<p>You should install <strong>Java Development Kit (JDK) 8</strong>: Use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong>.</p>
-</li>
-<li>
-<p>You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mvn<span class="w"> </span>-version
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<ul>
-<li>
-<p>You simply need an <code>HTTP Client</code> to use the Rest API. There are a lot of clients in the Java languages like <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html">HttpURLConnection</a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html">HttpClient introduced in Java 11</a>, <a href="https://hc.apache.org/httpcomponents-client-5.0.x/index.html">Apache HTTPClient</a>, <a href="https://square.github.io/okhttp/">OkHttpClient</a>, <a href="https://www.eclipse.org/jetty/documentation/current/http-client.html">Jetty HttpClient</a>. A comparison is provided is this <a href="https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/">blogpost</a> to make your choice. In this tutorial, we will use the <code>Apache HttpClient</code>, which is included in the SDK. You should adapt the code depending on the framework you have chosen.</p>
-</li>
-<li>
-<p>Import relevant dependencies for <code>Apache Http Client</code> in your <code>pom.xml</code></p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents.client5<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>httpclient5<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>5.1.3<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
-<p><strong>🖥️ Sample Code (project <a href="https://github.com/DataStax-Examples/astra-samples-java/tree/main/astra-httpclient-restapi">astra-httpclient-restapi</a>)</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">View Code</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraRestApiHttpClient</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_token&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_database_identifier&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_database_region&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_keyspace&gt;&quot;</span><span class="p">;</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="kd">static</span><span class="w">  </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AstraRestApiHttpClient</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.apps.astra.datastax.com/api/rest&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">                </span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Rest Endpoint is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClients</span><span class="p">.</span><span class="na">createDefault</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">            </span><span class="n">listKeyspaces</span><span class="p">(</span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">            </span><span class="n">createTable</span><span class="p">(</span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
-<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">            </span><span class="n">insertRow</span><span class="p">(</span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
-<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">            </span><span class="n">retrieveRow</span><span class="p">(</span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
-<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Success&quot;</span><span class="p">);</span>
-<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div>
 </div>
-</div>
-</div>
-<ul>
-<li>List keyspaces</li>
-</ul>
+<p>To know more regarding this interface specially you can have a look to <a href="https://awesome-astra.github.io/docs//Stargate-Api-Rest">dedicated section of the wiki</a> or <a href="https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html">reference Stargate Rest Api Quick Start Guide</a>.</p>
+<h3 id="31-http-client">3.1 <code>Http Client</code><a class="headerlink" href="#31-http-client" title="Permanent link">&para;</a></h3>
+<p>You need an <code>HTTP Client</code> to use the Rest API. There are a lot of clients in the Java languages like <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html">HttpURLConnection</a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html">HttpClient introduced in Java 11</a>, <a href="https://hc.apache.org/httpcomponents-client-5.0.x/index.html">Apache HTTPClient</a>, <a href="https://square.github.io/okhttp/">OkHttpClient</a>, <a href="https://www.eclipse.org/jetty/documentation/current/http-client.html">Jetty HttpClient</a>. A comparison is provided is this <a href="https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/">blogpost</a> to make your choice. In this tutorial, we will use the <code>Apache HttpClient</code>, which is included in the SDK. You should adapt the code depending on the framework you have chosen.</p>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents.client5<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>httpclient5<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>5.1.3<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+</details>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
 <p><img src="../../../../img/java/schemas-keyspace-list.png" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w"> </span><span class="c1">// Build Request</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w"> </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">listKeyspacesReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces&quot;</span><span class="p">);</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w"> </span><span class="n">listKeyspacesReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w"> </span><span class="c1">// Execute Request</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w"> </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">listKeyspacesReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">     </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Keyspaces list retrieved&quot;</span><span class="p">);</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">     </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraRestApiHttpClient</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_token&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_database_identifier&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_database_region&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;change_with_your_keyspace&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">                </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.apps.astra.datastax.com/api/rest&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                </span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Rest Endpoint is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClients</span><span class="p">.</span><span class="na">createDefault</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">            </span><span class="n">listKeyspaces</span><span class="p">(</span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">);</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Success&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listKeyspaces</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">        </span><span class="c1">// Build Request</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">listKeyspacesReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="n">listKeyspacesReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">        </span><span class="c1">// Execute Request</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">        </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">listKeyspacesReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Keyspaces list retrieved&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<details class="note" open="open">
+<summary>Creating a table</summary>
+<p><img src="../../../../img/java/schemas-table-create.png" /></p>
+<ul>
+<li>Sample <code>JSON</code> payload <code>createTableJson</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;users&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;columnDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;firstname&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lastname&quot;</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="w">     </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span><span class="w">     </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nt">&quot;partitionKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;firstname&quot;</span><span class="p">],</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="nt">&quot;clusteringKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lastname&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">  </span><span class="nt">&quot;tableOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="nt">&quot;defaultTimeToLive&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="nt">&quot;clusteringExpression&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lastname&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASC&quot;</span><span class="w"> </span><span class="p">}]</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Create a Table</li>
+<li>Creating the http request using that payload</li>
 </ul>
-<p><img src="../../../../img/java/schemas-table-create.png" /></p>
-<blockquote>
-<p>Query used is <code>createTableJson</code> here:</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;users&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;columnDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;firstname&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lastname&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">      </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">      </span><span class="nt">&quot;typeDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span><span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">    </span><span class="nt">&quot;partitionKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;firstname&quot;</span><span class="p">],</span>
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">    </span><span class="nt">&quot;clusteringKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lastname&quot;</span><span class="p">]</span>
-<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">  </span><span class="nt">&quot;tableOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">    </span><span class="nt">&quot;defaultTimeToLive&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">    </span><span class="nt">&quot;clusteringExpression&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lastname&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASC&quot;</span><span class="w"> </span><span class="p">}]</span>
-<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createTable</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">createTableReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/tables&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">createTableJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{...JSON.....}&quot;</span><span class="p">;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="n">createTableJson</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="c1">// Execute Request</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">createTableReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Table Created (if needed)&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
 </code></pre></div>
-<p>Create Table code</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createTable</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
+</details>
+<ul>
+<li><strong>More sample codes</strong></li>
+</ul>
+<details class="note">
+<summary>Insert a new Row</summary>
+<p><img src="../../../../img/java/data-rows-insert.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">insertCedrick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users&quot;</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="s">&quot;{&quot;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;firstname\&quot;: \&quot;Cedrick\&quot;,&quot;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;lastname\&quot; : \&quot;Lunven\&quot;,&quot;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;email\&quot;    : \&quot;c.lunven@gmail.com\&quot;,&quot;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;color\&quot;    : \&quot;blue\&quot; }&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="c1">// Execute Request</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">insertCedrick</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row inserted&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<details class="note">
+<summary>Retrieve a row</summary>
+<p><img src="../../../../img/java/data-rows-read.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">createTableReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">       </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/keyspaces/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/tables&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">createTableJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{...JSON.....}&quot;</span><span class="p">;</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="n">createTableReq</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="n">createTableJson</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="c1">// Build Request</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">rowReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users/Cedrick/Lunven&quot;</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="n">rowReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="c1">// Execute Request</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">createTableReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Table Created (if needed)&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="p">}</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">rowReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">());</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row retrieved&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Row retrieved : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
 </code></pre></div>
-<ul>
-<li>Insert a Row</li>
-</ul>
-<p><img src="../../../../img/java/data-rows-insert.png" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="n">HttpPost</span><span class="w"> </span><span class="n">insertCedrick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPost</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users&quot;</span><span class="w"> </span><span class="p">);</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="n">insertCedrick</span><span class="p">.</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="s">&quot;{&quot;</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;firstname\&quot;: \&quot;Cedrick\&quot;,&quot;</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;lastname\&quot; : \&quot;Lunven\&quot;,&quot;</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;email\&quot;    : \&quot;c.lunven@gmail.com\&quot;,&quot;</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;color\&quot;    : \&quot;blue\&quot; }&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">));</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">  </span><span class="c1">// Execute Request</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">insertCedrick</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">201</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row inserted&quot;</span><span class="p">);</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>Retrieve a row</li>
-</ul>
-<p><img src="../../../../img/java/data-rows-read.png" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveRow</span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="p">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="c1">// Build Request</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">rowReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/keyspaces/&quot;</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/users/Cedrick/Lunven&quot;</span><span class="w"> </span><span class="p">);</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="n">rowReq</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="c1">// Execute Request</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">  </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">rowReq</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">());</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Row retrieved&quot;</span><span class="p">);</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">      </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Row retrieved : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="p">}</span>
-</code></pre></div>
+</details>
 <p><a href="https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip"><img alt="dl" src="https://dabuttonfactory.com/button.png?t=Download+Project&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=666&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></p>
-<h2 id="5-stargate-document-api">5. Stargate Document Api<a class="headerlink" href="#5-stargate-document-api" title="Permanent link">&para;</a></h2>
+<h2 id="5-api-document">5. Api Document<a class="headerlink" href="#5-api-document" title="Permanent link">&para;</a></h2>
 <p><strong>ℹ️ Overview</strong></p>
 <p>The Document API is an HTTP REST API and part of the open source Stargate.io. The idea is to provide an abstraction on top of Apache Cassandra™ to allow document-oriented access patterns. To get familiar with it you can access <a href="/docs/pages/develop/api/document/">documentation and sandbox here</a></p>
 <h3 id="51-http-client">5.1 <code>Http Client</code><a class="headerlink" href="#51-http-client" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>📦 Prerequisites</strong></p>
-</li>
-<li>
-<p>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></p>
-</li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-<li>You should install <strong>Java Development Kit (JDK) 8</strong>: Use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong>.</li>
-<li>You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with</li>
+<li><strong>📦 Prerequisites</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mvn<span class="w"> </span>-version
+<p>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a>
+You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a>
+You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a>
+You should install <strong>Java Development Kit (JDK) 8</strong>: Use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong>.
+You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
 <ul>
 <li><strong>📦 Setup Project</strong></li>
 </ul>
 <p>Import relevant dependencies for <code>Apache Http Client</code> in your <code>pom.xml</code>.
 Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents.client5<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>httpclient5<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>5.1.3<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nt">&lt;/dependency&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents.client5<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>httpclient5<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>5.1.3<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">View Code</label><label for="__tabbed_2_2">Execute Code</label><label for="__tabbed_2_3">Download Project</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">View Code</label><label for="__tabbed_1_2">Execute Code</label><label for="__tabbed_1_3">Download Project</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="kd">static</span><span class="w">  </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AstraDocApiHttpClient</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">   </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClients</span><span class="p">.</span><span class="na">createDefault</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
-<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">        </span><span class="c1">// Build Request</span>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">)</span>
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
-<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.apps.astra.datastax.com/api/rest&quot;</span><span class="p">)</span>
-<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">            </span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
-<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/namespaces&quot;</span><span class="p">);</span>
-<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">        </span><span class="n">req</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
-<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>
-<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">        </span><span class="c1">// Execute Request</span>
-<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">        </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">req</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Namespaces list retrieved&quot;</span><span class="p">);</span>
-<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
-<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_KEYSPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;change_me&quot;</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kd">static</span><span class="w">  </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AstraDocApiHttpClient</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">   </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClients</span><span class="p">.</span><span class="na">createDefault</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="c1">// Build Request</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">            </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.apps.astra.datastax.com/api/rest&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">        </span><span class="n">HttpGet</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">apiRestEndpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/v2/schemas/namespaces&quot;</span><span class="p">);</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">        </span><span class="n">req</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;X-Cassandra-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ASTRA_TOKEN</span><span class="p">);</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="c1">// Execute Request</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">        </span><span class="k">try</span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">req</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getCode</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;[OK] Namespaces list retrieved&quot;</span><span class="p">);</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Returned message: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">EntityUtils</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">getEntity</span><span class="p">()));</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3398,38 +3265,38 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
 <li>You should install <strong>Java Development Kit (JDK) 8</strong>: Use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">reference documentation</a> to install a <strong>Java Development Kit</strong>.</li>
 <li>You should install <strong>Apache Maven</strong>: Use the <a href="https://maven.apache.org/install.html">reference documentation</a> and validate your installation with</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mvn<span class="w"> </span>-version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
 <ul>
 <li><strong>📦 Setup Project</strong></li>
 </ul>
 <p>Import relevant dependencies for <code>Astra SDK</code> in your <code>pom.xml</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.datastax.astra<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>astra-sdk<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>0.3.0<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nt">&lt;/dependency&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.datastax.astra<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>astra-sdk<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>0.3.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">View Code</label><label for="__tabbed_3_2">Execute Code</label><label for="__tabbed_3_3">Download Project</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">View Code</label><label for="__tabbed_2_2">Execute Code</label><label for="__tabbed_2_3">Download Project</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_TOKEN</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">AstraClient</span><span class="w"> </span><span class="n">astraClient</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">AstraClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">)</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="p">.</span><span class="na">withDatabaseId</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">)</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="p">.</span><span class="na">withDatabaseRegion</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;+ Namespaces (doc)    : &quot;</span><span class="w"> </span><span class="o">+</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">      </span><span class="n">astraClient</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">        </span><span class="p">.</span><span class="na">apiStargateDocument</span><span class="p">()</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">        </span><span class="p">.</span><span class="na">namespaceNames</span><span class="p">()</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()));</span>
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_TOKEN</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CHANGE_ME&quot;</span><span class="p">;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">AstraClient</span><span class="w"> </span><span class="n">astraClient</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">AstraClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">)</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="p">.</span><span class="na">withDatabaseId</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="p">.</span><span class="na">withDatabaseRegion</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;+ Namespaces (doc)    : &quot;</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">      </span><span class="n">astraClient</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">        </span><span class="p">.</span><span class="na">apiStargateDocument</span><span class="p">()</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">        </span><span class="p">.</span><span class="na">namespaceNames</span><span class="p">()</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()));</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3442,114 +3309,79 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
 </div>
 </div>
 </div>
-<h2 id="6-stargate-graphql">6 Stargate GraphQL<a class="headerlink" href="#6-stargate-graphql" title="Permanent link">&para;</a></h2>
+<h2 id="6-api-graphql">6 Api GraphQL<a class="headerlink" href="#6-api-graphql" title="Permanent link">&para;</a></h2>
 <h3 id="61-cql-first">6.1 CQL First<a class="headerlink" href="#61-cql-first" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
 </code></pre></div>
 <h3 id="62-graphql-first">6.2 GraphQL First<a class="headerlink" href="#62-graphql-first" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
+</code></pre></div>
+<p><strong>📦 Prerequisites [ASTRA]</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
+</code></pre></div>
+<p><strong>📦 Prerequisites [Development Environment]</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
+<p><strong>📦 Setup Project</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
+<p><strong>🖥️ Sample Code</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
-</code></pre></div>
-<h2 id="7-stargate-grpc">7. Stargate gRPC<a class="headerlink" href="#7-stargate-grpc" title="Permanent link">&para;</a></h2>
+<h2 id="7-api-grpc">7. Api gRPC<a class="headerlink" href="#7-api-grpc" title="Permanent link">&para;</a></h2>
 <h3 id="71-stargate-client">7.1 Stargate Client<a class="headerlink" href="#71-stargate-client" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
 </code></pre></div>
 <p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>TODO
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>TODO
 </code></pre></div>
 <h3 id="72-astra-sdk">7.2 Astra SDK<a class="headerlink" href="#72-astra-sdk" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TODO
+</code></pre></div>
+<p><strong>📦 Prerequisites [ASTRA]</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>TODO
+</code></pre></div>
+<p><strong>📦 Prerequisites [Development Environment]</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
+<p><strong>📦 Setup Project</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
+<p><strong>🖥️ Sample Code</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>TODO
 </code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>TODO
-</code></pre></div>
-<h2 id="8-pulsar-client">8. Pulsar Client<a class="headerlink" href="#8-pulsar-client" title="Permanent link">&para;</a></h2>
-<h3 id="81-pulsar-client">8.1 Pulsar Client<a class="headerlink" href="#81-pulsar-client" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>TODO
-</code></pre></div>
-<h3 id="82-astra-sdk">8.2 Astra SDK<a class="headerlink" href="#82-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>TODO
-</code></pre></div>
-<h2 id="9-pulsar-admin">9. Pulsar Admin<a class="headerlink" href="#9-pulsar-admin" title="Permanent link">&para;</a></h2>
-<h2 id="10-devops-api">10 Devops API<a class="headerlink" href="#10-devops-api" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-02
+      2023-01-18
     
   </small>
 </div>
@@ -3640,7 +3472,7 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.</p>
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>
