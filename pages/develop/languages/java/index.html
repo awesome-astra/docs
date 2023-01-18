@@ -1540,15 +1540,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-stargate-client" class="md-nav__link">
-    6.1 Stargate Client
+  <a href="#61-grpc-client" class="md-nav__link">
+    6.1 Grpc Client
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#72-astra-sdk" class="md-nav__link">
-    7.2 Astra SDK
+  <a href="#62-astra-sdk" class="md-nav__link">
+    6.2 Astra SDK
   </a>
   
 </li>
@@ -2750,15 +2750,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-stargate-client" class="md-nav__link">
-    6.1 Stargate Client
+  <a href="#61-grpc-client" class="md-nav__link">
+    6.1 Grpc Client
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#72-astra-sdk" class="md-nav__link">
-    7.2 Astra SDK
+  <a href="#62-astra-sdk" class="md-nav__link">
+    6.2 Astra SDK
   </a>
   
 </li>
@@ -3365,7 +3365,7 @@
 <details class="note annotate" open="open">
 <summary>Import dependencies in your <code>pom.xml</code></summary>
 <ul>
-<li>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></li>
+<li>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">&lt;dependencies&gt;</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w"> </span><span class="nt">&lt;dependency&gt;</span>
@@ -3417,38 +3417,105 @@
 </ul>
 </details>
 <h2 id="6-api-grpc">6. Api gRPC<a class="headerlink" href="#6-api-grpc" title="Permanent link">&para;</a></h2>
-<h3 id="61-stargate-client">6.1 Stargate Client<a class="headerlink" href="#61-stargate-client" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
+<h3 id="61-grpc-client">6.1 Grpc Client<a class="headerlink" href="#61-grpc-client" title="Permanent link">&para;</a></h3>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
+<ul>
+<li>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/io.stargate.grpc/grpc-proto"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/io.stargate.grpc/grpc-proto/badge.svg" /></a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">&lt;dependencies&gt;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">   </span><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">      </span><span class="nt">&lt;groupId&gt;</span>io.stargate.grpc<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">      </span><span class="nt">&lt;artifactId&gt;</span>grpc-proto<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">      </span><span class="nt">&lt;version&gt;</span>${latest-grpc-stargate}<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">      </span><span class="nt">&lt;groupId&gt;</span>io.grpc<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">      </span><span class="nt">&lt;artifactId&gt;</span>grpc-netty-shaded<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
+</details>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GrpcClient</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="c1">// Define inputs</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_TOKEN</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_a_clientSecret&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_ID</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_database_id&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;provide_your_database_region&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="c1">// Open Grpc communicatino </span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="n">ManagedChannel</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ManagedChannelBuilder</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">      </span><span class="p">.</span><span class="na">forAddress</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ASTRA_DB_REGION</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.apps.astra.datastax.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">443</span><span class="p">)</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">      </span><span class="p">.</span><span class="na">useTransportSecurity</span><span class="p">()</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="w">    </span><span class="c1">// use Grpc Stub generated from .proto as a client</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">    </span><span class="n">StargateGrpc</span><span class="p">.</span><span class="na">StargateBlockingStub</span><span class="w"> </span><span class="n">cloudNativeClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StargateGrpc</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="w">          </span><span class="p">.</span><span class="na">newBlockingStub</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="w">          </span><span class="p">.</span><span class="na">withCallCredentials</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StargateBearerToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">))</span>
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="w">          </span><span class="p">.</span><span class="na">withDeadlineAfter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="w">  </span><span class="c1">// create Query</span>
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">cqlQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT data_center from system.local&quot;</span><span class="p">;</span>
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a><span class="w">  </span><span class="c1">// Execute the Query</span>
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a><span class="w">  </span><span class="n">Response</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cloudNativeClient</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">QueryOuterClass</span>
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="w">                  </span><span class="p">.</span><span class="na">Query</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">().</span><span class="na">setCql</span><span class="p">(</span><span class="n">cqlQuery</span><span class="p">).</span><span class="na">build</span><span class="p">());</span>
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>
+<a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a><span class="w">  </span><span class="c1">// Accessing Row result</span>
+<a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="w">  </span><span class="n">QueryOuterClass</span><span class="p">.</span><span class="na">Row</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getResultSet</span><span class="p">().</span><span class="na">getRowsList</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>
+<a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a><span class="w">  </span><span class="c1">// Access the single value</span>
+<a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">datacenterName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getValues</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span>
+<a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;You are connected to &#39;%s&#39;&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">datacenterName</span><span class="p">));</span>
 </code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
+</details>
+<h3 id="62-astra-sdk">6.2 Astra SDK<a class="headerlink" href="#62-astra-sdk" title="Permanent link">&para;</a></h3>
+<p>The <code>Astra SDK</code> sets up the connection to work with the AstraDB cloud-based service. You will work with the class <code>AstraClient</code>, <a href="https://github.com/datastax/astra-sdk-java/wiki">Reference documentation</a>.</p>
+<details class="note annotate" open="open">
+<summary>Import dependencies in your <code>pom.xml</code></summary>
+<ul>
+<li>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">&lt;dependencies&gt;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w"> </span><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">     </span><span class="nt">&lt;groupId&gt;</span>com.datastax.astra<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">     </span><span class="nt">&lt;artifactId&gt;</span>astra-sdk<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">     </span><span class="nt">&lt;version&gt;</span>${latestSDK}<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w"> </span><span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
+</details>
+<details class="note" open="open">
+<summary>Standalone Code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">// Initialize Astra Client with token and database identifiers</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">        </span><span class="k">try</span><span class="p">(</span><span class="n">AstraClient</span><span class="w"> </span><span class="n">astraClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">                </span><span class="p">.</span><span class="na">withDatabaseId</span><span class="p">(</span><span class="n">ASTRA_DB_ID</span><span class="p">)</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">                </span><span class="p">.</span><span class="na">withDatabaseRegion</span><span class="p">(</span><span class="n">ASTRA_DB_REGION</span><span class="p">)</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">                </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">ASTRA_DB_TOKEN</span><span class="p">)</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">                </span><span class="p">.</span><span class="na">enableGrpc</span><span class="p">()</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">            </span><span class="c1">// Accessin the gRPC API</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="w">            </span><span class="n">ApiGrpcClient</span><span class="w"> </span><span class="n">cloudNativeClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">astraClient</span><span class="p">.</span><span class="na">apiStargateGrpc</span><span class="p">();</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="w">            </span><span class="c1">// Reuse cql query</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">cqlQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT data_center from system.local&quot;</span><span class="p">;</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="w">            </span><span class="c1">// Executing Query</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="w">            </span><span class="n">ResultSetGrpc</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cloudNativeClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">cqlQuery</span><span class="p">);</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="w">            </span><span class="c1">// Accessing reulst</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">datacenterName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">one</span><span class="p">().</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;data_center&quot;</span><span class="p">);</span>
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;You are connected to &#39;%s&#39;&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">datacenterName</span><span class="p">));</span>
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="w">            </span><span class="c1">// Validating the test</span>
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="w">            </span><span class="n">Assertions</span><span class="p">.</span><span class="na">assertNotNull</span><span class="p">(</span><span class="n">datacenterName</span><span class="p">);</span>
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a><span class="w">        </span><span class="p">}</span>
 </code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>TODO
-</code></pre></div>
-<h3 id="72-astra-sdk">7.2 Astra SDK<a class="headerlink" href="#72-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
-</code></pre></div>
+</details>
 
   <hr>
 <div class="md-source-file">
