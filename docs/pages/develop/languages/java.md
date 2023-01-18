@@ -607,7 +607,7 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
 ???+ note annotate "Import dependencies in your `pom.xml`"
 
-      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk)
 
       ```xml
       <dependencies>
@@ -660,69 +660,109 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
 
-
 ## 6. Api gRPC
 
-### 6.1 Stargate Client
+### 6.1 Grpc Client
 
-**ℹ️ Overview**
+???+ note annotate "Import dependencies in your `pom.xml`"
 
-```
-TODO
-```
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.stargate.grpc/grpc-proto/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.stargate.grpc/grpc-proto)
 
-**📦 Prerequisites [ASTRA]**
+      ```xml
+      <dependencies>
+         <dependency>
+            <groupId>io.stargate.grpc</groupId>
+            <artifactId>grpc-proto</artifactId>
+            <version>${latest-grpc-stargate}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty-shaded</artifactId>
+        </dependency>
+      </dependencies>
+      ```
 
-```
-TODO
-```
 
-**📦 Prerequisites [Development Environment]**
+???+ note "Standalone Code"
 
-```
-TODO
-```
+      ```java
+        public class GrpcClient {
 
-**📦 Setup Project**
+          // Define inputs
+          static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
+          static final String ASTRA_DB_ID     = "<provide_your_database_id>";
+          static final String ASTRA_DB_REGION = "<provide_your_database_region>";
+          
+          // Open Grpc communicatino 
+          ManagedChannel channel = ManagedChannelBuilder
+            .forAddress(ASTRA_DB_ID + "-" + ASTRA_DB_REGION + ".apps.astra.datastax.com", 443)
+            .useTransportSecurity()
+            .build();
+        
+          // use Grpc Stub generated from .proto as a client
+          StargateGrpc.StargateBlockingStub cloudNativeClient = StargateGrpc
+                .newBlockingStub(channel)
+                .withCallCredentials(new StargateBearerToken(ASTRA_DB_TOKEN))
+                .withDeadlineAfter(5, TimeUnit.SECONDS);
+        
+        // create Query
+        String cqlQuery = "SELECT data_center from system.local";
+        
+        // Execute the Query
+        Response res = cloudNativeClient.executeQuery(QueryOuterClass
+                        .Query.newBuilder().setCql(cqlQuery).build());
 
-```
-TODO
-```
+        // Accessing Row result
+        QueryOuterClass.Row row = res.getResultSet().getRowsList().get(0);
+        
+        // Access the single value
+        String datacenterName = row.getValues(0).getString();
+        System.out.println("You are connected to '%s'".formatted(datacenterName));
+      ```
 
-**🖥️ Sample Code**
+### 6.2 Astra SDK
 
-```
-TODO
-```
+The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
-### 7.2 Astra SDK
+???+ note annotate "Import dependencies in your `pom.xml`"
 
-**ℹ️ Overview**
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
-```
-TODO
-```
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
 
-**📦 Prerequisites [ASTRA]**
+???+ note "Standalone Code"
 
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
+      ```java
+      // Initialize Astra Client with token and database identifiers
+              try(AstraClient astraClient = AstraClient.builder()
+                      .withDatabaseId(ASTRA_DB_ID)
+                      .withDatabaseRegion(ASTRA_DB_REGION)
+                      .withToken(ASTRA_DB_TOKEN)
+                      .enableGrpc()
+                      .build()) {
+                  
+                  // Accessin the gRPC API
+                  ApiGrpcClient cloudNativeClient = astraClient.apiStargateGrpc();
+                  
+                  // Reuse cql query
+                  String cqlQuery = "SELECT data_center from system.local";
+                  
+                  // Executing Query
+                  ResultSetGrpc rs = cloudNativeClient.execute(cqlQuery);
+                  
+                  // Accessing reulst
+                  String datacenterName = rs.one().getString("data_center");
+                  System.out.println("You are connected to '%s'".formatted(datacenterName));
+                  
+                  // Validating the test
+                  Assertions.assertNotNull(datacenterName);
+              }
+      ```      
