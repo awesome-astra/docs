@@ -11,19 +11,19 @@ Astra offers different Apis and interfaces. To know more about the ussage of eac
 
 - **ASTRA DB (Stargate Apis)**
 
-<a href="#3-native-cassandra-drivers">
+<a href="#2-native-cassandra-drivers">
  <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="#4-stargate-rest-api">
+<a href="#3-api-rest">
 <img src="../../../../img/tile-api-rest.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="#5-stargate-document-api">
+<a href="#4-api-document">
  <img src="../../../../img/tile-api-document.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="#6-stargate-graphql">
+<a href="#5-api-graphql">
 <img src="../../../../img/tile-api-graphql.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
-<a href="7-stargate-grpc">
+<a href="#6-api-grpc">
 <img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 
@@ -246,7 +246,6 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-
 ## 3. Api Rest
 
 !!! important "⚠️ We recommend to use version `V2` (_with V2 in the URL_) as it covers more features and the V1 would be deprecated sooner."
@@ -254,8 +253,6 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
     <img src="../../../../img/java/api-data.png" />
 
 To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://awesome-astra.github.io/docs//Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
-
-
 
 ### 3.1 `Http Client`
 
@@ -272,12 +269,9 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
     ```
 
 ???+ note "Standalone Code"
-
-      <img src="../../../../img/java/schemas-keyspace-list.png" />
-
+     
       ```java
       import java.io.File;
-      
       public class AstraRestApiHttpClient {
 
           static final String ASTRA_TOKEN       = "<change_with_your_token>";
@@ -292,17 +286,29 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
                       .append(ASTRA_DB_REGION)
                       .append(".apps.astra.datastax.com/api/rest")
                       .toString();
-              logger.info("Rest Endpoint is {}", apiRestEndpoint);
+              System.out.println("Rest Endpoint is " + apiRestEndpoint);
 
               try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+                  // Work with HTTP CLIENT
                   listKeyspaces(httpClient, apiRestEndpoint);
+                  createTable(httpClient, apiRestEndpoint);
               }
-              logger.info("[OK] Success");
-              System.exit(0);
           }
+      }
+      ```
 
-          private static void listKeyspaces(CloseableHttpClient httpClient, String apiRestEndpoint)
-          throws Exception {
+ - **Operations**
+
+??? note "List Keyspaces"
+
+     <img src="../../../../img/java/schemas-keyspace-list.png" />
+
+     - Code
+
+      ```java
+
+      private static void listKeyspaces(CloseableHttpClient httpClient, String apiRestEndpoint)
+      throws Exception {
               // Build Request
               HttpGet listKeyspacesReq = new HttpGet(apiRestEndpoint + "/v2/schemas/keyspaces");
               listKeyspacesReq.addHeader("X-Cassandra-Token", ASTRA_TOKEN);
@@ -312,11 +318,11 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
               if (200 == res.getCode()) {
               logger.info("[OK] Keyspaces list retrieved");
               logger.info("Returned message: {}", EntityUtils.toString(res.getEntity()));
-          }
       }
       ```
 
-???+ note "Creating a table"
+
+??? note "Creating a table"
 
       <img src="../../../../img/java/schemas-table-create.png" />
 
@@ -363,8 +369,6 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
       }
       ```
 
- - **More sample codes**
- 
 ??? note "Insert a new Row"
 
       <img src="../../../../img/java/data-rows-insert.png" />
@@ -415,43 +419,91 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
       }
       ```
 
-[![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/DataStax-Examples/astra-samples-java/archive/refs/heads/main.zip)
+???+ abstract "Resources"
 
-## 5. Api Document
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download REST HTTP CLIENT
+      </a>
 
-**ℹ️ Overview**
+      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
+
+
+### 3.2 `Astra SDK`
+
+The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
+
+???+ note annotate "Import dependencies in your `pom.xml`"
+
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
+
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
+
+???+ note "Standalone Code"
+
+      ```java
+      import java.io.File;
+      import com.datastax.astra.sdk.AstraClient;
+      import com.datastax.oss.driver.api.core.CqlSession;
+
+      public class AstraSdk {
+
+        // Define inputs
+        static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
+        static final String ASTRA_DB_ID     = "<provide_your_database_id>";
+        static final String ASTRA_DB_REGION = "<provide_your_database_region>";
+        static final String ASTRA_KEYSPACE  = "<provide_your_keyspace>";
+
+        // Init Astra Client
+        public static void main(String[] args) {
+            try(AstraClient cli = AstraClient.builder()
+              .withToken(ASTRA_DB_TOKEN)
+              .withDatabaseId(ASTRA_DB_ID)
+              .withDatabaseRegion(ASTRA_DB_REGION)
+              .withCqlKeyspace(ASTRA_DB_KEYSPACE)
+              .build()) {
+                System.out.println("+ List of Keyspaces: " + 
+                  astraClient.apiStargateData()
+                             .keyspaceNames()
+                             .collect(Collectors.toList()));
+            }
+        }
+      }
+      ```
+
+???+ abstract "Resources"
+
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+      </a>
+
+      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
+
+## 4. Api Document
 
 The Document API is an HTTP REST API and part of the open source Stargate.io. The idea is to provide an abstraction on top of Apache Cassandra™ to allow document-oriented access patterns. To get familiar with it you can access [documentation and sandbox here](/docs/pages/develop/api/document/)
 
-### 5.1 `Http Client`
+### 4.1 `Http Client`
 
-- **📦 Prerequisites**
+???+ note annotate "Import dependencies in your `pom.xml`"
 
-You should have an [Astra account](https://astra.dev/3B7HcYo)
-You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-You should [Have an Astra Token](/docs/pages/astra/create-token/)
-You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
-You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
+    ```xml
+    <dependency>
+      <groupId>org.apache.httpcomponents.client5</groupId>
+      <artifactId>httpclient5</artifactId>
+      <version>5.1.3</version>
+    </dependency>
+    ```
 
-```bash
-mvn -version
-```
-
-- **📦 Setup Project**
-
-Import relevant dependencies for `Apache Http Client` in your `pom.xml`.
-Jackon is also helpful to serialize or unserialized Java Objects as JSON.
-
-```xml
-<dependency>
-  <groupId>org.apache.httpcomponents.client5</groupId>
-  <artifactId>httpclient5</artifactId>
-  <version>5.1.3</version>
-</dependency>
-```
-
-=== "View Code"
-
+???+ note "Standalone Code"
+     
       ```java
       static final String ASTRA_TOKEN       = "change_me";
       static final String ASTRA_DB_ID       = "change_me";
@@ -482,143 +534,136 @@ Jackon is also helpful to serialize or unserialized Java Objects as JSON.
       }
       ```
 
-=== "Execute Code"
+???+ abstract "Resources"
 
-    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CedrickLunven/HttpClientDocumentApi?lite=true"></iframe>
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+      </a>
 
-=== "Download Project"
 
-    <a href="https://github.com/awesome-astra/sample-java-httpclient-docapi/archive/refs/heads/main.zip" class="md-button">
-          <i class="fa fa-download" ></i>&nbsp;Download Document Api Code
-    </a>
+### 4.2 `Astra SDK`
 
-### 5.2 `Astra SDK`
+The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
-- **📦 Prerequisites**
+???+ note annotate "Import dependencies in your `pom.xml`"
 
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should install **Java Development Kit (JDK) 8**: Use the [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**.
-- You should install **Apache Maven**: Use the [reference documentation](https://maven.apache.org/install.html) and validate your installation with
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
-```bash
-mvn -version
-```
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
 
-- **📦 Setup Project**
-
-Import relevant dependencies for `Astra SDK` in your `pom.xml`.
-
-```xml
-<dependency>
-	<groupId>com.datastax.astra</groupId>
-	<artifactId>astra-sdk</artifactId>
-	<version>0.3.0</version>
-</dependency>
-```
-
-=== "View Code"
+???+ note "Standalone Code"
 
       ```java
-      public static final String ASTRA_DB_TOKEN    = "CHANGE_ME";
-      public static final String ASTRA_DB_ID       = "CHANGE_ME";
-      public static final String ASTRA_DB_REGION   = "CHANGE_ME";
+      import java.io.File;
+      import com.datastax.astra.sdk.AstraClient;
+      import com.datastax.oss.driver.api.core.CqlSession;
 
-      public static void main(String[] args) {
-          try (AstraClient astraClient =  AstraClient.builder()
-          .withToken(ASTRA_DB_TOKEN)
-          .withDatabaseId(ASTRA_DB_ID)
-          .withDatabaseRegion(ASTRA_DB_REGION)
-          .build()) {
-          System.out.println("+ Namespaces (doc)    : " +
-            astraClient
-              .apiStargateDocument()
-              .namespaceNames()
-              .collect(Collectors.toList()));
-          }
+      public class AstraSdk {
+
+        // Define inputs
+        static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
+        static final String ASTRA_DB_ID     = "<provide_your_database_id>";
+        static final String ASTRA_DB_REGION = "<provide_your_database_region>";
+        static final String ASTRA_KEYSPACE  = "<provide_your_keyspace>";
+
+        // Init Astra Client
+        public static void main(String[] args) {
+            try(AstraClient cli = AstraClient.builder()
+              .withToken(ASTRA_DB_TOKEN)
+              .withDatabaseId(ASTRA_DB_ID)
+              .withDatabaseRegion(ASTRA_DB_REGION)
+              .withCqlKeyspace(ASTRA_DB_KEYSPACE)
+              .build()) {
+                System.out.println("+ List of Keyspaces: " + 
+                  astraClient.apiStargateDocument()
+                             .namespaceNames()
+                             .collect(Collectors.toList()));
+            }
+        }
       }
       ```
 
-=== "Execute Code"
+???+ abstract "Resources"
 
-    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+      </a>
 
-=== "Download Project"
+      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-    <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
-          <i class="fa fa-download" ></i>&nbsp;Download Document Api Code
-    </a>
+## 5 Api GraphQL
 
-## 6 Api GraphQL
+### 5.1 `Astra SDK`
 
-### 6.1 CQL First
+The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
-**ℹ️ Overview**
+???+ note annotate "Import dependencies in your `pom.xml`"
 
-```
-TODO
-```
+      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
-**📦 Prerequisites [ASTRA]**
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
 
-```
-TODO
-```
+???+ note "Standalone Code"
 
-**📦 Prerequisites [Development Environment]**
+      ```java
+      import java.io.File;
+      import com.datastax.astra.sdk.AstraClient;
+      import com.datastax.oss.driver.api.core.CqlSession;
 
-```
-TODO
-```
+      public class AstraSdk {
 
-**📦 Setup Project**
+        // Define inputs
+        static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
+        static final String ASTRA_DB_ID     = "<provide_your_database_id>";
+        static final String ASTRA_DB_REGION = "<provide_your_database_region>";
+        static final String ASTRA_KEYSPACE  = "<provide_your_keyspace>";
 
-```
-TODO
-```
+        // Init Astra Client
+        public static void main(String[] args) {
+            try(AstraClient cli = AstraClient.builder()
+              .withToken(ASTRA_DB_TOKEN)
+              .withDatabaseId(ASTRA_DB_ID)
+              .withDatabaseRegion(ASTRA_DB_REGION)
+              .withCqlKeyspace(ASTRA_DB_KEYSPACE)
+              .build()) {
+                 System.out.println("+ Keyspaces (graphQL) : " + astraClient
+                    .apiStargateGraphQL()
+                    .cqlSchema()
+                    .keyspaces());
+            }
+        }
+      }
+      ```
 
-**🖥️ Sample Code**
+???+ abstract "Resources"
 
-```
-TODO
-```
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+      </a>
 
-### 6.2 GraphQL First
+      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-**ℹ️ Overview**
 
-```
-TODO
-```
 
-**📦 Prerequisites [ASTRA]**
+## 6. Api gRPC
 
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-## 7. Api gRPC
-
-### 7.1 Stargate Client
+### 6.1 Stargate Client
 
 **ℹ️ Overview**
 
