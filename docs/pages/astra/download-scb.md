@@ -1,7 +1,7 @@
 <details>
 <summary><b> 📖 Reference Documentation and resources</b></summary>
 <ol>
-<li><a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html"><b>📖  Astra Docs</b> - Download Cloud Secure Bundle</a>
+<li><a href="https://docs.datastax.com/en/astra-serverless/docs/connect/secure-connect-bundle.html"><b>📖  Astra Docs</b> - Download Cloud Secure Bundle</a>
 <li><a href="https://www.youtube.com/watch?v=PNQM-Bsyibg&list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&index=7"><b>🎥 Youtube Video</b> - Walk through secure </a>
 </ol>
 </details>
