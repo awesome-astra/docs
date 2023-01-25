@@ -45,6 +45,8 @@ nav:
 
   - Develop with Astra:
     - List: pages/develop/index.md
+    - SDK:
+      - • Astra SDK Java: pages/develop/sdk/astra-sdk-java.md
     - Stargate Apis:
       - • Document: pages/develop/api/document.md
       - • REST: pages/develop/api/rest.md
