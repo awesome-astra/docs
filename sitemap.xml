@@ -246,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/develop/sdk/astra-sdk-java/</loc>
+         <lastmod>2023-01-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/</loc>
          <lastmod>2023-01-25</lastmod>
          <changefreq>daily</changefreq>
