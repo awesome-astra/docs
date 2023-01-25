@@ -28,6 +28,8 @@
 
 - **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
 
+- **[Github Actions](plugins/github-actions):** GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
+
 - **[Grafana](integration/grafana):** Grafana is an industry standard tool for data visualisation. With Grafana, you can explore your time-series data using different visualisations: charts, plots, diagrams and even configure alerting if a value exceeds some desired range.
 
 - **[HashiCorp Vault](integration/vault.md):** Vault is an identity-based secrets and encryption management system. A secret is anything that you want to tightly control access to, such as API encryption keys, passwords, or certificates. Vault provides encryption services that are gated by authentication and authorization methods.
