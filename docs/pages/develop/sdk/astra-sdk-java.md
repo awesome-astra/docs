@@ -2,11 +2,11 @@
 
 ---
 
-## Overview
+## Connect with the Java SDK
+
+The Java SDK ([astra-sdk-java](https://github.com/datastax/astra-sdk-java)) allows you to perform standard CRUD operations on your data using Java.
 
 This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs. The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`.
-
-<img src="../../../../img/sdk/sdk-overview.png" />
 
 - `Stargate SDK` works with both Stargate standalone installations and Stargate deployed in Astra. With standalone Stargate deployments you will initialize the framework with the class StargateClient and provide a list of nodes (IP). To start locally please follow Stargate SDK quickstart guide. The nodes will run in Docker.
 
@@ -14,38 +14,31 @@ This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra 
 
 - `Astra Spring Boot Starter`: Imported in a Spring Boot application, it configures both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration is read in application.yaml. The starter will initialize any beans you would need (AstraClient, CqlSession, StargateClient. To get started follow the Astra Spring Boot Starter QuickStart guide.
 
-## Pre-requisites
+## 1 Prerequisites
 
-- **Java Development Kit (JDK) 8+**
+1. **Java Development Kit (JDK) 8+**
 
-Use [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit** and validate your installation with
+Use [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**. Validate your installation with:
 
 ```bash
 java --version
 ```
 
-- **Apache Maven (3.8+)**
+2. **Apache Maven (3.8+)**
 
-The different samples and tutorials have been designed with `Apache Maven`.Use the [reference documentation](https://maven.apache.org/install.html) top install maven validate your installation with 
+The different samples and tutorials have been designed with `Apache Maven`. Use the [reference documentation](https://maven.apache.org/install.html) to install maven. Validate your installation with:
 
 ```bash
 mvn -version
 ```
 
-- **Datastax Astra**
+3. An Application Token (create a new one [here](/settings/tokens)) with the appropriate role set (API Admin User is needed for example below).
 
-???+ abstract "Setup Actions"
-
-    - You should have an [Astra account](https://astra.dev/3B7HcYo)
-    - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-    - You should [Have an Astra Token](/docs/pages/astra/create-token/)
-    - You should [Download your Secure bundle](/docs/pages/astra/download-scb/) (only for CQL)
-
-## Quickstart
+## 2 Quickstart
 
 ### Project Creation
 
-- Use maven to generate a project template
+1. Use maven to generate a project template
 
 ```
 mvn archetype:generate \
@@ -58,7 +51,7 @@ mvn archetype:generate \
   -DinteractiveMode=false
 ```
 
-- Open the project in your favourite IDE and edit `pom.xml` to add the latest version of `com.datastax.astra/astra-sdk` as dependency ([![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core))
+2. Open the project in your favourite IDE and edit `pom.xml` to add the latest version of `com.datastax.astra/astra-sdk` as dependency ([![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core))
 
 ```xml
   <dependencies>
@@ -74,11 +67,19 @@ mvn archetype:generate \
 
 ### Configuration
 
-- Create a new class `AstraSdk` and populate the 4 variables.
+3. Create a new class `AstraSdk` and populate the 4 variables.
 
-!!! node "Note"
+**Note:** _Depending on the framework you will declare in a configuration file like`application.properties` and load/inject them. We're just keeping things simple for now._
 
-     Depending on the framework you will declare in a configuration file like`application.properties` and load/inject them. In the tutorial to stick to minimal dependencies.
+4. Use the following values to populate your class variables below.
+
+**COULD WE JUST INJECT THESE DIRECT INTO THE CODE BLOCK SINCE WE'RE NO LONGER USING MARKDOWN?**
+
+```bash
+    export ASTRA_DB_ID=85ce6482-cce5-4ced-b98b-274981222051
+    export ASTRA_DB_REGION=us-central1
+    export ASTRA_DB_APPLICATION_TOKEN=<app_token>
+```
 
 ```java
 import java.io.File;
@@ -105,7 +106,7 @@ public class AstraSdk {
 }
 ```
 
-- Within the `main` method, define the `AstraClient` as follow. This class is the entry point to every API for astra. It must be a singleton for your application. As autocloseable we can create is in a `try/resources` code block.
+5. Within the `main` method, define the `AstraClient` as follow. This class is the entry point to every API for astra. It must be a singleton for your application. As autocloseable we can create is in a `try/resources` code block.
 
 ```java
 try(AstraClient cli = AstraClient.builder()
