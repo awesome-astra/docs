@@ -105,9 +105,11 @@ nav:
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
       - • Github Actions : pages/tools/plugins/github-actions.md
+  - Sample Application Gallery:
+    - • Sample Application Gallery : pages/gallery/index.md
   - Contact Us:
     - • Contact Us : pages/contact/index.md
-
+  
 # ------------------------------------------------------
 # Settings
 # ------------------------------------------------------
