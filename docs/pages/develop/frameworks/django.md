@@ -251,15 +251,99 @@ In the above database connection settings, there are four variables that should 
 - `AUTH_USERNAME` and `AUTH_PASSWORD`: these may be either the "clientID/clientSecret" pair from your [database token](https://awesome-astra.github.io/docs/pages/astra/create-token/), or alternatively the literal `"token"` and the token string starting with `AstraCS:...`.
 - `SECURE_BUNDLE_PATH`, the full path to the [Secure connect bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/) for your database. This can be downloaded manually or, as described in the application's readme, through use of [Astra CLI](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) along with the rest of the above setup.
 
-Third, you may consider adding the line `CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True`. This means that, when a model's `order_by()` directive cannot be mapped into CQL, the model can fall back to in-code sorting. Although this may be non-optimal in general (especially for large result sets), it can still be a safe and useful choice if you know that the amount of data involved is small.
+Third, you may consider adding the line `CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True`. This means that, when a model's `order_by()` directive cannot be mapped to CQL according to the table's clustering, the model can fall back to in-code sorting. Although this may be non-optimal in general (especially for large result sets), it can still be a safe and useful choice if you know that the amount of data involved is small.
 
 ### Dependencies and Cassandra drivers
 
-TODO
+Two dependencies are needed for a Django application backed by Astra DB:
 
-### Other caveats
+- `Django`
+- `django-cassandra-engine`
 
-TODO
+(the other package in the sample app's
+[`requirements.txt`](https://github.com/awesome-astra/sample-astra-django-website/blob/main/requirements.txt)
+serves the purpose of injecting connection secrets in Django
+`settings.py` as outlined in previous section.)
+
+It should be noted that current versions of the Cassandra engine for Django
+automatically installs ScyllaDB's version of the Cassandra drivers, i.e.
+package `scylla-driver`. These are a drop-in replacement for the package
+by DataStax (`cassandra-driver`), meaning that:
+
+1. both are imported with statements such as `from cassandra.cluster import Cluster` and the like;
+2. it is unwise to install both at once as that would introduce namespace collisions.
+
+If you prefer to work with the driver package by DataStax, the application would work just fine indeed:
+to do so, one can simply uninstall the drivers by Scylla (`pip uninstall scylla-driver`), and then install
+the desired drivers (`pip install cassandra-driver`). Not even a line of code should then be changed.
+
+_Note: at the time of writing (January 2023), the differences between the two drivers are little and mostly confined to additional support for Scylla-specific database architecture. As such, there would be no implications on the functionality, nor the performance, of applications based on Astra DB._
+
+### Caveats and Troubleshooting
+
+_In this section we collect a handy list of warnings and things to keep in mind
+when using Astra DB with Django, whether by migration or when designing
+an app from scratch._
+
+* In Cassandra models, there is no `max_length` parameter for text fields,
+corresponding to the absence of such a property for the CQL `TEXT` data type.
+
+* Likewise, you should not add the `editable=False` parameter for
+primary-key columns when defining models.
+
+* For a model class subclassing `DjangoCassandraModel` with a _multi-column
+primary key_ (regardless of the partition/clustering distinction) one must provide
+a `get_pk_field` attribute through a `Meta` class: in this way the Django engine
+would be able to resolve queries such as `<Model class>.objects.get(pk=...)`.
+You can see an example of this in the model quoted earlier. Failure to comply with
+this requirement would make the application fail to start with an informative error.
+_If you are using the model in a sensible way (from a Cassandra perspective), you can pay little attention to this since you should not, as a matter of fact, be triggering such a query anywhere in your code, implicitly or explicitly._
+
+* The `django-cassandra-engine` package does support most of the features of its native,
+RDBMS counterpart; however, in some cases, a little more manual plumbing might be
+in order. In particular, the native models support fields of type [`FileField`](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.FileField), which pairs with the
+[_form field_ of the same name](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#filefield) 
+and handles upload of files by storing the actual file content on disk and a path to it on DB.
+The Cassandra engine has no such facility, requiring you to manually handle what happens
+once the endpoint has received file uploads via a form POST (you can still use the _form_ field, though).
+A similar consideration holds for the more specific `ImageField` model field.
+
+* Once the application is ready and the DB has been synchronized with it
+(using `./manage.py sync_cassandra` or equivalent command), you will still see
+warnings about a number of "unapplied migrations". You can ignore these warnings
+(incidentally, the `migrate` command is not even supported by the Cassandra engine,
+being supplanted by `sync_cassandra`).
+
+* If you change the model and try to run the application, or forget to run the
+`sync_cassandra` management operation altogether, changes are you will see the
+application crash with no messages or with just a unhelpful
+`Segmentation fault (core dumped)` message. In this case, please make sure that
+(1) your database is not in "Hibernated" state, (2) you have launched a sync
+operation after all changes to any model.
+
+* If you use a model's `filter(...)` method but with a filtering
+condition (a `WHERE` clause) that is not a good match to the structure
+of your database table, the application will most likely function,
+but possibly exhibit bad performance. It is your responsibility to make sure
+that usage of models does not sweep violations of data modeling best
+practices under the rug.
+
+* As remarked above, if you request objects to be sorted in a way that is
+not compliant with the structure of your table, you can still enable a fallback
+behaviour whereby the rows are sorted post-retrieval in Python code (you do
+this through `CASSANDRA_FALLBACK_ORDER_BY_PYTHON` in `settings.py`,
+but you should do this only if there are few rows involved).
+Don't be alarmed if you _still_ see something like the following in the application
+logs (the warning would be a true exception if you hadn't enabled the fallback):
+
+```
+UserWarning: .order_by() with column "-date" failed!
+Falling back to ordering in python.
+Exception was:
+Can't order on 'date', can only order on (clustered) primary keys
+```
+
+
 
 ## References
 
