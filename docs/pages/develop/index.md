@@ -73,4 +73,7 @@ Click the tile and learn how to interact with each language-specific interface e
 <a href="frameworks/flask">
 <img src="../../img/tile-flask.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<a href="frameworks/django">
+<img src="../../img/tile-django.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 </p>
