@@ -45,7 +45,7 @@ Reference documentation:
 ## Github Repository Configuration
 
 !!! note "Note"
-    It is not rocket science. We ask github for an ubunutu environment, we install the [Astra CLI](../../astra/astra-cli.md) and 
+    It is not rocket science. We ask github for an ubuntu environment, we install the [Astra CLI](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) and 
     we use the `CLI` to create a database.
 
 ### Create a secret for token
@@ -130,7 +130,7 @@ Here is a [sample repository](https://github.com/DataStax-Examples/astra-cli-git
 
 ## What's NEXT ?
 
-If you are not familiar with the CLI all available commands are available in [the documentation]([Astra CLI](../../astra/astra-cli.md)) or in the help of the tools
+If you are not familiar with the CLI all available commands are available in [the documentation](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) or in the help of the tools
 
 ```
 $> astra help db create
