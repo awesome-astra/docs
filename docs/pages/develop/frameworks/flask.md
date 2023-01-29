@@ -48,7 +48,7 @@ secrets, so it should _never_ be checked in to version control.
 Since it is a good practice to explicitly free resources once we're done,
 in this module there's also a shutdown hook that takes care of cleanup
 by closing the session and shutting down the `Cluster` object. (which for a
-FastAPI application that runs indefinitely is a bit of a moot point, but still
+Flask application that runs indefinitely is a bit of a moot point, but still
 illustrates the point).
 
 ### Endpoint dependencies
