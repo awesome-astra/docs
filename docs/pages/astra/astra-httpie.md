@@ -12,7 +12,7 @@ pip install httpie-astra
 
 ## Setup your Astra account
 
-To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with the `Organization Administration` role.
+To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](../../../pages/astra/create-token/) with the `Organization Administration` role.
 
 ## Install Astra CLI
 To install (or reinstall) the CLI use the following command in a terminal:
