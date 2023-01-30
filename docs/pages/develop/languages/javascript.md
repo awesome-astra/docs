@@ -38,8 +38,8 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 
 Covered the basics and looking for more? We’ve got docs to help you complete a variety of tasks. Here are some relevant topics for you:
 
-[Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html)
-[Migrating Node.js Driver](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html#_migrating_node_js_driver)
+- [Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html)
+- [Migrating Node.js Driver](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html#_migrating_node_js_driver)
 
 **📦 Prerequisites [ASTRA]**
 
@@ -105,17 +105,17 @@ The cloud native (known as Google Remote Procedure Call or gRPC) client is well-
 
 Covered the basics and looking for more? We’ve got docs to help you complete a variety of tasks. Here are some relevant topics for you:
 
-[Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html)
-[Node.js Querying](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_querying)
-[Processing a result set](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_processing_result_set)
-[Node.js Developing](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_developing)
-[Node full sample script](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_full_sample_script)
+- [Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html)
+- [Node.js Querying](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_querying)
+-[Processing a result set](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_processing_result_set)
+- [Node.js Developing](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_developing)
+- [Node full sample script](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_full_sample_script)
 
 **📦 Prerequisites [ASTRA]**
 
-* If you do not already have one, get an [API Token](https://astra.datastax.com/org/2e0bb003-9a90-4163-b23a-53acc04969fb/settings/tokens) and set the role to “Database Administrator”.
-* Create a [keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html).
-* Create a table in your keyspace(optional): [REST](https://docs.datastax.com/en/astra/docs/creating-a-table-in-your-keyspace.html)
+- If you do not already have one, get an [API Token](https://astra.datastax.com/org/2e0bb003-9a90-4163-b23a-53acc04969fb/settings/tokens) and set the role to “Database Administrator”.
+- Create a [keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html).
+- Create a table in your keyspace(optional): [REST](https://docs.datastax.com/en/astra/docs/creating-a-table-in-your-keyspace.html)
 
 **📦 Setup Project**
 
@@ -170,168 +170,342 @@ const promisifiedClient = promisifyStargateClient(stargateClient);
 console.log("promisified client")
 ```
 
-### 3.3 Astra SDK
+### 3.3 Astra SDK (@astrajs/collections and @astrajs/rest)
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+The JavaScript SDK allows you to perform standard CRUD operations on your data using Javascript.
 
 **📦 Prerequisites [ASTRA]**
 
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+
+- In the command-line interface associated with your development environment, paste the following and replace <app_token> with your Application Token:
 ```
-TODO
+export ASTRA_DB_ID=887ff1a8-f81a-4a7a-a11b-d5379998b36e
+export ASTRA_DB_REGION=us-east1
+export ASTRA_DB_APPLICATION_TOKEN=<app_token>
 ```
+- Use printenv to ensure the environment variables were exported correctly.
 
 **📦 Prerequisites [Development Environment]**
 
 ```
-TODO
+A current version of node (16+) and NPM (8+)
 ```
 
 **📦 Setup Project**
 
 ```
-TODO
+npm install @astrajs/rest
+npm install @astrajs/collections
 ```
 
 **🖥️ Sample Code**
 
+Sample code for Document API:
 ```
-TODO
+const { createClient } = require("@astrajs/rest");
+
+// create an Astra DB client
+const astraClient = await createClient({
+  astraDatabaseId: process.env.ASTRA_DB_ID,
+  astraDatabaseRegion: process.env.ASTRA_DB_REGION,
+  applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
+});
+
+const basePath = "/api/rest/v2/namespaces/app/collections/users";
+
+// get a single user by document id
+const { data, status } = await astraClient.get(`${basePath}/cliff@wicklow.com`);
+
+// get a subdocument by path
+const { data, status } = await astraClient.get(
+  `${basePath}/cliff@wicklow.com/blog/comments`
+);
+
+// search a collection of documents
+const { data, status } = await astraClient.get(basePath, {
+  params: {
+    where: {
+      name: { $eq: "Cliff" },
+    },
+  },
+});
+
+// create a new user without a document id
+const { data, status } = await astraClient.post(basePath, {
+  name: "cliff",
+});
+
+// create a new user with a document id
+const { data, status } = await astraClient.put(
+  `${basePath}/cliff@wicklow.com`,
+  {
+    name: "cliff",
+  }
+);
+
+// create a user subdocument
+const { data, status } = await astraClient.put(
+  `${basePath}/cliff@wicklow.com/blog`,
+  {
+    title: "new blog",
+  }
+);
+
+// partially update user
+const { data, status } = await astraClient.patch(
+  `${basePath}/cliff@wicklow.com`,
+  {
+    name: "cliff",
+  }
+);
+
+// delete a user
+const { data, status } = await astraClient.delete(
+  `${basePath}/cliff@wicklow.com`
+);
 ```
+
 
 ## 4. Stargate REST Api
 
-### 4.1 Axios
+### 4.1 Astra SDK
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+The JavaScript SDK allows you to perform standard CRUD operations on your data using Javascript.
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+
+
 
 **📦 Prerequisites [Development Environment]**
 
 ```
-TODO
+A current version of node (16+) and NPM (8+)
 ```
 
 **📦 Setup Project**
 
 ```
-TODO
+npm install @astrajs/rest
 ```
 
 **🖥️ Sample Code**
 
+Create a REST API client
 ```
-TODO
+const { createClient}= require("@astrajs/rest")
+const chalk = require('chalk')
+let astraRestClient = null;
+
+const requestWithRetry = async (url, client) => {
+  const MAX_RETRIES = 20;
+  for (let i = 1; i <= MAX_RETRIES; i++) {
+    try {
+      let response = await client.get(url);
+      return response
+    } catch(e) {
+      const timeout = 500 * i * 10;
+      console.log(chalk.blue('         ... waiting', timeout, 'ms'));
+      await wait(timeout);
+    }
+  }
+}
+
+function wait(timeout) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve();
+		}, timeout);
+	});
+}
+
+const getAstraRestClient = async () => {
+  if (astraRestClient === null) {
+    astraRestClient = await createClient(
+      {
+        astraDatabaseId: process.env.ASTRA_DB_ID,
+        astraDatabaseRegion: process.env.ASTRA_DB_REGION,
+        applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
+        debug: true
+      },
+      30000
+    );
+  }
+  return astraRestClient;
+};
+
+const getRestClient = async () => {
+  if (astraRestClient === null) {
+    const astraRestClient = await getAstraRestClient();
+    await wait(1000);
+    return astraRestClient;
+  };
+  return astraRestClient;
+}
+
+module.exports = { getRestClient, requestWithRetry, wait, astraRestClient };
 ```
 
-### 4.2 Astra SDK
+Then use that within another application:
+```
+const { getRestClient, requestWithRetry, wait } = require("./utils/astraRestClient");
 
-**ℹ️ Overview**
+exports.handler = async (event, context) => {
+  const client = await getClient();
+  let res;
+  try {
+    res = await client.get('/api/rest/v2/keyspaces/todos/rest?where=\{"key":\{"$eq":\"rest"\}\}')
+    const formattedTodos = Object.keys(res.data).map((item) => res.data[item]);
+    return {
+      headers: '{Content-Type: application/json}',
+      statusCode: 200,
+      body: JSON.stringify(formattedTodos),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
+  } catch (e) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify(e),
+    };
+  }
+};
+
+async function getClient() {
+  let client = await getRestClient();
+  if (client === null) {
+    wait(1000)
+    return getClient()
+  }
+  return client
+}
+```
+
+Other rest command examples:
+```
+let path = '/api/rest/v2/keyspaces/todos/rest/' + body.id;
+    body = {"text":body.text, "completed":body.completed}
+    const res = await todos.put(path, body);
+```
 
 ```
-TODO
-```
+const todos = await getRestClient();
+  const body = JSON.parse(event.body);
+  event.body.key = "todo"
+  
+  const res = await todos.post('/api/rest/v2/keyspaces/todos/rest', event.body);
+  ```
 
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
 
 ## 5. Stargate Document Api
 
-### 5.1 Axios
+### 5.1 Astra SDK
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+The JavaScript SDK allows you to perform standard CRUD operations on your data using Javascript.
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+
 
 **📦 Prerequisites [Development Environment]**
 
 ```
-TODO
+A current version of node (16+) and NPM (8+)
 ```
+
+
 
 **📦 Setup Project**
 
 ```
-TODO
+npm install @astrajs/collection
 ```
+
 
 **🖥️ Sample Code**
 
+Sample code for Document API:
 ```
-TODO
-```
+const { createClient } = require("@astrajs/rest");
 
-### 5.2 Astra SDK
+// create an Astra DB client
+const astraClient = await createClient({
+  astraDatabaseId: process.env.ASTRA_DB_ID,
+  astraDatabaseRegion: process.env.ASTRA_DB_REGION,
+  applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
+});
 
-**ℹ️ Overview**
+const basePath = "/api/rest/v2/namespaces/app/collections/users";
 
-```
-TODO
-```
+// get a single user by document id
+const { data, status } = await astraClient.get(`${basePath}/cliff@wicklow.com`);
 
-**📦 Prerequisites [ASTRA]**
+// get a subdocument by path
+const { data, status } = await astraClient.get(
+  `${basePath}/cliff@wicklow.com/blog/comments`
+);
 
-```
-TODO
-```
+// search a collection of documents
+const { data, status } = await astraClient.get(basePath, {
+  params: {
+    where: {
+      name: { $eq: "Cliff" },
+    },
+  },
+});
 
-**📦 Prerequisites [Development Environment]**
+// create a new user without a document id
+const { data, status } = await astraClient.post(basePath, {
+  name: "cliff",
+});
 
-```
-TODO
-```
+// create a new user with a document id
+const { data, status } = await astraClient.put(
+  `${basePath}/cliff@wicklow.com`,
+  {
+    name: "cliff",
+  }
+);
 
-**📦 Setup Project**
+// create a user subdocument
+const { data, status } = await astraClient.put(
+  `${basePath}/cliff@wicklow.com/blog`,
+  {
+    title: "new blog",
+  }
+);
 
-```
-TODO
-```
+// partially update user
+const { data, status } = await astraClient.patch(
+  `${basePath}/cliff@wicklow.com`,
+  {
+    name: "cliff",
+  }
+);
 
-**🖥️ Sample Code**
-
-```
-TODO
+// delete a user
+const { data, status } = await astraClient.delete(
+  `${basePath}/cliff@wicklow.com`
+);
 ```
 
 ## 6 Stargate GraphQL
@@ -372,32 +546,60 @@ TODO
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+**ℹ️ Overview**
+
+The JavaScript SDK allows you to perform standard CRUD operations on your data using Javascript.
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+
 
 **📦 Prerequisites [Development Environment]**
 
 ```
-TODO
+A current version of node (16+) and NPM (8+)
 ```
+
 
 **📦 Setup Project**
 
 ```
-TODO
+npm install @astrajs/rest
 ```
 
 **🖥️ Sample Code**
 
 ```
-TODO
+const { getRestClient, requestWithRetry, wait, astraRestClient } = require("./utils/astraRestClient");
+
+  let query = `mutation updategraphql {
+    graphql: updategraphql(value: {
+      id: "${body.id}",
+      completed: ${body.completed},
+      text: "${body.text}",
+      key: "graphql"
+  }) {value { text } }}`
+  let res = await client.post('/api/graphql/todos',
+    {query: query})
+```
+
+```
+let query = `query GQTodos {
+    graphql (value: {key:"graphql"}) {
+      values {
+        id
+        text
+        completed
+        key
+      }
+    }}`
+
+res = await client.post('/api/graphql/todos', query={query})
+
 ```
 
 ## 7. Stargate gRPC
