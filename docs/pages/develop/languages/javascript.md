@@ -23,39 +23,153 @@ Pick the interface in the table below to get relevant instructions. In most case
 
 ## 3. CQL
 
-### 3.1 Cassandra Drivers
+### 3.1 Cassandra Native Driver
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+These instructions are aimed at helping people connect to Astra DB programmatically using the DataStax Node driver.
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/)
+- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
 
-**📦 Prerequisites [Development Environment]**
+Covered the basics and looking for more? We’ve got docs to help you complete a variety of tasks. Here are some relevant topics for you:
 
-```
-TODO
-```
+[Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html)
+[Migrating Node.js Driver](https://docs.datastax.com/en/astra/docs/connect/drivers/connect-nodejs.html#_migrating_node_js_driver)
+
+**📦 Prerequisites [ASTRA]**
+
+You need a current version of Node (16+) and NPM (9+)
 
 **📦 Setup Project**
 
 ```
-TODO
+npm install cassandra-driver
+```
+
+**🖥️ Sample Code**
+Create a connect-database.js file in the main directory of your Node.js project:
+
+```
+mkdir nodejsProject
+cd nodejsProject
+touch connect-database.js
+```
+
+Add the following connection code to the new file. Set username to your App Token’s Client ID. Set password to your App Token’s Client Secret. Set PATH/TO secure with the path to your secure connect bundle zip file.
+
+```
+const { Client } = require("cassandra-driver");
+async function run() {
+   const client = new Client({
+      cloud: {
+      secureConnectBundle: "<<PATH/TO/>>secure-connect-stargate.zip",
+      },
+      credentials: {
+      username: "<<CLIENT ID>>",
+      password: "<<CLIENT SECRET>>",
+      },
+   });
+
+   await client.connect();
+
+   // Execute a query
+   const rs = await client.execute("SELECT * FROM system.local");
+   console.log(`Your cluster returned ${rs.rowLength} row(s)`);
+
+   await client.shutdown();
+}
+
+// Run the async function
+run();
+```
+
+Ensure you set username to your App Token's Client ID, password to your App Token's Client Secret, and path/to/secure-connect-database_name.zip with the path to your [SCB](/docs/pages/astra/download-scb/). 
+This code creates a Client instance to connect to your Astra DB, runs a CQL query, and prints the output to the console.
+
+Then, Save and close the connect-database.js file and run the connect-database.js example with the Node.js runtime.
+
+```
+
+
+### 3.2 Cassandra Cloud Driver (GRPC)
+
+**ℹ️ Overview**
+
+The cloud native (known as Google Remote Procedure Call or gRPC) client is well-supported across multiple languages. Using the gRPC client means you can easily query CQL from any source without the worry of driver installation or upgrades.
+
+Covered the basics and looking for more? We’ve got docs to help you complete a variety of tasks. Here are some relevant topics for you:
+
+[Node.js Driver Overview](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html)
+[Node.js Querying](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_querying)
+[Processing a result set](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_processing_result_set)
+[Node.js Developing](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_js_developing)
+[Node full sample script](https://docs.datastax.com/en/astra/docs/develop/api-grpc/gRPC-node-client.html#_node_full_sample_script)
+
+**📦 Prerequisites [ASTRA]**
+
+* If you do not already have one, get an [API Token](https://astra.datastax.com/org/2e0bb003-9a90-4163-b23a-53acc04969fb/settings/tokens) and set the role to “Database Administrator”.
+* Create a [keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html).
+* Create a table in your keyspace(optional): [REST](https://docs.datastax.com/en/astra/docs/creating-a-table-in-your-keyspace.html)
+
+**📦 Setup Project**
+
+Install stargate-grpc-node-client using either npm or yarn:
+
+npm command
+
+```
+npm i @stargate-oss/stargate-grpc-node-client
+```
+
+Yarn command
+
+```
+yarn add @stargate-oss/stargate-grpc-node-client
 ```
 
 **🖥️ Sample Code**
 
+This example assumes that you’re running Stargate on Astra DB. For more information, please see the [documentation](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html). You’ll need to download your token from the Astra DB dashboard and add the token to the connection portion of the script.
+
+The token to use in the Header of API calls is the same as your database's Application token. It starts with an AstraCS: prefix, followed by a generated alphanumeric string. You can generate this token in Astra DB console, via Organization Settings > Token Management > Select Role > Generate Token. Copy the token value, and paste it into your API call to authenticate with Astra DB resources.
+
 ```
-TODO
+// Astra DB configuration
+// replace with values from the Astra DB dashboard
+const astra_uri = "{astra-base-url}-{astra-region}.apps.astra.datastax.com:443";
+const bearer_token = "AstraCS:xxxxxxx";
+
+// Set up the authentication
+// For Astra DB: Enter a bearer token for Astra, downloaded from the Astra DB dashboard
+const bearerToken = new StargateBearerToken(bearer_token);
+const credentials = grpc.credentials.combineChannelCredentials(
+  grpc.credentials.createSsl(), bearerToken);
+
+// Uncomment if you need to check the credentials
+//console.log(credentials);
 ```
 
-### 3.2 Astra SDK
+For a connection to a remote Stargate instance like Astra automatically generate on every call to the client:
+
+```
+// Create the gRPC client
+// For Astra DB: passing the credentials created above
+const stargateClient = new StargateClient(astra_uri, credentials);
+
+console.log("made client");
+
+// Create a promisified version of the client, so we don't need to use callbacks
+const promisifiedClient = promisifyStargateClient(stargateClient);
+
+console.log("promisified client")
+```
+
+### 3.3 Astra SDK
 
 **ℹ️ Overview**
 
