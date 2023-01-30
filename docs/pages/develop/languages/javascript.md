@@ -94,7 +94,8 @@ This code creates a Client instance to connect to your Astra DB, runs a CQL quer
 Then, Save and close the connect-database.js file and run the connect-database.js example with the Node.js runtime.
 
 ```
-
+node connect-database.js
+```
 
 ### 3.2 Cassandra Cloud Driver (GRPC)
 
