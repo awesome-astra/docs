@@ -130,7 +130,8 @@ Here is a [sample repository](https://github.com/DataStax-Examples/astra-cli-git
 
 ## What's NEXT ?
 
-If you are not familiar with the CLI all available commands are available in [the documentation](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) or in the help of the tools
+
+If you are not familiar with the CLI all available commands are available in [the documentation](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) or in the help of the tools.
 
 ```
 $> astra help db create
