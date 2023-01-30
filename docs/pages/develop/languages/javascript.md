@@ -407,7 +407,7 @@ const todos = await getRestClient();
   event.body.key = "todo"
   
   const res = await todos.post('/api/rest/v2/keyspaces/todos/rest', event.body);
-  ```
+```
 
 
 ## 5. Stargate Document Api
