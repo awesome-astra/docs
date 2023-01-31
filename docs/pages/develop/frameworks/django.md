@@ -35,8 +35,9 @@ which in certain cases might require you to do a bit more of manual plumbing.
 
 This page comes with a fully-working sample application as a companion repository,
 ready to be cloned and launched provided you go through its setup steps. All you
-need is an Astra DB instance and a corresponding database token. Refer to the README
-on the repository for more details or click the button below to get a copy of the application:
+need is an Astra DB instance and a corresponding database token. Refer to the
+[README on the repository](https://github.com/awesome-astra/sample-astra-django-website#readme)
+for more details, including a full setup guide, or click the button below to get a copy of the application:
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/awesome-astra/sample-astra-django-website/archive/refs/heads/main.zip)
 
@@ -150,6 +151,11 @@ class MyEntity(models.Model):
 you have to consider more structural changes, such as moving the burden of joins
 or cascading deletes to the application itself or - even better - rethink
 your tables (and models) in a way that works without these costly operations.
+You can find good tutorials and hands-on learning resources on
+data modeling with Cassandra
+[here](https://www.datastax.com/learn/data-modeling-by-example)
+and
+[here](https://github.com/datastaxdevs/workshop-cassandra-data-modeling#readme).
 
 ### Beyond models
 
@@ -205,7 +211,7 @@ passed to it.
 
 #### settings.py
 
-The general project-level settings are given in [`settings.py`](https://github.com/awesome-astra/sample-astra-django-website/blob/main/parties/parties/settings.py). In that file, you should
+The general project-level settings are given in [`parties/parties/settings.py`](https://github.com/awesome-astra/sample-astra-django-website/blob/main/parties/parties/settings.py). In that file, you should
 first add the `"django_cassandra_engine"` item to the `INSTALLED_APPS` _so that it comes first in the list_.
 
 Second, you should replace the definition of the storage engine (sqlite3 by default on newly-created applications).
@@ -253,17 +259,17 @@ In the above database connection settings, there are four variables that should 
 
 Third, you may consider adding the line `CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True`. This means that, when a model's `order_by()` directive cannot be mapped to CQL according to the table's clustering, the model can fall back to in-code sorting. Although this may be non-optimal in general (especially for large result sets), it can still be a safe and useful choice if you know that the amount of data involved is small.
 
-### Dependencies and Cassandra drivers
+#### Dependencies and Cassandra drivers
 
 Two dependencies are needed for a Django application backed by Astra DB:
 
 - `Django`
 - `django-cassandra-engine`
 
-(the other package in the sample app's
-[`requirements.txt`](https://github.com/awesome-astra/sample-astra-django-website/blob/main/requirements.txt)
-serves the purpose of injecting connection secrets in Django
-`settings.py` as outlined in previous section.)
+(The other package found in the sample app's
+[`requirements.txt`](https://github.com/awesome-astra/sample-astra-django-website/blob/main/requirements.txt), `python-dotenv`,
+serves the purpose of reading secrets from a `.env` file in the Django app's
+`settings.py`.)
 
 It should be noted that current versions of the Cassandra engine for Django
 automatically installs ScyllaDB's version of the Cassandra drivers, i.e.
