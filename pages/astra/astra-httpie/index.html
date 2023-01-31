@@ -833,6 +833,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    Configuration file.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-rest-calls" class="md-nav__link">
+    Example REST calls
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2703,6 +2717,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    Configuration file.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-rest-calls" class="md-nav__link">
+    Example REST calls
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2730,28 +2758,92 @@
 <h2 id="setup-your-astra-account">Setup your Astra account<a class="headerlink" href="#setup-your-astra-account" title="Permanent link">&para;</a></h2>
 <p>To use the Astra CLI you need to create a <a href="https://astra.datastax.com">DataStax Astra</a> account. You also need to <a href="../../../pages/astra/create-token/">create a token</a> with the <code>Organization Administration</code> role.</p>
 <h2 id="install-astra-cli">Install Astra CLI<a class="headerlink" href="#install-astra-cli" title="Permanent link">&para;</a></h2>
-<p>To install (or reinstall) the CLI use the following command in a terminal:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
-</code></pre></div>
+<p>To get everything working, you need to have the <a href="../astra-cli/">Astra CLi</a> installed and setup.</p>
 <h2 id="initialize-your-setup">Initialize your setup<a class="headerlink" href="#initialize-your-setup" title="Permanent link">&para;</a></h2>
-<p>Before issuing commands to initialize the configuration file <code>~/.astrarc</code>. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>astra setup
+<p>We need to initialize the configuration file at <code>~/.astrarc</code>. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>astra setup
 </code></pre></div>
 <h2 id="create-your-environment-files">Create your environment files<a class="headerlink" href="#create-your-environment-files" title="Permanent link">&para;</a></h2>
 <p>In order to use httpie, you need to initialize a configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>astra db create
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>astra db create-dotenv -k keyspace database
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>echo &quot;[default]&quot; &gt; ~/.astrarc
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>cat .env &gt;&gt; ~/.astrarc
+<p>As an example, for the example in the Katapod example, you could use "stargate" as the database and "workshop" for the keyspace - but you can use any combination you like for general exploration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>astra db create &lt;database&gt;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>astra db create-dotenv -k &lt;keyspace&gt; &lt;database&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>echo &quot;[default]&quot; &gt; ~/.astrarc
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cat .env &gt;&gt; ~/.astrarc
 </code></pre></div>
 <p>From here, you can call any Stargate API endpoint.  Check the <a href="https://github.com/DataStax-Academy/httpie-katapod">example repository</a> to see how this works.</p>
+<h2 id="configuration-file">Configuration file.<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h2>
+<p>You can create a configuration file in ~/.config/httpie/config.json.  Adding this configuration file allows you to use a shorter command to call the endpoints.</p>
+<p><em>~/.config/httpie/config.json</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    &quot;default_options&quot;: [
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      &quot;--auth-type=astra&quot;,
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      &quot;--auth=default:&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    ]
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+</code></pre></div></p>
+<p>This means that instead of using this command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http --auth-type astra -a default: :/rest/v1/keyspaces
+</code></pre></div>
+<p>You can use this command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>http :/rest/v1/keyspaces
+</code></pre></div>
+<h2 id="example-rest-calls">Example REST calls<a class="headerlink" href="#example-rest-calls" title="Permanent link">&para;</a></h2>
+<p><em>Create a table</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http POST :/rest/v2/schemas/keyspaces/workshop/tables json:=&#39;{
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  &quot;name&quot;: &quot;cavemen&quot;,
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  &quot;ifNotExists&quot;: false,
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  &quot;columnDefinitions&quot;: [
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    {
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      &quot;name&quot;: &quot;firstname&quot;,
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      &quot;typeDefinition&quot;: &quot;text&quot;,
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      &quot;static&quot;: false
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    },
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    {
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>      &quot;name&quot;: &quot;lastname&quot;,
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>      &quot;typeDefinition&quot;: &quot;text&quot;,
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>      &quot;static&quot;: false
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    },
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        {
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>          &quot;name&quot;: &quot;occupation&quot;,
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>          &quot;typeDefinition&quot;: &quot;text&quot;
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        }
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  ],
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  &quot;primaryKey&quot;: {
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    &quot;partitionKey&quot;: [
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>      &quot;lastname&quot;
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    ],
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    &quot;clusteringKey&quot;: [
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>      &quot;firstname&quot;
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>    ]
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>  }
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>}&#39;
+</code></pre></div></p>
+<p><em>List tables in your keyspace</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>http :/rest/v2/schemas/keyspaces/workshop/tables
+</code></pre></div></p>
+<p><em>Add a row</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>http POST :/rest/v2/keyspaces/workshop/cavemen json:=&#39;
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>            &quot;firstname&quot; : &quot;Fred&quot;,
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>            &quot;lastname&quot;: &quot;Flintstone&quot;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>}&#39;
+</code></pre></div></p>
+<p><em>Update a row</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>http PUT :/rest/v2/keyspaces/workshop/cavemen/Flintstone/Fred json:=&#39;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>{ &quot;occupation&quot;: &quot;Quarry Screamer&quot;}&#39;
+</code></pre></div></p>
+<p><em>Delete a row</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>http DELETE :/rest/v2/keyspaces/workshop/cavemen/Flintstone/Fred
+</code></pre></div></p>
+<p>For more examples, check out the <a href="https://github.com/DataStax-Academy/httpie-katapod">katapod</a> exercises.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-01-29
+      2023-01-31
     
   </small>
 </div>
