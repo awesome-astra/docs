@@ -1,7 +1,7 @@
 name: NPM Bump Version
 on:
   workflow_run:
-    workflows: [Build and deploy mkdocs to github pages]
+    workflows: [BACKUP]
     types: [completed]
 jobs:
   build:
