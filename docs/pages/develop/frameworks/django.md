@@ -261,7 +261,7 @@ Third, you may consider adding the line `CASSANDRA_FALLBACK_ORDER_BY_PYTHON = Tr
 
 #### Dependencies and Cassandra drivers
 
-Two dependencies are needed for a Django application backed by Astra DB:
+Two [dependencies](https://github.com/awesome-astra/sample-astra-django-website#environment) are needed for a Django application backed by Astra DB:
 
 - `Django`
 - `django-cassandra-engine`
