@@ -23,7 +23,7 @@ links:
 
 ## Overview
 
-JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.
+JanusGraph is designed to support the processing of graphs so large that they require storage and computational capacities beyond those that a single machine can provide. Scaling graph data processing for real time traversals and analytical queries is JanusGraph’s foundational benefit. This section will discuss the various specific benefits of JanusGraph and its underlying, supported persistence solutions.
 
 <div class="nosurface" markdown="1">
 - ℹ️ [Introduction to JanusGraph](https://docs.janusgraph.org/)
