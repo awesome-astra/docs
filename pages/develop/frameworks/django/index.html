@@ -3050,7 +3050,7 @@ That is, replace the following</p>
 </ul>
 <p>Third, you may consider adding the line <code>CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True</code>. This means that, when a model's <code>order_by()</code> directive cannot be mapped to CQL according to the table's clustering, the model can fall back to in-code sorting. Although this may be non-optimal in general (especially for large result sets), it can still be a safe and useful choice if you know that the amount of data involved is small.</p>
 <h4 id="dependencies-and-cassandra-drivers">Dependencies and Cassandra drivers<a class="headerlink" href="#dependencies-and-cassandra-drivers" title="Permanent link">&para;</a></h4>
-<p>Two dependencies are needed for a Django application backed by Astra DB:</p>
+<p>Two <a href="https://github.com/awesome-astra/sample-astra-django-website#environment">dependencies</a> are needed for a Django application backed by Astra DB:</p>
 <ul>
 <li><code>Django</code></li>
 <li><code>django-cassandra-engine</code></li>
