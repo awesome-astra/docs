@@ -1,7 +1,7 @@
-name: NPM Publish Docs
+name: NPM Bump Version
 on:
   workflow_run:
-    workflows: [NPM Bump Version]
+    workflows: [Build and deploy mkdocs to github pages]
     types: [completed]
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
-      - run: npm publish
+      - run: npm version patch -m "[RELEASE] %s"
+19    - run: git push
         env:
           NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
