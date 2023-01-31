@@ -15,14 +15,10 @@ pip install httpie-astra
 To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](../../../pages/astra/create-token/) with the `Organization Administration` role.
 
 ## Install Astra CLI
-To install (or reinstall) the CLI use the following command in a terminal:
-
-```
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
-```
+To get everything working, you need to have the [Astra CLi](astra-cli.md) installed and setup.
 
 ## Initialize your setup
-Before issuing commands to initialize the configuration file `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
+We need to initialize the configuration file at `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
 
 ```
 astra setup
@@ -31,12 +27,100 @@ astra setup
 ## Create your environment files
 In order to use httpie, you need to initialize a configuration file.
 
+As an example, for the example in the Katapod example, you could use "stargate" as the database and "workshop" for the keyspace - but you can use any combination you like for general exploration.
+
 ```
-astra db create
-astra db create-dotenv -k keyspace database
+astra db create <database>
+astra db create-dotenv -k <keyspace> <database>
 echo "[default]" > ~/.astrarc
 cat .env >> ~/.astrarc
 ```
 
 From here, you can call any Stargate API endpoint.  Check the [example repository](https://github.com/DataStax-Academy/httpie-katapod) to see how this works.
 
+## Configuration file.
+
+You can create a configuration file in ~/.config/httpie/config.json.  Adding this configuration file allows you to use a shorter command to call the endpoints.
+
+*~/.config/httpie/config.json*
+```
+{
+    "default_options": [
+      "--auth-type=astra",
+      "--auth=default:"
+    ]
+}
+```
+
+This means that instead of using this command:
+
+```
+http --auth-type astra -a default: :/rest/v1/keyspaces
+```
+
+You can use this command:
+
+```
+http :/rest/v1/keyspaces
+```
+
+## Example REST calls
+
+*Create a table*
+```
+http POST :/rest/v2/schemas/keyspaces/workshop/tables json:='{
+  "name": "cavemen",
+  "ifNotExists": false,
+  "columnDefinitions": [
+    {
+      "name": "firstname",
+      "typeDefinition": "text",
+      "static": false
+    },
+    {
+      "name": "lastname",
+      "typeDefinition": "text",
+      "static": false
+    },
+        {
+	      "name": "occupation",
+	      "typeDefinition": "text"
+	    }
+  ],
+  "primaryKey": {
+    "partitionKey": [
+      "lastname"
+    ],
+    "clusteringKey": [
+      "firstname"
+    ]
+  }
+}'
+```
+
+*List tables in your keyspace*
+```
+http :/rest/v2/schemas/keyspaces/workshop/tables
+```
+
+*Add a row*
+```
+http POST :/rest/v2/keyspaces/workshop/cavemen json:='
+{
+            "firstname" : "Fred",
+            "lastname": "Flintstone"
+}'
+```
+
+*Update a row*
+```
+http PUT :/rest/v2/keyspaces/workshop/cavemen/Flintstone/Fred json:='
+{ "occupation": "Quarry Screamer"}'
+```
+
+*Delete a row*
+```
+http DELETE :/rest/v2/keyspaces/workshop/cavemen/Flintstone/Fred
+```
+
+For more examples, check out the [katapod](https://github.com/DataStax-Academy/httpie-katapod) exercises.
