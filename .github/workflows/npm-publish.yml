@@ -13,13 +13,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.AA_NPM }}
-      - run: npm version
-      - uses: actions/setup-node@v3
+       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
+      - run: npm version patch -m "[RELEASE] %s"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.AA_NPM}}
