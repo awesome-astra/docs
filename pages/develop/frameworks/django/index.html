@@ -1786,15 +1786,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#dependencies-and-cassandra-drivers" class="md-nav__link">
     Dependencies and Cassandra drivers
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2792,15 +2792,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#dependencies-and-cassandra-drivers" class="md-nav__link">
     Dependencies and Cassandra drivers
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2868,8 +2868,9 @@ which in certain cases might require you to do a bit more of manual plumbing.</p
 <h3 id="reference-application">Reference application<a class="headerlink" href="#reference-application" title="Permanent link">&para;</a></h3>
 <p>This page comes with a fully-working sample application as a companion repository,
 ready to be cloned and launched provided you go through its setup steps. All you
-need is an Astra DB instance and a corresponding database token. Refer to the README
-on the repository for more details or click the button below to get a copy of the application:</p>
+need is an Astra DB instance and a corresponding database token. Refer to the
+<a href="https://github.com/awesome-astra/sample-astra-django-website#readme">README on the repository</a>
+for more details, including a full setup guide, or click the button below to get a copy of the application:</p>
 <p><a href="https://github.com/awesome-astra/sample-astra-django-website/archive/refs/heads/main.zip"><img alt="dl" src="https://dabuttonfactory.com/button.png?t=Download+Project&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=666&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></p>
 <p>The reference application ("partyfinder") is a very simple vanilla Django website
 to browse, create and delete "parties" happening in given cities at specific dates.
@@ -2958,7 +2959,12 @@ contain RDBMS-related specifications such as:</p>
 </code></pre></div>
 <p>you have to consider more structural changes, such as moving the burden of joins
 or cascading deletes to the application itself or - even better - rethink
-your tables (and models) in a way that works without these costly operations.</p>
+your tables (and models) in a way that works without these costly operations.
+You can find good tutorials and hands-on learning resources on
+data modeling with Cassandra
+<a href="https://www.datastax.com/learn/data-modeling-by-example">here</a>
+and
+<a href="https://github.com/datastaxdevs/workshop-cassandra-data-modeling#readme">here</a>.</p>
 <h3 id="beyond-models">Beyond models<a class="headerlink" href="#beyond-models" title="Permanent link">&para;</a></h3>
 <p>In some cases the best approach is to bypass the "model layer" altogether
 and directly execute CQL code on your Session object, taking care of manually
@@ -3004,7 +3010,7 @@ This is achieved, in the appropriate view function, by <a href="https://github.c
 to use Astra DB and how the access parameters and secrets are
 passed to it.</p>
 <h4 id="settingspy">settings.py<a class="headerlink" href="#settingspy" title="Permanent link">&para;</a></h4>
-<p>The general project-level settings are given in <a href="https://github.com/awesome-astra/sample-astra-django-website/blob/main/parties/parties/settings.py"><code>settings.py</code></a>. In that file, you should
+<p>The general project-level settings are given in <a href="https://github.com/awesome-astra/sample-astra-django-website/blob/main/parties/parties/settings.py"><code>parties/parties/settings.py</code></a>. In that file, you should
 first add the <code>"django_cassandra_engine"</code> item to the <code>INSTALLED_APPS</code> <em>so that it comes first in the list</em>.</p>
 <p>Second, you should replace the definition of the storage engine (sqlite3 by default on newly-created applications).
 That is, replace the following</p>
@@ -3043,16 +3049,16 @@ That is, replace the following</p>
 <li><code>SECURE_BUNDLE_PATH</code>, the full path to the <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Secure connect bundle</a> for your database. This can be downloaded manually or, as described in the application's readme, through use of <a href="https://awesome-astra.github.io/docs/pages/astra/astra-cli/">Astra CLI</a> along with the rest of the above setup.</li>
 </ul>
 <p>Third, you may consider adding the line <code>CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True</code>. This means that, when a model's <code>order_by()</code> directive cannot be mapped to CQL according to the table's clustering, the model can fall back to in-code sorting. Although this may be non-optimal in general (especially for large result sets), it can still be a safe and useful choice if you know that the amount of data involved is small.</p>
-<h3 id="dependencies-and-cassandra-drivers">Dependencies and Cassandra drivers<a class="headerlink" href="#dependencies-and-cassandra-drivers" title="Permanent link">&para;</a></h3>
+<h4 id="dependencies-and-cassandra-drivers">Dependencies and Cassandra drivers<a class="headerlink" href="#dependencies-and-cassandra-drivers" title="Permanent link">&para;</a></h4>
 <p>Two dependencies are needed for a Django application backed by Astra DB:</p>
 <ul>
 <li><code>Django</code></li>
 <li><code>django-cassandra-engine</code></li>
 </ul>
-<p>(the other package in the sample app's
-<a href="https://github.com/awesome-astra/sample-astra-django-website/blob/main/requirements.txt"><code>requirements.txt</code></a>
-serves the purpose of injecting connection secrets in Django
-<code>settings.py</code> as outlined in previous section.)</p>
+<p>(The other package found in the sample app's
+<a href="https://github.com/awesome-astra/sample-astra-django-website/blob/main/requirements.txt"><code>requirements.txt</code></a>, <code>python-dotenv</code>,
+serves the purpose of reading secrets from a <code>.env</code> file in the Django app's
+<code>settings.py</code>.)</p>
 <p>It should be noted that current versions of the Cassandra engine for Django
 automatically installs ScyllaDB's version of the Cassandra drivers, i.e.
 package <code>scylla-driver</code>. These are a drop-in replacement for the package
@@ -3148,7 +3154,7 @@ logs (the warning would be a true exception if you hadn't enabled the fallback):
   <small>
     
       Last update:
-      2023-01-30
+      2023-01-31
     
   </small>
 </div>
