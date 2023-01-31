@@ -1,8 +1,10 @@
 name: NPM Bump Version
 on:
   workflow_run:
-    workflows: [BACKUP]
+    workflows: [Build and deploy mkdocs to github pages]
     types: [completed]
+    paths-ignore:
+      - "package.json"
 jobs:
   build:
     runs-on: ubuntu-latest
