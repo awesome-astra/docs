@@ -1,7 +1,7 @@
 ---
 title: "Github Actions"
 description: "Automate your build, test, and deployment pipeline with Astra CLI"
-tags: "CLI, third party tools, CIm CD, devops"
+tags: "CLI, third party tools, CI/CD, devops"
 icon: "https://awesome-astra.github.io/docs/img/github/github.svg"
 recommended: "true"
 developer_title: "Github"
@@ -13,7 +13,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="../../../../img/github/github_logo.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/github/github_logo.png" height="100px" />
 </div>
 
 ## Overview
@@ -36,9 +36,9 @@ Reference documentation:
 ## Prerequisites
 
 <ul class="prerequisites">
-    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
-    <li class="nosurface">You should have a github account and a created repository</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>demo</code> is created in the <code>demo</code> database.</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a>. <em>You should have received your token while creating the database in the previous step.</em></li>
+  <li class="nosurface">Have a <a href="https://github.com/">Github</a> account and a repository in it.</li>
 </ul>
 
 
@@ -52,19 +52,19 @@ Reference documentation:
 
 - `#1` - Open your github Repository and locate the tabs `Settings`
 
-- `#2` - On the left menu locate `Secrets and variables` and expand to list different options. Clikc on `Actions`
+- `#2` - On the left menu locate `Secrets and variables` and expand to list different options. Click on `Actions`
 
 - `#3` - Click on the `[New Repository Secret]` on the top right hand corner
 
-> <img src="../../../../img/github/github-actions-01.png" />
+> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" />
 
 - `#4` - Enter the new secret name `ASTRA_DB_APPLICATION_TOKEN` and provide the value for your secret
 
-> <img src="../../../../img/github/github-actions-02.png" />
+> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" />
 
 - `#5` - The Secret should now be visible in your secret list
 
-<img src="../../../../img/github/github-actions-03.png" />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" />
 
 ### Create a new action
 
@@ -72,7 +72,7 @@ Reference documentation:
 
 - Create a new Yaml file and name it as you like here i use `cli-db-create`
 
-<img src="../../../../img/github/github-actions-04.png" />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-04.png" />
 
 - Populate the file as followed
 
@@ -120,11 +120,11 @@ With the configuration above the CLI is triggered at each commit. As we provided
 
 - Locate the tab `ACTIONS` in your github repository and select the last execution
 
-> <img src="../../../../img/github/github-actions-05.png" />
+> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-05.png" />
 
 - You will get the following output
 
-> <img src="../../../../img/github/github-actions-06.png" />
+> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-06.png" />
 
 Here is a [sample repository](https://github.com/DataStax-Examples/astra-cli-github-action) you can use as a reference.
 
