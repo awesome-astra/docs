@@ -2762,7 +2762,7 @@
   <h1>• Github Actions</h1>
 
 <div class="nosurface">
-<p><img src="../../../../img/github/github_logo.png" height="100px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github_logo.png" height="100px" /></p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.github.com/en/actions">Github Actions</a>
@@ -2778,9 +2778,9 @@ is a continuous integration and continuous delivery (CI/CD) platform that allows
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
-    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a> with the role "Database Administrator" (Feast will have to dynamically create and delete tables in the keyspace).</li>
-    <li class="nosurface">You should have a github account and a created repository</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>demo</code> is created in the <code>demo</code> database.</li>
+  <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a>. <em>You should have received your token while creating the database in the previous step.</em></li>
+  <li class="nosurface">Have a <a href="https://github.com/">Github</a> account and a repository in it.</li>
 </ul>
 
 <h2 id="github-repository-configuration">Github Repository Configuration<a class="headerlink" href="#github-repository-configuration" title="Permanent link">&para;</a></h2>
@@ -2795,25 +2795,25 @@ we use the <code>CLI</code> to create a database.</p>
 <p><code>#1</code> - Open your github Repository and locate the tabs <code>Settings</code></p>
 </li>
 <li>
-<p><code>#2</code> - On the left menu locate <code>Secrets and variables</code> and expand to list different options. Clikc on <code>Actions</code></p>
+<p><code>#2</code> - On the left menu locate <code>Secrets and variables</code> and expand to list different options. Click on <code>Actions</code></p>
 </li>
 <li>
 <p><code>#3</code> - Click on the <code>[New Repository Secret]</code> on the top right hand corner</p>
 </li>
 </ul>
 <blockquote>
-<p><img src="../../../../img/github/github-actions-01.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" /></p>
 </blockquote>
 <ul>
 <li><code>#4</code> - Enter the new secret name <code>ASTRA_DB_APPLICATION_TOKEN</code> and provide the value for your secret</li>
 </ul>
 <blockquote>
-<p><img src="../../../../img/github/github-actions-02.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" /></p>
 </blockquote>
 <ul>
 <li><code>#5</code> - The Secret should now be visible in your secret list</li>
 </ul>
-<p><img src="../../../../img/github/github-actions-03.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" /></p>
 <h3 id="create-a-new-action">Create a new action<a class="headerlink" href="#create-a-new-action" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -2823,7 +2823,7 @@ we use the <code>CLI</code> to create a database.</p>
 <p>Create a new Yaml file and name it as you like here i use <code>cli-db-create</code></p>
 </li>
 </ul>
-<p><img src="../../../../img/github/github-actions-04.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-04.png" /></p>
 <ul>
 <li>Populate the file as followed</li>
 </ul>
@@ -2884,13 +2884,13 @@ we use the <code>CLI</code> to create a database.</p>
 <li>Locate the tab <code>ACTIONS</code> in your github repository and select the last execution</li>
 </ul>
 <blockquote>
-<p><img src="../../../../img/github/github-actions-05.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-05.png" /></p>
 </blockquote>
 <ul>
 <li>You will get the following output</li>
 </ul>
 <blockquote>
-<p><img src="../../../../img/github/github-actions-06.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-06.png" /></p>
 </blockquote>
 <p>Here is a <a href="https://github.com/DataStax-Examples/astra-cli-github-action">sample repository</a> you can use as a reference.</p>
 <h2 id="whats-next">What's NEXT ?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
@@ -2960,7 +2960,7 @@ we use the <code>CLI</code> to create a database.</p>
   <small>
     
       Last update:
-      2023-01-29
+      2023-01-31
     
   </small>
 </div>
