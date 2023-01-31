@@ -20,4 +20,4 @@ jobs:
       - run: git config --global user.name 'dieterrandolph'
       - run: git config --global user.email 'dieter.randolph@datastax.com'
       - run: npm version patch -m "[RELEASE] %s"
-19    - run: git push
+      - run: git push
