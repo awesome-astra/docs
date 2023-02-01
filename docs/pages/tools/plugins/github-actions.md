@@ -2,7 +2,7 @@
 title: "Github Actions"
 description: "Automate your build, test, and deployment pipeline with Astra CLI"
 tags: "CLI, third party tools, CI/CD, devops"
-icon: "https://awesome-astra.github.io/docs/img/github/github.svg"
+icon: "https://awesome-astra.github.io/docs/img/github/github_logo.png"
 recommended: "true"
 developer_title: "Github"
 developer_url: "https://docs.github.com/en/actions"
@@ -50,21 +50,16 @@ Reference documentation:
 
 ### Create a secret for token
 
-- `#1` - Open your github Repository and locate the tabs `Settings`
-
-- `#2` - On the left menu locate `Secrets and variables` and expand to list different options. Click on `Actions`
-
-- `#3` - Click on the `[New Repository Secret]` on the top right hand corner
-
-> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" />
-
-- `#4` - Enter the new secret name `ASTRA_DB_APPLICATION_TOKEN` and provide the value for your secret
-
-> <img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" />
-
-- `#5` - The Secret should now be visible in your secret list
-
-<img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" />
+<ol>
+<li>Open your github Repository and locate the tabs <code>Settings</code></li>
+<li>On the left menu locate `Secrets and variables` and expand to list different options. Click on <code>Actions</code></li>
+<li>Click on the <code>[New Repository Secret]</code> on the top right hand corner<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" /></li>
+<li>Enter the new secret name <code>ASTRA_DB_APPLICATION_TOKEN</code> and provide the value for your secret<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" /></li>
+<li>The Secret should now be visible in your secret list<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" /></li>
+</ol>
 
 ### Create a new action
 
@@ -74,7 +69,7 @@ Reference documentation:
 
 <img src="https://awesome-astra.github.io/docs/img/github/github-actions-04.png" />
 
-- Populate the file as followed
+- Populate the file as follows
 
 ```yaml
 name: Astra Cli Sample
@@ -105,14 +100,26 @@ jobs:
 
 ```
 
-!!! note "Informations Regarding the variables"
+!!! note "Information Regarding the variables"
     
-
-    | Variable     | Description   |
-    |--------------|-----------|
-    | ASTRA_DB_NAME | The name of your database   | 
-    | ASTRA_DB_KEYSPACE | The keyspace (if not provided defaulting to same name as db) |
-    | ASTRA_DB_APPLICATION_TOKEN | The secret we defined before |
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_NAME</td>
+    <td>The name of your database</td>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_KEYSPACE</td>
+    <td>The keyspace (if not provided defaulting to same name as db)</td>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_APPLICATION_TOKEN</td>
+    <td>The secret we defined before</td>
+  </tr>
+</table>
 
 ### Run the action
 
