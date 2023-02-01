@@ -101,25 +101,24 @@ jobs:
 ```
 
 !!! note "Information Regarding the variables"
-    
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>ASTRA_DB_NAME</td>
-    <td>The name of your database</td>
-  </tr>
-  <tr>
-    <td>ASTRA_DB_KEYSPACE</td>
-    <td>The keyspace (if not provided defaulting to same name as db)</td>
-  </tr>
-  <tr>
-    <td>ASTRA_DB_APPLICATION_TOKEN</td>
-    <td>The secret we defined before</td>
-  </tr>
-</table>
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>ASTRA_DB_NAME</td>
+        <td>The name of your database</td>
+      </tr>
+      <tr>
+        <td>ASTRA_DB_KEYSPACE</td>
+        <td>The keyspace (if not provided defaulting to same name as db)</td>
+      </tr>
+      <tr>
+        <td>ASTRA_DB_APPLICATION_TOKEN</td>
+        <td>The secret we defined before</td>
+      </tr>
+    </table>
 
 ### Run the action
 
