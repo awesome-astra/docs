@@ -2,407 +2,407 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://awesome-astra.github.io/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/cheatsheet/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/astra-cli/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/astra-httpie/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/cdc-for-astra/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/cqlproxy/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/create-account/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/create-instance/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/create-token/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/create-topic/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/download-scb/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/faq/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/multi-regions/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/astra/resume-db/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/contact/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/cqlsh/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/datagrip/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/dbeaver/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/dbschema/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/mindsdb/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/netflix-data-explorer/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/presto/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/tableau/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/tableplus/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/explore/trino/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/load/astra-data-loader/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/load/dsbulk/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/data/load/nosqlbench/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/api/document/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/api/graphql/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/api/grpc/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/api/rest/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/django/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/fastapi/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/flask/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/lagom/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/micronaut/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/quarkus/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/frameworks/spring/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/csharp/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/go/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/java/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/javascript/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/python/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/rust/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/languages/scala/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/platform/aws-lambda-function/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/platform/google-cloud-function/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/develop/sdk/astra-sdk-java/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/gallery/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/databases/janusgraph/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/datastation/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/eclipse/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/gitpod/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/intellij/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/postman/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/ide/vscode/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/apache-airflow/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/apache-nifi/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/apache-spark/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/authorizer/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/cadence/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/celery/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/feast/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/flink/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/grafana/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/liquibase/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/pentaho/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/quine.io/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/stepzen/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/temporal/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/vault/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/notebooks/datastax-studio/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/notebooks/jupyter/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/notebooks/zeppelin/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/plugins/astradb-vault-plugin/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/plugins/github-actions/</loc>
-         <lastmod>2023-01-31</lastmod>
+         <lastmod>2023-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

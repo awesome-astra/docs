@@ -2790,30 +2790,17 @@ is a continuous integration and continuous delivery (CI/CD) platform that allows
 we use the <code>CLI</code> to create a database.</p>
 </div>
 <h3 id="create-a-secret-for-token">Create a secret for token<a class="headerlink" href="#create-a-secret-for-token" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><code>#1</code> - Open your github Repository and locate the tabs <code>Settings</code></p>
-</li>
-<li>
-<p><code>#2</code> - On the left menu locate <code>Secrets and variables</code> and expand to list different options. Click on <code>Actions</code></p>
-</li>
-<li>
-<p><code>#3</code> - Click on the <code>[New Repository Secret]</code> on the top right hand corner</p>
-</li>
-</ul>
-<blockquote>
-<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" /></p>
-</blockquote>
-<ul>
-<li><code>#4</code> - Enter the new secret name <code>ASTRA_DB_APPLICATION_TOKEN</code> and provide the value for your secret</li>
-</ul>
-<blockquote>
-<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" /></p>
-</blockquote>
-<ul>
-<li><code>#5</code> - The Secret should now be visible in your secret list</li>
-</ul>
-<p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" /></p>
+<ol>
+<li>Open your github Repository and locate the tabs <code>Settings</code></li>
+<li>On the left menu locate `Secrets and variables` and expand to list different options. Click on <code>Actions</code></li>
+<li>Click on the <code>[New Repository Secret]</code> on the top right hand corner<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-01.png" /></li>
+<li>Enter the new secret name <code>ASTRA_DB_APPLICATION_TOKEN</code> and provide the value for your secret<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-02.png" /></li>
+<li>The Secret should now be visible in your secret list<br />
+<img src="https://awesome-astra.github.io/docs/img/github/github-actions-03.png" /></li>
+</ol>
+
 <h3 id="create-a-new-action">Create a new action<a class="headerlink" href="#create-a-new-action" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -2825,7 +2812,7 @@ we use the <code>CLI</code> to create a database.</p>
 </ul>
 <p><img src="https://awesome-astra.github.io/docs/img/github/github-actions-04.png" /></p>
 <ul>
-<li>Populate the file as followed</li>
+<li>Populate the file as follows</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Astra Cli Sample</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">on</span><span class="p">:</span>
@@ -2854,30 +2841,27 @@ we use the <code>CLI</code> to create a database.</p>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">          </span><span class="no">/home/runner/.astra/cli/astra db create $ASTRA_DB_NAME -k $ASTRA_DB_KEYSPACE --token $ASTRA_DB_APPLICATION_TOKEN --if-not-exists </span>
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Informations Regarding the variables</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ASTRA_DB_NAME</td>
-<td>The name of your database</td>
-</tr>
-<tr>
-<td>ASTRA_DB_KEYSPACE</td>
-<td>The keyspace (if not provided defaulting to same name as db)</td>
-</tr>
-<tr>
-<td>ASTRA_DB_APPLICATION_TOKEN</td>
-<td>The secret we defined before</td>
-</tr>
-</tbody>
-</table>
+<p class="admonition-title">Information Regarding the variables</p>
 </div>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_NAME</td>
+    <td>The name of your database</td>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_KEYSPACE</td>
+    <td>The keyspace (if not provided defaulting to same name as db)</td>
+  </tr>
+  <tr>
+    <td>ASTRA_DB_APPLICATION_TOKEN</td>
+    <td>The secret we defined before</td>
+  </tr>
+</table>
+
 <h3 id="run-the-action">Run the action<a class="headerlink" href="#run-the-action" title="Permanent link">&para;</a></h3>
 <p>With the configuration above the CLI is triggered at each commit. As we provided the options <code>--if-not-exists</code> in the command line, it is not harmful.</p>
 <ul>
@@ -2960,7 +2944,7 @@ we use the <code>CLI</code> to create a database.</p>
   <small>
     
       Last update:
-      2023-01-31
+      2023-02-01
     
   </small>
 </div>
