@@ -101,9 +101,7 @@ jobs:
 ```
 
 !!! note "Information Regarding the variables"
-    - ASTRA_DB_NAME: The name of your database
-    - ASTRA_DB_KEYSPACE: The keyspace (if not provided defaulting to same name as db)
-    - ASTRA_DB_APPLICATION_TOKEN: The secret we defined before
+    ASTRA_DB_NAME: The name of your database. ASTRA_DB_KEYSPACE: The keyspace (if not provided defaulting to same name as db). ASTRA_DB_APPLICATION_TOKEN: The secret we defined before.
 
 ### Run the action
 
