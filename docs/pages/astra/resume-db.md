@@ -1,6 +1,6 @@
 ## A - Overview
 
-In the free tier _(serverless)_, after `23 hours`, your database will be **hibernated** and the status will change to **Hibernated**. From there it needs to be resumed, there are multiple ways to do it.
+In the free tier _(serverless)_, after `48 hours` of inactivity, your database will be **hibernated** and the status will change to **Hibernated**. From there it needs to be resumed, there are multiple ways to do it.
 
 ## B - Prerequisites
 
