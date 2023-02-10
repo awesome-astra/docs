@@ -330,8 +330,8 @@ You can learn more about the code above by reading the [**java-driver**](https:/
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-           <source>1.8</source>
-           <target>1.8</target>
+           <source>11</source>
+           <target>11</target>
         </configuration>
       </plugin>
     </plugins>
@@ -373,6 +373,8 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
     - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/variables.png" /><br/>
 Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage client id and secret, and then retrieve them programmatically. <br/>
+
+8. Optionally, to optimize function performance, consider configuring [reserved and provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html) under the **Configuration** tab. For optimized cold start performance, use provisioned concurrency instead of [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html). In case of Lambda SnapStart, database session connections have to be re-initialized after a snapshot is restored, resulting in a substantial performance hit. 
 
 ### <span class="nosurface" markdown="1">✅ 3. </span> Test the function.
 
@@ -560,6 +562,8 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-grpc/variables.png" /><br/>
 Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage an application token as a secret. A secret can then be retrieved programmatically.
 <br/>
+
+8. Optionally, to optimize function performance, consider configuring [reserved and provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html) under the **Configuration** tab. For optimized cold start performance, prefer provisioned concurrency to [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html). For Lambda SnapStart to result in meaningful performance savings, a function needs to have substantial initiatization costs. 
 
 ### <span class="nosurface" markdown="1">✅ 3. </span> Test the function.
 
