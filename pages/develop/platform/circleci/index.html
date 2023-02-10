@@ -1831,12 +1831,52 @@
     Steps
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-enable-your-project" class="md-nav__link">
+    1 - Enable your project.
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-your-project" class="md-nav__link">
+    2 - Configure your project.
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Configure your project.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#sample-circleciconfigyml" class="md-nav__link">
     Sample circleci/config.yml
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-setting-astra-db-connection-properties" class="md-nav__link">
+    3 - Setting Astra DB connection properties.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-running-your-cicd-pipeline" class="md-nav__link">
+    4 - Running your CICD pipeline.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2702,12 +2742,52 @@
     Steps
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-enable-your-project" class="md-nav__link">
+    1 - Enable your project.
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-your-project" class="md-nav__link">
+    2 - Configure your project.
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Configure your project.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#sample-circleciconfigyml" class="md-nav__link">
     Sample circleci/config.yml
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-setting-astra-db-connection-properties" class="md-nav__link">
+    3 - Setting Astra DB connection properties.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-running-your-cicd-pipeline" class="md-nav__link">
+    4 - Running your CICD pipeline.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2735,9 +2815,6 @@
 <li><a href="#">Reference Documentation</a></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>&lt;li class=&quot;nosurface&quot;&gt;You should &lt;a href=&quot;https://awesome-astra.github.io/docs/pages/astra/create-token/&quot;&gt;Have an Astra Token&lt;/a&gt;&lt;/li&gt;
-&lt;li class=&quot;nosurface&quot;&gt;You should &lt;a href=&quot;https://awesome-astra.github.io/docs/pages/astra/download-scb/&quot;&gt;Download your Secure Connect Bundle&lt;/a&gt;&lt;/li&gt;
-</code></pre></div>
 <ul>
 <li>You should <a href="https://github.com/">have an account with GitHub</a> or another cloud-based code repository.</li>
 <li>You should <a href="https://circleci.com/signup/">have an account with CircleCI</a>.  You can elect to sign-up with single-sign-on using GitHub (recommended).</li>
@@ -2747,20 +2824,16 @@ We will need the <code>database id</code> and <code>region</code> of your Astra 
 <li>This example will be for a Java / Spring Boot project, but the process here is not language dependent.</li>
 </ul>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Enable your project.</li>
-</ol>
+<h3 id="1-enable-your-project">1 - Enable your project.<a class="headerlink" href="#1-enable-your-project" title="Permanent link">&para;</a></h3>
 <p>When you view your dashboard on CircleCI, click on "Projects" in the left nav.  This should display all of the repositories from your GitHub account.  Find the project that you want to enable with CircleCI, and click "Set Up Project."</p>
 <p>You will then see a popup asking you to designate or create a new CircleCI <code>config.yml</code> file.  Choose the option to "Take me to a config template that I can edit."</p>
 <p>Next, you will be prompted to pick the project's language and/or dependency manager.  This will help to generate the <code>config.yml</code> file.  For this example, I will scroll down and select Java (Maven).</p>
-<ol>
-<li>Configure your project.</li>
-</ol>
+<h3 id="2-configure-your-project">2 - Configure your project.<a class="headerlink" href="#2-configure-your-project" title="Permanent link">&para;</a></h3>
 <p>You should now be able to see the code to the <code>config.yml</code> file in the bottom-half of the screen. You can also get to the config editor point from the "Projects" screen, by clicking on the 3 dots to the right of a valid, CircleCI project repository, as shown below in figure 1.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/circleci/circleci_projects_config_file.png" /></p>
 <p><em>Figure 1 - How to find a project's configuration file editor from the "Projects" screen.</em></p>
 <p>Here is a sample CircleCI <code>config.yml</code>.  This file can also be found in the following repository and branch: <a href="https://github.com/aar0np/live-coding-exercise/blob/circleci-project-setup/.circleci/config.yml">https://github.com/aar0np/live-coding-exercise/blob/circleci-project-setup/.circleci/config.yml</a></p>
-<h2 id="sample-circleciconfigyml">Sample <code>circleci/config.yml</code><a class="headerlink" href="#sample-circleciconfigyml" title="Permanent link">&para;</a></h2>
+<h4 id="sample-circleciconfigyml">Sample <code>circleci/config.yml</code><a class="headerlink" href="#sample-circleciconfigyml" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># version of CircleCI pipeline process engine.
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>version: 2.1
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -2785,21 +2858,19 @@ We will need the <code>database id</code> and <code>region</code> of your Astra 
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>      - build-and-test
 </code></pre></div>
 <p>In this case, we are using the Astra Spring Boot Starter Kit to connect to Astra DB.  Because of this, running a simple <code>mvn test</code> is enough for our project to open a test connection out to your Astra database.</p>
-<ol>
-<li>Setting Astra DB connection properties.</li>
-</ol>
+<h3 id="3-setting-astra-db-connection-properties">3 - Setting Astra DB connection properties.<a class="headerlink" href="#3-setting-astra-db-connection-properties" title="Permanent link">&para;</a></h3>
 <p>From the "three dots" menu on the project page that we used in Step 2, you can see that there is an option called "Project Settings."  Click on this option, and then click "Environment Variables" on the left nav of the next screen.  Here you can create variables for credentials, tokens, and other sensitive properties for your project.</p>
-<p>Click the blue "Add Environment Variable" button to enter both its name and value.  For my application, I needed to add the following environment variables:
- - ASTRA_DB_ID
- - ASTRA_DB_APP_TOKEN
- - ASTRA_DB_REGION
- - ASTRA DB KEYSPACE</p>
+<p>Click the blue "Add Environment Variable" button to enter both its name and value.  For my application, I needed to add the following environment variables:</p>
+<ul>
+<li>ASTRA_DB_ID</li>
+<li>ASTRA_DB_APP_TOKEN</li>
+<li>ASTRA_DB_REGION</li>
+<li>ASTRA DB KEYSPACE</li>
+</ul>
 <p>A portion of the environment variable values will be obscured by Xs.  Note that you cannot edit or read existing environment variables.  For security reasons, they can only be deleted and re-created.</p>
-<ol>
-<li>Running your CICD pipeline.</li>
-</ol>
+<h3 id="4-running-your-cicd-pipeline">4 - Running your CICD pipeline.<a class="headerlink" href="#4-running-your-cicd-pipeline" title="Permanent link">&para;</a></h3>
 <p>With the config.yml in place and environment variables defined, you should now be ready to run your pipeline.  Go back to the config editor, and verify that your <code>config.yml</code> shows "green" on the bottom.  If there is an error in the YAML, it will be in red.  From here, click on the name of the job defined in your config.  For my project, it will be the "build-and-test" option toward the bottom, as shown in figure 2.</p>
-<p><img src="https://awesome-astra.github.io/docs/img/circleci/circleci_projects_config_file.png" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/circleci/circleci_config_file_editor.png" /></p>
 <p><em>Figure 2 - Configuration file editor screen.  Notice that my job name "build-and-test" is a clickable link at the bottom.</em></p>
 <p>Clicking on the job link will take you to the screen where you can run/rerun your pipeline.  Simply click on the "Rerun" button and select "Rerun workflow from start" option.  Assuming everything is properly configured and your Astra DB is not hibernated, the pipeline should complete successfully.  If it does not, click on the job link to see the individual steps, and open the failing step to troubleshoot the problem.</p>
 
@@ -2808,7 +2879,7 @@ We will need the <code>database id</code> and <code>region</code> of your Astra 
   <small>
     
       Last update:
-      2023-02-09
+      2023-02-10
     
   </small>
 </div>
