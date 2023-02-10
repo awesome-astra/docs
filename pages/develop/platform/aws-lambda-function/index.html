@@ -3301,8 +3301,8 @@ You can learn more about the code above by reading the <a href="https://github.c
 <a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
 <a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">        </span><span class="nt">&lt;configuration&gt;</span>
-<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">           </span><span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
-<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">           </span><span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">           </span><span class="nt">&lt;source&gt;</span>11<span class="nt">&lt;/source&gt;</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">           </span><span class="nt">&lt;target&gt;</span>11<span class="nt">&lt;/target&gt;</span>
 <a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="nt">&lt;/configuration&gt;</span>
 <a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">      </span><span class="nt">&lt;/plugin&gt;</span>
 <a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">    </span><span class="nt">&lt;/plugins&gt;</span>
@@ -3354,6 +3354,9 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-java-driver/variables.png" /><br/>
 Note that, for better security, you can alternatively use the <a href="https://docs.aws.amazon.com/secretsmanager/index.html">AWS Secret Manager</a> service to store and manage client id and secret, and then retrieve them programmatically. <br/></li>
 </ul>
+</li>
+<li>
+<p>Optionally, to optimize function performance, consider configuring <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html">reserved and provisioned concurrency</a> under the <strong>Configuration</strong> tab. For optimized cold start performance, use provisioned concurrency instead of <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>. In case of Lambda SnapStart, database session connections have to be re-initialized after a snapshot is restored, resulting in a substantial performance hit. </p>
 </li>
 </ol>
 <h3 id="3-test-the-function_2"><span class="nosurface" markdown="1">✅ 3. </span> Test the function.<a class="headerlink" href="#3-test-the-function_2" title="Permanent link">&para;</a></h3>
@@ -3547,6 +3550,9 @@ Note that, for better security, you can alternatively use the <a href="https://d
 <br/></li>
 </ul>
 </li>
+<li>
+<p>Optionally, to optimize function performance, consider configuring <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html">reserved and provisioned concurrency</a> under the <strong>Configuration</strong> tab. For optimized cold start performance, prefer provisioned concurrency to <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>. For Lambda SnapStart to result in meaningful performance savings, a function needs to have substantial initiatization costs. </p>
+</li>
 </ol>
 <h3 id="3-test-the-function_3"><span class="nosurface" markdown="1">✅ 3. </span> Test the function.<a class="headerlink" href="#3-test-the-function_3" title="Permanent link">&para;</a></h3>
 <p>Under the <strong>Test</strong> tab, click the <strong>Test</strong> button and observe the output.
@@ -3559,7 +3565,7 @@ Notice the CQL version output and return value of <strong>3.4.5</strong>.</p>
   <small>
     
       Last update:
-      2023-01-04
+      2023-02-10
     
   </small>
 </div>
