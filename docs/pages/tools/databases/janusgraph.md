@@ -15,7 +15,6 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-- _This article includes information that was originally written by **Erick Ramirez** on [DataStax Community](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html)_ 
 - *Documented on JanusGraph [official documentation](https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra)*
 
 <img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" />
@@ -34,11 +33,10 @@ JanusGraph uses the [Java driver](https://docs.janusgraph.org/changelog/#datasta
 ```
 CqlSession session = CqlSession.builder()
   .withCloudSecureConnectBundle(Paths.get("/path/to/secure-connect-db_name.zip"))
-  .withAuthCredentials("token", ASTRA_APP_TOKEN)
+  .withAuthCredentials("CLIENT_ID", "CLIENT_SECRET")
   .withKeyspace("keyspace_name")
   .build();
 ```
-However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the **Prerequisites**.
 
 ## Prerequisites
 <ul class="prerequisites">
@@ -48,122 +46,85 @@ However, JanusGraph does not expose this functionality so you will need to manua
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
-This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. 
+This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph [`v0.6.2`](https://docs.janusgraph.org/changelog/#version-062-release-date-may-31-2022). If JanusGraph [`v0.6.0`](https://docs.janusgraph.org/changelog/#version-060-release-date-september-3-2021) is used instead, refer to [this article](https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html). It has not been tested on older versions of JanusGraph. 
 
-You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to [create the keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html) on the Astra UI
-
+You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to [create the keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html) on the Astra UI. For simplicity, the keyspace is created as `janusgraph`.
 
 ## Installation and Setup
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
 ### <span class="nosurface">✅ Step 1:</span> DB Information
 
-On the JanusGraph server, unpack your secure bundle. For example:
+On the JanusGraph server, move your secure bundle using secure copy or other techniques. For example:
 ```
 $ cd /path/to/scb
-$ unzip secure-connect-janusgraph.zip
-```
-Here is an example file listing after unpacking the bundle:
-
-```
-/
-  path/
-    to/
-      scb/
-        ca.crt
-        cert
-        cert.pfx
-        config.json
-        cqlshrc
-        identity.jks
-        key
-        trustStore.jks
-```
-Obtain information about your database from the config.json file. Here is an example:
-
-```
-{
-  "host": "70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com",
-  "port": 98765,
-  "cql_port": 34567,
-  "keyspace": "janusgraph",
-  "localDC": "us-west1",
-  "caCertLocation": "./ca.crt",
-  "keyLocation": "./key",
-  "certLocation": "./cert",
-  "keyStoreLocation": "./identity.jks",
-  "keyStorePassword": "Kga1OJ83EF2oBQYR5",
-  "trustStoreLocation": "./trustStore.jks",
-  "trustStorePassword": "n8F9ptJO3H7YRxTW1",
-  "csvLocation": "./data",
-  "pfxCertPassword": "9b3HgFChtY60m4nfJ"
-}
+$ ls -l secure-connect-janusgraph.zip
 ```
 
 We will use this information to configure Astra DB as the storage backend for JanusGraph.
 
 ### <span class="nosurface">✅ Step 2:</span> Graph Storage
-On the JanusGraph server, modify the CQL storage configuration file:
-```
-$ cd janusgraph-0.6.0
-$ vi conf/janusgraph-cql.properties
-```
-Make the necessary changes using this template:
-```
-# basic CQL settings
+
+While connecting to Astra DB from JanusGraph, it is preferred to make use of the secure connect bundle file
+as-is without extracting it. There are multiple ways in which a secure connect bundle file can be passed on to
+the JanusGraph configuration to connect to Astra DB using the DataStax driver.
+
+#### <span class="nosurface">✅ Step 2a:</span> Internal string configuration
+
+Set the property `storage.cql.internal.string-configuration` to `datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }`
+and set the username, password and keyspace details.
+
+For example:
+```properties
 gremlin.graph=org.janusgraph.core.JanusGraphFactory
 storage.backend=cql
-storage.hostname=CONFIG-JSON-HOST
-storage.port=CONFIG-JSON-CQL-PORT
-storage.username=token               <----- do NOT change this
-storage.password=ASTRA_APP_TOKEN
-storage.cql.keyspace=GRAPH_KEYSPACE
-storage.cql.local-datacenter=CONFIG-JSON-LOCALDC
- 
-# SSL related settings
-storage.cql.ssl.enabled=true
-storage.cql.ssl.truststore.location=/path/to/scb/trustStore.jks
-storage.cql.ssl.truststore.password=CONFIG-JSON-TRUSTSTOREPASSWORD
-storage.cql.ssl.keystore.location=/path/to/scb/identity.jks
-storage.cql.ssl.keystore.keypassword=CONFIG-JSON-KEYSTOREPASSWORD
-storage.cql.ssl.keystore.storepassword=CONFIG-JSON-KEYSTOREPASSWORD
-storage.cql.ssl.client-authentication-enabled=true
- 
-# consistency settings
-storage.cql.read-consistency-level=LOCAL_QUORUM
-storage.cql.write-consistency-level=LOCAL_QUORUM
+storage.cql.keyspace=<keyspace name which was created in AstraDB>
+storage.username=<clientID>
+storage.password=<clientSecret>
+storage.cql.internal.string-configuration=datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }
 ```
 
-!!! warning "WARNING"
-    The username to connect to Astra is the literal string `token`. Do NOT set this value to your DB's client ID.
+Also, you can set a JVM argument to pass the secure connect bundle file as shown below and remove that property
+`(storage.cql.internal.string-configuration)` from the list above.
+
+```
+-Ddatastax-java-driver.basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip
+```
+
+#### <span class="nosurface">✅ Step 2b:</span> Internal file configuration
+
+Set the property `storage.cql.internal.file-configuration` to an external configuration file if you would like to
+externalize the astra connection related properties to a separate file and specify the secure bundle and credentials information on that file.
+
+For example:
+```properties
+gremlin.graph=org.janusgraph.core.JanusGraphFactory
+storage.backend=cql
+storage.cql.keyspace=janusgraph
+# Link to the external file that DataStax driver understands
+storage.cql.internal.file-configuration=/path/to/scb/astra.conf
+```
+
+`astra.conf` (external file) to contain:
+```
+datastax-java-driver {
+  basic.cloud {
+    secure-connect-bundle = "/path/to/scb/secure-connect-janusgraph.zip"
+  }
+  basic.request {
+    timeout = "10 seconds"
+  }
+  advanced.auth-provider {
+    class = PlainTextAuthProvider
+    username = "<ClientID>"
+    password = "<ClientSecret>"
+  }
+}
+```
 
 !!! info "IMPORTANT"
-    The **ASTRA_APP_TOKEN** is from the token you generated in the **Prerequisites** section above.
+    The **ClientID** and **ClientSecret** are from the token you generated in the **Prerequisites** section above.
 
-Using the example values in the config.json above, my conf/janusgraph-cql.properties would contain:
-```
-# basic CQL settings
-gremlin.graph=org.janusgraph.core.JanusGraphFactory
-storage.backend=cql
-storage.hostname=70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com
-storage.port=34567
-storage.username=token
-storage.password=AstraCS:AbCwZYOKqvXHZWRvpbvHqXYz:47820923e5be3b7b9e689bc18614c631d5fdd8b435e68613433651fd20fexyz0
-storage.cql.keyspace=janusgraph
-storage.cql.local-datacenter=us-west1
- 
-# SSL related settings
-storage.cql.ssl.enabled=true
-storage.cql.ssl.truststore.location=/path/to/scb/trustStore.jks
-storage.cql.ssl.truststore.password=n8F9ptJO3H7YRxTW1
-storage.cql.ssl.keystore.location=/path/to/scb/identity.jks
-storage.cql.ssl.keystore.keypassword=Kga1OJ83EF2oBQYR5
-storage.cql.ssl.keystore.storepassword=Kga1OJ83EF2oBQYR5
-storage.cql.ssl.client-authentication-enabled=true
- 
-# consistency settings
-storage.cql.read-consistency-level=LOCAL_QUORUM
-storage.cql.write-consistency-level=LOCAL_QUORUM
 ```
 ### <span class="nosurface">✅ Step 3:</span> Final Test
 Start a Gremlin console:
