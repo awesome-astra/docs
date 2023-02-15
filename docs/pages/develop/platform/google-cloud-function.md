@@ -5,11 +5,6 @@ tags: "FaaS, serverless, GCP, Java, Python"
 icon: "https://awesome-astra.github.io/docs/img/google-cloud-functions/google-cloud-functions.svg"
 developer_title: "Google Cloud Functions"
 developer_url: "https://cloud.google.com/functions"
-links:
-- title: "foo"
-  url: "http://google.com"
-- title: "bar"
-  url: "http://yahoo.com"
 ---
 
 <div class="nosurface" markdown="1">
