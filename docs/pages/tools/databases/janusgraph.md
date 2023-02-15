@@ -69,6 +69,13 @@ While connecting to Astra DB from JanusGraph, it is preferred to make use of the
 as-is without extracting it. There are multiple ways in which a secure connect bundle file can be passed on to
 the JanusGraph configuration to connect to Astra DB using the DataStax driver.
 
+On the JanusGraph server, modify the CQL storage configuration file:
+```
+$ cd janusgraph-0.6.2
+$ vi conf/janusgraph-cql.properties
+```
+Make the necessary changes using one of the two templates:
+
 #### <span class="nosurface">✅ Step 2a:</span> Internal string configuration
 
 Set the property `storage.cql.internal.string-configuration` to `datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }`
