@@ -2,7 +2,7 @@
 title: "Tableau"
 description: "Tableau is a visual analytics platform for modern business intelligence. Tableau can be used to retrieve, explore, analyze and visualize data stored in Astra DB."
 tags: "SQL, visual querying, data visualization, analytics, business intelligence"
-icon: "https://awesome-astra.github.io/docs/img/tableau/logo-tableau.svg"
+icon: "https://awesome-astra.github.io/docs/img/tableau/tableau.svg"
 developer_title: "Tableau"
 developer_url: "https://www.tableau.com"
 links:
