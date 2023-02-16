@@ -7,26 +7,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Your Wiki to implement Awesome Applications with Astra">
+        <meta name="description" content="Azure Functions is Microsoft Azure's function-as-a-service offering that provides a serverless execution environment for your code. Azure Functions are commonly used to extend Astra DB with additional data processing capabilities and connect Astra DB with other cloud services into data pipelines.">
       
       
         <meta name="author" content="Cedrick Lunven">
       
       
-        <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/languages/python/">
+        <link rel="canonical" href="https://awesome-astra.github.io/pages/develop/platform/azure-function/">
       
       
-        <link rel="prev" href="../javascript/">
+        <link rel="prev" href="../google-cloud-function/">
       
       
-        <link rel="next" href="../go/">
+        <link rel="next" href="../circleci/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>• Python - Awesome-Astra</title>
+        <title>Azure Functions - Awesome-Astra</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-overview" class="md-skip">
+        <a href="#azure-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              • Python
+              Azure Functions
             
           </span>
         </div>
@@ -1410,18 +1410,16 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
       
       
         
@@ -1446,7 +1444,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Languages
@@ -1459,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/" class="md-nav__link">
+      <a href="../../languages/java/" class="md-nav__link">
         • Java
       </a>
     </li>
@@ -1473,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../javascript/" class="md-nav__link">
+      <a href="../../languages/javascript/" class="md-nav__link">
         • Javascript
       </a>
     </li>
@@ -1485,245 +1483,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          • Python
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../languages/python/" class="md-nav__link">
         • Python
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
-    1. Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-interfaces-list" class="md-nav__link">
-    2. Interfaces List
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-cql" class="md-nav__link">
-    3. CQL
-  </a>
-  
-    <nav class="md-nav" aria-label="3. CQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-cassandra-drivers" class="md-nav__link">
-    3.1 Cassandra Drivers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-astra-sdk" class="md-nav__link">
-    3.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-stargate-rest-api" class="md-nav__link">
-    4. Stargate REST Api
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Stargate REST Api">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-axios" class="md-nav__link">
-    4.1 Axios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-astra-sdk" class="md-nav__link">
-    4.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-stargate-document-api" class="md-nav__link">
-    5. Stargate Document Api
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Stargate Document Api">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-axios" class="md-nav__link">
-    5.1 Axios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-astra-sdk" class="md-nav__link">
-    5.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-stargate-graphql" class="md-nav__link">
-    6 Stargate GraphQL
-  </a>
-  
-    <nav class="md-nav" aria-label="6 Stargate GraphQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-cql-first" class="md-nav__link">
-    6.1 CQL First
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-graphql-first" class="md-nav__link">
-    6.2 GraphQL First
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-stargate-grpc" class="md-nav__link">
-    7. Stargate gRPC
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Stargate gRPC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-stargate-client" class="md-nav__link">
-    7.1 Stargate Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-astra-sdk" class="md-nav__link">
-    7.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-pulsar-client" class="md-nav__link">
-    8. Pulsar Client
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Pulsar Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-pulsar-client" class="md-nav__link">
-    8.1 Pulsar Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-astra-sdk" class="md-nav__link">
-    8.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-pulsar-admin" class="md-nav__link">
-    9. Pulsar Admin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-devops-api-database" class="md-nav__link">
-    10 Devops API Database
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-devops-api-organization" class="md-nav__link">
-    11 Devops API Organization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-devops-api-streaming" class="md-nav__link">
-    12 Devops API Streaming
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1735,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../go/" class="md-nav__link">
+      <a href="../../languages/go/" class="md-nav__link">
         • GoLang
       </a>
     </li>
@@ -1749,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../csharp/" class="md-nav__link">
+      <a href="../../languages/csharp/" class="md-nav__link">
         • CSharp
       </a>
     </li>
@@ -1763,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scala/" class="md-nav__link">
+      <a href="../../languages/scala/" class="md-nav__link">
         • Scala
       </a>
     </li>
@@ -1777,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rust/" class="md-nav__link">
+      <a href="../../languages/rust/" class="md-nav__link">
         • Rust
       </a>
     </li>
@@ -1946,16 +1710,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
       
       
         
@@ -1974,7 +1740,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Platform
@@ -1987,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/aws-lambda-function/" class="md-nav__link">
+      <a href="../aws-lambda-function/" class="md-nav__link">
         • AWS Lambda Functions
       </a>
     </li>
@@ -2001,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/google-cloud-function/" class="md-nav__link">
+      <a href="../google-cloud-function/" class="md-nav__link">
         • Google Cloud Functions
       </a>
     </li>
@@ -2013,11 +1779,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../platform/azure-function/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          • Microsoft Azure Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         • Microsoft Azure Functions
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-python-sdk" class="md-nav__link">
+    Using Python SDK
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Python SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-function" class="md-nav__link">
+    ✅ 1. Create a function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deploy-the-function" class="md-nav__link">
+    ✅ 2. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-the-function" class="md-nav__link">
+    ✅ 3. Test the function.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2029,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/circleci/" class="md-nav__link">
+      <a href="../circleci/" class="md-nav__link">
         • CircleCI
       </a>
     </li>
@@ -2862,6 +2710,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2870,206 +2720,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
-    1. Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-interfaces-list" class="md-nav__link">
-    2. Interfaces List
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-cql" class="md-nav__link">
-    3. CQL
+  <a href="#using-python-sdk" class="md-nav__link">
+    Using Python SDK
   </a>
   
-    <nav class="md-nav" aria-label="3. CQL">
+    <nav class="md-nav" aria-label="Using Python SDK">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-cassandra-drivers" class="md-nav__link">
-    3.1 Cassandra Drivers
+  <a href="#1-create-a-function" class="md-nav__link">
+    ✅ 1. Create a function.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-astra-sdk" class="md-nav__link">
-    3.2 Astra SDK
+  <a href="#2-deploy-the-function" class="md-nav__link">
+    ✅ 2. Deploy the function.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-the-function" class="md-nav__link">
+    ✅ 3. Test the function.
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-stargate-rest-api" class="md-nav__link">
-    4. Stargate REST Api
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Stargate REST Api">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-axios" class="md-nav__link">
-    4.1 Axios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-astra-sdk" class="md-nav__link">
-    4.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-stargate-document-api" class="md-nav__link">
-    5. Stargate Document Api
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Stargate Document Api">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-axios" class="md-nav__link">
-    5.1 Axios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-astra-sdk" class="md-nav__link">
-    5.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-stargate-graphql" class="md-nav__link">
-    6 Stargate GraphQL
-  </a>
-  
-    <nav class="md-nav" aria-label="6 Stargate GraphQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-cql-first" class="md-nav__link">
-    6.1 CQL First
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-graphql-first" class="md-nav__link">
-    6.2 GraphQL First
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-stargate-grpc" class="md-nav__link">
-    7. Stargate gRPC
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Stargate gRPC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-stargate-client" class="md-nav__link">
-    7.1 Stargate Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-astra-sdk" class="md-nav__link">
-    7.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-pulsar-client" class="md-nav__link">
-    8. Pulsar Client
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Pulsar Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-pulsar-client" class="md-nav__link">
-    8.1 Pulsar Client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-astra-sdk" class="md-nav__link">
-    8.2 Astra SDK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-pulsar-admin" class="md-nav__link">
-    9. Pulsar Admin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-devops-api-database" class="md-nav__link">
-    10 Devops API Database
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-devops-api-organization" class="md-nav__link">
-    11 Devops API Organization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-devops-api-streaming" class="md-nav__link">
-    12 Devops API Streaming
-  </a>
   
 </li>
       
@@ -3089,335 +2783,111 @@
 
 
 
-  <h1>• Python</h1>
-
-<h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
-<p><img src="../../../../img/tile-python.png" align="left" height="180px"/></p>
-<p>Astra provides <strong>multiple services</strong> such as; Database and Streaming, with <strong>multiple Apis and interfaces</strong>. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.</p>
-<p>Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a <em>Software developement KIT (SDK)</em> is also available for you to reduce the amount of boilerplate code needed to get started. More information is <a href="https://github.com/datastax/python-driver">here</a>.</p>
-<h3 id="2-interfaces-list">2. Interfaces List<a class="headerlink" href="#2-interfaces-list" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th align="center">Component</th>
-<th align="center">Interface</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="center"><a href="#3-cql"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=CQL&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=eb6c34&amp;ebgc=77440e&amp;bs=1&amp;bc=f90" /></a></td>
-<td align="left">Main connection to Cassandra</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="center"><a href="#4-stargate-rest-api"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Stargate+Rest+apis&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=eb6c34&amp;ebgc=77440e&amp;bs=1&amp;bc=f90" /></a></td>
-<td align="left">CQL exposes as stateless rest resources</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="center"><a href="#5-stargate-document-api"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Stargate+Document+apis&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=eb6c34&amp;ebgc=77440e&amp;bs=1&amp;bc=f90" /></a></td>
-<td align="left">Use Cassandra as a Document DB</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="center"><a href="#6-stargate-graphql"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Stargate+GraphQL+Apis&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=eb6c34&amp;ebgc=77440e&amp;bs=1&amp;bc=f90" /></a></td>
-<td align="left">Create tables and use generated CRUD</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra DB</strong></td>
-<td align="center"><a href="#7-stargate-grpc"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Stargate+gRPC+Apis&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=eb6c34&amp;ebgc=77440e&amp;bs=1&amp;bc=f90" /></a></td>
-<td align="left">CQL exposes through serialized protobuf</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Streaming</strong></td>
-<td align="center"><a href="#8-pulsar-client"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Pulsar+Client&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=4a9ab4&amp;ebgc=0b5394&amp;bs=1&amp;bc=073763" /></a></td>
-<td align="left">Create Producer, Consumers, Subscriptions..</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Streaming</strong></td>
-<td align="center"><a href="#9-pulsar-admin"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Pulsar+Admin&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=4a9ab4&amp;ebgc=0b5394&amp;bs=1&amp;bc=073763" /></a></td>
-<td align="left">Administrate your Pulsar cluster</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Core</strong></td>
-<td align="center"><a href="#10-devops-api-database"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Devops+Apis+DB&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=200&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=3a3a42&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></td>
-<td align="left">Manage Databases</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Core</strong></td>
-<td align="center"><a href="#11-devops-api-organization"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Devops+Apis+Organization&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=200&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=3a3a42&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></td>
-<td align="left">Manage users and roles</td>
-</tr>
-<tr>
-<td align="center"><strong>Astra Core</strong></td>
-<td align="center"><a href="#12-devops-api-streaming"><img alt="cql" src="https://dabuttonfactory.com/button.png?t=Devops+Apis+Streaming&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=200&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=3a3a42&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></td>
-<td align="left">Manage Streaming</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-cql">3. CQL<a class="headerlink" href="#3-cql" title="Permanent link">&para;</a></h2>
-<h3 id="31-cassandra-drivers">3.1 Cassandra Drivers<a class="headerlink" href="#31-cassandra-drivers" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<p>These instructions are aimed at helping people connect to Astra DB programmatically using the DataStax Python driver.</p>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
+<div class="nosurface">
+<h1 id="azure-functions">Azure Functions<a class="headerlink" href="#azure-functions" title="Permanent link">&para;</a></h1>
+</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/">Azure Functions</a> is Microsoft Azure's function-as-a-service offering that provides a serverless execution environment for your code. Azure Functions are commonly used to:</p>
 <ul>
-<li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-<li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
-<li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-<li>You should <a href="/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
+<li>Extend Astra DB with additional data processing capabilities, such as aggregating, summarizing and validating data periodically;</li>
+<li>Connect Astra DB with other cloud services into data pipelines that move, process and analyze data.</li>
 </ul>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<p>You will need a recent version of Python 3.  Visit <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> for more information on downloads and installation instructions for your machine architecture.  To verify your Python install, run the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python -V
-</code></pre></div>
-<p>With Python installed locally, you can now use Pip (Python's package manager) to install the DataStax Python driver.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install cassandra-driver
-</code></pre></div>
-<p>You can verify that the DataStax Python driver was installed successfully with this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python -c &#39;import cassandra; print (cassandra.__version__)&#39;
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<p>Create a new file and/or directory for your Python program.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir python_project
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cd python_project
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>touch testAstra.py
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<p>To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir ~/mySecureBundleDir
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cd ~/mySecureBundleDir
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mv ~/Downloads/secure-connect-bundle.zip .
-</code></pre></div>
-<p>Open up your favorite editor or IDE, and add 3 imports:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">cassandra.auth</span> <span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">sys</span>
-</code></pre></div>
-<p>Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.</p>
-<p>This example will be done using command line arguments:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">clientID</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">secret</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">secureBundleLocation</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</code></pre></div>
-<p>We'll also define the location of our secure connect bundle, and set that as a property in our <code>cloud_config</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">cloud_config</span><span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="s1">&#39;secure_connect_bundle&#39;</span><span class="p">:</span> <span class="n">secureBundleLocation</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
-</code></pre></div>
-<p>Next, we'll define our authenticator and pass our credentials to it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">auth_provider</span> <span class="o">=</span> <span class="n">PlainTextAuthProvider</span><span class="p">(</span><span class="n">clientID</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
-</code></pre></div>
-<p>With all of that defined, we can build a cluster object and a connection:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="n">cloud_config</span><span class="p">,</span> <span class="n">auth_provider</span><span class="o">=</span><span class="n">auth_provider</span><span class="p">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">session</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-</code></pre></div>
-<p>With a connection made, we can run a simple query to return the name of the cluster from the <code>system.local</code> table:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">row</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select cluster_name from system.local&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">if</span> <span class="n">row</span><span class="p">:</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred.&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Running this code with arguments in the proper order should yield output similar to this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python testAstra.py token &quot;AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b&quot; /Users/aaronploetz/mySecureBundleDir/secure-connect-bundle.zip
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>cndb
-</code></pre></div>
-<p>The complete code to this example can be found <a href="https://github.com/aar0np/DS_Python_stuff/blob/main/testAstra.py">here</a>.</p>
-<h3 id="32-astra-sdk">3.2 Astra SDK<a class="headerlink" href="#32-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>TODO
-</code></pre></div>
-<h2 id="4-stargate-rest-api">4. Stargate REST Api<a class="headerlink" href="#4-stargate-rest-api" title="Permanent link">&para;</a></h2>
-<h3 id="41-axios">4.1 Axios<a class="headerlink" href="#41-axios" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>TODO
-</code></pre></div>
-<h3 id="42-astra-sdk">4.2 Astra SDK<a class="headerlink" href="#42-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>TODO
-</code></pre></div>
-<h2 id="5-stargate-document-api">5. Stargate Document Api<a class="headerlink" href="#5-stargate-document-api" title="Permanent link">&para;</a></h2>
-<h3 id="51-axios">5.1 Axios<a class="headerlink" href="#51-axios" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>TODO
-</code></pre></div>
-<h3 id="52-astra-sdk">5.2 Astra SDK<a class="headerlink" href="#52-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>TODO
-</code></pre></div>
-<h2 id="6-stargate-graphql">6 Stargate GraphQL<a class="headerlink" href="#6-stargate-graphql" title="Permanent link">&para;</a></h2>
-<h3 id="61-cql-first">6.1 CQL First<a class="headerlink" href="#61-cql-first" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>TODO
-</code></pre></div>
-<h3 id="62-graphql-first">6.2 GraphQL First<a class="headerlink" href="#62-graphql-first" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>TODO
-</code></pre></div>
-<h2 id="7-stargate-grpc">7. Stargate gRPC<a class="headerlink" href="#7-stargate-grpc" title="Permanent link">&para;</a></h2>
-<h3 id="71-stargate-client">7.1 Stargate Client<a class="headerlink" href="#71-stargate-client" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>TODO
-</code></pre></div>
-<h3 id="72-astra-sdk">7.2 Astra SDK<a class="headerlink" href="#72-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>TODO
-</code></pre></div>
-<h2 id="8-pulsar-client">8. Pulsar Client<a class="headerlink" href="#8-pulsar-client" title="Permanent link">&para;</a></h2>
-<h3 id="81-pulsar-client">8.1 Pulsar Client<a class="headerlink" href="#81-pulsar-client" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>TODO
-</code></pre></div>
-<h3 id="82-astra-sdk">8.2 Astra SDK<a class="headerlink" href="#82-astra-sdk" title="Permanent link">&para;</a></h3>
-<p><strong>ℹ️ Overview</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [ASTRA]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Prerequisites [Development Environment]</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>TODO
-</code></pre></div>
-<p><strong>📦 Setup Project</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>TODO
-</code></pre></div>
-<p><strong>🖥️ Sample Code</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>TODO
-</code></pre></div>
-<h2 id="9-pulsar-admin">9. Pulsar Admin<a class="headerlink" href="#9-pulsar-admin" title="Permanent link">&para;</a></h2>
-<h2 id="10-devops-api-database">10 Devops API Database<a class="headerlink" href="#10-devops-api-database" title="Permanent link">&para;</a></h2>
-<h2 id="11-devops-api-organization">11 Devops API Organization<a class="headerlink" href="#11-devops-api-organization" title="Permanent link">&para;</a></h2>
-<h2 id="12-devops-api-streaming">12 Devops API Streaming<a class="headerlink" href="#12-devops-api-streaming" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul class="prerequisites">
+    <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
+    <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
+</ul>
+
+<h2 id="using-python-sdk">Using Python SDK<a class="headerlink" href="#using-python-sdk" title="Permanent link">&para;</a></h2>
+<div class="counterReset">
+<h3 id="1-create-a-function"><span class="nosurface" markdown="1">✅ 1.</span> Create a function.<a class="headerlink" href="#1-create-a-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Follow <a href="https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-python">the Quickstart</a> to create a Python function in Azure from the command line using the <code>v1</code> Python programming model and Azure CLI. Complete all the steps to successfully deploy and test the function in Azure.</p>
+</li>
+<li>
+<p>Use Azure CLI to add these runtime environment variables to the application settings:</p>
+<ul>
+<li><code>ASTRA_DB_ID</code>: A <strong>Database ID</strong> value can be found on the <a href="https://astra.datastax.com/">Astra DB</a> dashboard.</li>
+<li><code>ASTRA_DB_REGION</code>: A <strong>Region</strong> name can be found on the overview page for a specific <a href="https://astra.datastax.com/">Astra DB</a> database.</li>
+<li><code>ASTRA_DB_APPLICATION_TOKEN</code>: An <strong>Application Token</strong> can be generated for a specific <a href="https://astra.datastax.com/">Astra DB</a> database (see the <strong>Prerequisites</strong> section above).
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>az<span class="w"> </span>functionapp<span class="w"> </span>config<span class="w"> </span>appsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--name<span class="w"> </span>&lt;APP_NAME&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;RESOURCE_GROUP_NAME&gt;<span class="w"> </span>--settings<span class="w"> </span><span class="s2">&quot;ASTRA_DB_ID=0c2f6f34-41ea-...&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>az<span class="w"> </span>functionapp<span class="w"> </span>config<span class="w"> </span>appsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--name<span class="w"> </span>&lt;APP_NAME&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;RESOURCE_GROUP_NAME&gt;<span class="w"> </span>--settings<span class="w"> </span><span class="s2">&quot;ASTRA_DB_REGION=us-east1&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>az<span class="w"> </span>functionapp<span class="w"> </span>config<span class="w"> </span>appsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--name<span class="w"> </span>&lt;APP_NAME&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;RESOURCE_GROUP_NAME&gt;<span class="w"> </span>--settings<span class="w"> </span><span class="s2">&quot;ASTRA_DB_APPLICATION_TOKEN=AstraCS:avDWzU...&quot;</span>
+</code></pre></div>
+Note that <code>&lt;APP_NAME&gt;</code> and <code>&lt;RESOURCE_GROUP_NAME&gt;</code> must be replaced with correct application and resurce group names used in the previous step. Similarly, <code>ASTRA_DB_ID</code>, <code>ASTRA_DB_REGION</code> and <code>ASTRA_DB_APPLICATION_TOKEN</code> must be assigned correct values associated with your database.</li>
+</ul>
+</li>
+<li>
+<p>Add <a href="https://github.com/datastax/astrapy"><strong>AstraPy</strong></a>, a Pythonic SDK for DataStax Astra and Stargate, to the <code>requirements.txt</code> file:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-sdk/requirements_txt.png" /></p>
+</li>
+<li>
+<p>Replace the <code>__init__.py</code> content with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">astrapy.rest</span> <span class="kn">import</span> <span class="n">create_client</span><span class="p">,</span> <span class="n">http_methods</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">logging</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">azure.functions</span> <span class="k">as</span> <span class="nn">func</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">ASTRA_DB_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ASTRA_DB_ID&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">ASTRA_DB_REGION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ASTRA_DB_REGION&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">ASTRA_DB_APPLICATION_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ASTRA_DB_APPLICATION_TOKEN&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">astra_http_client</span> <span class="o">=</span> <span class="n">create_client</span><span class="p">(</span><span class="n">astra_database_id</span><span class="o">=</span><span class="n">ASTRA_DB_ID</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                  <span class="n">astra_database_region</span><span class="o">=</span><span class="n">ASTRA_DB_REGION</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                  <span class="n">astra_application_token</span><span class="o">=</span><span class="n">ASTRA_DB_APPLICATION_TOKEN</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">func</span><span class="o">.</span><span class="n">HttpRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">func</span><span class="o">.</span><span class="n">HttpResponse</span><span class="p">:</span>    
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">res</span> <span class="o">=</span> <span class="n">astra_http_client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">method</span><span class="o">=</span><span class="n">http_methods</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="n">path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/api/rest/v2/keyspaces/system/local/local&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">cql_version</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cql_version&#39;</span><span class="p">]</span>   
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cql_version</span><span class="si">}</span><span class="s2"> Success&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">return</span> <span class="n">func</span><span class="o">.</span><span class="n">HttpResponse</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cql_version</span><span class="si">}</span><span class="s2"> Success&quot;</span><span class="p">)</span>
+</code></pre></div>
+You can learn more about the code above by reading the <a href="https://github.com/datastax/astrapy">AstraPy</a> documentation.</p>
+</li>
+</ol>
+<h3 id="2-deploy-the-function"><span class="nosurface" markdown="1">✅ 2.</span> Deploy the function.<a class="headerlink" href="#2-deploy-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Use Astra CLI to deploy the updated function:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>func<span class="w"> </span>azure<span class="w"> </span>functionapp<span class="w"> </span>publish<span class="w"> </span>&lt;APP_NAME&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p>On the Microsoft Azure portal, find the newly deployed function:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-sdk/deploy.png" /></p>
+</li>
+</ol>
+<h3 id="3-test-the-function"><span class="nosurface" markdown="1">✅ 3.</span> Test the function.<a class="headerlink" href="#3-test-the-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Under <strong>Developer</strong>, select <strong>Code + Test</strong> and then <strong>Test/Run</strong>. Locate the <strong>Run</strong> button:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-sdk/test-function.png" /></p>
+</li>
+<li>
+<p>Click <strong>Run</strong> and observe the output and logs:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-sdk/test-results.png" /><br/>
+Notice the CQL version output <strong>3.4.5</strong> and status code <strong>200</strong>.</p>
+</li>
+</ol>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-02
+      2023-02-16
     
   </small>
 </div>

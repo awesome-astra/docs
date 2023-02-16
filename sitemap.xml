@@ -251,6 +251,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/develop/platform/azure-function/</loc>
+         <lastmod>2023-02-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/develop/platform/circleci/</loc>
          <lastmod>2023-02-16</lastmod>
          <changefreq>daily</changefreq>
