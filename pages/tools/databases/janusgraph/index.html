@@ -1957,12 +1957,25 @@
     ✅ Step 2: Graph Storage
   </a>
   
+    <nav class="md-nav" aria-label="✅ Step 2: Graph Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-2a-internal-string-configuration" class="md-nav__link">
+    ✅ Step 2a: Internal string configuration
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-final-test" class="md-nav__link">
-    ✅ Step 3: Final Test
+  <a href="#step-2b-internal-file-configuration" class="md-nav__link">
+    ✅ Step 2b: Internal file configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2731,12 +2744,25 @@
     ✅ Step 2: Graph Storage
   </a>
   
+    <nav class="md-nav" aria-label="✅ Step 2: Graph Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-2a-internal-string-configuration" class="md-nav__link">
+    ✅ Step 2a: Internal string configuration
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-final-test" class="md-nav__link">
-    ✅ Step 3: Final Test
+  <a href="#step-2b-internal-file-configuration" class="md-nav__link">
+    ✅ Step 2b: Internal file configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2765,7 +2791,6 @@
 
 <div class="nosurface">
 <ul>
-<li><em>This article includes information that was originally written by <strong>Erick Ramirez</strong> on <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">DataStax Community</a></em> </li>
 <li><em>Documented on JanusGraph <a href="https://docs.janusgraph.org/storage-backend/cassandra/#deploying-on-datastax-astra">official documentation</a></em></li>
 </ul>
 <p><img src="https://awesome-astra.github.io/docs/img/janusgraph/janusgraph.png" height="180px" /></p>
@@ -2781,11 +2806,10 @@
 <p>JanusGraph uses the <a href="https://docs.janusgraph.org/changelog/#datastax-cassandra-driver-upgrade-from-390-to-4130">Java driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively. For example:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CqlSession session = CqlSession.builder()
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  .withCloudSecureConnectBundle(Paths.get(&quot;/path/to/secure-connect-db_name.zip&quot;))
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  .withAuthCredentials(&quot;token&quot;, ASTRA_APP_TOKEN)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  .withAuthCredentials(&quot;CLIENT_ID&quot;, &quot;CLIENT_SECRET&quot;)
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  .withKeyspace(&quot;keyspace_name&quot;)
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  .build();
-</code></pre></div>
-However, JanusGraph does not expose this functionality so you will need to manually unpack the secure connect bundle and use its contents to configure JanusGraph which you will obtain in the <strong>Prerequisites</strong>.</p>
+</code></pre></div></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -2794,134 +2818,96 @@ However, JanusGraph does not expose this functionality so you will need to manua
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
-<p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph v0.6.0. It has not been tested on older versions of JanusGraph. </p>
-<p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI</p>
+<p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-062-release-date-may-31-2022"><code>v0.6.2</code></a>. If JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-060-release-date-september-3-2021"><code>v0.6.0</code></a> is used instead, refer to <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">this article</a>. It has not been tested on older versions of JanusGraph. </p>
+<p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI. For simplicity, the keyspace is created as <code>janusgraph</code>.</p>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
 <h3 id="step-1-db-information"><span class="nosurface">✅ Step 1:</span> DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
-<p>On the JanusGraph server, unpack your secure bundle. For example:
+<p>On the JanusGraph server, move your secure bundle using secure copy or other techniques. For example:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ cd /path/to/scb
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ unzip secure-connect-janusgraph.zip
-</code></pre></div>
-Here is an example file listing after unpacking the bundle:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  path/
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    to/
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      scb/
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        ca.crt
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        cert
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        cert.pfx
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        config.json
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        cqlshrc
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        identity.jks
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        key
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        trustStore.jks
-</code></pre></div>
-Obtain information about your database from the config.json file. Here is an example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  &quot;host&quot;: &quot;70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com&quot;,
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  &quot;port&quot;: 98765,
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  &quot;cql_port&quot;: 34567,
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  &quot;keyspace&quot;: &quot;janusgraph&quot;,
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  &quot;localDC&quot;: &quot;us-west1&quot;,
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  &quot;caCertLocation&quot;: &quot;./ca.crt&quot;,
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  &quot;keyLocation&quot;: &quot;./key&quot;,
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  &quot;certLocation&quot;: &quot;./cert&quot;,
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  &quot;keyStoreLocation&quot;: &quot;./identity.jks&quot;,
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  &quot;keyStorePassword&quot;: &quot;Kga1OJ83EF2oBQYR5&quot;,
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  &quot;trustStoreLocation&quot;: &quot;./trustStore.jks&quot;,
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  &quot;trustStorePassword&quot;: &quot;n8F9ptJO3H7YRxTW1&quot;,
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  &quot;csvLocation&quot;: &quot;./data&quot;,
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  &quot;pfxCertPassword&quot;: &quot;9b3HgFChtY60m4nfJ&quot;
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>}
-</code></pre></div>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ ls -l secure-connect-janusgraph.zip
+</code></pre></div></p>
 <p>We will use this information to configure Astra DB as the storage backend for JanusGraph.</p>
 <h3 id="step-2-graph-storage"><span class="nosurface">✅ Step 2:</span> Graph Storage<a class="headerlink" href="#step-2-graph-storage" title="Permanent link">&para;</a></h3>
+<p>While connecting to Astra DB from JanusGraph, it is preferred to make use of the secure connect bundle file
+as-is without extracting it. There are multiple ways in which a secure connect bundle file can be passed on to
+the JanusGraph configuration to connect to Astra DB using the DataStax driver.</p>
 <p>On the JanusGraph server, modify the CQL storage configuration file:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ cd janusgraph-0.6.0
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ vi conf/janusgraph-cql.properties
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ cd janusgraph-0.6.2
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ vi conf/janusgraph-cql.properties
 </code></pre></div>
-Make the necessary changes using this template:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># basic CQL settings
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>gremlin.graph=org.janusgraph.core.JanusGraphFactory
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>storage.backend=cql
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>storage.hostname=CONFIG-JSON-HOST
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>storage.port=CONFIG-JSON-CQL-PORT
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>storage.username=token               &lt;----- do NOT change this
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>storage.password=ASTRA_APP_TOKEN
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>storage.cql.keyspace=GRAPH_KEYSPACE
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>storage.cql.local-datacenter=CONFIG-JSON-LOCALDC
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a># SSL related settings
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>storage.cql.ssl.enabled=true
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>storage.cql.ssl.truststore.location=/path/to/scb/trustStore.jks
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>storage.cql.ssl.truststore.password=CONFIG-JSON-TRUSTSTOREPASSWORD
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>storage.cql.ssl.keystore.location=/path/to/scb/identity.jks
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>storage.cql.ssl.keystore.keypassword=CONFIG-JSON-KEYSTOREPASSWORD
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>storage.cql.ssl.keystore.storepassword=CONFIG-JSON-KEYSTOREPASSWORD
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>storage.cql.ssl.client-authentication-enabled=true
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a># consistency settings
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>storage.cql.read-consistency-level=LOCAL_QUORUM
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>storage.cql.write-consistency-level=LOCAL_QUORUM
+Make the necessary changes using one of the two templates:</p>
+<h4 id="step-2a-internal-string-configuration"><span class="nosurface">✅ Step 2a:</span> Internal string configuration<a class="headerlink" href="#step-2a-internal-string-configuration" title="Permanent link">&para;</a></h4>
+<p>Set the property <code>storage.cql.internal.string-configuration</code> to <code>datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }</code>
+and set the username, password and keyspace details.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">gremlin.graph</span><span class="o">=</span><span class="s">org.janusgraph.core.JanusGraphFactory</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">storage.backend</span><span class="o">=</span><span class="s">cql</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">storage.cql.keyspace</span><span class="o">=</span><span class="s">&lt;keyspace name which was created in AstraDB&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">storage.username</span><span class="o">=</span><span class="s">&lt;clientID&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">storage.password</span><span class="o">=</span><span class="s">&lt;clientSecret&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">storage.cql.internal.string-configuration</span><span class="o">=</span><span class="s">datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }</span>
 </code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">WARNING</p>
-<p>The username to connect to Astra is the literal string <code>token</code>. Do NOT set this value to your DB's client ID.</p>
-</div>
+<p>Also, you can set a JVM argument to pass the secure connect bundle file as shown below and remove that property
+<code>(storage.cql.internal.string-configuration)</code> from the list above.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-Ddatastax-java-driver.basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip
+</code></pre></div>
+<h4 id="step-2b-internal-file-configuration"><span class="nosurface">✅ Step 2b:</span> Internal file configuration<a class="headerlink" href="#step-2b-internal-file-configuration" title="Permanent link">&para;</a></h4>
+<p>Set the property <code>storage.cql.internal.file-configuration</code> to an external configuration file if you would like to
+externalize the astra connection related properties to a separate file and specify the secure bundle and credentials information on that file.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">gremlin.graph</span><span class="o">=</span><span class="s">org.janusgraph.core.JanusGraphFactory</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">storage.backend</span><span class="o">=</span><span class="s">cql</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">storage.cql.keyspace</span><span class="o">=</span><span class="s">janusgraph</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Link to the external file that DataStax driver understands</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="na">storage.cql.internal.file-configuration</span><span class="o">=</span><span class="s">/path/to/scb/astra.conf</span>
+</code></pre></div></p>
+<p><code>astra.conf</code> (external file) to contain:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>datastax-java-driver {
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  basic.cloud {
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    secure-connect-bundle = &quot;/path/to/scb/secure-connect-janusgraph.zip&quot;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  }
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  basic.request {
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    timeout = &quot;10 seconds&quot;
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  }
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  advanced.auth-provider {
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    class = PlainTextAuthProvider
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    username = &quot;&lt;ClientID&gt;&quot;
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    password = &quot;&lt;ClientSecret&gt;&quot;
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  }
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>}
+</code></pre></div></p>
 <div class="admonition info">
 <p class="admonition-title">IMPORTANT</p>
-<p>The <strong>ASTRA_APP_TOKEN</strong> is from the token you generated in the <strong>Prerequisites</strong> section above.</p>
+<p>The <strong>ClientID</strong> and <strong>ClientSecret</strong> are from the token you generated in the <strong>Prerequisites</strong> section above.</p>
 </div>
-<p>Using the example values in the config.json above, my conf/janusgraph-cql.properties would contain:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># basic CQL settings
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>gremlin.graph=org.janusgraph.core.JanusGraphFactory
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>storage.backend=cql
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>storage.hostname=70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>storage.port=34567
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>storage.username=token
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>storage.password=AstraCS:AbCwZYOKqvXHZWRvpbvHqXYz:47820923e5be3b7b9e689bc18614c631d5fdd8b435e68613433651fd20fexyz0
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>storage.cql.keyspace=janusgraph
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>storage.cql.local-datacenter=us-west1
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a># SSL related settings
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>storage.cql.ssl.enabled=true
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>storage.cql.ssl.truststore.location=/path/to/scb/trustStore.jks
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>storage.cql.ssl.truststore.password=n8F9ptJO3H7YRxTW1
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>storage.cql.ssl.keystore.location=/path/to/scb/identity.jks
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>storage.cql.ssl.keystore.keypassword=Kga1OJ83EF2oBQYR5
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>storage.cql.ssl.keystore.storepassword=Kga1OJ83EF2oBQYR5
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>storage.cql.ssl.client-authentication-enabled=true
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a># consistency settings
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>storage.cql.read-consistency-level=LOCAL_QUORUM
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>storage.cql.write-consistency-level=LOCAL_QUORUM
-</code></pre></div></p>
-<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3:</span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
-<p>Start a Gremlin console:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ bin/gremlin.sh
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>         \,,,/
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>         (o o)
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>-----oOOo-(3)-oOOo-----
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>gremlin&gt;
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>### &lt;span class=&quot;nosurface&quot;&gt;✅ Step 3:&lt;/span&gt; Final Test
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Start a Gremlin console:
 </code></pre></div>
-Load a graph using Astra as the storage backend with:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gremlin&gt; graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql.properties&#39;)
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>==&gt;standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
-</code></pre></div></p>
+$ bin/gremlin.sh</p>
+<div class="highlight"><pre><span></span><code>     \,,,/
+     (o o)
+</code></pre></div>
+<p>-----oOOo-(3)-oOOo-----
+gremlin&gt;
+<code>Load a graph using Astra as the storage backend with:</code>
+gremlin&gt; graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
+==&gt;standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
+```
+</p>
 <div class="admonition abstract">
 <p class="admonition-title">Note</p>
-<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.</p>
+<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
+</p>
 </div>
 <p>In the <a href="https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html">Astra CQL Console</a>, I can see JanusGraph created the following tables in the <code>janusgraph</code> keyspace:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>token@cqlsh&gt; USE janusgraph;
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>token@cqlsh:janusgraph&gt; DESCRIBE TABLES;
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>edgestore_lock_  graphindex_lock_         janusgraph_ids   
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>txlog            systemlog                graphindex       
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>edgestore        system_properties_lock_  system_properties
-</code></pre></div></p>
+```
+token@cqlsh&gt; USE janusgraph;
+token@cqlsh:janusgraph&gt; DESCRIBE TABLES;</p>
+<p>edgestore_lock_  graphindex_lock_         janusgraph_ids <br />
+txlog            systemlog                graphindex     <br />
+edgestore        system_properties_lock_  system_properties
+```</p>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 </div>
@@ -2931,7 +2917,7 @@ Load a graph using Astra as the storage backend with:
   <small>
     
       Last update:
-      2023-01-31
+      2023-02-15
     
   </small>
 </div>
