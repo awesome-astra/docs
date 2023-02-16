@@ -30,7 +30,7 @@ The Homebrew formula of Astra CLI installs a completion file named astra in the 
 
 **✅ 1.2 Manual Installation**
 
-To install (or reinstall) the CLI use the following command in a terminal:
+To install (or reinstall) the CLI, use the following command in a terminal:
 
 ```
 curl -Ls "https://dtsx.io/get-astra-cli" | bash
@@ -46,7 +46,7 @@ curl -Ls "https://dtsx.io/get-astra-cli" | bash
 
 **✅ 2.1 Manual Installation**
 
-To install (or reinstall) the CLI the following command in a terminal:
+To install (or reinstall) the CLI, use the following command in a terminal:
 
 ```
 curl -Ls "https://dtsx.io/get-astra-cli" | bash
@@ -70,7 +70,7 @@ _Installation with package managers (yum, apt) is not available yet but is high 
 
 - Download a Windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip)
 
-- Unzip the archive in folder or your choice, for instance `C:/Programs/astra-cli`
+- Unzip the archive into a folder of your choice, for instance `C:/Programs/astra-cli`
 
 - Add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
 
@@ -78,7 +78,7 @@ _Installation with package managers (yum, apt) is not available yet but is high 
 
 ### 1. Setup
 
-Before issuing commands to initialize the configuration file `~/.astrarc`. To to so run the following command. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
+Before issuing commands, you need to initialize the configuration file `~/.astrarc`. To do so, run the command below. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
 
 ```
 astra setup
@@ -130,7 +130,7 @@ astra config list
 
 ### 3. Get Help
 
-The solution provides extensive documentation for any command. It also provides some bash autocompletion, use the `TAB` key twice to get a list of options.
+The solution provides extensive documentation for any command. It also provides some bash autocompletion; use the `TAB` key twice to get a list of options.
 
 **✅ 3a - Autocompletion**
 
@@ -146,7 +146,7 @@ astra <TAB> <TAB>
 
 **✅ 3b - Documentation**
 
-Groups of commands will get you the different commands avalable.
+Groups of commands will give you the different commands available.
 
 - Display main help
 
@@ -262,7 +262,7 @@ astra help db list
 
 **✅ 1a - list**
 
-To get the list of non terminated database in your oganization, use the command `list` in the group `db`.
+To get the list of non-terminated databases in your organization, use the command `list` in the group `db`.
 
 ```
 astra db list
@@ -392,7 +392,7 @@ astra db list -o json
 
 **✅ 2a - Create Database** 
 
-If not provided, the region will be the default free region and the keyspace will be the database name but you can change then with `-r` and `-k` respectivitely.
+If not provided, the region will be the default free region, and the keyspace will be the database name, but you can change them with the `-r` and `-k` flags, respectively.
 
 ```
 astra db create demo
@@ -400,11 +400,11 @@ astra db create demo
 
 **✅ 2b - Options ` --if-not-exist` and `--wait`** 
 
-- The database name does not ensure unicity (the database id does). As such, if you issue the command multiple times you will end up with multiple instances. To change this behavior, you can use `--if-not-exist`
+- The database name does not ensure unicity (the database id does). As such, if you issue the command multiple times, you will end up with multiple instances. To change this behavior, you can use `--if-not-exist`
 
-- Database creation is an asynchronous operation. In some situations, such as during your CI/CD, you likely will want the db to be `ACTIVE` before moving forward. The option `--wait` will trigger a blocking command until the db is ready
+- Database creation is an asynchronous operation. In some situations, such as during your CI/CD, you will most likely want the db to be `ACTIVE` before moving forward. The option `--wait` will trigger a blocking command until the db is ready
 
-- On the free tier, after a period of inactivity, the database moves to a `HIBERNATED` state. The creation command, will resume the db when needed.
+- On the free tier, after a period of inactivity, the database moves to a `HIBERNATED` state. The creation command will resume the db when needed.
 
 ```
 astra db create demo -k ks2 --if-not-exist --wait
@@ -412,7 +412,7 @@ astra db create demo -k ks2 --if-not-exist --wait
 
 **✅ 2c - Get help** 
 
-To show help, enter following command: 
+To show help, enter the following command: 
 
 ```
 astra help db create
@@ -478,7 +478,7 @@ astra help db create
 
 ### 3. Resume database
 
-In the free tier, after 23H of inactivity your database will be hibernated. To wake up the db, you can use the `resume` command.
+In the free tier, after 23H of inactivity, your database will be hibernated. To wake up the db, you can use the `resume` command.
 
 **✅ 2a - Resuming** 
 
@@ -561,7 +561,7 @@ astra db get demo --key id
     dde308f5-a8b0-474d-afd6-81e5689e3e25
     ```
 
-**✅ 4c. To get database status in a human readble for use `status` command**
+**✅ 4c. To get database status in a human-readable form, use `status` command**
 
 ```
 astra db status demo
@@ -594,7 +594,7 @@ and database names. You can also define your own keyspace name with the flag `-k
 astra db create-keyspace demo -k ks2 --if-not-exist
 ```
 
-- If the database is not found you will get a warning message and a dedicated code returned. To see your new keyspace you can display your database details
+- If the database is not found, you will get a warning message and a dedicated code returned. To see your new keyspace, you can display your database details.
 
 ```
 astra db list-keyspaces demo
@@ -652,7 +652,7 @@ astra db cqlsh demo -f sample.cql
 
 [DSBulk](https://github.com/datastax/dsbulk) stands for DataStax Bulk Loader. It is a standalone program to load, unload, and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.
 
-Similar to `cqlsh` the CLI will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea let's tak a simple example.
+Similar to `cqlsh` the CLI will **download**, **install**, **setup** and **wrap** the dsbulk command for you. All options are available. To give you an idea, let's take a simple example.
 
 - Make sure we have a db `demo` with a keyspace `demo`
 
@@ -670,7 +670,7 @@ id,name,state_id,state_code,state_name,country_id,country_code,country_name,lati
 ...
 ```
 
-- Let's create a table to store those values. Connect to CQHSH
+- Let's create a table to store those values. Connect to CQLSH
 
 ```
 astra db cqlsh demo -k demo
@@ -709,7 +709,7 @@ astra db load demo \
   --schema.allowMissingFields true
 ```
 
-The first time the line `DSBulk is starting please wait` can take a few seconds to appear. The reason is the CLI is downloading `dsbulk` if it was not downloaded before.
+The first time the line `DSBulk is starting please wait` can take a few seconds to appear. The reason is that the CLI is downloading `dsbulk` if it was not downloaded before.
 
 ???+ abstract "🖥️ Sample output" 
 
@@ -729,7 +729,7 @@ The first time the line `DSBulk is starting please wait` can take a few seconds 
 
 **✅ 8c - Count** 
 
-Check than the data has been imported with cqlsh SH
+Check that the data has been imported with cqlsh.
 
 ```
 astra db cqlsh demo -e "select * from demo.cities_by_country LIMIT 20;"
@@ -831,7 +831,7 @@ astra db download-scb demo -f /tmp/demo.zip
 
 ### 10. Create `.env` file
 
-To code your application against Astra a set of metadata could be handy like the database name, database region, url of the APIs.... 
+To code your application against Astra, a set of metadata could be handy like the database name, database region, url of the APIs.... 
 
 This command will create a file `.env` with a set of variables that are relevant to be defined as environment variables
 
@@ -861,7 +861,7 @@ astra db create-dotenv -f /tmp/.env
 
 11. List Regions
 
-For database creation or regions management, the region name is expected. Depending on the cloud provider provider needed or even the Astra service the region name are not exactly the same.
+For database creation or regions management, the region name is expected. Depending on the cloud provider needed or even the Astra service, the region names are not exactly the same.
 
 With Astra CLI, one can list every available regions per service.
 
@@ -890,7 +890,7 @@ astra db list-regions-serverless -c aws
     +----------------+---------------------+-------------------------------+
     ```
 
-- `-c` or `--cloud` allows to selectr a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
+- `-c` or `--cloud` allows to select a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
 - `-f` or `--filter` allows to look for either a location of region (eg. `-f France`, -f `us`
 - `-o` or `--output` to change output from table (human) to csv or json
 - `-v` for verbose mode
@@ -908,7 +908,7 @@ astra db list-regions-classic
 
 **✅ 1a - list**
 
-To get the list of tenants in your oganization, use the command `list` in the group `streaming`.
+To get the list of tenants in your organization, use the command `list` in the group `streaming`.
 
 ```
 astra streaming list
@@ -987,7 +987,7 @@ To create a tenant with default cloud (`aws`), default region (`useast2`), plan 
 astra streaming create new_tenant_from_cli
 ```
 
-To view all supported options please use
+To view all supported options, please use:
 
 ```
 astra help streaming create
@@ -1001,7 +1001,7 @@ astra help streaming create
 astra streaming get trollsquad-2022
 ```
 
-The pulsar token is not displayed in this view as it is too loong, but there are dedicated commands to display it.
+The pulsar token is not displayed in this view as it is too long, but there are dedicated commands to display it.
 
 ???+ abstract "🖥️ Sample output" 
 
@@ -1197,7 +1197,7 @@ client produce persistent://trollsquad-2022/default/demo -m "hello,world" -n 20
 astra streaming list-regions
 ```
 
-- `-c` or `--cloud` allows to selectr a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
+- `-c` or `--cloud` allows to select a cloud provider, the 3 accepted values will be `aws`, `gcp` and `azure`
 - `-f` or `--filter` allows to look for either a location of region (eg. `-f France`, -f `us`
 - `-o` or `--output` to change output from table (human) to csv or json
 - `-v` for verbose mode
@@ -1281,7 +1281,7 @@ astra role get "Database Administrator"
 
 ## Configuration
 
-If you work with multiple organizations it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
+If you work with multiple organizations, it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
 
 **✅ 1a - List available configuration**
 
