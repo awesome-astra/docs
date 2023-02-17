@@ -27,6 +27,79 @@ developer_url: "https://learn.microsoft.com/en-us/azure/azure-functions/"
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 </ul>
 
+## Using Python Driver
+
+### <span class="nosurface" markdown="1">✅ 1.</span> Create a function.
+
+1. Follow [the Quickstart](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-python) to create a Python function in Azure from the command line using the `v1` Python programming model and Azure CLI. Complete all the steps to successfully deploy and test the function in Azure.
+
+2. Use Azure CLI to add these runtime environment variables to the application settings:
+    - `ASTRA_DB_CLIENT_ID`: A **Client ID** is generated together with an application token (see the **Prerequisites** section above).
+    - `ASTRA_DB_CLIENT_SECRET`: A **Client secret** is generated together with an application token (see the **Prerequisites** section above).
+```bash
+
+az functionapp config appsettings set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings "ASTRA_DB_CLIENT_ID=Hdisr..."
+
+az functionapp config appsettings set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings "ASTRA_DB_CLIENT_SECRET=UB3Tm8cR,Ic..."
+```
+Note that `<APP_NAME>` and `<RESOURCE_GROUP_NAME>` must be replaced with correct application and resurce group names used in the previous step. Similarly, `ASTRA_DB_CLIENT_ID` and `ASTRA_DB_CLIENT_SECRET` must be assigned correct values generated for your database.
+
+3. Copy the secure connect bundle file to the project directory. (See the **Prerequisites** section above if you need to download your secure connect bundle.)
+
+4. Add [**cassandra-driver**](https://github.com/datastax/python-driver), a Python client library for Apache Cassandra, DataStax Astra DB and DataStax Enterprise, to the `requirements.txt` file:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-driver/requirements_txt.png" />
+
+5. Replace the `__init__.py` content with:
+```python
+from cassandra.cluster import Cluster
+from cassandra.auth import PlainTextAuthProvider
+import logging
+import azure.functions as func
+import os
+
+ASTRA_DB_CLIENT_ID = os.environ['ASTRA_DB_CLIENT_ID']
+ASTRA_DB_CLIENT_SECRET = os.environ['ASTRA_DB_CLIENT_SECRET']
+
+cloud_config= {
+    'secure_connect_bundle': 'secure-connect-bundle-for-your-database.zip',
+    'use_default_tempdir': True
+}
+auth_provider = PlainTextAuthProvider(ASTRA_DB_CLIENT_ID, ASTRA_DB_CLIENT_SECRET)
+cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider, protocol_version=4)
+
+def main(req: func.HttpRequest) -> func.HttpResponse:    
+    
+    session = cluster.connect()
+
+    row = session.execute("SELECT cql_version FROM system.local WHERE key = 'local';").one()
+    cql_version = row[0]   
+ 
+    logging.info(f"{cql_version} Success")
+   
+    return func.HttpResponse(f"{cql_version} Success")
+```
+You can learn more about the code above by reading the [**python-driver**](https://github.com/datastax/python-driver) documentation. Note that `secure-connect-bundle-for-your-database.zip` must be replaced with a correct file name for your secure connect bundle.
+
+### <span class="nosurface" markdown="1">✅ 2.</span> Deploy the function.
+
+1. Use Astra CLI to deploy the updated function:
+```bash
+func azure functionapp publish <APP_NAME>
+```
+
+2. On the Microsoft Azure portal, find the newly deployed function:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-driver/deploy.png" />
+
+### <span class="nosurface" markdown="1">✅ 3.</span> Test the function.
+
+1. Under **Developer**, select **Code + Test** and then **Test/Run**. Locate the **Run** button:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-driver/test-function.png" />
+
+
+2. Click **Run** and observe the output and logs:
+<br/><img src="https://awesome-astra.github.io/docs/img/azure-functions-python-driver/test-results.png" /><br/>
+Notice the CQL version output **3.4.5** and status code **200**.
+
 
 ## Using Python SDK
 
