@@ -109,6 +109,8 @@ Since the deployment package exceeds 3 MBs, the Console Editor may not be availa
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-driver/variables.png" /><br/>
 Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage client id and secret, and then retrieve them programmatically. 
 
+7. Optionally, to optimize function performance, consider configuring [reserved and provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html) under the **Configuration** tab.
+
 ### <span class="nosurface" markdown="1">✅ 3. </span> Test the function.
 
 Under the **Test** tab, click the **Test** button and observe the output.
@@ -197,6 +199,8 @@ You can learn more about the code above by reading the [AstraPy](https://github.
     - `ASTRA_DB_APPLICATION_TOKEN`: An **Application Token** can be generated for a specific [Astra DB](https://astra.datastax.com/) database (see the **Prerequisites** section above).
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-lambda-functions-python-sdk/variables.png" /><br/>
 Note that, for better security, you can alternatively use the [AWS Secret Manager](https://docs.aws.amazon.com/secretsmanager/index.html) service to store and manage an application token as a secret. A secret can then be retrieved programmatically. 
+
+9. Optionally, to optimize function performance, consider configuring [reserved and provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html) under the **Configuration** tab.
 
 ### <span class="nosurface" markdown="1">✅ 3. </span> Test the function.
 
