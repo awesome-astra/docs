@@ -1,13 +1,13 @@
 ---
-title: "Github Actions"
+title: "GitHub Actions"
 description: "Automate your build, test, and deployment pipeline with Astra CLI"
 tags: "CLI, third party tools, CI/CD, devops"
 icon: "https://awesome-astra.github.io/docs/img/github/github_logo.png"
 recommended: "true"
-developer_title: "Github"
+developer_title: "GitHub"
 developer_url: "https://docs.github.com/en/actions"
 links:
-- title: "Github Action Documentation"
+- title: "GitHub Action Documentation"
   url: "https://docs.github.com/en/actions"
 ---
 
@@ -18,7 +18,7 @@ links:
 
 ## Overview
 
-[Github Actions](https://docs.github.com/en/actions)
+[GitHub Actions](https://docs.github.com/en/actions)
 is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
 GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
@@ -28,8 +28,8 @@ GitHub provides Linux, Windows, and macOS virtual machines to run your workflows
 <div class="nosurface" markdown="1">
 Reference documentation:
 
-- ℹ️ [Github Documentation](https://docs.github.com/en/actions)
-- ℹ️ [Understanding Github Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+- ℹ️ [GitHub Documentation](https://docs.github.com/en/actions)
+- ℹ️ [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
 
 </div>
 
@@ -38,15 +38,14 @@ Reference documentation:
 <ul class="prerequisites">
   <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>. In the following example, a keyspace called <code>demo</code> is created in the <code>demo</code> database.</li>
   <li class="nosurface"><a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Create an Astra Token</a>. <em>You should have received your token while creating the database in the previous step.</em></li>
-  <li class="nosurface">Have a <a href="https://github.com/">Github</a> account and a repository in it.</li>
+  <li class="nosurface">Have a <a href="https://github.com/">GitHub</a> account and a repository in it.</li>
 </ul>
 
 
-## Github Repository Configuration
+## GitHub Repository Configuration
 
 !!! note "Note"
-    It is not rocket science. We ask github for an ubuntu environment, we install the [Astra CLI](https://awesome-astra.github.io/docs/pages/astra/astra-cli/) and 
-    we use the `CLI` to create a database.
+    Getting started is simple. Ask GitHub for an ubuntu environment, install the [Astra CLI](https://awesome-astra.github.io/docs/pages/astra/astra-cli/), and use the `CLI` to create a database.
 
 ### Create a secret for token
 
