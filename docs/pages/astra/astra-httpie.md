@@ -7,7 +7,7 @@ If you want to use it on your own system, follow these steps:
 ## Install the python library and httpie
 
 ```
-pip install httpie-astra
+pip3 install httpie-astra
 ```
 
 ## Setup your Astra account
@@ -32,7 +32,7 @@ As an example, for the example in the Katapod example, you could use "stargate" 
 ```
 astra db create <database>
 astra db create-dotenv -k <keyspace> <database>
-echo "[default]" > ~/.astrarc
+echo "[stargate]" >> ~/.astrarc
 cat .env >> ~/.astrarc
 ```
 
@@ -47,7 +47,7 @@ You can create a configuration file in ~/.config/httpie/config.json.  Adding thi
 {
     "default_options": [
       "--auth-type=astra",
-      "--auth=default:"
+      "--auth=stargate:"
     ]
 }
 ```
@@ -55,7 +55,7 @@ You can create a configuration file in ~/.config/httpie/config.json.  Adding thi
 This means that instead of using this command:
 
 ```
-http --auth-type astra -a default: :/rest/v1/keyspaces
+http --auth-type astra -a stargate: :/rest/v1/keyspaces
 ```
 
 You can use this command:
