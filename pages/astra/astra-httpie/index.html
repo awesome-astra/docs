@@ -22,7 +22,7 @@
         <link rel="next" href="../../data/">
       
       <link rel="icon" href="../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.113286f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -2784,7 +2784,7 @@
 <p>The quick start is in <a href="https://github.com/DataStax-Academy/httpie-katapod">this repository</a>.</p>
 <p>If you want to use it on your own system, follow these steps:</p>
 <h2 id="install-the-python-library-and-httpie">Install the python library and httpie<a class="headerlink" href="#install-the-python-library-and-httpie" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install httpie-astra
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3 install httpie-astra
 </code></pre></div>
 <h2 id="setup-your-astra-account">Setup your Astra account<a class="headerlink" href="#setup-your-astra-account" title="Permanent link">&para;</a></h2>
 <p>To use the Astra CLI you need to create a <a href="https://astra.datastax.com">DataStax Astra</a> account. You also need to <a href="../../../pages/astra/create-token/">create a token</a> with the <code>Organization Administration</code> role.</p>
@@ -2799,7 +2799,7 @@
 <p>As an example, for the example in the Katapod example, you could use "stargate" as the database and "workshop" for the keyspace - but you can use any combination you like for general exploration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>astra db create &lt;database&gt;
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>astra db create-dotenv -k &lt;keyspace&gt; &lt;database&gt;
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>echo &quot;[default]&quot; &gt; ~/.astrarc
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>echo &quot;[stargate]&quot; &gt;&gt; ~/.astrarc
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cat .env &gt;&gt; ~/.astrarc
 </code></pre></div>
 <p>From here, you can call any Stargate API endpoint.  Check the <a href="https://github.com/DataStax-Academy/httpie-katapod">example repository</a> to see how this works.</p>
@@ -2809,12 +2809,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    &quot;default_options&quot;: [
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      &quot;--auth-type=astra&quot;,
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      &quot;--auth=default:&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      &quot;--auth=stargate:&quot;
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    ]
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
 </code></pre></div></p>
 <p>This means that instead of using this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http --auth-type astra -a default: :/rest/v1/keyspaces
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http --auth-type astra -a stargate: :/rest/v1/keyspaces
 </code></pre></div>
 <p>You can use this command:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>http :/rest/v1/keyspaces
@@ -2874,7 +2874,7 @@
   <small>
     
       Last update:
-      2023-01-31
+      2023-02-27
     
   </small>
 </div>
