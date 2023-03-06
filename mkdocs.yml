@@ -10,7 +10,7 @@ nav:
       - ‣ Create Token: pages/astra/create-token.md
       - ‣ Astra CLI: pages/astra/astra-cli.md
       - ‣ FAQ: pages/astra/faq.md
-    - AstraDB:
+    - Astra DB:
       - ‣ Create Database: pages/astra/create-instance.md
       - ‣ Secure Connect Bundle: pages/astra/download-scb.md
       - ‣ Resume a database: pages/astra/resume-db.md
@@ -104,6 +104,7 @@ nav:
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • Quine : pages/tools/integration/quine.io.md
       - • StepZen : pages/tools/integration/stepzen.md
++     - • Strapi : pages/tools/integration/strapi.md
       - • Temporal : pages/tools/integration/temporal.md
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
@@ -219,11 +220,17 @@ extra:
     provider: google
     property: G-MDYTQ5XG33
   social:
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCAIQY251avaMv7bBv5PCo-A
-    - icon: fontawesome/brands/github
-      link: https://github.com/clun
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/clunven
     - icon: fontawesome/brands/discord
       link: https://dtsx.io/discord
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/datastax
+    - icon: fontawesome/brands/github
+      link: https://github.com/datastaxdevs
+    - icon: fontawesome/brands/medium
+      link: https://datastax.medium.com/
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/datastaxdevs
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/datastax
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCAIQY251avaMv7bBv5PCo-A
