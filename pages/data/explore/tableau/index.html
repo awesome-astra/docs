@@ -22,7 +22,7 @@
         <link rel="next" href="../tableplus/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -2840,7 +2840,7 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
 <li><strong>URL</strong> = <code>jdbc:cassandra://;AuthMech=2;UID=token;PWD=&lt;ApplicationToken&gt;;SecureConnectionBundlePath=&lt;SecureConnectBundle&gt;;TunableConsistency=1</code>, where<ul>
 <li><em>AuthMech</em> specifies whether the driver connects to a Cassandra or Astra DB database, and whether the driver authenticates the connection. It should be set to <code>2</code> to connect to an Astra database, and authenticate the connection using a user name, password, and secure connection bundle.</li>
 <li><em>UID</em> and <em>PWD</em> specify user name and password credentials. They should be set to literal <code>token</code> and the actual application token value. See <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">how to generate an application token</a> if you do not have one already.</li>
-<li><em>SecureConnectionBundlePath</em> specifies the full path and name of the secure connection bundle associated with your Astra database. On Windows, you may need to escape the backslashes <code>\</code> in your file path by typing another backslash <code>\\</code>. See <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">how to download a secure connect bundle for your database</a>.</li>
+<li><em>SecureConnectionBundlePath</em> specifies the full path and name of the secure connection bundle associated with your Astra database. <em>On Windows, the path should still be written using forward-slashes and not escape spaces in any particular way, as in: <code>c:/Users/Joan Reed/my-bundle.zip</code>.</em> See <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">how to download a secure connect bundle for your database</a>.</li>
 <li><em>TunableConsistency</em> specifies the consistency level for requests to the database. The supported values are <code>0</code> for <code>ANY</code>, <code>1</code> for <code>ONE</code>, <code>2</code> for <code>TWO</code>, <code>3</code> for <code>THREE</code>, <code>4</code> for <code>QUORUM</code>, <code>5</code> for <code>ALL</code>, <code>6</code> for <code>LOCAL_QUORUM</code>, <code>7</code> for <code>EACH_QUORUM</code>, and <code>10</code> for <code>LOCAL_ONE</code>. Set it to <code>6</code> for this example.</li>
 </ul>
 </li>
@@ -2874,7 +2874,7 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
   <small>
     
       Last update:
-      2023-02-15
+      2023-03-06
     
   </small>
 </div>
@@ -2973,7 +2973,7 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
     
   </body>
