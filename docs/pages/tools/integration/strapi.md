@@ -66,11 +66,11 @@ module.exports = {
 };
 ```
 **Where:**
-- `token`: Generate a token from {astra_db}.
-- `databaseId`: Enter your Astra DB database ID from your database URL.
-- `databaseRegion`: Enter your Astra DB database region
-- `keyspace`: Enter your Astra DB keyspace name.
-- `collection`: Enter your Astra DB collection name.
+* `token`: Generate a token from Astra DB.
+* `databaseId`: Enter your Astra DB database ID from your database URL.
+* `databaseRegion`: Enter your Astra DB database region
+* `keyspace`: Enter your Astra DB keyspace name.
+* `collection`: Enter your Astra DB collection name.
 
 ## Test and Validate
 
