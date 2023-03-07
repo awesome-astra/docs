@@ -104,7 +104,7 @@ nav:
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
       - • Quine : pages/tools/integration/quine.io.md
       - • StepZen : pages/tools/integration/stepzen.md
-+     - • Strapi : pages/tools/integration/strapi.md
+      - • Strapi : pages/tools/integration/strapi.md
       - • Temporal : pages/tools/integration/temporal.md
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
