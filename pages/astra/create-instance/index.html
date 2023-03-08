@@ -2755,17 +2755,18 @@
 <li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a>. If you don't have one yet, keep reading and we'll show you how to create it.</li>
 </ul>
 <h2 id="c-procedure">C - Procedure<a class="headerlink" href="#c-procedure" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1:Click the <code>sign-in</code> button to login or register.</strong></p>
+<p><strong>✅ Step 1: Click the <code>Create Account</code> button to login or register.</strong></p>
 <p>You can use your <code>Github</code>, <code>Google</code> accounts or register with an <code>email</code>. Make sure to chose a password with a minimum of 8 characters, containing upper and lowercase letters, and at least one number and special character.</p>
 <blockquote>
-<p>If you already have an Astra account, you can skip this step. Locate and click the "Create Database" button on the left-side navigation bar
-of your Astra UI, and read the next step.</p>
+<p>If you already have an Astra account, you can skip this step. Locate the "Create Database" button, as shown in the next step, and read on.</p>
 </blockquote>
 <p><img src="../../../img/astra/astra-login.png" /></p>
 <p><strong>✅ Step 2: Complete the creation form</strong></p>
-<p><em>As you create a new account, you will be prompted to create a database; you will see the same form if you simply
-hit the "Create database" button in your existing Astra account.</em></p>
+<p><em>If you are creating a new account, you will be brought to the DB-creation form directly.</em></p>
+<p>Otherwise, get to the databases dashboard (by clicking on "Databases" in the left-hand navigation bar,
+expanding it if necessary), and click the "Create Database" button on the right.</p>
 <p><img src="../../../img/astra/astra-create-db-1.png" /></p>
+<p>Take a moment to fill the form:</p>
 <ul>
 <li><strong>ℹ️ Fields Description</strong></li>
 </ul>
@@ -2779,45 +2780,36 @@ hit the "Create database" button in your existing Astra account.</em></p>
 <tbody>
 <tr>
 <td><strong>database name</strong></td>
-<td>It does not need to be unique, is not used to initialize a connection, and is only a label (Between 2 and 50 characters). It is recommended to have a database for each of your applications. The free tier is limited to 5 databases.</td>
+<td>It does not need to be unique, is not used to initialize a connection, and is only a label (keep it between 2 and 50 characters). It is recommended to have a database for each of your applications. The free tier is limited to 5 databases.</td>
 </tr>
 <tr>
 <td><strong>keyspace</strong></td>
-<td>It is a logical grouping of your tables (Between 2 and 48 characters). Please use lower case and <code>snake_case</code>.</td>
+<td>It is a logical grouping of your tables (keep it between 2 and 48 characters). Prefer lower case or <code>snake_case</code>, and avoid spaces.</td>
 </tr>
 <tr>
 <td><strong>Cloud Provider</strong></td>
-<td>Use the one you like. Click a cloud provider logo, pick an Area in the list and finally pick a region. We recommend choosing a region that is closest to you to reduce latency. In free tier, there is very little difference.</td>
+<td>Choose whatever you like. Click a cloud provider logo, pick an Area in the list and finally pick a region. We recommend choosing a region that is closest to you to reduce latency. In free tier, there is very little difference.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>
-<p>ℹ️ <code>Create Database</code> button becomes enabled only when all fields are filled in properly. Please use only lower case and no spaces for a keyspace name.</p>
-</li>
-<li>
-<p>ℹ️ You will see your new database <code>pending</code> in the Dashboard. The status will change to <code>Active</code> when the database is ready, which will only take 2-3 minutes. You will also receive an email when it is ready.</p>
-</li>
-</ul>
-<p><strong>✅ Step 3: Download your token</strong></p>
-<p>The database will take about a minute to inialize. Progression can be seen on the right panel  (<em><strong>Pending - Deployed to region...</strong>, in the screenshot below</em>).</p>
-<ul>
-<li>Download your token file it will be useful later to use the DB.</li>
-</ul>
+<p>If all fields are filled properly, clicking the "Create Database" button will start the process. It should take a couple of minutes for your database to become <code>Active</code>.</p>
+<p>In the meantime, you will be brought to the "Connect" page of the database, that is being provisioned in the meantime. You can track the progression by looking at the status label at the top, next to the database's name.</p>
+<p><strong>✅ Step 3: Obtain a Database Token</strong></p>
+<p>While the database is created, you can generate and download a <a href="/docs/pages/astra/create-token/">Token</a> to later access it from your applications.
+The automatically-generated token has a "reasonable" set of permissions (limited to this database), but you can also generate a custom token to better suit your needs.</p>
 <p><img src="../../../img/astra/astra-create-db-2.png" /></p>
-<p><strong>✅ Step 4: You are all set</strong></p>
-<p>When the status is changed to <code>Your Database is now active</code> you are good to go</p>
-<ul>
-<li>Click <code>[Go To Database]</code>.</li>
-</ul>
+<p>To generate the token click on the "Generate Token" button. The new token can (and should!) be copied elsewhere with the clipboard-icon button and/or downloaded in JSON format for safe storage - it will not be shown anymore once you leave the dialog.</p>
 <p><img src="../../../img/astra/astra-create-db-3.png" /></p>
+<p><strong>✅ Step 4: Ready</strong></p>
+<p>In a couple of minutes, the database will switch to <code>Active</code>. You can now interact with it,
+for example by <a href="/docs/pages/astra/download-scb/">downloading a Secure Connect Bundle</a>) and start running applications that access it.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-02
+      2023-03-08
     
   </small>
 </div>
