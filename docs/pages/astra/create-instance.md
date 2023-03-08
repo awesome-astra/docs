@@ -43,7 +43,9 @@ Take a moment to fill the form:
 | **keyspace**       | It is a logical grouping of your tables (keep it between 2 and 48 characters). Prefer lower case or `snake_case`, and avoid spaces.                                                                                                                  |
 | **Cloud Provider** | Choose whatever you like. Click a cloud provider logo, pick an Area in the list and finally pick a region. We recommend choosing a region that is closest to you to reduce latency. In free tier, there is very little difference.                      |
 
-You will be brought to the "Connect" page of the database, that is being provisioned in the meantime. You can track the progression by looking at the status label at the top, next to the database's name. _It should take a couple of minutes for your database to become `Active`._
+If all fields are filled properly, clicking the "Create Database" button will start the process. It should take a couple of minutes for your database to become `Active`.
+
+In the meantime, you will be brought to the "Connect" page of the database, that is being provisioned in the meantime. You can track the progression by looking at the status label at the top, next to the database's name.
 
 **✅ Step 3: Obtain a Database Token**
 
