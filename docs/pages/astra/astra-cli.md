@@ -1,84 +1,106 @@
-The DataStax Astra command-line interface (Astra CLI) is a set of commands used to create and manage Astra resources. The Astra CLI is available across Astra services and is designed to get you working quickly with Astra, with an emphasis on automation.
+## **Overview**
 
-???+ info "Setup your Astra account "
+> CLI Latest version : ![0.2.2](https://img.shields.io/github/v/release/datastax/astra-cli)
 
-    To use the Astra CLI you need to create a [DataStax Astra](https://astra.datastax.com) account. You also need to [create a token](/docs/pages/astra/create-token/) with the `Organization Administration` role.
+Astra CLI is a `command line interface` used to interact with Datastax astra resources (_create, read, update, delete_). On top of administration tasks it provides extra features like _backup, restore_ and  _migration_. It also allows native integration (downloads, setup, execution) with tools from the ecosystem  like _cqlsh, dsbulk, dsbulk-migrator_, or _pulsar-shell_.
 
-## Installation
+## **1. Installation**
 
-The current release of the Astra CLI is: ![Latest Release](https://img.shields.io/github/v/release/datastax/astra-cli)
+### **1.1. Installation on `Linux`**
+
+This software has been built with Java and compiled as native executables for each platform. The [installation script](https://dtsx.io/get-astra-cli) will download the archives and extract all files in `~/.astra`, it is inspired from `sdkman`. 
+
+| Information | Path |
+|-----------|---------|
+| **Installation Folder**: Contains archive and third-party tools | `~/.astra` |
+| **Configuration File**: Hold configs and credentials, will not be lost when updating | `~/.astrarc` |
+
+Your `bash_profile, bashrc, zhrc` will be amended to add `astra` in the path and run the bash autocompletion file at startup.
 
 
-- For information about the latest release, see the [release notes](https://github.com/datastax/astra-cli/releases). 
-- To find your installed version and see if you need to update, run `astra --version`
+✅ **Installation**
 
-The Astra CLI is available to install on **Windows**, **MacOS** and **Linux** environments.
-
-### 1. Install on `MAC OS`
-
-**✅ 1.1 Homebrew**
-
-Homebrew is the easiest way to manage your CLI install. It provides convenient ways to install, update, and uninstall. If you don't have homebrew available on your system, install homebrew before continuing.
-
-You can install the Astra CLI on MacOS by updating your brew repository information, and then running the install command:
-
+```bash
+curl -Ls "https://dtsx.io/get-astra-cli" | bash
 ```
+
+✅ **Upgrade**
+
+```bash
+curl -Ls "https://dtsx.io/get-astra-cli" | bash
+```
+
+✅ **Uninstall**
+
+```bash
+rm -R ~/.astra
+rm ~/.astrarc
+```
+
+### **1.2. Installation on `osx`**
+
+> Homebrew is a package manager for OSX [install homebrew](#)
+
+Homebrew is the recommended solution to manage Astra CLI. It provides convenient ways to install, update, and uninstall. It will install tools required for external components as well like proper Java and python versions.
+
+???+ info "Do not want to use homebrew ?"
+
+    `osx` is based on a linux kernel and can run shell scripts. 
+    The [Linux installation](#2-install-on-linux) procedure also work on mac machines.
+
+✅ **Installation**
+
+```bash
 brew install datastax/astra-cli/astra-cli
 ```
 
-The Homebrew formula of Astra CLI installs a completion file named astra in the Homebrew-managed completions directory (default location is /usr/local/etc/bash_completion.d/). To enable completion, please follow Homebrew's instructions [here](https://docs.brew.sh/Shell-Completion).
-
-**✅ 1.2 Manual Installation**
-
-To install (or reinstall) the CLI, use the following command in a terminal:
+✅ **Update**
 
 ```
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
+brew upgrade datastax/astra-cli/astra-cli
 ```
 
-??? question "Where is Astra CLI installed on my machine ?"
-
-    - The Astra CLI is installed in `~/.astra/cli`. This folder is deleted and recreated during installation.
-    
-    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallation.
-
-### 2. Install on `LINUX`
-
-**✅ 2.1 Manual Installation**
-
-To install (or reinstall) the CLI, use the following command in a terminal:
+✅ **Uninstall**
 
 ```
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
+brew uninstall datastax/astra-cli/astra-cli
 ```
 
-??? question "Where is Astra CLI installed on my machine ?"
+### **1.3. Installation on `Windows`**
 
-    - The Astra CLI is installed in `~/.astra/cli`. This folder is deleted and recreated during installation.
-    
-    - Your configuration is saved in `~/.astrarc` file and will not be lost during reinstallations.
+!!! warning "Limited features of `astra.exe`"
 
-**✅ 2.2 Using sdkman**
+    This software has been built with Java and compiled as native executables for each platform. As such we provide a windows executable `astra.exe`. Unfortunately, it does not support execution of external components like `DSBULK`, `CQLSH` or `PULSAR-SHELL`. We recommend to use the `Linux` procecure in `WSL`.
 
-_Installation with SDK MAN is not available yet but is high in the roadmap_
 
-**✅ 2.3 Using a package Manager**
+✅ **Installation**
 
-_Installation with package managers (yum, apt) is not available yet but is high in the roadmap_
+Download a Windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip). Unzip the archive into a folder of your choice, for instance `C:/Programs/astra-cli` and add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/).
 
-### 3. Install on `WINDOWS`
+✅ **Update**
 
-- Download a Windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip)
+No special command, remove the folder `C:/Programs/astra-cli/` and reinstall.
 
-- Unzip the archive into a folder of your choice, for instance `C:/Programs/astra-cli`
+✅ **Uninstall**
 
-- Add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
+Remove folder `C:/Programs/astra-cli/` and `.astrarc` file in your user home.
 
-## Getting Started
 
-### 1. Setup
+## **2. Getting Started**
 
-Before issuing commands, you need to initialize the configuration file `~/.astrarc`. To do so, run the command below. You will be asked to provide your token (AstraCS:...). It will be saved and reused for your commands in the future.
+### **2.1. Astra Setup**
+
+✅ Create an account on Astra Platform: **[SIGN IN](https://astra.datastax.com)**
+
+✅ Create a security token with `Organization Administration` role **[HOW TO](/docs/pages/astra/create-token/)**. Your token should start with `AstraCS:...`.
+
+### **2.2. Local Configuration**
+
+???+ tip "Make sur to have `astra` in your path"
+
+    After installation you need to open a new terminal for `astra` to be in your path.
+
+✅ Issue `setup` command and provide your token when prompted. It must start by `AstraCS:...`. Make sure to have the `Organization Administrator` role to avoid any permission limitations later on.
 
 ```
 astra setup
@@ -87,31 +109,32 @@ astra setup
 ???+ abstract "🖥️ `astra setup` command output"
 
     ```
-        _____            __                
-       /  _  \   _______/  |_____________   
-      /  /_\  \ /  ___/\   __\_  __ \__  \ 
-    /    |    \\___ \  |  |  |  | \// __ \_
+     _____            __                  
+    /  _  \   _______/  |_____________    
+    /  /_\  \ /  ___/\   __\_  __ \__  \  
+    /    |    \\___ \  |  |  |  | \ //__ \_ 
     \____|__  /____  > |__|  |__|  (____  /
-             \/     \/                   \/
+            \/     \/                   \/ 
 
-            ------------------------
-            ---       SETUP      ---
-            ------------------------
+                            Version: 0.2.2
 
-    🔑 Enter token (starting with AstraCS...):
+    -----------------------
+    ---      SETUP      ---
+    -----------------------
+
+    $ Enter an Astra token:
     ```
 
-You are all set! The configuration (mainly your token) is stored in the file `~/.astrarc`.
 
-### 2. First commands
+???+ tip "Skip interactive mode"
 
-- Display the current version of the CLI, validating setup is complete.
+    In your scripts your may want to avoid explicit provide inputs in prompts. To setup the CLI as a non interactive use the following:
+    
+    ```
+    astra setup --token AstraCS:******
+    ```
 
-```
-astra --version
-```
-
-- Display your configuration list.
+✅ Display your local configuration list, validating setup is complete. 
 
 ```bash
 astra config list
@@ -128,11 +151,17 @@ astra config list
     +-----------------------------------------+
     ```
 
-### 3. Get Help
+You can work with multiple organizations and swap from one to another. Creating and managing extra configurations is covered in [Advanced Configuration](#configuration) chapter.
 
-The solution provides extensive documentation for any command. It also provides some bash autocompletion; use the `TAB` key twice to get a list of options.
+???+ info "Scope of Astra security tokens"
 
-**✅ 3a - Autocompletion**
+    The security tokens are created for an organization only. If you need to work with multiple organizations then multiple tokens are required. You limit the scope of a token to a single database.
+
+### **2.3. Autocompletion**
+
+The cli provides bash autocompletion for `bash` and `zsh` shells. Use `TAB` key twice to get a list of available options.
+
+✅ Autocomplete
 
 ```
 astra <TAB> <TAB>
@@ -144,11 +173,11 @@ astra <TAB> <TAB>
     --no-color  config      db          help        role        setup       shell       user  
     ```
 
-**✅ 3b - Documentation**
+### **2.4. Documentation**
 
-Groups of commands will give you the different commands available.
+The better documentation of the code is the code itself. This page will provide you samples but where you are not sure use the `astra help <my_command>`
 
-- Display main help
+✅ Display main help
 
 ```
 astra help
@@ -160,62 +189,27 @@ astra help
     usage: astra <command> [ <args> ]
 
     Commands are:
-        help     View help for any command
-        setup    Initialize configuration file
-        shell    Interactive mode (default if no command provided)
-        config   Manage configuration file
-        db       Manage databases
-        role     Manage roles (RBAC)
-        user     Manage users
+        ?           Display this help version
+        help        Display help information
+        setup       Initialize configuration file
+        config      Manage configuration file
+        db          Manage databases
+        org         Display Organization Info
+        role        Manage roles
+        streaming   Manage Streaming tenants
+        token       Manage tokens
+        user        Manage users
 
     See 'astra help <command>' for more information on a specific command.
     ```
 
-- Display help for a command group `astra db`
+✅ Display help for a command group `astra db`
 
 ```
 astra help db
 ```
 
-???+ abstract "🖥️ Sample output" 
-
-    ```
-    NAME
-            astra db - Manage databases
-
-    SYNOPSIS
-            astra db { cqlsh | create | create-keyspace | delete | dsbulk | get |
-                    list } [--] [ --token <AUTH_TOKEN> ]
-                    [ --config-file <CONFIG_FILE> ] [ --no-color ]
-                    [ {-v | --verbose} ] [ {-conf | --config} <CONFIG_SECTION> ]
-                    [ --log <LOG_FILE> ] [ {-o | --output} <FORMAT> ] [cmd-options]
-                    <cmd-args>
-
-            Where command-specific options [cmd-options] are:
-                cqlsh: [ --debug ] [ {-f | --file} <FILE> ] [ {-k | --keyspace} <KEYSPACE> ]
-                        [ --version ] [ {-e | --execute} <STATEMENT> ] [ --encoding <ENCODING> ]
-                create: [ {-k | --keyspace} <KEYSPACE> ] [ --if-not-exist ] [ {-r | --region} <DB_REGION> ]
-                create-keyspace: {-k | --keyspace} <KEYSPACE> [ --if-not-exist ]
-                delete:
-                dsbulk:
-                get:
-                list:
-
-            Where command-specific arguments <cmd-args> are:
-                cqlsh: <DB>
-                create: <DB_NAME>
-                create-keyspace: <DB>
-                delete: <DB>
-                dsbulk: [ <dsbulkArguments>... ]
-                get: <DB>
-                list:
-
-            See 'astra help db <command>' for more information on a specific command.
-    ```
-
-- Display help for unitary command `astra db list`
-
-For unitary commands, all options and details are provided. 
+✅ Display help for unitary command `astra db list`
 
 ```
 astra help db list
@@ -256,11 +250,70 @@ astra help db list
                 Verbose mode with log in console
     ```
 
-## Astra DB
+### **2.5. Important Options**
 
-### 1. List databases
+Each commands has some specific parameters but all commands share have the following options.
 
-**✅ 1a - list**
+| Name | Option | Description |
+|-----------|---------|-----------|
+| **verbose** | `-v` | Make the output more verbose, debug |
+| **remove colors** | `--no-color` | Remove colors, ease parsing and display | 
+| **json output** | `-o json` | To ease parsing output can be json |
+| **csv output** | `-o csv` |  To ease export output can be CSV  |
+| **override token** | `--token ...` | Enforce token for this command | 
+| **override config** | `--config ...` | Change section use in `~/.astrarc` for the command| 
+| **override config-file** | `--config-file ...` | Do not use `~/.astrarc` for the command | 
+
+
+## **3. Astra DB**
+
+???+ info "Synchronous/Asynchronous"
+
+    Some commands can take a while like a DB creation or the creation of a new region and data replication. Default behaviour is to be `synchronous` and `wait` until the operation is done. You can change this behaviour by using the option `--no-wait`
+
+### **3.1. DB commands glossary**
+
+**✅ Display available commands for DB**
+
+The documentation is the tool itself with the following command:
+
+```
+astra help db
+```
+Still, for ease of use here is a glossary of the commands:
+
+| Command | Purpose |
+|-----------|---------|
+| **[`count <DB>`](#)** | [Count records in a table](#) |
+| **[`cqlsh <DB>`](#)** | [Setup and run `cqlsh`: interactive, `-e` and `-f` all supported](#) |
+| **[`create <DB>`](#)** | [Create a database](#) |
+| **[`create-cdc <DB>`](#)** | [Create Change Data Capture to Pulsar](#) |
+| **[`create-dotenv <DB>`](#)** | [Create environment file `.env`](#) |
+| **[`create-keyspace <DB>`](#)** | [Create a keyspace](#) |
+| **[`create-region <DB>`](#)** | [Expand database to a rew region (multi-region)](#) |
+| **[`delete <DB>`](#)** | [Delete a database](#) |
+| **[`delete-cdc <DB>`](#)** | [Delete a change data capture](#)|
+| **[`delete-region <DB>`](#)** | [Remove a region from a database](#) |
+| **[`describe <DB>`](#)** | [Describe metadata of a database](#) |
+| **[`download-scb <DB>`](#)** | [Download the secure connect bundle for database region](#) |
+| **[`get <DB>`](#)** | [Describe metadata of a database](#)|
+| **[`list`](#)** | [List dataases in the organization](#) |
+| **[`list-cdc <DB>`](#)** | [](#) |
+| **[`list-clouds`](#)** |[](#) |
+| **[`list-keyspaces <DB>`](#)** | [](#) |
+| **[`list-regions <DB>`](#)** | [](#)|
+| **[`list-regions-classic`](#)** | [](#) |
+| **[`list-regions-serverless`](#)** | [](#)|
+| **[`load <DB>`](#)** |[](#) |
+| **[`playground <DB>`](#)** | [](#)|
+| **[`resume <DB>`](#)** | [](#) |
+| **[`status <DB>`](#)** | [](#) |
+| **[`swagger <DB>`](#)** | [](#) |
+| **[`unload <DB>`](#)**   | [](#) |
+
+### **3.2. List**
+
+✅ 1a - list
 
 To get the list of non-terminated databases in your organization, use the command `list` in the group `db`.
 
