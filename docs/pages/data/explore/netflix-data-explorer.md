@@ -96,9 +96,9 @@ yarn && yarn build
 yarn start
 ```
 
-- Import your bundle
+- Import your secure connect bundle
 
-> Here are the instructions to get your [cloud secure bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
+> Steps to download your secure connect bundle are found in the Prequisites section
 
 [![Open in IDE](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Examples/nf-data-explorer)
 
