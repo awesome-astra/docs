@@ -96,9 +96,8 @@ yarn && yarn build
 yarn start
 ```
 
-- Import your secure connect bundle
+- Import your secure connect bundle (see Prerequisite section above)
 
-> Steps to download your secure connect bundle are found in the Prequisites section
 
 [![Open in IDE](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Examples/nf-data-explorer)
 
@@ -112,7 +111,7 @@ yarn start
 
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/import-bundle.png" />
 
-- Import your bundle
+- Import your secure connect bundle (see Prerequisite section above)
 
 <div class="nosurface" markdown="1">
 [🏠 Back to home](https://awesome-astra.github.io/docs/) 
