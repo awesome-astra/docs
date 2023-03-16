@@ -169,7 +169,32 @@ Then click **Save**.
 
 6. Make sure your Player is connected and that you deploy a new snapshot by clicking the banner. You should always deploy a new snapshot between changes.
 
-7. Once Step 6 is done, select *Populate Example* which will allow you to give input to the *Request Body*. Here, you can populate values `input1` and `input2` with the same values you gave when you set up your AWS Lambda function.
+7. Once Step 6 is done, select *Populate example* which will allow you to give input to the *Request Body*. Here, you can populate values `input1` and `input2` with the same values you gave when you set up your AWS Lambda function. `input1` being the `block_number_hour` and `input2` being the `block_number` from your `sorted_nfts` table.
+***Remember to use valid **block_number_hour** and **block_number** values.***
+
+```python
+{
+	"input1": 41447,
+	"input2": 14920967
+}
+```
+8. Finally, click *Send message* to send this request to the backend. You should see in the *Log inspector* your request being sent and received. <br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/22-send-message.png" /><br/>
+9. Congrats! You have now sent a request and received a response using AWS GameSparks and AWS Lambda. 
+
+## Connecting Unity to GameSparks backend
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
