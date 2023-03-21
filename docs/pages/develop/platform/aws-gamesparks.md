@@ -182,23 +182,41 @@ Then click **Save**.
 9. Congrats! You have now sent a request and received a response using AWS GameSparks and AWS Lambda. 
 
 ## Connecting Unity to GameSparks backend
+Now you are ready to connect your backend to our Unity front end. First, download the Unity sample project we have prepared from our Awesome Astra repo. 
 
+!!! note "Note"
+    The sample project already includes the **Amazon GameSparks SDK** installed, or you can follow the instructions [here](https://docs.aws.amazon.com/gamesparks/latest/dg/get-started_client-unity.html).
 
+### Setting Up
+1. Open the project with **Unity Hub**
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/23-unity.png" /><br/>
 
+2. On the *Project* tab go to *Assets* -> *Amazon* -> *GameSparks* and choose the ***Connection.asset***
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/24-connection-asset.png" /><br/>
 
+3. In the Insepctor tab on the right, you will see the Amazon GameSparks connection settings. As you can see currently, *Game Key* is blank. You will obtain this from your *GameSparks Console* -> *Dev* -> *Dev stage configuration* -> Under *Key*
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/27-game-key-dev.png" /><br/>
 
+4. Copy this value and paste it into *Game Key* back in Unity.
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/25-game-key.png" /><br/>
 
+Great! Setup is now complete! 
 
+### Running the game
+1. To run the game, go back to your *Project* tab -> *Assets* -> *Scenes* -> Select the *AstraBlockGameSparksDemo* Scene. This is the scene that we are going to play.
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/28-play-scene.png" /><br/>
 
+2. Click the "Play" button at the top of the screen. You should see a notification saying the scripts are rendering. 
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/26-play-unity.png" /><br/>
 
+3. Once that is complete, you can type directly into the input box where it says *Enter Block Number...*. Once you click submit, you should see the *Block Number* populate, and shortly after, the *NFT Title* will return the name of the NFT at that given block number. 
+<br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/29-demo-gameplay.png" /><br/>
 
+4. Try submitting different Block Numbers to see the different results you get back for your NFTs!
 
+## Finish
+Congratulations! You have completed the ***Astra Block with AWS GameSparks, AWS Lambda, and Unity*** tutorial! This is only the beginning as you can connect your AWS Lambda to any table given within Astra Block, query for different values, etc. 
 
-
-
-
-
-
-
-
-
+<span class="nosurface">
+[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
+</span>
