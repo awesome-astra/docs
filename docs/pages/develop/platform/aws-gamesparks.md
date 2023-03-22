@@ -10,6 +10,9 @@ developer_url: "https://aws.amazon.com/gamesparks/"
 # AWS GameSparks
 </div>
 
+!!! warning "Notice"
+    This page is still under construction. Please be patient with our team and contact us for any questions. Thank you!
+
 ## Overview
 
 In this tutorial, we will be creating a simple app that connects to [Astra Block](https://docs.datastax.com/en/astra-serverless/docs/block/overview.html) using AWS GameSparks, AWS Lambda, and Unity. 
@@ -33,7 +36,9 @@ In this tutorial, we will be creating a simple app that connects to [Astra Block
 
 ## Step 1: AWS Lambda
 
-1. This section of the tutorial will be referencing a majority of the [AWS Lambda](https://awesome-astra.github.io/docs/pages/develop/platform/aws-lambda-function/) tutorial with some minor adjustments. You can  choose one of the four options available: Python Driver, Python SDK, Java Driver, Java gRPC. This tutorial uses **Python Driver**. 
+This section of the tutorial will be referencing a majority of the [AWS Lambda](https://awesome-astra.github.io/docs/pages/develop/platform/aws-lambda-function/) tutorial with some minor adjustments. 
+
+1. First, choose one of the four options available: Python Driver, Python SDK, Java Driver, Java gRPC. This tutorial uses **Python Driver**. 
 
 2. In Step 2 of the AWS Lambda integration tutorial, you are asked to create file `lambda_function.py` with the function source code. Use the following code for the `lambda_handler` function.
 ```python
@@ -63,6 +68,7 @@ This queries the `sorted_nfts` table then returns the name of the NFT at the giv
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/01-test-function.png" /><br/>
 
 ## Step 2: AWS GameSparks
+This section of the tutorial will focus on setting up AWS GameSparks as a backend and connect it to the AWS Lambda function that you just created.
 
 ### Create a game backend
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/02-aws-gamesparks.png" /><br/>
