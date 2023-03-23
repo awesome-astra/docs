@@ -188,7 +188,7 @@ Then click **Save**.
 9. Congrats! You have now sent a request and received a response using AWS GameSparks and AWS Lambda. 
 
 ## Connecting Unity to GameSparks backend
-Now you are ready to connect your backend to our Unity front end. First, download the Unity sample project we have prepared from our Awesome Astra repo. 
+Now you are ready to connect your backend to our Unity front end. First, download the **[Unity sample project](https://github.com/awesome-astra/astra-block-gamesparks-demo)** we have prepared from our Awesome Astra repo. 
 
 !!! note "Note"
     The sample project already includes the **Amazon GameSparks SDK** installed, or you can follow the instructions [here](https://docs.aws.amazon.com/gamesparks/latest/dg/get-started_client-unity.html).
