@@ -126,7 +126,7 @@ Next, we are going to the attach the policy we just created to our GameSparks ba
 4. Great! You have now given your AWS GameSparks backend permission to call to your AWS Lambda Function. 
 <br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/17-policy-added.png" /><br/>
 
-## Connecting your GameSparks backend to Lambda
+## Step 3: Connecting your GameSparks backend to Lambda
 
 ???+ info "How This Works?" 
     To invoke Lambda functions from Amazon GameSparks you need to create a ***Message*** inside the game backend. There are **3 types of messages**: ***Events***, ***Requests***, and ***Notifications***.
@@ -187,8 +187,8 @@ Then click **Save**.
 8. Finally, click *Send message* to send this request to the backend. You should see in the *Log inspector* your request being sent and received. <br/><img src="https://awesome-astra.github.io/docs/img/aws-gamesparks/22-send-message.png" /><br/>
 9. Congrats! You have now sent a request and received a response using AWS GameSparks and AWS Lambda. 
 
-## Connecting Unity to GameSparks backend
-Now you are ready to connect your backend to our Unity front end. First, download the Unity sample project we have prepared from our Awesome Astra repo. 
+## Step 4: Connecting Unity to GameSparks backend
+Now you are ready to connect your backend to our Unity front end. First, download the **[Unity sample project](https://github.com/awesome-astra/astra-block-gamesparks-demo)** we have prepared from our Awesome Astra repo. 
 
 !!! note "Note"
     The sample project already includes the **Amazon GameSparks SDK** installed, or you can follow the instructions [here](https://docs.aws.amazon.com/gamesparks/latest/dg/get-started_client-unity.html).
