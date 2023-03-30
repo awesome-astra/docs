@@ -11,7 +11,7 @@ developer_url: "https://aws.amazon.com/gamesparks/"
 </div>
 
 !!! warning "Notice"
-    This page is still under construction. Please be patient with our team and contact us for any questions. Thank you!
+    This tutorial is currently in Beta. Feel free to [contact us](https://awesome-astra.github.io/docs/pages/contact/) if you run into any issues or need additional help with completing the tutorial.
 
 ## Overview
 
