@@ -27,9 +27,7 @@ Pick the interface in the table below to get relevant instructions. In most case
 
 **ℹ️ Overview**
 
-```
 These instructions are aimed at helping people connect to Astra DB programmatically using the community-driven Gocql driver.  This driver does not have an option to process the Astra secure connect bundle, so part of connecting is completing that process manually, as is shown below.
-```
 
 **📦 Prerequisites [ASTRA]**
 
