@@ -103,26 +103,25 @@ err = godotenv.Load()
 The SSL connection requires some configuration to work correctly.  First, the secure bundle files were placed into your current directory when you ran the unzip command above, so those files will be found at that location.  If you unzipped them somewhere else, you can pass that to the command with `--ssldir /my/ssl/dir`
 
 ```go
-	caPath,_ := filepath.Abs(directory + "/ca.crt")
-	certPath,_ := filepath.Abs(directory + "/cert")
-	keyPath,_ := filepath.Abs(directory + "/key")
+caPath,_ := filepath.Abs(directory + "/ca.crt")
+certPath,_ := filepath.Abs(directory + "/cert")
+keyPath,_ := filepath.Abs(directory + "/key")
 ```
 
 The SSL object itself needs a flag to skip the verification for IP SANs, which the secure bundle doesn't have.
 
 ```go
 tlsConfig := &tls.Config{
-        Certificates: []tls.Certificate{cert},
-        RootCAs:      caCertPool,
-        InsecureSkipVerify: true,
-    }
+    Certificates: []tls.Certificate{cert},
+    RootCAs:      caCertPool,
+    InsecureSkipVerify: true,
+}
 
-    cluster.SslOpts = &gocql.SslOptions{
-        Config:                 tlsConfig,
-        EnableHostVerification: false,
-    }
+cluster.SslOpts = &gocql.SslOptions{
+    Config:                 tlsConfig,
+    EnableHostVerification: false,
+}
 ```
-
 
 The complete code to this example can be found [here](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go).
 
