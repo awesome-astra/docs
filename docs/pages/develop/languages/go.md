@@ -34,9 +34,8 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 **📦 Prerequisites [ASTRA]**
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
+- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
 
 **📦 Prerequisites [Development Environment]**
 
@@ -54,134 +53,75 @@ go get github.com/gocql/gocql
 
 **🖥️ Sample Code**
 
-To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.  You will also need to unzip your secure bundle, to ensure that you can access the files contained within.  
+To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
+
+Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
 
 ```
-mkdir mySecureBundleDir
-cd mySecureBundleDir
-mv ~/Downloads/secure-connect-bundle.zip .
-unzip secure-connect-bundle.zip
+astra setup
 ```
 
-Inside your editor/IDE, create a new code file with a `.go` extension, and import several libraries.
+Create a database and keyspace to work with.
+
+```
+astra db create workshops -k gotest --if-not-exist
+```
+
+Create .env with astra CLI
+
+```
+astra db create-dotenv --directory `pwd` workshops -k gotest 
+```
+
+Unzip secure bundle
+
+```
+source .env
+unzip $ASTRA_DB_SECURE_BUNDLE_PATH
+```
+
+Download the [code](https://github.com/aar0np/go_stuff/blob/main/astraQuickStart.go) into your directory.
+
+Run the code in your environment.
+
+```
+go run astraQuickStart.go
+```
+***📦 Code overview [ASTRA]**
+
+There are a few sections of the code you'll want to be familiar with, so you can work from this file to interact with Astra successfully.
+
+The godotenv library loads all of the environment variables from the .env file created by the create-dotenv Astra CLI command.  There is code to support command line options as well, so you can do `go run astraQuickStart.go --hostname myhostname.com`.  By default, the values will be pulled from the .env file so you don't have to copy and paste them to run the command.
 
 ```go
-import (
-    "crypto/tls"
-    "crypto/x509"
-    "context"
-    "fmt"
-    "io/ioutil"
-    "github.com/gocql/gocql"
-    "os"
-    "path/filepath"
-    "strconv"
-)
+err = godotenv.Load()
 ```
 
-Next, create a `func main()` method.
+The SSL connection requires some configuration to work correctly.  First, the secure bundle files were placed into your current directory when you ran the unzip command above, so those files will be found at that location.  If you unzipped them somewhere else, you can pass that to the command with `--ssldir /my/ssl/dir`
 
 ```go
-func main() {
-    // set default port
-    var port int = 29042
-    var err error
+	caPath,_ := filepath.Abs(directory + "/ca.crt")
+	certPath,_ := filepath.Abs(directory + "/cert")
+	keyPath,_ := filepath.Abs(directory + "/key")
 ```
 
-As seen above, we'll define Astra DB's default CQL port to 29042 as well as an error variable (which we'll use later).
-
-Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
-
-This example will be done using command line arguments:
+The SSL object itself needs a flag to skip the verification for IP SANs, which the secure bundle doesn't have.
 
 ```go
-hostname := os.Args[1]
-username := os.Args[2]
-password := os.Args[3]
-
-caPath,_ := filepath.Abs(os.Args[4])
-certPath,_ := filepath.Abs(os.Args[5])
-keyPath,_ := filepath.Abs(os.Args[6])
-```
-
-As seen above, we are going to read in six arguments.
-
-First, we'll take the `hostname` and `port` to establish our connection endpoint.  With Astra DB, you should only use a single endpoint to connect, as that Astra endpoint itself resolves to multiple nodes.
-
-```go
-cluster := gocql.NewCluster(hostname)
-cluster.Port = port
-```
-
-Next, we'll define our connection authenticator and pass our credentials to it.
-
-```go
-cluster.Authenticator = gocql.PasswordAuthenticator{
-			Username: username,
-			Password: password,
-}
-```
-
-Finally, we'll need to process the filepaths of our TLS/X509 certificate, key, and certificate authority files.
-
-```go
-cert, _ := tls.LoadX509KeyPair(certPath, keyPath)
-caCert, err := ioutil.ReadFile(caPath)
-caCertPool := x509.NewCertPool()
-caCertPool.AppendCertsFromPEM(caCert)
 tlsConfig := &tls.Config{
-		Certificates: []tls.Certificate{cert},
-		RootCAs:      caCertPool,
-}
+        Certificates: []tls.Certificate{cert},
+        RootCAs:      caCertPool,
+        InsecureSkipVerify: true,
+    }
+
+    cluster.SslOpts = &gocql.SslOptions{
+        Config:                 tlsConfig,
+        EnableHostVerification: false,
+    }
 ```
 
-We'll them pass our `tlsConfig` to the `SslOpts` property on the `cluster` object.
 
-```go
-cluster.SslOpts = &gocql.SslOptions{
-		Config:                 tlsConfig,
-		EnableHostVerification: false,
-}
-```
-
-With all of that defined, we can open a connection to our cluster:
-
-```go
-session, err := cluster.CreateSession()
-if err != nil {
-		fmt.Println(err)
-}
-defer session.Close()
-ctx := context.Background()
-```
-
-If you get an error concerning a mismatch of the CQL protocol version at this point, try forcing protocol version 4 _before_ the session code block above.
-
-```go
-cluster.ProtoVersion = 4
-```
-
-With a connection made, we can run a simple query to return the name of the cluster from the `system.local` table:
-
-```go
-var strClusterName string
-err2 := session.Query(`SELECT cluster_name FROM system.local`).WithContext(ctx).Scan(&strClusterName)
-if err2 != nil {
-		fmt.Println(err)
-} else {
-		fmt.Println("cluster_name:", strClusterName)
-}
-```
-
-Running this code with arguments in the proper order should yield output similar to this:
-
-```
-go run testCassandraSSL.go ce111111-1111-1111-1111-d11b1d4bc111-us-east1.db.astra.datastax.com token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/ca.crt /Users/aaronploetz/mySecureBundleDir/cert /Users/aaronploetz/mySecureBundleDir/key
-
-cluster_name: cndb
-```
-
-The complete code to this example can be found [here](https://github.com/aar0np/go_stuff/blob/main/testCassandraSSL.go).
+The complete code to this example can be found [here](https://github.com/aar0np/go_stuff/blob/main/astraQuickStart.go).
 
 ### 3.2 Astra SDK
 
