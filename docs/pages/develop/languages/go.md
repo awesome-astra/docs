@@ -78,18 +78,22 @@ source .env
 unzip $ASTRA_DB_SECURE_BUNDLE_PATH
 ```
 
-Download the [code](https://github.com/aar0np/go_stuff/blob/main/astraQuickStart.go) into your directory.
+Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go) into your directory.
+
+```
+curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go -o AstraQuickStart.go
+```
 
 Run the code in your environment.
 
 ```
-go run astraQuickStart.go
+go run AstraQuickStart.go
 ```
 ***📦 Code overview [ASTRA]**
 
 There are a few sections of the code you'll want to be familiar with, so you can work from this file to interact with Astra successfully.
 
-The godotenv library loads all of the environment variables from the .env file created by the create-dotenv Astra CLI command.  There is code to support command line options as well, so you can do `go run astraQuickStart.go --hostname myhostname.com`.  By default, the values will be pulled from the .env file so you don't have to copy and paste them to run the command.
+The godotenv library loads all of the environment variables from the .env file created by the create-dotenv Astra CLI command.  There is code to support command line options as well, so you can do `go run AstraQuickStart.go --hostname myhostname.com`.  By default, the values will be pulled from the .env file so you don't have to copy and paste them to run the command.
 
 ```go
 err = godotenv.Load()
@@ -119,7 +123,7 @@ tlsConfig := &tls.Config{
 ```
 
 
-The complete code to this example can be found [here](https://github.com/aar0np/go_stuff/blob/main/astraQuickStart.go).
+The complete code to this example can be found [here](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go).
 
 ### 3.2 Astra SDK
 
