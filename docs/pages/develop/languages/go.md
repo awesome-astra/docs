@@ -49,8 +49,6 @@ With Go installed locally, you can now use the Go package manager (`go get`) to 
 go get github.com/gocql/gocql
 ```
 
-**🖥️ Sample Code**
-
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
 Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
@@ -77,6 +75,9 @@ Unzip secure bundle
 source .env
 unzip $ASTRA_DB_SECURE_BUNDLE_PATH
 ```
+
+**🖥️ Sample Code**
+
 
 Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go) into your directory.
 
