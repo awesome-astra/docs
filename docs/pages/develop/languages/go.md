@@ -85,7 +85,7 @@ Run the code in your environment.
 ```
 go run AstraQuickStart.go
 ```
-***📦 Code overview [ASTRA]**
+**📦 Code overview [ASTRA]**
 
 There are a few sections of the code you'll want to be familiar with, so you can work from this file to interact with Astra successfully.
 
