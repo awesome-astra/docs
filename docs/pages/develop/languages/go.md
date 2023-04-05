@@ -37,12 +37,6 @@ go version
 
 You want to have a go version of at least 1.17.
 
-With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
-
-```
-go mod init mydemo
-go get -u
-```
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
@@ -78,6 +72,13 @@ Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/Astra
 
 ```
 curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go -o AstraQuickStart.go
+```
+
+With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
+
+```
+go mod init mydemo
+go get -u
 ```
 
 Run the code in your environment.
