@@ -18,19 +18,26 @@ If you have issues or requests about these code samples, please open a ticket un
 
 ## 3. <a name="3-cql">CQL</a> 
 
-### 3.1 The Gocql Cassandra Driver
+### 3.1 The gocql-astra driver
 
 **ℹ️ Overview**
 
-These instructions are aimed at helping people connect to Astra DB programmatically using the community-driven Gocql driver.  
+These instructions are aimed at helping people connect to Astra DB programmatically using the custom Astra Gocql driver.  
 
-**📦 Prerequisites [ASTRA]**
+*** Basic driver instructions ***
+Basic instructions can be found at the home page for [gocql-astra](https://github.com/datastax/gocql-astra)
+
+*** Environment variable version ***
+
+To use this library with environment variables, you can use the following steps.
+
+***📦 Prerequisites [ASTRA]***
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
 - You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
 
-**📦 Prerequisites [Development Environment]**
+***📦 Prerequisites [Development Environment]***
 
 You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
 
@@ -55,75 +62,31 @@ Create a database and keyspace to work with.
 astra db create workshops -k gotest --if-not-exist
 ```
 
-Create .env with astra CLI
-
-```
-astra db create-dotenv --directory `pwd` workshops -k gotest 
-```
-
-Unzip secure bundle
-
-```
-source .env
-unzip $ASTRA_DB_SECURE_BUNDLE_PATH
-```
-
 **🖥️ Sample Code**
 
 
-Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go) into your directory.
+Clone the  [repository](https://github.com/synedra/gocql-astra) and change into the 'envvar' directory in that repository.
+
+Create .env with astra CLI
 
 ```
-curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go -o AstraQuickStart.go
+astra db create-dotenv workshops -k gotest 
 ```
 
-With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
+Build the environment variable example.
 
 ```
-go mod init mydemo
-go get -u
+go build envvars.go
 ```
 
 Run the code in your environment.
 
 ```
-go run AstraQuickStart.go
-```
-**📦 Code overview [ASTRA]**
-
-There are a few sections of the code you'll want to be familiar with, so you can work from this file to interact with Astra successfully.
-
-The godotenv library loads all of the environment variables from the .env file created by the create-dotenv Astra CLI command.  There is code to support command line options as well, so you can do `go run AstraQuickStart.go --hostname myhostname.com`.  By default, the values will be pulled from the .env file so you don't have to copy and paste them to run the command.
-
-```go
-err = godotenv.Load()
+./envvars
 ```
 
-The SSL connection requires some configuration to work correctly.  First, the secure bundle files were placed into your current directory when you ran the unzip command above, so those files will be found at that location.  If you unzipped them somewhere else, you can pass that to the command with `--ssldir /my/ssl/dir`
-
-```go
-caPath,_ := filepath.Abs(directory + "/ca.crt")
-certPath,_ := filepath.Abs(directory + "/cert")
-keyPath,_ := filepath.Abs(directory + "/key")
-```
-
-The SSL object itself needs a flag to skip the verification for IP SANs, which the secure bundle doesn't have.
-
-```go
-tlsConfig := &tls.Config{
-    Certificates: []tls.Certificate{cert},
-    RootCAs:      caCertPool,
-    InsecureSkipVerify: true,
-}
-
-cluster.SslOpts = &gocql.SslOptions{
-    Config:                 tlsConfig,
-    EnableHostVerification: false,
-}
-```
 
 ### 3.2 Other Astra CQL Interfaces
-- [gocql-astra](https://github.com/datastax/gocql-astra) provides a custom dialer to access Astra installations.  Instructions show how to integrate this into your code.
 - [cql-proxy](https://github.com/qzg/cql-proxy) This proxy sidecar is not Go-specific, but it works with the existing Go drivers to provide an interface into Astra.
 
 ## 4. <a name="4-api-grpc">CQL API GRPC</a>
