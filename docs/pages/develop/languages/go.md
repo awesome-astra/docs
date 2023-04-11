@@ -1,42 +1,34 @@
-### 1. Overview
+## 1. Overview
 
 <img src="../../../../img/tile-go.png" align="left" height="180px"/>
 
 Astra provides **multiple services** such as; Database and Streaming, with **multiple Apis and interfaces**. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.
 
-Pick the interface in the table below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. Please note that a _Software developement KIT (SDK)_ for Go is forthcoming, and will be available in the near future.
+Pick the interface below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. 
 
-### 2. Interfaces List
+If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/)
 
-|      Component      |                                                                                                   Interface                                                                                                    | Description                                 |
-| :-----------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------ |
-|    **Astra DB**     |                    [![cql](https://dabuttonfactory.com/button.png?t=CQL&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](#3-cql)                     | Main connection to Cassandra                |
-|    **Astra DB**     |      [![cql](https://dabuttonfactory.com/button.png?t=Stargate+Rest+apis&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](#4-stargate-rest-api)      | CQL exposes as stateless rest resources     |
-|    **Astra DB**     |  [![cql](https://dabuttonfactory.com/button.png?t=Stargate+Document+apis&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](#5-stargate-document-api)  | Use Cassandra as a Document DB              |
-|    **Astra DB**     |     [![cql](https://dabuttonfactory.com/button.png?t=Stargate+GraphQL+Apis&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](#6-stargate-graphql)     | Create tables and use generated CRUD        |
-|    **Astra DB**     |        [![cql](https://dabuttonfactory.com/button.png?t=Stargate+gRPC+Apis&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=eb6c34&ebgc=77440e&bs=1&bc=f90)](#7-stargate-grpc)        | CQL exposes through serialized protobuf     |
-| **Astra Streaming** |         [![cql](https://dabuttonfactory.com/button.png?t=Pulsar+Client&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=4a9ab4&ebgc=0b5394&bs=1&bc=073763)](#8-pulsar-client)         | Create Producer, Consumers, Subscriptions.. |
-| **Astra Streaming** |          [![cql](https://dabuttonfactory.com/button.png?t=Pulsar+Admin&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=4a9ab4&ebgc=0b5394&bs=1&bc=073763)](#9-pulsar-admin)          | Administrate your Pulsar cluster            |
-|   **Astra Core**    |        [![cql](https://dabuttonfactory.com/button.png?t=Devops+Apis+DB&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=200&h=50&c=11&bgt=pyramid&bgc=3a3a42&ebgc=000&bs=1&bc=444)](#10-devops-api-database)        | Manage Databases                            |
-|   **Astra Core**    | [![cql](https://dabuttonfactory.com/button.png?t=Devops+Apis+Organization&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=200&h=50&c=11&bgt=pyramid&bgc=3a3a42&ebgc=000&bs=1&bc=444)](#11-devops-api-organization) | Manage users and roles                      |
-|   **Astra Core**    |    [![cql](https://dabuttonfactory.com/button.png?t=Devops+Apis+Streaming&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=200&h=50&c=11&bgt=pyramid&bgc=3a3a42&ebgc=000&bs=1&bc=444)](#12-devops-api-streaming)    | Manage Streaming                            |
+## 2. Interfaces List
 
-## 3. CQL
+<a href="#3-cql">
+ <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp; <a href="#4-api-grpc">
+<img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+
+## 3. <a name="3-cql">CQL</a> 
 
 ### 3.1 The Gocql Cassandra Driver
 
 **ℹ️ Overview**
 
-```
-These instructions are aimed at helping people connect to Astra DB programmatically using the community-driven Gocql driver.  This driver does not have an option to process the Astra secure connect bundle, so part of connecting is completing that process manually, as is shown below.
-```
+These instructions are aimed at helping people connect to Astra DB programmatically using the community-driven Gocql driver.  
 
 **📦 Prerequisites [ASTRA]**
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/)
-- You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
+- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
 
 **📦 Prerequisites [Development Environment]**
 
@@ -46,663 +38,203 @@ You will need to have a recent (1.17+) version of Go.  Visit the [official downl
 go version
 ```
 
+You want to have a go version of at least 1.17.
+
+
+To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
+
+Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
+
+```
+astra setup
+```
+
+Create a database and keyspace to work with.
+
+```
+astra db create workshops -k gotest --if-not-exist
+```
+
+Create .env with astra CLI
+
+```
+astra db create-dotenv --directory `pwd` workshops -k gotest 
+```
+
+Unzip secure bundle
+
+```
+source .env
+unzip $ASTRA_DB_SECURE_BUNDLE_PATH
+```
+
+**🖥️ Sample Code**
+
+
+Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go) into your directory.
+
+```
+curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraQuickStart.go -o AstraQuickStart.go
+```
+
 With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
 
 ```
-go get github.com/gocql/gocql
+go mod init mydemo
+go get -u
 ```
 
-**🖥️ Sample Code**
-
-To connect to an Astra DB cluster, you will need a secure token generated specifically for use with your Astra DB cluster.  You will also need to unzip your secure bundle, to ensure that you can access the files contained within.  
+Run the code in your environment.
 
 ```
-mkdir mySecureBundleDir
-cd mySecureBundleDir
-mv ~/Downloads/secure-connect-bundle.zip .
-unzip secure-connect-bundle.zip
+go run AstraQuickStart.go
 ```
+**📦 Code overview [ASTRA]**
 
-Inside your editor/IDE, create a new code file with a `.go` extension, and import several libraries.
+There are a few sections of the code you'll want to be familiar with, so you can work from this file to interact with Astra successfully.
+
+The godotenv library loads all of the environment variables from the .env file created by the create-dotenv Astra CLI command.  There is code to support command line options as well, so you can do `go run AstraQuickStart.go --hostname myhostname.com`.  By default, the values will be pulled from the .env file so you don't have to copy and paste them to run the command.
 
 ```go
-import (
-    "crypto/tls"
-    "crypto/x509"
-    "context"
-    "fmt"
-    "io/ioutil"
-    "github.com/gocql/gocql"
-    "os"
-    "path/filepath"
-    "strconv"
-)
+err = godotenv.Load()
 ```
 
-Next, create a `func main()` method.
+The SSL connection requires some configuration to work correctly.  First, the secure bundle files were placed into your current directory when you ran the unzip command above, so those files will be found at that location.  If you unzipped them somewhere else, you can pass that to the command with `--ssldir /my/ssl/dir`
 
 ```go
-func main() {
-    // set default port
-    var port int = 29042
-    var err error
+caPath,_ := filepath.Abs(directory + "/ca.crt")
+certPath,_ := filepath.Abs(directory + "/cert")
+keyPath,_ := filepath.Abs(directory + "/key")
 ```
 
-As seen above, we'll define Astra DB's default CQL port to 29042 as well as an error variable (which we'll use later).
-
-Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.
-
-This example will be done using command line arguments:
+The SSL object itself needs a flag to skip the verification for IP SANs, which the secure bundle doesn't have.
 
 ```go
-hostname := os.Args[1]
-username := os.Args[2]
-password := os.Args[3]
-
-caPath,_ := filepath.Abs(os.Args[4])
-certPath,_ := filepath.Abs(os.Args[5])
-keyPath,_ := filepath.Abs(os.Args[6])
-```
-
-As seen above, we are going to read in six arguments.
-
-First, we'll take the `hostname` and `port` to establish our connection endpoint.  With Astra DB, you should only use a single endpoint to connect, as that Astra endpoint itself resolves to multiple nodes.
-
-```go
-cluster := gocql.NewCluster(hostname)
-cluster.Port = port
-```
-
-Next, we'll define our connection authenticator and pass our credentials to it.
-
-```go
-cluster.Authenticator = gocql.PasswordAuthenticator{
-			Username: username,
-			Password: password,
-}
-```
-
-Finally, we'll need to process the filepaths of our TLS/X509 certificate, key, and certificate authority files.
-
-```go
-cert, _ := tls.LoadX509KeyPair(certPath, keyPath)
-caCert, err := ioutil.ReadFile(caPath)
-caCertPool := x509.NewCertPool()
-caCertPool.AppendCertsFromPEM(caCert)
 tlsConfig := &tls.Config{
-		Certificates: []tls.Certificate{cert},
-		RootCAs:      caCertPool,
+    Certificates: []tls.Certificate{cert},
+    RootCAs:      caCertPool,
+    InsecureSkipVerify: true,
 }
-```
 
-We'll them pass our `tlsConfig` to the `SslOpts` property on the `cluster` object.
-
-```go
 cluster.SslOpts = &gocql.SslOptions{
-		Config:                 tlsConfig,
-		EnableHostVerification: false,
+    Config:                 tlsConfig,
+    EnableHostVerification: false,
 }
 ```
 
-With all of that defined, we can open a connection to our cluster:
+### 3.2 Other Astra CQL Interfaces
+- [gocql-astra](https://github.com/datastax/gocql-astra) provides a custom dialer to access Astra installations.  Instructions show how to integrate this into your code.
+- [cql-proxy](https://github.com/qzg/cql-proxy) This proxy sidecar is not Go-specific, but it works with the existing Go drivers to provide an interface into Astra.
 
-```go
-session, err := cluster.CreateSession()
-if err != nil {
-		fmt.Println(err)
-}
-defer session.Close()
-ctx := context.Background()
-```
+## 4. <a name="4-api-grpc">CQL API GRPC</a>
 
-If you get an error concerning a mismatch of the CQL protocol version at this point, try forcing protocol version 4 _before_ the session code block above.
-
-```go
-cluster.ProtoVersion = 4
-```
-
-With a connection made, we can run a simple query to return the name of the cluster from the `system.local` table:
-
-```go
-var strClusterName string
-err2 := session.Query(`SELECT cluster_name FROM system.local`).WithContext(ctx).Scan(&strClusterName)
-if err2 != nil {
-		fmt.Println(err)
-} else {
-		fmt.Println("cluster_name:", strClusterName)
-}
-```
-
-Running this code with arguments in the proper order should yield output similar to this:
-
-```
-go run testCassandraSSL.go ce111111-1111-1111-1111-d11b1d4bc111-us-east1.db.astra.datastax.com token "AstraCS:ASjPlHbTYourSecureTokenGoesHered3cdab53b" /Users/aaronploetz/mySecureBundleDir/ca.crt /Users/aaronploetz/mySecureBundleDir/cert /Users/aaronploetz/mySecureBundleDir/key
-
-cluster_name: cndb
-```
-
-The complete code to this example can be found [here](https://github.com/aar0np/go_stuff/blob/main/testCassandraSSL.go).
-
-### 3.2 Astra SDK
+### 4.1 The Gocql GRPC Cassandra Astra Driver
 
 **ℹ️ Overview**
 
-```
-TODO
-```
+These instructions are aimed at helping people connect to Astra DB programmatically using the Astra specific Golang driver  
 
 **📦 Prerequisites [ASTRA]**
 
-```
-TODO
-```
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
+- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
 
 **📦 Prerequisites [Development Environment]**
 
-```
-TODO
-```
-
-**📦 Setup Project**
+You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
 
 ```
-TODO
+go version
+```
+
+You want to have a go version of at least 1.17.
+
+
+To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
+
+Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
+
+```
+astra setup
+```
+
+Create a database and keyspace to work with.
+
+```
+astra db create workshops -k gotest --if-not-exist
+```
+
+Create .env with astra CLI
+
+```
+astra db create-dotenv --directory `pwd` workshops -k gotest 
 ```
 
 **🖥️ Sample Code**
 
-```
-TODO
-```
-
-## 4. Stargate REST Api
-
-### 4.1 Axios
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-### 4.2 Astra SDK
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-## 5. Stargate Document Api
-
-### 5.1 Axios
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-### 5.2 Astra SDK
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-## 6 Stargate GraphQL
-
-### 6.1 CQL First
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
 
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-### 6.2 GraphQL First
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-## 7. Stargate gRPC
-
-### 7.1 Stargate Client
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-### 7.2 Astra SDK
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-## 8. Pulsar Client
-
-### 8.1 Pulsar Client
-
-**ℹ️ Overview**
-
-```
-TODO
-```
-
-**📦 Prerequisites [ASTRA]**
-
-```
-TODO
-```
-
-**📦 Prerequisites [Development Environment]**
-
-```
-TODO
-```
-
-**📦 Setup Project**
-
-```
-TODO
-```
-
-**🖥️ Sample Code**
-
-```
-TODO
-```
-
-### 8.2 Astra SDK
-
-**ℹ️ Overview**
-
-```
-TODO
-```
+Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go) into your directory, or copy it from below into your workspace.
 
-**📦 Prerequisites [ASTRA]**
-
 ```
-TODO
+curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go -o AstraGRPCQuickStart.go
 ```
 
-**📦 Prerequisites [Development Environment]**
+With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
 
 ```
-TODO
+go mod init grpc
+go get -u
 ```
 
-**📦 Setup Project**
+Run the code in your environment.
 
 ```
-TODO
+go run AstraGRPCQuickStart.go
 ```
 
-**🖥️ Sample Code**
+### Code
 
 ```
-TODO
-```
-
-## 9. Pulsar Admin
-
-## 10 Devops API Database
-
-## 11 Devops API Organization
-
-## 12 Devops API Streaming
-
-```go
 package main
 
 import (
-	"archive/zip"
-	"context"
-	"crypto/tls"
-	"crypto/x509"
-	"encoding/json"
 	"fmt"
-	"io"
-	"io/ioutil"
 	"os"
-	"path/filepath"
-	"strconv"
-	"strings"
 
-	"github.com/gocql/gocql"
+	"github.com/datastax-ext/astra-go-sdk"
+
+	"github.com/joho/godotenv"
 )
 
-type Config struct {
-	Host string `json:"host"`
-	Port int    `json:"cql_port"`
-}
-
 func main() {
-	var clientID = os.Getenv("ASTRA_CLIENT_ID")
-	var clientSecret = os.Getenv("ASTRA_CLIENT_SECRET")
-	var secureConnectBundle = os.Getenv("SECURE_CONNECT_BUNDLE")
-	if clientID == "" || clientSecret == "" || secureConnectBundle == "" {
-		panic("missing required environment variables")
-	}
+	err := godotenv.Load()
 
-	secureBundleDir := os.TempDir()
-	fmt.Printf("extracting secure connect bundle [%s] to [%s]\n", secureConnectBundle, secureBundleDir)
-	if err := Unzip(secureConnectBundle, secureBundleDir); err != nil {
-		panic(err)
-	}
+	token := os.Getenv("ASTRA_DB_APPLICATION_TOKEN")
+	secureBundle := os.Getenv("ASTRA_DB_SECURE_BUNDLE_PATH")
+	keyspace := os.Getenv("ASTRA_DB_KEYSPACE")
 
-	configPath, _ := filepath.Abs(secureBundleDir + "/config.json")
-	fmt.Println("config: " + configPath)
-	configData, _ := ioutil.ReadFile(configPath)
-	var cfg Config
-	json.Unmarshal(configData, &cfg)
-
-	cluster := gocql.NewCluster(cfg.Host)
-	cluster.Authenticator = gocql.PasswordAuthenticator{
-		Username: clientID,
-		Password: clientSecret,
-	}
-	host := cfg.Host + ":" + strconv.Itoa(cfg.Port)
-	cluster.Hosts = []string{host}
-	fmt.Println("connecting to: " + host)
-
-	certPath, _ := filepath.Abs(secureBundleDir + "/cert")
-	keyPath, _ := filepath.Abs(secureBundleDir + "/key")
-	caPath, _ := filepath.Abs(secureBundleDir + "/ca.crt")
-	cert, _ := tls.LoadX509KeyPair(certPath, keyPath)
-
-	caCert, _ := ioutil.ReadFile(caPath)
-	caCertPool := x509.NewCertPool()
-	caCertPool.AppendCertsFromPEM(caCert)
-
-	cluster.SslOpts = &gocql.SslOptions{
-		Config: &tls.Config{
-			Certificates: []tls.Certificate{cert},
-			ServerName:   cfg.Host,
-			RootCAs:      caCertPool,
-		},
-	}
-
-	session, err := cluster.CreateSession()
+	c, err := astra.NewStaticTokenClient(
+		token,
+		astra.WithSecureConnectBundle(secureBundle),
+		astra.WithDefaultKeyspace(keyspace),
+	)
 	if err != nil {
-		panic(err)
+		fmt.Println("Error:")
+		fmt.Println(err)
 	}
 
-	fmt.Printf("session established: %v\n", session)
+	fmt.Println("SELECTing from system.local")
 
-	var releaseVersion string
-	if err := session.Query("select release_version from system.local").
-		WithContext(context.Background()).
-		Consistency(gocql.One).
-		Scan(&releaseVersion); err != nil {
-		panic(err)
-	}
-
-	fmt.Printf("release version: %s\n", releaseVersion)
-}
-
-func Unzip(src, dest string) error {
-	r, err := zip.OpenReader(src)
+	rows, err := c.Query("SELECT cluster_name FROM system.local").Exec()
 	if err != nil {
-		return err
-	}
-	defer func() {
-		if err := r.Close(); err != nil {
-			panic(err)
-		}
-	}()
-
-	os.MkdirAll(dest, 0755)
-
-	// Closure to address file descriptors issue with all the deferred .Close() methods
-	extractAndWriteFile := func(f *zip.File) error {
-		rc, err := f.Open()
-		if err != nil {
-			return err
-		}
-		defer func() {
-			if err := rc.Close(); err != nil {
-				panic(err)
-			}
-		}()
-
-		path := filepath.Join(dest, f.Name)
-
-		// Check for ZipSlip (Directory traversal)
-		if !strings.HasPrefix(path, filepath.Clean(dest)+string(os.PathSeparator)) {
-			return fmt.Errorf("illegal file path: %s", path)
-		}
-
-		if f.FileInfo().IsDir() {
-			os.MkdirAll(path, f.Mode())
-		} else {
-			os.MkdirAll(filepath.Dir(path), f.Mode())
-			f, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
-			if err != nil {
-				return err
-			}
-			defer func() {
-				if err := f.Close(); err != nil {
-					panic(err)
-				}
-			}()
-
-			_, err = io.Copy(f, rc)
-			if err != nil {
-				return err
-			}
-		}
-		return nil
+		fmt.Println(err)
 	}
 
-	for _, f := range r.File {
-		err := extractAndWriteFile(f)
-		if err != nil {
-			return err
-		}
+	for _, r := range rows {
+		vals := r.Values()
+		strClusterName := vals[0].(string)
+		fmt.Println("cluster_name:", strClusterName)
 	}
-
-	return nil
 }
 ```
