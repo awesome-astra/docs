@@ -24,10 +24,10 @@ If you have issues or requests about these code samples, please open a ticket un
 
 These instructions are aimed at helping people connect to Astra DB programmatically using the custom Astra Gocql driver.  
 
-*** Basic driver instructions ***
+***Basic driver instructions***
 Basic instructions can be found at the home page for [gocql-astra](https://github.com/datastax/gocql-astra)
 
-*** Environment variable version ***
+***Environment variable version***
 
 To use this library with environment variables, you can use the following steps.
 
@@ -62,8 +62,7 @@ Create a database and keyspace to work with.
 astra db create workshops -k gotest --if-not-exist
 ```
 
-**🖥️ Sample Code**
-
+***🖥️ Sample Code***
 
 Clone the  [repository](https://github.com/synedra/gocql-astra) and change into the 'envvar' directory in that repository.
 
