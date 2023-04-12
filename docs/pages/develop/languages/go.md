@@ -6,7 +6,7 @@ Astra provides **multiple services** such as; Database and Streaming, with **mul
 
 Pick the interface below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. 
 
-If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/)
+If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/).
 
 ## 2. Interfaces List
 
@@ -24,10 +24,10 @@ If you have issues or requests about these code samples, please open a ticket un
 
 These instructions are aimed at helping people connect to Astra DB programmatically using the custom Astra Gocql driver.  
 
-*** Basic driver instructions ***
+***Basic driver instructions***
 Basic instructions can be found at the home page for [gocql-astra](https://github.com/datastax/gocql-astra)
 
-*** Environment variable version ***
+***Environment variable version***
 
 To use this library with environment variables, you can use the following steps.
 
@@ -62,8 +62,7 @@ Create a database and keyspace to work with.
 astra db create workshops -k gotest --if-not-exist
 ```
 
-**🖥️ Sample Code**
-
+***🖥️ Sample Code***
 
 Clone the  [repository](https://github.com/synedra/gocql-astra) and change into the 'envvar' directory in that repository.
 
@@ -137,10 +136,10 @@ astra db create-dotenv --directory `pwd` workshops -k gotest
 **🖥️ Sample Code**
 
 
-Download the [code](https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go) into your directory, or copy it from below into your workspace.
+Download the [code](https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go) into your directory, or copy it from below into your workspace.
 
 ```
-curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go -o AstraGRPCQuickStart.go
+curl https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go -o AstraGRPCQuickStart.go
 ```
 
 With Go installed locally, you can now use the Go package manager (`go get`) to install the Gocql driver.
@@ -154,50 +153,4 @@ Run the code in your environment.
 
 ```
 go run AstraGRPCQuickStart.go
-```
-
-### Code
-
-```
-package main
-
-import (
-	"fmt"
-	"os"
-
-	"github.com/datastax-ext/astra-go-sdk"
-
-	"github.com/joho/godotenv"
-)
-
-func main() {
-	err := godotenv.Load()
-
-	token := os.Getenv("ASTRA_DB_APPLICATION_TOKEN")
-	secureBundle := os.Getenv("ASTRA_DB_SECURE_BUNDLE_PATH")
-	keyspace := os.Getenv("ASTRA_DB_KEYSPACE")
-
-	c, err := astra.NewStaticTokenClient(
-		token,
-		astra.WithSecureConnectBundle(secureBundle),
-		astra.WithDefaultKeyspace(keyspace),
-	)
-	if err != nil {
-		fmt.Println("Error:")
-		fmt.Println(err)
-	}
-
-	fmt.Println("SELECTing from system.local")
-
-	rows, err := c.Query("SELECT cluster_name FROM system.local").Exec()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	for _, r := range rows {
-		vals := r.Values()
-		strClusterName := vals[0].(string)
-		fmt.Println("cluster_name:", strClusterName)
-	}
-}
 ```
