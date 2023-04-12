@@ -141,7 +141,7 @@ astra db create-dotenv --directory `pwd` workshops -k gotest
 **🖥️ Sample Code**
 
 
-Download the [code](curl https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go -o AstraGRPCQuickStart.go) into your directory, or copy it from below into your workspace.
+Download the [code](curl https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go) into your directory, or copy it from below into your workspace.
 
 ```
 curl https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go -o AstraGRPCQuickStart.go
