@@ -2800,38 +2800,46 @@
 <li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 </ul>
 <h2 id="c-procedure">C - Procedure<a class="headerlink" href="#c-procedure" title="Permanent link">&para;</a></h2>
-<p><strong>✅ Step 1 : Select your database</strong></p>
-<p>Once you sign in, locate the list of available databases on the left navigation bar.</p>
-<ul>
-<li>
-<p>Select the database that you want to work with.</p>
-</li>
-<li>
-<p>Click on the <code>Connect</code> tab or the <code>"Connect"</code> blue button in the upper right hand corner.</p>
-</li>
-</ul>
-<p><img src="../../../img/astra/secureconnectbundle-db.png" /></p>
-<p><strong>✅ Step 2 : Download the ZIP</strong></p>
-<ul>
-<li>
-<p>On this screen, make sure you pick the <strong>"Drivers"</strong> connection method, and then the <strong>"Native"</strong> type in the drop-down (as opposed to the "Cloud" type).</p>
-</li>
-<li>
-<p>Pick any of the available languages, it does not matter: the bundle zipfile <em>is one and the same</em>.</p>
-</li>
-<li>
-<p>Click on <code>Download Bundle</code> and select the region that you want to use.</p>
-</li>
-</ul>
-<p><img src="../../../img/astra/secureconnectbundle-regions.png" /></p>
-<p>You now have several options:</p>
+<p><strong>✅ Step 1 : Go to your database's Connect Quick Start</strong></p>
+<p>Once you sign in and land on your Astra Home, reach the Quick Start page for
+the database whose Secure Connect Bundle you want to obtain.
+You can do so either through the database list in the left-panel navigation bar,
+or from the Databases overview in the main panel:</p>
+<details class="note">
+<summary>From the navigation bar</summary>
+<p>The right-hand navigation bar lists your most commonly-used databases under the "Databases"
+heading. Click on the desired database.</p>
+<p><img src="../../../img/astra/secureconnectbundle-navbar-1.png" /></p>
+<p><em>(Note: the side navigation bar might be collapsed. Click on the "DS" logo at the top to expand it.)</em></p>
+<p>The main panel will show the database-specific dashboard. Locate the "Connect"
+button on the top right and click on it.</p>
+<p><img src="../../../img/astra/secureconnectbundle-navbar-2.png" /></p>
+</details>
+<details class="note">
+<summary>From the overall database dashboard</summary>
+<p>Alternatively, click on the "Databases" entry in the left-hand
+navigation bar to get to the main databases dashboard.</p>
+<p><img src="../../../img/astra/secureconnectbundle-dbtable-1.png" /></p>
+<p><em>(Note: the side navigation bar might be collapsed. Click on the "DS" logo at the top to expand it.)</em></p>
+<p>Locate the desired database in the list in the main panel and click on the corresponding
+"Connect" button in the table.</p>
+<p><img src="../../../img/astra/secureconnectbundle-dbtable-2.png" /></p>
+</details>
+<p><strong>✅ Step 2 : Download the bundle ZIP</strong></p>
+<p>The "Quick Start" section features a "Get Bundle" button. Click on it to bring up
+the download-bundle dialog.</p>
+<p><img src="../../../img/astra/secureconnectbundle-getbundle-3.png" /></p>
+<p>Your database might be multi-region (remember there is a separate bundle for each DB region).
+In the dialog, choose the desired region for which you need the bundle:
+<strong>a download URL is now generated for you</strong>. You now have several options
+to download the file:</p>
 <ol>
 <li>get the file directly with the "Download Secure Bundle" button;</li>
-<li>copy the generated URL to the bundle and use it wherever you want (within a few minutes before the link expires);</li>
+<li>copy the generated URL to the bundle, by clicking on the "clipboard" icon, and use it wherever you want (within a few minutes, before the link expires);</li>
 <li>directly copy a ready-made <code>cURL</code> command to paste in a console and have the downloaded bundle zipfile there;</li>
-<li>same as before but using the <code>wget</code> console utility.</li>
+<li>similar to the previous case, but using the <code>wget</code> console utility.</li>
 </ol>
-<p><img src="../../../img/astra/secureconnectbundle-download.png" /></p>
+<p><img src="../../../img/astra/secureconnectbundle-download-4.png" /></p>
 <h4 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
@@ -2849,7 +2857,7 @@
   <small>
     
       Last update:
-      2023-01-21
+      2023-04-12
     
   </small>
 </div>

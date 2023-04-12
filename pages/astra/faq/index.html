@@ -582,6 +582,33 @@
     How do I create a namespace or a keyspace ?
   </a>
   
+    <nav class="md-nav" aria-label="How do I create a namespace or a keyspace ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-db-creation-time" class="md-nav__link">
+    At DB-creation time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-keyspace-to-an-existing-database" class="md-nav__link">
+    Add a keyspace to an existing database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-open-the-web-cql-console" class="md-nav__link">
+    How to open the Web CQL Console?
+  </a>
+  
 </li>
       
     </ul>
@@ -2751,6 +2778,33 @@
     How do I create a namespace or a keyspace ?
   </a>
   
+    <nav class="md-nav" aria-label="How do I create a namespace or a keyspace ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-db-creation-time" class="md-nav__link">
+    At DB-creation time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-keyspace-to-an-existing-database" class="md-nav__link">
+    Add a keyspace to an existing database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-open-the-web-cql-console" class="md-nav__link">
+    How to open the Web CQL Console?
+  </a>
+  
 </li>
       
     </ul>
@@ -2774,44 +2828,60 @@
 <ul>
 <li><a href="#where-should-i-find-a-database-identifier">Where should I find a <strong>database identifier</strong> ?</a></li>
 <li><a href="#where-should-i-find-a-database-region-name">Where should I find a <strong>database region</strong> name ?</a></li>
-<li><a href="#how-to-create-a-namespace-or-keyspace">How to <strong>create a keyspace or a namespace</strong> ?</a></li>
+<li><a href="how-do-i-create-a-namespace-or-a-keyspace">How do I <strong>create a keyspace or a namespace</strong> ?</a></li>
+<li><a href="#how-to-open-the-web-cql-console">How to open the <strong>Web CQL Console?</strong></a></li>
 </ul>
 <h2 id="where-should-i-find-a-database-identifier">Where should I find a database identifier ?<a class="headerlink" href="#where-should-i-find-a-database-identifier" title="Permanent link">&para;</a></h2>
-<p>The database <code>id</code> is a unique identifier (<code>GUID</code>) for your database. You can find it on the main dashboard of AstraDB. You can copy it to the clipboard by clicking the small icon 📋</p>
-<p><img src="../../../img/faq/where-database-id.png" /></p>
-<p><em>ℹ️ Note that, unlike the database identifier, the database name is not unique in an organization. (<code>project</code> in the screenshot above)</em></p>
+<p>The database <code>id</code> is a unique identifier (<code>GUID</code>) for your database.
+You can find it on the main dashboard of Astra DB,
+reachable by clicking "Databases" on the left-side navigation bar.
+Copy it to your clipboard by clicking on the small 📋 icon.</p>
+<p><img src="../../../img/faq/locate-database-id-1.png" /></p>
+<p><em>(Note: the side navigation bar might be collapsed. Click on the "DS" logo at the top to expand it.)</em></p>
+<p>Remember that, unlike the database <code>id</code>, the database <strong>name</strong> is not necessarily unique in an organization.
+That is, with reference to the above image, one could have more than one <code>multics</code> databases, each with a different <code>id</code>.</p>
 <h2 id="where-should-i-find-a-database-region-name">Where should I find a database region name ?<a class="headerlink" href="#where-should-i-find-a-database-region-name" title="Permanent link">&para;</a></h2>
-<p>A database can have one or multiple regions. Each region will have a datacenter Id and a region name. The region name is the one used in the Api Urls.</p>
+<p>A database can span one or more regions.
+Each region will have a "Datacenter ID" and a "Region".
+The "Region" is the one used in the API endpoints.</p>
+<p>Reach the dashboard specific to the database by either:</p>
 <ul>
-<li>Access your database dashboard by clicking its name either in the menu on the left or on the main panel.</li>
+<li>clicking on the DB name in the left navigation bar,</li>
+<li>clicking on the DB name in the overall "Databases" list (reachable by clicking "Databases" in the navigation bar).</li>
 </ul>
-<p><img src="../../../img/faq/click-db-name.png" /></p>
-<ul>
-<li>Locate the region name in the Regions table. In the screenshot below we do have two; <code>europe-west1</code> and <code>us-east1</code>.</li>
-</ul>
-<p><img src="../../../img/faq/where-database-region.png" /></p>
+<p>The "Overview" page for the database lists all regions in a table.
+In the example below, you see two regions, identified by <code>eu-central-1</code> and <code>us-east-1</code>.</p>
+<p><img src="../../../img/faq/locate-datacenter-id-1.png" /></p>
+<p>Should you need the ID of a certain Datacenter, simply click on the clipboard icon
+next to the ID to copy it.</p>
 <h2 id="how-do-i-create-a-namespace-or-a-keyspace">How do I create a namespace or a keyspace ?<a class="headerlink" href="#how-do-i-create-a-namespace-or-a-keyspace" title="Permanent link">&para;</a></h2>
-<p>Namespaces and keyspaces are synonyms. There are two ways to create them.</p>
-<ul>
-<li>You can create them when you create a database</li>
-</ul>
-<p><img src="../../../img/faq/create-db.png" /></p>
-<ul>
-<li>You can create them on the Database Dashboard in the <code>Keyspaces</code> section by clicking the button <code>Add Keyspace</code>.</li>
-</ul>
-<p><em>Access your database dashboard by clicking its name either in the menu on the left or on the main panel.</em></p>
-<p><img src="../../../img/faq/click-db-name.png" /></p>
-<p><em>Locate the Add Keyspace button in the botton right-hand corner</em></p>
-<p><img src="../../../img/faq/create-keyspace-button.png" /></p>
-<p><em>Create Keyspace from its name. The database will switch to <code>MAINTENANCE</code> mode for a few seconds but do not worry the application can still request the other keyspaces.</em></p>
-<p><img src="../../../img/faq/create-keyspace.png" /></p>
+<p>In Astra DB, "namespace" and "keyspace" mean exactly the same thing, i.e. mainly a logical grouping of tables.
+There are two ways to create them.</p>
+<h4 id="at-db-creation-time">At DB-creation time<a class="headerlink" href="#at-db-creation-time" title="Permanent link">&para;</a></h4>
+<p>When creating a <a href="/docs/pages/astra/create-instance/">new database</a>, you automatically create a keyspace in it:</p>
+<p><img src="../../../img/faq/create-db-keyspace.png" /></p>
+<h4 id="add-a-keyspace-to-an-existing-database">Add a keyspace to an existing database<a class="headerlink" href="#add-a-keyspace-to-an-existing-database" title="Permanent link">&para;</a></h4>
+<p>From the database's dashboard, find the "Add Keyspace" button in the "Keyspaces" section of the dashboard and click on it.</p>
+<p><img src="../../../img/faq/add-keyspace-1.png" /></p>
+<p><em>You can access your database dashboard by clicking its name either in the navigation bar on the left or on the overall "Databases" main panel.</em></p>
+<p>Keep in mind that in order to add a keyspace, the database must be in "Active" state - <a href="/docs/pages/astra/resume-db/">resume it</a> first if necessary.</p>
+<p><img src="../../../img/faq/add-keyspace-2.png" /></p>
+<p>The database will switch to <code>Maintenance</code> mode for a few seconds, but no fear: all running applications are still able to access other keyspaces in the database.</p>
+<h2 id="how-to-open-the-web-cql-console">How to open the Web CQL Console?<a class="headerlink" href="#how-to-open-the-web-cql-console" title="Permanent link">&para;</a></h2>
+<p>To access the CQL Console for a certain database, go to the
+dashboard for the database (clicking on the DB name on the left-hand navigation bar)
+and simply select the "CQL Console" tab in the main panel.</p>
+<p>An in-browser Web-based console to exchange CQL commands with the database will be
+available in few seconds, already connected to your database.</p>
+<p><img src="../../../img/faq/cql-console.png" /></p>
+<p><em>Note: if your database spans multiple regions, your will have the possibility to choose a region for the connection. Each choice of a region will completely reset the console.</em></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-05-14
+      2023-04-07
     
   </small>
 </div>
