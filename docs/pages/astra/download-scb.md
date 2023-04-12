@@ -26,7 +26,7 @@ The configuration and required certificates are provided to the user through a z
 Once you sign in and land on your Astra Home, reach the Quick Start page for
 the database whose Secure Connect Bundle you want to obtain.
 You can do so either through the database list in the left-panel navigation bar,
-or from the Databases overwiew in the main panel:
+or from the Databases overview in the main panel:
 
 ??? note "From the navigation bar"
 
