@@ -64,7 +64,12 @@ astra db create workshops -k gotest --if-not-exist
 
 ***🖥️ Sample Code***
 
-Clone the  [repository](https://github.com/synedra/gocql-astra) and change into the 'envvar' directory in that repository.
+Clone the [repository](https://github.com/awesome-astra/gocql-astra) and change into the 'envvar' directory in that repository.
+
+```
+git clone https://github.com/awesome-astra/gocql-astra
+cd gocql-astra/envvar
+```
 
 Create .env with astra CLI
 
