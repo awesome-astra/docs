@@ -1586,13 +1586,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2821,13 +2814,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2854,7 +2840,7 @@
 <p><img src="../../../../img/tile-go.png" align="left" height="180px"/></p>
 <p>Astra provides <strong>multiple services</strong> such as; Database and Streaming, with <strong>multiple Apis and interfaces</strong>. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.</p>
 <p>Pick the interface below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. </p>
-<p>If you have issues or requests about these code samples, please open a ticket under <a href="https://github.com/awesome-astra/">Awesome-Astra</a></p>
+<p>If you have issues or requests about these code samples, please open a ticket under <a href="https://github.com/awesome-astra/">Awesome-Astra</a>.</p>
 <h2 id="2-interfaces-list">2. Interfaces List<a class="headerlink" href="#2-interfaces-list" title="Permanent link">&para;</a></h2>
 <p><a href="#3-cql">
  <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
@@ -2928,8 +2914,8 @@ Basic instructions can be found at the home page for <a href="https://github.com
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>astra db create-dotenv --directory `pwd` workshops -k gotest 
 </code></pre></div>
 <p><strong>🖥️ Sample Code</strong></p>
-<p>Download the <a href="https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go">code</a> into your directory, or copy it from below into your workspace.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl https://raw.githubusercontent.com/aar0np/go_stuff/main/AstraGRPCQuickStart.go -o AstraGRPCQuickStart.go
+<p>Download the <a href="https://raw.githubusercontent.com/awesome-astra/code-samples/main/AstraGRPCQuickStart.go">code</a> into your directory, or copy it from below into your workspace.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl https://raw.githubusercontent.com/awesome-astra/code-samples/main/AstraGRPCQuickStart.go -o AstraGRPCQuickStart.go
 </code></pre></div>
 <p>With Go installed locally, you can now use the Go package manager (<code>go get</code>) to install the Gocql driver.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>go mod init grpc
@@ -2938,56 +2924,13 @@ Basic instructions can be found at the home page for <a href="https://github.com
 <p>Run the code in your environment.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>go run AstraGRPCQuickStart.go
 </code></pre></div>
-<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>package main
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>import (
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    &quot;fmt&quot;
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    &quot;os&quot;
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    &quot;github.com/datastax-ext/astra-go-sdk&quot;
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    &quot;github.com/joho/godotenv&quot;
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>)
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>func main() {
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    err := godotenv.Load()
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>    token := os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;)
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>    secureBundle := os.Getenv(&quot;ASTRA_DB_SECURE_BUNDLE_PATH&quot;)
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    keyspace := os.Getenv(&quot;ASTRA_DB_KEYSPACE&quot;)
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    c, err := astra.NewStaticTokenClient(
-<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>        token,
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>        astra.WithSecureConnectBundle(secureBundle),
-<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>        astra.WithDefaultKeyspace(keyspace),
-<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    )
-<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>    if err != nil {
-<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>        fmt.Println(&quot;Error:&quot;)
-<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>        fmt.Println(err)
-<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>    }
-<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>
-<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>    fmt.Println(&quot;SELECTing from system.local&quot;)
-<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>
-<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>    rows, err := c.Query(&quot;SELECT cluster_name FROM system.local&quot;).Exec()
-<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>    if err != nil {
-<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>        fmt.Println(err)
-<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>    }
-<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>
-<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>    for _, r := range rows {
-<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>        vals := r.Values()
-<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>        strClusterName := vals[0].(string)
-<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>        fmt.Println(&quot;cluster_name:&quot;, strClusterName)
-<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>    }
-<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>}
-</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-04-11
+      2023-04-12
     
   </small>
 </div>
