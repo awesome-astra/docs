@@ -252,7 +252,7 @@ Clone the [repository](https://github.com/awesome-astra/code-samples) into your 
 
 ```
 git clone https://github.com/awesome-astra/code-samples
-cd astra-gprc
+cd astra-grpc
 
 ```
 
