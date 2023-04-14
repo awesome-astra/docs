@@ -14,7 +14,6 @@ If you have issues or requests about these code samples, please open a ticket un
  <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
  <a href="#4-api-rest">
 <img src="../../../../img/tile-api-rest.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
 </a>&nbsp;&nbsp; <a href="#5-api-grpc">
 <img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
@@ -102,7 +101,7 @@ Run the code in your environment.
 
 **ℹ️ Overview**
 
-These instructions are aimed at helping people connect to Astra DB programmatically using REST interface
+These instructions are aimed at helping people connect to Astra DB programmatically using Stargate's REST interface
 
 **📦 Prerequisites [ASTRA]**
 
