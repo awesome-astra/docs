@@ -21,34 +21,60 @@ The configuration and required certificates are provided to the user through a z
 
 ## C - Procedure
 
-**✅ Step 1 : Select your database**
+**✅ Step 1 : Go to your database's Connect Quick Start**
 
-Once you sign in, locate the list of available databases on the left navigation bar.
+Once you sign in and land on your Astra Home, reach the Quick Start page for
+the database whose Secure Connect Bundle you want to obtain.
+You can do so either through the database list in the left-panel navigation bar,
+or from the Databases overview in the main panel:
 
-- Select the database that you want to work with.
+??? note "From the navigation bar"
 
-- Click on the `Connect` tab or the `"Connect"` blue button in the upper right hand corner.
+    The right-hand navigation bar lists your most commonly-used databases under the "Databases"
+    heading. Click on the desired database.
 
-<img src="../../../img/astra/secureconnectbundle-db.png" />
+    <img src="../../../img/astra/secureconnectbundle-navbar-1.png" />
 
-**✅ Step 2 : Download the ZIP**
+    _(Note: the side navigation bar might be collapsed. Click on the "DS" logo at the top to expand it.)_
 
-- On this screen, make sure you pick the **"Drivers"** connection method, and then the **"Native"** type in the drop-down (as opposed to the "Cloud" type).
+    The main panel will show the database-specific dashboard. Locate the "Connect"
+    button on the top right and click on it.
 
-- Pick any of the available languages, it does not matter: the bundle zipfile _is one and the same_.
+    <img src="../../../img/astra/secureconnectbundle-navbar-2.png" />
 
-- Click on `Download Bundle` and select the region that you want to use.
+??? note "From the overall database dashboard"
 
-<img src="../../../img/astra/secureconnectbundle-regions.png" />
+    Alternatively, click on the "Databases" entry in the left-hand
+    navigation bar to get to the main databases dashboard.
 
-You now have several options:
+    <img src="../../../img/astra/secureconnectbundle-dbtable-1.png" />
+
+    _(Note: the side navigation bar might be collapsed. Click on the "DS" logo at the top to expand it.)_
+
+    Locate the desired database in the list in the main panel and click on the corresponding
+    "Connect" button in the table.
+
+    <img src="../../../img/astra/secureconnectbundle-dbtable-2.png" />
+
+
+**✅ Step 2 : Download the bundle ZIP**
+
+The "Quick Start" section features a "Get Bundle" button. Click on it to bring up
+the download-bundle dialog.
+
+<img src="../../../img/astra/secureconnectbundle-getbundle-3.png" />
+
+Your database might be multi-region (remember there is a separate bundle for each DB region).
+In the dialog, choose the desired region for which you need the bundle:
+**a download URL is now generated for you**. You now have several options
+to download the file:
 
 1. get the file directly with the "Download Secure Bundle" button;
-2. copy the generated URL to the bundle and use it wherever you want (within a few minutes before the link expires);
+2. copy the generated URL to the bundle, by clicking on the "clipboard" icon, and use it wherever you want (within a few minutes, before the link expires);
 3. directly copy a ready-made `cURL` command to paste in a console and have the downloaded bundle zipfile there;
-4. same as before but using the `wget` console utility.
+4. similar to the previous case, but using the `wget` console utility.
 
-<img src="../../../img/astra/secureconnectbundle-download.png" />
+<img src="../../../img/astra/secureconnectbundle-download-4.png" />
 
 #### Remarks
 
