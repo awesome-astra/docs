@@ -64,11 +64,19 @@ astra db create workshops -k gotest --if-not-exist
 
 ***🖥️ Sample Code***
 
+<<<<<<< Updated upstream
 Clone the [repository](https://github.com/awesome-astra/gocql-astra) and change into the 'envvar' directory in that repository.
 
 ```
 git clone https://github.com/awesome-astra/gocql-astra
 cd gocql-astra/envvar
+=======
+Clone the  [repository](https://github.com/awesome-astra/sample-code) and change into the 'gocql-astra' directory in that repository.
+
+```
+git clone https://github.com/awesome-astra/sample-code
+cd sample-code/gocql-astra
+>>>>>>> Stashed changes
 ```
 
 Create .env with astra CLI
@@ -141,6 +149,7 @@ astra db create-dotenv --directory `pwd` workshops -k gotest
 **🖥️ Sample Code**
 
 
+<<<<<<< Updated upstream
 Download the [code](https://raw.githubusercontent.com/awesome-astra/sample-code/main/AstraGPRCQuickStart.go) into your directory, or copy it from below into your workspace.
 
 ```
@@ -152,6 +161,14 @@ With Go installed locally, you can now use the Go package manager (`go get`) to 
 ```
 go mod init grpc
 go get -u
+=======
+Clone the [repository](https://github.com/awesome-astra/code-samples) into your directory, then change into the astra-gprc directory.
+
+```
+git clone https://github.com/awesome-astra/code-samples
+cd astra-gprc
+
+>>>>>>> Stashed changes
 ```
 
 Run the code in your environment.
