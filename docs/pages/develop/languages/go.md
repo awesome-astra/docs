@@ -248,10 +248,10 @@ astra db create-dotenv workshops -k gotest
 **🖥️ Sample Code**
 
 
-Clone the [repository](https://github.com/awesome-astra/code-samples) into your directory, then change into the astra-gprc directory.
+Clone the [repository](https://github.com/awesome-astra/sample-code) into your directory, then change into the astra-gprc directory.
 
 ```
-git clone https://github.com/awesome-astra/code-samples
+git clone https://github.com/awesome-astra/sample-code
 cd astra-grpc
 
 ```
