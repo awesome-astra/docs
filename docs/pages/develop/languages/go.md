@@ -66,11 +66,11 @@ astra db create workshops -k gotest --if-not-exist
 
 ***🖥️ Sample Code***
 
-Clone the  [repository](https://github.com/awesome-astra/sample-code) and change into the 'gocql-astra' directory in that repository.
+Clone the  [repository](https://github.com/awesome-astra/go-sample-code) and change into the 'gocql-astra' directory in that repository.
 
 ```
-git clone https://github.com/awesome-astra/sample-code
-cd sample-code/gocql-astra/envvars
+git clone https://github.com/awesome-astra/go-sample-code
+cd go-sample-code/gocql-astra/envvars
 ```
 
 Create .env with astra CLI
@@ -97,7 +97,7 @@ Run the code in your environment.
 
 ## 4. <a name="4-api-rest">Stargate REST API</a>
 
-### 4.1 The Stargate API Signing Library
+### 4.1 Using the Stargate API Signing Library
 
 **ℹ️ Overview**
 
@@ -119,12 +119,10 @@ To use the signing library, you simply include it in your code and then create a
 package main
 
 import (
-	"bytes"
 	"fmt"
-	"net/url"
 	"os"
 
-	"github.com/synedra/astra_stargate"
+	"github.com/awesome-astra/astra_stargate"
 
 	"github.com/joho/godotenv"
 )
@@ -132,7 +130,7 @@ import (
 func main() {
 	err := godotenv.Load()
 	if len(os.Getenv("ASTRA_DB_APPLICATION_TOKEN")) == 0 {
-		fmt.Println(fmt.Errorf("please set your environment variables or use astra db create-dotenv to create a .env file"))
+		fmt.Println(fmt.Errorf("please set your environment variables or use 'astra db create-dotenv' to create a .env file"))
 		return
 	}
 
@@ -148,6 +146,7 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(responsebody)
+}
 
 ```
 
@@ -167,10 +166,10 @@ You want to have a go version of at least 1.17.
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
 
-Clone the [repository](https://github.com/awesome-astra/sample-code) into your directory, then change into the astra_stargate_rest directory.
+Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
 
 ```
-git clone https://github.com/awesome-astra/sample-code
+git clone https://github.com/awesome-astra/go-sample-code
 cd astra_stargate_rest
 ```
 
@@ -183,13 +182,13 @@ astra setup
 Create a database and keyspace to work with.
 
 ```
-astra db create workshops -k gotest --if-not-exist
+astra db create workshops -k library --if-not-exist
 ```
 
 Create .env with astra CLI
 
 ```
-astra db create-dotenv workshops -k gotest 
+astra db create-dotenv workshops -k library 
 ```
 
 Run the code in your environment.
@@ -198,7 +197,6 @@ Run the code in your environment.
 go build astra_stargate_example.go
 ./astra_stargate_example
 ```
-
 
 ## 5. <a name="5-api-grpc">CQL API GRPC</a>
 
@@ -236,22 +234,22 @@ astra setup
 Create a database and keyspace to work with.
 
 ```
-astra db create workshops -k gotest --if-not-exist
+astra db create workshops -k library --if-not-exist
 ```
 
 Create .env with astra CLI
 
 ```
-astra db create-dotenv workshops -k gotest 
+astra db create-dotenv workshops -k library 
 ```
 
 **🖥️ Sample Code**
 
 
-Clone the [repository](https://github.com/awesome-astra/sample-code) into your directory, then change into the astra-gprc directory.
+Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra-gprc directory.
 
 ```
-git clone https://github.com/awesome-astra/sample-code
+git clone https://github.com/awesome-astra/go-sample-code
 cd astra-grpc
 
 ```
