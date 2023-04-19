@@ -8,6 +8,22 @@ Pick the interface below to get relevant instructions. In most cases, you will d
 
 If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/).
 
+***📦 Prerequisites [ASTRA]***
+
+- You should have an [Astra account](https://astra.dev/3B7HcYo)
+- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
+- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
+
+You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
+
+```
+go version
+```
+
+You want to have a go version of at least 1.17.
+
+
+
 ## 2. Interfaces List
 
 <a href="#3-cql">
@@ -34,9 +50,9 @@ If you have issues or requests about these code samples, please open a ticket un
 These instructions are aimed at helping people connect to Astra DB programmatically using the custom Astra Gocql driver.  
 
 ***Basic driver instructions***
-Basic instructions can be found at the home page for [gocql-astra](https://github.com/datastax/gocql-astra). They are included here.
+Basic instructions can be found at the home page for [gocql-astra](https://github.com/datastax/gocql-astra). You can use these instructions, or scroll down to find some ready-made code for you to use.
 
-??? note "gocql for Astra from [gocql-astra](https://github.com/datastax/gocql-astra)"
+??? note "README from [gocql-astra](https://github.com/datastax/gocql-astra)"
 
 	This provides a custom `gocql.HostDialer` that can be used to allow gocql to connect to DataStax Astra. The goal is to
 	provide native support for gocql on Astra.
@@ -92,21 +108,7 @@ Basic instructions can be found at the home page for [gocql-astra](https://githu
 
 To use this library with environment variables, you can follow these steps.
 
-***📦 Prerequisites [ASTRA]***
-
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
-- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
-
 ***📦 Prerequisites [Development Environment]***
-
-You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
-
-```
-go version
-```
-
-You want to have a go version of at least 1.17.
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
@@ -244,12 +246,6 @@ Run the code in your environment.
 
 These instructions are aimed at helping people connect to Astra DB programmatically using Stargate's API interface
 
-**📦 Prerequisites [ASTRA]**
-
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
-- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
-
 **🖥️ Sample Code**
 
 To use the signing library, you simply include it in your code and then create a client for making calls.
@@ -321,15 +317,6 @@ While the basic code is shown above, you can interact with a more extensive REST
 
 **📦 Prerequisites [Development Environment]**
 
-You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
-
-```
-go version
-```
-
-You want to have a go version of at least 1.17.
-
-
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
 
@@ -371,15 +358,6 @@ While the basic code is shown above, you can interact with a more extensive REST
 
 **📦 Prerequisites [Development Environment]**
 
-You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
-
-```
-go version
-```
-
-You want to have a go version of at least 1.17.
-
-
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
 
@@ -420,15 +398,6 @@ go build astra_stargate_graphql.go
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
 **📦 Prerequisites [Development Environment]**
-
-You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
-
-```
-go version
-```
-
-You want to have a go version of at least 1.17.
-
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
@@ -474,22 +443,7 @@ go build astra_stargate_document.go
 
 These instructions are aimed at helping people connect to Astra DB programmatically using the Astra specific Golang driver  
 
-**📦 Prerequisites [ASTRA]**
-
-- You should have an [Astra account](https://astra.dev/3B7HcYo)
-- You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
-- You should [Install the Astra CLI](/docs/pages/astra/astra-cli/)
-
 **📦 Prerequisites [Development Environment]**
-
-You will need to have a recent (1.17+) version of Go.  Visit the [official download page](https://go.dev/dl/), and select the appropriate version for your machine architecture.  To verify that Go is installed, run the following command:
-
-```
-go version
-```
-
-You want to have a go version of at least 1.17.
-
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
