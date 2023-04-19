@@ -3419,7 +3419,7 @@ The <a href="#2-install-on-linux">Linux installation</a> procedure also work on 
 </details>
 <details class="tip" open="open">
 <summary>Skip interactive mode</summary>
-<p>In your scripts your may want to avoid explicit provide inputs in prompts. To setup the CLI as a non interactive use the following:</p>
+<p>This can also be done non-interactively (for example, using a script) by providing token as a flag. Do do it, run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>astra setup --token AstraCS:******
 </code></pre></div>
 </details>
@@ -3619,6 +3619,10 @@ Still, for ease of use here is a glossary of the commands:</p>
 <td><a href="#">Delete a change data capture</a></td>
 </tr>
 <tr>
+<td><strong><a href="#"><code>delete-keyspace &lt;DB&gt;</code></a></strong></td>
+<td><a href="#">Delete a keyspace</a></td>
+</tr>
+<tr>
 <td><strong><a href="#"><code>delete-region &lt;DB&gt;</code></a></strong></td>
 <td><a href="#">Remove a region from a database</a></td>
 </tr>
@@ -3636,55 +3640,55 @@ Still, for ease of use here is a glossary of the commands:</p>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list</code></a></strong></td>
-<td><a href="#">List dataases in the organization</a></td>
+<td><a href="#">List databases in the organization</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-cdc &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List Change Data Captures</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-clouds</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List clouds available to deploy db</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-keyspaces &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List keyspaces for a DB</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-regions &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List regions (datacenters) for a DB</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-regions-classic</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List available regions for classic</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>list-regions-serverless</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">List available regions for serverless</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>load &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Load a CSV into a table</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>playground &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Show GraphQL Playground URL</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>resume &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Resume DB that was hibernated</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>status &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Show DB Status</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>swagger &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Show swagger url</a></td>
 </tr>
 <tr>
 <td><strong><a href="#"><code>unload &lt;DB&gt;</code></a></strong></td>
-<td><a href="#"></a></td>
+<td><a href="#">Leverage DSbulk to dump data</a></td>
 </tr>
 </tbody>
 </table>
@@ -4519,7 +4523,7 @@ file.</li>
   <small>
     
       Last update:
-      2023-03-09
+      2023-04-19
     
   </small>
 </div>
