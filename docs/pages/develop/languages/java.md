@@ -25,52 +25,97 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
 ## 1. Pre-requisites
 
-- **Java Development Kit (JDK) 8+**
+!!! abstract "Setup your Development environment"
 
-Use [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit** and validate your installation with
+      - [x] **Install Java Development Kit (JDK) 8+**
+      
+      Use [java reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) targetting your operating system to install a Java Development Kit. You can then validate your installation with the following command.
 
-```bash
-java --version
-```
+      ```bash
+      java --version
+      ```
 
-- **Apache Maven (3.8+)**
+      - [x] **Install Apache Maven (3.8+)**
+      
+      Samples and tutorials have been designed with `Apache Maven`. Use the [reference documentation](https://maven.apache.org/install.html) top install maven validate your installation with 
 
-The different samples and tutorials have been designed with `Apache Maven`.Use the [reference documentation](https://maven.apache.org/install.html) top install maven validate your installation with 
+      ```bash
+      mvn -version
+      ```
 
-```bash
-mvn -version
-```
+!!! abstract "Setup Datastax Astra"
 
-- **Datastax Astra**
-
-???+ abstract "Setup Actions"
-
-    - You should have an [Astra account](https://astra.dev/3B7HcYo)
-    - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
+    - [x] **Create your DataStax Astra account**: 
     
+    <a href="https://astra.dev/3B7HcYo" class=md-button>Sign Up</a>
+
+    - [x] **Create an Astra Token**
+    
+    An astra token acts as your credentials, it holds the different permissions. The scope of a token is the whole organization (tenant) but permissions can be edited to limit usage to a single database.
+
+    To create a token, please follow [this guide](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)
+
+    The Token is in fact three separate strings: a `Client ID`, a `Client Secret` and the `token` proper. You will need some of these strings to access the database, depending on the type of access you plan. Although the Client ID, strictly speaking, is not a secret, you should regard this whole object as a secret and make sure not to share it inadvertently (e.g. committing it to a Git repository) as it grants access to your databases.
+
+    ```json
+    {
+      "ClientId": "ROkiiDZdvPOvHRSgoZtyAapp",
+      "ClientSecret": "fakedfaked",
+      "Token":"AstraCS:fake"
+    }
+    ```
+
+    It is handy to have your token declare as an environment variable (_replace with proper value_):
+
+    ```
+    export ASTRA_TOKEN="AstraCS:replace_me"
+    ```
+
+    - [x] **Create a Database and a keyspace**
+
+    With your account you can run multiple databases, a Databases is an Apache Cassandra cluster. It can live in one or multiple regions (dc). In each Database you can have multiple keyspaces. In the page we will use the database name `db_demo` and the keyspace `keyspace_demo`.
+    
+    You can create the DB using the user interface and [here is a tutorial](https://awesome-astra.github.io/docs/pages/astra/create-instance/#c-procedure). You can also use Astra command line interface. To install and setup the CLI run the following:
+
+    ```
+    curl -Ls "https://dtsx.io/get-astra-cli" | bash
+    source ~/.astra/cli/astra-init.sh
+    astra setup --token ${ASTRA_TOKEN}
+    ```
+
+    To create DB and keyspace with the CLI:
+
+    ```
+    astra db create db_demo -k keyspace_demo --if-not-exists
+    ```
+
+    - [x] **Download the Secure Connect Bundle for current database**
+
+    A _Secure Connect Bundle_ contains the certificates and endpoints informations to open a [mTLS connection](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/). Often mentionned as `scb` its scope is a database AND a region. If your database is deployed on multiple regions you will have to download the bundle for each one and initiate the connection accordingly. Instructions to [download Secure Connect Bundle are here](/docs/pages/astra/download-scb/)
+
+    <img src="../../../../img/drivers/drivers-connectivity.png" />
+
+     You can download the secure connect bundle from the user interface and [here is a tutorial](https://awesome-astra.github.io/docs/pages/astra/download-scb/). You can also use Astra command line interface.
+
+     ```
+     astra db download-scb db_demo -f /tmp/secure-connect-bundle-db-demo.zip
+     ```
+
+     With an account and a database running you are all set.
+
+
 ## 2. Cassandra Drivers
 
-### 2.1 Connectivity
+### 2.1 Drivers 4.x
 
-To access Datastax Astra with Java drivers 2 assets are needed:
-
-- An **Astra Token** stands as your credentials (`clientId / clientSecret`). It holds the different permissions. The scope of a token is the whole organization but permissions can be edited to limit usage to a single database To create one with the expected properties use [those instructions](/docs/pages/astra/create-token/)
-
-- A **Secure Connect Bundle** contains the certificates and endpoints informations to open a [mTLS connection](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/). Often mentionned as `scb` its scope is a database AND a region. If your database is deployed on multiple regions you will have to download the bundle for each one and initiate the connection accordingly. Instructions to [download Secure Connect Bundle are here](/docs/pages/astra/download-scb/)
-
-<img src="../../../../img/drivers/drivers-connectivity.png" />
-
-### 2.2 Drivers 4.x
-
-??? tip "4.x is the recommended version for the drivers"
-
+> !!! tip "4.x is the recommended version for the drivers"
 > The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
 
-Using the DataStax Java Driver to connect to a DataStax Astra database is almost identical to using the driver to connect to any normal Apache Cassandra® database. The only differences are in how the driver is configured in an application and that you will need to obtain a secure connect bundle.
+
 
 #### Project Dependencies
 
-???+ note annotate "Import dependencies in your `pom.xml`"
+!!! note annotate "Import dependencies in your `pom.xml`"
 
       - Any version `4.x` should be compatible with Astra.
 
@@ -244,7 +289,7 @@ Alternatively, or complementary the connection information can be specified in t
 | [Build Microservices](https://github.com/datastaxdevs/workshop-microservices-java) | Microservices with Spring |
 | [Devoxx 2022](https://github.com/datastaxdevs/conference-2022-devoxx) | 3h of deep dive on how to build java applications with Spring, Quarkus and Micronaut |
 | [Java Native](https://github.com/datastaxdevs/workshop-spring-quarkus-micronaut-cassandra) | Build todo application in Java Native with Spring, Quarkus and Micronaut |
-| [Stargate TV Show](https://github.com/datastaxdevs/workshop-spring-stargate) | Reproduce the wheel or Stargate TV Show with destination in Astra |
+| [Stargate TV Show](https://github.com/datastaxdevs/workshop-spring-stargate) | Reproduce the wheel for Stargate TV Show with destinations saved in Astra |
 | [Spring Data Cassandra](https://github.com/datastaxdevs/workshop-spring-data-cassandra) | Deep dive with Spring data cassandra |
 
 ### 3.2 Drivers 3.x
@@ -253,7 +298,7 @@ Alternatively, or complementary the connection information can be specified in t
 
 #### Project Dependencies
 
-???+ note annotate "Import dependencies in your `pom.xml`"
+??? note annotate "Import dependencies in your `pom.xml`"
 
       - Version **3.8+** or more is required to connect to Astra.
       - Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)

@@ -100,6 +100,7 @@ nav:
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
       - • Feast : pages/tools/integration/feast.md
+      - • Google Dataflow : pages/tools/integration/google-cloud-dataflow.md
       - • HashiCorp Vault : pages/tools/integration/vault.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
