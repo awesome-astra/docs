@@ -361,6 +361,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/google-cloud-dataflow/</loc>
+         <lastmod>2023-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/grafana/</loc>
          <lastmod>2023-04-19</lastmod>
          <changefreq>daily</changefreq>
