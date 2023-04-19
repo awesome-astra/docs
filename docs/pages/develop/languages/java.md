@@ -62,7 +62,7 @@ To access Datastax Astra with Java drivers 2 assets are needed:
 
 ### 2.2 Drivers 4.x
 
-!!! important "Version 4.x is recommended"
+??? tip "4.x is the recommended version for the drivers"
 
 > The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
 
@@ -189,6 +189,21 @@ Alternatively, or complementary the connection information can be specified in t
         }
       }
       ```
+
+      With the file in the classpaht the previous code is updated as the following:
+
+      ```java
+      import java.nio.file.Paths;
+      import com.datastax.oss.driver.api.core.CqlSession;
+
+      public class AstraDriver4x {
+        public static void main(String[] args) {
+          try (CqlSession cqlSession = CqlSession.builder().build()) {
+            System.out.println("Hello keyspace {} !" + cqlSession.getKeyspace().get());
+          }
+        }
+      }
+      ```
      
 !!! info "What you need to know"
 
@@ -208,15 +223,15 @@ Alternatively, or complementary the connection information can be specified in t
 | [Simple4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_01_Simple.java) |  Read, update, insert, delete operations using `QueryBuilder` |
 | [Paging4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_02_Paging.java) | Illustrating FetchSize and how to retrieve page by page |
 | [Batches4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_03_Batches.java) |  Group statements within batches|
-| [ListSetMapUdt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_04_ListSetMapAndUdt.java) |  Advanced types insertions with `list`, `set`, `map` but also `User Defined Type` |
-| [Json4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_05_Json.java) |  Work with columns or full record with `JSON` |
-| [Async4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_06_Async.java) |  Sample operations as Simple in `Asynchronous` way |
-| [ObjectMapping4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_07_ObjectMapping.java) | Map table record to Java POJO at driver level |
-| [Counter4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_08_Counters.java) |  Working with `counters` increment/decrement|
-| [Lwt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_09_LightweightTransactions.java) |  Working for Lightweight transactions read-before-write|
-| [BlobAndCodec4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_10_BlobAndCodec.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
-| [CloudAstra4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_ServiceCloudAstra.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
-| [Reactive4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_11_Reactive.java) |  Working with the Reactive API introduce in driver 4.x|
+| [ListSetMapUdt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_04_ListSetMapAndUdt.java) |  Advanced types insertions with `list`, `set`, `map` but also `User Defined Type` |
+| [Json4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_05_Json.java) |  Work with columns or full record with `JSON` |
+| [Async4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_06_Async.java) |  Sample operations as Simple in `Asynchronous` way |
+| [ObjectMapping4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_07_ObjectMapping.java) | Map table record to Java POJO at driver level |
+| [Counter4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_08_Counters.java) |  Working with `counters` increment/decrement|
+| [Lwt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_09_LightweightTransactions.java) |  Working for Lightweight transactions read-before-write|
+| [BlobAndCodec4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_10_BlobAndCodec.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
+| [CloudAstra4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_ServiceCloudAstra.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
+| [Reactive4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_11_Reactive.java) |  Working with the Reactive API introduce in driver 4.x|
 
 #### Sample Projects Gallery
 
@@ -232,26 +247,42 @@ Alternatively, or complementary the connection information can be specified in t
 | [Stargate TV Show](https://github.com/datastaxdevs/workshop-spring-stargate) | Reproduce the wheel or Stargate TV Show with destination in Astra |
 | [Spring Data Cassandra](https://github.com/datastaxdevs/workshop-spring-data-cassandra) | Deep dive with Spring data cassandra |
 
+### 3.2 Drivers 3.x
 
-### 3.2 Cassandra Drivers 3.x
+!!! warning "Version 3.x is still maintained but not recommended version. It will not get evolutions in the future"
 
-!!! warning "Version 4.x is recommended, it is unlikely that 3.x will get new updates except maintenance and CVE."
-
-- Please note that version **3.8+** is required to connect to Astra.
+#### Project Dependencies
 
 ???+ note annotate "Import dependencies in your `pom.xml`"
 
+      - Version **3.8+** or more is required to connect to Astra.
       - Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)
 
       ```xml
+      <!-- Mandatory -->
       <dependency>
         <groupId>com.datastax.cassandra</groupId>
         <artifactId>cassandra-driver-core</artifactId>
-        <version>${latest3x}</version>
+       <version>${latest3x}</version> 
+      </dependency>
+
+      <!-- Optional, Used for object mapping-->
+      <dependency>
+        <groupId>com.datastax.cassandra</groupId>
+        <artifactId>cassandra-driver-mapping</artifactId>
+        <version>${latest3x}</version> 
+      </dependency>
+      <!-- Optional, Used for conversion ad-hoc-->
+      <dependency>
+        <groupId>com.datastax.cassandra</groupId>
+        <artifactId>cassandra-driver-extra</artifactId>
+        <version>${latest3x}</version> 
       </dependency>
       ```
 
-???+ note "Standalone Code"
+#### QuickStart
+
+???+ example "Example Code"
 
       ```java
       import java.io.File;
@@ -260,18 +291,12 @@ Alternatively, or complementary the connection information can be specified in t
 
       public class AstraDriver3x {
 
-        // Define inputs
-        static final String ASTRA_ZIP_FILE = "<path_to_secureConnectBundle.zip>";
-        static final String ASTRA_USERNAME = "<provide_a_clientId>";
-        static final String ASTRA_PASSWORD = "<provide_a_clientSecret>";
-        static final String ASTRA_KEYSPACE = "<provide_your_keyspace>";
-
         public static void main(String[] args) {
           try(Cluster cluster = Cluster.builder()
-            .withCloudSecureConnectBundle(new File(ASTRA_ZIP_FILE))
-            .withCredentials(ASTRA_USERNAME, ASTRA_PASSWORD)
+            .withCloudSecureConnectBundle(new File("/path/to/scb.zip"))
+            .withCredentials("clientId", "clientSecret")
             .build() ) {
-              Session session = cluster.connect(ASTRA_KEYSPACE);
+              Session session = cluster.connect("keyspace");
               System.out.println("Hello keyspace " + session.getLoggedKeyspace());
           }
         }
@@ -279,14 +304,35 @@ Alternatively, or complementary the connection information can be specified in t
       }
       ```
 
-???+ abstract "Resources"
-
       <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
             <i class="fa fa-download" ></i>&nbsp;Download Driver 3x Sample
       </a>
 
-      - [Multiple Standalone Classes using driver 3.x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-3x/src/main/java/com/datastax/samples)
+!!! info "What you need to know"
 
+      - If you work with previous versions of the driver (lower than `3.8` ) the support of Astra is not Ad-hoc it is recommended to migrate. Yet it is possible to use the `SSL` options. [Documentation](https://docs.datastax.com/en/astra-serverless/docs/connect/drivers/legacy-drivers.html#_java_legacy_driver_versions) and sample codes can be found here. 
+
+#### Sample Code Library
+
+| Classname | Description        |
+| :-------------: |:---------------------|
+| [GettingStarted3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_00_GettingStarted.java) | First touch with executing queries |
+| [Simple3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_01_Simple.java) |  Read, update, insert, delete operations using `QueryBuilder` |
+| [ShowMetaData3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_ClusterShowMetaData.java) | Connect to cluster then show keyspaces and metadata |
+| [CreateKeyspace3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_CreateKeyspace.java) |  Create the `killrvideo` keyspace using `SchemaBuilder` if not exist |
+| [CreateSchema3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_CreateSchema.java) | Create `table` and `type` in `killrvideo` keyspace if they don't exist |
+| [DropKeyspace3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_DropKeyspace.java) |  Drop the `killrvideo` keyspace if existis using  `SchemaBuilder` |
+| [DropSchema3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_DropSchema.java) |  Drop all  `table` and `type` in `killrvideo` keyspace if they exist |
+| [Paging3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_02_Paging.java) | Illustrating FetchSize and how to retrieve page by page |
+| [Batches3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_03_Batches.java) | Group statements within batches|
+| [ListSetMapUdt3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_04_ListSetMapAndUdt.java) |  Advanced types insertions with `list`, `set`, `map` but also `User Defined Type` |
+| [Json3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_05_Json.java) | Work with columns or full record with `JSON` |
+| [Async3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_06_Async.java) | Sample operations as Simple in `Asynchronous` way |
+| [ObjectMapping3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_07_ObjectMapping.java) | Map table record to Java POJO at driver level |
+| [Counter3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_08_Counters.java) | Working with `counters` increment/decrement|
+| [Lwt3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_09_LightweightTransactions.java) | Working for Lightweight transactions read-before-write|
+| [BlobAndCodec3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_10_BlobAndCodec.java) | Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
+| [CloudAstra3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_ServiceCloudAstra.java) | Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
 
 ### 3.3 Astra SDK
 
@@ -346,7 +392,7 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-## 3. Api Rest
+## 4. Api Rest
 
 !!! important "⚠️ We recommend to use version `V2` (_with V2 in the URL_) as it covers more features and the V1 would be deprecated sooner."
 
@@ -354,7 +400,7 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
 To know more regarding this interface specially you can have a look to [dedicated section of the wiki](https://awesome-astra.github.io/docs//Stargate-Api-Rest) or [reference Stargate Rest Api Quick Start Guide](https://stargate.io/docs/stargate/1.0/quickstart/quick_start-rest.html).
 
-### 3.1 `Http Client`
+### 4.1 `Http Client`
 
 You need an `HTTP Client` to use the Rest API. There are a lot of clients in the Java languages like [HttpURLConnection](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/HttpURLConnection.html), [HttpClient introduced in Java 11](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html), [Apache HTTPClient](https://hc.apache.org/httpcomponents-client-5.0.x/index.html), [OkHttpClient](https://square.github.io/okhttp/), [Jetty HttpClient](https://www.eclipse.org/jetty/documentation/current/http-client.html). A comparison is provided is this [blogpost](https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/) to make your choice. In this tutorial, we will use the `Apache HttpClient`, which is included in the SDK. You should adapt the code depending on the framework you have chosen.
 
@@ -528,7 +574,7 @@ You need an `HTTP Client` to use the Rest API. There are a lot of clients in the
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
 
-### 3.2 `Astra SDK`
+### 4.2 `Astra SDK`
 
 The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
@@ -586,11 +632,11 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-## 4. Api Document
+## 5. Api Document
 
 The Document API is an HTTP REST API and part of the open source Stargate.io. The idea is to provide an abstraction on top of Apache Cassandra™ to allow document-oriented access patterns. To get familiar with it you can access [documentation and sandbox here](/docs/pages/develop/api/document/)
 
-### 4.1 `Http Client`
+### 5.1 `Http Client`
 
 ???+ note annotate "Import dependencies in your `pom.xml`"
 
@@ -641,7 +687,7 @@ The Document API is an HTTP REST API and part of the open source Stargate.io. Th
       </a>
 
 
-### 4.2 `Astra SDK`
+### 5.2 `Astra SDK`
 
 The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
@@ -699,9 +745,9 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
 
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
-## 5 Api GraphQL
+## 6 Api GraphQL
 
-### 5.1 `Astra SDK`
+### 6.1 `Astra SDK`
 
 The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
@@ -760,9 +806,9 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
       - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
 
 
-## 6. Api gRPC
+## 7. Api gRPC
 
-### 6.1 Grpc Client
+### 7.1 Grpc Client
 
 ???+ note annotate "Import dependencies in your `pom.xml`"
 
@@ -820,7 +866,7 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
         System.out.println("You are connected to '%s'".formatted(datacenterName));
       ```
 
-### 6.2 Astra SDK
+### 7.2 Astra SDK
 
 The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 
