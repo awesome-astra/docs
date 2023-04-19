@@ -348,8 +348,8 @@ astra db create-dotenv workshops -k library
 Run the code in your environment.
 
 ```
-go build astra_stargate_example.go
-./astra_stargate_example
+go build astra_stargate_rest_example.go
+./astra_stargate_rest_example
 ```
 
 ## 6 <a name="6-api-graphql">Stargate GraphQL API</a>
