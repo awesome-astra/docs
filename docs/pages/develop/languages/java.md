@@ -5,11 +5,7 @@
 <img src="../../../../img/tile-java.png" align="center" 
   height="130px" width="130px" style="margin-top:-150px"/>
 
-**Select the API you want to connect to Astra with JAVA**
-
-Astra offers different Apis and interfaces. To know more about the ussage of each one check the pages dedicated to each one.
-
-- **ASTRA DB (Stargate Apis)**
+Astra offers different Apis. Select the API you want to use below to get documentation.
 
 <a href="#2-native-cassandra-drivers">
  <img src="../../../../img/tile-api-cql.png" height="130px" width="130px"/>
@@ -51,18 +47,28 @@ mvn -version
 
     - You should have an [Astra account](https://astra.dev/3B7HcYo)
     - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
-    - You should [Have an Astra Token](/docs/pages/astra/create-token/)
-    - You should [Download your Secure bundle](/docs/pages/astra/download-scb/)
+    
+## 2. Cassandra Drivers
 
-## 2. Native Cassandra Drivers
+### 2.1 Connectivity
 
-> Driver reference documentation can be found [HERE](https://docs.datastax.com/en/developer/java-driver/4.13/), this page is focused on connectivity with Astra DB only.
+To access Datastax Astra with Java drivers 2 assets are needed:
 
-### 2.1 Cassandra Drivers 4.x
+- An **Astra Token** stands as your credentials (`clientId / clientSecret`). It holds the different permissions. The scope of a token is the whole organization but permissions can be edited to limit usage to a single database To create one with the expected properties use [those instructions](/docs/pages/astra/create-token/)
+
+- A **Secure Connect Bundle** contains the certificates and endpoints informations to open a [mTLS connection](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/). Often mentionned as `scb` its scope is a database AND a region. If your database is deployed on multiple regions you will have to download the bundle for each one and initiate the connection accordingly. Instructions to [download Secure Connect Bundle are here](/docs/pages/astra/download-scb/)
+
+<img src="../../../../img/drivers/drivers-connectivity.png" />
+
+### 2.2 Drivers 4.x
 
 !!! important "Version 4.x is recommended"
 
-Version 4 is major redesign of the internal architecture. As such, it is not binary compatible with previous versions. However, most of the concepts remain unchanged, and the new API will look very familiar to 2.x and 3.x users.
+> The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
+
+Using the DataStax Java Driver to connect to a DataStax Astra database is almost identical to using the driver to connect to any normal Apache Cassandra® database. The only differences are in how the driver is configured in an application and that you will need to obtain a secure connect bundle.
+
+#### Project Dependencies
 
 ???+ note annotate "Import dependencies in your `pom.xml`"
 
@@ -91,49 +97,143 @@ Version 4 is major redesign of the internal architecture. As such, it is not bin
       </dependency>
       ```
 
-???+ note "Standalone Code"
+#### QuickStart
 
-      - `CqlSession` implements Closable. It should be a singleton in your application
+???+ example "Sample Connection Code"
 
-      - Spring-Data 3.x+ relies on those Drivers 4x. If you define a `CqlSession` bean, it will use it.
-      
+      - Create an `AstraDriver4x.java` class with the following code
+
       ```java
       import java.nio.file.Paths;
       import com.datastax.oss.driver.api.core.CqlSession;
 
       public class AstraDriver4x {
 
-       static final String ASTRA_ZIP_FILE = "<path_to_secureConnectBundle.zip>";
-       static final String ASTRA_USERNAME = "<provide_a_clientId>";
-       static final String ASTRA_PASSWORD = "<provide_a_clientSecret>";
-       static final String ASTRA_KEYSPACE = "<provide_your_keyspace>";
-
-       public static void main(String[] args) {
-         try (CqlSession cqlSession = CqlSession.builder()
-           .withCloudSecureConnectBundle(Paths.get(ASTRA_ZIP_FILE))
-           .withAuthCredentials(ASTRA_USERNAME, ASTRA_PASSWORD)
-           .withKeyspace(ASTRA_KEYSPACE)
-           .build()) {
+        public static void main(String[] args) {
+          try (CqlSession cqlSession = CqlSession.builder()
+            .withCloudSecureConnectBundle(Paths.get("/path/to/scb.zip"))
+            .withAuthCredentials("user_name","password")
+            .withKeyspace("keyspace_name")
+            .build()) {
             System.out.println("Hello keyspace {} !" + cqlSession.getKeyspace().get());
-         }
-       }
-
+          }
+        }
       }
       ```
-
-???+ abstract "Resources"
-
 
       <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
       <i class="fa fa-download" ></i>&nbsp;Download This sample code
       </a>
 
-      - To learn more about the history of the 4.x Java driver, check out [this blogpost](https://www.datastax.com/blog/introducing-java-driver-4).
-      - To migrate from `3.x`, use the [upgrade guide](https://docs.datastax.com/en/developer/java-driver/4.13/upgrade_guide/#4-0-0) but you can also keep using `3.x` as described [below](#using-java-cassandra-drivers-version-3x)
-      - [Multiple Standalone Classes using driver 4.x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-4x/src/main/java/com/datastax/samples)
-      - [Spring PetClinic in Reactive](https://github.com/spring-petclinic/spring-petclinic-reactive) and especially the [mapper](https://github.com/spring-petclinic/spring-petclinic-reactive/tree/master/src/main/java/org/springframework/samples/petclinic/vet/db)
+!!! info "What you need to know"
 
-### 1.2 Cassandra Drivers 3.x
+      **📦 About Secure Connect Bundle**
+
+      - The path to the **secure connect bundle** for your Astra database is specified with `withCloudSecureConnectBundle()`, it accepts `String`, `File` and `URL`. 
+      - An SSL connection will be established automatically. Manual SSL configuration is not allowed, any settings in the driver configuration (`advanced.ssl-engine-factory`) will be ignored.
+      - The secure connect bundle contains all of the necessary contact information. Specifying contact points manually is not allowed, and will result in an error
+
+      **⚙️ About Parameters**
+
+      - The **authentication credentials** must be specified separately with `withAuthCredentials()`, and match the username and password that were configured when creating the Astra database.
+      - The keyspace is here required and provided with `.withKeyspace()`
+      
+      - if the driver configuration does not specify an explicit consistency level, it will default to `LOCAL_QUORUM` (instead of LOCAL_ONE when connecting to a normal Cassandra database).
+
+      - Extra configuration can be provided in `application.conf` file. 
+
+      **🔌 About `CqlSession`**
+
+      - All operations of the drivers can be execute from this object.
+
+      - It a stateful, `autocloseable`, object, and must be a **singleton** in your application.
+
+#### File-based configuration
+
+Alternatively, or complementary the connection information can be specified in the driver’s configuration file (`application.conf`). Merge the following options with any content already present. All keys available in the file are available in [reference.conf](https://docs.datastax.com/en/developer/java-driver/4.14/manual/core/configuration/reference/)
+
+???+ example "Recommended `application.conf`"
+
+      ```
+      datastax-java-driver {
+        basic {
+          request {
+    	      timeout     = 10 seconds
+            consistency = LOCAL_QUORUM
+          }
+          # change this to match the target keyspace
+          session-keyspace = keyspace_name
+          cloud {
+            secure-connect-bundle = /path/to/secure-connect-database_name.zip
+          }
+        }
+        advanced {
+          auth-provider {
+            class = PlainTextAuthProvider
+            username = user_name 
+            password = password
+          }
+          connection {
+            init-query-timeout = 10 seconds
+            set-keyspace-timeout = 10 seconds
+            pool {
+              local-size = 1
+            }
+          }
+          reconnection-policy {
+            class = ExponentialReconnectionPolicy
+            base-delay = 5 seconds
+            max-delay = 60 seconds
+          }
+          control-connection.timeout = 10 seconds
+        }
+      }
+      ```
+     
+!!! info "What you need to know"
+
+      - The configuration file `application.conf` is automatically loaded when present on the classpath. It can be used in any java-based application with no difference (_spring, quarkus..._)
+      - `dc-failover` is **NOT** available as a different secure connect bundles are required for different regions (1 region = 1 dc in Astra)
+
+#### Sample Code Library
+
+| Classname | Description        |
+| :-------------: |:---------------------|
+|  [ShowMetaData4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_ClusterShowMetaData.java) |  Connect to Astra and show keyspaces and metadata from the CqlSession |
+| [CreateSchema4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_CreateSchema.java) | Create schema with different `table` and `type` (UDT) if they do not exist in keyspace |
+| [DropSchema4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_DropSchema.java)|  Remove assets of the schema,`table` and `type` (UDT) if they exist in target keyspace |
+| [ConfigurationFile4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_DriverConfigLoader.java) | Setup the driver to use customize configuration file and not default `application.conf` |
+| [ProgrammaticConfiguration](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_ProgrammaticConfiguration.java) |  Setup the driver in a programmatic way and not reading `application.conf` |
+| [Getting Started](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_00_GettingStarted.java)| First touch with executing queries |
+| [Simple4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_01_Simple.java) |  Read, update, insert, delete operations using `QueryBuilder` |
+| [Paging4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_02_Paging.java) | Illustrating FetchSize and how to retrieve page by page |
+| [Batches4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_03_Batches.java) |  Group statements within batches|
+| [ListSetMapUdt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_04_ListSetMapAndUdt.java) |  Advanced types insertions with `list`, `set`, `map` but also `User Defined Type` |
+| [Json4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_05_Json.java) |  Work with columns or full record with `JSON` |
+| [Async4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_06_Async.java) |  Sample operations as Simple in `Asynchronous` way |
+| [ObjectMapping4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_07_ObjectMapping.java) | Map table record to Java POJO at driver level |
+| [Counter4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_08_Counters.java) |  Working with `counters` increment/decrement|
+| [Lwt4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_09_LightweightTransactions.java) |  Working for Lightweight transactions read-before-write|
+| [BlobAndCodec4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_10_BlobAndCodec.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
+| [CloudAstra4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CONNECT_ServiceCloudAstra.java) |  Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
+| [Reactive4x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master//example-4x/example-4x/src/main/java/com/datastax/samples/SampleCode4x_CRUD_11_Reactive.java) |  Working with the Reactive API introduce in driver 4.x|
+
+#### Sample Projects Gallery
+
+| Classname | Description        |
+| :-------------: |:---------------------|
+| [Spring PetClinic in Reactive](https://github.com/spring-petclinic/spring-petclinic-reactive) | Implementation of the `PetClinic` spring application using the reactive part of the drivers. Other frameworks used are `spring-data-cassandra` and `spring-boot`
+| [Quarkus Todo application](https://github.com/datastaxdevs/quarkus-astra-intro-demo) | Leveraging Quarkus extension to build a quarkus application |
+| [Better Reads](https://github.com/datastaxdevs/workshop-betterreads) | A clone of Good reads using Spring Boot and Spring Data Cassandra |
+| [E-Commerce](https://github.com/datastaxdevs/workshop-ecommerce-app) | A full fledge e-commerce portal with catalog, shopping cart, payment and order processing with Spring Boot |
+| [Build Microservices](https://github.com/datastaxdevs/workshop-microservices-java) | Microservices with Spring |
+| [Devoxx 2022](https://github.com/datastaxdevs/conference-2022-devoxx) | 3h of deep dive on how to build java applications with Spring, Quarkus and Micronaut |
+| [Java Native](https://github.com/datastaxdevs/workshop-spring-quarkus-micronaut-cassandra) | Build todo application in Java Native with Spring, Quarkus and Micronaut |
+| [Stargate TV Show](https://github.com/datastaxdevs/workshop-spring-stargate) | Reproduce the wheel or Stargate TV Show with destination in Astra |
+| [Spring Data Cassandra](https://github.com/datastaxdevs/workshop-spring-data-cassandra) | Deep dive with Spring data cassandra |
+
+
+### 3.2 Cassandra Drivers 3.x
 
 !!! warning "Version 4.x is recommended, it is unlikely that 3.x will get new updates except maintenance and CVE."
 
@@ -188,7 +288,7 @@ Version 4 is major redesign of the internal architecture. As such, it is not bin
       - [Multiple Standalone Classes using driver 3.x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/tree/master/example-3x/src/main/java/com/datastax/samples)
 
 
-### 1.3 Astra SDK
+### 3.3 Astra SDK
 
 The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
 

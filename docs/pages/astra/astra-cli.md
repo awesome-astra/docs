@@ -128,7 +128,7 @@ astra setup
 
 ???+ tip "Skip interactive mode"
 
-    In your scripts your may want to avoid explicit provide inputs in prompts. To setup the CLI as a non interactive use the following:
+    This can also be done non-interactively (for example, using a script) by providing token as a flag. Do do it, run:
     
     ```
     astra setup --token AstraCS:******
@@ -293,23 +293,24 @@ Still, for ease of use here is a glossary of the commands:
 | **[`create-region <DB>`](#)** | [Expand database to a rew region (multi-region)](#) |
 | **[`delete <DB>`](#)** | [Delete a database](#) |
 | **[`delete-cdc <DB>`](#)** | [Delete a change data capture](#)|
+| **[`delete-keyspace <DB>`](#)** | [Delete a keyspace](#)|
 | **[`delete-region <DB>`](#)** | [Remove a region from a database](#) |
 | **[`describe <DB>`](#)** | [Describe metadata of a database](#) |
 | **[`download-scb <DB>`](#)** | [Download the secure connect bundle for database region](#) |
 | **[`get <DB>`](#)** | [Describe metadata of a database](#)|
-| **[`list`](#)** | [List dataases in the organization](#) |
-| **[`list-cdc <DB>`](#)** | [](#) |
-| **[`list-clouds`](#)** |[](#) |
-| **[`list-keyspaces <DB>`](#)** | [](#) |
-| **[`list-regions <DB>`](#)** | [](#)|
-| **[`list-regions-classic`](#)** | [](#) |
-| **[`list-regions-serverless`](#)** | [](#)|
-| **[`load <DB>`](#)** |[](#) |
-| **[`playground <DB>`](#)** | [](#)|
-| **[`resume <DB>`](#)** | [](#) |
-| **[`status <DB>`](#)** | [](#) |
-| **[`swagger <DB>`](#)** | [](#) |
-| **[`unload <DB>`](#)**   | [](#) |
+| **[`list`](#)** | [List databases in the organization](#) |
+| **[`list-cdc <DB>`](#)** | [List Change Data Captures](#) |
+| **[`list-clouds`](#)** |[List clouds available to deploy db](#) |
+| **[`list-keyspaces <DB>`](#)** | [List keyspaces for a DB](#) |
+| **[`list-regions <DB>`](#)** | [List regions (datacenters) for a DB](#)|
+| **[`list-regions-classic`](#)** | [List available regions for classic](#) |
+| **[`list-regions-serverless`](#)** | [List available regions for serverless](#)|
+| **[`load <DB>`](#)** |[Load a CSV into a table](#) |
+| **[`playground <DB>`](#)** | [Show GraphQL Playground URL](#)|
+| **[`resume <DB>`](#)** | [Resume DB that was hibernated](#) |
+| **[`status <DB>`](#)** | [Show DB Status](#) |
+| **[`swagger <DB>`](#)** | [Show swagger url](#) |
+| **[`unload <DB>`](#)**   | [Leverage DSbulk to dump data](#) |
 
 ### **3.2. List**
 
