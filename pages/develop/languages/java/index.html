@@ -1512,22 +1512,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#project-dependencies" class="md-nav__link">
-    Project Dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#quickstart" class="md-nav__link">
-    QuickStart
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#file-based-configuration" class="md-nav__link">
-    File-based configuration
+    Quickstart
   </a>
   
 </li>
@@ -1558,13 +1544,6 @@
   
     <nav class="md-nav" aria-label="3.2 Drivers 3.x">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#project-dependencies_1" class="md-nav__link">
-    Project Dependencies
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#quickstart_1" class="md-nav__link">
@@ -2947,22 +2926,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#project-dependencies" class="md-nav__link">
-    Project Dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#quickstart" class="md-nav__link">
-    QuickStart
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#file-based-configuration" class="md-nav__link">
-    File-based configuration
+    Quickstart
   </a>
   
 </li>
@@ -2993,13 +2958,6 @@
   
     <nav class="md-nav" aria-label="3.2 Drivers 3.x">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#project-dependencies_1" class="md-nav__link">
-    Project Dependencies
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#quickstart_1" class="md-nav__link">
@@ -3171,8 +3129,8 @@
 <img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;</p>
 <h2 id="1-pre-requisites">1. Pre-requisites<a class="headerlink" href="#1-pre-requisites" title="Permanent link">&para;</a></h2>
-<div class="admonition abstract">
-<p class="admonition-title">Setup your Development environment</p>
+<details class="abstract">
+<summary>Setup your Development environment</summary>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Install Java Development Kit (JDK) 8+</strong></li>
 </ul>
@@ -3185,9 +3143,9 @@
 <p>Samples and tutorials have been designed with <code>Apache Maven</code>. Use the <a href="https://maven.apache.org/install.html">reference documentation</a> top install maven validate your installation with </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
-</div>
-<div class="admonition abstract">
-<p class="admonition-title">Setup Datastax Astra</p>
+</details>
+<details class="abstract">
+<summary>Setup Datastax Astra</summary>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Create your DataStax Astra account</strong>: </li>
 </ul>
@@ -3228,18 +3186,16 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>astra db download-scb db_demo -f /tmp/secure-connect-bundle-db-demo.zip
 </code></pre></div>
 <p>With an account and a database running you are all set.</p>
-</div>
+</details>
 <h2 id="2-cassandra-drivers">2. Cassandra Drivers<a class="headerlink" href="#2-cassandra-drivers" title="Permanent link">&para;</a></h2>
 <h3 id="21-drivers-4x">2.1 Drivers 4.x<a class="headerlink" href="#21-drivers-4x" title="Permanent link">&para;</a></h3>
 <blockquote>
-<div class="admonition tip">
-<p class="admonition-title">4.x is the recommended version for the drivers</p>
-</div>
 <p>The official documentation for the drivers can be found <a href="https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/">here</a></p>
+<p><code>4.x</code> is the <strong>recommended</strong> version for the drivers</p>
 </blockquote>
-<h4 id="project-dependencies">Project Dependencies<a class="headerlink" href="#project-dependencies" title="Permanent link">&para;</a></h4>
-<div class="admonition note annotate">
-<p class="admonition-title">Import dependencies in your <code>pom.xml</code></p>
+<h4 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h4>
+<details class="note annotate" open="open">
+<summary>Projet Setup</summary>
 <ul>
 <li>
 <p>Any version <code>4.x</code> should be compatible with Astra.</p>
@@ -3267,35 +3223,48 @@
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="nt">&lt;version&gt;</span>${latest4x}<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-</div>
-<h4 id="quickstart">QuickStart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h4>
+</details>
 <details class="example" open="open">
-<summary>Sample Connection Code</summary>
+<summary>Sample Code</summary>
 <ul>
-<li>Create an <code>AstraDriver4x.java</code> class with the following code</li>
+<li>Create an <a href="https://github.com/awesome-astra/sample-java-driver4x/blob/main/src/main/java/com/datastax/astra/AstraDriver4x.java"><code>AstraDriver4x.java</code></a> class with the following code</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver4x</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;/path/to/scb.zip&quot;</span><span class="p">))</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="s">&quot;user_name&quot;</span><span class="p">,</span><span class="s">&quot;password&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace_name&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello keyspace {} !&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cqlSession</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">AstraDriver4x.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.datastax.astra</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver4x</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;/tmp/secure-connect-bundle-db-demo.&quot;</span><span class="p">))</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="s">&quot;client_id&quot;</span><span class="p">,</span><span class="s">&quot;client_secret&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace_demo&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Connected to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cqlSession</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <p><a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
-  <i class="fa fa-download" ></i>&nbsp;Download This sample code
+  <i class="fa fa-download" ></i>&nbsp;Download The project
   </a></p>
 </details>
-<div class="admonition info">
-<p class="admonition-title">What you need to know</p>
+<details class="info" open="open">
+<summary>What you need to know</summary>
 <p><strong>📦 About Secure Connect Bundle</strong></p>
 <ul>
 <li>The path to the <strong>secure connect bundle</strong> for your Astra database is specified with <code>withCloudSecureConnectBundle()</code>, it accepts <code>String</code>, <code>File</code> and <code>URL</code>. </li>
@@ -3324,8 +3293,8 @@
 <p>It a stateful, <code>autocloseable</code>, object, and must be a <strong>singleton</strong> in your application.</p>
 </li>
 </ul>
-</div>
-<h4 id="file-based-configuration">File-based configuration<a class="headerlink" href="#file-based-configuration" title="Permanent link">&para;</a></h4>
+</details>
+<p><strong>File-based configuration</strong></p>
 <p>Alternatively, or complementary the connection information can be specified in the driver’s configuration file (<code>application.conf</code>). Merge the following options with any content already present. All keys available in the file are available in <a href="https://docs.datastax.com/en/developer/java-driver/4.14/manual/core/configuration/reference/">reference.conf</a></p>
 <details class="example" open="open">
 <summary>Recommended <code>application.conf</code></summary>
@@ -3363,7 +3332,7 @@
 <a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>  }
 <a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>}
 </code></pre></div>
-<p>With the file in the classpaht the previous code is updated as the following:</p>
+<p>With the file in the classpath, the previous code is updated as the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
@@ -3376,13 +3345,13 @@
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<div class="admonition info">
-<p class="admonition-title">What you need to know</p>
+<details class="info" open="open">
+<summary>What you need to know</summary>
 <ul>
 <li>The configuration file <code>application.conf</code> is automatically loaded when present on the classpath. It can be used in any java-based application with no difference (<em>spring, quarkus...</em>)</li>
 <li><code>dc-failover</code> is <strong>NOT</strong> available as a different secure connect bundles are required for different regions (1 region = 1 dc in Astra)</li>
 </ul>
-</div>
+</details>
 <h4 id="sample-code-library">Sample Code Library<a class="headerlink" href="#sample-code-library" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -3514,12 +3483,13 @@
 </tbody>
 </table>
 <h3 id="32-drivers-3x">3.2 Drivers 3.x<a class="headerlink" href="#32-drivers-3x" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Version 3.x is still maintained but not recommended version. It will not get evolutions in the future</p>
-</div>
-<h4 id="project-dependencies_1">Project Dependencies<a class="headerlink" href="#project-dependencies_1" title="Permanent link">&para;</a></h4>
-<details class="note annotate">
-<summary>Import dependencies in your <code>pom.xml</code></summary>
+<blockquote>
+<p>The official documentation for the drivers can be found <a href="https://docs.datastax.com/en/developer/java-driver/3.11/manual/cloud/">here</a></p>
+<p>Version <code>3.x</code> is still maintained but not recommended version. It will not get evolutions in the future"</p>
+</blockquote>
+<h4 id="quickstart_1">QuickStart<a class="headerlink" href="#quickstart_1" title="Permanent link">&para;</a></h4>
+<details class="note annotate" open="open">
+<summary>Projet Setup</summary>
 <ul>
 <li>Version <strong>3.8+</strong> or more is required to connect to Astra.</li>
 <li>Update your <code>pom.xml</code> file with the latest version of the 3.x libraries: <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg" /></a></li>
@@ -3545,7 +3515,6 @@
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 </details>
-<h4 id="quickstart_1">QuickStart<a class="headerlink" href="#quickstart_1" title="Permanent link">&para;</a></h4>
 <details class="example" open="open">
 <summary>Example Code</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
@@ -3556,10 +3525,10 @@
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="k">try</span><span class="p">(</span><span class="n">Cluster</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cluster</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;/path/to/scb.zip&quot;</span><span class="p">))</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withCredentials</span><span class="p">(</span><span class="s">&quot;clientId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clientSecret&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;/tmp/secure-connect-bundle-db-demo.zip&quot;</span><span class="p">))</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withCredentials</span><span class="p">(</span><span class="s">&quot;client_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client_secret&quot;</span><span class="p">)</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="n">Session</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="s">&quot;keyspace&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="n">Session</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="s">&quot;keyspace_demo&quot;</span><span class="p">);</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello keyspace &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getLoggedKeyspace</span><span class="p">());</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span><span class="p">}</span>
@@ -4203,7 +4172,7 @@
   <small>
     
       Last update:
-      2023-04-19
+      2023-04-20
     
   </small>
 </div>

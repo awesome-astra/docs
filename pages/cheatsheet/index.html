@@ -2678,6 +2678,19 @@
     Executable Code (REPLIT)
   </a>
   
+    <nav class="md-nav" aria-label="Executable Code (REPLIT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-code-block" class="md-nav__link">
+    External code block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2827,6 +2840,37 @@
 <p><a href="https://replit.com/@CLU2/ConnectToAstra.zip"><img alt="dl" src="https://dabuttonfactory.com/button.png?t=Download+Project&amp;f=Open+Sans-Bold&amp;ts=14&amp;tc=fff&amp;hp=15&amp;vp=15&amp;w=180&amp;h=50&amp;c=11&amp;bgt=pyramid&amp;bgc=666&amp;ebgc=000&amp;bs=1&amp;bc=444" /></a></p>
 <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
 
+<h3 id="external-code-block">External code block<a class="headerlink" href="#external-code-block" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">AstraDriver4x.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.datastax.astra</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.datastax.oss.driver.api.core.CqlSession</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AstraDriver4x</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CqlSession</span><span class="w"> </span><span class="n">cqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CqlSession</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">      </span><span class="p">.</span><span class="na">withCloudSecureConnectBundle</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;/tmp/secure-connect-bundle-db-demo.&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withAuthCredentials</span><span class="p">(</span><span class="s">&quot;client_id&quot;</span><span class="p">,</span><span class="s">&quot;client_secret&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace_demo&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Connected to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cqlSession</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="mermaids">Mermaids<a class="headerlink" href="#mermaids" title="Permanent link">&para;</a></h2>
 <h3 id="1-flow">1️⃣ Flow<a class="headerlink" href="#1-flow" title="Permanent link">&para;</a></h3>
 <p><strong>Cassandra</strong></p>
@@ -2855,26 +2899,26 @@
     Request-- invoke --&gt;cassandra</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph<span class="w"> </span>LR
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>user&gt;fa:fa-user<span class="w"> </span>Developer<span class="o">]</span>--<span class="w"> </span>Create<span class="w"> </span>Database<span class="w"> </span>--&gt;<span class="w"> </span>cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>user--<span class="w"> </span>Design<span class="w"> </span>--&gt;usecase<span class="o">{{</span>fa:fa-cube<span class="w"> </span>Use<span class="w"> </span>Case<span class="o">}}</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>usecase--<span class="w"> </span>Workflow<span class="w"> </span>--&gt;queries<span class="o">[</span>fa:fa-bezier-curve<span class="w"> </span>queries<span class="o">]</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>usecase--<span class="w"> </span>MCD<span class="w"> </span>--&gt;entities<span class="o">[</span>fa:fa-grip-vertical<span class="w"> </span>entities<span class="o">]</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>queries--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>entities--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>schema<span class="o">[</span>fa:fa-list<span class="w">  </span>schema<span class="o">]</span>--<span class="w"> </span>Inject<span class="w"> </span>--&gt;cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span>user--<span class="w"> </span>prepare<span class="w"> </span>--&gt;dataset<span class="o">{{</span>fa:fa-coings<span class="w"> </span>DataSet<span class="o">}}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span>dataset--<span class="w"> </span>input<span class="w"> </span>--&gt;dsbulk--<span class="w"> </span>load<span class="w"> </span>data<span class="w"> </span>--&gt;cassandra
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span>user--<span class="w"> </span>Create<span class="w"> </span>Token<span class="w"> </span>--&gt;token<span class="o">{{</span>fa:fa-key<span class="w"> </span>Token<span class="o">}}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span>usecase--&gt;API
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span>API--&gt;Request
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span>token--&gt;Request
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span>schema--&gt;Request
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span>Request--<span class="w"> </span>invoke<span class="w"> </span>--&gt;cassandra
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>graph<span class="w"> </span>LR
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span>user&gt;fa:fa-user<span class="w"> </span>Developer<span class="o">]</span>--<span class="w"> </span>Create<span class="w"> </span>Database<span class="w"> </span>--&gt;<span class="w"> </span>cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span>user--<span class="w"> </span>Design<span class="w"> </span>--&gt;usecase<span class="o">{{</span>fa:fa-cube<span class="w"> </span>Use<span class="w"> </span>Case<span class="o">}}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>usecase--<span class="w"> </span>Workflow<span class="w"> </span>--&gt;queries<span class="o">[</span>fa:fa-bezier-curve<span class="w"> </span>queries<span class="o">]</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>usecase--<span class="w"> </span>MCD<span class="w"> </span>--&gt;entities<span class="o">[</span>fa:fa-grip-vertical<span class="w"> </span>entities<span class="o">]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span>queries--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span>entities--<span class="w"> </span>Chebotko<span class="w"> </span>modelization<span class="w"> </span>--&gt;schema<span class="o">[</span>fa:fa-list<span class="w"> </span>schema<span class="o">]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span>schema<span class="o">[</span>fa:fa-list<span class="w">  </span>schema<span class="o">]</span>--<span class="w"> </span>Inject<span class="w"> </span>--&gt;cassandra<span class="o">[(</span>fa:fa-database<span class="w"> </span>Cassandra<span class="o">)]</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span>user--<span class="w"> </span>prepare<span class="w"> </span>--&gt;dataset<span class="o">{{</span>fa:fa-coings<span class="w"> </span>DataSet<span class="o">}}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span>dataset--<span class="w"> </span>input<span class="w"> </span>--&gt;dsbulk--<span class="w"> </span>load<span class="w"> </span>data<span class="w"> </span>--&gt;cassandra
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span>user--<span class="w"> </span>Create<span class="w"> </span>Token<span class="w"> </span>--&gt;token<span class="o">{{</span>fa:fa-key<span class="w"> </span>Token<span class="o">}}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span>usecase--&gt;API
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span>API--&gt;Request
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span>token--&gt;Request
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span>schema--&gt;Request
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span>Request--<span class="w"> </span>invoke<span class="w"> </span>--&gt;cassandra
 </code></pre></div>
 </div>
 </div>
@@ -2890,13 +2934,13 @@
   C--&gt;D;</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>   ```mermaid
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   graph TD;
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>     A--&gt;B;
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>     A--&gt;C;
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>     B--&gt;D;
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>     C--&gt;D;
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>   ```mermaid
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   graph TD;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>     A--&gt;B;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>     A--&gt;C;
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>     B--&gt;D;
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>     C--&gt;D;
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -2912,13 +2956,13 @@
   C --&gt;|Two| E[Result 2]</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>   ```mermaid
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   graph TD
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>     A[Hard] --&gt;|Text| B(Round)
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>     B --&gt; C{Decision}
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>     C --&gt;|One| D[Result 1]
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>     C --&gt;|Two| E[Result 2]
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>   ```mermaid
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   graph TD
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     A[Hard] --&gt;|Text| B(Round)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>     B --&gt; C{Decision}
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>     C --&gt;|One| D[Result 1]
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>     C --&gt;|Two| E[Result 2]
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -2938,18 +2982,18 @@ John-&gt;&gt;Bob: How about you?
 Bob--&gt;&gt;John: Jolly good!</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>   ```mermaid
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   sequenceDiagram
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   Alice-&gt;&gt;John: Hello John, how are you?
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   loop Healthcheck
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>       John-&gt;&gt;John: Fight against hypochondria
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>   end
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   Note right of John: Rational thoughts!
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   John--&gt;&gt;Alice: Great!
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>   John-&gt;&gt;Bob: How about you?
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>   Bob--&gt;&gt;John: Jolly good!
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>   ```mermaid
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>   sequenceDiagram
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   Alice-&gt;&gt;John: Hello John, how are you?
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   loop Healthcheck
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       John-&gt;&gt;John: Fight against hypochondria
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   end
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   Note right of John: Rational thoughts!
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   John--&gt;&gt;Alice: Great!
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   John-&gt;&gt;Bob: How about you?
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>   Bob--&gt;&gt;John: Jolly good!
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -2968,17 +3012,17 @@ Parallel 3   :         des5, after des3, 1d
 Parallel 4   :         des6, after des4, 1d</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>   ```mermaid
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>   gantt
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   section Section
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   Completed :done,    des1, 2014-01-06,2014-01-08
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   Active        :active,  des2, 2014-01-07, 3d
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   Parallel 1   :         des3, after des1, 1d
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   Parallel 2   :         des4, after des1, 1d
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   Parallel 3   :         des5, after des3, 1d
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   Parallel 4   :         des6, after des4, 1d
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>   ```mermaid
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   gantt
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   section Section
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   Completed :done,    des1, 2014-01-06,2014-01-08
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>   Active        :active,  des2, 2014-01-07, 3d
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>   Parallel 1   :         des3, after des1, 1d
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   Parallel 2   :         des4, after des1, 1d
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>   Parallel 3   :         des5, after des3, 1d
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>   Parallel 4   :         des6, after des4, 1d
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3005,25 +3049,25 @@ class Class10 {
 }</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>   ```mermaid
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   classDiagram
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   Class01 &lt;|-- AveryLongClass : Cool
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   &lt;&lt;interface&gt;&gt; Class01
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>   Class09 --&gt; C2 : Where am i?
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>   Class09 --* C3
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   Class09 --|&gt; Class07
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>   Class07 : equals()
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>   Class07 : Object[] elementData
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>   Class01 : size()
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>   Class01 : int chimp
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>   Class01 : int gorilla
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>   class Class10 {
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    &lt;&lt;service&gt;&gt;
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    int id
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    size()
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>   }
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>   ```mermaid
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   classDiagram
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   Class01 &lt;|-- AveryLongClass : Cool
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   &lt;&lt;interface&gt;&gt; Class01
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>   Class09 --&gt; C2 : Where am i?
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>   Class09 --* C3
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   Class09 --|&gt; Class07
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   Class07 : equals()
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   Class07 : Object[] elementData
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>   Class01 : size()
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>   Class01 : int chimp
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>   Class01 : int gorilla
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>   class Class10 {
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    &lt;&lt;service&gt;&gt;
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    int id
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    size()
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>   }
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3041,16 +3085,16 @@ Moving --&gt; Crash
 Crash --&gt; [*]</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>   ```mermaid
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   stateDiagram-v2
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   [*] --&gt; Still
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   Still --&gt; [*]
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>   Still --&gt; Moving
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>   Moving --&gt; Still
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   Moving --&gt; Crash
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   Crash --&gt; [*]
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   ```mermaid
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>   stateDiagram-v2
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   [*] --&gt; Still
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   Still --&gt; [*]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   Still --&gt; Moving
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>   Moving --&gt; Still
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>   Moving --&gt; Crash
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>   Crash --&gt; [*]
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3065,13 +3109,13 @@ Crash --&gt; [*]</code></pre>
 "Rats" : 15</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   ```mermaid
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>   pie
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   &quot;Dogs&quot; : 386
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   &quot;Cats&quot; : 85
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   &quot;Rats&quot; : 15
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>   ```mermaid
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   pie
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   &quot;Dogs&quot; : 386
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>   &quot;Cats&quot; : 85
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>   &quot;Rats&quot; : 15
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3091,18 +3135,18 @@ Crash --&gt; [*]</code></pre>
     Sit down: 3: Me</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>   ```mermaid
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   journey
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    title My working day
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    section Go to work
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>      Make tea: 5: Me
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>      Go upstairs: 3: Me
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>      Do work: 1: Me, Cat
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    section Go home
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>      Go downstairs: 5: Me
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>      Sit down: 3: Me
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>   ```mermaid
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>   journey
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    title My working day
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    section Go to work
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>      Make tea: 5: Me
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>      Go upstairs: 3: Me
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>      Do work: 1: Me, Cat
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    section Go home
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>      Go downstairs: 5: Me
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>      Sit down: 3: Me
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3117,12 +3161,12 @@ Crash --&gt; [*]</code></pre>
   CUSTOMER }|..|{ DELIVERY-ADDRESS : uses</code></pre>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>   ```mermaid
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>   erDiagram
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>     CUSTOMER ||--o{ ORDER : places
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>     ORDER ||--|{ LINE-ITEM : contains
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>   ```
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>   ```mermaid
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>   erDiagram
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>     CUSTOMER ||--o{ ORDER : places
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>     ORDER ||--|{ LINE-ITEM : contains
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>   ```
 </code></pre></div>
 </div>
 </div>
@@ -3181,12 +3225,12 @@ Crash --&gt; [*]</code></pre>
 <p>quote</p>
 </details>
 <h2 id="tooltip">Tooltip<a class="headerlink" href="#tooltip" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>wanna<span class="w"> </span>a<span class="w"> </span>tooltip<span class="w"> </span>?<span class="w"> </span><span class="c1"># (1)!</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>wanna<span class="w"> </span>a<span class="w"> </span>tooltip<span class="w"> </span>?<span class="w"> </span><span class="c1"># (1)!</span>
 </code></pre></div>
 <ol>
 <li>
 <p>Cedrick rock</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdocs serve
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mkdocs serve
 </code></pre></div>
 </li>
 </ol>
@@ -3207,7 +3251,7 @@ Crash --&gt; [*]</code></pre>
 <p>In order to render a link as a button, suffix it with curly braces and add the
 <code>.md-button</code> class selector to it. The button will receive the selected
 [primary color] and [accent color] if active.</p>
-<div class="highlight"><span class="filename">Button</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[<span class="nt">Subscribe to our newsletter</span>](<span class="na">#</span>){ .md-button }
+<div class="highlight"><span class="filename">Button</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[<span class="nt">Subscribe to our newsletter</span>](<span class="na">#</span>){ .md-button }
 </code></pre></div>
 <div class="result">
 <p>[Subscribe to our newsletter][demo]{ .md-button }</p>
@@ -3221,7 +3265,7 @@ Crash --&gt; [*]</code></pre>
   <small>
     
       Last update:
-      2022-04-26
+      2023-04-20
     
   </small>
 </div>
