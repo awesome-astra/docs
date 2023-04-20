@@ -118,7 +118,7 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
       - Any version `4.x` should be compatible with Astra.
 
-      - Update your `pom.xml` file with the latest version of the 4.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
+      - [x] **Update your `pom.xml` file with the latest version of the 4.x libraries** [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
       ```xml
       <!-- (REQUIRED) -->
@@ -143,7 +143,7 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
 ???+ example "Sample Code"
 
-      - Create an [`AstraDriver4x.java`](https://github.com/awesome-astra/sample-java-driver4x/blob/main/src/main/java/com/datastax/astra/AstraDriver4x.java) class with the following code
+      - [x] Create an [`AstraDriver4x.java`](https://github.com/awesome-astra/sample-java-driver4x/blob/main/src/main/java/com/datastax/astra/AstraDriver4x.java) class with the following code
 
       ``` java title="AstraDriver4x.java" linenums="1"
       --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-driver4x/main/src/main/java/com/datastax/astra/AstraDriver4x.java"
@@ -294,7 +294,8 @@ Alternatively, or complementary the connection information can be specified in t
 ???+ note annotate "Project Setup"
 
       - Version **3.8+** or more is required to connect to Astra.
-      - Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)
+      
+      - [x] Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)
 
       ```xml
       <!-- Mandatory -->
@@ -320,7 +321,7 @@ Alternatively, or complementary the connection information can be specified in t
 
 ???+ example "Sample Code"
 
-      - Create class [`AstraDriver3x.java`](https://github.com/awesome-astra/sample-java-driver3x/blob/main/src/main/java/com/datastax/astra/AstraDriver3x.java) as followed:
+      - [x] Create class [`AstraDriver3x.java`](https://github.com/awesome-astra/sample-java-driver3x/blob/main/src/main/java/com/datastax/astra/AstraDriver3x.java) as followed:
 
       ``` java title="AstraDriver3x.java" linenums="1"
       --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-driver3x/main/src/main/java/com/datastax/astra/AstraDriver3x.java"
@@ -362,7 +363,7 @@ The `Astra` _Software Deployment Kit_, or `SDK`, allows developers to connect to
 
 ???+ note annotate "Project Setup"
 
-      - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
+      - [x] Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
       ```xml
       <dependencies>
@@ -376,7 +377,7 @@ The `Astra` _Software Deployment Kit_, or `SDK`, allows developers to connect to
 
 ???+ example "Sample Code"
 
-      - Create a class [`AstraSdkDrivers.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java) with the following code.
+      - [x] Create a class [`AstraSdkDrivers.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java) with the following code.
 
 
       ``` java title="AstraSdkDrivers.java" linenums="1"
