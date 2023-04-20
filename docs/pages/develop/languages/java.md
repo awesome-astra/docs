@@ -25,7 +25,7 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
 ## 1. Pre-requisites
 
-!!! abstract "Setup your Development environment"
+??? abstract "Setup your Development environment"
 
       - [x] **Install Java Development Kit (JDK) 8+**
       
@@ -43,7 +43,7 @@ Astra offers different Apis. Select the API you want to use below to get documen
       mvn -version
       ```
 
-!!! abstract "Setup Datastax Astra"
+??? abstract "Setup Datastax Astra"
 
     - [x] **Create your DataStax Astra account**: 
     
@@ -108,14 +108,13 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
 ### 2.1 Drivers 4.x
 
-> !!! tip "4.x is the recommended version for the drivers"
 > The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
 
+> `4.x` is the **recommended** version for the drivers
 
+#### Quickstart
 
-#### Project Dependencies
-
-!!! note annotate "Import dependencies in your `pom.xml`"
+???+ note annotate "Projet Setup"
 
       - Any version `4.x` should be compatible with Astra.
 
@@ -142,35 +141,19 @@ Astra offers different Apis. Select the API you want to use below to get documen
       </dependency>
       ```
 
-#### QuickStart
+???+ example "Sample Code"
 
-???+ example "Sample Connection Code"
+      - Create an [`AstraDriver4x.java`](https://github.com/awesome-astra/sample-java-driver4x/blob/main/src/main/java/com/datastax/astra/AstraDriver4x.java) class with the following code
 
-      - Create an `AstraDriver4x.java` class with the following code
-
-      ```java
-      import java.nio.file.Paths;
-      import com.datastax.oss.driver.api.core.CqlSession;
-
-      public class AstraDriver4x {
-
-        public static void main(String[] args) {
-          try (CqlSession cqlSession = CqlSession.builder()
-            .withCloudSecureConnectBundle(Paths.get("/path/to/scb.zip"))
-            .withAuthCredentials("user_name","password")
-            .withKeyspace("keyspace_name")
-            .build()) {
-            System.out.println("Hello keyspace {} !" + cqlSession.getKeyspace().get());
-          }
-        }
-      }
+      ``` java title="AstraDriver4x.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-driver4x/main/src/main/java/com/datastax/astra/AstraDriver4x.java"
       ```
 
       <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
-      <i class="fa fa-download" ></i>&nbsp;Download This sample code
+      <i class="fa fa-download" ></i>&nbsp;Download The project
       </a>
 
-!!! info "What you need to know"
+???+ info "What you need to know"
 
       **📦 About Secure Connect Bundle**
 
@@ -193,7 +176,7 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
       - It a stateful, `autocloseable`, object, and must be a **singleton** in your application.
 
-#### File-based configuration
+**File-based configuration**
 
 Alternatively, or complementary the connection information can be specified in the driver’s configuration file (`application.conf`). Merge the following options with any content already present. All keys available in the file are available in [reference.conf](https://docs.datastax.com/en/developer/java-driver/4.14/manual/core/configuration/reference/)
 
@@ -235,7 +218,7 @@ Alternatively, or complementary the connection information can be specified in t
       }
       ```
 
-      With the file in the classpaht the previous code is updated as the following:
+      With the file in the classpath, the previous code is updated as the following:
 
       ```java
       import java.nio.file.Paths;
@@ -250,7 +233,7 @@ Alternatively, or complementary the connection information can be specified in t
       }
       ```
      
-!!! info "What you need to know"
+???+ info "What you need to know"
 
       - The configuration file `application.conf` is automatically loaded when present on the classpath. It can be used in any java-based application with no difference (_spring, quarkus..._)
       - `dc-failover` is **NOT** available as a different secure connect bundles are required for different regions (1 region = 1 dc in Astra)
@@ -294,11 +277,13 @@ Alternatively, or complementary the connection information can be specified in t
 
 ### 3.2 Drivers 3.x
 
-!!! warning "Version 3.x is still maintained but not recommended version. It will not get evolutions in the future"
+> The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/3.11/manual/cloud/)
 
-#### Project Dependencies
+> Version `3.x` is still maintained but not recommended version. It will not get evolutions in the future"
 
-??? note annotate "Import dependencies in your `pom.xml`"
+#### QuickStart
+
+???+ note annotate "Projet Setup"
 
       - Version **3.8+** or more is required to connect to Astra.
       - Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)
@@ -325,8 +310,6 @@ Alternatively, or complementary the connection information can be specified in t
       </dependency>
       ```
 
-#### QuickStart
-
 ???+ example "Example Code"
 
       ```java
@@ -338,10 +321,10 @@ Alternatively, or complementary the connection information can be specified in t
 
         public static void main(String[] args) {
           try(Cluster cluster = Cluster.builder()
-            .withCloudSecureConnectBundle(new File("/path/to/scb.zip"))
-            .withCredentials("clientId", "clientSecret")
+            .withCloudSecureConnectBundle(new File("/tmp/secure-connect-bundle-db-demo.zip"))
+            .withCredentials("client_id", "client_secret")
             .build() ) {
-              Session session = cluster.connect("keyspace");
+              Session session = cluster.connect("keyspace_demo");
               System.out.println("Hello keyspace " + session.getLoggedKeyspace());
           }
         }
