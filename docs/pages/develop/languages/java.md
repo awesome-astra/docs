@@ -108,13 +108,13 @@ Astra offers different Apis. Select the API you want to use below to get documen
 
 ### 2.1 Drivers 4.x
 
-> The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
+> The official documentation for Cassandra drivers is available on [datastax documentation portal](https://docs.datastax.com/en/developer/java-driver/4.13/manual/cloud/)
 
-> `4.x` is the **recommended** version for the drivers
+> `4.x` is the **recommended** version of the cassandra drivers.
 
 #### Quickstart
 
-???+ note annotate "Projet Setup"
+???+ note annotate "Project Setup"
 
       - Any version `4.x` should be compatible with Astra.
 
@@ -164,6 +164,14 @@ Astra offers different Apis. Select the API you want to use below to get documen
       **⚙️ About Parameters**
 
       - The **authentication credentials** must be specified separately with `withAuthCredentials()`, and match the username and password that were configured when creating the Astra database.
+
+      - Another pair is accepted for the credentials: `token` for the username and the value of the token starting by `AstraCS:...` is accepted
+
+      ```java
+      // Initialization with a token and not pair clientId/slientSecret
+      CqlSession.builder().withAuthCredentials("token","AstraCS:....")
+      ```
+
       - The keyspace is here required and provided with `.withKeyspace()`
       
       - if the driver configuration does not specify an explicit consistency level, it will default to `LOCAL_QUORUM` (instead of LOCAL_ONE when connecting to a normal Cassandra database).
@@ -275,7 +283,7 @@ Alternatively, or complementary the connection information can be specified in t
 | [Stargate TV Show](https://github.com/datastaxdevs/workshop-spring-stargate) | Reproduce the wheel for Stargate TV Show with destinations saved in Astra |
 | [Spring Data Cassandra](https://github.com/datastaxdevs/workshop-spring-data-cassandra) | Deep dive with Spring data cassandra |
 
-### 3.2 Drivers 3.x
+### 2.2 Drivers 3.x
 
 > The official documentation for the drivers can be found [here](https://docs.datastax.com/en/developer/java-driver/3.11/manual/cloud/)
 
@@ -283,7 +291,7 @@ Alternatively, or complementary the connection information can be specified in t
 
 #### QuickStart
 
-???+ note annotate "Projet Setup"
+???+ note annotate "Project Setup"
 
       - Version **3.8+** or more is required to connect to Astra.
       - Update your `pom.xml` file with the latest version of the 3.x libraries: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.cassandra/cassandra-driver-mapping/)
@@ -310,33 +318,17 @@ Alternatively, or complementary the connection information can be specified in t
       </dependency>
       ```
 
-???+ example "Example Code"
+???+ example "Sample Code"
 
-      ```java
-      import java.io.File;
-      import com.datastax.driver.core.Cluster;
-      import com.datastax.driver.core.Session;
+      - Create class [`AstraDriver3x.java`](https://github.com/awesome-astra/sample-java-driver3x/blob/main/src/main/java/com/datastax/astra/AstraDriver3x.java) as followed:
 
-      public class AstraDriver3x {
-
-        public static void main(String[] args) {
-          try(Cluster cluster = Cluster.builder()
-            .withCloudSecureConnectBundle(new File("/tmp/secure-connect-bundle-db-demo.zip"))
-            .withCredentials("client_id", "client_secret")
-            .build() ) {
-              Session session = cluster.connect("keyspace_demo");
-              System.out.println("Hello keyspace " + session.getLoggedKeyspace());
-          }
-        }
-
-      }
+      ``` java title="AstraDriver3x.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-driver3x/main/src/main/java/com/datastax/astra/AstraDriver3x.java"
       ```
 
-      <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button">
-            <i class="fa fa-download" ></i>&nbsp;Download Driver 3x Sample
-      </a>
+      <a href="https://github.com/awesome-astra/sample-java-driver3x/archive/refs/heads/main.zip" class="md-button"><i class="fa fa-download" ></i>&nbsp;Download Project</a>
 
-!!! info "What you need to know"
+???+ info "What you need to know"
 
       - If you work with previous versions of the driver (lower than `3.8` ) the support of Astra is not Ad-hoc it is recommended to migrate. Yet it is possible to use the `SSL` options. [Documentation](https://docs.datastax.com/en/astra-serverless/docs/connect/drivers/legacy-drivers.html#_java_legacy_driver_versions) and sample codes can be found here. 
 
@@ -362,11 +354,13 @@ Alternatively, or complementary the connection information can be specified in t
 | [BlobAndCodec3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CRUD_10_BlobAndCodec.java) | Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
 | [CloudAstra3x](https://github.com/DataStax-Examples/java-cassandra-driver-from3x-to4x/blob/master/example-3x/src/main/java/com/datastax/samples/SampleCode3x_CONNECT_ServiceCloudAstra.java) | Working with `BLOB` and binary data but also how to create your own `CustomCodec` |
 
-### 3.3 Astra SDK
+### 2.3 Astra SDK
 
-The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`, [Reference documentation](https://github.com/datastax/astra-sdk-java/wiki).
+The `Astra` _Software Deployment Kit_, or `SDK`, allows developers to connect to Astra with all the different interfaces available. In this section we will detailed how to setup this client library to use the cassandra drivers interface.
 
-???+ note annotate "Import dependencies in your `pom.xml`"
+#### Quickstart
+
+???+ note annotate "Project Setup"
 
       - Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)
 
@@ -380,45 +374,67 @@ The `Astra SDK` sets up the connection to work with the AstraDB cloud-based serv
       </dependencies>
       ```
 
-???+ note "Standalone Code"
+???+ example "Sample Code"
 
-      ```java
-      import java.io.File;
-      import com.datastax.astra.sdk.AstraClient;
-      import com.datastax.oss.driver.api.core.CqlSession;
+      - Create a class [`AstraSdkDrivers.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java) with the following code.
 
-      public class AstraSdk {
 
-        // Define inputs
-        static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
-        static final String ASTRA_DB_ID     = "<provide_your_database_id>";
-        static final String ASTRA_DB_REGION = "<provide_your_database_region>";
-        static final String ASTRA_KEYSPACE  = "<provide_your_keyspace>";
-
-        // Init Astra Client
-        public static void main(String[] args) {
-            try(AstraClient cli = AstraClient.builder()
-              .withToken(ASTRA_DB_TOKEN)
-              .withDatabaseId(ASTRA_DB_ID)
-              .withDatabaseRegion(ASTRA_DB_REGION)
-              .withCqlKeyspace(ASTRA_DB_KEYSPACE)
-              .enableCql()
-              .build()) {
-                System.out.println("CqlVersion:" + astraClient.cqlSession()
-                          .execute("SELECT cql_version from system.local")
-                          .one().getString("cql_version"));
-            }
-          }
-      }
+      ``` java title="AstraSdkDrivers.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java"
       ```
 
-???+ abstract "Resources"
-
       <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
-        <i class="fa fa-download" ></i>&nbsp;Download SDK Sample
+        <i class="fa fa-download" ></i>&nbsp;Download Project
       </a>
 
-      - To get the full fledged information regarding the SDK check the [github repository](https://github.com/datastax/astra-sdk-java/wiki)
+???+ abstract "What you need to know"
+
+    **🔑 About Credentials**
+
+     - The pair `clientId`/ `clientSecret` hold your credentials. It can be replaced by the value of the token only.
+
+     ```java
+     AstraClient.builder().withToken("AstraCS:...");
+     ```
+
+     - There is no need to download the cloud securebundle in advance as it will be downloaded for you in folder `~.astra/scb` by default. Stil, but you can also provide the file location with `.withCqlCloudSecureConnectBundle()`:
+
+     ```java
+     AstraClient.builder().withCqlCloudSecureConnectBundle("/tmp/scb.zio");
+     ```
+
+     - Notice than `enableCQL()` must be explictely provided. The `sdk` will open only the asked interfaces in order to limit the resource consumption.
+
+    **⚙️ About Database identifiers**
+
+     - `databaseId`/`databaseRegion` will be required to locate the proper endpoint. You can find them for a particular database with either the cli.
+
+     ```
+     $astra db list
+
+     +---------------------+--------------------------------------+---------------------+-----------+
+     | Name                | id                                   | Default Region      | Status    |
+     +---------------------+--------------------------------------+---------------------+-----------+
+     | db_demo             | 3043a40f-39bf-464e-8337-dc283167b2c3 | us-east1            | ACTIVE    |
+     +---------------------+--------------------------------------+---------------------+-----------+
+
+     $astra db describe db_demo
+
+     +------------------------+-----------------------------------------+
+     | Attribute              | Value                                   |
+     +------------------------+-----------------------------------------+
+     | Name                   | db_demo                                 |
+     | id                     | 3043a40f-39bf-464e-8337-dc283167b2c3    |
+     | Status                 | ACTIVE                                  |
+     | Default Cloud Provider | GCP                                     |
+     | Default Region         | us-east1                                |
+     | Default Keyspace       | keyspace_demo                           |
+     | Creation Time          | 2023-04-17T09:03:14Z                    |
+     | Keyspaces              | [0] demo                                |
+     | Regions                | [0] us-east1                            |
+     +------------------------+-----------------------------------------+
+     ```
+
 
 ## 4. Api Rest
 
