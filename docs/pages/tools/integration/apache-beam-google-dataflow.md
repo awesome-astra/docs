@@ -75,7 +75,7 @@
 
     Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video]() from the Beam Summit 2022.
 
-    ![type:video](https://www.youtube.com/embed/xoQRDzqdODk)
+    ![](https://www.youtube.com/embed/xoQRDzqdODk)
     
 
 ### Load data with Apache Beam
