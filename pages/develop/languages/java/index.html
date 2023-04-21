@@ -3157,7 +3157,7 @@
 <h2 id="1-pre-requisites">1. Pre-requisites<a class="headerlink" href="#1-pre-requisites" title="Permanent link">&para;</a></h2>
 <!-- Prequisites for Java And Maven -->
 <details class="abstract">
-<summary>Setup your Development environment</summary>
+<summary>Setup your <code>JAVA</code> Development environment</summary>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Install Java Development Kit (JDK) 8+</strong></li>
 </ul>
@@ -3171,8 +3171,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
 </details>
+<!-- Prequisite Astra DB including SCB -->
 <details class="abstract">
-<summary>Setup Datastax Astra</summary>
+<summary>Setup Datastax <code>Astra DB</code></summary>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Create your DataStax Astra account</strong>: </li>
 </ul>
@@ -3208,11 +3209,10 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Download the Secure Connect Bundle for current database</strong></li>
 </ul>
 <p>A <em>Secure Connect Bundle</em> contains the certificates and endpoints informations to open a <a href="https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/">mTLS connection</a>. Often mentionned as <code>scb</code> its scope is a database AND a region. If your database is deployed on multiple regions you will have to download the bundle for each one and initiate the connection accordingly. Instructions to <a href="/docs/pages/astra/download-scb/">download Secure Connect Bundle are here</a></p>
-<p><img src="../../../../img/drivers/drivers-connectivity.png" /></p>
+<p><img src="https://github.com/awesome-astra/docs/blob/main/docs/img/drivers/drivers-connectivity.png?raw=true" /></p>
 <p>You can download the secure connect bundle from the user interface and <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">here is a tutorial</a>. You can also use Astra command line interface.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>astra db download-scb db_demo -f /tmp/secure-connect-bundle-db-demo.zip
 </code></pre></div>
-<p>With an account and a database running you are all set.</p>
 </details>
 <h2 id="2-cassandra-drivers">2. Cassandra Drivers<a class="headerlink" href="#2-cassandra-drivers" title="Permanent link">&para;</a></h2>
 <h3 id="21-drivers-4x">2.1 Drivers 4.x<a class="headerlink" href="#21-drivers-4x" title="Permanent link">&para;</a></h3>
