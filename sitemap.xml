@@ -326,6 +326,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awesome-astra.github.io/pages/tools/integration/apache-beam-google-dataflow/</loc>
+         <lastmod>2023-04-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/apache-nifi/</loc>
          <lastmod>2023-04-21</lastmod>
          <changefreq>daily</changefreq>
@@ -357,11 +362,6 @@
     </url>
     <url>
          <loc>https://awesome-astra.github.io/pages/tools/integration/flink/</loc>
-         <lastmod>2023-04-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://awesome-astra.github.io/pages/tools/integration/google-cloud-dataflow/</loc>
          <lastmod>2023-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
