@@ -8,7 +8,7 @@ Pick the interface below to get relevant instructions. In most cases, you will d
 
 If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/).
 
-***📦 Prerequisites [ASTRA]***
+<a name="prerequisites"> ***📦 Prerequisites [ASTRA]***</a>
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
@@ -21,6 +21,22 @@ go version
 ```
 
 You want to have a go version of at least 1.17.
+
+***📦 Prerequisites [Development Environment]***
+
+To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
+
+Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
+
+```
+astra setup
+```
+
+Create a database and keyspace to work with.
+
+```
+astra db create workshops -k library --if-not-exist
+```
 
 
 
@@ -108,25 +124,11 @@ Basic instructions can be found at the home page for [gocql-astra](https://githu
 
 To use this library with environment variables, you can follow these steps.
 
-***📦 Prerequisites [Development Environment]***
-
-To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
-
-Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
-
-```
-astra setup
-```
-
-Create a database and keyspace to work with.
-
-```
-astra db create workshops -k gotest --if-not-exist
-```
-
 ***🖥️ Sample Code***
 
 The best way to use this sample is to clone it from the repository.
+
+Follow the <a href="#prerequisites">prerequisites</> above
 
 Clone the  [repository](https://github.com/awesome-astra/go-sample-code) and change into the 'gocql-astra' directory in that repository.
 
@@ -152,6 +154,8 @@ Run the code in your environment.
 ```
 ./envvars
 ```
+
+--8<-- "https://raw.githubusercontent.com/awesome-astra/go-sample-code/main/gocql-astra/envvars/envvars.go"
 
 ??? "Sample code details"
 
@@ -250,99 +254,25 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 
 To use the signing library, you simply include it in your code and then create a client for making calls.
 
-??? note "Sample go code for Stargate APIs"
-
-	```
-	package main
-
-	import (
-		"bytes"
-		"fmt"
-		"os"
-
-		"github.com/awesome-astra/astra_stargate_go"
-
-		"github.com/joho/godotenv"
-	)
-
-	func main() {
-		err := godotenv.Load()
-		if len(os.Getenv("ASTRA_DB_APPLICATION_TOKEN")) == 0 {
-			fmt.Println(fmt.Errorf("please set your environment variables or use 'astra db create-dotenv' to create a .env file"))
-			return
-		}
-
-		client := astra_stargate_go.NewBasicAuthClient(os.Getenv("ASTRA_DB_APPLICATION_TOKEN"), os.Getenv("ASTRA_DB_ID"), os.Getenv("ASTRA_DB_REGION"))
-		if err != nil {
-			fmt.Println(err)
-		}
-
-		// Basic REST Query
-		fmt.Println("Basic REST query for keyspaces")
-		responsebody, err := client.APIGet("/api/rest/v1/keyspaces")
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Println(responsebody)
-
-		// Basic Document Query
-		fmt.Println("Create 'library' collection in the library keyspace")
-		jsonStr := []byte(`{"name":"library"}`)
-		responsebody, err = client.APIPost("/api/rest/v2/namespaces/library/collections", bytes.NewBuffer(jsonStr))
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Println(responsebody)
-
-		// Basic GraphQL query
-		query := "{\"query\":\"query GetTables {keyspace(name: \\\"library\\\") {name}}\"}"
-		queryBody := []byte(query)
-		bodyReader := bytes.NewBuffer(queryBody)
-
-		if err != nil {
-			panic(err)
-		}
-		req, err := client.APIPost("/api/graphql-schema", bodyReader)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(req)
-
-	}
-	```
+--8<-- "https://raw.githubusercontent.com/awesome-astra/go-sample-code/main/gocql-astra/envvars/envvars.go"
 
 ## 5 <a name="5-api-rest">Stargate REST API</a>
 
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
-**📦 Prerequisites [Development Environment]**
+Follow the <a href="#prerequisites">prerequisites</a> above
 
-To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
-
-
-Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
+Clone the  [repository](https://github.com/awesome-astra/go-sample-code) and change into the 'gocql-astra' directory in that repository.
 
 ```
 git clone https://github.com/awesome-astra/go-sample-code
-cd astra_stargate_rest
-```
-
-Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
-
-```
-astra setup
-```
-
-Create a database and keyspace to work with.
-
-```
-astra db create workshops -k library --if-not-exist
+cd go-sample-code/gocql-astra/astra_stargate_rest
 ```
 
 Create .env with astra CLI
 
 ```
-astra db create-dotenv workshops -k library 
+astra db create-dotenv workshops -k gotest 
 ```
 
 Run the code in your environment.
@@ -356,28 +286,13 @@ go build astra_stargate_rest_example.go
 
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
-**📦 Prerequisites [Development Environment]**
-
-To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
-
+Follow the <a href="#prerequisites">prerequisites</a> above
 
 Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
 
 ```
 git clone https://github.com/awesome-astra/go-sample-code
 cd astra_stargate_graphql
-```
-
-Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
-
-```
-astra setup
-```
-
-Create a database and keyspace to work with.
-
-```
-astra db create workshops -k library --if-not-exist
 ```
 
 Create .env with astra CLI
@@ -401,24 +316,13 @@ While the basic code is shown above, you can interact with a more extensive REST
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
+Follow the <a href="#prerequisites">prerequisites</a> above
 
 Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
 
 ```
 git clone https://github.com/awesome-astra/go-sample-code
 cd astra_stargate_document
-```
-
-Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
-
-```
-astra setup
-```
-
-Create a database and keyspace to work with.
-
-```
-astra db create workshops -k library --if-not-exist
 ```
 
 Create .env with astra CLI
@@ -443,32 +347,18 @@ go build astra_stargate_document.go
 
 These instructions are aimed at helping people connect to Astra DB programmatically using the Astra specific Golang driver  
 
-**📦 Prerequisites [Development Environment]**
+Follow the <a href="#prerequisites">prerequisites</a> above
 
-To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
-Using the [token](/docs/pages/astra/create-token/) you created with the "Database Administrator" permission, use the CLI to setup your environment.
+**🖥️ Sample Code**
 
-```
-astra setup
-```
-
-Create a database and keyspace to work with.
-
-```
-astra db create workshops -k library --if-not-exist
-```
+Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra-gprc directory.
 
 Create .env with astra CLI
 
 ```
 astra db create-dotenv workshops -k library 
 ```
-
-**🖥️ Sample Code**
-
-
-Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra-gprc directory.
 
 ```
 git clone https://github.com/awesome-astra/go-sample-code
