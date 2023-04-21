@@ -155,7 +155,9 @@ Run the code in your environment.
 ./envvars
 ```
 
---8<-- "https://raw.githubusercontent.com/awesome-astra/go-sample-code/main/gocql-astra/envvars/envvars.go"
+``` golang title="Envvars example" linenums="1"
+    --8<-- "https://raw.githubusercontent.com/awesome-astra/go-sample-code/main/gocql-astra/envvars/envvars.go"
+```
 
 ??? "Sample code details"
 
