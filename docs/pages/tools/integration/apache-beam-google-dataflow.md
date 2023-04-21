@@ -1,70 +1,82 @@
 ## Apache Beam Overview
 
-???+ note "Introduction to Apache Beam"
+??? abstract "Introduction to Apache Beam"
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_beam.png" />
 
-    **Definition**
+    **Objectives**
 
     [Apache Beam](https://beam.apache.org/) is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/apache_beam.png" />
 
-    **Pipeline**
-
-    A pipeline is made up of multiple steps, that takes some input, operates on that data, and finally produces output. The steps that operates on the data are called PTransforms (parallel transforms), and the data is always stored in PCollections (parallel collections). The PTransform takes one item at a time from the PCollection and operates on it. The PTransform are assumed to be hermetic, using no global state, thus ensuring it will always produce the same output for the given input. These properties allow the data to be sharded into multiple smaller dataset and processed in any order across multiple machines. The code you write ends up being very simple, but is able to seamlessly split across 100s of machines.
+    **Main Concepts**
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/beam_concepts.png" />
 
-    To connect data with an Apache Beam pipeline you can:
+    - **`Pipeline`:** A `Pipeline` encapsulates your entire data processing task, from start to finish. This includes reading input data, transforming that data, and writing output data. All Beam driver programs must create a Pipeline. When you create the Pipeline, you must also specify the execution options that tell the Pipeline where and how to run.
 
-    - **Read Data** as input
-    - Map, Enrich, work with data in a **Transform** (mapping, enrich)
-    - Mutation Data as **Output** (write, delete, update)
+    - **`PCollection`**: A `PCollection` represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanism. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.
+
+    - **`PTransform`:** A `PTransform` represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects.
+
+    - **Input and Output so called `I/O transforms`**: Beam comes with a number of “IOs” - library PTransforms that read or write data to various external storage systems.
 
     **I/O Connectors**
-
+    
     Apache Beam I/O connectors provide read and write transforms for the most popular data storage systems so that Beam users can benefit from native optimised connectivity. With the available I/Os, Apache Beam pipelines can read and write data from and to an external storage type in a unified and distributed way.
 
-    I/O connectors denoted via X-language have been made available using the Apache Beam multi-language pipelines framework. Integration of Dataflow would leverage `CassandraIO` and `PulsarIO`.
+    > **Integration with DataStax Astra we will leverage or get inspiration from both built-in`CassandraIO` and `PulsarIO`**. Now specifities of Astra requires a dedicated **`AstraIO`**.
+
+    **Runners**
+
+    A runner in Apache Beam is responsible for executing pipelines on a particular processing engine or framework, such as Apache Flink or Google Cloud Dataflow. The runner translates the Beam pipeline into the appropriate format for the underlying engine, manages job execution, and provides feedback on job progress and status.
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/runners.png" />
 
 
-## Google DataFlow Overiew
+## Google DataFlow Overview
 
-???+ note "Introduction to Google Dataflow"
+??? abstract "Introduction to Google Dataflow"
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png" height="30px" />
 
-    Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform. It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow also provides integration with other Google Cloud services, such as BigQuery and Pub/Sub.
+    Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform, it is also called an **Apache Beam Runner** It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides **native integration** with main Google Cloud services, such as **BigQuery** and **Pub/Sub**.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-ecosystem.png" />
 
     Dataflow provides built-in integrations with most in use Google Cloud Platform products suchh as Cloud Storage, Pub/Sub, Datastore or Big Query. The plaform can be extended and run any java code and I/O connectors deployed form the CLI.
 
-    To integration withg Astra we will liverage Custom sources and Sinks.
+    > **Integration with DataStax** comes with the integration of proper runners but also some best practice on how to handle the credentials.
     
-## Astra Integrations
+## Integrating Beam and Astra
 
 ???+ abstract "Use cases and Interfaces"
 
-    Astra allows both bulk and real time operation with respectively AstraDB and Astra Streaming. For each there are multiple interfaces available and as such integrating with Dataflow could take multiple forms. 
+    Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and as such integrating with Dataflow is possible in different ways.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-interfaces.png" />
 
-    - **`Cassandra and CQL`:** This is the way to go. It is the most mature provides efficient way to execute queries but not only. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes. Now `CassandraIO` is outdated and does not support and we forked it to create `AstraIO`
+    **Data Bulk Operations**
 
-    - With the Astra SDK it is also totally possible to use other Astra DB interfaces but it is not the recommended approach used in the templates.
+    Astra service to handle massive amount of Data is `Astra DB`. It provides multiples ways to load data but some are preferred over others.
 
-    - **Apache Pulsar**
-   
-## Bulk Data Operations
+    - **`Cassandra and CQL`: This is the way to go.** It is the most mature provides efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes.  This is the approach taken with the build-in IO `CassandraIO`. Now `CassandraIO` is outdated and does not support and we leveraged it to create `AstraIO`.
 
-???+ abstract "From CassandraIO to AstraIO"
+    - **`CQL over REST`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
 
-    outdated
-    no support for cloud secure bundlle
-    best solutions to distribute read (token range)
+    - **`CQL over GraphQL`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
 
+    - **`CQL over GRPC`**: Consider as a cloud native drivers (stateless) with an optimize serialization complnent (grpc) and reactive interfaces it is a viable interface. Now current operations exposes are CQL and the token metadata informations are not available to perform range queries.
+
+    **Data Streaming Operations**
+
+    Astra service to handle streaming data is `Astra Streaming`. It provides multiples interfaces like `JMS`, `RabbitMQ` or `Kafka` built-in Apache Bean and available in [standard connector](https://beam.apache.org/documentation/io/connectors/).
+
+    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video]() from the Beam Summit 2022.
+
+    ![type:video](https://www.youtube.com/embed/xoQRDzqdODk)
+    
 
 ### Load data with Apache Beam
 

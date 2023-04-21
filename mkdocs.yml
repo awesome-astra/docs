@@ -93,6 +93,7 @@ nav:
       - • Grafana: pages/tools/integration/grafana.md
     - Integration Middlewares:
       - • Apache Airflow : pages/tools/integration/apache-airflow.md
+      - • Apache Beam : pages/tools/integration/apache-beam-google-dataflow.md
       - • Apache Flink : pages/tools/integration/flink.md
       - • Apache Nifi : pages/tools/integration/apache-nifi.md
       - • Apache Spark : pages/tools/integration/apache-spark.md
@@ -100,7 +101,7 @@ nav:
       - • Cadence : pages/tools/integration/cadence.md
       - • Celery : pages/tools/integration/celery.md
       - • Feast : pages/tools/integration/feast.md
-      - • Google Dataflow : pages/tools/integration/google-cloud-dataflow.md
+      - • Google Dataflow : pages/tools/integration/apache-beam-google-dataflow.md
       - • HashiCorp Vault : pages/tools/integration/vault.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
@@ -216,6 +217,7 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date
+  - mkdocs-video
   #- render_swagger
 
 # Customization

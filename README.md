@@ -14,6 +14,7 @@ python3 -m pip install mkdocs            # install mkdocs
 python3 -m pip install mkdocs-material   # install material theme
 python3 -m pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip   # install font-awesome
 python3 -m pip install mkdocs-git-revision-date-plugin # install git revision date
+python3 -m pip install mkdocs-videos     # install video plugin
 ```
 
 Or use this one-liner :) 

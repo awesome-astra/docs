@@ -1,5 +1,7 @@
 - **[Apache Airflow](integration/apache-airflow)**: Apache Airflow is an open source workflow management system. It provides components which allow engineers to build data pipelines between different systems.
 
+- **[Apache Beam](integration/apache-beam-google-dataflow.md)** is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
+
 - **[Apache Flink](integration/flink)**: Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. 
 
 - **[Apache Nifi](integration/apache-nifi)**: NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, we use it here to mean the automated and managed flow of information between systems.
@@ -29,6 +31,8 @@
 - **[Feast](integration/feast):** Feast is a feature store for machine learning whose goal is to provide a (mostly cloud-based) infrastructure for managing, versioning and sharing features for training and serving ML models.
 
 - **[Github Actions](plugins/github-actions):** GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
+
+- **[Google DataFlow](integration/apache-beam-google-dataflow.md)** Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform. It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis.
 
 - **[Grafana](integration/grafana):** Grafana is an industry standard tool for data visualisation. With Grafana, you can explore your time-series data using different visualisations: charts, plots, diagrams and even configure alerting if a value exceeds some desired range.
 
