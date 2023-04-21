@@ -119,6 +119,8 @@ This repository proposes some integration of Astra with Apache Beam and GCP Data
 <!-- Prequisites for Java And Maven -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
 
+<!-- Prequisite Astra DB including SCB -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
 | Astra                        | GCP                                    | Local Environment          |
 |-------------------------------------------|----------------------------------------|----------------------------|
