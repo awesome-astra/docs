@@ -8,6 +8,14 @@ Change values `ASTRA_DB_TOKEN`, `ASTRA_DB_ID`, `ASTRA_DB_REGION`, `ASTRA_DB_KEYS
 
 <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@CLU2/ConnectToAstra?lite=true"></iframe>
 
+### External code block
+
+
+``` java title="AstraDriver4x.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-driver4x/main/src/main/java/com/datastax/astra/AstraDriver4x.java"
+```
+
+
 ## Mermaids
 
 ### 1️⃣ Flow
