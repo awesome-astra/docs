@@ -166,40 +166,43 @@ CREATE TABLE simpledata (
 
     ```java
      pipelineWrite
-      // Create 100 records randomly
-      .apply(Create.of(AstraIOTestUtils.generateTestData(100)))
-      // Create the target table
-      .apply(new CreateTableTransform<SimpleDataEntity>(astraOptions))
-      // Write data in tables
-      .apply(AstraIO.<SimpleDataEntity>write()
-        .withToken(astraOptions.getToken())
-        .withKeyspace(astraOptions.getKeyspace())
-        .withSecureConnectBundle(new File(astraOptions.getSecureConnectBundle()))
-        .withEntity(SimpleDataEntity.class));
+        // Create 100 records randomly
+        .apply(Create.of(AstraIOTestUtils.generateTestData(100)))
+        // Create the target table
+        .apply(new CreateTableTransform<SimpleDataEntity>(astraOptions))
+        // Write data in tables
+        .apply(AstraIO.<SimpleDataEntity>write()
+          .withToken(astraOptions.getToken())
+          .withKeyspace(astraOptions.getKeyspace())
+          .withSecureConnectBundle(new File(astraOptions.getSecureConnectBundle()))
+          .withEntity(SimpleDataEntity.class));
 
     // Pipeline Execution
     pipelineWrite.run().waitUntilFinish();
     ```
 
-- [x] **Setup parameters**
+???+ abstract "Executing the Pipeline `LoadDataBeam`."
 
-```
-cd samples-astra-beam-pipelines
-export ASTRA_KEYSPACE=demo
-export ASTRA_SCB_PATH=/tmp/scb-demo.zip
-export ASTRA_TOKEN=AstraCS:uZclXTYecCAqPPjiNmkezapR:e87d6edb702acd87516e4ef78e0c0e515c32ab2c3529f5a3242688034149a0e4
-```
+    - [x] **Setup parameters**
 
-- [x] **Run the pipeline**
+    ```
+    cd samples-astra-beam-pipelines
+    export ASTRA_KEYSPACE=demo
+    export ASTRA_SCB_PATH=/tmp/scb-demo.zip
+    export ASTRA_TOKEN=AstraCS:uZclXTYecCAqPPjiNmkezapR:e87d6edb702acd87516e4ef78e0c0e515c32ab2c3529f5a3242688034149a0e4
+    ```
 
-```
-mvn -Pdirect-runner compile \
-  exec:java \
-  -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataBeam \
-  -Dexec.args="--keyspace=${ASTRA_KEYSPACE} \
-       --secureConnectBundle=${ASTRA_SCB_PATH} \
-       --token=${ASTRA_TOKEN}"
-```
+    - [x] **Run the pipeline**
+
+    ```
+    mvn -Pdirect-runner compile \
+      exec:java \
+      -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataBeam \
+      -Dexec.args="--keyspace=${ASTRA_KEYSPACE} \
+          --secureConnectBundle=${ASTRA_SCB_PATH} \
+          --token=${ASTRA_TOKEN}"
+    ```
+
 
 ### 4. Export Data From Astra DB
 
