@@ -3377,21 +3377,23 @@
 <li>Run the pipeline</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w"> </span><span class="n">pipelineWrite</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="c1">// Create 100 records randomly</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">Create</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">AstraIOTestUtils</span><span class="p">.</span><span class="na">generateTestData</span><span class="p">(</span><span class="mi">100</span><span class="p">)))</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="c1">// Create the target table</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreateTableTransform</span><span class="o">&lt;</span><span class="n">SimpleDataEntity</span><span class="o">&gt;</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">))</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="c1">// Write data in tables</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">AstraIO</span><span class="p">.</span><span class="o">&lt;</span><span class="n">SimpleDataEntity</span><span class="o">&gt;</span><span class="n">write</span><span class="p">()</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getToken</span><span class="p">())</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">())</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">.</span><span class="na">withSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getSecureConnectBundle</span><span class="p">()))</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">SimpleDataEntity</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="c1">// Create 100 records randomly</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">Create</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">AstraIOTestUtils</span><span class="p">.</span><span class="na">generateTestData</span><span class="p">(</span><span class="mi">100</span><span class="p">)))</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="c1">// Create the target table</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreateTableTransform</span><span class="o">&lt;</span><span class="n">SimpleDataEntity</span><span class="o">&gt;</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">))</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="c1">// Write data in tables</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">AstraIO</span><span class="p">.</span><span class="o">&lt;</span><span class="n">SimpleDataEntity</span><span class="o">&gt;</span><span class="n">write</span><span class="p">()</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getToken</span><span class="p">())</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getKeyspace</span><span class="p">())</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="p">.</span><span class="na">withSecureConnectBundle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">astraOptions</span><span class="p">.</span><span class="na">getSecureConnectBundle</span><span class="p">()))</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">SimpleDataEntity</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// Pipeline Execution</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">pipelineWrite</span><span class="p">.</span><span class="na">run</span><span class="p">().</span><span class="na">waitUntilFinish</span><span class="p">();</span>
 </code></pre></div>
 </details>
+<details class="abstract" open="open">
+<summary>Executing the Pipeline <code>LoadDataBeam</code>.</summary>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Setup parameters</strong></li>
 </ul>
@@ -3407,9 +3409,10 @@
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  exec:java \
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataBeam \
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  -Dexec.args=&quot;--keyspace=${ASTRA_KEYSPACE} \
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>       --secureConnectBundle=${ASTRA_SCB_PATH} \
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>       --token=${ASTRA_TOKEN}&quot;
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>      --secureConnectBundle=${ASTRA_SCB_PATH} \
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>      --token=${ASTRA_TOKEN}&quot;
 </code></pre></div>
+</details>
 <h3 id="4-export-data-from-astra-db">4. Export Data From Astra DB<a class="headerlink" href="#4-export-data-from-astra-db" title="Permanent link">&para;</a></h3>
 <h2 id="google-dataflow">Google DataFlow<a class="headerlink" href="#google-dataflow" title="Permanent link">&para;</a></h2>
 <h3 id="1-prerequisites_1">1. Prerequisites<a class="headerlink" href="#1-prerequisites_1" title="Permanent link">&para;</a></h3>
