@@ -105,22 +105,22 @@
     mvn clean install -Dmaven.test.skip=true
     ```
 
-### 3. Load Data Into Astra DB
+### 3. Bulk Data Load
 
-In this pipeline, 100 records are generated randomly to populate a table `simpledata` in Cassandra in AstraDB.The `simpledata` table looks like:
+???+ abstract "Description of Pipeline `BulkDataLoadWithBeam`."
 
-```sql
-CREATE TABLE simpledata (
-    id int PRIMARY KEY,
-    data text
-);
-```
+    In this pipeline, 100 records are generated randomly to populate a table `simpledata` in Cassandra in AstraDB.The `simpledata` table looks like:
 
-- Logical View
+    ```sql
+    CREATE TABLE simpledata (
+        id int PRIMARY KEY,
+        data text
+    );
+    ```
 
-<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/load-data-beam.png" />
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/load-data-beam.png" />
 
-???+ abstract "Understanding the Pipeline `LoadDataBeam`."
+??? abstract "Implementation of Pipeline `BulkDataLoadWithBeam`"
 
     - We create a pipeline with 3 arguments:
 
@@ -181,7 +181,7 @@ CREATE TABLE simpledata (
     pipelineWrite.run().waitUntilFinish();
     ```
 
-???+ abstract "Executing the Pipeline `LoadDataBeam`."
+??? abstract "Executing the Pipeline `BulkDataLoadWithBeam`."
 
     - [x] **Setup parameters**
 
@@ -189,7 +189,7 @@ CREATE TABLE simpledata (
     cd samples-astra-beam-pipelines
     export ASTRA_KEYSPACE=demo
     export ASTRA_SCB_PATH=/tmp/scb-demo.zip
-    export ASTRA_TOKEN=AstraCS:uZclXTYecCAqPPjiNmkezapR:e87d6edb702acd87516e4ef78e0c0e515c32ab2c3529f5a3242688034149a0e4
+    export ASTRA_TOKEN=AstraCS:uZclXTY....
     ```
 
     - [x] **Run the pipeline**
@@ -197,246 +197,255 @@ CREATE TABLE simpledata (
     ```
     mvn -Pdirect-runner compile \
       exec:java \
-      -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataBeam \
-      -Dexec.args="--keyspace=${ASTRA_KEYSPACE} \
+      -Dexec.mainClass=com.dtx.astra.pipelines.BulkDataLoadWithBeam \
+      -Dexec.args="\
+          --keyspace=${ASTRA_KEYSPACE} \
           --secureConnectBundle=${ASTRA_SCB_PATH} \
           --token=${ASTRA_TOKEN}"
     ```
 
+    - [x] **Validate table `simpledata` has been populated**
+    ```
+    astra db cqlsh demo -k demo \
+      -e "select * from simpledata" \
+      --connect-timeout 20 \
+      --request-timeout 20
+    ```
 
-### 4. Export Data From Astra DB
+### 4. Bulk Data Export
+
+???+ abstract "Description of Pipeline `BulkDataExportWithBeam`"
+
+    In this pipeline, the content of an Astra Table is exported as set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory.
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-data-beam.png" />
+
+??? abstract "Implementation of Pipeline `BulkDataExportWithBeam`"
+
+    - We create a pipeline with 5 arguments:
+
+    | Parameter Name | Description |
+    |:----------|:------|
+    |  `token` | Credentials to connect to Astra platform, it should sart with `AstraCS:...` |
+    | `secureConnectBundle` | Zip containing certificates to open a secured connection and endpoint definition to pick the proper database |
+    |  `keyspace`    | Target keyspace in Astra DB |
+    |  `table`       | The table name to be exported |
+    | `targetFolder` | Destination for the files on disk |
+
+    - Those parameters are parsed using a specialized `PipelineOptions` interface:
+
+    ```java 
+    public interface ExportTablePipelineOptions extends PipelineOptions {
+
+        @Description("AstraToken Value")
+        @Validation.Required
+        ValueProvider<String> getAstraToken();
+        void setAstraToken(ValueProvider<String> token);
+
+        @Description("Location of fie on disk")
+        @Validation.Required
+        ValueProvider<String> getSecureConnectBundle();
+        void setSecureConnectBundle(ValueProvider<String> path);
+
+        @Description("Source Keyspace")
+        @Validation.Required
+        String getKeyspace();
+        void setKeyspace(String keyspace);
+
+        @Description("Source Table")
+        String getTable();
+        void setTable(String table);
+
+        @Description("Destination folder")
+        @Validation.Required
+        String getTargetFolder();
+        void setTargetFolder(String folder);
+    }
+    ```
+
+    - Iteam are read with a `AstraIO.read()` as entity, then serialized as string
+
+    ```java
+    @ProcessElement
+    public void processElement(ProcessContext c) {
+      String csvLine = c.element().getId() + ";" + c.element().getData();
+      LOGGER.info("CSV Line: {}", csvLine);
+      c.output(csvLine);
+    }
+    ```
+
+    - Run the pipeline
+
+    ```java
+    // Build Read
+        Pipeline exportCsvPipeline = Pipeline.create(options);
+        exportCsvPipeline
+                .apply("Read Table", AstraIO
+                        .<SimpleDataEntity>read()
+                        .withToken(options.getAstraToken().get())
+                        .withSecureConnectBundle(new File(options.getSecureConnectBundle().get()))
+                        .withKeyspace(options.getKeyspace())
+                        .withTable(options.getTable())
+                        .withCoder(SerializableCoder.of(SimpleDataEntity.class))
+                        .withEntity(SimpleDataEntity.class))
+                .apply("MapCsv", ParDo.of(new MapRecordAsCsvLine()))
+                .apply("WriteCsvInCloudStorage", TextIO.write().to(options.getTargetFolder()));
+        exportCsvPipeline
+                .run()
+                .waitUntilFinish(Duration.standardSeconds(30));
+    ```
+
+??? abstract "Executing of Pipeline `BulkDataExportWithBeam`"
+    
+    - [x] **Setup parameters**
+
+    ```
+    cd samples-astra-beam-pipelines
+    export ASTRA_KEYSPACE=demo
+    export ASTRA_SCB_PATH=/tmp/scb-demo.zip
+    export ASTRA_TABLE=simpledata
+    export DESTINATION=/tmp
+    export ASTRA_TOKEN=AstraCS:uZclXTY....
+
+    ```
+
+    - [x] **Run the pipeline**
+
+    ```
+    mvn -Pdirect-runner compile exec:java \
+      -Dexec.mainClass=com.dtx.astra.pipelines.BulkDataExportWithBeam \
+      -Dexec.args="\
+        --astraToken=${ASTRA_TOKEN} \
+        --secureConnectBundle=${ASTRA_SCB_PATH} \
+        --keyspace=${ASTRA_KEYSPACE} \
+        --table=${ASTRA_TABLE} \
+        --targetFolder=${DESTINATION}"
+    ```
 
 ## Google DataFlow
 
 ### 1. Prerequisites 
 
-### 2. Load data into AstraDB
+<!-- Prequisites for Java And Maven -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
 
-- Definition of the pipeline
+<!-- Prequisite Astra DB including SCB -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
-- Managing secrets (cloud secure bundle and token)
+???+ abstract "Setup `GCP Project`"
 
-- Configuration of `AstraIO.<>Write`
+    - [x] **1. Create project**
 
-- Run Sample
+    In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
-### 3. Export Data from AstraDB
+    > Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
 
-- Definition of the pipeline
+    - [x] **2. Enable Billing**: Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
 
-- Configuring Read
+    - [x] **3. Save project ID**: The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable
 
-### Export data with Google DataFlow
+    ```
+    export GCP_PROJECT_ID=integrations-379317
+    export GCP_USER=cedrick.lunven@datastax.com
+    export GCP_COMPUTE_ENGINE=747469159044-compute@developer.gserviceaccount.com
+    ```
 
-- Definition of the pipeline
+    - [x] **4. Download and install gCoud CLI**
 
-- Configuring Read
+    ```
+    curl https://sdk.cloud.google.com | bash
+    ```
 
-- Configuration of Target location
+    - [x] **5. Associated CLI with project in GCP**
 
+    ```
+    gcloud init
+    ```
 
-## Streaming Data Operations
+    - [x] **6. Describe the project**
 
-???+ abstract "Introduction to PulsarIO"
+    ```
+    gcloud projects describe ${GCP_PROJECT_ID}
+    ```
 
-    outdated
-    no support for cloud secure bundlle
-    best solutions to distribute read (token range)
+    - [x] **7. Enable expected API**
 
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/enable-apis.png" />
+    
+    ```
+    gcloud services enable dataflow compute_component logging storage_component storage_api bigquery pubsub datastore.googleapis.com cloudresourcemanager.googleapis.com
+    ```
 
-- Pub/Sub VS Astra Streaming
+    - [x] **8. Add Roles.** To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
+    
+    ```
+    gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} --member="user:${GCP_USER}" --role=roles/iam.serviceAccountUser
+    gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/dataflow.admin
+    gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/dataflow.worker
+    gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/storage.objectAdmin
+    ```
 
+    - [x] **9. Create `buckets` for the project in cloud storage**
 
+    ```
+    gsutil mb -c STANDARD -l US gs://astra_dataflow_inputs
+    gsutil mb -c STANDARD -l US gs://astra_dataflow_outputs
+    gsutil ls
+    ```
 
-## Google Cloud Platform Prerequisites
+    - [x] **10. Create secrets for the project in secret manager**
 
-### 1. Create project
-
-`✅` - In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-
-> Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
-Create a new Project in Google Cloud Console or select an existing one.
-
-![](img/gcp-create-project.png)
-
-`✅` - Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
-
-`✅` - Save project ID. The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable
-```
-export GCP_PROJECT_ID=integrations-379317
-export GCP_USER=cedrick.lunven@datastax.com
-export GCP_COMPUTE_ENGINE=747469159044-compute@developer.gserviceaccount.com
-```
-
-### 2. Setup gCloud CLI
-
-`✅` - Install gCloud CLI
-```
-curl https://sdk.cloud.google.com | bash
-```
-
-`✅` - Associated CLI with project in GCP
-
-```
-gcloud init
-```
-
-`✅` - Describe the project
-```
-gcloud projects describe ${GCP_PROJECT_ID}
-```
-
-### 3. Setup your project
-
-`✅` - Enable APIS
-```
-gcloud services enable dataflow compute_component logging storage_component storage_api bigquery pubsub datastore.googleapis.com cloudresourcemanager.googleapis.com
-```
-
-`✅` - Add Roles. To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
-```
-gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} --member="user:${GCP_USER}" --role=roles/iam.serviceAccountUser
-gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/dataflow.admin
-gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/dataflow.worker
-gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  --member="serviceAccount:${GCP_COMPUTE_ENGINE}" --role=roles/storage.objectAdmin
-```
-
-## Local Environment Prerequisites
-
-### 1. Tools
-
-`✅` - Install [Java 11+](https://www.oracle.com/java/technologies/downloads/) 
-
-`✅` - Install [Apache Maven](https://maven.apache.org/install.html)
-
-### 2. Project 
-
-`✅` - Clone and build project
-
-```
-git clone https://github.com/clun/astra-dataflow-starter.git
-mvn clean install -Dmaven.test.skip=true
-cd https://github.com/clun/astra-dataflow-starter/tree/main/samples-astra-beam-pipelines
-```
-
-`✅` - Download secure bundle
-
-```
-astra db download-scb demo -f /tmp/secure-connect-bundle-demo.zip
-ls -l /tmp/secure-connect-bundle-demo.zip
-```
-
-
-
-----
-
-### Example 1 - Load Simple Static Data (locally)
-
-`✅` - Run Flow
-```
- mvn compile exec:java -Pdirect-runner \
-  -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataLocally \
-  -Dexec.args="\
-    --keyspace=demo \
-    --secureConnectBundle=/tmp/secure-connect-bundle-demo.zip \
-    --token=${ASTRA_TOKEN}"
-```
-
-`✅` - Validate table `simpledata` has been populated
-```
-astra db cqlsh demo -k demo \
-  -e "select * from simpledata" \
-  --connect-timeout 20 \
-  --request-timeout 20
-```
-
-### Example 2 - Load Simple Static Google Data Flow ()
-
-`✅` - Create a `bucket` in the project
-```
-gsutil mb -c STANDARD -l US gs://astra_dataflow_inputs
-gsutil mb -c STANDARD -l US gs://astra_dataflow_outputs
-gsutil ls
-```
-
-`✅` - Copy Cloud Secure Bundle to GCS
-```
-gsutil cp /tmp/secure-connect-bundle-demo.zip gs://astra_dataflow_inputs/secure-connect-bundle-demo.zip
-gsutil ls gs://astra_dataflow_inputs/
-gsutil stat gs://astra_dataflow_inputs/secure-connect-bundle-demo.zip
-```
-
-`✅` - Make the secure connect bundle public
-
-```
-gsutil acl ch -u AllUsers:R gs://astra_dataflow_inputs/secure-connect-bundle-demo.zip
-```
-
-`✅` - Run the JOB
-```
-mvn -Pdataflow-runner compile exec:java \
-    -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataLocally \
-    -Dexec.args="\
-    --keyspace=demo \
-    --secureConnectBundle=https://storage.googleapis.com/astra_dataflow_inputs/secure-connect-bundle-demo.zip \
-    --token=${ASTRA_TOKEN} \
-    --runner=DataflowRunner \
-    --project=${GCP_PROJECT_ID} \
-    --region=us-central1 \
-    --gcpTempLocation=gs://dataflow-apache-quickstart_integrations-379317/temp/"  
-```
-
-`✅` - Show the populated table
-```
-astra db cqlsh demo -k demo \
-  -e "select * from simpledata" \
-  --connect-timeout 20 \
-  --request-timeout 20
-```
-
-### Example 3 - 
-
-```
-astra db cqlsh demo -k demo \
-  -e "truncate simpledata" \
-  --connect-timeout 20 \
-  --request-timeout 20
-```
-
-
-`✅` - Run Flow
-```
- mvn compile exec:java -Pdirect-runner \
-  -Dexec.mainClass=com.dtx.astra.pipelines.LoadStaticDataIntoAstraCql \
-  -Dexec.args="\
-    --keyspace=demo \
-    --secureConnectBundle=/tmp/secure-connect-bundle-demo.zip \
-    --token=${ASTRA_TOKEN}"
-```
-
-
-- Security
-```
-gcloud secrets add-iam-policy-binding cedrick-demo-scb \
+    ```
+    gcloud secrets add-iam-policy-binding cedrick-demo-scb \
         --member="serviceAccount:747469159044-compute@developer.gserviceaccount.com" \
         --role='roles/secretmanager.secretAccessor'
-gcloud secrets add-iam-policy-binding cedrick-demo-scb \
+    gcloud secrets add-iam-policy-binding cedrick-demo-scb \
         --member="serviceAccount:747469159044-compute@developer.gserviceaccount.com" \
         --role='roles/secretmanager.secretAccessor'
-```
+    ```
 
-- Run
-```
-mvn -Pdataflow-runner compile exec:java \
-    -Dexec.mainClass=com.dtx.astra.pipelines.test.ReadSecretAndConnectDataFlow \
-    -Dexec.args="\
-    --astraToken=projects/747469159044/secrets/astra-token/versions/1 \
-    --secureConnectBundle=projects/747469159044/secrets/cedrick-demo-scb/versions/1 \
-    --runner=DataflowRunner \
-    --project=integrations-379317 \
-    --region=us-central1 \
-    --gcpTempLocation=gs://dataflow-apache-quickstart_integrations-379317/temp/"  
-```
+    - [x] **11.  Check that your secrets can be read**
 
+    ```
+    mvn -Pdataflow-runner compile exec:java \
+      -Dexec.mainClass=com.dtx.astra.pipelines.test.ReadSecretAndConnectDataFlow \
+      -Dexec.args="\
+      --astraToken=projects/747469159044/secrets/astra-token/versions/1 \
+      --secureConnectBundle=projects/747469159044/secrets/cedrick-demo-scb/versions/1 \
+      --runner=DataflowRunner \
+      --project=integrations-379317 \
+      --region=us-central1 \
+      --gcpTempLocation=gs://dataflow-apache-quickstart_integrations-379317/temp/"  
+    ```
+
+
+### 2. Bulk Data Load
+
+???+ abstract "Description of Pipeline `BulkDataLoadWithDataFlow`"
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/load-dataflow" />
+
+??? abstract "Implementation of Pipeline `BulkDataLoadWithDataFlow`"
+
+    `todo`
+
+??? abstract "Execution of Pipeline `BulkDataLoadWithDataFlow`"
+
+    `todo`
+
+### 3. Bulk Data Export
+
+???+ abstract "Description of Pipeline `BulkDataExportWithDataFlow`"
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-dataflow" />
+
+    
+??? abstract "Implementation of Pipeline `BulkDataExportWithDataFlow`"
+
+    `todo`
+
+??? abstract "Execution of Pipeline `BulkDataExportWithDataFlow`"
+
+    `todo`
 
 
