@@ -1,4 +1,6 @@
-## Apache Beam Overview
+## Overview
+
+### 1. Apache Beam
 
 ??? abstract "Introduction to Apache Beam"
 
@@ -35,7 +37,7 @@
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/runners.png" />
 
 
-## Google DataFlow Overview
+### 2. Google DataFlow
 
 ??? abstract "Introduction to Google Dataflow"
 
@@ -49,9 +51,9 @@
 
     > **Integration with DataStax** comes with the integration of proper runners but also some best practice on how to handle the credentials.
     
-## Integrating Beam and Astra
+### 3. Integrating with Astra
 
-???+ abstract "Use cases and Interfaces"
+??? abstract "DataFlow Access Patterns and Astra Interfaces"
 
     Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and as such integrating with Dataflow is possible in different ways.
 
@@ -73,20 +75,139 @@
 
     Astra service to handle streaming data is `Astra Streaming`. It provides multiples interfaces like `JMS`, `RabbitMQ` or `Kafka` built-in Apache Bean and available in [standard connector](https://beam.apache.org/documentation/io/connectors/).
 
-    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video]() from the Beam Summit 2022.
-
-    ![](https://www.youtube.com/embed/xoQRDzqdODk)
+    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video](https://www.youtube.com/embed/xoQRDzqdODk) from the Beam Summit 2022.
     
 
-### Load data with Apache Beam
+## Apache Beam
 
-- Definition of the pipeline
+### 1. Prerequisites 
 
-- Configuration of `AstraIO.<>Write`
+<!-- Prequisites for Java And Maven -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
 
-- Run Sample
+<!-- Prequisite Astra DB including SCB -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
-### Load data with Google DataFlow
+### 2. Installation and Setup
+
+???+ abstract "Setup the `maven` project locally"
+
+    - [x] **Clone the Repository with `AstraIO` and sample flows**
+
+    ```
+    git clone https://github.com/clun/astra-dataflow-starter.git
+    ```
+
+    - [x] **Build the project with maven**
+
+    ```
+    cd astra-dataflow-starter
+    mvn clean install -Dmaven.test.skip=true
+    ```
+
+### 3. Load Data Into Astra DB
+
+In this pipeline, 100 records are generated randomly to populate a table `simpledata` in Cassandra in AstraDB.The `simpledata` table looks like:
+
+```sql
+CREATE TABLE simpledata (
+    id int PRIMARY KEY,
+    data text
+);
+```
+
+- Logical View
+
+<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/load-data-beam.png" />
+
+???+ abstract "Understanding the Pipeline `LoadDataBeam`."
+
+    - We create a pipeline with 3 arguments:
+
+    | Parameter Name | Description |
+    |:----------|:------|
+    |  `token` | Credentials to connect to Astra platform, it should sart with `AstraCS:...` |
+    | `secureConnectBundle` | Zip containing certificates to open a secured connection and endpoint definition to pick the proper database |
+    |  `keyspace` | Target keyspace in Astra DB |
+
+    - Those parameters are parsed using a specialized `PipelineOptions` interface
+
+    ```java 
+    public interface AstraPipelineOptions extends PipelineOptions {
+
+    @Description("SecureConnectBundle")
+    @Validation.Required
+    String getSecureConnectBundle();
+    void setSecureConnectBundle(String path);
+
+    @Description("Astra Token")
+    @Validation.Required
+    String getToken();
+    void setToken(String token);
+
+    @Description("Target Keyspace")
+    @Validation.Required
+    String getKeyspace();
+    void setKeyspace(String keyspace);
+    ```
+
+    - Parsing the inputs
+
+    ```java
+    AstraPipelineOptions astraOptions = PipelineOptionsFactory
+            .fromArgs(args)
+            .withValidation()
+            .as(AstraPipelineOptions.class);
+    Pipeline pipelineWrite = Pipeline.create(astraOptions);
+    FileSystems.setDefaultPipelineOptions(astraOptions);
+    ```
+
+    - Run the pipeline
+
+    ```java
+     pipelineWrite
+      // Create 100 records randomly
+      .apply(Create.of(AstraIOTestUtils.generateTestData(100)))
+      // Create the target table
+      .apply(new CreateTableTransform<SimpleDataEntity>(astraOptions))
+      // Write data in tables
+      .apply(AstraIO.<SimpleDataEntity>write()
+        .withToken(astraOptions.getToken())
+        .withKeyspace(astraOptions.getKeyspace())
+        .withSecureConnectBundle(new File(astraOptions.getSecureConnectBundle()))
+        .withEntity(SimpleDataEntity.class));
+
+    // Pipeline Execution
+    pipelineWrite.run().waitUntilFinish();
+    ```
+
+- [x] **Setup parameters**
+
+```
+cd samples-astra-beam-pipelines
+export ASTRA_KEYSPACE=demo
+export ASTRA_SCB_PATH=/tmp/scb-demo.zip
+export ASTRA_TOKEN=AstraCS:uZclXTYecCAqPPjiNmkezapR:e87d6edb702acd87516e4ef78e0c0e515c32ab2c3529f5a3242688034149a0e4
+```
+
+- [x] **Run the pipeline**
+
+```
+mvn -Pdirect-runner compile \
+  exec:java \
+  -Dexec.mainClass=com.dtx.astra.pipelines.LoadDataBeam \
+  -Dexec.args="--keyspace=${ASTRA_KEYSPACE} \
+       --secureConnectBundle=${ASTRA_SCB_PATH} \
+       --token=${ASTRA_TOKEN}"
+```
+
+### 4. Export Data From Astra DB
+
+## Google DataFlow
+
+### 1. Prerequisites 
+
+### 2. Load data into AstraDB
 
 - Definition of the pipeline
 
@@ -96,7 +217,7 @@
 
 - Run Sample
 
-### Export data with Apache Beam
+### 3. Export Data from AstraDB
 
 - Definition of the pipeline
 
@@ -110,6 +231,7 @@
 
 - Configuration of Target location
 
+
 ## Streaming Data Operations
 
 ???+ abstract "Introduction to PulsarIO"
@@ -122,95 +244,6 @@
 - Pub/Sub VS Astra Streaming
 
 
-# astra-dataflow-starter
-
-This repository proposes some integration of Astra with Apache Beam and GCP Dataflow.
-
-### Prerequisites
-
-<!-- Prequisites for Java And Maven -->
---8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
-
-<!-- Prequisite Astra DB including SCB -->
---8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
-
-| Astra                        | GCP                                    | Local Environment          |
-|-------------------------------------------|----------------------------------------|----------------------------|
-| [Create Account](#1-get-an-astra-account) | [Create Project](#1-get-an-astra-account) | [Install Java](#1-get-an-astra-account) |
- | [Create Token](#2-get-an-astra-token)     | [Setup gCloud CLI](#2-get-an-astra-token) | [Install Maven](#1-get-an-astra-account) |
-| [Setup CLI](#3-setup-astra-cli)           | [Setup Project](#2-get-an-astra-token) | [Clone and Build](#1-get-an-astra-account) |
-| [Setup DB](#4-setup-databases)            |                                        |                            |
-
-### Sample Pipelines
-
-| Label                                         | Runner         | Description                                                        |
-|-----------------------------------------------|----------------|--------------------------------------------------------------------|
-| [Write Static Data ](#1-get-an-astra-account) | local (direct) | Load 100 record into an Astra Table                                |
-| [Write Static Data ](#1-get-an-astra-account) | GCP (dataflow) | Load 100 record into an Astra Table. SC is in google cloud storage |
-
-## Prerequisites
-
-### 1. Get an Astra Account
-
-`✅` - Access [https://astra.datastax.com](https://astra.datastax.com) and register with `Google` or `Github` account
-
-![](https://github.com/DataStax-Academy/cassandra-for-data-engineers/blob/main/images/setup-astra-1.png?raw=true)
-
-### 2. Get an astra token
-
-`✅` - Locate `Settings` (#1) in the menu on the left, then `Token Management` (#2)
-
-`✅` - Select the role `Organization Administrator` before clicking `[Generate Token]`
-
-![](https://github.com/DataStax-Academy/cassandra-for-data-engineers/blob/main/images/setup-astra-2.png?raw=true)
-
-`✅` - Copy your token in the clipboard. With this token we will now create what is needed for the training.
-
-![](https://github.com/DataStax-Academy/cassandra-for-data-engineers/blob/main/images/setup-astra-3.png?raw=true)
-
-`✅` - Save you token as environment variable
-
-```
-export ASTRA_TOKEN=<paste_your_token_value_here>
-```
-
-### 3. Setup Astra CLI
-
-`✅` - Install Cli
-```
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
-source ~/.astra/cli/astra-init.sh
-```
-
-`✅` - Setup CLI
-
-```
-astra setup --token ${ASTRA_TOKEN}
-```
-
-### 4. Setup Databases
-
-`✅` - Create database `demo` with keyspace `demo`
-```
-astra db create demo -k demo
-```
-
-`✅` - Create table `simpledata`
-
-```
-astra db cqlsh demo -k demo \
-  -e "CREATE TABLE IF NOT EXISTS simpledata(id int PRIMARY KEY, data text);" \
-  --connect-timeout 20 \
-  --request-timeout 20
-```
-
-`✅` - Validate table `simpledata` exists
-```
-astra db cqlsh demo -k demo \
-  -e "select * from simpledata" \
-  --connect-timeout 20 \
-  --request-timeout 20
-```
 
 ## Google Cloud Platform Prerequisites
 
