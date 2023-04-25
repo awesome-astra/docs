@@ -619,23 +619,24 @@
 
 ??? abstract "Execution of Pipeline `BulkDataExportWithDataFlow`"
 
-   - [x] **Run the pipeline**. As you see the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from secrets.
+    - [x] **Run the pipeline**. As you see the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from secrets.
 
     ```
     mvn -Pdataflow-runner compile exec:java \
-     -Dexec.mainClass=com.dtx.astra.pipelines.dataflow.BulkDataExportWithDataflow \
-     -Dexec.args="\
-        --astraToken=projects/${GCP_PROJECT_CODE}/secrets/astra-token/versions/1 \
-        --secureConnectBundle=projects/${GCP_PROJECT_CODE}/secrets/cedrick-demo-scb/versions/1 \
-        --keyspace=demo \
-        --table=simpledata \
-        --targetFolder=gs://astra_dataflow_ouput
-        --runner=DataflowRunner \
-        --project=integrations-379317 \
-        --region=us-central1"
+      -Dexec.mainClass=com.dtx.astra.pipelines.dataflow.BulkDataExportWithDataflow \
+      -Dexec.args="\
+          --astraToken=projects/${GCP_PROJECT_CODE}/secrets/astra-token/versions/1 \
+          --secureConnectBundle=projects/${GCP_PROJECT_CODE}/secrets/cedrick-demo-scb/versions/1 \
+          --keyspace=demo \
+          --table=simpledata \
+          --targetFolder=gs://astra_dataflow_ouput
+          --runner=DataflowRunner \
+          --project=integrations-379317 \
+          --region=us-central1"
     ```
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/output-export-dataflow.png" />
+    
 
 
 
