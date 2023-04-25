@@ -1,6 +1,31 @@
-## Overview
+???+ abstract "Integrating Astra and Beam/Dataflow"
 
-### 1. Apache Beam
+    Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and integrating with Apache Beam/Google Dataflow is possible in different ways. Some design choices have benn made and detailed here:
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-interfaces.png" />
+
+    **Data Bulk Operations**
+
+    Astra service to handle massive amount of Data is `Astra DB`. It provides multiples ways to load data but some are preferred over others.
+
+    - **`Cassandra and CQL`: This is the way to go.** It is the most mature provides efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes.  This is the approach taken with the build-in IO `CassandraIO`. Now `CassandraIO` is outdated and does not support and we leveraged it to create `AstraIO`.
+
+    - **`CQL over REST`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
+
+    - **`CQL over GraphQL`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
+
+    - **`CQL over GRPC`**: Consider as a cloud native drivers (stateless) with an optimize serialization complnent (grpc) and reactive interfaces it is a viable interface. Now current operations exposes are CQL and the token metadata informations are not available to perform range queries.
+
+    **Data Streaming Operations**
+
+    Astra service to handle streaming data is `Astra Streaming`. It provides multiples interfaces like `JMS`, `RabbitMQ` or `Kafka` built-in Apache Bean and available in [standard connector](https://beam.apache.org/documentation/io/connectors/).
+
+    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video](https://www.youtube.com/embed/xoQRDzqdODk) from the Beam Summit 2022.
+    
+
+## Apache Beam
+
+### 1. Overview
 
 ??? abstract "Introduction to Apache Beam"
 
@@ -36,51 +61,7 @@
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/runners.png" />
 
-
-### 2. Google DataFlow
-
-??? abstract "Introduction to Google Dataflow"
-
-    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png" height="30px" />
-
-    Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform, it is also called an **Apache Beam Runner** It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides **native integration** with main Google Cloud services, such as **BigQuery** and **Pub/Sub**.
-
-    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-ecosystem.png" />
-
-    Dataflow provides built-in integrations with most in use Google Cloud Platform products suchh as Cloud Storage, Pub/Sub, Datastore or Big Query. The plaform can be extended and run any java code and I/O connectors deployed form the CLI.
-
-    > **Integration with DataStax** comes with the integration of proper runners but also some best practice on how to handle the credentials.
-    
-### 3. Integrating with Astra
-
-??? abstract "DataFlow Access Patterns and Astra Interfaces"
-
-    Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and as such integrating with Dataflow is possible in different ways.
-
-    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-interfaces.png" />
-
-    **Data Bulk Operations**
-
-    Astra service to handle massive amount of Data is `Astra DB`. It provides multiples ways to load data but some are preferred over others.
-
-    - **`Cassandra and CQL`: This is the way to go.** It is the most mature provides efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes.  This is the approach taken with the build-in IO `CassandraIO`. Now `CassandraIO` is outdated and does not support and we leveraged it to create `AstraIO`.
-
-    - **`CQL over REST`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
-
-    - **`CQL over GraphQL`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
-
-    - **`CQL over GRPC`**: Consider as a cloud native drivers (stateless) with an optimize serialization complnent (grpc) and reactive interfaces it is a viable interface. Now current operations exposes are CQL and the token metadata informations are not available to perform range queries.
-
-    **Data Streaming Operations**
-
-    Astra service to handle streaming data is `Astra Streaming`. It provides multiples interfaces like `JMS`, `RabbitMQ` or `Kafka` built-in Apache Bean and available in [standard connector](https://beam.apache.org/documentation/io/connectors/).
-
-    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video](https://www.youtube.com/embed/xoQRDzqdODk) from the Beam Summit 2022.
-    
-
-## Apache Beam
-
-### 1. Prerequisites 
+### 2. Prerequisites 
 
 <!-- Prequisites for Java And Maven -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
@@ -88,14 +69,14 @@
 <!-- Prequisite Astra DB including SCB -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
-### 2. Installation and Setup
+### 3. Installation and Setup
 
 ???+ abstract "Setup the `maven` project locally"
 
     - [x] **Clone the Repository with `AstraIO` and sample flows**
 
     ```
-    git clone https://github.com/clun/astra-dataflow-starter.git
+    git clone https://github.com/DataStax-Examples/astra-dataflow-starter.git
     ```
 
     - [x] **Build the project with maven**
@@ -109,7 +90,7 @@
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/java-project.png" />
 
-### 3. Bulk Data Load
+### 4. Bulk Data Load
 
 ???+ abstract "Description of Pipeline `BulkDataLoadWithBeam`."
 
@@ -222,7 +203,7 @@
       --request-timeout 20
     ```
 
-### 4. Bulk Data Export
+### 5. Bulk Data Export
 
 ???+ abstract "Description of Pipeline `BulkDataExportWithBeam`"
 
@@ -335,7 +316,21 @@
 
 ## Google DataFlow
 
-### 1. Prerequisites 
+### 1. Overview
+
+??? abstract "Introduction to Google Dataflow"
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png" height="30px" />
+
+    Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform, it is also called an **Apache Beam Runner** It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides **native integration** with main Google Cloud services, such as **BigQuery** and **Pub/Sub**.
+
+    <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-ecosystem.png" />
+
+    Dataflow provides built-in integrations with most in use Google Cloud Platform products suchh as Cloud Storage, Pub/Sub, Datastore or Big Query. The plaform can be extended and run any java code and I/O connectors deployed form the CLI.
+
+    > **Integration with DataStax** comes with the integration of proper runners but also some best practice on how to handle the credentials.
+
+### 2. Prerequisites 
 
 <!-- Prequisites for Java And Maven -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
@@ -451,7 +446,7 @@
     
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/output-secrets.png" />
 
-### 2. Bulk Data Load
+### 3. Bulk Data Load
 
 ???+ abstract "Description of Pipeline `BulkDataLoadWithDataFlow`"
 
@@ -548,7 +543,7 @@
 
      <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/output-load-dataflow.png" />
 
-### 3. Bulk Data Export
+### 4. Bulk Data Export
 
 ???+ abstract "Description of Pipeline `BulkDataExportWithDataFlow`"
 
@@ -636,7 +631,7 @@
     ```
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/output-export-dataflow.png" />
-    
+
 
 
 
