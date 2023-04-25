@@ -3729,25 +3729,23 @@
 </details>
 <details class="abstract">
 <summary>Execution of Pipeline <code>BulkDataExportWithDataFlow</code></summary>
-</details>
 <ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from secrets.</p>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from secrets.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>mvn -Pdataflow-runner compile exec:java \
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a> -Dexec.mainClass=com.dtx.astra.pipelines.dataflow.BulkDataExportWithDataflow \
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a> -Dexec.args=&quot;\
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>    --astraToken=projects/${GCP_PROJECT_CODE}/secrets/astra-token/versions/1 \
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    --secureConnectBundle=projects/${GCP_PROJECT_CODE}/secrets/cedrick-demo-scb/versions/1 \
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    --keyspace=demo \
-<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>    --table=simpledata \
-<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>    --targetFolder=gs://astra_dataflow_ouput
-<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>    --runner=DataflowRunner \
-<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>    --project=integrations-379317 \
-<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>    --region=us-central1&quot;
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>  -Dexec.mainClass=com.dtx.astra.pipelines.dataflow.BulkDataExportWithDataflow \
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>  -Dexec.args=&quot;\
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>      --astraToken=projects/${GCP_PROJECT_CODE}/secrets/astra-token/versions/1 \
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>      --secureConnectBundle=projects/${GCP_PROJECT_CODE}/secrets/cedrick-demo-scb/versions/1 \
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>      --keyspace=demo \
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>      --table=simpledata \
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>      --targetFolder=gs://astra_dataflow_ouput
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>      --runner=DataflowRunner \
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>      --project=integrations-379317 \
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>      --region=us-central1&quot;
 </code></pre></div>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/output-export-dataflow.png" /></p>
-</li>
-</ul>
+</details>
 
   <hr>
 <div class="md-source-file">
