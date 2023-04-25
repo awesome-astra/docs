@@ -1,26 +1,26 @@
 ???+ abstract "Integrating Astra and Beam/Dataflow"
 
-    Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and integrating with Apache Beam/Google Dataflow is possible in different ways. Some design choices have benn made and detailed here:
+    Astra allows both bulk and real time operations through AstraDB and Astra Streaming. For each service there are multiple interfaces available and integration with Apache Beam/Google Dataflow is possible in different ways. Some of the design choices for this integration are below:
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-interfaces.png" />
 
     **Data Bulk Operations**
 
-    Astra service to handle massive amount of Data is `Astra DB`. It provides multiples ways to load data but some are preferred over others.
+    The Astra service which handles massive amount of data is `Astra DB`. It provides multiples ways to load data but some methods are preferred over others.
 
-    - **`Cassandra and CQL`: This is the way to go.** It is the most mature provides efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes.  This is the approach taken with the build-in IO `CassandraIO`. Now `CassandraIO` is outdated and does not support and we leveraged it to create `AstraIO`.
+    - **`Cassandra and CQL`: This is the way to go.** It is the most mature and provides an efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across the nodes.  This is the approach that was taken with the original `CassandraIO` connector. The existing `CassandraIO` connector does not support Astra but we leveraged it to create a new `AstraIO` connector.
 
-    - **`CQL over REST`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
+    - **`CQL over REST`**: This interface can be use with any HTTP client. While the Astra SDKs provides a built-in client, this interface is not the best for bulk loading as it introduces an extra layer of serialization.
 
-    - **`CQL over GraphQL`**: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.
+    - **`CQL over GraphQL`**: This interface can be used with any HTTP Client. While the Astra SDKs provides a built-in client, this interface is not the best for bulk loading as it introduces an extra layer of serialization.
 
-    - **`CQL over GRPC`**: Consider as a cloud native drivers (stateless) with an optimize serialization complnent (grpc) and reactive interfaces it is a viable interface. Now current operations exposes are CQL and the token metadata informations are not available to perform range queries.
+    - **`CQL over GRPC`**: This interface is stateless, with an optimized serialization component (grpc), and reactive interfaces so it is a viable option. Currently, the operations exposed are CQL and the token metadata information is not available to perform range queries.
 
     **Data Streaming Operations**
 
-    Astra service to handle streaming data is `Astra Streaming`. It provides multiples interfaces like `JMS`, `RabbitMQ` or `Kafka` built-in Apache Bean and available in [standard connector](https://beam.apache.org/documentation/io/connectors/).
+    The Astra service to handle streaming data is `Astra Streaming`. It provides multiple interfaces like `JMS`, `RabbitMQ`, `Kafka`, and built-in Apache Beam support is available in [standard connectors](https://beam.apache.org/documentation/io/connectors/).
 
-    Now to leverage the split capabilities of Pulsar a `PulsarIO` is available since 2022. To know more about its development you can follow [this video](https://www.youtube.com/embed/xoQRDzqdODk) from the Beam Summit 2022.
+    To leverage the split capabilities of Pulsar, a `PulsarIO` connector was released in 2022. To learn more about its development you can follow [this video](https://www.youtube.com/embed/xoQRDzqdODk) from the Beam Summit 2022.
     
 
 ## Apache Beam
@@ -43,7 +43,7 @@
 
     - **`Pipeline`:** A `Pipeline` encapsulates your entire data processing task, from start to finish. This includes reading input data, transforming that data, and writing output data. All Beam driver programs must create a Pipeline. When you create the Pipeline, you must also specify the execution options that tell the Pipeline where and how to run.
 
-    - **`PCollection`**: A `PCollection` represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanism. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.
+    - **`PCollection`**: A `PCollection` represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanisms. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.
 
     - **`PTransform`:** A `PTransform` represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects.
 
@@ -51,9 +51,9 @@
 
     **I/O Connectors**
     
-    Apache Beam I/O connectors provide read and write transforms for the most popular data storage systems so that Beam users can benefit from native optimised connectivity. With the available I/Os, Apache Beam pipelines can read and write data from and to an external storage type in a unified and distributed way.
+    Apache Beam I/O connectors provide read and write transforms for the most popular data storage systems so that Beam users can benefit from natively optimised connectivity. With the available I/Os, Apache Beam pipelines can read and write data to and from an external storage type in a unified and distributed way.
 
-    > **Integration with DataStax Astra we will leverage or get inspiration from both built-in`CassandraIO` and `PulsarIO`**. Now specifities of Astra requires a dedicated **`AstraIO`**.
+    > **Integration with DataStax Astra is inspired by the built-in `CassandraIO` and `PulsarIO` connectors**. This integration leverages a new **`AstraIO`** connector.
 
     **Runners**
 
@@ -86,7 +86,7 @@
     mvn clean install -Dmaven.test.skip=true
     ```
 
-    - In the page multiple flows will be described and this is how the project is defined:
+    - In this page multiple flows will be described and this is how the project is defined:
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/java-project.png" />
 
@@ -94,7 +94,7 @@
 
 ???+ abstract "Description of Pipeline `BulkDataLoadWithBeam`."
 
-    In this pipeline, 100 records are generated randomly to populate a table `simpledata` in Cassandra in AstraDB.The `simpledata` table looks like:
+    In this pipeline, 100 records are generated randomly to populate a table `simpledata` in AstraDB. The `simpledata` table looks like the following:
 
     ```sql
     CREATE TABLE simpledata (
@@ -111,7 +111,7 @@
 
     | Parameter Name | Description |
     |:----------|:------|
-    |  `token` | Credentials to connect to Astra platform, it should sart with `AstraCS:...` |
+    |  `token` | Credentials to connect to the Astra platform, it should start with `AstraCS:...` |
     | `secureConnectBundle` | Zip containing certificates to open a secured connection and endpoint definition to pick the proper database |
     |  `keyspace` | Target keyspace in Astra DB |
 
@@ -207,7 +207,7 @@
 
 ???+ abstract "Description of Pipeline `BulkDataExportWithBeam`"
 
-    In this pipeline, the content of an Astra Table is exported as set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory.
+    In this pipeline, the contents of an Astra table are exported as set of CSV files. The read is split in token ranges for maximum performance (reads are distributed accross the nodes). Multiple files are produced in the output directory.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-data-beam.png" />
 
@@ -217,7 +217,7 @@
 
     | Parameter Name | Description |
     |:----------|:------|
-    |  `token` | Credentials to connect to Astra platform, it should sart with `AstraCS:...` |
+    |  `token` | Credentials to connect to the Astra platform, it should sart with `AstraCS:...` |
     | `secureConnectBundle` | Zip containing certificates to open a secured connection and endpoint definition to pick the proper database |
     |  `keyspace`    | Target keyspace in Astra DB |
     |  `table`       | The table name to be exported |
@@ -254,7 +254,7 @@
     }
     ```
 
-    - Iteam are read with a `AstraIO.read()` as entity, then serialized as string
+    - Items are read with a `AstraIO.read()` as an entity, then serialized as a String
 
     ```java
     @ProcessElement
@@ -322,7 +322,7 @@
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png" height="30px" />
 
-    Google Dataflow is an hosted version of `Apache Beam` running in google cloud platform, it is also called an **Apache Beam Runner** It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides **native integration** with main Google Cloud services, such as **BigQuery** and **Pub/Sub**.
+    Google Dataflow is an hosted version of `Apache Beam` running in the Google Cloud Platform, it is also called an **Apache Beam Runner** It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides **native integration** with main Google Cloud services, such as **BigQuery** and **Pub/Sub**.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-ecosystem.png" />
 
@@ -344,7 +344,7 @@
 
     In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
-    > Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
+    > Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
 
     - [x] **2. Enable Billing**: Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
 
@@ -527,7 +527,7 @@
 
 ??? abstract "Execution of Pipeline `BulkDataLoadWithDataFlow`"
 
-    - [x] **Run the pipeline**. As you see the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from secrets.
+    - [x] **Run the pipeline**. As you see, the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from secrets.
 
     ```
     mvn -Pdataflow-runner compile exec:java \
@@ -547,7 +547,7 @@
 
 ???+ abstract "Description of Pipeline `BulkDataExportWithDataFlow`"
 
-    In this pipeline, the content of an Astra Table is exported as set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory. The file are created in Google CLoud Storage.
+    In this pipeline, the content of an Astra Table is exported as a set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory. The files are created in Google CLoud Storage.
 
     <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-dataflow.png" />
 
@@ -595,7 +595,7 @@
     }
     ```
 
-    - Iteam are read with a `AstraIO.read()` as entity, then serialized as string
+    - Items are read with a `AstraIO.read()` as entity, then serialized as a String
 
     ```java
     @ProcessElement
@@ -606,7 +606,7 @@
     }
     ```
 
-    - Secrets are extracted from Secret Manager and using for the READ
+    - Secrets are extracted from the Secret Manager and used for the READ
 
     ```java
    
@@ -614,7 +614,7 @@
 
 ??? abstract "Execution of Pipeline `BulkDataExportWithDataFlow`"
 
-    - [x] **Run the pipeline**. As you see the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from secrets.
+    - [x] **Run the pipeline**. As you see, the runner is set to `DataflowRunner` and the parameters are provided with the option `exec.args` in the command. The token and cloud secure bundle are read from the secrets.
 
     ```
     mvn -Pdataflow-runner compile exec:java \
