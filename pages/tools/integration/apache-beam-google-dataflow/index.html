@@ -2932,27 +2932,27 @@
 
 <details class="abstract" open="open">
 <summary>Integrating Astra and Beam/Dataflow</summary>
-<p>Astra allows both bulk and real time operations with respectively AstraDB and Astra Streaming. For each service there are multiple interfaces available and integrating with Apache Beam/Google Dataflow is possible in different ways. Some design choices have benn made and detailed here:</p>
+<p>Astra allows both bulk and real time operations through AstraDB and Astra Streaming. For each service there are multiple interfaces available and integration with Apache Beam/Google Dataflow is possible in different ways. Some of the design choices for this integration are below:</p>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-interfaces.png" /></p>
 <p><strong>Data Bulk Operations</strong></p>
-<p>Astra service to handle massive amount of Data is <code>Astra DB</code>. It provides multiples ways to load data but some are preferred over others.</p>
+<p>The Astra service which handles massive amount of data is <code>Astra DB</code>. It provides multiples ways to load data but some methods are preferred over others.</p>
 <ul>
 <li>
-<p><strong><code>Cassandra and CQL</code>: This is the way to go.</strong> It is the most mature provides efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across nodes.  This is the approach taken with the build-in IO <code>CassandraIO</code>. Now <code>CassandraIO</code> is outdated and does not support and we leveraged it to create <code>AstraIO</code>.</p>
+<p><strong><code>Cassandra and CQL</code>: This is the way to go.</strong> It is the most mature and provides an efficient way to execute queries. With the native drivers you can run reactive queries and token range queries to distribute the load across the nodes.  This is the approach that was taken with the original <code>CassandraIO</code> connector. The existing <code>CassandraIO</code> connector does not support Astra but we leveraged it to create a new <code>AstraIO</code> connector.</p>
 </li>
 <li>
-<p><strong><code>CQL over REST</code></strong>: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.</p>
+<p><strong><code>CQL over REST</code></strong>: This interface can be use with any HTTP client. While the Astra SDKs provides a built-in client, this interface is not the best for bulk loading as it introduces an extra layer of serialization.</p>
 </li>
 <li>
-<p><strong><code>CQL over GraphQL</code></strong>: This interface can be use with any HTTP Client. Now Astra SDKs provides you a built-in client. The interface is not the best for bulk loading at it introduces an extra layer of serialization.</p>
+<p><strong><code>CQL over GraphQL</code></strong>: This interface can be used with any HTTP Client. While the Astra SDKs provides a built-in client, this interface is not the best for bulk loading as it introduces an extra layer of serialization.</p>
 </li>
 <li>
-<p><strong><code>CQL over GRPC</code></strong>: Consider as a cloud native drivers (stateless) with an optimize serialization complnent (grpc) and reactive interfaces it is a viable interface. Now current operations exposes are CQL and the token metadata informations are not available to perform range queries.</p>
+<p><strong><code>CQL over GRPC</code></strong>: This interface is stateless, with an optimized serialization component (grpc), and reactive interfaces so it is a viable option. Currently, the operations exposed are CQL and the token metadata information is not available to perform range queries.</p>
 </li>
 </ul>
 <p><strong>Data Streaming Operations</strong></p>
-<p>Astra service to handle streaming data is <code>Astra Streaming</code>. It provides multiples interfaces like <code>JMS</code>, <code>RabbitMQ</code> or <code>Kafka</code> built-in Apache Bean and available in <a href="https://beam.apache.org/documentation/io/connectors/">standard connector</a>.</p>
-<p>Now to leverage the split capabilities of Pulsar a <code>PulsarIO</code> is available since 2022. To know more about its development you can follow <a href="https://www.youtube.com/embed/xoQRDzqdODk">this video</a> from the Beam Summit 2022.</p>
+<p>The Astra service to handle streaming data is <code>Astra Streaming</code>. It provides multiple interfaces like <code>JMS</code>, <code>RabbitMQ</code>, <code>Kafka</code>, and built-in Apache Beam support is available in <a href="https://beam.apache.org/documentation/io/connectors/">standard connectors</a>.</p>
+<p>To leverage the split capabilities of Pulsar, a <code>PulsarIO</code> connector was released in 2022. To learn more about its development you can follow <a href="https://www.youtube.com/embed/xoQRDzqdODk">this video</a> from the Beam Summit 2022.</p>
 </details>
 <h2 id="apache-beam">Apache Beam<a class="headerlink" href="#apache-beam" title="Permanent link">&para;</a></h2>
 <h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
@@ -2969,7 +2969,7 @@
 <p><strong><code>Pipeline</code>:</strong> A <code>Pipeline</code> encapsulates your entire data processing task, from start to finish. This includes reading input data, transforming that data, and writing output data. All Beam driver programs must create a Pipeline. When you create the Pipeline, you must also specify the execution options that tell the Pipeline where and how to run.</p>
 </li>
 <li>
-<p><strong><code>PCollection</code></strong>: A <code>PCollection</code> represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanism. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.</p>
+<p><strong><code>PCollection</code></strong>: A <code>PCollection</code> represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanisms. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.</p>
 </li>
 <li>
 <p><strong><code>PTransform</code>:</strong> A <code>PTransform</code> represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects.</p>
@@ -2979,9 +2979,9 @@
 </li>
 </ul>
 <p><strong>I/O Connectors</strong></p>
-<p>Apache Beam I/O connectors provide read and write transforms for the most popular data storage systems so that Beam users can benefit from native optimised connectivity. With the available I/Os, Apache Beam pipelines can read and write data from and to an external storage type in a unified and distributed way.</p>
+<p>Apache Beam I/O connectors provide read and write transforms for the most popular data storage systems so that Beam users can benefit from natively optimised connectivity. With the available I/Os, Apache Beam pipelines can read and write data to and from an external storage type in a unified and distributed way.</p>
 <blockquote>
-<p><strong>Integration with DataStax Astra we will leverage or get inspiration from both built-in<code>CassandraIO</code> and <code>PulsarIO</code></strong>. Now specifities of Astra requires a dedicated <strong><code>AstraIO</code></strong>.</p>
+<p><strong>Integration with DataStax Astra is inspired by the built-in <code>CassandraIO</code> and <code>PulsarIO</code> connectors</strong>. This integration leverages a new <strong><code>AstraIO</code></strong> connector.</p>
 </blockquote>
 <p><strong>Runners</strong></p>
 <p>A runner in Apache Beam is responsible for executing pipelines on a particular processing engine or framework, such as Apache Flink or Google Cloud Dataflow. The runner translates the Beam pipeline into the appropriate format for the underlying engine, manages job execution, and provides feedback on job progress and status.</p>
@@ -3062,14 +3062,14 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>mvn clean install -Dmaven.test.skip=true
 </code></pre></div>
 <ul>
-<li>In the page multiple flows will be described and this is how the project is defined:</li>
+<li>In this page multiple flows will be described and this is how the project is defined:</li>
 </ul>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/java-project.png" /></p>
 </details>
 <h3 id="4-bulk-data-load">4. Bulk Data Load<a class="headerlink" href="#4-bulk-data-load" title="Permanent link">&para;</a></h3>
 <details class="abstract" open="open">
 <summary>Description of Pipeline <code>BulkDataLoadWithBeam</code>.</summary>
-<p>In this pipeline, 100 records are generated randomly to populate a table <code>simpledata</code> in Cassandra in AstraDB.The <code>simpledata</code> table looks like:</p>
+<p>In this pipeline, 100 records are generated randomly to populate a table <code>simpledata</code> in AstraDB. The <code>simpledata</code> table looks like the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">simpledata</span><span class="w"> </span><span class="p">(</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">text</span>
@@ -3092,7 +3092,7 @@
 <tbody>
 <tr>
 <td align="left"><code>token</code></td>
-<td align="left">Credentials to connect to Astra platform, it should sart with <code>AstraCS:...</code></td>
+<td align="left">Credentials to connect to the Astra platform, it should start with <code>AstraCS:...</code></td>
 </tr>
 <tr>
 <td align="left"><code>secureConnectBundle</code></td>
@@ -3192,7 +3192,7 @@
 <h3 id="5-bulk-data-export">5. Bulk Data Export<a class="headerlink" href="#5-bulk-data-export" title="Permanent link">&para;</a></h3>
 <details class="abstract" open="open">
 <summary>Description of Pipeline <code>BulkDataExportWithBeam</code></summary>
-<p>In this pipeline, the content of an Astra Table is exported as set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory.</p>
+<p>In this pipeline, the contents of an Astra table are exported as set of CSV files. The read is split in token ranges for maximum performance (reads are distributed accross the nodes). Multiple files are produced in the output directory.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-data-beam.png" /></p>
 </details>
 <details class="abstract">
@@ -3210,7 +3210,7 @@
 <tbody>
 <tr>
 <td align="left"><code>token</code></td>
-<td align="left">Credentials to connect to Astra platform, it should sart with <code>AstraCS:...</code></td>
+<td align="left">Credentials to connect to the Astra platform, it should sart with <code>AstraCS:...</code></td>
 </tr>
 <tr>
 <td align="left"><code>secureConnectBundle</code></td>
@@ -3261,7 +3261,7 @@
 <a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Iteam are read with a <code>AstraIO.read()</code> as entity, then serialized as string</li>
+<li>Items are read with a <code>AstraIO.read()</code> as an entity, then serialized as a String</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nd">@ProcessElement</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processElement</span><span class="p">(</span><span class="n">ProcessContext</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3322,7 +3322,7 @@
 <details class="abstract">
 <summary>Introduction to Google Dataflow</summary>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png" height="30px" /></p>
-<p>Google Dataflow is an hosted version of <code>Apache Beam</code> running in google cloud platform, it is also called an <strong>Apache Beam Runner</strong> It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides <strong>native integration</strong> with main Google Cloud services, such as <strong>BigQuery</strong> and <strong>Pub/Sub</strong>.</p>
+<p>Google Dataflow is an hosted version of <code>Apache Beam</code> running in the Google Cloud Platform, it is also called an <strong>Apache Beam Runner</strong> It allows users to build and execute data pipelines. It enables the processing of large amounts of data in a parallel and distributed manner, making it scalable and efficient. Dataflow supports both batch and streaming processing, allowing for real-time data analysis. Users can write data processing pipelines using a variety of programming languages such as Java, Python, and SQL. Dataflow  provides <strong>native integration</strong> with main Google Cloud services, such as <strong>BigQuery</strong> and <strong>Pub/Sub</strong>.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-ecosystem.png" /></p>
 <p>Dataflow provides built-in integrations with most in use Google Cloud Platform products suchh as Cloud Storage, Pub/Sub, Datastore or Big Query. The plaform can be extended and run any java code and I/O connectors deployed form the CLI.</p>
 <blockquote>
@@ -3396,7 +3396,7 @@
 </ul>
 <p>In the Google Cloud console, on the project selector page, select or <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">create a Google Cloud project</a></p>
 <blockquote>
-<p>Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.</p>
+<p>Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.</p>
 </blockquote>
 <ul class="task-list">
 <li class="task-list-item">
@@ -3584,7 +3584,7 @@
 <details class="abstract">
 <summary>Execution of Pipeline <code>BulkDataLoadWithDataFlow</code></summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from secrets.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see, the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from secrets.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>mvn -Pdataflow-runner compile exec:java \
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>  -Dexec.mainClass=com.dtx.astra.pipelines.beam.dataflow.BulkDataLoadWithDataflow \
@@ -3601,7 +3601,7 @@
 <h3 id="4-bulk-data-export">4. Bulk Data Export<a class="headerlink" href="#4-bulk-data-export" title="Permanent link">&para;</a></h3>
 <details class="abstract" open="open">
 <summary>Description of Pipeline <code>BulkDataExportWithDataFlow</code></summary>
-<p>In this pipeline, the content of an Astra Table is exported as set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory. The file are created in Google CLoud Storage.</p>
+<p>In this pipeline, the content of an Astra Table is exported as a set of CSV Files. The read is split in token ranges for maximum performance (read are distributed accross the nodes). Multiple files are produced in the output directory. The files are created in Google CLoud Storage.</p>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/export-dataflow.png" /></p>
 </details>
 <details class="abstract">
@@ -3670,7 +3670,7 @@
 <a id="__codelineno-42-26" name="__codelineno-42-26" href="#__codelineno-42-26"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Iteam are read with a <code>AstraIO.read()</code> as entity, then serialized as string</li>
+<li>Items are read with a <code>AstraIO.read()</code> as entity, then serialized as a String</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nd">@ProcessElement</span>
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processElement</span><span class="p">(</span><span class="n">ProcessContext</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3680,7 +3680,7 @@
 <a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Secrets are extracted from Secret Manager and using for the READ</li>
+<li>Secrets are extracted from the Secret Manager and used for the READ</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>
 </code></pre></div>
@@ -3688,7 +3688,7 @@
 <details class="abstract">
 <summary>Execution of Pipeline <code>BulkDataExportWithDataFlow</code></summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from secrets.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Run the pipeline</strong>. As you see, the runner is set to <code>DataflowRunner</code> and the parameters are provided with the option <code>exec.args</code> in the command. The token and cloud secure bundle are read from the secrets.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>mvn -Pdataflow-runner compile exec:java \
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>  -Dexec.mainClass=com.dtx.astra.pipelines.dataflow.BulkDataExportWithDataflow \
