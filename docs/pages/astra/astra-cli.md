@@ -1,6 +1,6 @@
 ## **Overview**
 
-> CLI Latest version : ![0.2.2](https://img.shields.io/github/v/release/datastax/astra-cli)
+> CLI Latest version : ![0.3](https://img.shields.io/github/v/release/datastax/astra-cli)
 
 Astra CLI is a `command line interface` used to interact with Datastax astra resources (_create, read, update, delete_). On top of administration tasks it provides extra features like _backup, restore_ and  _migration_. It also allows native integration (downloads, setup, execution) with tools from the ecosystem  like _cqlsh, dsbulk, dsbulk-migrator_, or _pulsar-shell_.
 

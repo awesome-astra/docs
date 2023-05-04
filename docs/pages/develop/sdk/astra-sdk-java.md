@@ -2,305 +2,462 @@
 
 ---
 
-## Connect with the Java SDK
+Astra Java SDK is a framework that wraps different apis and interfaces exposed by Astra and provides fluent API and ease of usage.
 
-The Java SDK ([astra-sdk-java](https://github.com/datastax/astra-sdk-java)) allows you to perform standard CRUD operations on your data using Java.
+<img src="../../../../img/java/astra-sdk-java.png" />
 
-This SDK (Software Development Kit) makes it easy to call Stargate and/or Astra services using idiomatic Java APIs. The `Astra SDK` sets up the connection to work with the AstraDB cloud-based service. You will work with the class `AstraClient`.
 
-- `Stargate SDK` works with both Stargate standalone installations and Stargate deployed in Astra. With standalone Stargate deployments you will initialize the framework with the class StargateClient and provide a list of nodes (IP). To start locally please follow Stargate SDK quickstart guide. The nodes will run in Docker.
+## 1. Pre-requisites
 
-- `Astra SDK` reuses the previous library and setup the connection to work with AstraDB cloud-based service. You work with the class AstraClient (that configure StargateClient for you). As you can see on the figure below the AstraClient handles not only Stargate Apis but also Astra Devops Api and Apache Pulsar. To get started follow the Astra SDK quickstart guide.
+<!-- Prequisites for Java And Maven -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
 
-- `Astra Spring Boot Starter`: Imported in a Spring Boot application, it configures both Astra SDK and Spring Data Cassandra to work with AstraDB. Configuration is read in application.yaml. The starter will initialize any beans you would need (AstraClient, CqlSession, StargateClient. To get started follow the Astra Spring Boot Starter QuickStart guide.
+<!-- Prequisite Astra DB including SCB -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
-## 1 Prerequisites
 
-1. **Java Development Kit (JDK) 8+**
+## 2. Maven Project Setup
 
-Use [reference documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install a **Java Development Kit**. Validate your installation with:
+???+ note annotate "Project Setup"
 
-```bash
-java --version
-```
+    - [x] **Use maven to generate a project template**: 
 
-2. **Apache Maven (3.8+)**
+    ```
+    mvn archetype:generate \
+      -DarchetypeGroupId=org.apache.maven.archetypes \
+      -DarchetypeArtifactId=maven-archetype-quickstart \
+      -DarchetypeVersion=1.4 \
+      -DgroupId=com.datastax.tutorial \
+      -DartifactId=sdk-quickstart-astra \
+      -Dversion=1.0.0-SNAPSHOT \
+      -DinteractiveMode=false
+    ```
 
-The different samples and tutorials have been designed with `Apache Maven`. Use the [reference documentation](https://maven.apache.org/install.html) to install maven. Validate your installation with:
+      - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)**
 
-```bash
-mvn -version
-```
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
 
-3. An Application Token (create a new one [here](/settings/tokens)) with the appropriate role set (API Admin User is needed for example below).
+## 3. Astra DB
 
-## 2 Quickstart
+### 3.1 - CQL Native Drivers
 
-### Project Creation
+???+ example "Sample Code"
 
-1. Use maven to generate a project template
+      - [x] Create a class [`AstraSdkDrivers.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java) with the following code.
 
-```
-mvn archetype:generate \
-  -DarchetypeGroupId=org.apache.maven.archetypes \
-  -DarchetypeArtifactId=maven-archetype-quickstart \
-  -DarchetypeVersion=1.4 \
-  -DgroupId=com.datastax.tutorial \
-  -DartifactId=sdk-quickstart-astra \
-  -Dversion=1.0.0-SNAPSHOT \
-  -DinteractiveMode=false
-```
 
-2. Open the project in your favourite IDE and edit `pom.xml` to add the latest version of `com.datastax.astra/astra-sdk` as dependency ([![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core))
+      ``` java title="AstraSdkDrivers.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkDrivers.java"
+      ```
 
-```xml
-  <dependencies>
-    
-    <dependency>
-      <groupId>com.datastax.astra</groupId>
-      <artifactId>astra-sdk</artifactId>
-      <version>${latestSDK}</version>
-    </dependency>
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>
 
-  </dependencies>
-```
+???+ abstract "What you need to know"
 
-### Configuration
+    **🔑 About Credentials**
 
-3. Create a new class `AstraSdk` and populate the 4 variables.
+     - The pair `clientId`/ `clientSecret` hold your credentials. It can be replaced by the value of the token only.
 
-**Note:** _Depending on the framework you will declare in a configuration file like`application.properties` and load/inject them. We're just keeping things simple for now._
+     ```java
+     AstraClient.builder().withToken("AstraCS:...");
+     ```
 
-4. Use the following values to populate your class variables below.
+     - There is no need to download the cloud securebundle in advance as it will be downloaded for you in folder `~.astra/scb` by default. Stil, but you can also provide the file location with `.withCqlCloudSecureConnectBundle()`:
 
-**COULD WE JUST INJECT THESE DIRECT INTO THE CODE BLOCK SINCE WE'RE NO LONGER USING MARKDOWN?**
+     ```java
+     AstraClient.builder().withCqlCloudSecureConnectBundle("/tmp/scb.zio");
+     ```
 
-```bash
-    export ASTRA_DB_ID=85ce6482-cce5-4ced-b98b-274981222051
-    export ASTRA_DB_REGION=us-central1
-    export ASTRA_DB_APPLICATION_TOKEN=<app_token>
-```
+     - Notice than `enableCQL()` must be explictely provided. The `sdk` will open only the asked interfaces in order to limit the resource consumption.
 
-```java
-import java.io.File;
-import com.datastax.astra.sdk.AstraClient;
-import com.datastax.oss.driver.api.core.CqlSession;
+    **⚙️ About Database identifiers**
 
-public class AstraSdk {
-  
-  // Your Astra Token Starting with AstraCS:....
-  static final String ASTRA_DB_TOKEN  = "<provide_a_clientSecret>";
-  
-  // The unique identifier for your database (Astra UI: Databases dashboard)
-  static final String ASTRA_DB_ID     = "<provide_your_database_id>";
+     - `databaseId`/`databaseRegion` will be required to locate the proper endpoint. You can find them for a particular database with either the cli.
 
-  // The region in use for this database (Astra UI : Database Details screen)
-  static final String ASTRA_DB_REGION = "<provide_your_database_region>";
+     ```
+     $astra db list
 
-  // The keyspace in use for this database (Astra UI : Database Details screen)
-  static final String ASTRA_KEYSPACE  = "<provide_your_keyspace>";
+     +---------------------+--------------------------------------+---------------------+-----------+
+     | Name                | id                                   | Default Region      | Status    |
+     +---------------------+--------------------------------------+---------------------+-----------+
+     | db_demo             | 3043a40f-39bf-464e-8337-dc283167b2c3 | us-east1            | ACTIVE    |
+     +---------------------+--------------------------------------+---------------------+-----------+
 
-  // Define a Main
-  public static void main(String[] args) {}
+     $astra db describe db_demo
 
-}
-```
+     +------------------------+-----------------------------------------+
+     | Attribute              | Value                                   |
+     +------------------------+-----------------------------------------+
+     | Name                   | db_demo                                 |
+     | id                     | 3043a40f-39bf-464e-8337-dc283167b2c3    |
+     | Status                 | ACTIVE                                  |
+     | Default Cloud Provider | GCP                                     |
+     | Default Region         | us-east1                                |
+     | Default Keyspace       | keyspace_demo                           |
+     | Creation Time          | 2023-04-17T09:03:14Z                    |
+     | Keyspaces              | [0] demo                                |
+     | Regions                | [0] us-east1                            |
+     +------------------------+-----------------------------------------+
+     ```
 
-5. Within the `main` method, define the `AstraClient` as follow. This class is the entry point to every API for astra. It must be a singleton for your application. As autocloseable we can create is in a `try/resources` code block.
 
-```java
-try(AstraClient cli = AstraClient.builder()
-  .withToken(ASTRA_DB_TOKEN) 
-  .withDatabaseId(ASTRA_DB_ID) 
-  .withDatabaseRegion(ASTRA_DB_REGION)
-  .withCqlKeyspace(ASTRA_DB_KEYSPACE)
-  .enableCql()  // Only if you plan to use Cql native drivers
-  .enableGrpc() // Only if you plan to use Grpc API
-  .build()) {
-
-     // Here we will use AstraClient
-
-  }
-```
-
-### CQL Drivers
-
-To access CQL Native you want to access the `CqlSession` object. It is available through `astraClient.cqlSession()`.
-
-```java
-public void sampleUsageOfCqlNative(AstraClient astraClient) {
-
-    String cqlVersion = astraClient.cqlSession()
-        .execute("SELECT cql_version from system.local")
-        .one()
-        .getString("cql_version");
-
-    System.out.println("CqlVersion: " + cqlVersion);
-}
-```
-
-### API Rest
+### 3.2 - Rest API
 
 The `REST API` (also known as `api Data`) is wrapping exposing CQL language as Rest Resources. To get more information about this API check the [dedicated page](../api/rest.md)
 
-```java
-public static void sampleUsageOfRestApi(AstraClient astraClient) {
 
-    // List keyspaces
-    System.out.println("Keyspaces:" + astraClient
-      .apiStargateData()
-      .keyspaceNames()
-      .collect(Collectors.toList()));
+???+ example "Sample Code"
 
-    // List Tables
-    System.out.println("Tables : " + astraClient
-      .apiStargateData()
-      .keyspace(ASTRA_DB_KEYSPACE)
-      .tableNames()
-      .collect(Collectors.toList()));
+      - [x] Create a class [`AstraSdkRestApi.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkRestApi.java) with the following code.
 
-    // Syntax Sugar, simplify following expressions
-    TableClient tableMovies = astraClient
-      .apiStargateData()
-      .keyspace(ASTRA_DB_KEYSPACE)
-      .table("movies");
 
-    // Create table (movies)
-    tableMovies.create(CreateTable.builder().ifNotExist(true)
-        .addPartitionKey("genre", "text")
-        .addClusteringKey("year", "int", Ordering.DESC)
-        .addClusteringKey("title", "text", Ordering.ASC)
-        .addColumn("producer", "text")
-        .build()
-      );
+      ``` java title="AstraSdkDrivers.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkRestApi.java"
+      ```
 
-    // Insert a Movie
-    Map<String, Object> movie = new HashMap<>();
-    movie.put("genre", "Sci-Fi");
-    movie.put("year", 1990);
-    movie.put("title", "Avatar");
-    movie.put("producer", "James Cameron");
-    tableMovies.upsert(movie);
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>
 
-    // Select Movies
-    tableMovies.search(SearchTableQuery.builder()
-          .where("genre").isEqualsTo("Sci-Fi")
-          .withReturnedFields("title", "year")
-          .build())
-       .getResults()
-       .stream()
-       .forEach(row -> System.out.println(row.get("title") +
-          " (" + row.get("year") + ")"));
-
-    // Delete a movie
-    tableMovies.key("Sci-Fi", 1990, "Avatar").delete();    
-}
-```
 
 [More information about Rest API](https://github.com/datastax/astra-sdk-java/wiki/Rest-API)
 
-### API Document
+
+### 3.2 - Document API
 
 The `DOCUMENT API` exposes an Rest Resources to use Cassandra as a document-oriented database To get more information about this API check the [dedicated page](../api/document.md).
 
-```java
-public static void sampleUsageOfDocumentApi(AstraClient astraClient) {
+???+ example "Sample Code"
 
-    // List Namespaces
-    System.out.println("Namespaces:" + astraClient
-      .apiStargateDocument()
-      .namespaceNames()
-      .collect(Collectors.toList()));
+      - [x] Create a class [`AstraSdkDocApi.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDocApi.java) with the following code.
 
-    // List Collections
-    System.out.println("Collections : " + astraClient
-      .apiStargateDocument()
-      .namespace(ASTRA_DB_KEYSPACE)
-      .tableNames()
-      .collect(Collectors.toList()));
 
-    // Syntax Sugar, simplify following expressions
-    CollectionClient collectionVideo = astraClient
-      .apiStargateDocument()
-      .namespace(ASTRA_DB_KEYSPACE)
-      .collection("video");
+      ``` java title="AstraSdkDrivers.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkDocApi.java"
+      ```
 
-    // Create collection (video)
-    collectionVideo.create();
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>
 
-    // Inserting document, given a POJO Video with 2 attributes name and format
-    String avatarId = collectionVideo.create(new Video("Avatar", "MP4"));
-    String workshopId = collectionVideo.create(new Video("Workshop", "MP4"));
 
-    // Search Documents
-    Query query = Query.builder().selectAll()
-       .where("format").isEqualsTo("MP4")
-       .build();
-    collectionVideo.findAll(query, Video.class)
-       .map(Document::getDocument)
-       .map(Video::getName)
-       .forEach(System.out::println);
+**Document Repository**
 
-    // Delete a Document
-    collectionVideo.document(avatarId).delete();
-}
-```
+With modern java applications you want to interact with the DB using the repository pattern where most operations have been implemented for you `findAll(), findById()...`. Astra SDK provide this feature for the document API.
 
-### APi GraphQL
+???+ example "Sample Document Repository"
 
-The `GRAPHQL API` exposes a graphQL endpoint to query CQL over graphQL. To know more about this api please check the [dedicated page](../api/graphql.md).
+      - [x] Create a class [`AstraSdkDocRepository.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkDocRepository.java) with the following code.
 
-```java
-public static void sampleUsageOfGraphQLApi(AstraClient astraClient) {
 
-  // List Keyspaces
-  System.out.println("Keyspaces:" + astraClient
-    .apiStargateGraphQL()
-    .cqlSchema()
-    .keyspaces());
+      ``` java title="AstraSdkDrivers.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkDocRepository.java"
+      ```
 
-  // List Tables
-  String getTables = "query GetTables {\n"
-   + "  keyspace(name: \"" + ASTRA_DB_KEYSPACE + "\") {\n"
-   + "      name\n"
-   + "      tables {\n"
-   + "          name\n"
-   + "          columns {\n"
-   + "              name\n"
-   + "              kind\n"
-   + "              type {\n"
-   + "                  basic\n"
-   + "                  info {\n"
-   + "                      name\n"
-   + "                  }\n"
-   + "              }\n"
-   + "          }\n"
-   + "      }\n"
-   + "  }\n"
-   + "}";
-   System.out.println("Tables : " + astraClient
-     .apiStargateGraphQL()
-     .cqlSchema()
-     .query(getTables));
-}
-```
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>
 
-### API Grpc
+
+### 3.3 - Grpc APi
 
 The `GRPC API` exposes a grpc endpoint to query some CQL. From there it is very similar from native drivers. To know more about it check the [dedicated page](../api/grpc.md).
 
-```java
-public static void sampleUsageOfGrpcApi(AstraClient astraClient) {
-  
-  // Access gRPC API
-  ApiGrpcClient cloudNativeClient = astraClient.apiStargateGrpc();
-  
-  // Executing Query
-  ResultSetGrpc rs = cloudNativeClient.execute("SELECT data_center from system.local");
-                  
-  // Parse Results
-  String datacenterName = rs.one().getString("data_center");
-  System.out.println("You are connected to '%s'".formatted(datacenterName));
-  
-} 
-```
+???+ example "Sample Code"
+
+      - [x] Create a class [`AstraSdkGrpcApi.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkGrpcApi.java) with the following code.
+
+
+      ``` java title="AstraSdkGrpcApi.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkGrpcApi.java"
+      ```
+
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>  
+
+
+### 3.4 - GraphQL Api
+
+The `GRAPHQL API` exposes a graphQL endpoint to query CQL over graphQL. To know more about this api please check the [dedicated page](../api/graphql.md).
+
+
+???+ example "Sample Code"
+
+      - [x] Create a class [`AstraSdkGraphQLApi.java`](https://github.com/awesome-astra/sample-java-sdk/blob/main/src/main/java/com/datastax/astra/AstraSdkGraphQLApi.java) with the following code.
+
+
+      ```java title="AstraSdkGraphQLApi.java" linenums="1"
+      --8<-- "https://raw.githubusercontent.com/awesome-astra/sample-java-sdk/main/src/main/java/com/datastax/astra/AstraSdkGraphQLApi.java"
+      ```
+
+      <a href="https://github.com/awesome-astra/sample-java-sdk/archive/refs/heads/main.zip" class="md-button">
+        <i class="fa fa-download" ></i>&nbsp;Download Project
+      </a>
+
+## 4. Astra Streaming
+
+### 4.1 - Project setup
+
+???+ note annotate "Project Setup"
+
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk-pulsar</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
+
+### 4.2 - PulsarClient 
+
+Pulsar Api are very simple and the need of an sdk is limited. It could be used to get the proper version of `pulsar-client`, there are no extra setup steps.
+
+???+ example "PulsarClient Setup"
+
+      ```java
+      String pulsarUrl   = "pulsar+ssl://<cluster>.streaming.datastax.com:6651";
+      String pulsarToken = "<your_token>"
+      try(PulsarClient cli = new PulsarClientProvider(pulsarUrl, pulsarToken).get()) {
+        // work with client
+      };
+      ```
+
+### 4.3 - Pulsar Admin
+
+Pulsar Api are very simple and the need of an sdk is limited. It could be used to to setup the `pulsar-admin` for you.
+
+???+ example "Pulsar Admin Setup"
+
+      ```java
+      String pulsarUrlAdmin = "https://<cluster>.api.streaming.datastax.com";
+      String pulsarToken = "<your_token>"
+      PulsarAdmin pa = new PulsarAdminProvider(pulsarUrlAdmin,pulsarToken).get();
+
+      // Get Infos
+      System.out.println(pa.tenants().getTenantInfo("tenant_name").toString());
+
+      // List Namespaces
+      pa.namespaces().getNamespaces("clun-gcp-east1").forEach(System.out::println);
+
+      // List Topics
+      pa.topics().getList("clun-gcp-east1/astracdc").forEach(System.out::println);
+
+      // Details on a topic
+      PersistentTopicInternalStats stats = pa.topics()
+           .getInternalStats("persistent://<tenant>/<namespace>/<topic>");
+      System.out.println(stats.totalSize);
+      ```
+
+### 4.3 - Producer
+
+The Astra user interface already shows the expected code. There is very little an SDK can provide here. A sample to code to copy.
+
+???+ example "Sample Code"
+
+      ```java
+      import org.apache.pulsar.client.api.*;
+      import java.io.IOException;
+
+      public class SimpleProducer {
+
+          private static final String CLUSTER      = "<cluster>";
+          private static final String TENANT       = "<yourtenant>";
+          private static final String NAMESPACE    = "<yournamespace>";
+          private static final String TOPIC        = "<your_topic>";
+          private static final String PULSAR_TOKEN = "<your_token>";
+          private static final String SERVICE_URL  = 
+            "pulsar+ssl://" + CLUSTER + "streaming.datastax.com:6651";
+
+          public static void main(String[] args) throws IOException {
+              try(PulsarClient cli = new PulsarClientProvider(pulsarUrl, pulsarToken).get()) {
+                  try( Producer<byte[]> producer = cli
+                      .newProducer()
+                      .topic("persistent://" + TENANT + "/"+NAMESPACE+"/" + TOPIC)
+                      .create()) {
+                        // Send a message to the topic
+                        producer.send("Hello World".getBytes());
+                      }
+              };
+          }
+      }
+      ```
+
+### 4.4 - Consumer
+
+The Astra user interface already shows the expected code. There is very little an SDK can provide here. A sample to code to copy.
+
+???+ example "Sample Consumer"
+
+      ```java
+      import org.apache.pulsar.client.api.*;
+      import java.io.IOException;
+      import java.util.concurrent.TimeUnit;
+
+      public class SimpleConsumer {
+
+        private static final String CLUSTER      = "<cluster>";
+        private static final String TENANT       = "<yourtenant>";
+        private static final String NAMESPACE    = "<yournamespace>";
+        private static final String TOPIC        = "<your_topic>";
+        private static final String SUBSCRIPTION = "<your_subscription>";
+        private static final String PULSAR_TOKEN = "<your_token>";
+         
+        public static void main(String[] args) throws IOException {
+          try(PulsarClient cli = new PulsarClientProvider(
+            "pulsar+ssl://" + CLUSTER + "streaming.datastax.com:6651", pulsarToken).get()) {
+              try(Consumer consumer = cli
+                  .newConsumer()
+                  .topic("persistent://" + TENANT + "/"+NAMESPACE+"/" + TOPIC)
+                  .subscriptionName(SUBSCRIPTION)
+                  .subscribe()) {
+
+                  boolean receivedMsg = false;
+                  // Loop until a message is received
+                  do {
+                      // Block for up to 1 second for a message
+                      Message msg = consumer.receive(1, TimeUnit.SECONDS);
+
+                      if(msg != null){
+                          System.out.printf("Message received: %s", new String(msg.getData()));
+
+                          // Acknowledge the message to remove it from the message backlog
+                          consumer.acknowledge(msg);
+
+                          receivedMsg = true;
+                      }
+
+                  } while (!receivedMsg);
+              }
+          }
+      }
+      ```
+
+
+## 5. Astra Devops Api
+
+???+ note "Reminders"
+
+      To work with the devops Apis it is recommanded to have an `Organization Administrator` role token. Most of the operation indeed required an high level of permissions.
+
+       - [x] **Create an Astra Token**
+    
+      To create a token, please follow [this guide](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)
+
+???+ note "Project Setup"
+
+      If you added the `astra-sdk` dependency your are good to go. Now if you want to work **only** work with the Devops API and not the stargate APis you might want to only import this subset. 
+
+      - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)**
+
+      ```xml
+      <dependencies>
+       <dependency>
+           <groupId>com.datastax.astra</groupId>
+           <artifactId>astra-sdk-devops</artifactId>
+           <version>${latestSDK}</version>
+       </dependency>
+      </dependencies>
+      ```
+
+      - [x] **Initializing the Devopis Api Client**
+
+      ```java
+      // It can be accessed from the global AstraClient
+      AstraClient          astraClient = ....;
+      AstraDevopsApiClient apiDevopsClient          =  astraClient.apiDevops();
+      AstraDbClient        apiDevopsClientDb        = astraClient.apiDevopsDatabases();
+      AstraStreamingClient apiDevopsClientStreaming = astraClient.apiDevopsStreaming();
+
+      // You can only setup the devops part
+      AstraDevopsApiClient apiDevopsDirect = new AstraDevopsApiClient(getToken());
+      ```
+
+### 5.1 Database Plane
+
+The SDK is extensively tested a lot of samples can be found in the [database unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/db)
+
+
+???+ example "Sample Code"
+
+    ```java
+    String token = "<your_token>";
+    AstraDbClient devopsDbsClient = new AstraDbClient(token);
+
+    // Create DB
+    devopsDbsClient.create(DatabaseCreationRequest
+                        .builder()
+                        .name("my_db")
+                        .keyspace("my_keyspace")
+                        .cloudRegion("my_region")
+                        .build());
+
+    Stream<Database> dbList = devopsDbsClient.findByName("my_db");
+    
+    // Working with 1 db
+    DatabaseClient dbCli = devopsDbsClient.databaseByName("my_db"));
+
+    // Keyspaces
+    dbCli.keyspaces().exist(SDK_TEST_KEYSPACE2)
+    dbCli.keyspaces().create(SDK_TEST_KEYSPACE2)
+    dbCli.keyspaces().delete("invalid")
+    
+    // Scb
+    dbCli.downloadDefaultSecureConnectBundle(randomFile);
+    dbCli.downloadSecureConnectBundle(SDK_TEST_DB_REGION, randomFile);
+    dbCli.downloadAllSecureConnectBundles("/invalid"));
+
+     // Multi-Regions
+     dbCli.datacenters().create("serverless", CloudProviderType.AWS, "eu-central-1");
+     dbCli.datacenters().delete("eu-central-1");
+
+     // Classic Ops
+     dbCli.park()
+     dbCli.unpark()
+     dbCli.resize(2)
+     dbCli.resetPassword("token", "cedrick1")
+     
+     // Access-list
+     dbCli.accessLists().addAddress(a1, a2);
+    ```
+
+### 5.2 Streaming Plane
+
+The SDK is extensively tested a lot of samples can be found in the [streaming unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/streaming)
+
+???+ example "Sample Code"
+
+    ```java
+    // Lists Tenants for a users
+     Set<String> tenants = cli.findAll()
+                .map(Tenant::getTenantName)
+                .collect(Collectors.toSet());
+    ```
+
+### 5.3 Control Plane
+
+The SDK is extensively tested a lot of samples can be found in the [control unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/iam)
+
+???+ example "Sample Code"
+
+    ```java
+    Organization org = getApiDevopsClient().getOrganization();
+    ```
+
+
+
+
+
+

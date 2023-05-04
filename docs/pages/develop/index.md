@@ -1,28 +1,5 @@
 Dear <b>Developers</b>, so you have a running database ... now what ? In this page we provide you with the minimum amount of code needed to use Astra with the language or framework of your choice.
 
-### 🛠️ Pick an API
-
-Astra offers different Apis and interfaces. The choice of one against another will be driven by your use cases.
-
-<a href="api/document">
- <img src="../../img/tile-api-document.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="api/rest">
-<img src="../../img/tile-api-rest.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="api/graphql">
-<img src="../../img/tile-api-graphql.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<a href="api/grpc">
-<img src="../../img/tile-api-grpc.png" height="130px" width="130px"/>
-</a>&nbsp;&nbsp;
-<!-- Placeholder for CQL section
-<a href="api/cql">
-<img src="../../img/tile-api-cql.png" height="130px" width="130px"/>
-</a>
--->
-</p>
-
 ### 🛠️ Pick a language
 
 Click the tile and learn how to interact with each language-specific interface exposed in Astra.
@@ -76,4 +53,27 @@ Click the tile and learn how to interact with each language-specific interface e
 <a href="frameworks/django">
 <img src="../../img/tile-django.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+</p>
+
+### 🛠️ Learn about an API
+
+Astra offers different Apis and interfaces. The choice of one against another will be driven by your use cases.
+
+<a href="api/document">
+ <img src="../../img/tile-api-document.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/rest">
+<img src="../../img/tile-api-rest.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/graphql">
+<img src="../../img/tile-api-graphql.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="api/grpc">
+<img src="../../img/tile-api-grpc.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<!-- Placeholder for CQL section
+<a href="api/cql">
+<img src="../../img/tile-api-cql.png" height="130px" width="130px"/>
+</a>
+-->
 </p>

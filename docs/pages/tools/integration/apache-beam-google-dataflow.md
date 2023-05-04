@@ -340,51 +340,59 @@
 
 ???+ abstract "Setup `GCP Project`"
 
-    - [x] **1. Create project**
-
-    In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-
-    > Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
-
-    - [x] **2. Enable Billing**: Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
-
-    - [x] **3. Save project ID**: The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable
-
-    ```
-    export GCP_PROJECT_ID=integrations-379317
-    export GCP_PROJECT_CODE=747469159044
-    export GCP_USER=cedrick.lunven@datastax.com
-    export GCP_COMPUTE_ENGINE=747469159044-compute@developer.gserviceaccount.com
-    ```
-
-    - [x] **4. Download and install gCoud CLI**
+    
+    - [x] **1. [Download and install gCloud CLI](https://cloud.google.com/sdk/docs/install)**
 
     ```
     curl https://sdk.cloud.google.com | bash
     ```
-
-    - [x] **5. Associated CLI with project in GCP**
+    
+    - [x] **2. [Initialize gCloud CLI](https://cloud.google.com/sdk/docs/initializing)**
 
     ```
     gcloud init
     ```
 
-    - [x] **6. Describe the project**
+    - [x] **3. Create project with gCloud CLI or User Interface **
+
+    In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+
+    > Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
 
     ```
+    export GCP_PROJECT_ID=integrations-379317
+    gcloud projects create ${GCP_PROJECT_ID}
+    ```
+
+    - [x] **4. Enable Billing**: Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
+
+    - [x] **5. Save project ID**: The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable
+
+    ```
+    # Show Details of the project
     gcloud projects describe ${GCP_PROJECT_ID}
+    export GCP_USER=cedrick.lunven@datastax.com
+    export GCP_PROJECT_CODE=747469159044
+    export GCP_COMPUTE_ENGINE=${GCP_PROJECT_CODE}-compute@developer.gserviceaccount.com
     ```
 
-    - [x] **7. Enable expected API**
+    - [x] **6. Select project with `gcloud CLI` and authenticate**
+
+    ```
+    gcloud projects set ${GCP_PROJECT_ID}
+    gcloud auth application-default login
+    ```
+
+    - [x] **7. Enable expected API (dataflow, cloud storage, manage secret)**
     
     ```
     gcloud services enable dataflow compute_component \
         logging storage_component storage_api \
-        bigquery pubsub datastore.googleapis.com \
+        secretmanager.googleapis.com \
         cloudresourcemanager.googleapis.com
     ```
 
-    - [x] **8. Add Roles to `dataflow` users:** To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
+    - [x] **8. Grant roles to your user account and `dataflow` users:**. Run the following command once for each of the following IAM roles: `roles/iam.serviceAccountUser`. To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
     
     ```
     gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
@@ -401,7 +409,7 @@
         --role=roles/storage.objectAdmin
     ```
 
-    - [x] **9. Create `buckets` for the project in cloud storage:** Flows will load and export CSV files. In GCP we will create dedicated folder in Google Cloud Storage.
+    - [x] **9. Create Cloud Storage `buckets`with [gsutil mb](https://cloud.google.com/storage/docs/gsutil/commands/mb)** Flows will load and export CSV files. You need to match [bucket naming requirements](https://cloud.google.com/storage/docs/buckets#naming), also Cloud Storage bucket names must be globally unique.
 
     ```
     gsutil mb -c STANDARD -l US gs://astra_dataflow_inputs
