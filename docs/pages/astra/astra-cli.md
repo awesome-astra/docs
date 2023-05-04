@@ -264,6 +264,60 @@ Each commands has some specific parameters but all commands share have the follo
 | **override config** | `--config ...` | Change section use in `~/.astrarc` for the command| 
 | **override config-file** | `--config-file ...` | Do not use `~/.astrarc` for the command | 
 
+### 2.6 Configuration
+
+If you work with multiple organizations, it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
+
+**✅ 2.6.a - List available configuration**
+
+```
+astra config list
+```
+
+**✅ 2.6.b - Create a new section**
+
+```
+astra config create dev --token <token_of_org_2>
+```
+
+**✅ 2.6.c - Use your section config anywhere**
+
+You can use any organization anytime with `--config <onfig_name>`.
+
+```
+astra user list --config dev
+```
+
+**✅ 2.6.d - Select a section as defaul**
+
+- Change the current org
+
+```
+astra config use dev
+```
+
+- See your new list 
+
+ ```
+ astra config list
+ ```
+
+**✅ 1e - Delete a section**
+
+You can delete any organization. If you delete the selected organization you will have to pick a new one.
+
+- Delete you config
+```
+astra config delete dev
+```
+
+- See the new list
+
+```
+astra config list
+```
+
+
 
 ## **3. Astra DB**
 
@@ -314,7 +368,7 @@ Still, for ease of use here is a glossary of the commands:
 
 ### **3.2. List**
 
-✅ 1a - list
+✅ 3.2.a - list
 
 To get the list of non-terminated databases in your organization, use the command `list` in the group `db`.
 
@@ -337,7 +391,7 @@ astra db list
     +---------------------+--------------------------------------+---------------------+----------------+
     ```
 
-**✅ 1b - Get Help**
+**✅ 3.2.b - Get Help**
 
 To get help on a command, always prefix with `astra help XXX`
 
@@ -380,7 +434,7 @@ astra help db list
                 Verbose mode with log in console
     ```            
 
-**✅ 1c - Change output**
+**✅ 3.2.c - Change output**
 
 ```
 astra db list -o csv
@@ -442,9 +496,9 @@ astra db list -o json
       }
     ```
 
-### 2. Create database
+### 3.3. Create database
 
-**✅ 2a - Create Database** 
+**✅ 3.3.a - Create Database** 
 
 If not provided, the region will be the default free region, and the keyspace will be the database name, but you can change them with the `-r` and `-k` flags, respectively.
 
@@ -452,7 +506,7 @@ If not provided, the region will be the default free region, and the keyspace wi
 astra db create demo
 ```
 
-**✅ 2b - Options ` --if-not-exist` and `--wait`** 
+**✅ 3.3.b - Options ` --if-not-exist` and `--wait`** 
 
 - The database name does not ensure unicity (the database id does). As such, if you issue the command multiple times, you will end up with multiple instances. To change this behavior, you can use `--if-not-exist`
 
@@ -464,7 +518,7 @@ astra db create demo
 astra db create demo -k ks2 --if-not-exist --wait
 ```
 
-**✅ 2c - Get help** 
+**✅ 3.3.c - Get help** 
 
 To show help, enter the following command: 
 
@@ -530,11 +584,11 @@ astra help db create
                 Database name (not unique)
     ```
 
-### 3. Resume database
+### 3.4. Resume database
 
 In the free tier, after 23H of inactivity, your database will be hibernated. To wake up the db, you can use the `resume` command.
 
-**✅ 2a - Resuming** 
+**✅ 3.4.a - Resuming** 
 
 - Assuming you have an hibernating database.
 
@@ -573,9 +627,9 @@ astra db resume hemidactylus
     +---------------------+--------------------------------------+---------------------+----------------+
     ```
 
-### 4. Get database details
+### 3.5. Get database details
 
-**✅ 4a. To get general information or details on an entity use the command `get`.**
+**✅ 3.5.a. To get general information or details on an entity use the command `get`.**
 
 ```
 astra db get demo
@@ -603,7 +657,7 @@ In the output, you specially see the list of keyspaces available and the differe
     +------------------------+-----------------------------------------+
     ```
 
-**✅ 4b. To get a special property, you can add the option `--key`. Multiple keys are available: `id`, `status`, `cloud`, `keyspace`, `keyspaces`, `region`, `regions`. Notice that the output is raw. This command is expected to be used in scripts**
+**✅ 3.5.b. To get a special property, you can add the option `--key`. Multiple keys are available: `id`, `status`, `cloud`, `keyspace`, `keyspaces`, `region`, `regions`. Notice that the output is raw. This command is expected to be used in scripts**
 
 ```
 astra db get demo --key id
@@ -615,7 +669,7 @@ astra db get demo --key id
     dde308f5-a8b0-474d-afd6-81e5689e3e25
     ```
 
-**✅ 4c. To get database status in a human-readable form, use `status` command**
+**✅ 3.5.c. To get database status in a human-readable form, use `status` command**
 
 ```
 astra db status demo
@@ -627,20 +681,20 @@ astra db status demo
     [ INFO ] - Database 'demo' has status 'ACTIVE'
     ```
 
-### 5. Delete Database
+### 3.6. Delete Database
 
-**✅ 5a. To delete a db use the command `delete`.**
+**✅ 3.6.a. To delete a db use the command `delete`.**
 
 ```
 astra db delete demo2
 ```
 
-### 6. Working with keyspaces
+### 3.7. Working with keyspaces
 
 A keyspace is created when you create the database. The default CLI behaviour is to provide the same values for keyspace
 and database names. You can also define your own keyspace name with the flag `-k`.
 
-**✅ 6a - Create new keyspace** 
+**✅ 3.7.a. Create new keyspace** 
 
 - To add a keyspace `ks2` to an existing database `demo` use the following. The option `--if-not-exist` is optional but could help you provide idempotent scripts.
 
@@ -654,19 +708,19 @@ astra db create-keyspace demo -k ks2 --if-not-exist
 astra db list-keyspaces demo
 ```
 
-**✅ 6b - Get help** 
+**✅ 3.7.b Get help** 
 
 ```
 astra help db create-keyspace
 ```
 
-### 7. Cqlsh
+### 3.8. Cqlsh
 
 [Cqlsh](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) is a standalone shell to work with Apache Cassandra™. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `cqlsh` and do the integration for you.
 
 Astra CLI will **download**, **install**, **setup** and **wrap** `cqlsh` for you to interact with Astra.
 
-**✅ 7a - Interactive mode** 
+**✅ 3.8.a - Interactive** 
 
 If no options are provided,  you enter `cqlsh` interactive mode
 
@@ -684,7 +738,7 @@ astra db cqlsh demo
     token@cqlsh>
     ```
 
-**✅ 7b - Execute CQL** 
+**✅ 3.8.b - Execute CQL** 
 
 To execute CQL Statements with `cqlsh` use the flag `-e`.
 
@@ -692,7 +746,7 @@ To execute CQL Statements with `cqlsh` use the flag `-e`.
 astra db cqlsh demo -e "describe keyspaces;"
 ```
 
-**✅ 7b - Execute CQL Files** 
+**✅ 3.8.c - Execute CQL Files** 
 
 To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL syntax SOURCE.
 
@@ -700,9 +754,9 @@ To execute CQL Files with `cqlsh` use the flag `-f`. You could also use the CQL 
 astra db cqlsh demo -f sample.cql
 ```
 
-### 8. DSBulk Commands
+### 3.9. Load and Unload
 
-**✅ 8a - Setup** 
+**✅ 3.9.a - Setup** 
 
 [DSBulk](https://github.com/datastax/dsbulk) stands for DataStax Bulk Loader. It is a standalone program to load, unload, and count data in an efficient way with Apache Cassandra™. It is compliant with DataStax Astra DB.
 
@@ -753,7 +807,7 @@ describe table cities_by_country;
 quit
 ```
 
-**✅ 8b - Load Data** 
+**✅ 3.9.b - Load Data** 
 
 ```
 astra db load demo \
@@ -781,7 +835,7 @@ The first time the line `DSBulk is starting please wait` can take a few seconds 
     Last processed positions can be found in positions.txt
     ```
 
-**✅ 8c - Count** 
+**✅ 3.9.c - Count** 
 
 Check that the data has been imported with cqlsh.
 
@@ -836,7 +890,7 @@ astra db count demo -k demo -t cities_by_country
     134,574 |      0 | 43,307 | 315.71 | 457.18 | 457.18
     ```
 
-**✅ 8d - Unload Data** 
+**✅ 3.9.d - Unload Data** 
 
 ```
 astra db unload demo -k demo -t cities_by_country -url /tmp/unload
@@ -854,9 +908,9 @@ astra db unload demo -k demo -t cities_by_country -url /tmp/unload
     Operation UNLOAD_20220823-183054-208353 completed successfully in 9 seconds.
     ```
 
-### 9. Download Secure bundle
+### 3.10. Download Secure bundle
 
-**✅ 9a - Default values** 
+**✅ 3.10.a - Default values** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in a current folder.
 
@@ -867,7 +921,7 @@ astra db download-scb demo
 ls
 ```
 
-**✅ 9b - Download in target folder** 
+**✅ 3.10.b - Download in target folder** 
 
 Download the different secure bundles (one per region) with the pattern `scb_${dbid}-${dbregion}.zip` in the folder provided with option `-d` (`--output-director`).
 
@@ -875,7 +929,7 @@ Download the different secure bundles (one per region) with the pattern `scb_${d
 astra db download-scb demo -d /tmp
 ```
 
-**✅ 9c - Download in target folder** 
+**✅ 3.10.c - Download in target folder** 
 
 Provide the target filename with `-f` (`--output-file`). It will work only if you have a SINGLE REGION for your database (or you will have to use the flag `-d`)
 
@@ -883,7 +937,7 @@ Provide the target filename with `-f` (`--output-file`). It will work only if yo
 astra db download-scb demo -f /tmp/demo.zip
 ```
 
-### 10. Create `.env` file
+### 3.11. Create `.env` file
 
 To code your application against Astra, a set of metadata could be handy like the database name, database region, url of the APIs.... 
 
@@ -913,13 +967,13 @@ astra db create-dotenv -f /tmp/.env
     ASTRA_ORG_TOKEN="AstraCS:QeUmROPLeNbd..."
     ```
 
-11. List Regions
+### 3.12. List Regions
 
 For database creation or regions management, the region name is expected. Depending on the cloud provider needed or even the Astra service, the region names are not exactly the same.
 
 With Astra CLI, one can list every available regions per service.
 
-**List Serverless regions**
+**✅ 3.12.a - List Serverless regions**
 
 ```
 astra db list-regions-serverless -c aws
@@ -950,17 +1004,17 @@ astra db list-regions-serverless -c aws
 - `-v` for verbose mode
 - `-t` to provide token of organization if not default selected
 
-**List Serverless regions**
+**✅ 3.12.b - List Serverless regions**
 
 ```
 astra db list-regions-classic
 ```
 
-## Astra STREAMING
+## 4. Astra STREAMING
 
-### 1. List tenants
+### 4.1. List tenants
 
-**✅ 1a - list**
+**✅ 4.1.a - list**
 
 To get the list of tenants in your organization, use the command `list` in the group `streaming`.
 
@@ -979,7 +1033,7 @@ astra streaming list
     +---------------------+-----------+----------------+----------------+
     ```
 
-**✅ 1b - Change output as `csv` amd `json`**
+**✅ 4.1.b - Change output as `csv` amd `json`**
 
 ```
 astra streaming list -o csv
@@ -1017,9 +1071,9 @@ astra streaming list -o json
     }
     ```
 
-### 2. Create tenant
+### 4.2. Create tenant
 
-**✅ 2a - Check tenant existence with `exist`** 
+**✅ 4.2.a - Check tenant existence with `exist`** 
 
 The tenant name needs to be unique for the cluster (Cloud provider / region). It may be useful to check if the name is already in use by somebody else.
 
@@ -1033,7 +1087,7 @@ astra streaming exist new_tenant_from_cli
     [ INFO ] - Tenant 'new_tenant_from_cli' does not exist.
     ```
 
-**✅ 2b - Create tenant** 
+**✅ 4.2.b - Create tenant** 
 
 To create a tenant with default cloud (`aws`), default region (`useast2`), plan (`free`) and namespace (`default`):
 
@@ -1047,9 +1101,9 @@ To view all supported options, please use:
 astra help streaming create
 ```
 
-### 3. Get tenant details
+### 4.3. Get tenant details
 
-**✅ 3a - To get i nformation or details on an entity use the command `get`.**
+**✅ 4.3.a - To get i nformation or details on an entity use the command `get`.**
 
 ```
 astra streaming get trollsquad-2022
@@ -1077,7 +1131,7 @@ The pulsar token is not displayed in this view as it is too long, but there are 
     +------------------+-------------------------------------------------------------+
     ```
 
-**✅ 3b. To get a special property you can add the option `--key`. Multiple keys are available: `status`, `cloud`, `pulsar_token`. Notice that the output is raw. This command is expected to be used in scripts**
+**✅ 4.3.b. To get a special property you can add the option `--key`. Multiple keys are available: `status`, `cloud`, `pulsar_token`. Notice that the output is raw. This command is expected to be used in scripts**
 
 ```
 astra streaming get trollsquad-2022 --key cloud
@@ -1089,7 +1143,7 @@ astra streaming get trollsquad-2022 --key cloud
     aws
     ```
 
-**✅ 3c. To get tenant pulsar-token please use ` pulsar-token` command**
+**✅ 4.3.c. To get tenant pulsar-token please use ` pulsar-token` command**
 
 ```
 astra streaming pulsar-token trollsquad-2022
@@ -1101,7 +1155,7 @@ astra streaming pulsar-token trollsquad-2022
     eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjI5NzcyNzksImlzcyI6ImRhdGFzdGF4Iiwic3ViIjoiY2xpZW50O2Y5NDYwZjE0LTk4NzktNGViZS04M2YyLTQ4ZDNmM2RjZTEzYztkSEp2Ykd4emNYVmhaQzB5TURJeTsxOTZlYjg0YTMzIiwidG9rZW5pZCI6IjE5NmViODRhMzMifQ.rjJYDG_nJu0YpgATfjeKeUUAqwJGyVlvzpA5iP-d5-bReQf1FPaDlGxo40ADHHn2kx2NOdgMsm-Ys4K...
     ```
 
-**✅ 3d. To get tenant status in a human readble for use `status` command**
+**✅ 4.3.d. To get tenant status in a human readble for use `status` command**
 
 ```
 astra streaming status trollsquad-2022
@@ -1113,21 +1167,21 @@ astra streaming status trollsquad-2022
     [ INFO ] - Tenant 'trollsquad-2022' has status 'active'
     ```
 
-### 4. Delete Tenant
+### 4.4. Delete Tenant
 
-**✅ 4a. To delete a tenant simply use the command `delete`**
+**✅ 4.4.a. To delete a tenant simply use the command `delete`**
 
 ```
 astra streaming delete trollsquad
 ```
 
-### 5. Pulsar-Shell
+### 4.5. Pulsar-Shell
 
 [Pulsar-Shell](https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/) is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `pulsar-shell` and do the integration and setup for you.
 
 Astra CLI will **download**, **install**, **setup** and **wrap** `pulsar-shell` for you to interact with Astra.
 
-**✅ 5a - Interactive mode** 
+**✅ 4.5.a - Interactive mode** 
 
 If no options are provided,  you enter `pulsar-shell` interactive mode
 
@@ -1153,7 +1207,7 @@ astra streaming pulsar-shell trollsquad-2022
 
 You can quit with exit.
 
-**✅ 5b - Execute Pulsar Shell command** 
+**✅ 4.5.b - Execute Pulsar Shell command** 
 
 To execute command with `pushar-shell` use the flag `-e`.
 
@@ -1171,7 +1225,7 @@ astra streaming pulsar-shell trollsquad-2022 -e "admin namespaces list trollsqua
     [1/1] ✔ admin namespaces list trollsquad-2022
     ```
 
-**✅ 5c - Execute Pulsar Shell files** 
+**✅ 4.5.c - Execute Pulsar Shell files** 
 
 To execute CQL Files with  `pushar-shell` use the flag `-e`.
 
@@ -1179,11 +1233,11 @@ To execute CQL Files with  `pushar-shell` use the flag `-e`.
 astra streaming pulsar-shell trollsquad-2022 -f create_topics.txt
 ```
 
-### 6. Pulsar-client and Admin
+### 4.6. Pulsar-client and Admin
 
 Pulsar client and admin are provided within pulsar-shell. This section simply provides some examples to write and read in a topic with a client.
 
-**✅ 6a - Create a topic `demo`**.
+**✅ 4.6.a - Create a topic `demo`**.
 
 
 - First start the pulsar-shell on 2 different terminals
@@ -1245,7 +1299,7 @@ client produce persistent://trollsquad-2022/default/demo -m "hello,world" -n 20
     key:[null], properties:[], content:hello
     ```
 
-### 7. List Regions
+### 4.7. List Regions
 
 ```
 astra streaming list-regions
@@ -1258,15 +1312,67 @@ astra streaming list-regions
 - `-t` to provide token of organization if not default selected
 
 
-### 8. Create `.env` file
+### 4.8. Create `.env` file
 
 ```
 astra streaming create-dot-env <tenant> [-d <destination_folder>]
 ```
 
-## User and Roles
+### 4.9. Change Data Capture
 
-### 1. List users
+- Create a DB
+
+```
+astra db create demo_cdc --if-not-exist
+```
+
+- Create a tenant in same region
+
+```
+astra streaming create clun-demo-cdc --cloud gcp --region useast1 --if-not-exist
+```
+
+- Creating a table for the test
+
+```
+astra db cqlsh demo_cdc -k demo_cdc
+```
+
+- And insert
+
+```
+CREATE TABLE IF NOT EXISTS demo (foo text PRIMARY KEY, bar text);
+CREATE TABLE IF NOT EXISTS table2 (foo text PRIMARY KEY, bar text);
+INSERT INTO demo(foo,bar) VALUES('1','item1');
+INSERT INTO demo(foo,bar) VALUES('1','item2');
+quit;
+```
+
+ - Create CDC
+
+ ```
+ astra db create-cdc demo_cdc \
+   -k demo_cdc \
+   --table demo \ 
+   --tenant clun-demo-cdc
+ ```
+
+ - List CDC (from Streaming)
+
+ ```
+ astra streaming list-cdc clun-demo-cdc
+ ```
+
+ - List CDC (from DB)
+
+ ```
+ astra db list-cdc demo_cdc
+ ```
+
+ 
+## 5. User and Roles
+
+### 5.1. List users
 
 ```
 astra user list
@@ -1282,7 +1388,7 @@ astra user list
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 2. Invite User
+### 5.2. Invite User
 
 ```
 astra user invite cedrick.lunven@gmail.com
@@ -1305,7 +1411,7 @@ astra user list
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 3. Revoke User
+### 5.3. Revoke User
 
 ```
 astra user delete cedrick.lunven@gmail.com
@@ -1321,67 +1427,15 @@ astra user delete cedrick.lunven@gmail.com
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 4. List roles
+### 5.4. List roles
 
 ```
 astra role list
 ```
 
-### 6. Get role infos
+### 5.5. Get role infos
 
 ```
 astra role get "Database Administrator"
 ```
 
-## Configuration
-
-If you work with multiple organizations, it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
-
-**✅ 1a - List available configuration**
-
-```
-astra config list
-```
-
-**✅ 1b - Create a new section**
-
-```
-astra config create dev --token <token_of_org_2>
-```
-
-**✅ 1c - Use your section config anywhere**
-
-You can use any organization anytime with `--config <onfig_name>`.
-
-```
-astra user list --config dev
-```
-
-**✅ 1d - Select a section as defaul**
-
-- Change the current org
-
-```
-astra config use dev
-```
-
-- See your new list 
-
- ```
- astra config list
- ```
-
-**✅ 1e - Delete a section**
-
-You can delete any organization. If you delete the selected organization you will have to pick a new one.
-
-- Delete you config
-```
-astra config delete dev
-```
-
-- See the new list
-
-```
-astra config list
-```
