@@ -332,10 +332,10 @@
 
 ### 2. Prerequisites 
 
-<!-- Prequisites for Java And Maven -->
+<!-- Prerequisites for Java And Maven -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-java-maven.md"
 
-<!-- Prequisite Astra DB including SCB -->
+<!-- Prerequisite Astra DB including SCB -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
 ???+ abstract "Setup `GCP Project`"
@@ -344,17 +344,18 @@
 
     In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
-    > Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
+    > Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. 
 
     - [x] **2. Enable Billing**: Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
 
-    - [x] **3. Save project ID**: The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable
+    - [x] **3. Save project ID**: The project identifier and code are available on the project page. We will need them so let's save it as an environment variable. Use your google login email for the GCP_USER and the GCP_COMPUTE_ENGINE is as you see here, only with your project code as the beginning of the string. 
 
     ```
     export GCP_PROJECT_ID=integrations-379317
     export GCP_PROJECT_CODE=747469159044
     export GCP_USER=cedrick.lunven@datastax.com
     export GCP_COMPUTE_ENGINE=747469159044-compute@developer.gserviceaccount.com
+    export ASTRA_SCB_PATH <path_to_scb>
     ```
 
     - [x] **4. Download and install gCoud CLI**
@@ -384,7 +385,7 @@
         cloudresourcemanager.googleapis.com
     ```
 
-    - [x] **8. Add Roles to `dataflow` users:** To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
+    - [x] **8. Add Roles to `dataflow` users:** To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud CLI:
     
     ```
     gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
