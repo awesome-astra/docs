@@ -22,7 +22,7 @@
         <link rel="next" href="../../explore/cqlsh/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
     
     
       
@@ -2941,7 +2941,7 @@
 <h3 id="what-is-nosqlbench">What is NoSQLBench ?<a class="headerlink" href="#what-is-nosqlbench" title="Permanent link">&para;</a></h3>
 <p>NoSQLBench is a powerful, state-of-the-art tool for emulating real application
 workloads and direct them to actual target data stores for reliable,
-reproducible benchmarking.</p>
+reproducible benchmarking and population of a database with sophisticated synthetic data.</p>
 <p>NoSQLBench is extremely customizable, yet comes with many pre-defined workloads,
 ready for several types of distributed, NoSQL data systems. One of the target
 databases is Cassandra/Astra DB, supported out-of-the-box by NoSQLBench and
@@ -2955,13 +2955,15 @@ complemented by some ready-made realistic workloads for benchmarking.</p>
 </ul>
 <h3 id="nosqlbench-and-astra-db">NoSQLBench and Astra DB<a class="headerlink" href="#nosqlbench-and-astra-db" title="Permanent link">&para;</a></h3>
 <p>NoSQLBench uses the (CQL-based) Cassandra Java Drivers, which means that it
-supports Astra DB natively with its drivers. The only care is in providing
+supports Astra DB natively with its drivers. One just has to provide
 access to an Astra DB instance, which is done via command-line parameters.</p>
-<p>The only care is that, while running a benchmark against a generic Cassandra
-installation usually entails creation of a keyspace if it does not exist,
-when benchmarking Astra DB you should <strong>make sure the keyspace exists already</strong>
+<p>Keep in mind that, while benchmark workloads for OSS Cassandra
+installation usually take care of creating the target keyspace,
+with Astra DB you should <strong>make sure the keyspace exists already</strong>
 (the keyspace name can be passed as a command-line parameter when launching
-NoSQLBench).</p>
+NoSQLBench). This is often handled in a typical NoSQLBench workload by having two
+named scenario in the same yaml (e.g. <code>cassandra</code> and <code>astra</code>),
+differing in their "schema" part only (with/without creation of the keyspace).</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -2969,21 +2971,33 @@ NoSQLBench).</p>
 <li>You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 <li>You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
 </ul>
+<details class="note">
+<summary>Minimal token permissions</summary>
+<p>While you can certainly use a standard "Database Administrator" token,
+you may want to use a least-privilege token to run your benchmarks.
+These are the specifications for a minimal Custom Role for this purpose:</p>
+<ul>
+<li>limited to just the target database and the target keyspace in it;</li>
+<li>Table permissions: <strong>Select Table, Describe Table, Alter Table, Create Table, Drop Table, Modify Table</strong>;</li>
+<li>API Access: <strong>Access CQL</strong>.</li>
+</ul>
+<p><img src="../../../../img/nosqlbench/nosqlbench-token-permissions.png" width="70%" /></p>
+</details>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The following installation instructions are taken from
-<a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">the official NoSQLBench documentation</a>.
+<a href="https://docs.nosqlbench.io/getting-started/00-get-nosqlbench/">the official NoSQLBench documentation</a>.
 Please refer to it for more details and updates.</p>
 <div class="counterReset">
 <h3 id="step-1-download-the-binaries"><span class="nosurface">Step 1 :</span> Download the binaries<a class="headerlink" href="#step-1-download-the-binaries" title="Permanent link">&para;</a></h3>
 <p>Go to the <a href="https://github.com/nosqlbench/nosqlbench/releases">releases page</a>
-and download the latest version.
-The suggested option is to download the Linux binary (<code>nb</code>),
-but as an alternative the <code>nb.jar</code> version can also be used:
+and download the <a href="https://github.com/nosqlbench/nosqlbench/releases/latest/">latest version</a>.
+The suggested option is to download the Linux binary (<code>nb5</code>),
+but as an alternative the <code>nb5.jar</code> version can also be used:
 here we assume the Linux binary is used, please see the
-<a href="https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/">NoSQLBench documentation</a>
+<a href="https://docs.nosqlbench.io/getting-started/00-get-nosqlbench/">NoSQLBench documentation</a>
 for more on using the JAR.</p>
 <h3 id="step-2-make-executable-and-put-in-search-path"><span class="nosurface">Step 2 :</span> Make executable and put in search path<a class="headerlink" href="#step-2-make-executable-and-put-in-search-path" title="Permanent link">&para;</a></h3>
-<p>Once the file is downloaded, make it executable with <code>chmod +x nb</code>
+<p>Once the file is downloaded, make it executable with <code>chmod +x nb5</code>
 and put it (or make a symlink) somewhere in your system's search path,
 such as <code>/home/${USER}/.local/bin/</code>.</p>
 <p>As a quick test, try the command <code>nb --version</code>.</p>
@@ -3012,7 +3026,7 @@ with the name of an existing one. Please inspect the contents of your
 workload <code>yaml</code> file more closely for more details on the keyspace name used
 by default.</p>
 <h3 id="quick-start">Quick-start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
-<p>There is a comprehensive <a href="https://docs.nosqlbench.io/docs/getting_started/01-example-commands/">Getting Started page</a>
+<p>There is a comprehensive <a href="https://docs.nosqlbench.io/getting-started/02-scenarios/">Getting Started page</a>
 on NoSQLBench documentation, so here only a couple of sample full commands will be given.
 Please consult the full documentation for more options and configurations.</p>
 <p>Some of the ready-made workloads included with NoSQLBench are specific
@@ -3023,14 +3037,14 @@ targeting an Astra DB instance).</p>
 <p><strong>"cql-keyvalue" workload</strong></p>
 <p>The following will run the "cql-keyvalue" workload, specifically its "astra" scenario,
 on an Astra DB instance:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nb<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                                </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nb5<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                               </span><span class="se">\</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nv">keyspace</span><span class="o">=</span>KEYSPACE_NAME
 </code></pre></div>
 <p>Alternatively, if you are using the <code>jar</code> version of the tool,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>-jar<span class="w"> </span>nb.jar<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                  </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>-jar<span class="w"> </span>nb5.jar<span class="w"> </span>cql-keyvalue<span class="w"> </span>astra<span class="w">                 </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
@@ -3073,7 +3087,7 @@ if it did not exist yet, in the keyspace.</p>
 <p><strong>"cql-iot" workload</strong></p>
 <p>Similar to the above for the "cql-iot" workload, aimed at emulating
 time-series-based reads and writes for a hypothetical IoT system:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nb<span class="w"> </span>cql-iot<span class="w"> </span>astra<span class="w">                                     </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nb5<span class="w"> </span>cql-iot<span class="w"> </span>astra<span class="w">                                    </span><span class="se">\</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nv">username</span><span class="o">=</span>CLIENT_ID<span class="w">                                 </span><span class="se">\</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">password</span><span class="o">=</span>CLIENT_SECRET<span class="w">                             </span><span class="se">\</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nv">secureconnectbundle</span><span class="o">=</span>/PATH/TO/SECURE-CONNECT-DB.zip<span class="w"> </span><span class="se">\</span>
@@ -3081,10 +3095,10 @@ time-series-based reads and writes for a hypothetical IoT system:</p>
 </code></pre></div>
 <p><strong>Other workloads</strong></p>
 <p>You can inspect all available workloads with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nb<span class="w"> </span>--list-scenarios
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nb5<span class="w"> </span>--list-scenarios
 </code></pre></div>
 <p>and look for <code>astra</code> in the output example scenario invocations there.</p>
-<p>Moreover, you can <a href="https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/">design your own workload</a>.</p>
+<p>Moreover, you can <a href="https://docs.nosqlbench.io/workloads-101/00-designing-workloads/">design your own workload</a>.</p>
 </div>
 
   <hr>
@@ -3092,7 +3106,7 @@ time-series-based reads and writes for a hypothetical IoT system:</p>
   <small>
     
       Last update:
-      2022-12-21
+      2023-05-12
     
   </small>
 </div>
@@ -3224,7 +3238,7 @@ time-series-based reads and writes for a hypothetical IoT system:</p>
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c2be25ad.min.js"></script>
       
     
   </body>
