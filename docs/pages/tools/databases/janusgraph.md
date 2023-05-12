@@ -50,6 +50,9 @@ This article assumes you have a running installation of JanusGraph server. This 
 
 You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to [create the keyspace](https://docs.datastax.com/en/astra/docs/managing-keyspaces.html) on the Astra UI. For simplicity, the keyspace is created as `janusgraph`.
 
+!!! info "IMPORTANT"
+    If you want to connect JanusGraph server to [ZDM](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html), it is recommended to use the [Internal Configuration File](http://localhost:8000/pages/tools/databases/janusgraph/?h=janus#step-2b-internal-file-configuration) to avoid any credentials issues. Just comment out the secure bundle path part from the external file.
+
 ## Installation and Setup
 **Note:** For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
@@ -76,7 +79,7 @@ $ vi conf/janusgraph-cql.properties
 ```
 Make the necessary changes using one of the two templates:
 
-#### <span class="nosurface">✅ Step 2a:</span> Internal string configuration
+#### <span class="nosurface">✅ Step 2a:</span> Internal String Configuration
 
 Set the property `storage.cql.internal.string-configuration` to `datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }`
 and set the username, password and keyspace details.
@@ -98,7 +101,7 @@ Also, you can set a JVM argument to pass the secure connect bundle file as shown
 -Ddatastax-java-driver.basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip
 ```
 
-#### <span class="nosurface">✅ Step 2b:</span> Internal file configuration
+#### <span class="nosurface">✅ Step 2b:</span> Internal File Configuration
 
 Set the property `storage.cql.internal.file-configuration` to an external configuration file if you would like to
 externalize the astra connection related properties to a separate file and specify the secure bundle and credentials information on that file.
@@ -132,7 +135,7 @@ datastax-java-driver {
 !!! info "IMPORTANT"
     The **ClientID** and **ClientSecret** are from the token you generated in the **Prerequisites** section above.
 
-```
+
 ### <span class="nosurface">✅ Step 3:</span> Final Test
 Start a Gremlin console:
 ```
