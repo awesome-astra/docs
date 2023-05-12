@@ -1,0 +1,6 @@
+mkdocs>=1.4.3
+mkdocs-material>=8.2.9
+https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+mkdocs-git-revision-date-plugin>=0.3.2
+mkdocs-video>=1.5.0
+pymdown-extensions>=9.11

@@ -9,19 +9,11 @@ Static site is generated on branch `gh-pages` using a github action
 ### 1. Installation
 
 ```bash
-python3 -m pip install --upgrade pip     # install pip
-python3 -m pip install mkdocs            # install mkdocs 
-python3 -m pip install mkdocs-material   # install material theme
-python3 -m pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip   # install font-awesome
-python3 -m pip install mkdocs-git-revision-date-plugin # install git revision date
-python3 -m pip install mkdocs-videos     # install video plugin
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
 ```
 
-Or use this one-liner :) 
-
-```
-python3 -m pip install --upgrade pip && python3 -m pip install mkdocs mkdocs-material https://github.com/bmcorser/fontawesome-markdown/archive/master.zip mkdocs-git-revision-date-plugin
-```
+(tested with Python 3.10).
 
 ### 2. Run
 
