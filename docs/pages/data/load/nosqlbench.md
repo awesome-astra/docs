@@ -31,7 +31,7 @@ links:
 
 NoSQLBench is a powerful, state-of-the-art tool for emulating real application
 workloads and direct them to actual target data stores for reliable,
-reproducible benchmarking.
+reproducible benchmarking and population of a database with sophisticated synthetic data.
 
 NoSQLBench is extremely customizable, yet comes with many pre-defined workloads,
 ready for several types of distributed, NoSQL data systems. One of the target
@@ -48,14 +48,16 @@ At the heart of NoSQLBench are a few principles:
 ### NoSQLBench and Astra DB
 
 NoSQLBench uses the (CQL-based) Cassandra Java Drivers, which means that it
-supports Astra DB natively with its drivers. The only care is in providing
+supports Astra DB natively with its drivers. One just has to provide
 access to an Astra DB instance, which is done via command-line parameters.
 
-The only care is that, while running a benchmark against a generic Cassandra
-installation usually entails creation of a keyspace if it does not exist,
-when benchmarking Astra DB you should **make sure the keyspace exists already**
+Keep in mind that, while benchmark workloads for OSS Cassandra
+installation usually take care of creating the target keyspace,
+with Astra DB you should **make sure the keyspace exists already**
 (the keyspace name can be passed as a command-line parameter when launching
-NoSQLBench).
+NoSQLBench). This is often handled in a typical NoSQLBench workload by having two
+named scenario in the same yaml (e.g. `cassandra` and `astra`),
+differing in their "schema" part only (with/without creation of the keyspace).
 
 ## Prerequisites
 
@@ -64,10 +66,22 @@ NoSQLBench).
 - You should [Have an Astra Token](https://awesome-astra.github.io/docs/pages/astra/create-token/)
 - You should [Download your Secure bundle](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 
+??? note "Minimal token permissions"
+
+    While you can certainly use a standard "Database Administrator" token,
+    you may want to use a least-privilege token to run your benchmarks.
+    These are the specifications for a minimal Custom Role for this purpose:
+
+    - limited to just the target database and the target keyspace in it;
+    - Table permissions: **Select Table, Describe Table, Alter Table, Create Table, Drop Table, Modify Table**;
+    - API Access: **Access CQL**.
+
+    <img src="../../../../img/nosqlbench/nosqlbench-token-permissions.png" width="70%" />
+
 ## Installation
 
 The following installation instructions are taken from
-[the official NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/).
+[the official NoSQLBench documentation](https://docs.nosqlbench.io/getting-started/00-get-nosqlbench/).
 Please refer to it for more details and updates.
 
 <div class="counterReset" markdown="1">
@@ -75,16 +89,16 @@ Please refer to it for more details and updates.
 ### <span class="nosurface">Step 1 :</span> Download the binaries
 
 Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
-and download the latest version.
-The suggested option is to download the Linux binary (`nb`),
-but as an alternative the `nb.jar` version can also be used:
+and download the [latest version](https://github.com/nosqlbench/nosqlbench/releases/latest/).
+The suggested option is to download the Linux binary (`nb5`),
+but as an alternative the `nb5.jar` version can also be used:
 here we assume the Linux binary is used, please see the
-[NoSQLBench documentation](https://docs.nosqlbench.io/docs/getting_started/00-get-nosqlbench/)
+[NoSQLBench documentation](https://docs.nosqlbench.io/getting-started/00-get-nosqlbench/)
 for more on using the JAR.
 
 ### <span class="nosurface">Step 2 :</span> Make executable and put in search path
 
-Once the file is downloaded, make it executable with `chmod +x nb`
+Once the file is downloaded, make it executable with `chmod +x nb5`
 and put it (or make a symlink) somewhere in your system's search path,
 such as `/home/${USER}/.local/bin/`.
 
@@ -125,7 +139,7 @@ by default.
 
 ### Quick-start
 
-There is a comprehensive [Getting Started page](https://docs.nosqlbench.io/docs/getting_started/01-example-commands/)
+There is a comprehensive [Getting Started page](https://docs.nosqlbench.io/getting-started/02-scenarios/)
 on NoSQLBench documentation, so here only a couple of sample full commands will be given.
 Please consult the full documentation for more options and configurations.
 
@@ -141,7 +155,7 @@ The following will run the "cql-keyvalue" workload, specifically its "astra" sce
 on an Astra DB instance:
 
 ```bash
-nb cql-keyvalue astra                                \
+nb5 cql-keyvalue astra                               \
   username=CLIENT_ID                                 \
   password=CLIENT_SECRET                             \
   secureconnectbundle=/PATH/TO/SECURE-CONNECT-DB.zip \
@@ -151,7 +165,7 @@ nb cql-keyvalue astra                                \
 Alternatively, if you are using the `jar` version of the tool,
 
 ```bash
-java -jar nb.jar cql-keyvalue astra                  \
+java -jar nb5.jar cql-keyvalue astra                 \
   username=CLIENT_ID                                 \
   password=CLIENT_SECRET                             \
   secureconnectbundle=/PATH/TO/SECURE-CONNECT-DB.zip \
@@ -207,7 +221,7 @@ Similar to the above for the "cql-iot" workload, aimed at emulating
 time-series-based reads and writes for a hypothetical IoT system:
 
 ```bash
-nb cql-iot astra                                     \
+nb5 cql-iot astra                                    \
   username=CLIENT_ID                                 \
   password=CLIENT_SECRET                             \
   secureconnectbundle=/PATH/TO/SECURE-CONNECT-DB.zip \
@@ -219,11 +233,11 @@ nb cql-iot astra                                     \
 You can inspect all available workloads with:
 
 ```bash
-nb --list-scenarios
+nb5 --list-scenarios
 ```
 
 and look for `astra` in the output example scenario invocations there.
 
-Moreover, you can [design your own workload](https://docs.nosqlbench.io/docs/workloads_101/00-designing-workloads/).
+Moreover, you can [design your own workload](https://docs.nosqlbench.io/workloads-101/00-designing-workloads/).
 
 </div>
