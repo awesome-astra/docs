@@ -88,13 +88,13 @@ Please refer to it for more details and updates.
 
 ### <span class="nosurface">Step 1 :</span> Download the binaries
 
-Go to the [releases page](https://github.com/nosqlbench/nosqlbench/releases)
+Go to the [project's "tags" listing on Github](https://github.com/nosqlbench/nosqlbench/tags)
 and download the [latest version](https://github.com/nosqlbench/nosqlbench/releases/latest/).
 The suggested option is to download the Linux binary (`nb5`),
 but as an alternative the `nb5.jar` version can also be used:
-here we assume the Linux binary is used, please see the
+here we assume the Linux binary is used -- please see the
 [NoSQLBench documentation](https://docs.nosqlbench.io/getting-started/00-get-nosqlbench/)
-for more on using the JAR.
+for more options and details about installation.
 
 ### <span class="nosurface">Step 2 :</span> Make executable and put in search path
 
