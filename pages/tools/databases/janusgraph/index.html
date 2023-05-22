@@ -22,7 +22,7 @@
         <link rel="next" href="../../ide/datastation/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -2000,20 +2000,27 @@
         
           <li class="md-nav__item">
   <a href="#step-2a-internal-string-configuration" class="md-nav__link">
-    ✅ Step 2a: Internal string configuration
+    ✅ Step 2a: Internal String Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#step-2b-internal-file-configuration" class="md-nav__link">
-    ✅ Step 2b: Internal file configuration
+    ✅ Step 2b: Internal File Configuration
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-final-test" class="md-nav__link">
+    ✅ Step 3: Final Test
+  </a>
   
 </li>
         
@@ -2835,20 +2842,27 @@
         
           <li class="md-nav__item">
   <a href="#step-2a-internal-string-configuration" class="md-nav__link">
-    ✅ Step 2a: Internal string configuration
+    ✅ Step 2a: Internal String Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#step-2b-internal-file-configuration" class="md-nav__link">
-    ✅ Step 2b: Internal file configuration
+    ✅ Step 2b: Internal File Configuration
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-final-test" class="md-nav__link">
+    ✅ Step 3: Final Test
+  </a>
   
 </li>
         
@@ -2905,6 +2919,10 @@
 
 <p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-062-release-date-may-31-2022"><code>v0.6.2</code></a>. If JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-060-release-date-september-3-2021"><code>v0.6.0</code></a> is used instead, refer to <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">this article</a>. It has not been tested on older versions of JanusGraph. </p>
 <p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI. For simplicity, the keyspace is created as <code>janusgraph</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">IMPORTANT</p>
+<p>If you want to connect JanusGraph server to <a href="https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html">ZDM</a>, it is recommended to use the <a href="http://localhost:8000/pages/tools/databases/janusgraph/?h=janus#step-2b-internal-file-configuration">Internal Configuration File</a> to avoid any credentials issues. Just comment out the secure bundle path part from the external file.</p>
+</div>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
 <h3 id="step-1-db-information"><span class="nosurface">✅ Step 1:</span> DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
@@ -2922,7 +2940,7 @@ the JanusGraph configuration to connect to Astra DB using the DataStax driver.</
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ vi conf/janusgraph-cql.properties
 </code></pre></div>
 Make the necessary changes using one of the two templates:</p>
-<h4 id="step-2a-internal-string-configuration"><span class="nosurface">✅ Step 2a:</span> Internal string configuration<a class="headerlink" href="#step-2a-internal-string-configuration" title="Permanent link">&para;</a></h4>
+<h4 id="step-2a-internal-string-configuration"><span class="nosurface">✅ Step 2a:</span> Internal String Configuration<a class="headerlink" href="#step-2a-internal-string-configuration" title="Permanent link">&para;</a></h4>
 <p>Set the property <code>storage.cql.internal.string-configuration</code> to <code>datastax-java-driver { basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip }</code>
 and set the username, password and keyspace details.</p>
 <p>For example:
@@ -2937,7 +2955,7 @@ and set the username, password and keyspace details.</p>
 <code>(storage.cql.internal.string-configuration)</code> from the list above.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-Ddatastax-java-driver.basic.cloud.secure-connect-bundle=/path/to/scb/secure-connect-janusgraph.zip
 </code></pre></div>
-<h4 id="step-2b-internal-file-configuration"><span class="nosurface">✅ Step 2b:</span> Internal file configuration<a class="headerlink" href="#step-2b-internal-file-configuration" title="Permanent link">&para;</a></h4>
+<h4 id="step-2b-internal-file-configuration"><span class="nosurface">✅ Step 2b:</span> Internal File Configuration<a class="headerlink" href="#step-2b-internal-file-configuration" title="Permanent link">&para;</a></h4>
 <p>Set the property <code>storage.cql.internal.file-configuration</code> to an external configuration file if you would like to
 externalize the astra connection related properties to a separate file and specify the secure bundle and credentials information on that file.</p>
 <p>For example:
@@ -2966,33 +2984,31 @@ externalize the astra connection related properties to a separate file and speci
 <p class="admonition-title">IMPORTANT</p>
 <p>The <strong>ClientID</strong> and <strong>ClientSecret</strong> are from the token you generated in the <strong>Prerequisites</strong> section above.</p>
 </div>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>### &lt;span class=&quot;nosurface&quot;&gt;✅ Step 3:&lt;/span&gt; Final Test
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Start a Gremlin console:
+<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3:</span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
+<p>Start a Gremlin console:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ bin/gremlin.sh
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>         \,,,/
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>         (o o)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>-----oOOo-(3)-oOOo-----
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>gremlin&gt;
 </code></pre></div>
-$ bin/gremlin.sh</p>
-<div class="highlight"><pre><span></span><code>     \,,,/
-     (o o)
-</code></pre></div>
-<p>-----oOOo-(3)-oOOo-----
-gremlin&gt;
-<code>Load a graph using Astra as the storage backend with:</code>
-gremlin&gt; graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
-==&gt;standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
-```
-</p>
+Load a graph using Astra as the storage backend with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gremlin&gt; graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql.properties&#39;)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>==&gt;standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
+</code></pre></div></p>
 <div class="admonition abstract">
 <p class="admonition-title">Note</p>
-<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.
-</p>
+<p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.</p>
 </div>
 <p>In the <a href="https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html">Astra CQL Console</a>, I can see JanusGraph created the following tables in the <code>janusgraph</code> keyspace:
-```
-token@cqlsh&gt; USE janusgraph;
-token@cqlsh:janusgraph&gt; DESCRIBE TABLES;</p>
-<p>edgestore_lock_  graphindex_lock_         janusgraph_ids <br />
-txlog            systemlog                graphindex     <br />
-edgestore        system_properties_lock_  system_properties
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>token@cqlsh&gt; USE janusgraph;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>token@cqlsh:janusgraph&gt; DESCRIBE TABLES;
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>edgestore_lock_  graphindex_lock_         janusgraph_ids   
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>txlog            systemlog                graphindex       
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>edgestore        system_properties_lock_  system_properties
+</code></pre></div></p>
 <div class="nosurface">
 <p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 </div>
@@ -3002,7 +3018,7 @@ edgestore        system_properties_lock_  system_properties
   <small>
     
       Last update:
-      2023-02-15
+      2023-05-12
     
   </small>
 </div>
@@ -3134,7 +3150,7 @@ edgestore        system_properties_lock_  system_properties
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
