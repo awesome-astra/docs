@@ -3,7 +3,6 @@ title: "Postman"
 description: "Description"
 tags: "go, cql, third party tools, framework"
 icon: "https://awesome-astra.github.io/docs/img/postman/postman.svg"
-recommended: "true"
 developer_title: "Postman"
 developer_url: "https://www.postman.com/"
 links:
