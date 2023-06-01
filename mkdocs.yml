@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 nav:
   - index.md
-  - Getting Started:
+  - Get Started:
     - Getting Started With Astra: pages/astra/index.md
     - Astra Core:
       - ‣ Create Account: pages/astra/create-account.md
@@ -22,7 +22,7 @@ nav:
     - Explore Stargate:
       - ‣ HTTPie: pages/astra/astra-httpie.md
 
-  - Data Management:
+  - Manage Data:
     - Home: pages/data/index.md
     - Load Data:
       - ‣ Astra Data Loader: pages/data/load/astra-data-loader.md
@@ -43,7 +43,7 @@ nav:
     - Data Modelling:
       - ‣ Kashliev KDM: http://kdm.kashliev.com/
 
-  - Develop with Astra:
+  - Developers:
     - List: pages/develop/index.md
     - SDK:
       - • Astra SDK Java: pages/develop/sdk/astra-sdk-java.md
@@ -75,7 +75,15 @@ nav:
       - • Microsoft Azure Functions: pages/develop/platform/azure-function.md
       - • CircleCI: pages/develop/platform/circleci.md
 
-  - Third-Party Tools:
+  - AI/ML 🆕:
+    - Overview: pages/aiml/index.md
+    - Topics:
+      - LLM/GenAI:
+        - LangChain: pages/aiml/llm/langchain.md
+      - ML Workloads:
+        - Feast (↪): pages/tools/integration/feast.md
+
+  - Tools/Integrations:
     - Tools List: pages/tools/index.md
     - Databases:
       - • JanusGraph : pages/tools/databases/janusgraph.md
@@ -112,7 +120,7 @@ nav:
     - Plugins:
       - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
       - • Github Actions : pages/tools/plugins/github-actions.md
-  - Sample Application Gallery:
+  - Sample App Gallery:
     - • Sample Application Gallery : pages/gallery/index.md
   - Contact Us:
     - • Contact Us : pages/contact/index.md
