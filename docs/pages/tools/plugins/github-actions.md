@@ -3,7 +3,6 @@ title: "GitHub Actions"
 description: "Automate your build, test, and deployment pipeline with Astra CLI"
 tags: "CLI, third party tools, CI/CD, devops"
 icon: "https://awesome-astra.github.io/docs/img/github/github_logo.png"
-recommended: "true"
 developer_title: "GitHub"
 developer_url: "https://docs.github.com/en/actions"
 links:
