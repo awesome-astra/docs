@@ -1,6 +1,6 @@
 ---
 title: "GCP Dataflow and Apache Beam"
-description: "Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. GCP provides a runner for Beam named Dataflow and help integrations with BigQuery, Cloud Storage,  pubSub or Datastream."
+description: "Apache Beam is an open-source programming model for batch and streaming data processing pipelines. GCP provides a runner for Beam named Dataflow."
 tags: "java, third party tools, etl, workflow"
 icon: "https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png"
 developer_title: "Google"
