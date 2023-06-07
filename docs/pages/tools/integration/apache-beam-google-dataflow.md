@@ -10,7 +10,7 @@ developer_url: "https://cloud.google.com/dataflow/"
 
 ## GCP DataFlow and Apache Beam Overview
 
-GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam.Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
+GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam. Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines which simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
 
 - [Learn more about Apache Beam](https://beam.apache.org/get-started/beam-overview/)
 
@@ -81,7 +81,7 @@ GCP DataFlow is a managed service for batch and streaming data processing pipeli
 ## Prerequisites
 
 <ul class="prerequisites">
-    <li class="nosurface">You should have Java11+,Maven and Git installed</li>
+    <li class="nosurface">You should have Java11+, Maven, and Git installed</li>
     <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
@@ -102,7 +102,7 @@ GCP DataFlow is a managed service for batch and streaming data processing pipeli
 
 ## Installation and Setup
 
-- Clone the Repository with sample flows. The different flows are distributed in 2 different modules. `sample-beams` contains flows that does not interact with Google Cloud solutions and will be run with direct runner. `sample-dataflows` contains flow that could be executed.
+- Clone the Repository with sample flows. The different flows are distributed in 2 different modules. `sample-beams` contains flows that do not interact with Google Cloud solutions and will be run with a direct runner. `sample-dataflows` contains flows that could be executed.
 
 ```bash
 git clone https://github.com/DataStax-Examples/astra-dataflow-starter.git
@@ -133,7 +133,7 @@ mvn clean install -Dmaven.test.skip=true
 
     The different flows are distributed in 2 different modules: 
     
-    - `sample-beams` contains flows that does not interact with Google Cloud solutions and will be run with direct runner. 
+    - `sample-beams` contains flows that do not interact with Google Cloud solutions and will be run with a direct runner. 
     
     <img src="../../../../img/google-cloud-dataflow/flows-locally.png" />
 
@@ -142,7 +142,7 @@ mvn clean install -Dmaven.test.skip=true
     <img src="../../../../img/google-cloud-dataflow/flows-dataflows.png" />
 </div>    
 
-## <span class="nosurface">A.</span> Import CSV
+## A. Import CSV
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/csv-to-astra.png" />
 
@@ -182,7 +182,7 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## <span class="nosurface">B.</span> Export CSV
+## B. Export CSV
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" />
 
@@ -222,18 +222,18 @@ ls -l `pwd`/src/test/resources/out
 cat `pwd`/src/test/resources/out/language-00001-of-00004
 ```
 
-## <span class="nosurface">C.</span> Import Cassandra Table
+## C. Import Cassandra Table
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/cassandra-to-astra.png" />
 
-### <span class="nosurface"> 1. Access folder</span> 
+### <span class="nosurface"> 1. </span> Access folder
 
 ```bash
 cd samples-beam
 pwd
 ```
 
-### <span class="nosurface"> 2. Start Cassandra</span>
+### <span class="nosurface"> 2. </span> Start Cassandra
 
 - Project propose a docker-compose to run Cassandra locally. Use `docker-compose` to start the containers
 
@@ -293,7 +293,7 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## <span class="nosurface">D.</span> Import from Cloud Storage
+## D. Import from Cloud Storage
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" />
 
@@ -458,7 +458,7 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## <span class="nosurface">E.</span> Export to GCS
+## E. Export to GCS
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" />
 
@@ -505,7 +505,7 @@ pwd
  --region=us-central1"
 ```
 
-## <span class="nosurface">F.</span> Export to BigQuery
+## F. Export to BigQuery
 
 !!! note "Note"
         We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
@@ -600,7 +600,7 @@ mvn compile exec:java \
 bq head -n 10 ${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 ```
 
-## <span class="nosurface">G.</span> Import From BigQuery
+## G. Import From BigQuery
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" />
  
@@ -662,7 +662,7 @@ astra db cqlsh ${ASTRA_DB} \
   -e "select * FROM languages LIMIT 10;"
 ```
 
-## <span class="nosurface">H.</span> Simple BigQuery export
+## H. Simple BigQuery export
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
