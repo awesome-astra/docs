@@ -28,7 +28,7 @@ models (LLMs): among its features are support for memory, vector-based similarit
 an advanced prompt templating abstraction and much more.
 
 LangChain comes with a Python and a Javascript implementation. This section
-targets the Python version :fa-coffee: .
+targets the Python version.
 
 <div class="nosurface" markdown="1">
 Reference documentation:
