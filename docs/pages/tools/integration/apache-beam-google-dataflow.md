@@ -1,16 +1,16 @@
 ---
-title: "GCP Dataflow and Apache Beam"
-description: "Apache Beam is an open-source programming model for batch and streaming data processing pipelines. GCP provides a runner for Beam named Dataflow."
+title: "GCP Dataflow"
+description: "GCP DataFlow is a managed service for batch and streaming data processing pipelines. GCP DataFlow is based on Apache Beam."
 tags: "java, third party tools, etl, workflow"
-icon: "https://awesome-astra.github.io/docs/img/google-cloud-dataflow/logo_dataflow.png"
+icon: "https://awesome-astra.github.io/docs/img/google-cloud-dataflow/dataflow-logo.svg"
 recommended: "true"
 developer_title: "Google"
 developer_url: "https://cloud.google.com/dataflow/"
 ---
 
-## Apache Beam Overview
+## GCP DataFlow and Apache Beam Overview
 
-Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
+GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam.Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
 
 - [Learn more about Apache Beam](https://beam.apache.org/get-started/beam-overview/)
 
@@ -142,11 +142,11 @@ mvn clean install -Dmaven.test.skip=true
     <img src="../../../../img/google-cloud-dataflow/flows-dataflows.png" />
 </div>    
 
-## A. Import CSV
+## <span class="nosurface">A.</span> Import CSV
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/csv-to-astra.png" />
 
-### <span class="nosurface"> 1. Access folder</span> 
+### <span class="nosurface"> 1. </span> Access folder
 
 ```
 cd samples-beam
@@ -182,7 +182,7 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## B. Export CSV
+## <span class="nosurface">B.</span> Export CSV
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" />
 
@@ -222,7 +222,7 @@ ls -l `pwd`/src/test/resources/out
 cat `pwd`/src/test/resources/out/language-00001-of-00004
 ```
 
-## C. Import Cassandra Table
+## <span class="nosurface">C.</span> Import Cassandra Table
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/cassandra-to-astra.png" />
 
@@ -293,7 +293,7 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## D. Import from Cloud Storage
+## <span class="nosurface">D.</span> Import from Cloud Storage
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" />
 
@@ -458,12 +458,12 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## E. Export to GCS
+## <span class="nosurface">E.</span> Export to GCS
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" />
 
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gloud is set up.
+        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
 ### <span class="nosurface"> 1. </span> Environment Variables
 
@@ -505,10 +505,10 @@ pwd
  --region=us-central1"
 ```
 
-## F. Export to `BigQuery`
+## <span class="nosurface">F.</span> Export to BigQuery
 
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gloud is set up.
+        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
@@ -600,12 +600,12 @@ mvn compile exec:java \
 bq head -n 10 ${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 ```
 
-## G. Import From BigQuery
+## <span class="nosurface">G.</span> Import From BigQuery
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" />
  
 !!! note "Note"
-    We assume that you have already executed pipeline described in `D.1` to `D.5` and that gloud is set up. We also assume that you have a bigquery table populated as describe in `#F`,
+    We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up. We also assume that you have a bigquery table populated as describe in `#F`,
 
 ### <span class="nosurface"> 1. </span>Access Folder
 
@@ -662,12 +662,12 @@ astra db cqlsh ${ASTRA_DB} \
   -e "select * FROM languages LIMIT 10;"
 ```
 
-## H. Simple BigQuery export
+## <span class="nosurface">H.</span> Simple BigQuery export
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gloud is set up.
+        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
 ### <span class="nosurface"> 1. </span>Access Folder
 
