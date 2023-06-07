@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Apache Beam is an open-source programming model for batch and streaming data processing pipelines. GCP provides a runner for Beam named Dataflow.">
+        <meta name="description" content="GCP DataFlow is a managed service for batch and streaming data processing pipelines. GCP DataFlow is based on Apache Beam.">
       
       
         <meta name="author" content="Cedrick Lunven">
@@ -26,7 +26,7 @@
     
     
       
-        <title>GCP Dataflow and Apache Beam - Awesome-Astra</title>
+        <title>GCP Dataflow - Awesome-Astra</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-beam-overview" class="md-skip">
+        <a href="#gcp-dataflow-and-apache-beam-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GCP Dataflow and Apache Beam
+              GCP Dataflow
             
           </span>
         </div>
@@ -2645,8 +2645,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#apache-beam-overview" class="md-nav__link">
-    Apache Beam Overview
+  <a href="#gcp-dataflow-and-apache-beam-overview" class="md-nav__link">
+    GCP DataFlow and Apache Beam Overview
   </a>
   
 </li>
@@ -2675,7 +2675,7 @@
         
           <li class="md-nav__item">
   <a href="#1-access-folder" class="md-nav__link">
-     1. Access folder
+     1.  Access folder
   </a>
   
 </li>
@@ -3424,8 +3424,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#apache-beam-overview" class="md-nav__link">
-    Apache Beam Overview
+  <a href="#gcp-dataflow-and-apache-beam-overview" class="md-nav__link">
+    GCP DataFlow and Apache Beam Overview
   </a>
   
 </li>
@@ -3454,7 +3454,7 @@
         
           <li class="md-nav__item">
   <a href="#1-access-folder" class="md-nav__link">
-     1. Access folder
+     1.  Access folder
   </a>
   
 </li>
@@ -3915,8 +3915,8 @@
 
   <h1>• Google Dataflow</h1>
 
-<h2 id="apache-beam-overview">Apache Beam Overview<a class="headerlink" href="#apache-beam-overview" title="Permanent link">&para;</a></h2>
-<p>Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.</p>
+<h2 id="gcp-dataflow-and-apache-beam-overview">GCP DataFlow and Apache Beam Overview<a class="headerlink" href="#gcp-dataflow-and-apache-beam-overview" title="Permanent link">&para;</a></h2>
+<p>GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam.Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines that simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.</p>
 <ul>
 <li><a href="https://beam.apache.org/get-started/beam-overview/">Learn more about Apache Beam</a></li>
 </ul>
@@ -4093,9 +4093,9 @@
 </div>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-<h2 id="a-import-csv">A. Import CSV<a class="headerlink" href="#a-import-csv" title="Permanent link">&para;</a></h2>
+<h2 id="a-import-csv"><span class="nosurface">A.</span> Import CSV<a class="headerlink" href="#a-import-csv" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/csv-to-astra.png" /></p>
-<h3 id="1-access-folder"><span class="nosurface"> 1. Access folder</span><a class="headerlink" href="#1-access-folder" title="Permanent link">&para;</a></h3>
+<h3 id="1-access-folder"><span class="nosurface"> 1. </span> Access folder<a class="headerlink" href="#1-access-folder" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd samples-beam
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pwd
 </code></pre></div>
@@ -4119,7 +4119,7 @@
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>   -k ${ASTRA_KEYSPACE} \
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>   -e &quot;SELECT * FROM languages LIMIT 10;&quot;
 </code></pre></div>
-<h2 id="b-export-csv">B. Export CSV<a class="headerlink" href="#b-export-csv" title="Permanent link">&para;</a></h2>
+<h2 id="b-export-csv"><span class="nosurface">B.</span> Export CSV<a class="headerlink" href="#b-export-csv" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" /></p>
 <h3 id="1-access-folder_1"><span class="nosurface"> 1. Access folder</span><a class="headerlink" href="#1-access-folder_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
@@ -4145,7 +4145,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ls<span class="w"> </span>-l<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>cat<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out/language-00001-of-00004
 </code></pre></div>
-<h2 id="c-import-cassandra-table">C. Import Cassandra Table<a class="headerlink" href="#c-import-cassandra-table" title="Permanent link">&para;</a></h2>
+<h2 id="c-import-cassandra-table"><span class="nosurface">C.</span> Import Cassandra Table<a class="headerlink" href="#c-import-cassandra-table" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/cassandra-to-astra.png" /></p>
 <h3 id="1-access-folder_2"><span class="nosurface"> 1. Access folder</span><a class="headerlink" href="#1-access-folder_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
@@ -4197,7 +4197,7 @@
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="d-import-from-cloud-storage">D. Import from Cloud Storage<a class="headerlink" href="#d-import-from-cloud-storage" title="Permanent link">&para;</a></h2>
+<h2 id="d-import-from-cloud-storage"><span class="nosurface">D.</span> Import from Cloud Storage<a class="headerlink" href="#d-import-from-cloud-storage" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" /></p>
 <h3 id="1-create-gcp-project"><span class="nosurface"> 1. </span> Create GCP Project<a class="headerlink" href="#1-create-gcp-project" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -4319,10 +4319,10 @@
 <a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="e-export-to-gcs">E. Export to GCS<a class="headerlink" href="#e-export-to-gcs" title="Permanent link">&para;</a></h2>
+<h2 id="e-export-to-gcs"><span class="nosurface">E.</span> Export to GCS<a class="headerlink" href="#e-export-to-gcs" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" /></p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gloud is set up.</p>
+<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
 <h3 id="1-environment-variables"><span class="nosurface"> 1. </span> Environment Variables<a class="headerlink" href="#1-environment-variables" title="Permanent link">&para;</a></h3>
@@ -4353,9 +4353,9 @@
 <a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="s2"> --project=integrations-379317 \</span>
 <a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
-<h2 id="f-export-to-bigquery">F. Export to <code>BigQuery</code><a class="headerlink" href="#f-export-to-bigquery" title="Permanent link">&para;</a></h2>
+<h2 id="f-export-to-bigquery"><span class="nosurface">F.</span> Export to BigQuery<a class="headerlink" href="#f-export-to-bigquery" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gloud is set up.</p>
+<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
@@ -4422,11 +4422,11 @@
 <h3 id="9-show-output-table"><span class="nosurface"> 9. </span>Show Output Table<a class="headerlink" href="#9-show-output-table" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
 </code></pre></div>
-<h2 id="g-import-from-bigquery">G. Import From BigQuery<a class="headerlink" href="#g-import-from-bigquery" title="Permanent link">&para;</a></h2>
+<h2 id="g-import-from-bigquery"><span class="nosurface">G.</span> Import From BigQuery<a class="headerlink" href="#g-import-from-bigquery" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gloud is set up. We also assume that you have a bigquery table populated as describe in <code>#F</code>,</p>
+<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up. We also assume that you have a bigquery table populated as describe in <code>#F</code>,</p>
 </div>
 <h3 id="1-access-folder_4"><span class="nosurface"> 1. </span>Access Folder<a class="headerlink" href="#1-access-folder_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
@@ -4467,10 +4467,10 @@ The destination table has been created in flow <code>3.3</code></em></p>
 <a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">  </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;select * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="h-simple-bigquery-export">H. Simple BigQuery export<a class="headerlink" href="#h-simple-bigquery-export" title="Permanent link">&para;</a></h2>
+<h2 id="h-simple-bigquery-export"><span class="nosurface">H.</span> Simple BigQuery export<a class="headerlink" href="#h-simple-bigquery-export" title="Permanent link">&para;</a></h2>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gloud is set up.</p>
+<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
 <h3 id="1-access-folder_5"><span class="nosurface"> 1. </span>Access Folder<a class="headerlink" href="#1-access-folder_5" title="Permanent link">&para;</a></h3>
@@ -4509,7 +4509,7 @@ with the table name have been created in BigQuery.</p>
   <small>
     
       Last update:
-      2023-06-02
+      2023-06-06
     
   </small>
 </div>
