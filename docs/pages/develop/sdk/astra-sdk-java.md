@@ -15,12 +15,13 @@ Astra Java SDK is a framework that wraps different apis and interfaces exposed b
 <!-- Prequisite Astra DB including SCB -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db-scb.md"
 
+## 2. Astra DB
 
-## 2. Maven Project Setup
+### 2.1 - Project Setup
 
 ???+ note annotate "Project Setup"
 
-    - [x] **Use maven to generate a project template**: 
+    - [x] **If you create a project from scratch you can start with a template**: 
 
     ```
     mvn archetype:generate \
@@ -33,7 +34,7 @@ Astra Java SDK is a framework that wraps different apis and interfaces exposed b
       -DinteractiveMode=false
     ```
 
-      - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.oss/java-driver-core)**
+      - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk)**
 
       ```xml
       <dependencies>
@@ -45,9 +46,8 @@ Astra Java SDK is a framework that wraps different apis and interfaces exposed b
       </dependencies>
       ```
 
-## 3. Astra DB
 
-### 3.1 - CQL Native Drivers
+### 2.2 - CQL Native Drivers
 
 ???+ example "Sample Code"
 
@@ -111,7 +111,7 @@ Astra Java SDK is a framework that wraps different apis and interfaces exposed b
      ```
 
 
-### 3.2 - Rest API
+### 2.3 - Stargate Rest API
 
 The `REST API` (also known as `api Data`) is wrapping exposing CQL language as Rest Resources. To get more information about this API check the [dedicated page](../api/rest.md)
 
@@ -133,7 +133,7 @@ The `REST API` (also known as `api Data`) is wrapping exposing CQL language as R
 [More information about Rest API](https://github.com/datastax/astra-sdk-java/wiki/Rest-API)
 
 
-### 3.2 - Document API
+### 2.4 - Stargate Document API
 
 The `DOCUMENT API` exposes an Rest Resources to use Cassandra as a document-oriented database To get more information about this API check the [dedicated page](../api/document.md).
 
@@ -169,7 +169,7 @@ With modern java applications you want to interact with the DB using the reposit
       </a>
 
 
-### 3.3 - Grpc APi
+### 2.5 - Stargate Grpc APi
 
 The `GRPC API` exposes a grpc endpoint to query some CQL. From there it is very similar from native drivers. To know more about it check the [dedicated page](../api/grpc.md).
 
@@ -187,7 +187,7 @@ The `GRPC API` exposes a grpc endpoint to query some CQL. From there it is very 
       </a>  
 
 
-### 3.4 - GraphQL Api
+### 2.6 - Stargate GraphQL Api
 
 The `GRAPHQL API` exposes a graphQL endpoint to query CQL over graphQL. To know more about this api please check the [dedicated page](../api/graphql.md).
 
@@ -205,11 +205,13 @@ The `GRAPHQL API` exposes a graphQL endpoint to query CQL over graphQL. To know 
         <i class="fa fa-download" ></i>&nbsp;Download Project
       </a>
 
-## 4. Astra Streaming
+## 3. Astra Streaming
 
-### 4.1 - Project setup
+### 3.1 - Project setup
 
 ???+ note annotate "Project Setup"
+
+     - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk-pulsar/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk)**
 
       ```xml
       <dependencies>
@@ -221,7 +223,7 @@ The `GRAPHQL API` exposes a graphQL endpoint to query CQL over graphQL. To know 
       </dependencies>
       ```
 
-### 4.2 - PulsarClient 
+### 3.2 - PulsarClient 
 
 Pulsar Api are very simple and the need of an sdk is limited. It could be used to get the proper version of `pulsar-client`, there are no extra setup steps.
 
@@ -235,7 +237,7 @@ Pulsar Api are very simple and the need of an sdk is limited. It could be used t
       };
       ```
 
-### 4.3 - Pulsar Admin
+### 3.3 - Pulsar Admin
 
 Pulsar Api are very simple and the need of an sdk is limited. It could be used to to setup the `pulsar-admin` for you.
 
@@ -344,7 +346,143 @@ The Astra user interface already shows the expected code. There is very little a
           }
       }
       ```
+## 4. Spring Boot
 
+### 4.1 - Create Project
+
+???+ note annotate "Spring Boot 2x"
+
+    - [x] **To Create a project from scratch start with our template**:
+
+    The 3 last parameters in this command define your project _groupId_, _artifactId_ and _version_. 
+    
+    `0.6` is the latest version of the starter [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/spring-boot-2x-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/spring-boot-2x-archetype) 
+
+    ```bash
+    mvn archetype:generate \
+      -DarchetypeGroupId=com.datastax.astra \
+      -DarchetypeArtifactId=spring-boot-2x-archetype \
+      -DarchetypeVersion=0.6 \
+      -DinteractiveMode=false \
+      -DgroupId=fr.clunven \
+      -DartifactId=my-demo-springboot2x \
+      -Dversion=1.0-SNAPSHOT
+    ```
+
+???+ note annotate "Spring Boot 3x"
+
+    - [x] **To Create a project from scratch start with our template**:
+
+    The 3 last parameters in this command define your project _groupId_, _artifactId_ and _version_. 
+    
+    `0.6` is the latest version of the starter [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/spring-boot-2x-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/spring-boot-3x-archetype) 
+
+    ```bash
+    mvn archetype:generate \
+      -DarchetypeGroupId=com.datastax.astra \
+      -DarchetypeArtifactId=spring-boot-3x-archetype \
+      -DarchetypeVersion=0.6 \
+      -DinteractiveMode=false \
+      -DgroupId=fr.clunven \
+      -DartifactId=my-demo-springboot3x \
+      -Dversion=1.0-SNAPSHOT
+    ```
+
+### 4.2 - Setup Project
+
+???+ note annotate "Spring Boot 2x"
+    
+    > _If you created your project with the archetypes the `pom.xml` is already correct._ 
+
+    - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter)**
+
+      ```xml
+      <dependencies>
+        <dependency>
+            <groupId>com.datastax.astra</groupId>
+            <artifactId>astra-spring-boot-starter</artifactId>
+            <version>${latest-stater}</version>
+        </dependency>
+      </dependencies>
+      ```
+
+???+ note annotate "Spring Boot 3x"
+    
+    > _If you created your project with the archetypes the `pom.xml` is already correct._ 
+
+    - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-3x-starter)**
+
+      ```xml
+      <dependencies>
+        <dependency>
+            <groupId>com.datastax.astra</groupId>
+            <artifactId>astra-spring-boot-3x-starter</artifactId>
+            <version>${latest-stater}</version>
+        </dependency>
+      </dependencies>
+      ```      
+
+### 4.3 - Configuration
+
+???+ note annotate "Configuration of  `application.xml`"
+
+    > _If you created the project with the archetypes the file is already populated._ 
+    
+    - [x] **Update your `application.xml` with the following keys**
+
+      ```yaml
+      astra:
+        api:
+          application-token: ${ASTRA_DB_APPLICATION_TOKEN}
+          database-id: ${ASTRA_DB_ID}
+          database-region: ${ASTRA_DB_REGION}
+          cross-region-failback: false
+        cql:
+          enabled: true
+          download-scb:
+            enabled: true
+          driver-config:
+            basic:
+              session-keyspace: ${ASTRA_DB_KEYSPACE}
+      ```
+
+    As you notice there are 4 variables to be replaced to point to your Astra Database. You can create environment variables or do the substition manually.
+
+    | Param | Description |
+    | :------: | :---------- |
+    | `ASTRA_DB_APPLICATION_TOKEN` | Your authentication token starting with `AstraCS:..` It **MUST HAVE ADMINISTRATION PRIVILEGES** in order to download the secure connect bundle from devops API.|
+    | `ASTRA_DB_ID` | Your database identifier, it is a UUID available at the top of your db page in the user interface or in the CLI with `astra db list` |
+    | `ASTRA_DB_REGION` | Your database main region. Even if the database lives in multiple region you need to provide the main one (to reduce latency). The id of the region also provides information on the cloud provide in used. There is no need for an extra parameter. It is a value available in the details database page in the user interface or in the CLI with `astra db list` |
+    | `ASTRA_DB_KEYSPACE` | The keyspace where to connect your application. |
+
+    The ASTRA CLI can help you defining those environment variables with the following:
+
+    ```bash
+    # Create a file .env with all needed keys
+    astra db create-dotenv demo -d `pwd`
+
+    # Load Those keys as environment variables
+    set -a
+    source .env
+    set +a
+
+    # Display variables in the console
+    env | grep ASTRA_DB
+    ```
+
+### 4.4 - Run Application
+
+You can now start your application with:
+
+```bash
+mvn spring-boot:run
+```
+
+If you created the application with archetype a firs table `todos` has been created and populated. An REST APi is also available for your
+
+```bash
+curl localhost:8080/todos
+```
 
 ## 5. Astra Devops Api
 
@@ -385,7 +523,7 @@ The Astra user interface already shows the expected code. There is very little a
       AstraDevopsApiClient apiDevopsDirect = new AstraDevopsApiClient(getToken());
       ```
 
-### 5.1 Database Plane
+### 5.1 - Astra DB
 
 The SDK is extensively tested a lot of samples can be found in the [database unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/db)
 
@@ -433,7 +571,7 @@ The SDK is extensively tested a lot of samples can be found in the [database uni
      dbCli.accessLists().addAddress(a1, a2);
     ```
 
-### 5.2 Streaming Plane
+### 5.2 - Astra Streaming
 
 The SDK is extensively tested a lot of samples can be found in the [streaming unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/streaming)
 
@@ -446,7 +584,7 @@ The SDK is extensively tested a lot of samples can be found in the [streaming un
                 .collect(Collectors.toSet());
     ```
 
-### 5.3 Control Plane
+### 5.3 - Organization
 
 The SDK is extensively tested a lot of samples can be found in the [control unit tests](https://github.com/datastax/astra-sdk-java/tree/main/astra-sdk-devops/src/test/java/com/dtsx/astra/sdk/iam)
 
@@ -455,9 +593,4 @@ The SDK is extensively tested a lot of samples can be found in the [control unit
     ```java
     Organization org = getApiDevopsClient().getOrganization();
     ```
-
-
-
-
-
 
