@@ -21,20 +21,20 @@ Astra Java SDK is a framework that wraps different apis and interfaces exposed b
 
 ???+ note annotate "Project Setup"
 
-    - [x] **If you create a project from scratch you can start with a template**: 
+    - [x] **If you create a project from scratch you can start with our template that include the `astra-sdk` dependency.**: 
 
     ```
     mvn archetype:generate \
-      -DarchetypeGroupId=org.apache.maven.archetypes \
-      -DarchetypeArtifactId=maven-archetype-quickstart \
-      -DarchetypeVersion=1.4 \
-      -DgroupId=com.datastax.tutorial \
-      -DartifactId=sdk-quickstart-astra \
-      -Dversion=1.0.0-SNAPSHOT \
-      -DinteractiveMode=false
+      -DarchetypeGroupId=com.datastax.astra \
+      -DarchetypeArtifactId=astra-sdk-quickstart \
+      -DarchetypeVersion=0.6.2 \
+      -DinteractiveMode=false \
+      -DgroupId=foo.bar \
+      -DartifactId=astra-quickstart\
+      -Dversion=1.0-SNAPSHOT
     ```
 
-      - [x] **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk)**
+    - [x] OR, if you already have a project simple **Update your `pom.xml` file with the latest version of the SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk)**
 
       ```xml
       <dependencies>
@@ -540,6 +540,7 @@ The SDK is extensively tested a lot of samples can be found in the [database uni
                         .name("my_db")
                         .keyspace("my_keyspace")
                         .cloudRegion("my_region")
+                        //.withVector() to enable vector preview
                         .build());
 
     Stream<Database> dbList = devopsDbsClient.findByName("my_db");
@@ -593,4 +594,21 @@ The SDK is extensively tested a lot of samples can be found in the [control unit
     ```java
     Organization org = getApiDevopsClient().getOrganization();
     ```
+
+## 6. Extra Resources
+
+### 6.1 - Source Code and Issues
+
+- The source code is open and available at [https://github.com/datastax/astra-sdk-java](https://github.com/datastax/astra-sdk-java). If you like the solution please give consider to give us a star on github.
+
+- To open an issue please use the [Github Repository Issues](https://github.com/datastax/astra-sdk-java/issues/new/choose)
+
+### 6.2 - JavaDoc
+
+The javadocs are available here:
+
+- [0.6.2 (latest)](https://datastaxdevs.github.io/astra-sdk-java/0.6.2/index.html)
+
+- [0.6.1](https://datastaxdevs.github.io/astra-sdk-java/0.6.1/index.html)
+
 
