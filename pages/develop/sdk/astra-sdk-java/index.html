@@ -22,7 +22,7 @@
         <link rel="next" href="../../api/document/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -1518,6 +1518,33 @@
           <li class="md-nav__item">
   <a href="#53-organization" class="md-nav__link">
     5.3 - Organization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-extra-resources" class="md-nav__link">
+    6. Extra Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Extra Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-source-code-and-issues" class="md-nav__link">
+    6.1 - Source Code and Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-javadoc" class="md-nav__link">
+    6.2 - JavaDoc
   </a>
   
 </li>
@@ -3318,6 +3345,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6-extra-resources" class="md-nav__link">
+    6. Extra Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Extra Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-source-code-and-issues" class="md-nav__link">
+    6.1 - Source Code and Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-javadoc" class="md-nav__link">
+    6.2 - JavaDoc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3404,19 +3458,19 @@
 <details class="note annotate" open="open">
 <summary>Project Setup</summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>If you create a project from scratch you can start with a template</strong>: </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>If you create a project from scratch you can start with our template that include the <code>astra-sdk</code> dependency.</strong>: </li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mvn archetype:generate \
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  -DarchetypeGroupId=org.apache.maven.archetypes \
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  -DarchetypeArtifactId=maven-archetype-quickstart \
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  -DarchetypeVersion=1.4 \
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  -DgroupId=com.datastax.tutorial \
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  -DartifactId=sdk-quickstart-astra \
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  -Dversion=1.0.0-SNAPSHOT \
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  -DinteractiveMode=false
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  -DarchetypeGroupId=com.datastax.astra \
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  -DarchetypeArtifactId=astra-sdk-quickstart \
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  -DarchetypeVersion=0.6.2 \
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  -DinteractiveMode=false \
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  -DgroupId=foo.bar \
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  -DartifactId=astra-quickstart\
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  -Dversion=1.0-SNAPSHOT
 </code></pre></div>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> OR, if you already have a project simple <strong>Update your <code>pom.xml</code> file with the latest version of the SDK <a href="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk"><img alt="Maven Central" src="https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-sdk/badge.svg" /></a></strong></li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;dependencies&gt;</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w"> </span><span class="nt">&lt;dependency&gt;</span>
@@ -4366,35 +4420,36 @@
 <a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">                    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;my_db&quot;</span><span class="p">)</span>
 <a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">                    </span><span class="p">.</span><span class="na">keyspace</span><span class="p">(</span><span class="s">&quot;my_keyspace&quot;</span><span class="p">)</span>
 <a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">                    </span><span class="p">.</span><span class="na">cloudRegion</span><span class="p">(</span><span class="s">&quot;my_region&quot;</span><span class="p">)</span>
-<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">                    </span><span class="p">.</span><span class="na">build</span><span class="p">());</span>
-<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>
-<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Database</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dbList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devopsDbsClient</span><span class="p">.</span><span class="na">findByName</span><span class="p">(</span><span class="s">&quot;my_db&quot;</span><span class="p">);</span>
-<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
-<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="c1">// Working with 1 db</span>
-<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="n">DatabaseClient</span><span class="w"> </span><span class="n">dbCli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devopsDbsClient</span><span class="p">.</span><span class="na">databaseByName</span><span class="p">(</span><span class="s">&quot;my_db&quot;</span><span class="p">));</span>
-<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>
-<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="c1">// Keyspaces</span>
-<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">exist</span><span class="p">(</span><span class="n">SDK_TEST_KEYSPACE2</span><span class="p">)</span>
-<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">create</span><span class="p">(</span><span class="n">SDK_TEST_KEYSPACE2</span><span class="p">)</span>
-<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">delete</span><span class="p">(</span><span class="s">&quot;invalid&quot;</span><span class="p">)</span>
-<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>
-<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a><span class="c1">// Scb</span>
-<a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadDefaultSecureConnectBundle</span><span class="p">(</span><span class="n">randomFile</span><span class="p">);</span>
-<a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadSecureConnectBundle</span><span class="p">(</span><span class="n">SDK_TEST_DB_REGION</span><span class="p">,</span><span class="w"> </span><span class="n">randomFile</span><span class="p">);</span>
-<a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadAllSecureConnectBundles</span><span class="p">(</span><span class="s">&quot;/invalid&quot;</span><span class="p">));</span>
-<a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>
-<a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a><span class="w"> </span><span class="c1">// Multi-Regions</span>
-<a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">datacenters</span><span class="p">().</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;serverless&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CloudProviderType</span><span class="p">.</span><span class="na">AWS</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;eu-central-1&quot;</span><span class="p">);</span>
-<a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">datacenters</span><span class="p">().</span><span class="na">delete</span><span class="p">(</span><span class="s">&quot;eu-central-1&quot;</span><span class="p">);</span>
-<a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a>
-<a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a><span class="w"> </span><span class="c1">// Classic Ops</span>
-<a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">park</span><span class="p">()</span>
-<a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">unpark</span><span class="p">()</span>
-<a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-33-35" name="__codelineno-33-35" href="#__codelineno-33-35"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">resetPassword</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cedrick1&quot;</span><span class="p">)</span>
-<a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a>
-<a id="__codelineno-33-37" name="__codelineno-33-37" href="#__codelineno-33-37"></a><span class="w"> </span><span class="c1">// Access-list</span>
-<a id="__codelineno-33-38" name="__codelineno-33-38" href="#__codelineno-33-38"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">accessLists</span><span class="p">().</span><span class="na">addAddress</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">);</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">                    </span><span class="c1">//.withVector() to enable vector preview</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">                    </span><span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Database</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dbList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devopsDbsClient</span><span class="p">.</span><span class="na">findByName</span><span class="p">(</span><span class="s">&quot;my_db&quot;</span><span class="p">);</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="c1">// Working with 1 db</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="n">DatabaseClient</span><span class="w"> </span><span class="n">dbCli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devopsDbsClient</span><span class="p">.</span><span class="na">databaseByName</span><span class="p">(</span><span class="s">&quot;my_db&quot;</span><span class="p">));</span>
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="c1">// Keyspaces</span>
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">exist</span><span class="p">(</span><span class="n">SDK_TEST_KEYSPACE2</span><span class="p">)</span>
+<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">create</span><span class="p">(</span><span class="n">SDK_TEST_KEYSPACE2</span><span class="p">)</span>
+<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">keyspaces</span><span class="p">().</span><span class="na">delete</span><span class="p">(</span><span class="s">&quot;invalid&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>
+<a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a><span class="c1">// Scb</span>
+<a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadDefaultSecureConnectBundle</span><span class="p">(</span><span class="n">randomFile</span><span class="p">);</span>
+<a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadSecureConnectBundle</span><span class="p">(</span><span class="n">SDK_TEST_DB_REGION</span><span class="p">,</span><span class="w"> </span><span class="n">randomFile</span><span class="p">);</span>
+<a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a><span class="n">dbCli</span><span class="p">.</span><span class="na">downloadAllSecureConnectBundles</span><span class="p">(</span><span class="s">&quot;/invalid&quot;</span><span class="p">));</span>
+<a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a>
+<a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a><span class="w"> </span><span class="c1">// Multi-Regions</span>
+<a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">datacenters</span><span class="p">().</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;serverless&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CloudProviderType</span><span class="p">.</span><span class="na">AWS</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;eu-central-1&quot;</span><span class="p">);</span>
+<a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">datacenters</span><span class="p">().</span><span class="na">delete</span><span class="p">(</span><span class="s">&quot;eu-central-1&quot;</span><span class="p">);</span>
+<a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a>
+<a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a><span class="w"> </span><span class="c1">// Classic Ops</span>
+<a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">park</span><span class="p">()</span>
+<a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">unpark</span><span class="p">()</span>
+<a id="__codelineno-33-35" name="__codelineno-33-35" href="#__codelineno-33-35"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">resetPassword</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cedrick1&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-37" name="__codelineno-33-37" href="#__codelineno-33-37"></a>
+<a id="__codelineno-33-38" name="__codelineno-33-38" href="#__codelineno-33-38"></a><span class="w"> </span><span class="c1">// Access-list</span>
+<a id="__codelineno-33-39" name="__codelineno-33-39" href="#__codelineno-33-39"></a><span class="w"> </span><span class="n">dbCli</span><span class="p">.</span><span class="na">accessLists</span><span class="p">().</span><span class="na">addAddress</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <h3 id="52-astra-streaming">5.2 - Astra Streaming<a class="headerlink" href="#52-astra-streaming" title="Permanent link">&para;</a></h3>
@@ -4414,13 +4469,33 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">Organization</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getApiDevopsClient</span><span class="p">().</span><span class="na">getOrganization</span><span class="p">();</span>
 </code></pre></div>
 </details>
+<h2 id="6-extra-resources">6. Extra Resources<a class="headerlink" href="#6-extra-resources" title="Permanent link">&para;</a></h2>
+<h3 id="61-source-code-and-issues">6.1 - Source Code and Issues<a class="headerlink" href="#61-source-code-and-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The source code is open and available at <a href="https://github.com/datastax/astra-sdk-java">https://github.com/datastax/astra-sdk-java</a>. If you like the solution please give consider to give us a star on github.</p>
+</li>
+<li>
+<p>To open an issue please use the <a href="https://github.com/datastax/astra-sdk-java/issues/new/choose">Github Repository Issues</a></p>
+</li>
+</ul>
+<h3 id="62-javadoc">6.2 - JavaDoc<a class="headerlink" href="#62-javadoc" title="Permanent link">&para;</a></h3>
+<p>The javadocs are available here:</p>
+<ul>
+<li>
+<p><a href="https://datastaxdevs.github.io/astra-sdk-java/0.6.2/index.html">0.6.2 (latest)</a></p>
+</li>
+<li>
+<p><a href="https://datastaxdevs.github.io/astra-sdk-java/0.6.1/index.html">0.6.1</a></p>
+</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-06-13
+      2023-06-16
     
   </small>
 </div>
@@ -4552,7 +4627,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.a51614de.min.js"></script>
       
     
   </body>
