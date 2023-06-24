@@ -22,7 +22,7 @@
         <link rel="next" href="../vault/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gcp-dataflow-and-apache-beam-overview" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -2645,8 +2645,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gcp-dataflow-and-apache-beam-overview" class="md-nav__link">
-    GCP DataFlow and Apache Beam Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
@@ -2666,37 +2666,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-import-csv" class="md-nav__link">
-    A. Import CSV
+  <a href="#beam-samples" class="md-nav__link">
+    Beam Samples
   </a>
   
-    <nav class="md-nav" aria-label="A. Import CSV">
+    <nav class="md-nav" aria-label="Beam Samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-access-folder" class="md-nav__link">
-     1.  Access folder
+  <a href="#1-import-a-csv-file" class="md-nav__link">
+    1. Import a CSV File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-setup-env-variables" class="md-nav__link">
-     2.  Setup Env variables
+  <a href="#2-export-table-as-csv" class="md-nav__link">
+    2. Export Table as CSV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-run-the-demo" class="md-nav__link">
-     3.  Run the demo
+  <a href="#3-import-cassandra-table" class="md-nav__link">
+    3. Import Cassandra Table
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-check-output-data" class="md-nav__link">
-     4.  Check output data
+  <a href="#4-generative-ai" class="md-nav__link">
+    4. Generative AI
   </a>
   
 </li>
@@ -2707,409 +2707,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-export-csv" class="md-nav__link">
-    B. Export CSV
+  <a href="#google-dataflow-samples" class="md-nav__link">
+    Google Dataflow Samples
   </a>
   
-    <nav class="md-nav" aria-label="B. Export CSV">
+    <nav class="md-nav" aria-label="Google Dataflow Samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-access-folder_1" class="md-nav__link">
-     1. Access folder
+  <a href="#1-setup-gcloud-cli" class="md-nav__link">
+    1. Setup gCloud CLI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-setup-env-variables_1" class="md-nav__link">
-     2.  Setup Env variables
+  <a href="#2-gcs-to-astradb" class="md-nav__link">
+    2. GCS to AstraDB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-run-the-demo_1" class="md-nav__link">
-     3.  Run the demo
+  <a href="#3-astradb-to-gcs" class="md-nav__link">
+    3. AstraDb to GCS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-check-output-data_1" class="md-nav__link">
-     4.  Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-import-cassandra-table" class="md-nav__link">
-    C. Import Cassandra Table
-  </a>
-  
-    <nav class="md-nav" aria-label="C. Import Cassandra Table">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_2" class="md-nav__link">
-     1.  Access folder
+  <a href="#4-astradb-to-bigquery" class="md-nav__link">
+    4. AstraDb to BigQuery
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-start-cassandra" class="md-nav__link">
-     2.  Start Cassandra
+  <a href="#5-bigquery-to-astradb" class="md-nav__link">
+    5. BigQuery to AstraDb
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-setup-env-variables" class="md-nav__link">
-     3.  Setup Env variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-run-the-demo_2" class="md-nav__link">
-     3.  Run the demo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-check-output-data_2" class="md-nav__link">
-     4.  Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-import-from-cloud-storage" class="md-nav__link">
-    D. Import from Cloud Storage
-  </a>
-  
-    <nav class="md-nav" aria-label="D. Import from Cloud Storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-create-gcp-project" class="md-nav__link">
-     1.  Create GCP Project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-enable-billing" class="md-nav__link">
-     2.  Enable Billing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-save-project-id" class="md-nav__link">
-     3.  Save project ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-install-gcloud-cli" class="md-nav__link">
-     4.  Install gCloud CLI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-login-to-gcloud" class="md-nav__link">
-     5.  Login to gCloud
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-setup-your-project" class="md-nav__link">
-     6.  Setup your project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-enable-needed-apis" class="md-nav__link">
-     7.  Enable needed APIs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-add-roles" class="md-nav__link">
-     8.  Add Roles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-access-folder" class="md-nav__link">
-     9.  Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-create-buckets" class="md-nav__link">
-     10.  Create buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-create-secrets" class="md-nav__link">
-     11.  Create Secrets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-create-keyspace" class="md-nav__link">
-     12.  Create Keyspace
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-setup-env-variables" class="md-nav__link">
-     13  Setup Env. variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-run-the-demo" class="md-nav__link">
-     14  Run the demo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-check-output-data" class="md-nav__link">
-     15  Check output DATA
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#e-export-to-gcs" class="md-nav__link">
-    E. Export to GCS
-  </a>
-  
-    <nav class="md-nav" aria-label="E. Export to GCS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-environment-variables" class="md-nav__link">
-     1.  Environment Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-create-output-bucket" class="md-nav__link">
-     2.  Create output bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-access-folder" class="md-nav__link">
-     3.  Access folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-run-the-pipeline" class="md-nav__link">
-     4.  Run the pipeline
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#f-export-to-bigquery" class="md-nav__link">
-    F. Export to BigQuery
-  </a>
-  
-    <nav class="md-nav" aria-label="F. Export to BigQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_3" class="md-nav__link">
-     1.  Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_2" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-create-bigquery-dataset" class="md-nav__link">
-     3. Create BigQuery dataset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-create-bigquery-schema" class="md-nav__link">
-     4. Create BigQuery Schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-create-bigquery-table" class="md-nav__link">
-     5. Create BigQuery Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-list-tables-dataset" class="md-nav__link">
-     6. List tables dataset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-show-table-schema" class="md-nav__link">
-     7. Show Table schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-run-the-pipeline" class="md-nav__link">
-     8. Run the pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-show-output-table" class="md-nav__link">
-     9. Show Output Table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#g-import-from-bigquery" class="md-nav__link">
-    G. Import From BigQuery
-  </a>
-  
-    <nav class="md-nav" aria-label="G. Import From BigQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_4" class="md-nav__link">
-     1. Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_3" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-clear-astra-table" class="md-nav__link">
-     2. Clear astra table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-clear-the-pipeline" class="md-nav__link">
-     3. Clear the Pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-check-output-data_3" class="md-nav__link">
-     4. Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#h-simple-bigquery-export" class="md-nav__link">
-    H. Simple BigQuery export
-  </a>
-  
-    <nav class="md-nav" aria-label="H. Simple BigQuery export">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_5" class="md-nav__link">
-     1. Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_4" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-run-the-pipeline" class="md-nav__link">
-     3. Run the pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-show-content-of-table" class="md-nav__link">
-     4. Show Content of Table
+  <a href="#6-bigquery-dynamic-mapping" class="md-nav__link">
+    6. BigQuery Dynamic Mapping
   </a>
   
 </li>
@@ -3424,8 +3066,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gcp-dataflow-and-apache-beam-overview" class="md-nav__link">
-    GCP DataFlow and Apache Beam Overview
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
@@ -3445,37 +3087,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-import-csv" class="md-nav__link">
-    A. Import CSV
+  <a href="#beam-samples" class="md-nav__link">
+    Beam Samples
   </a>
   
-    <nav class="md-nav" aria-label="A. Import CSV">
+    <nav class="md-nav" aria-label="Beam Samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-access-folder" class="md-nav__link">
-     1.  Access folder
+  <a href="#1-import-a-csv-file" class="md-nav__link">
+    1. Import a CSV File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-setup-env-variables" class="md-nav__link">
-     2.  Setup Env variables
+  <a href="#2-export-table-as-csv" class="md-nav__link">
+    2. Export Table as CSV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-run-the-demo" class="md-nav__link">
-     3.  Run the demo
+  <a href="#3-import-cassandra-table" class="md-nav__link">
+    3. Import Cassandra Table
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-check-output-data" class="md-nav__link">
-     4.  Check output data
+  <a href="#4-generative-ai" class="md-nav__link">
+    4. Generative AI
   </a>
   
 </li>
@@ -3486,409 +3128,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-export-csv" class="md-nav__link">
-    B. Export CSV
+  <a href="#google-dataflow-samples" class="md-nav__link">
+    Google Dataflow Samples
   </a>
   
-    <nav class="md-nav" aria-label="B. Export CSV">
+    <nav class="md-nav" aria-label="Google Dataflow Samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-access-folder_1" class="md-nav__link">
-     1. Access folder
+  <a href="#1-setup-gcloud-cli" class="md-nav__link">
+    1. Setup gCloud CLI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-setup-env-variables_1" class="md-nav__link">
-     2.  Setup Env variables
+  <a href="#2-gcs-to-astradb" class="md-nav__link">
+    2. GCS to AstraDB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-run-the-demo_1" class="md-nav__link">
-     3.  Run the demo
+  <a href="#3-astradb-to-gcs" class="md-nav__link">
+    3. AstraDb to GCS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-check-output-data_1" class="md-nav__link">
-     4.  Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-import-cassandra-table" class="md-nav__link">
-    C. Import Cassandra Table
-  </a>
-  
-    <nav class="md-nav" aria-label="C. Import Cassandra Table">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_2" class="md-nav__link">
-     1.  Access folder
+  <a href="#4-astradb-to-bigquery" class="md-nav__link">
+    4. AstraDb to BigQuery
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-start-cassandra" class="md-nav__link">
-     2.  Start Cassandra
+  <a href="#5-bigquery-to-astradb" class="md-nav__link">
+    5. BigQuery to AstraDb
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-setup-env-variables" class="md-nav__link">
-     3.  Setup Env variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-run-the-demo_2" class="md-nav__link">
-     3.  Run the demo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-check-output-data_2" class="md-nav__link">
-     4.  Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-import-from-cloud-storage" class="md-nav__link">
-    D. Import from Cloud Storage
-  </a>
-  
-    <nav class="md-nav" aria-label="D. Import from Cloud Storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-create-gcp-project" class="md-nav__link">
-     1.  Create GCP Project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-enable-billing" class="md-nav__link">
-     2.  Enable Billing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-save-project-id" class="md-nav__link">
-     3.  Save project ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-install-gcloud-cli" class="md-nav__link">
-     4.  Install gCloud CLI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-login-to-gcloud" class="md-nav__link">
-     5.  Login to gCloud
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-setup-your-project" class="md-nav__link">
-     6.  Setup your project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-enable-needed-apis" class="md-nav__link">
-     7.  Enable needed APIs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-add-roles" class="md-nav__link">
-     8.  Add Roles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-access-folder" class="md-nav__link">
-     9.  Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-create-buckets" class="md-nav__link">
-     10.  Create buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-create-secrets" class="md-nav__link">
-     11.  Create Secrets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-create-keyspace" class="md-nav__link">
-     12.  Create Keyspace
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-setup-env-variables" class="md-nav__link">
-     13  Setup Env. variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-run-the-demo" class="md-nav__link">
-     14  Run the demo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-check-output-data" class="md-nav__link">
-     15  Check output DATA
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#e-export-to-gcs" class="md-nav__link">
-    E. Export to GCS
-  </a>
-  
-    <nav class="md-nav" aria-label="E. Export to GCS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-environment-variables" class="md-nav__link">
-     1.  Environment Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-create-output-bucket" class="md-nav__link">
-     2.  Create output bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-access-folder" class="md-nav__link">
-     3.  Access folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-run-the-pipeline" class="md-nav__link">
-     4.  Run the pipeline
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#f-export-to-bigquery" class="md-nav__link">
-    F. Export to BigQuery
-  </a>
-  
-    <nav class="md-nav" aria-label="F. Export to BigQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_3" class="md-nav__link">
-     1.  Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_2" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-create-bigquery-dataset" class="md-nav__link">
-     3. Create BigQuery dataset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-create-bigquery-schema" class="md-nav__link">
-     4. Create BigQuery Schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-create-bigquery-table" class="md-nav__link">
-     5. Create BigQuery Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-list-tables-dataset" class="md-nav__link">
-     6. List tables dataset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-show-table-schema" class="md-nav__link">
-     7. Show Table schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-run-the-pipeline" class="md-nav__link">
-     8. Run the pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-show-output-table" class="md-nav__link">
-     9. Show Output Table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#g-import-from-bigquery" class="md-nav__link">
-    G. Import From BigQuery
-  </a>
-  
-    <nav class="md-nav" aria-label="G. Import From BigQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_4" class="md-nav__link">
-     1. Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_3" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-clear-astra-table" class="md-nav__link">
-     2. Clear astra table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-clear-the-pipeline" class="md-nav__link">
-     3. Clear the Pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-check-output-data_3" class="md-nav__link">
-     4. Check output data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#h-simple-bigquery-export" class="md-nav__link">
-    H. Simple BigQuery export
-  </a>
-  
-    <nav class="md-nav" aria-label="H. Simple BigQuery export">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-access-folder_5" class="md-nav__link">
-     1. Access Folder
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-setup-env-variables_4" class="md-nav__link">
-     2. Setup Env. Variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-run-the-pipeline" class="md-nav__link">
-     3. Run the pipeline
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-show-content-of-table" class="md-nav__link">
-     4. Show Content of Table
+  <a href="#6-bigquery-dynamic-mapping" class="md-nav__link">
+    6. BigQuery Dynamic Mapping
   </a>
   
 </li>
@@ -3915,7 +3199,7 @@
 
   <h1>• Google Dataflow</h1>
 
-<h2 id="gcp-dataflow-and-apache-beam-overview">GCP DataFlow and Apache Beam Overview<a class="headerlink" href="#gcp-dataflow-and-apache-beam-overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam. Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines which simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.</p>
 <ul>
 <li><a href="https://beam.apache.org/get-started/beam-overview/">Learn more about Apache Beam</a></li>
@@ -3981,6 +3265,66 @@
 <p>To leverage the split capabilities of Pulsar, a <code>PulsarIO</code> connector was released in 2022. To learn more about its development you can follow <a href="https://www.youtube.com/embed/xoQRDzqdODk">this video</a> from the Beam Summit 2022.</p>
 </details>
 </div>
+<ul>
+<li>Connectivity to Astra is implemented through a custom I/O Connector named <code>beam-sdks-java-io-astra</code> available on central Maven.</li>
+</ul>
+<div class="nosurface">
+<details class="abstract">
+<summary>AstraDBIO Connector</summary>
+<p>The Astra I/O connectors implements the different operations needed across the pipelines in the page: Read, Write, Delete, ReadAll.</p>
+<p>This is the dependency to add to the project.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nt">&lt;groupId&gt;</span>com.datastax.astra<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="nt">&lt;artifactId&gt;</span>beam-sdks-java-io-astra<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="nt">&lt;version&gt;</span>${latest-version}<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<ul>
+<li><strong>Read From Astra</strong></li>
+</ul>
+<p>To Read Data from AstraDb use <code>AstraDbIO.Read&lt;Entity&gt;</code> where the entity should be a <code>Serializable</code> object. In the sample we can leverage the cassandra object mapping of Driver 4x.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">scbZip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">AstraDbIO</span><span class="p">.</span><span class="na">Read</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraDbIO</span><span class="p">.</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">.</span><span class="na">withSecureConnectBundle</span><span class="p">(</span><span class="n">scbZip</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">.</span><span class="na">withTable</span><span class="p">(</span><span class="s">&quot;table&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">.</span><span class="na">withMinNumberOfSplits</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">.</span><span class="na">withCoder</span><span class="p">(</span><span class="n">SerializableCoder</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">))</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">.</span><span class="na">withMapperFactoryFn</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LanguageCodeDaoMapperFactoryFn</span><span class="p">())</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>
+<p>The <code>mapperFactoryFn</code> should implements <code>SerializableFunction&lt;CqlSession, AstraDbMapper&lt;Entity&gt;&gt;</code></p>
+</li>
+<li>
+<p>You can also specify a query, the table is name is not mandatory anymore</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span><span class="n">AstraDbIO</span><span class="p">.</span><span class="na">Read</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">read2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraDbIO</span><span class="p">.</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p">.</span><span class="na">withSecureConnectBundle</span><span class="p">(</span><span class="n">scbZip</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">.</span><span class="na">withQuery</span><span class="p">(</span><span class="s">&quot;select * from table where ...&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">.</span><span class="na">withMinNumberOfSplits</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">.</span><span class="na">withCoder</span><span class="p">(</span><span class="n">SerializableCoder</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">))</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">.</span><span class="na">withMapperFactoryFn</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LanguageCodeDaoMapperFactoryFn</span><span class="p">())</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li><strong>Write data into Astra</strong></li>
+</ul>
+<p>To write Data into Astra use the <code>AstraDbIO.Write&lt;Entity&gt;</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">AstraDbIO</span><span class="p">.</span><span class="na">Write</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AstraDbIO</span><span class="p">.</span><span class="o">&lt;</span><span class="n">LanguageCode</span><span class="o">&gt;</span><span class="n">write</span><span class="p">()</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p">.</span><span class="na">withToken</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p">.</span><span class="na">withKeyspace</span><span class="p">(</span><span class="s">&quot;keyspace&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p">.</span><span class="na">withSecureConnectBundle</span><span class="p">(</span><span class="n">scbZip</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="p">.</span><span class="na">withMapperFactoryFn</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LanguageCodeDaoMapperFactoryFn</span><span class="p">())</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
+</details>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have Java11+, Maven, and Git installed</li>
@@ -3990,7 +3334,6 @@
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 
 </ul>
-
 <div class="nosurface">
 <!-- Prequisites for Java And Maven -->
 <details class="abstract">
@@ -3999,13 +3342,13 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Install Java Development Kit (JDK) 8+</strong></li>
 </ul>
 <p>Use <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">java reference documentation</a> targetting your operating system to install a Java Development Kit. You can then validate your installation with the following command.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>--version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>java<span class="w"> </span>--version
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Install Apache Maven (3.8+)</strong></li>
 </ul>
 <p>Samples and tutorials have been designed with <code>Apache Maven</code>. Use the <a href="https://maven.apache.org/install.html">reference documentation</a> top install maven validate your installation with </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>-version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mvn<span class="w"> </span>-version
 </code></pre></div>
 </details>
 </div>
@@ -4023,26 +3366,26 @@
 <p>An astra token acts as your credentials, it holds the different permissions. The scope of a token is the whole organization (tenant) but permissions can be edited to limit usage to a single database.</p>
 <p>To create a token, please follow <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure">this guide</a></p>
 <p>The Token is in fact three separate strings: a <code>Client ID</code>, a <code>Client Secret</code> and the <code>token</code> proper. You will need some of these strings to access the database, depending on the type of access you plan. Although the Client ID, strictly speaking, is not a secret, you should regard this whole object as a secret and make sure not to share it inadvertently (e.g. committing it to a Git repository) as it grants access to your databases.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;ClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROkiiDZdvPOvHRSgoZtyAapp&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;ClientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fakedfaked&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;Token&quot;</span><span class="p">:</span><span class="s2">&quot;AstraCS:fake&quot;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;ClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROkiiDZdvPOvHRSgoZtyAapp&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;ClientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fakedfaked&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;Token&quot;</span><span class="p">:</span><span class="s2">&quot;AstraCS:fake&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>It is handy to have your token declare as an environment variable (<em>replace with proper value</em>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>export ASTRA_TOKEN=&quot;AstraCS:replace_me&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export ASTRA_TOKEN=&quot;AstraCS:replace_me&quot;
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Create a Database and a keyspace</strong></li>
 </ul>
 <p>With your account you can run multiple databases, a Databases is an Apache Cassandra cluster. It can live in one or multiple regions (dc). In each Database you can have multiple keyspaces. In the page we will use the database name <code>db_demo</code> and the keyspace <code>keyspace_demo</code>.</p>
 <p>You can create the DB using the user interface and <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/#c-procedure">here is a tutorial</a>. You can also use Astra command line interface. To install and setup the CLI run the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>source ~/.astra/cli/astra-init.sh
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>astra setup --token ${ASTRA_TOKEN}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl -Ls &quot;https://dtsx.io/get-astra-cli&quot; | bash
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>source ~/.astra/cli/astra-init.sh
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>astra setup --token ${ASTRA_TOKEN}
 </code></pre></div>
 <p>To create DB and keyspace with the CLI:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>astra db create db_demo -k keyspace_demo --if-not-exists
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>astra db create db_demo -k keyspace_demo --if-not-exists
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Download the Secure Connect Bundle for current database</strong></li>
@@ -4050,7 +3393,7 @@
 <p>A <em>Secure Connect Bundle</em> contains the certificates and endpoints informations to open a <a href="https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/">mTLS connection</a>. Often mentionned as <code>scb</code> its scope is a database AND a region. If your database is deployed on multiple regions you will have to download the bundle for each one and initiate the connection accordingly. Instructions to <a href="/docs/pages/astra/download-scb/">download Secure Connect Bundle are here</a></p>
 <p><img src="https://github.com/awesome-astra/docs/blob/main/docs/img/drivers/drivers-connectivity.png?raw=true" /></p>
 <p>You can download the secure connect bundle from the user interface and <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">here is a tutorial</a>. You can also use Astra command line interface.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>astra db download-scb db_demo -f /tmp/secure-connect-bundle-db-demo.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>astra db download-scb db_demo -f /tmp/secure-connect-bundle-db-demo.zip
 </code></pre></div>
 </details>
 </div>
@@ -4058,13 +3401,13 @@
 <ul>
 <li>Clone the Repository with sample flows. The different flows are distributed in 2 different modules. <code>sample-beams</code> contains flows that do not interact with Google Cloud solutions and will be run with a direct runner. <code>sample-dataflows</code> contains flows that could be executed.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DataStax-Examples/astra-dataflow-starter.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DataStax-Examples/astra-dataflow-starter.git
 </code></pre></div>
 <ul>
 <li>Navigate to the repository and build the project with maven.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>astra-dataflow-starter
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>mvn<span class="w"> </span>clean<span class="w"> </span>install<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">cd</span><span class="w"> </span>astra-dataflow-starter
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mvn<span class="w"> </span>clean<span class="w"> </span>install<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 <div class="nosurface">
 <details class="abstract">
@@ -4072,13 +3415,13 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Clone the Repository with <code>AstraIO</code> and sample flows</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git clone https://github.com/DataStax-Examples/astra-dataflow-starter.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git clone https://github.com/DataStax-Examples/astra-dataflow-starter.git
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Build the project with maven</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cd astra-dataflow-starter
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mvn clean install -Dmaven.test.skip=true
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cd astra-dataflow-starter
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>mvn clean install -Dmaven.test.skip=true
 </code></pre></div>
 <p>The different flows are distributed in 2 different modules: </p>
 <ul>
@@ -4093,423 +3436,606 @@
 </div>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-<h2 id="a-import-csv">A. Import CSV<a class="headerlink" href="#a-import-csv" title="Permanent link">&para;</a></h2>
+<h2 id="beam-samples">Beam Samples<a class="headerlink" href="#beam-samples" title="Permanent link">&para;</a></h2>
+<h3 id="1-import-a-csv-file">1. Import a CSV File<a class="headerlink" href="#1-import-a-csv-file" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>In this flow a <code>CSV</code> file is parsed to populate a table with same structure in Astra. The mapping from CSV to the table is done manually. The dataset is a list of languages.</p>
+</blockquote>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/csv-to-astra.png" /></p>
-<h3 id="1-access-folder"><span class="nosurface"> 1. </span> Access folder<a class="headerlink" href="#1-access-folder" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd samples-beam
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pwd
+<ul>
+<li><strong>Access folder <code>samples-beam</code> in the project.</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cd samples-beam
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>pwd
 </code></pre></div>
-<h3 id="2-setup-env-variables"><span class="nosurface"> 2. </span> Setup Env variables<a class="headerlink" href="#2-setup-env-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
+<ul>
+<li><strong>Setup Environment variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Database name (use with CLI)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Keyspace name </span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Path of local secure connect bundle</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Astra Token starting by AstraCS:...</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
 </code></pre></div>
-<h3 id="3-run-the-demo"><span class="nosurface"> 3. </span> Run the demo<a class="headerlink" href="#3-run-the-demo" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a> mvn clean compile exec:java \
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a> -Dexec.mainClass=com.datastax.astra.beam.Csv_to_AstraDb \
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a> -Dexec.args=&quot;\
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a> --astraToken=${ASTRA_TOKEN} \
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a> --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a> --keyspace=${ASTRA_KEYSPACE} \
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a> --csvInput=`pwd`/src/test/resources/language-codes.csv&quot;
-</code></pre></div>
-<h3 id="4-check-output-data"><span class="nosurface"> 4. </span> Check output data<a class="headerlink" href="#4-check-output-data" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>astra db cqlsh ${ASTRA_DB} \
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>   -k ${ASTRA_KEYSPACE} \
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>   -e &quot;SELECT * FROM languages LIMIT 10;&quot;
-</code></pre></div>
-<h2 id="b-export-csv">B. Export CSV<a class="headerlink" href="#b-export-csv" title="Permanent link">&para;</a></h2>
-<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" /></p>
-<h3 id="1-access-folder_1"><span class="nosurface"> 1. Access folder</span><a class="headerlink" href="#1-access-folder_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">pwd</span>
-</code></pre></div>
-<h3 id="2-setup-env-variables_1"><span class="nosurface"> 2. </span> Setup Env variables<a class="headerlink" href="#2-setup-env-variables_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
-</code></pre></div>
-<h3 id="3-run-the-demo_1"><span class="nosurface"> 3. </span> Run the demo<a class="headerlink" href="#3-run-the-demo_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Run Beam pipeline</strong></li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.AstraDb_To_Csv<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.Csv_to_AstraDb<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="s2"> --table=languages \</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="s2"> --csvOutput=`pwd`/src/test/resources/out/language&quot;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="s2"> --csvInput=`pwd`/src/test/resources/language-codes.csv&quot;</span>
 </code></pre></div>
-<h3 id="4-check-output-data_1"><span class="nosurface"> 4. </span> Check output data<a class="headerlink" href="#4-check-output-data_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ls<span class="w"> </span>-l<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>cat<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out/language-00001-of-00004
+<ul>
+<li><strong>Check output data in Astra</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="c-import-cassandra-table">C. Import Cassandra Table<a class="headerlink" href="#c-import-cassandra-table" title="Permanent link">&para;</a></h2>
+<h3 id="2-export-table-as-csv">2. Export Table as CSV<a class="headerlink" href="#2-export-table-as-csv" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>In this flow a Cassandra table is exported as a CSV file. The mapping from table to csv row is done manually. The same objects are reused from <code>#1</code></p>
+</blockquote>
+<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" /></p>
+<ul>
+<li><strong>Access folder</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>cd samples-beam
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>pwd
+</code></pre></div>
+<ul>
+<li><strong>Setup Environment variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Database name (use with CLI)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1"># Keyspace name </span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># Path of local secure connect bundle</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># Astra Token starting by AstraCS:...</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
+</code></pre></div>
+<ul>
+<li><strong>Run Beam pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.AstraDb_To_Csv<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="s2"> --table=languages \</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="s2"> --csvOutput=`pwd`/src/test/resources/out/language&quot;</span>
+</code></pre></div>
+<ul>
+<li><strong>Check output data in astra</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ls<span class="w"> </span>-l<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>cat<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/src/test/resources/out/language-00001-of-00004
+</code></pre></div>
+<h3 id="3-import-cassandra-table">3. Import Cassandra Table<a class="headerlink" href="#3-import-cassandra-table" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Similar to ZDM a cassandra Table is imported into Astra. We are reusing the same data model as before. Mapping is manual. We can note that Cassandra reading is operated with <code>CassandraIO</code> (driver3x) where the load is done with <code>AstraDbIO</code> (drivers4x).</p>
+</blockquote>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/cassandra-to-astra.png" /></p>
-<h3 id="1-access-folder_2"><span class="nosurface"> 1. </span> Access folder<a class="headerlink" href="#1-access-folder_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">pwd</span>
-</code></pre></div>
-<h3 id="2-start-cassandra"><span class="nosurface"> 2. </span> Start Cassandra<a class="headerlink" href="#2-start-cassandra" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Project propose a docker-compose to run Cassandra locally. Use <code>docker-compose</code> to start the containers</li>
+<li><strong>Access folder</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker-compose<span class="w"> </span>-f<span class="w"> </span>./src/main/docker/docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">pwd</span>
 </code></pre></div>
 <ul>
-<li>Wait a few seconds for Cassandra to Start.</li>
+<li><strong>Start Cassandra as a docker image with docker compose</strong>: Project propose a docker-compose to run Cassandra locally. Use <code>docker-compose</code> to start the containers</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker-compose<span class="w"> </span>-f<span class="w"> </span>./src/main/docker/docker-compose.yml<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">55</span>-61
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker-compose<span class="w"> </span>-f<span class="w"> </span>./src/main/docker/docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <ul>
-<li>Validate Cassandra is ready</li>
+<li><strong>Wait a few seconds for Cassandra to Start.</strong> The following command give you the status of the container</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="sb">`</span>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>cassandra:4.1.1<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span>-12<span class="sb">`</span><span class="w"> </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;SELECT data_center FROM system.local;&quot;</span>
-</code></pre></div>
-<h3 id="3-setup-env-variables"><span class="nosurface"> 3. </span> Setup Env variables<a class="headerlink" href="#3-setup-env-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
-</code></pre></div>
-<h3 id="3-run-the-demo_2"><span class="nosurface"> 3. </span> Run the demo<a class="headerlink" href="#3-run-the-demo_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.Cassandra_To_AstraDb<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="s2"> --cassandraHost=localhost \</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="s2"> --cassandraPort=9042 \</span>
-<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="s2"> --tableName=languages&quot;</span>
-</code></pre></div>
-<h3 id="4-check-output-data_2"><span class="nosurface"> 4. </span> Check output data<a class="headerlink" href="#4-check-output-data_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="sb">`</span>docker<span class="w"> </span>ps<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>cassandra:4.1.1<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span>-12<span class="sb">`</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;SELECT *  FROM samples_beam.languages LIMIT 10;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker-compose<span class="w"> </span>-f<span class="w"> </span>./src/main/docker/docker-compose.yml<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">55</span>-61
 </code></pre></div>
 <ul>
-<li>Validate Astra Table is populated</li>
+<li><strong>Validate Cassandra is ready</strong>: By connecting with <code>cqlsh</code> and displaying the datacenter.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="sb">`</span>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span>grep<span class="w"> </span>cassandra:4.1.1<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span>-12<span class="sb">`</span><span class="w"> </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;SELECT data_center FROM system.local;&quot;</span>
 </code></pre></div>
-<h2 id="d-import-from-cloud-storage">D. Import from Cloud Storage<a class="headerlink" href="#d-import-from-cloud-storage" title="Permanent link">&para;</a></h2>
-<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" /></p>
-<h3 id="1-create-gcp-project"><span class="nosurface"> 1. </span> Create GCP Project<a class="headerlink" href="#1-create-gcp-project" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Setup Env variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
+</code></pre></div>
+<ul>
+<li><strong>Run the pipeline</strong>: Keyspaces and Tables are created in local cassandra before starting the copy into Astra.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.Cassandra_To_AstraDb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="s2"> --cassandraHost=localhost \</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="s2"> --cassandraKeyspace=demo \</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="s2"> --cassandraTableName=languages \</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="s2"> --cassandraPort=9042 \</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="s2"> --tableName=languages&quot;</span>
+</code></pre></div>
+<ul>
+<li><strong>Check data in Cassandra with <code>cqlsh</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="sb">`</span>docker<span class="w"> </span>ps<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>cassandra:4.1.1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span>-12<span class="sb">`</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;SELECT *  FROM samples_beam.languages LIMIT 10;&quot;</span>
+</code></pre></div>
+<ul>
+<li><strong>Check data in Astra destination with <code>cqlsh</code> (CLI)</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
+</code></pre></div>
+<h3 id="4-generative-ai">4. Generative AI<a class="headerlink" href="#4-generative-ai" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>This use cases is divided in 2 flows. In the first step we will import a CSV file as before mapping the CSV schema in destination table. Second flow will alter the table to add the embeddings vector and populate it after calling <a href="https://platform.openai.com/docs/guides/embeddings">OpenAI Embedding API</a></p>
+</blockquote>
+<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/genai-01.png" /></p>
+<ul>
+<li><strong>Access folder</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nb">cd</span><span class="w"> </span>samples-beam
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nb">pwd</span>
+</code></pre></div>
+<ul>
+<li><strong>Setup Env variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace-name&gt;
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SCB_PATH</span><span class="o">=</span>&lt;your-secure-connect-bundle&gt;
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TOKEN</span><span class="o">=</span>&lt;your-token&gt;
+</code></pre></div>
+<ul>
+<li><strong>Import Data with first flow</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.genai.GenAI_01_ImportData<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="s2"> --csvInput=`pwd`/src/main/resources/fables_of_fontaine.csv&quot;</span>
+</code></pre></div>
+<p>A table is created with the following structure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">ai</span><span class="p">.</span><span class="n">fable</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="n">document_id</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="n">document</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">text</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li><strong>Check output data in Astra</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM fable LIMIT 10;&quot;</span>
+</code></pre></div>
+<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/genai-02.png" /></p>
+<ul>
+<li><strong>Add extra environment variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>fable
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_KEY</span><span class="o">=</span>&lt;change_me&gt;
+</code></pre></div>
+<ul>
+<li><strong>Run pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.beam.genai.GenAI_02_CreateEmbeddings<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="s2"> --openAiKey=</span><span class="si">${</span><span class="nv">OPENAI_KEY</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="s2"> --table=</span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="google-dataflow-samples">Google Dataflow Samples<a class="headerlink" href="#google-dataflow-samples" title="Permanent link">&para;</a></h2>
+<h3 id="1-setup-gcloud-cli">1. Setup gCloud CLI<a class="headerlink" href="#1-setup-gcloud-cli" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Create GCP Project</strong></li>
+</ul>
 <blockquote>
 <p>Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.</p>
 </blockquote>
 <p>In the Google Cloud console, on the project selector page, select or <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">create a Google Cloud project</a></p>
-<h3 id="2-enable-billing"><span class="nosurface"> 2. </span> Enable Billing<a class="headerlink" href="#2-enable-billing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Enable Billing</strong></li>
+</ul>
 <p>Make sure that billing is enabled for your Cloud project. Learn how to <a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled">check if billing is enabled on a project</a></p>
-<h3 id="3-save-project-id"><span class="nosurface"> 3. </span> Save project ID<a class="headerlink" href="#3-save-project-id" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Save project ID</strong></li>
+</ul>
 <p><em>The project identifier is available in the column <code>ID</code>. We will need it so let's save it as an environment variable</em></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_CODE</span><span class="o">=</span>&lt;your-gcp-project-code&gt;
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_USER</span><span class="o">=</span>&lt;your-gcp-email&gt;
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="o">=</span><span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>-compute@developer.gserviceaccount.com
-</code></pre></div>
-<h3 id="4-install-gcloud-cli"><span class="nosurface"> 4. </span> Install gCloud CLI<a class="headerlink" href="#4-install-gcloud-cli" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>curl https://sdk.cloud.google.com | bash
-</code></pre></div>
-<h3 id="5-login-to-gcloud"><span class="nosurface"> 5. </span> Login to gCloud<a class="headerlink" href="#5-login-to-gcloud" title="Permanent link">&para;</a></h3>
-<p>Run the following command to authenticate with Google Cloud:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>gcloud auth login
-</code></pre></div></p>
-<h3 id="6-setup-your-project"><span class="nosurface"> 6. </span> Setup your project<a class="headerlink" href="#6-setup-your-project" title="Permanent link">&para;</a></h3>
-<ul>
-<li>If you haven't set your project yet, use the following command to set your project ID:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>gcloud config set project ${GCP_PROJECT_ID}
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>gcloud projects describe ${GCP_PROJECT_ID}
-</code></pre></div>
-<h3 id="7-enable-needed-apis"><span class="nosurface"> 7. </span> Enable needed APIs<a class="headerlink" href="#7-enable-needed-apis" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>gcloud services enable dataflow compute_component \
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>   logging storage_component storage_api \
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>   bigquery pubsub datastore.googleapis.com \
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>   cloudresourcemanager.googleapis.com
-</code></pre></div>
-<h3 id="8-add-roles"><span class="nosurface"> 8. </span> Add Roles<a class="headerlink" href="#8-add-roles" title="Permanent link">&para;</a></h3>
-<ul>
-<li>To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    --member=&quot;user:${GCP_USER}&quot; \
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    --role=roles/iam.serviceAccountUser
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
-<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>    --role=roles/dataflow.admin
-<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
-<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
-<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>    --role=roles/dataflow.worker
-<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
-<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
-<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>    --role=roles/storage.objectAdmin
-</code></pre></div>
-<h3 id="9-access-folder"><span class="nosurface"> 9. </span> Access Folder<a class="headerlink" href="#9-access-folder" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Make sure you are in <code>samples-dataflow</code> folder</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nb">pwd</span>
-</code></pre></div>
-<h3 id="10-create-buckets"><span class="nosurface"> 10. </span> Create <code>buckets</code><a class="headerlink" href="#10-create-buckets" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Create the bucket for the for the project in cloud storage:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BUCKET_INPUT</span><span class="o">=</span>gs://astra_dataflow_inputs
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>gsutil<span class="w"> </span>mb<span class="w"> </span>-c<span class="w"> </span>STANDARD<span class="w"> </span>-l<span class="w"> </span>US<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_CODE</span><span class="o">=</span>&lt;your-gcp-project-code&gt;
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_USER</span><span class="o">=</span>&lt;your-gcp-email&gt;
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="o">=</span><span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>-compute@developer.gserviceaccount.com
 </code></pre></div>
 <ul>
-<li>Copy the CSV file in the bucket</li>
+<li><strong>Install gCloud CLI</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>src/test/resources/language-codes.csv<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>/csv/
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>gsutil<span class="w"> </span>ls
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>curl https://sdk.cloud.google.com | bash
 </code></pre></div>
-<h3 id="11-create-secrets"><span class="nosurface"> 11. </span> Create Secrets<a class="headerlink" href="#11-create-secrets" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Login to gCloud</strong>: Run the following command to authenticate with Google Cloud:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>gcloud auth login
+</code></pre></div>
+<ul>
+<li><strong>Setup your project</strong>: If you haven't set your project yet, use the following command to set your project ID:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>gcloud config set project ${GCP_PROJECT_ID}
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>gcloud projects describe ${GCP_PROJECT_ID}
+</code></pre></div>
+<ul>
+<li><strong>Enable needed APIs</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>gcloud services enable dataflow compute_component \
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>   logging storage_component storage_api \
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>   bigquery pubsub datastore.googleapis.com \
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>   cloudresourcemanager.googleapis.com
+</code></pre></div>
+<ul>
+<li><strong>Add Roles</strong></li>
+</ul>
+<p>To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    --member=&quot;user:${GCP_USER}&quot; \
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    --role=roles/iam.serviceAccountUser
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>    --role=roles/dataflow.admin
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>    --role=roles/dataflow.worker
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>    --member=&quot;serviceAccount:${GCP_COMPUTE_ENGINE}&quot; \
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>    --role=roles/storage.objectAdmin
+</code></pre></div>
+<h3 id="2-gcs-to-astradb">2. GCS to AstraDB<a class="headerlink" href="#2-gcs-to-astradb" title="Permanent link">&para;</a></h3>
+<p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" /></p>
+<ul>
+<li>
+<p><strong>Access Folder</strong></p>
+</li>
+<li>
+<p>Make sure you are in <code>samples-dataflow</code> folder</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="nb">pwd</span>
+</code></pre></div>
+<ul>
+<li><strong>Create <code>buckets</code></strong>: Create the bucket for the for the project in cloud storage:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BUCKET_INPUT</span><span class="o">=</span>gs://astra_dataflow_inputs
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>gsutil<span class="w"> </span>mb<span class="w"> </span>-c<span class="w"> </span>STANDARD<span class="w"> </span>-l<span class="w"> </span>US<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>
+</code></pre></div>
+<p>Copy the CSV file in the bucket</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>src/test/resources/language-codes.csv<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>/csv/
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>gsutil<span class="w"> </span>ls
+</code></pre></div>
+<ul>
+<li><strong>Create Secrets</strong></li>
+</ul>
 <p><a href="https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#secretmanager-create-secret-gcloud">Create secrets for the project in secret manager</a>**. To connect to <code>AstraDB</code> you need a token (credentials) and a zip used to secure the transport. Those two inputs should be defined as <em>secrets</em>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_SECRET_TOKEN</span><span class="o">=</span>token
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="o">=</span>cedrick-demo-scb
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">  </span>--data-file<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">  </span>--replication-policy<span class="o">=</span><span class="s2">&quot;automatic&quot;</span>
-<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
-<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="w">   </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:</span><span class="si">${</span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="w">   </span>--role<span class="o">=</span><span class="s1">&#39;roles/secretmanager.secretAccessor&#39;</span>
-<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>
-<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="w">  </span>--data-file<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="w">  </span>--replication-policy<span class="o">=</span><span class="s2">&quot;automatic&quot;</span>
-<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>
-<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a><span class="w">   </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:</span><span class="si">${</span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="w">   </span>--role<span class="o">=</span><span class="s1">&#39;roles/secretmanager.secretAccessor&#39;</span>
-<a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>
-<a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_SECRET_TOKEN</span><span class="o">=</span>token
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="o">=</span>cedrick-demo-scb
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">  </span>--data-file<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ASTRA_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">  </span>--replication-policy<span class="o">=</span><span class="s2">&quot;automatic&quot;</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="w">   </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:</span><span class="si">${</span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">   </span>--role<span class="o">=</span><span class="s1">&#39;roles/secretmanager.secretAccessor&#39;</span>
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">  </span>--data-file<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_SCB_PATH</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w">  </span>--replication-policy<span class="o">=</span><span class="s2">&quot;automatic&quot;</span>
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a>
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">   </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:</span><span class="si">${</span><span class="nv">GCP_COMPUTE_ENGINE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="w">   </span>--role<span class="o">=</span><span class="s1">&#39;roles/secretmanager.secretAccessor&#39;</span>
+<a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a>
+<a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a>gcloud<span class="w"> </span>secrets<span class="w"> </span>list
 </code></pre></div>
-<h3 id="12-create-keyspace"><span class="nosurface"> 12. </span> Create Keyspace<a class="headerlink" href="#12-create-keyspace" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>astra<span class="w"> </span>db<span class="w"> </span>create-keyspace<span class="w"> </span>demo<span class="w"> </span>-k<span class="w"> </span>samples_dataflow<span class="w"> </span>--if-not-exist
+<ul>
+<li><strong>Create Keyspace</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>astra<span class="w"> </span>db<span class="w"> </span>create-keyspace<span class="w"> </span>demo<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">   </span>-k<span class="w"> </span>samples_dataflow<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">   </span>--if-not-exist
 </code></pre></div>
-<h3 id="13-setup-env-variables"><span class="nosurface"> 13 </span> Setup Env. variables<a class="headerlink" href="#13-setup-env-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_INPUT_CSV</span><span class="o">=</span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>/csv/language-codes.csv
+<ul>
+<li><strong>Setup Env. variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_INPUT_CSV</span><span class="o">=</span><span class="si">${</span><span class="nv">GCP_BUCKET_INPUT</span><span class="si">}</span>/csv/language-codes.csv
 </code></pre></div>
-<h3 id="14-run-the-demo"><span class="nosurface"> 14 </span> Run the demo<a class="headerlink" href="#14-run-the-demo" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="w"> </span>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.Gcs_To_AstraDb<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="s2"> --csvInput=</span><span class="si">${</span><span class="nv">GCP_INPUT_CSV</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="s2"> --runner=DataflowRunner \</span>
-<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="s2"> --region=us-central1&quot;</span>
+<ul>
+<li><strong>Run the demo</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="w"> </span>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.Gcs_To_AstraDb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="s2"> --csvInput=</span><span class="si">${</span><span class="nv">GCP_INPUT_CSV</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a><span class="s2"> --runner=DataflowRunner \</span>
+<a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
-<h3 id="15-check-output-data"><span class="nosurface"> 15 </span> Check output DATA<a class="headerlink" href="#15-check-output-data" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
+<ul>
+<li><strong>Check Astra table is populated</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">   </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">   </span>-e<span class="w"> </span><span class="s2">&quot;SELECT * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="e-export-to-gcs">E. Export to GCS<a class="headerlink" href="#e-export-to-gcs" title="Permanent link">&para;</a></h2>
+<h3 id="3-astradb-to-gcs">3. AstraDb to GCS<a class="headerlink" href="#3-astradb-to-gcs" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
-<h3 id="1-environment-variables"><span class="nosurface"> 1. </span> Environment Variables<a class="headerlink" href="#1-environment-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
+<ul>
+<li><strong>Environment Variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>&lt;your-table&gt;
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
 </code></pre></div>
-<h3 id="2-create-output-bucket"><span class="nosurface"> 2. </span> Create output bucket<a class="headerlink" href="#2-create-output-bucket" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_OUTPUT_CSV</span><span class="o">=</span>gs://astra_dataflow_outputs
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>gsutil<span class="w"> </span>mb<span class="w"> </span>-c<span class="w"> </span>STANDARD<span class="w"> </span>-l<span class="w"> </span>US<span class="w"> </span><span class="si">${</span><span class="nv">GCP_OUTPUT_CSV</span><span class="si">}</span>
+<ul>
+<li><strong>Create output bucket</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_OUTPUT_CSV</span><span class="o">=</span>gs://astra_dataflow_outputs
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>gsutil<span class="w"> </span>mb<span class="w"> </span>-c<span class="w"> </span>STANDARD<span class="w"> </span>-l<span class="w"> </span>US<span class="w"> </span><span class="si">${</span><span class="nv">GCP_OUTPUT_CSV</span><span class="si">}</span>
 </code></pre></div>
-<h3 id="3-access-folder"><span class="nosurface"> 3. </span> Access folder<a class="headerlink" href="#3-access-folder" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="nb">pwd</span>
+<ul>
+<li><strong>Access folder</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="nb">pwd</span>
 </code></pre></div>
-<h3 id="4-run-the-pipeline"><span class="nosurface"> 4. </span> Run the pipeline<a class="headerlink" href="#4-run-the-pipeline" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w"> </span>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_Gcs<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="s2"> --astraToken=projects/747469159044/secrets/astra-token/versions/2 \</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="s2"> --astraSecureConnectBundle=projects/747469159044/secrets/secure-connect-bundle-demo/versions/1 \</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="s2"> --keyspace=samples_dataflow \</span>
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="s2"> --table=languages \</span>
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="s2"> --outputFolder=gs://astra_dataflow_output \</span>
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="s2"> --runner=DataflowRunner \</span>
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="s2"> --project=integrations-379317 \</span>
-<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="s2"> --region=us-central1&quot;</span>
+<ul>
+<li><strong>Run the pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w"> </span>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_Gcs<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="s2"> --table=</span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="s2"> --outputFolder=</span><span class="si">${</span><span class="nv">GCP_OUTPUT_CSV</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="s2"> --runner=DataflowRunner \</span>
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
-<h2 id="f-export-to-bigquery">F. Export to BigQuery<a class="headerlink" href="#f-export-to-bigquery" title="Permanent link">&para;</a></h2>
+<h3 id="4-astradb-to-bigquery">4. AstraDb to BigQuery<a class="headerlink" href="#4-astradb-to-bigquery" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
-<h3 id="1-access-folder_3"><span class="nosurface"> 1. </span> Access Folder<a class="headerlink" href="#1-access-folder_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nb">pwd</span>
-</code></pre></div>
-<h3 id="2-setup-env-variables_2"><span class="nosurface"> 2. </span>Setup Env. Variables<a class="headerlink" href="#2-setup-env-variables_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
-<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
-<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
-<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
-</code></pre></div>
-<h3 id="3-create-bigquery-dataset"><span class="nosurface"> 3. </span>Create BigQuery dataset<a class="headerlink" href="#3-create-bigquery-dataset" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Create a dataset in <code>dataflow_input_us</code> BigQuery with the following command</li>
+<li><strong>Access Folder</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="o">=</span>dataflow_input_us
-<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>bq<span class="w"> </span>mk<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>
-<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>bq<span class="w"> </span>ls<span class="w"> </span>--format<span class="o">=</span>pretty
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="nb">pwd</span>
 </code></pre></div>
-<h3 id="4-create-bigquery-schema"><span class="nosurface"> 4. </span>Create BigQuery Schema<a class="headerlink" href="#4-create-bigquery-schema" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Create a json <code>schema_language_codes.json</code> file with the schema of the table** We have created it for you <a href="samples-dataflow/src/main/resources/schema_language_codes.json">here</a></li>
+<li><strong>Setup Env. Variables</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="p">[</span>
-<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQUIRED&quot;</span><span class="p">,</span>
-<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code&quot;</span><span class="p">,</span>
-<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STRING&quot;</span>
-<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQUIRED&quot;</span><span class="p">,</span>
-<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language&quot;</span><span class="p">,</span>
-<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STRING&quot;</span>
-<a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
 </code></pre></div>
-<h3 id="5-create-bigquery-table"><span class="nosurface"> 5. </span>Create BigQuery Table<a class="headerlink" href="#5-create-bigquery-table" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="o">=</span>destination
-<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>bq<span class="w"> </span>mk<span class="w"> </span>--table<span class="w"> </span>--schema<span class="w"> </span>src/main/resources/schema_language_codes.json<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
+<ul>
+<li>
+<p><strong>Create BigQuery dataset</strong></p>
+</li>
+<li>
+<p>Create a dataset in <code>dataflow_input_us</code> BigQuery with the following command</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="o">=</span>dataflow_input_us
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>bq<span class="w"> </span>mk<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>bq<span class="w"> </span>ls<span class="w"> </span>--format<span class="o">=</span>pretty
 </code></pre></div>
-<h3 id="6-list-tables-dataset"><span class="nosurface"> 6. </span>List tables dataset<a class="headerlink" href="#6-list-tables-dataset" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>bq<span class="w"> </span>ls<span class="w"> </span>--format<span class="o">=</span>pretty<span class="w"> </span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span>:<span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>
+<ul>
+<li>
+<p><strong>Create BigQuery Schema</strong></p>
+</li>
+<li>
+<p>Create a json <code>schema_language_codes.json</code> file with the schema of the table** We have created it for you <a href="samples-dataflow/src/main/resources/schema_language_codes.json">here</a></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="p">[</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQUIRED&quot;</span><span class="p">,</span>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code&quot;</span><span class="p">,</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STRING&quot;</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a><span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQUIRED&quot;</span><span class="p">,</span>
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language&quot;</span><span class="p">,</span>
+<a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STRING&quot;</span>
+<a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a><span class="p">]</span>
 </code></pre></div>
-<h3 id="7-show-table-schema"><span class="nosurface"> 7. </span>Show Table schema<a class="headerlink" href="#7-show-table-schema" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>bq<span class="w"> </span>show<span class="w"> </span>--schema<span class="w"> </span>--format<span class="o">=</span>prettyjson<span class="w"> </span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span>:<span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
+<ul>
+<li><strong>Create BigQuery Table</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="o">=</span>destination
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>bq<span class="w"> </span>mk<span class="w"> </span>--table<span class="w"> </span>--schema<span class="w"> </span>src/main/resources/schema_language_codes.json<span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
 </code></pre></div>
-<h3 id="8-run-the-pipeline"><span class="nosurface"> 8. </span>Run the pipeline<a class="headerlink" href="#8-run-the-pipeline" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_BigQuery<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="s2"> --table=languages \</span>
-<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="s2"> --bigQueryDataset=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a><span class="s2"> --bigQueryTable=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a><span class="s2"> --runner=DataflowRunner \</span>
-<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="s2"> --region=us-central1&quot;</span>
+<ul>
+<li><strong>List tables dataset</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>bq<span class="w"> </span>ls<span class="w"> </span>--format<span class="o">=</span>pretty<span class="w"> </span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span>:<span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>
 </code></pre></div>
-<h3 id="9-show-output-table"><span class="nosurface"> 9. </span>Show Output Table<a class="headerlink" href="#9-show-output-table" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
+<ul>
+<li><strong>Show Table schema</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>bq<span class="w"> </span>show<span class="w"> </span>--schema<span class="w"> </span>--format<span class="o">=</span>prettyjson<span class="w"> </span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span>:<span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
 </code></pre></div>
-<h2 id="g-import-from-bigquery">G. Import From BigQuery<a class="headerlink" href="#g-import-from-bigquery" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>&gt;Run the pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_BigQuery<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="s2"> --table=languages \</span>
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a><span class="s2"> --bigQueryDataset=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a><span class="s2"> --bigQueryTable=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a><span class="s2"> --runner=DataflowRunner \</span>
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a><span class="s2"> --region=us-central1&quot;</span>
+</code></pre></div>
+<ul>
+<li><strong>Show Output Table</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span>.<span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span>
+</code></pre></div>
+<h3 id="5-bigquery-to-astradb">5. BigQuery to AstraDb<a class="headerlink" href="#5-bigquery-to-astradb" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up. We also assume that you have a bigquery table populated as describe in <code>#F</code>,</p>
 </div>
-<h3 id="1-access-folder_4"><span class="nosurface"> 1. </span>Access Folder<a class="headerlink" href="#1-access-folder_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
-<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="nb">pwd</span>
+<ul>
+<li><strong>Access Folder</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="nb">pwd</span>
 </code></pre></div>
-<h3 id="2-setup-env-variables_3"><span class="nosurface"> 2. </span>Setup Env. Variables<a class="headerlink" href="#2-setup-env-variables_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Setup Env. Variables</strong></li>
+</ul>
 <p><em>Replace with values coming from your gcp project. 
 The destination table has been created in flow <code>3.3</code></em></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
-<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>languages
-<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
-<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
-<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
-<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="o">=</span>dataflow_input_us
-<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="o">=</span>destination
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>languages
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
+<a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
+<a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="o">=</span>dataflow_input_us
+<a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="o">=</span>destination
 </code></pre></div>
-<h3 id="2-clear-astra-table"><span class="nosurface"> 2. </span>Clear astra table<a class="headerlink" href="#2-clear-astra-table" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">  </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;TRUNCATE </span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2">;&quot;</span>
+<ul>
+<li><strong>Clear astra table</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="w">  </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;TRUNCATE </span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2">;&quot;</span>
 </code></pre></div>
-<h3 id="3-clear-the-pipeline"><span class="nosurface"> 3. </span>Clear the Pipeline<a class="headerlink" href="#3-clear-the-pipeline" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.BigQuery_To_AstraDb<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="s2"> --bigQueryDataset=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="s2"> --bigQueryTable=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="s2"> --runner=DataflowRunner \</span>
-<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="s2"> --region=us-central1&quot;</span>
+<ul>
+<li><strong>Clear the Pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.BigQuery_To_AstraDb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="s2"> --astraKeyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a><span class="s2"> --bigQueryDataset=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_DATASET</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="s2"> --bigQueryTable=</span><span class="si">${</span><span class="nv">GCP_BIGQUERY_TABLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="s2"> --runner=DataflowRunner \</span>
+<a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
-<h3 id="4-check-output-data_3"><span class="nosurface"> 4. </span>Check output data<a class="headerlink" href="#4-check-output-data_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">  </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;select * FROM languages LIMIT 10;&quot;</span>
+<ul>
+<li><strong>Check output data</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>astra<span class="w"> </span>db<span class="w"> </span>cqlsh<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_DB</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="w">  </span>-k<span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;select * FROM languages LIMIT 10;&quot;</span>
 </code></pre></div>
-<h2 id="h-simple-bigquery-export">H. Simple BigQuery export<a class="headerlink" href="#h-simple-bigquery-export" title="Permanent link">&para;</a></h2>
+<h3 id="6-bigquery-dynamic-mapping">6. BigQuery Dynamic Mapping<a class="headerlink" href="#6-bigquery-dynamic-mapping" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </p>
 </div>
-<h3 id="1-access-folder_5"><span class="nosurface"> 1. </span>Access Folder<a class="headerlink" href="#1-access-folder_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
-<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="nb">pwd</span>
+<ul>
+<li><strong>Access Folder</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="nb">cd</span><span class="w"> </span>samples-dataflow
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="nb">pwd</span>
 </code></pre></div>
-<h3 id="2-setup-env-variables_4"><span class="nosurface"> 2. </span>Setup Env. Variables<a class="headerlink" href="#2-setup-env-variables_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
-<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_CODE</span><span class="o">=</span>&lt;your-gcp-project-code&gt;
-<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
-<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
-<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>&lt;your-table&gt;
-<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
-<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
+<ul>
+<li><strong>Setup Env. Variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_ID</span><span class="o">=</span>&lt;your-gcp-project-id&gt;
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GCP_PROJECT_CODE</span><span class="o">=</span>&lt;your-gcp-project-code&gt;
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_DB</span><span class="o">=</span>&lt;your-db-name&gt;
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_KEYSPACE</span><span class="o">=</span>&lt;your-keyspace&gt;
+<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_TABLE</span><span class="o">=</span>&lt;your-table&gt;
+<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_TOKEN</span><span class="si">}</span>/versions/1
+<a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="o">=</span>projects/<span class="si">${</span><span class="nv">GCP_PROJECT_CODE</span><span class="si">}</span>/secrets/<span class="si">${</span><span class="nv">GCP_SECRET_SECURE_BUNDLE</span><span class="si">}</span>/versions/1
 </code></pre></div>
-<h3 id="3-run-the-pipeline"><span class="nosurface"> 3. </span>Run the pipeline<a class="headerlink" href="#3-run-the-pipeline" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_BigQuery_Dynamic<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
-<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a><span class="s2"> --table=</span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a><span class="s2"> --runner=DataflowRunner \</span>
-<a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
-<a id="__codelineno-61-10" name="__codelineno-61-10" href="#__codelineno-61-10"></a><span class="s2"> --region=us-central1&quot;</span>
+<ul>
+<li><strong>Run the pipeline</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>mvn<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="w"> </span>-Dexec.mainClass<span class="o">=</span>com.datastax.astra.dataflow.AstraDb_To_BigQuery_Dynamic<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;\</span>
+<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="s2"> --astraToken=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_TOKEN</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="s2"> --astraSecureConnectBundle=</span><span class="si">${</span><span class="nv">ASTRA_SECRET_SECURE_BUNDLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="s2"> --keyspace=</span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="s2"> --table=</span><span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a><span class="s2"> --runner=DataflowRunner \</span>
+<a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a><span class="s2"> --project=</span><span class="si">${</span><span class="nv">GCP_PROJECT_ID</span><span class="si">}</span><span class="s2"> \</span>
+<a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
-<h3 id="4-show-content-of-table"><span class="nosurface"> 4. </span>Show Content of Table<a class="headerlink" href="#4-show-content-of-table" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Show Content of Table</strong></li>
+</ul>
 <p>A dataset with the keyspace name and a table 
 with the table name have been created in BigQuery.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span>.<span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span>.<span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span>
 </code></pre></div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-06-06
+      2023-06-24
     
   </small>
 </div>
@@ -4641,7 +4167,7 @@ with the table name have been created in BigQuery.</p>
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>
