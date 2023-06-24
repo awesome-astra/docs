@@ -8,7 +8,7 @@ developer_title: "Google"
 developer_url: "https://cloud.google.com/dataflow/"
 ---
 
-## GCP DataFlow and Apache Beam Overview
+## Overview
 
 GCP DataFlow is a managed service for batch and streaming data processing pipelines and is based on Apache Beam. Apache Beam is an open-source, unified programming model for batch and streaming data processing pipelines which simplifies large-scale data processing dynamics. Thousands of organizations around the world choose Apache Beam due to its unique data processing features, proven scale, and powerful yet extensible capabilities.
 
@@ -78,6 +78,72 @@ GCP DataFlow is a managed service for batch and streaming data processing pipeli
 
 </div>
 
+- Connectivity to Astra is implemented through a custom I/O Connector named `beam-sdks-java-io-astra` available on central Maven.
+
+<div class="nosurface" markdown="1">
+??? abstract "AstraDBIO Connector"
+
+    The Astra I/O connectors implements the different operations needed across the pipelines in the page: Read, Write, Delete, ReadAll.
+
+    This is the dependency to add to the project.
+
+    ```xml
+    <dependency>
+       <groupId>com.datastax.astra</groupId>
+       <artifactId>beam-sdks-java-io-astra</artifactId>
+       <version>${latest-version}</version>
+    </dependency>
+    ```
+
+    - **Read From Astra**
+
+    To Read Data from AstraDb use `AstraDbIO.Read<Entity>` where the entity should be a `Serializable` object. In the sample we can leverage the cassandra object mapping of Driver 4x.
+
+    ```java
+    byte[] scbZip = ...
+   
+    AstraDbIO.Read<LanguageCode> read = AstraDbIO.<LanguageCode>read()
+      .withToken("token")
+      .withKeyspace("keyspace")
+      .withSecureConnectBundle(scbZip)
+      .withTable("table")
+      .withMinNumberOfSplits(20)
+      .withCoder(SerializableCoder.of(LanguageCode.class))
+      .withMapperFactoryFn(new LanguageCodeDaoMapperFactoryFn())
+      .withEntity(LanguageCode.class);
+    ```
+
+    - The `mapperFactoryFn` should implements ` SerializableFunction<CqlSession, AstraDbMapper<Entity>>`
+
+    - You can also specify a query, the table is name is not mandatory anymore
+
+    ```java
+     AstraDbIO.Read<LanguageCode> read2 = AstraDbIO.<LanguageCode>read()
+      .withToken("token")
+      .withKeyspace("keyspace")
+      .withSecureConnectBundle(scbZip)
+      .withQuery("select * from table where ...")
+      .withMinNumberOfSplits(20)
+      .withCoder(SerializableCoder.of(LanguageCode.class))
+      .withMapperFactoryFn(new LanguageCodeDaoMapperFactoryFn())
+      .withEntity(LanguageCode.class);
+    ```
+
+    - **Write data into Astra**
+
+    To write Data into Astra use the `AstraDbIO.Write<Entity>`
+
+    ```java
+    AstraDbIO.Write<LanguageCode> write = AstraDbIO.<LanguageCode>write()
+      .withToken("token")
+      .withKeyspace("keyspace")
+      .withSecureConnectBundle(scbZip)
+      .withMapperFactoryFn(new LanguageCodeDaoMapperFactoryFn())
+      .withEntity(LanguageCode.class);
+    ```
+
+
+
 ## Prerequisites
 
 <ul class="prerequisites">
@@ -142,67 +208,83 @@ mvn clean install -Dmaven.test.skip=true
     <img src="../../../../img/google-cloud-dataflow/flows-dataflows.png" />
 </div>    
 
-## A. Import CSV
+## Beam Samples
+
+
+### 1. Import a CSV File
+
+> In this flow a `CSV` file is parsed to populate a table with same structure in Astra. The mapping from CSV to the table is done manually. The dataset is a list of languages.
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/csv-to-astra.png" />
 
-### <span class="nosurface"> 1. </span> Access folder
+- **Access folder `samples-beam` in the project.**
 
 ```
 cd samples-beam
 pwd
 ```
 
-### <span class="nosurface"> 2. </span> Setup Env variables
+- **Setup Environment variables**
 
 ```bash
+# Database name (use with CLI)
 export ASTRA_DB=<your-db-name>
+# Keyspace name 
 export ASTRA_KEYSPACE=<your-keyspace-name>
+# Path of local secure connect bundle
 export ASTRA_SCB_PATH=<your-secure-connect-bundle>
+# Astra Token starting by AstraCS:...
 export ASTRA_TOKEN=<your-token>
 ```
 
-### <span class="nosurface"> 3. </span> Run the demo
+- **Run Beam pipeline**
 
-```
+```bash
  mvn clean compile exec:java \
  -Dexec.mainClass=com.datastax.astra.beam.Csv_to_AstraDb \
  -Dexec.args="\
  --astraToken=${ASTRA_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --csvInput=`pwd`/src/test/resources/language-codes.csv"
 ```
 
-### <span class="nosurface"> 4. </span> Check output data
+- **Check output data in Astra**
 
-```
+```bash
 astra db cqlsh ${ASTRA_DB} \
    -k ${ASTRA_KEYSPACE} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## B. Export CSV
+### 2. Export Table as CSV
+
+> In this flow a Cassandra table is exported as a CSV file. The mapping from table to csv row is done manually. The same objects are reused from `#1`
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-csv.png" />
 
-### <span class="nosurface"> 1. Access folder</span> 
+- **Access folder**
 
-```bash
+
+```
 cd samples-beam
 pwd
 ```
 
-### <span class="nosurface"> 2. </span> Setup Env variables
+- **Setup Environment variables**
 
 ```bash
+# Database name (use with CLI)
 export ASTRA_DB=<your-db-name>
+# Keyspace name 
 export ASTRA_KEYSPACE=<your-keyspace-name>
+# Path of local secure connect bundle
 export ASTRA_SCB_PATH=<your-secure-connect-bundle>
+# Astra Token starting by AstraCS:...
 export ASTRA_TOKEN=<your-token>
 ```
 
-### <span class="nosurface"> 3. </span> Run the demo
+- **Run Beam pipeline**
 
 ```bash
  mvn clean compile exec:java \
@@ -210,50 +292,52 @@ export ASTRA_TOKEN=<your-token>
  -Dexec.args="\
  --astraToken=${ASTRA_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --table=languages \
  --csvOutput=`pwd`/src/test/resources/out/language"
 ```
 
-### <span class="nosurface"> 4. </span> Check output data
+- **Check output data in astra**
 
 ```bash
 ls -l `pwd`/src/test/resources/out
 cat `pwd`/src/test/resources/out/language-00001-of-00004
 ```
 
-## C. Import Cassandra Table
+### 3. Import Cassandra Table
+
+> Similar to ZDM a cassandra Table is imported into Astra. We are reusing the same data model as before. Mapping is manual. We can note that Cassandra reading is operated with `CassandraIO` (driver3x) where the load is done with `AstraDbIO` (drivers4x).
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/cassandra-to-astra.png" />
 
-### <span class="nosurface"> 1. </span> Access folder
+- **Access folder**
 
 ```bash
 cd samples-beam
 pwd
 ```
 
-### <span class="nosurface"> 2. </span> Start Cassandra
-
-- Project propose a docker-compose to run Cassandra locally. Use `docker-compose` to start the containers
+- **Start Cassandra as a docker image with docker compose**: Project propose a docker-compose to run Cassandra locally. Use `docker-compose` to start the containers
 
 ```bash
 docker-compose -f ./src/main/docker/docker-compose.yml up -d
 ```
 
-- Wait a few seconds for Cassandra to Start.
+- **Wait a few seconds for Cassandra to Start.** The following command give you the status of the container
 
 ```bash
 docker-compose -f ./src/main/docker/docker-compose.yml ps | cut -b 55-61
 ```
 
-- Validate Cassandra is ready
+- **Validate Cassandra is ready**: By connecting with `cqlsh` and displaying the datacenter.
 
 ```bash
-docker exec -it `docker ps | grep cassandra:4.1.1 | cut -b 1-12` cqlsh -e "SELECT data_center FROM system.local;"
+docker exec -it `docker ps | \
+  grep cassandra:4.1.1 | \
+  cut -b 1-12` cqlsh -e "SELECT data_center FROM system.local;"
 ```
 
-### <span class="nosurface"> 3. </span> Setup Env variables
+- **Setup Env variables**
 
 ```bash
 export ASTRA_DB=<your-db-name>
@@ -262,7 +346,7 @@ export ASTRA_SCB_PATH=<your-secure-connect-bundle>
 export ASTRA_TOKEN=<your-token>
 ```
 
-### <span class="nosurface"> 3. </span> Run the demo
+- **Run the pipeline**: Keyspaces and Tables are created in local cassandra before starting the copy into Astra.
 
 ```bash
  mvn clean compile exec:java \
@@ -270,13 +354,15 @@ export ASTRA_TOKEN=<your-token>
  -Dexec.args="\
  --astraToken=${ASTRA_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --cassandraHost=localhost \
+ --cassandraKeyspace=demo \
+ --cassandraTableName=languages \
  --cassandraPort=9042 \
  --tableName=languages"
 ```
 
-### <span class="nosurface"> 4. </span> Check output data
+- **Check data in Cassandra with `cqlsh`**
 
 ```bash
 docker exec -it `docker ps \
@@ -285,7 +371,7 @@ docker exec -it `docker ps \
   cqlsh -e "SELECT *  FROM samples_beam.languages LIMIT 10;"
 ```
 
-- Validate Astra Table is populated
+- **Check data in Astra destination with `cqlsh` (CLI)**
 
 ```bash
 astra db cqlsh ${ASTRA_DB} \
@@ -293,21 +379,97 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## D. Import from Cloud Storage
+### 4. Generative AI
 
-<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" />
+> This use cases is divided in 2 flows. In the first step we will import a CSV file as before mapping the CSV schema in destination table. Second flow will alter the table to add the embeddings vector and populate it after calling [OpenAI Embedding API](https://platform.openai.com/docs/guides/embeddings)
 
-### <span class="nosurface"> 1. </span> Create GCP Project
+<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/genai-01.png" />
+
+
+- **Access folder**
+
+```bash
+cd samples-beam
+pwd
+```
+
+- **Setup Env variables**
+
+```bash
+export ASTRA_DB=<your-db-name>
+export ASTRA_KEYSPACE=<your-keyspace-name>
+export ASTRA_SCB_PATH=<your-secure-connect-bundle>
+export ASTRA_TOKEN=<your-token>
+```
+
+- **Import Data with first flow**
+
+```bash
+ mvn clean compile exec:java \
+ -Dexec.mainClass=com.datastax.astra.beam.genai.GenAI_01_ImportData \
+ -Dexec.args="\
+ --astraToken=${ASTRA_TOKEN} \
+ --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
+ --csvInput=`pwd`/src/main/resources/fables_of_fontaine.csv"
+```
+
+A table is created with the following structure:
+
+```sql
+CREATE TABLE IF NOT EXISTS ai.fable (
+    document_id text PRIMARY KEY,
+    document text,
+    title text
+);
+```
+
+- **Check output data in Astra**
+
+```bash
+astra db cqlsh ${ASTRA_DB} \
+   -k ${ASTRA_KEYSPACE} \
+   -e "SELECT * FROM fable LIMIT 10;"
+```
+
+<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/genai-02.png" />
+
+
+- **Add extra environment variables**
+
+```bash
+export ASTRA_TABLE=fable
+export OPENAI_KEY=<change_me>
+```
+
+- **Run pipeline**
+
+```bash
+ mvn clean compile exec:java \
+ -Dexec.mainClass=com.datastax.astra.beam.genai.GenAI_02_CreateEmbeddings \
+ -Dexec.args="\
+ --astraToken=${ASTRA_TOKEN} \
+ --astraSecureConnectBundle=${ASTRA_SCB_PATH} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
+ --openAiKey=${OPENAI_KEY} \
+ --table=${ASTRA_TABLE}"
+```
+
+## Google Dataflow Samples
+
+### 1. Setup gCloud CLI
+
+- **Create GCP Project**
 
 > Note: If you don't plan to keep the resources that you create in this guide, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project. Create a new Project in Google Cloud Console or select an existing one.
 
 In the Google Cloud console, on the project selector page, select or [create a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
-### <span class="nosurface"> 2. </span> Enable Billing 
+- **Enable Billing**
 
 Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled)
 
-### <span class="nosurface"> 3. </span> Save project ID
+- **Save project ID**
 
 _The project identifier is available in the column `ID`. We will need it so let's save it as an environment variable_
 
@@ -318,29 +480,26 @@ export GCP_USER=<your-gcp-email>
 export GCP_COMPUTE_ENGINE=${GCP_PROJECT_CODE}-compute@developer.gserviceaccount.com
 ```
 
-### <span class="nosurface"> 4. </span> Install gCloud CLI
+- **Install gCloud CLI**
 
 ```
 curl https://sdk.cloud.google.com | bash
 ```
 
-### <span class="nosurface"> 5. </span> Login to gCloud
+- **Login to gCloud**: Run the following command to authenticate with Google Cloud:
 
-Run the following command to authenticate with Google Cloud:
 ```
 gcloud auth login
 ```
 
-### <span class="nosurface"> 6. </span> Setup your project 
-
-- If you haven't set your project yet, use the following command to set your project ID:
+- **Setup your project**: If you haven't set your project yet, use the following command to set your project ID:
 
 ```
 gcloud config set project ${GCP_PROJECT_ID}
 gcloud projects describe ${GCP_PROJECT_ID}
 ```
 
-### <span class="nosurface"> 7. </span> Enable needed APIs
+- **Enable needed APIs**
 
 ```
 gcloud services enable dataflow compute_component \
@@ -349,9 +508,9 @@ gcloud services enable dataflow compute_component \
    cloudresourcemanager.googleapis.com
 ```
 
-### <span class="nosurface"> 8. </span> Add Roles
+- **Add Roles**
 
-- To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
+To complete the steps, your user account must have the Dataflow Admin role and the Service Account User role. The Compute Engine default service account must have the Dataflow Worker role. To add the required roles in the Google Cloud console:
 
 ```
 gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
@@ -368,7 +527,12 @@ gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID}  \
     --role=roles/storage.objectAdmin
 ```
 
-### <span class="nosurface"> 9. </span> Access Folder
+### 2. GCS to AstraDB
+
+<img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/gcs-to-astra.png" />
+
+
+- **Access Folder**
 
 - Make sure you are in `samples-dataflow` folder
 
@@ -377,23 +541,21 @@ cd samples-dataflow
 pwd
 ```
 
-### <span class="nosurface"> 10. </span> Create `buckets`
-
-- Create the bucket for the for the project in cloud storage:
+- **Create `buckets`**: Create the bucket for the for the project in cloud storage:
 
 ```bash
 export GCP_BUCKET_INPUT=gs://astra_dataflow_inputs
 gsutil mb -c STANDARD -l US ${GCP_BUCKET_INPUT}
 ```
 
-- Copy the CSV file in the bucket
+Copy the CSV file in the bucket
 
 ```bash
 gsutil cp src/test/resources/language-codes.csv ${GCP_BUCKET_INPUT}/csv/
 gsutil ls
 ```
 
-### <span class="nosurface"> 11. </span> Create Secrets
+- **Create Secrets**
 
 [Create secrets for the project in secret manager](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#secretmanager-create-secret-gcloud)**. To connect to `AstraDB` you need a token (credentials) and a zip used to secure the transport. Those two inputs should be defined as _secrets_.
 
@@ -419,14 +581,15 @@ gcloud secrets add-iam-policy-binding ${GCP_SECRET_SECURE_BUNDLE} \
 gcloud secrets list
 ```
 
-### <span class="nosurface"> 12. </span> Create Keyspace
+- **Create Keyspace**
 
 ```bash
-
-astra db create-keyspace demo -k samples_dataflow --if-not-exist
+astra db create-keyspace demo \
+   -k samples_dataflow \
+   --if-not-exist
 ```
 
-### <span class="nosurface"> 13 </span> Setup Env. variables
+- **Setup Env. variables**
 
 ```bash
 export ASTRA_DB=<your-db-name>
@@ -436,7 +599,7 @@ export ASTRA_SECRET_SECURE_BUNDLE=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SEC
 export GCP_INPUT_CSV=${GCP_BUCKET_INPUT}/csv/language-codes.csv
 ```
 
-### <span class="nosurface"> 14 </span> Run the demo
+- **Run the demo**
 
 ```bash
  mvn compile exec:java \
@@ -444,13 +607,14 @@ export GCP_INPUT_CSV=${GCP_BUCKET_INPUT}/csv/language-codes.csv
  -Dexec.args="\
  --astraToken=${ASTRA_SECRET_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SECRET_SECURE_BUNDLE} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --csvInput=${GCP_INPUT_CSV} \
  --project=${GCP_PROJECT_ID} \
  --runner=DataflowRunner \
  --region=us-central1"
 ```
-### <span class="nosurface"> 15 </span> Check output DATA
+
+- **Check Astra table is populated**
 
 ```bash
 astra db cqlsh ${ASTRA_DB} \
@@ -458,68 +622,69 @@ astra db cqlsh ${ASTRA_DB} \
    -e "SELECT * FROM languages LIMIT 10;"
 ```
 
-## E. Export to GCS
+### 3. AstraDb to GCS
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" />
 
 !!! note "Note"
         We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
-### <span class="nosurface"> 1. </span> Environment Variables
+- **Environment Variables**
 
 ```bash
 export ASTRA_DB=<your-db-name>
 export ASTRA_KEYSPACE=<your-keyspace>
+export ASTRA_TABLE=<your-table>
 export ASTRA_SECRET_TOKEN=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SECRET_TOKEN}/versions/1
 export ASTRA_SECRET_SECURE_BUNDLE=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SECRET_SECURE_BUNDLE}/versions/1
 export GCP_PROJECT_ID=<your-gcp-project-id>
 ```
 
-### <span class="nosurface"> 2. </span> Create output bucket
+- **Create output bucket**
 
 ```bash
 export GCP_OUTPUT_CSV=gs://astra_dataflow_outputs
 gsutil mb -c STANDARD -l US ${GCP_OUTPUT_CSV}
 ```
 
-### <span class="nosurface"> 3. </span> Access folder
+- **Access folder**
 
 ```bash
 cd samples-dataflow
 pwd
 ```
 
-### <span class="nosurface"> 4. </span> Run the pipeline
+- **Run the pipeline**
 
 ```bash
  mvn compile exec:java \
  -Dexec.mainClass=com.datastax.astra.dataflow.AstraDb_To_Gcs \
  -Dexec.args="\
- --astraToken=projects/747469159044/secrets/astra-token/versions/2 \
- --astraSecureConnectBundle=projects/747469159044/secrets/secure-connect-bundle-demo/versions/1 \
- --keyspace=samples_dataflow \
- --table=languages \
- --outputFolder=gs://astra_dataflow_output \
+ --astraToken=${ASTRA_SECRET_TOKEN} \
+ --astraSecureConnectBundle=${ASTRA_SECRET_SECURE_BUNDLE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
+ --table=${ASTRA_TABLE} \
+ --outputFolder=${GCP_OUTPUT_CSV} \
+ --project=${GCP_PROJECT_ID} \
  --runner=DataflowRunner \
- --project=integrations-379317 \
  --region=us-central1"
 ```
 
-## F. Export to BigQuery
+### 4. AstraDb to BigQuery
 
 !!! note "Note"
         We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
-### <span class="nosurface"> 1. </span> Access Folder
+- **Access Folder**
 
 ```bash
 cd samples-dataflow
 pwd
 ```
 
-### <span class="nosurface"> 2. </span>Setup Env. Variables
+- **Setup Env. Variables**
 
 ```bash
 export ASTRA_DB=<your-db-name>
@@ -529,7 +694,7 @@ export ASTRA_SECRET_SECURE_BUNDLE=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SEC
 export GCP_PROJECT_ID=<your-gcp-project-id>
 ```
 
-### <span class="nosurface"> 3. </span>Create BigQuery dataset
+- **Create BigQuery dataset**
 
 - Create a dataset in `dataflow_input_us` BigQuery with the following command
 
@@ -539,7 +704,7 @@ bq mk ${GCP_BIGQUERY_DATASET}
 bq ls --format=pretty
 ```
 
-### <span class="nosurface"> 4. </span>Create BigQuery Schema
+- **Create BigQuery Schema**
 
 - Create a json `schema_language_codes.json` file with the schema of the table** We have created it for you [here](samples-dataflow/src/main/resources/schema_language_codes.json)
  
@@ -558,26 +723,26 @@ bq ls --format=pretty
 ]
 ```
 
-### <span class="nosurface"> 5. </span>Create BigQuery Table
+- **Create BigQuery Table**
 
 ```bash
 export GCP_BIGQUERY_TABLE=destination
 bq mk --table --schema src/main/resources/schema_language_codes.json ${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 ```
 
-### <span class="nosurface"> 6. </span>List tables dataset
+- **List tables dataset**
 
 ```bash
 bq ls --format=pretty ${GCP_PROJECT_ID}:${GCP_BIGQUERY_DATASET}
 ```
 
-### <span class="nosurface"> 7. </span>Show Table schema
+- **Show Table schema**
 
 ```bash
 bq show --schema --format=prettyjson ${GCP_PROJECT_ID}:${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 ```
 
-### <span class="nosurface"> 8. </span>Run the pipeline
+- **>Run the pipeline**
 
 ```bash
 mvn compile exec:java \
@@ -585,7 +750,7 @@ mvn compile exec:java \
  -Dexec.args="\
  --astraToken=${ASTRA_SECRET_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SECRET_SECURE_BUNDLE} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --table=languages \
  --bigQueryDataset=${GCP_BIGQUERY_DATASET} \
  --bigQueryTable=${GCP_BIGQUERY_TABLE} \
@@ -594,27 +759,27 @@ mvn compile exec:java \
  --region=us-central1"
 ```
 
-### <span class="nosurface"> 9. </span>Show Output Table
+- **Show Output Table**
 
 ```bash
 bq head -n 10 ${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 ```
 
-## G. Import From BigQuery
+### 5. BigQuery to AstraDb
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" />
  
 !!! note "Note"
     We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up. We also assume that you have a bigquery table populated as describe in `#F`,
 
-### <span class="nosurface"> 1. </span>Access Folder
+- **Access Folder**
 
 ```bash
 cd samples-dataflow
 pwd
 ```
 
-### <span class="nosurface"> 2. </span>Setup Env. Variables
+- **Setup Env. Variables**
 
 _Replace with values coming from your gcp project. 
 The destination table has been created in flow `3.3`_
@@ -630,7 +795,7 @@ export GCP_BIGQUERY_DATASET=dataflow_input_us
 export GCP_BIGQUERY_TABLE=destination
 ```
 
-### <span class="nosurface"> 2. </span>Clear astra table
+- **Clear astra table**
 
 ```bash
 astra db cqlsh ${ASTRA_DB} \
@@ -638,7 +803,7 @@ astra db cqlsh ${ASTRA_DB} \
   -e "TRUNCATE ${ASTRA_TABLE};"
 ```
 
-### <span class="nosurface"> 3. </span>Clear the Pipeline
+- **Clear the Pipeline**
 
 ```bash
 mvn compile exec:java \
@@ -646,7 +811,7 @@ mvn compile exec:java \
  -Dexec.args="\
  --astraToken=${ASTRA_SECRET_TOKEN} \
  --astraSecureConnectBundle=${ASTRA_SECRET_SECURE_BUNDLE} \
- --keyspace=${ASTRA_KEYSPACE} \
+ --astraKeyspace=${ASTRA_KEYSPACE} \
  --bigQueryDataset=${GCP_BIGQUERY_DATASET} \
  --bigQueryTable=${GCP_BIGQUERY_TABLE} \
  --runner=DataflowRunner \
@@ -654,7 +819,7 @@ mvn compile exec:java \
  --region=us-central1"
 ```
 
-### <span class="nosurface"> 4. </span>Check output data
+- **Check output data**
 
 ```bash
 astra db cqlsh ${ASTRA_DB} \
@@ -662,21 +827,21 @@ astra db cqlsh ${ASTRA_DB} \
   -e "select * FROM languages LIMIT 10;"
 ```
 
-## H. Simple BigQuery export
+### 6. BigQuery Dynamic Mapping
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
 !!! note "Note"
         We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
 
-### <span class="nosurface"> 1. </span>Access Folder
+- **Access Folder**
 
 ```bash
 cd samples-dataflow
 pwd
 ```
 
-### <span class="nosurface"> 2. </span>Setup Env. Variables
+- **Setup Env. Variables**
 
 ```bash
 export GCP_PROJECT_ID=<your-gcp-project-id>
@@ -688,7 +853,7 @@ export ASTRA_SECRET_TOKEN=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SECRET_TOKE
 export ASTRA_SECRET_SECURE_BUNDLE=projects/${GCP_PROJECT_CODE}/secrets/${GCP_SECRET_SECURE_BUNDLE}/versions/1
 ```
 
-### <span class="nosurface"> 3. </span>Run the pipeline
+- **Run the pipeline**
 
 ```bash
 mvn compile exec:java \
@@ -703,7 +868,7 @@ mvn compile exec:java \
  --region=us-central1"
 ```
 
-### <span class="nosurface"> 4. </span>Show Content of Table
+- **Show Content of Table**
 
 A dataset with the keyspace name and a table 
 with the table name have been created in BigQuery.
@@ -711,6 +876,4 @@ with the table name have been created in BigQuery.
 ```bash
 bq head -n 10 ${ASTRA_KEYSPACE}.${ASTRA_TABLE}
 ```
-
-
 
