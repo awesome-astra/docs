@@ -47,9 +47,11 @@
 
 - **[Micronaut](../develop/frameworks/micronaut.md)**: Micronaut is a modern, JVM-based, full stack Java framework designed for building modular, easily testable JVM applications with support for Java, Kotlin, and Groovy. Micronaut is developed by the creators of the Grails framework and takes inspiration from lessons learnt over the years building real-world applications from monoliths to microservices using Spring, Spring Boot and Grails.
 
-- **[MindsDB](../data/explore/mindsdb.md)**:MindsDB enables you to use ML predictions in your database using SQL.
+- **[MindsDB](../data/explore/mindsdb.md)**: MindsDB enables you to use ML predictions in your database using SQL.
 
 - **[Pentaho Data Integration](integration/pentaho.md)**: Pentaho Data Integration (PDI) provides the Extract, Transform, and Load (ETL) capabilities that facilitate the process of capturing, cleansing, and storing data using a uniform and consistent format that is accessible and relevant to end users and IoT technologies.
+
+- **[Power Query](integration/microsoft-powerquery.md)**: Microsoft Power Query is a data preparation and transformation ETL engine that lets you connect to various data sources. Power Query is available in Microsoft Excel, Power BI, Power BI dataflows, Azure Data Factory wrangling dataflows, SQL Server Analysis Services, and much more.
 
 - **[Quine](integration/quine.io.md)**: Quine.io is a streaming graph capable of building high-volumes of data into a stateful graph.  It allows for real-time traversals on a graph, as well as for the data to be streamed-out for event processing.
 

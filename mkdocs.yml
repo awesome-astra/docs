@@ -113,6 +113,7 @@ nav:
       - • HashiCorp Vault : pages/tools/integration/vault.md
       - • Liquibase : pages/tools/integration/liquibase.md
       - • Pentaho Data Integration : pages/tools/integration/pentaho.md
+      - • Power Query : pages/tools/integration/microsoft-powerquery.md      
       - • Quine : pages/tools/integration/quine.io.md
       - • StepZen : pages/tools/integration/stepzen.md
       - • Strapi : pages/tools/integration/strapi.md
