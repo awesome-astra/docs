@@ -33,7 +33,8 @@ disparate data sources is available thanks to its support for third-party
 "plugins" (i.e. Connectors).
 
 You have two options to connect Power Query to Astra:
-1. either through a standard **Power Query ODBC connector** and the **DataStax ODBC Driver** for Apache Cassandra;
+1. either through a standard **Power Query ODBC connector**, paired with the
+**DataStax ODBC Driver** for Apache Cassandra;
 2. or **directly** through our **Power Query custom connector**.
 Keep reading to find out which one is best suited to your needs.
 
@@ -72,23 +73,30 @@ to Power BI Service.
 ??? danger "Precautions about very large tables"
 
     Regardless of whether you use the ODBC or the Custom connector,
-    if reading from a table with many rows, the process will last a very long
-    time. **It is discouraged to fully import very large tables through Power Query**.
+    reading indiscriminately from a very large table is a process that can last
+    a long time.
 
-    If a huge number of rows are read, you will see this for a long time in your
-    "preview" dialog:
+    **It is discouraged to fully import huge tables through Power Query**.
+    If you do, chances are you will see something like this "preview" dialog
+    for a long time:
 
     ![Stuck on very large tables](/img/microsoft-powerquery/power-query-howto-lt-1-evaluating.png)
 
-    On the other hand, the ODBC connector lets you **specify a query string**
-    in order to SELECT few rows from a very large table: as long as the
-    query complies with Cassandra's data modeling best practices, this
-    is a sensible approach.
+    In essence, this is a manifestation of Cassandra's take on data models
+    and its OLTP-first nature, whereby tables should be generally designed
+    to support single-partition queries only (and not whole-table scans).
+    In practice, this potential issue can reasonably be ignored below
+    the 10k-100k-rows mark _(depending on factors such as your latency requirements, the network bandwidth and cost, and the average row size)_.
 
-    The Custom connector, conversely, is _not suitable for very large tables_.
+    The ODBC connector lets you _specify a query string_
+    in order to `SELECT` a subset of rows from very large tables:
+    as long as the query complies with Cassandra's data modeling best practices,
+    this is a sensible approach. **Keep reading for details.**
 
-    In any case, keep in mind that by reading from massive table one might
-    unwittingly use a sizeable amount of Astra credits.
+    The Custom connector, conversely, is _not suitable for very large tables_
+    as it only supports reading a table in full.
+
+    _In any case, keep in mind that by reading from massive tables one might unwittingly consume a sizeable amount of Astra credits._
 
 ## ODBC connection (local)
 
@@ -203,11 +211,22 @@ proposed connectors _(tip: you can restrict the list by typing a search term)_.
     ![ODBC, Choose ODBC connector](/img/microsoft-powerquery/power-query-howto-od-2-connector.png)
 
 In the configuration of the ODBC connector, pick the "Data source name (DSN)"
-you just created, i.e. your Astra DB connection. There's no need to bother with the Advanced settings.
+you just created, i.e. your Astra DB connection.
+
+You can leave the "Advanced options" as they are; however, if you need to specify
+a **custom query** (typically to restrict the data ingestion to a subset
+of the whole table, such as a single partition), expand the options and write
+an appropriate `SELECT` CQL query.
 
 ??? info "Visual guide"
 
+    Choosing the Data Source Name (DSN) for the ODBC connection:
+
     ![ODBC, Choose Data Source Name](/img/microsoft-powerquery/power-query-howto-od-3-dsn.png)
+
+    (**Optional**) adding a CQL query in the Advanced options:
+
+    ![ODBC, Choose Data Source Name](/img/microsoft-powerquery/power-query-howto-od-3b-sqlstatement.png)
 
 You will need to **provide authentication credentials once more** at this point:
 enter again `token` as user and your `AstraCS:...` string as password, and
