@@ -39,28 +39,32 @@ DataGrip is a database management environment for developers. It is designed to 
 - [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
-## Installation and Setup
+## Using JDBC Simba Drivers
 
-### <span class="nosurface">Step 1: </span>Download JDBC Driver
+!!! warning "Tips for `SecureConnectionBundlePath`"
 
-Download the JDBC driver from the DataStax website:
+    You need to be a registered customer to use those drivers. If not consider the ING Driver alternative. 
 
-1. Go to [downloads.datastax.com/#odbc-jdbc-drivers](https://downloads.datastax.com/#odbc-jdbc-drivers).
+### <span class="nosurface">1. </span>Download JDBC Driver
+
+Download the JDBC driver from the Datastax customer support website 
+
+1. Authenticate to [Datastax Customer Portal](https://datastax.lightning.force.com/lightning/r/Knowledge__kav/ka06R000000BtSrQAK/view).
 2. Select **Simba JDBC Driver for Apache Cassandra.**
 3. Select **JDBC 4.2.**
 4. Read the license terms and accept it _(click the checkbox)._
 5. Hit the blue **Download** button.
 6. Once the download completes, **unzip** the downloaded file.
 
-<img src="https://awesome-astra.github.io/docs/img/pentaho-data-integration/download-drivers.png" />
-
-### <span class="nosurface">Step 2: </span> Download `Settings.zip`
+### <span class="nosurface">2. </span> Download `Settings.zip`
 
 - Download the [settings.zip](https://datastax-21b7c7df5342.intercom-attachments-7.com/i/o/232268459/929cbfa881f4423cceb8b3b2/settings.zip) locally
 
-> If you are already a DataGrip user, back up your existing settings because downloading `settings.zip` might override your existing settings.
+!!! warning "Think about backuping your `settings.xml`"
+    
+    If you are already a DataGrip user, back up your existing settings because downloading `settings.zip` might override your existing settings.
 
-### <span class="nosurface">Step 3: </span> Import the settings.zip into DataGrip
+### <span class="nosurface">3. </span> Import settings.zip file
 
 - Selecting `File` → `Manage IDE Settings` → `Import Settings` in DataGrip.
 
@@ -72,13 +76,30 @@ You will see a new database connection type called Astra: _Simba Cassandra JDBC 
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic1.png" />
 
-- Go to the Advanced Settings to confirm the VM home path is set to Default. VM home path is set to a value named Default.
+- Go to the Driver `Advanced Settings` TAB to confirm the VM home path is set to `Default`. VM home path is set to a value named Default.
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic2.png" />
 
-### <span class="nosurface">Step 4: </span> Establish the connection
+### <span class="nosurface">4. </span> Establish the connection
 
-When you create your connection, the URL will look like this: `jdbc:cassandra://;AuthMech=<2>;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;TunableConsistency=<6>`
+- The credentials are provided in the URL so for authentication field you can pick `No auth` in the select drop down.
+
+- When you create your connection, the URL will look like this (on a single line): 
+
+```
+jdbc:cassandra://;AuthMech=2;
+UID=token;
+PWD=<AstraCS:... your application token>;
+SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;
+TunableConsistency=6
+```
+
+!!! info "Tips for `SecureConnectionBundlePath`"
+
+    - Even on Windows operating systems you should use `/` as a path separator. 
+
+    - The use of quotes for the path is not supported, please try to provide a path with no spaces.
+
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic3.png" />
 
@@ -88,3 +109,57 @@ URL in the screenshot shows the format described in the previous sentence.
 - **ApplicationToken:** Generated from Astra DB console.
 - **SecureConnectionBundlePath:** Path to where your downloaded Secure Connect Bundle is located.
 - **TunableConsistency:** Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.
+
+## Using ING Drivers 
+
+### <span class="nosurface">1. </span>Download JDBC Driver
+
+1. Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar) for from Github
+
+### <span class="nosurface">2. </span>Configure the Driver
+
+1. Select `Drivers` Tab
+2. Click the plus `+` symbol to create a new _User Driver_
+3. Populate the name as you like
+4. Add the shaded jar by clicking the plus `+` symbol in the `Driver Files` panel.
+5. Select following class name for the driver `com.ing.data.cassandra.jdbc.CassandraDriver`
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/pic4.png" />
+
+### <span class="nosurface">3. </span>Create the DataSource
+
+1. Select `Data Source` tabs
+2. Using the `+` add a new Data source pick the driver we just created from the list
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds1.png" />
+
+### <span class="nosurface">4. </span>Setup the DataSource
+
+1. Define a name for your datasource
+2. As credentials are provided in the URL there is no need for extra authentication, pick `NO Auth`
+3. Build the URL as a single line
+
+```
+jdbc:cassandra://dbaas/beam?
+consistency=LOCAL_QUORUM&
+user=token&
+password=<AstraCS:... you token>&
+secureconnectbundle=<path_to_your_bundle>
+```
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds2.png" />
+
+4. Test the connection you should get the following screen, apply and save.
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds3.png" />
+
+
+### <span class="nosurface">5. </span>Use the DataSource
+
+1. Select the keyspace you want to use
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds4.png" />
+
+2. Enjoy your working environment
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds5.png" />
