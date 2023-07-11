@@ -43,7 +43,7 @@ DataGrip is a database management environment for developers. It is designed to 
 
 !!! warning "Tips for `SecureConnectionBundlePath`"
 
-    You need to be a registered customer to use those drivers. If not consider the ING Driver alternative. 
+    You need to be a registered customer to use those drivers. If not consider the [ING Driver](#using-ing-drivers) alternative. 
 
 ### <span class="nosurface">1. </span>Download JDBC Driver
 

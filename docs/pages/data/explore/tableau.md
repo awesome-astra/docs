@@ -85,18 +85,34 @@ VALUES (0e5d9e8c-2e3b-4576-8515-58b491cb859e,'B-102','Savings',400.04,'Bob');
 
 Use an existing deployment of _Tableau Desktop_ or follow [the instructions](https://www.tableau.com/products/desktop) to download, install and register a new instance of _Tableau Desktop_.
 
-## Install Simba JDBC Driver for Apache Cassandra
+## Install JDBC Driver for Apache Cassandra
 
 **<span class="nosurface" markdown="1">✅ </span>5. Download JDBC Driver**
 
-Go to [https://downloads.datastax.com/#odbc-jdbc-drivers](https://downloads.datastax.com/#odbc-jdbc-drivers) and download the latest version of Simba JDBC Driver for Apache Cassandra.
+You can use the Simba driver for customers with a support contract, or the ING driver which is freely available.
 
-**<span class="nosurface" markdown="1">✅ </span>6. Install JDBC Driver**
+### Simba Driver
+!!! warning "Tips for `SecureConnectionBundlePath`"
 
-Extract the JDBC Driver `.zip` archive and move the resulting `.jar` file to:
+    You need to be a registered customer to use those drivers. If not consider the [ING Driver](#ing-driver) alternative. 
+
+Download the JDBC driver from the Datastax customer support website 
+
+1. Authenticate to [Datastax Customer Portal](https://datastax.lightning.force.com/lightning/r/Knowledge__kav/ka06R000000BtSrQAK/view).
+2. Select **Simba JDBC Driver for Apache Cassandra.**
+3. Select **JDBC 4.2.**
+4. Read the license terms and accept it _(click the checkbox)._
+5. Hit the blue **Download** button.
+6. Once the download completes, **unzip** the downloaded file.
+
+Extract the Simba JDBC Driver `.zip` archive and move the resulting `.jar` file to:
 
 - `/Users/[user]/Library/Tableau/Drivers` on macOS
 - `C:\Program Files\Tableau\Drivers` on Windows
+
+### Ing Driver
+
+Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar)  from Github
 
 ## Connect to Astra DB from Tableau Desktop
 
@@ -105,6 +121,8 @@ Extract the JDBC Driver `.zip` archive and move the resulting `.jar` file to:
 Start or restart _Tableau Desktop_ for the JDBC Driver installation to take effect.
 
 **<span class="nosurface" markdown="1">✅ </span>8. Setup a connection to Astra DB**
+
+**Simba driver:**
 
 - Select _Other Databases (JDBC)_ under _Connect_
 - Fill out the dialog box with the connection information:
@@ -116,9 +134,25 @@ Start or restart _Tableau Desktop_ for the JDBC Driver installation to take effe
     - **Dialect** = `SQL92`
     - **Username** = `<Client ID>`, where a client id value is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/).
     - **Password** = `<Client Secret>`, where a client secret is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/). 
+
 - Click the _Sign In_ button to establish a connection.
 
 <br/><img src="https://awesome-astra.github.io/docs/img/tableau/connection-dialog.png" /><br/>
+
+**Ing driver:**
+
+- Select _Other Databases (JDBC)_ under _Connect_
+- Fill out the dialog box with the connection information:
+
+```
+jdbc:cassandra://dbaas/<KEYSPACE>}?
+consistency=LOCAL_QUORUM&
+user=token&
+password=<AstraCS:... you token>&
+secureconnectbundle=<path_to_your_bundle>
+``` 
+
+- Click the _Sign In_ button to establish a connection.
 
 **<span class="nosurface" markdown="1">✅ </span>9. Create a data source from the banking database**
 
