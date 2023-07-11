@@ -3305,7 +3305,7 @@
 
 <div class="nosurface">
 <!-- <img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/microsoft-powerquery_logo.png" style="height: 180px;" /> -->
-<p><img src="/img/microsoft-powerquery/microsoft-powerquery_logo.png" style="height: 180px;" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/microsoft-powerquery_logo.png" style="height: 180px;" /></p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Microsoft Power Query is a data preparation and transformation ETL engine that
@@ -3334,7 +3334,7 @@ Power BI, the possible setups are:</p>
 <li><strong>Data Gateway</strong>, where the cloud product Power BI Service is used, which receives the connector data through an installed On-Premises Data Gateway (whether in "personal mode" or not);</li>
 <li><strong>Cloud</strong>, where the whole stack runs in Azure's cloud. <em>This requires a connector certified by Microsoft; moreover, for security reasons, it cannot make use of any external dependency (such as a custom ODBC driver).</em></li>
 </ul>
-<p><img alt="Power Query running modes" src="/img/microsoft-powerquery/power-query-run-modes.png" /></p>
+<p><img alt="Power Query running modes" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-run-modes.png" /></p>
 <p>Here is the support matrix for these options:</p>
 <table>
 <thead>
@@ -3374,7 +3374,7 @@ a long time.</p>
 <p><strong>It is discouraged to fully import huge tables through Power Query</strong>.
 If you do, chances are you will see something like this "preview" dialog
 for a long time:</p>
-<p><img alt="Stuck on very large tables" src="/img/microsoft-powerquery/power-query-howto-lt-1-evaluating.png" /></p>
+<p><img alt="Stuck on very large tables" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-lt-1-evaluating.png" /></p>
 <p>In essence, this is a manifestation of Cassandra's take on data models
 and its OLTP-first nature, whereby tables should be generally designed
 to support single-partition queries only (and not whole-table scans).
@@ -3420,7 +3420,7 @@ These are the specifications for a minimal Custom Role for this purpose:</p>
 <li>It is OK if the token is scoped to just the one DB that is being used;</li>
 <li>If the token is disallowed on certain keyspaces, you will still be able to list the tables they contain, but <strong>you will get a permission error if trying to read data from them</strong>.</li>
 </ul>
-<p><img src="/img/microsoft-powerquery/power-query-howto-tk-1-odbcminimalpermissions.png" width="70%" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-tk-1-odbcminimalpermissions.png" width="70%" /></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3453,15 +3453,15 @@ file you just downloaded and following the instructions).</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Starting the Manager:</p>
-<p><img alt="ODBC pre-requisites, Start ODBC Manager" src="/img/microsoft-powerquery/power-query-howto-odpre-1-startodbc.png" /></p>
+<p><img alt="ODBC pre-requisites, Start ODBC Manager" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-odpre-1-startodbc.png" /></p>
 <p>Creating the Data source:</p>
-<p><img alt="ODBC pre-requisites, Create Data source" src="/img/microsoft-powerquery/power-query-howto-odpre-2-create.png" /></p>
+<p><img alt="ODBC pre-requisites, Create Data source" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-odpre-2-create.png" /></p>
 <p>Configuring the Data source:</p>
-<p><img alt="ODBC pre-requisites, Setup Data source" src="/img/microsoft-powerquery/power-query-howto-odpre-3-setup.png" /></p>
+<p><img alt="ODBC pre-requisites, Setup Data source" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-odpre-3-setup.png" /></p>
 <p>The "Advanced settings" can be left to their defaults:</p>
-<p><img alt="ODBC pre-requisites, Leave Advanced settings unchanged" src="/img/microsoft-powerquery/power-query-howto-odpre-4-advanced.png" /></p>
+<p><img alt="ODBC pre-requisites, Leave Advanced settings unchanged" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-odpre-4-advanced.png" /></p>
 <p>Testing the Data source:</p>
-<p><img alt="ODBC pre-requisites, Test data source" src="/img/microsoft-powerquery/power-query-howto-odpre-5-test.png" /></p>
+<p><img alt="ODBC pre-requisites, Test data source" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-odpre-5-test.png" /></p>
 </details>
 <p>Close the ODBC Administrator. You are ready to launch Power BI Desktop and head for the next section.</p>
 <h3 id="how-to">How-to<a class="headerlink" href="#how-to" title="Permanent link">&para;</a></h3>
@@ -3473,9 +3473,9 @@ proposed connectors <em>(tip: you can restrict the list by typing a search term)
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Click "Get Data":</p>
-<p><img alt="ODBC, Get data in Power BI" src="/img/microsoft-powerquery/power-query-howto-od-1-getdata.png" /></p>
+<p><img alt="ODBC, Get data in Power BI" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-1-getdata.png" /></p>
 <p>Choose the ODBC connector:</p>
-<p><img alt="ODBC, Choose ODBC connector" src="/img/microsoft-powerquery/power-query-howto-od-2-connector.png" /></p>
+<p><img alt="ODBC, Choose ODBC connector" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-2-connector.png" /></p>
 </details>
 <p>In the configuration of the ODBC connector, pick the "Data source name (DSN)"
 you just created, i.e. your Astra DB connection.</p>
@@ -3486,9 +3486,9 @@ an appropriate <code>SELECT</code> CQL query.</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Choosing the Data Source Name (DSN) for the ODBC connection:</p>
-<p><img alt="ODBC, Choose Data Source Name" src="/img/microsoft-powerquery/power-query-howto-od-3-dsn.png" /></p>
+<p><img alt="ODBC, Choose Data Source Name" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-3-dsn.png" /></p>
 <p>(<strong>Optional</strong>) adding a CQL query in the Advanced options:</p>
-<p><img alt="ODBC, Choose Data Source Name" src="/img/microsoft-powerquery/power-query-howto-od-3b-sqlstatement.png" /></p>
+<p><img alt="ODBC, Choose Data Source Name" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-3b-sqlstatement.png" /></p>
 </details>
 <p>You will need to <strong>provide authentication credentials once more</strong> at this point:
 enter again <code>token</code> as user and your <code>AstraCS:...</code> string as password, and
@@ -3496,14 +3496,14 @@ leave the connection string empty. Confirm and wait a few seconds for the
 connection to be established.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="ODBC, Enter credentials" src="/img/microsoft-powerquery/power-query-howto-od-4-token.png" /></p>
+<p><img alt="ODBC, Enter credentials" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-4-token.png" /></p>
 </details>
 <p>You will finally be able to explore the data in your database in Power BI's
 "Navigator" preview, in the form of a "database / keyspaces / tables"
 navigable hierarchy.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="ODBC, Preview data" src="/img/microsoft-powerquery/power-query-howto-od-5-preview.png" /></p>
+<p><img alt="ODBC, Preview data" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-5-preview.png" /></p>
 </details>
 <p>Now you can select a table and hit "Load" (or "Transform data"):
 the data will be available in Power BI
@@ -3511,7 +3511,7 @@ Desktop for you, e.g. to create a report which you can save to (local) file.
 See the "Power BI Service" section below if you want to bring the report to the cloud.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="ODBC, Report created" src="/img/microsoft-powerquery/power-query-howto-od-6-report.png" /></p>
+<p><img alt="ODBC, Report created" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-od-6-report.png" /></p>
 </details>
 <h2 id="astra-db-custom-connector-local">Astra DB Custom connector (local)<a class="headerlink" href="#astra-db-custom-connector-local" title="Permanent link">&para;</a></h2>
 <p>When using the Custom connector, no ODBC is involved: the connector
@@ -3519,7 +3519,7 @@ uses directly the REST API endpoints to access your database data.
 Pending completion of the certification process, you need to install
 the connector as a self-signed plugin and authorize Power BI Desktop
 to run it.</p>
-<p><img alt="Power Query Custom connector, flow" src="/img/microsoft-powerquery/power-query-connector-flow.png" /></p>
+<p><img alt="Power Query Custom connector, flow" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-connector-flow.png" /></p>
 <h3 id="pre-requisites_1">Pre-requisites<a class="headerlink" href="#pre-requisites_1" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3545,7 +3545,7 @@ These are the specifications for a minimal Custom Role for this purpose:</p>
 <li>It is OK if the token is scoped to just the one DB that is being used;</li>
 <li>If the token is disallowed on certain keyspaces, they will show up as empty in the connector's resulting navigation table.</li>
 </ul>
-<p><img src="/img/microsoft-powerquery/power-query-howto-tk-1-customconnectorminimalpermissions.png" width="70%" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-tk-1-customconnectorminimalpermissions.png" width="70%" /></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3581,7 +3581,7 @@ in your system (recommended) or alternatively enable untrusted extensions in Pow
 </code></pre></div>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="Custom connector pre-requisites, Configure Thumbprint in regedit" src="/img/microsoft-powerquery/power-query-howto-ccpre-1a-regeditthumbprint.png" /></p>
+<p><img alt="Custom connector pre-requisites, Configure Thumbprint in regedit" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-ccpre-1a-regeditthumbprint.png" /></p>
 </details>
 <p>You can now close <code>regedit</code> and move on.</p>
 <h5 id="enable-untrusted-connectors">Enable untrusted connectors<a class="headerlink" href="#enable-untrusted-connectors" title="Permanent link">&para;</a></h5>
@@ -3592,9 +3592,9 @@ in your system (recommended) or alternatively enable untrusted extensions in Pow
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Go to Power BI Desktop's Settings:</p>
-<p><img alt="Custom connector pre-requisites, Get to Power BI settings" src="/img/microsoft-powerquery/power-query-howto-ccpre-1b-pbisettings.png" /></p>
+<p><img alt="Custom connector pre-requisites, Get to Power BI settings" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-ccpre-1b-pbisettings.png" /></p>
 <p>Enable untrusted extensions:</p>
-<p><img alt="Custom connector pre-requisites, Disable extension validation" src="/img/microsoft-powerquery/power-query-howto-ccpre-2b-pbinovalidation.png" /></p>
+<p><img alt="Custom connector pre-requisites, Disable extension validation" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-ccpre-2b-pbinovalidation.png" /></p>
 </details>
 <h3 id="how-to_1">How-to<a class="headerlink" href="#how-to_1" title="Permanent link">&para;</a></h3>
 <p>Now you can <strong>start PowerBI Desktop</strong>, choose <strong>"Get Data"</strong>, search for the <strong>"Astra DB" connector</strong> and select it. A warning will show up about the connector being a third-party plugin
@@ -3602,35 +3602,35 @@ in beta version: you can dismiss it and move on.</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Click "Get Data":</p>
-<p><img alt="Custom connector, Get data in Power BI" src="/img/microsoft-powerquery/power-query-howto-cc-1-getdata.png" /></p>
+<p><img alt="Custom connector, Get data in Power BI" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-1-getdata.png" /></p>
 <p>Choose the "Astra DB" connector:</p>
-<p><img alt="Custom connector, Choose Astra DB connector" src="/img/microsoft-powerquery/power-query-howto-cc-2-connector.png" /></p>
+<p><img alt="Custom connector, Choose Astra DB connector" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-2-connector.png" /></p>
 <p>Dismiss the warning about a third-party connector:</p>
-<p><img alt="Custom connector, A warning about a third-party beta plugin" src="/img/microsoft-powerquery/power-query-howto-cc-3-warning.png" /></p>
+<p><img alt="Custom connector, A warning about a third-party beta plugin" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-3-warning.png" /></p>
 </details>
 <p>You will then be asked for the <strong>connection details</strong>: <a href="https://awesome-astra.github.io/docs/pages/astra/faq/?h=database+id#where-should-i-find-a-database-identifier">database ID</a> and <a href="https://awesome-astra.github.io/docs/pages/astra/faq/?h=database+id#where-should-i-find-a-database-region-name">region</a>.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="Custom connector, Entering connection parameters" src="/img/microsoft-powerquery/power-query-howto-cc-4-connectionparams.png" /></p>
+<p><img alt="Custom connector, Entering connection parameters" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-4-connectionparams.png" /></p>
 </details>
 <p>Next, you will provide the <strong>"Database Token"</strong> (the string starting with <code>AstraCS:...</code>) as credentials.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="Custom connector, Entering database Token" src="/img/microsoft-powerquery/power-query-howto-cc-5-token.png" /></p>
+<p><img alt="Custom connector, Entering database Token" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-5-token.png" /></p>
 </details>
 <p>At this point you will be able to explore the data in your database in Power BI's
 "Navigator" preview, in the form of a "keyspaces / tables"
 navigable hierarchy.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="Custom connector, Preview data" src="/img/microsoft-powerquery/power-query-howto-cc-6-preview.png" /></p>
+<p><img alt="Custom connector, Preview data" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-6-preview.png" /></p>
 </details>
 <p>Now you can select a table and hit "Load" (or "Transform data"): the data will be available in Power BI
 Desktop for you, e.g. to create a report which you can save to (local) file.
 See the "Power BI Service" section below if you want to bring the report to the cloud.</p>
 <details class="quote">
 <summary>Visual guide</summary>
-<p><img alt="Custom connector, Report created" src="/img/microsoft-powerquery/power-query-howto-cc-7-report.png" /></p>
+<p><img alt="Custom connector, Report created" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-cc-7-report.png" /></p>
 </details>
 <h2 id="power-bi-service-with-a-data-gateway">Power BI Service (with a Data Gateway)<a class="headerlink" href="#power-bi-service-with-a-data-gateway" title="Permanent link">&para;</a></h2>
 <p>You can publish the report to the cloud product Power BI Service with the help
@@ -3660,9 +3660,9 @@ that the custom-connector directory is the same as for Power BI Desktop.)</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Starting the Data Gateway interface:</p>
-<p><img alt="Power BI Service pre-requisites, starting the Data Gateway" src="/img/microsoft-powerquery/power-query-howto-svpre-1-startdg.png" /></p>
+<p><img alt="Power BI Service pre-requisites, starting the Data Gateway" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-svpre-1-startdg.png" /></p>
 <p>Checking the "Custom data connectors" it has detected:</p>
-<p><img alt="Power BI Service pre-requisites, the Data Gateway" src="/img/microsoft-powerquery/power-query-howto-svpre-2-dg.png" /></p>
+<p><img alt="Power BI Service pre-requisites, the Data Gateway" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-svpre-2-dg.png" /></p>
 </details>
 <h3 id="how-to_2">How-to<a class="headerlink" href="#how-to_2" title="Permanent link">&para;</a></h3>
 <p>Make sure you <strong>save</strong> the report you created to a local <code>pbix</code> file.</p>
@@ -3673,9 +3673,9 @@ in your account.</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>The "Publish" item in Power BI Desktop's menu:</p>
-<p><img alt="Power BI Service, How to publish a report" src="/img/microsoft-powerquery/power-query-howto-sv-1-pbipublishmenu.png" /></p>
+<p><img alt="Power BI Service, How to publish a report" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-1-pbipublishmenu.png" /></p>
 <p>Publishing a report:</p>
-<p><img alt="Power BI Service, Publishing the report" src="/img/microsoft-powerquery/power-query-howto-sv-2-pbipublishworkspace.png" /></p>
+<p><img alt="Power BI Service, Publishing the report" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-2-pbipublishworkspace.png" /></p>
 </details>
 <p>Open <a href="https://app.powerbi.com/">app.powerbi.com</a> and check that you are logged
 in with the correct account. Navigate to the chosen workspace, where you should
@@ -3683,20 +3683,20 @@ in with the correct account. Navigate to the chosen workspace, where you should
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Your workspace on Power BI Service:</p>
-<p><img alt="Power BI Service, Checking your workspace" src="/img/microsoft-powerquery/power-query-howto-sv-3-workspace.png" /></p>
+<p><img alt="Power BI Service, Checking your workspace" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-3-workspace.png" /></p>
 <p>Viewing a report:</p>
-<p><img alt="Power BI Service, Viewing a report" src="/img/microsoft-powerquery/power-query-howto-sv-4-report.png" /></p>
+<p><img alt="Power BI Service, Viewing a report" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-4-report.png" /></p>
 </details>
 <p>Now you have to check that Power BI Service can read from Astra DB.
 Go back to the workspace and click
 the <strong>"Refresh now"</strong> button next to the dataset name (you must hover on the dataset
 for the
-<img src="/img/microsoft-powerquery/power-query-howto-sv-5c-refreshbutton.png" style="height: 1.4em; vertical-align: middle;"/>
+<img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-5c-refreshbutton.png" style="height: 1.4em; vertical-align: middle;"/>
 button to show up).</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Hover on the data source name to reveal the buttons:</p>
-<p><img alt="Power BI Service, Refreshing a data source" src="/img/microsoft-powerquery/power-query-howto-sv-5-refresh.png" /></p>
+<p><img alt="Power BI Service, Refreshing a data source" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-5-refresh.png" /></p>
 </details>
 <p>This will fail, as signaled by a tiny "danger" icon next to
 the date in the "refreshed" column,
@@ -3704,18 +3704,18 @@ for lack of credentials (indeed, the Desktop and the Service product
 do not share any credential store). To provide the credentials, click
 the <strong>"Schedule refresh"</strong> button for the dataset
 (hover with the mouse again to reveal the
-<img src="/img/microsoft-powerquery/power-query-howto-sv-5b-schedulerefreshbutton.png" style="height: 1.4em; vertical-align: middle;"/>
+<img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-5b-schedulerefreshbutton.png" style="height: 1.4em; vertical-align: middle;"/>
 button)
 and look for the "Data source credentials"
 section in the settings page you just reached.</p>
 <details class="quote">
 <summary>Visual guide</summary>
 <p>A failed data refresh:</p>
-<p><img alt="Power BI Service, Refresh has failed" src="/img/microsoft-powerquery/power-query-howto-sv-6-refreshfailure.png" /></p>
+<p><img alt="Power BI Service, Refresh has failed" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-6-refreshfailure.png" /></p>
 <p>The Data Source settings <em>for the ODBC method</em>:</p>
-<p><img alt="Power BI Service, Get to Data Source Settings (ODBC)" src="/img/microsoft-powerquery/power-query-howto-sv-7od-settings.png" /></p>
+<p><img alt="Power BI Service, Get to Data Source Settings (ODBC)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-7od-settings.png" /></p>
 <p>The Data Source settings <em>for the Custom connector method</em>:</p>
-<p><img alt="Power BI Service, Get to Data Source Settings (Custom connector)" src="/img/microsoft-powerquery/power-query-howto-sv-7cc-settings.png" /></p>
+<p><img alt="Power BI Service, Get to Data Source Settings (Custom connector)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-7cc-settings.png" /></p>
 </details>
 <p>Choose "Edit credentials"
 to insert the required secrets, right as you did for the Desktop setup.
@@ -3725,13 +3725,13 @@ dialog will require either the <code>token</code>/<code>AstraCS:...</code> pair 
 <details class="quote">
 <summary>Visual guide</summary>
 <p>Entering the credentials <em>for the ODBC method</em>:</p>
-<p><img alt="Power BI Service, Enter credentials (ODBC)" src="/img/microsoft-powerquery/power-query-howto-sv-8od-token.png" /></p>
+<p><img alt="Power BI Service, Enter credentials (ODBC)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-8od-token.png" /></p>
 <p>Entering the credentials <em>for the Custom connector method</em>:</p>
-<p><img alt="Power BI Service, Enter credentials (Custom connector)" src="/img/microsoft-powerquery/power-query-howto-sv-8cc-token.png" /></p>
+<p><img alt="Power BI Service, Enter credentials (Custom connector)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-8cc-token.png" /></p>
 <p>Credentials are updated (<em>ODBC</em>):</p>
-<p><img alt="Power BI Service, Credentials updated (ODBC)" src="/img/microsoft-powerquery/power-query-howto-sv-9od-updated.png" /></p>
+<p><img alt="Power BI Service, Credentials updated (ODBC)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-9od-updated.png" /></p>
 <p>Credentials are updated (<em>Custom connector</em>):</p>
-<p><img alt="Power BI Service, Credentials updated (Custom connector)" src="/img/microsoft-powerquery/power-query-howto-sv-9cc-updated.png" /></p>
+<p><img alt="Power BI Service, Credentials updated (Custom connector)" src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-sv-9cc-updated.png" /></p>
 </details>
 <p>Then click "Sign in" to confirm the credentials, go back to the workspace
 and try "Refresh now" again. There should be no errors anymore.</p>
