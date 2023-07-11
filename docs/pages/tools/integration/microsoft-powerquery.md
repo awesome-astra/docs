@@ -10,7 +10,7 @@ links:
 - title: "Power Query Desktop download (Microsoft)"
   url: "https://learn.microsoft.com/en-us/power-query/power-query-ui"
 - title: "Astra DB connector, Releases page"
-  url: "https://github.com/hemidactylus/powerquery_astra_db_connector/releases/latest"
+  url: "https://github.com/datastax/powerquery_astra_db_connector/releases/latest"
 - title: "Personal Data Gateway support page (Microsoft)"
   url: "https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install#download-and-install-a-personal-mode-gateway"
 - title: "DataStax ODBC Drivers for Windows"
@@ -167,7 +167,7 @@ file you just downloaded and following the instructions).
     - Set the "Default keyspace" to a keyspace in your database.
 3. Hit the "Test ..." button and make sure you get back a "Test completed successfully" message.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Starting the Manager:
 
@@ -200,7 +200,7 @@ Open Power BI Desktop and go through the "Get Data" action (usually the first
 choice when starting the program). Choose the standard ODBC source among the
 proposed connectors _(tip: you can restrict the list by typing a search term)_.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Click "Get Data":
 
@@ -218,7 +218,7 @@ a **custom query** (typically to restrict the data ingestion to a subset
 of the whole table, such as a single partition), expand the options and write
 an appropriate `SELECT` CQL query.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Choosing the Data Source Name (DSN) for the ODBC connection:
 
@@ -233,7 +233,7 @@ enter again `token` as user and your `AstraCS:...` string as password, and
 leave the connection string empty. Confirm and wait a few seconds for the
 connection to be established.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![ODBC, Enter credentials](/img/microsoft-powerquery/power-query-howto-od-4-token.png)
 
@@ -241,7 +241,7 @@ You will finally be able to explore the data in your database in Power BI's
 "Navigator" preview, in the form of a "database / keyspaces / tables"
 navigable hierarchy.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![ODBC, Preview data](/img/microsoft-powerquery/power-query-howto-od-5-preview.png)
 
@@ -250,7 +250,7 @@ the data will be available in Power BI
 Desktop for you, e.g. to create a report which you can save to (local) file.
 See the "Power BI Service" section below if you want to bring the report to the cloud.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![ODBC, Report created](/img/microsoft-powerquery/power-query-howto-od-6-report.png)
 
@@ -304,14 +304,14 @@ to run it.
 #### Custom connector setup
 
 This section explains how the Astra DB Custom connector is installed locally.
-For more information, check the connector [project](https://github.com/hemidactylus/powerquery_astra_db_connector#readme) on GitHub.
+For more information, check the connector [project](https://github.com/datastax/powerquery_astra_db_connector#readme) on GitHub.
 
 !!! note
 
     As soon as the connector will be certified by Microsoft, manual installation
     will be unnecessary, as the connector will ship bundled with Power BI already.
 
-**First**, obtain the latest `PQX` file from the [releases](https://github.com/hemidactylus/powerquery_astra_db_connector/releases/latest)
+**First**, obtain the latest `PQX` file from the [releases](https://github.com/datastax/powerquery_astra_db_connector/releases/latest)
 page and place the file in (your equivalent for) directory
 `C:\Users\USER\Documents\Power BI Desktop\Custom Connectors`.
 
@@ -334,7 +334,7 @@ To mark the thumbprint as trusted, the steps are outlined at [this link](https:/
 1BB690F359432E849D06FDEA4E82573B279AAD75
 ```
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![Custom connector pre-requisites, Configure Thumbprint in regedit](/img/microsoft-powerquery/power-query-howto-ccpre-1a-regeditthumbprint.png)
 
@@ -349,7 +349,7 @@ Alternatively, if you don't have admin access to `regedit`, you can lower the ov
 `File` => `Options and Settings` => `Options` => `Security` => in "Data Extensions", choose
 _Allow any data extension to load without validation or warning_. Then restart PowerBI Desktop.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Go to Power BI Desktop's Settings:
 
@@ -365,7 +365,7 @@ _Allow any data extension to load without validation or warning_. Then restart P
 Now you can **start PowerBI Desktop**, choose **"Get Data"**, search for the **"Astra DB" connector** and select it. A warning will show up about the connector being a third-party plugin
 in beta version: you can dismiss it and move on.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Click "Get Data":
 
@@ -381,13 +381,13 @@ in beta version: you can dismiss it and move on.
 
 You will then be asked for the **connection details**: [database ID](https://awesome-astra.github.io/docs/pages/astra/faq/?h=database+id#where-should-i-find-a-database-identifier) and [region](https://awesome-astra.github.io/docs/pages/astra/faq/?h=database+id#where-should-i-find-a-database-region-name).
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![Custom connector, Entering connection parameters](/img/microsoft-powerquery/power-query-howto-cc-4-connectionparams.png)
 
 Next, you will provide the **"Database Token"** (the string starting with `AstraCS:...`) as credentials.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![Custom connector, Entering database Token](/img/microsoft-powerquery/power-query-howto-cc-5-token.png)
 
@@ -395,7 +395,7 @@ At this point you will be able to explore the data in your database in Power BI'
 "Navigator" preview, in the form of a "keyspaces / tables"
 navigable hierarchy.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![Custom connector, Preview data](/img/microsoft-powerquery/power-query-howto-cc-6-preview.png)
 
@@ -403,7 +403,7 @@ Now you can select a table and hit "Load" (or "Transform data"): the data will b
 Desktop for you, e.g. to create a report which you can save to (local) file.
 See the "Power BI Service" section below if you want to bring the report to the cloud.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     ![Custom connector, Report created](/img/microsoft-powerquery/power-query-howto-cc-7-report.png)
 
@@ -440,7 +440,7 @@ for an enterprise, production-grade setup. (See also this
 for gateway troubleshooting tips, also covering how to make sure
 that the custom-connector directory is the same as for Power BI Desktop.)
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Starting the Data Gateway interface:
 
@@ -459,7 +459,7 @@ choosing your destination workspace.
 This will **upload the report**, and the associated "Dataset", to the cloud service
 in your account.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     The "Publish" item in Power BI Desktop's menu:
 
@@ -473,7 +473,7 @@ Open [app.powerbi.com](https://app.powerbi.com/) and check that you are logged
 in with the correct account. Navigate to the chosen workspace, where you should
 **see the newly-uploaded report**. Click on its name to open it.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Your workspace on Power BI Service:
 
@@ -490,7 +490,7 @@ for the
 <img src="/img/microsoft-powerquery/power-query-howto-sv-5c-refreshbutton.png" style="height: 1.4em; vertical-align: middle;"/>
 button to show up).
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Hover on the data source name to reveal the buttons:
 
@@ -507,7 +507,7 @@ button)
 and look for the "Data source credentials"
 section in the settings page you just reached.
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     A failed data refresh:
 
@@ -527,7 +527,7 @@ Note that depending on the connection method you are using, the Credentials
 dialog will require either the `token`/`AstraCS:...` pair or just the
 `AstraCS:...` token string (for ODBC and Custom connector, respectively).
 
-??? info "Visual guide"
+??? quote "Visual guide"
 
     Entering the credentials _for the ODBC method_:
 
