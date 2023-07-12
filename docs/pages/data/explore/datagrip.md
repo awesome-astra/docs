@@ -39,6 +39,61 @@ DataGrip is a database management environment for developers. It is designed to 
 - [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
+## Astra Jdbc Connector
+
+### <span class="nosurface">1. </span>Download JDBC Driver
+
+1. Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar)  from Github
+
+### <span class="nosurface">2. </span>Configure the Connection
+
+1. Select `Drivers` Tab
+2. Click the plus `+` symbol to create a new _User Driver_
+3. Populate the name as you like, in the screenshot we picked `Astra Jdbc Driver`
+4. Add the shaded jar by clicking the plus `+` symbol in the `Driver Files` panel.
+5. Select following class name for the driver 
+
+```java
+com.datastax.astra.jdbc.AstraJdbcDriver
+```
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/pic4.png" />
+
+### <span class="nosurface">3. </span>Create the DataSource
+
+- **(3a) -** Select `Data Source` tabs.Using the `+` add a new Data source pick the driver we just created from the list
+- **(3b) -** Define a name for your datasource on the screenshot we picked `Astra Jdbc DataSource`
+- **(3c) -** Validate that you are using the driver define above, for us `Astra Jdbc Driver` 
+- **(3d) -** Provide User Name. It can be the string `token` or the value of a `clientId`.
+- **(3e) -** Provide the password. It can be the value for your _starting with AstraCS:..._  or the value of a `clientSecret`.
+- **(3f) -** Provide the URL as a single line
+
+```
+jdbc:astra://<db>/<keyspace>?region=<region>
+```
+
+| Field | Required? | Description |
+|:---- | :--- | :--- |
+| db   | YES | It is your database identifier it can be a name (then it must be unique) or a database identifier (UUID) |
+| keyspace | YES  | It is the keyspace you want to use. |
+| region | NO | Only useful if the database lives on multiple regions | 
+
+- **✅ 3g -** Test the connection you should get the following screen, apply and save.
+
+- **✅ 3h -** Validate with `Apply`
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds1.png" />
+
+### <span class="nosurface">4. </span>Use DataSource
+
+1. Select the keyspace you want to use
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds4.png" />
+
+2. Enjoy your working environment
+
+<img src="https://awesome-astra.github.io/docs/img/datagrip/ds5.png" />
+
 ## Using JDBC Simba Drivers
 
 !!! warning "Tips for `SecureConnectionBundlePath`"
@@ -110,56 +165,3 @@ URL in the screenshot shows the format described in the previous sentence.
 - **SecureConnectionBundlePath:** Path to where your downloaded Secure Connect Bundle is located.
 - **TunableConsistency:** Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.
 
-## Using ING Drivers 
-
-### <span class="nosurface">1. </span>Download JDBC Driver
-
-1. Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar)  from Github
-
-### <span class="nosurface">2. </span>Configure the Driver
-
-1. Select `Drivers` Tab
-2. Click the plus `+` symbol to create a new _User Driver_
-3. Populate the name as you like
-4. Add the shaded jar by clicking the plus `+` symbol in the `Driver Files` panel.
-5. Select following class name for the driver `com.ing.data.cassandra.jdbc.CassandraDriver`
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/pic4.png" />
-
-### <span class="nosurface">3. </span>Create the DataSource
-
-1. Select `Data Source` tabs
-2. Using the `+` add a new Data source pick the driver we just created from the list
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/ds1.png" />
-
-### <span class="nosurface">4. </span>Setup the DataSource
-
-1. Define a name for your datasource
-2. As credentials are provided in the URL there is no need for extra authentication, pick `NO Auth`
-3. Build the URL as a single line
-
-```
-jdbc:cassandra://dbaas/beam?
-consistency=LOCAL_QUORUM&
-user=token&
-password=<AstraCS:... you token>&
-secureconnectbundle=<path_to_your_bundle>
-```
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/ds2.png" />
-
-4. Test the connection you should get the following screen, apply and save.
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/ds3.png" />
-
-
-### <span class="nosurface">5. </span>Use the DataSource
-
-1. Select the keyspace you want to use
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/ds4.png" />
-
-2. Enjoy your working environment
-
-<img src="https://awesome-astra.github.io/docs/img/datagrip/ds5.png" />
