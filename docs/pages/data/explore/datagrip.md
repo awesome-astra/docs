@@ -61,12 +61,12 @@ com.datastax.astra.jdbc.AstraJdbcDriver
 
 ### <span class="nosurface">3. </span>Create the DataSource
 
-- **(3a) -** Select `Data Source` tabs.Using the `+` add a new Data source pick the driver we just created from the list
-- **(3b) -** Define a name for your datasource on the screenshot we picked `Astra Jdbc DataSource`
-- **(3c) -** Validate that you are using the driver define above, for us `Astra Jdbc Driver` 
-- **(3d) -** Provide User Name. It can be the string `token` or the value of a `clientId`.
-- **(3e) -** Provide the password. It can be the value for your _starting with AstraCS:..._  or the value of a `clientSecret`.
-- **(3f) -** Provide the URL as a single line
+- **1.** Select `Data Source` tabs.Using the `+` add a new Data source pick the driver we just created from the list
+- **2.** Define a name for your datasource on the screenshot we picked `Astra Jdbc DataSource`
+- **3.** Validate that you are using the driver define above, for us `Astra Jdbc Driver` 
+- **4.** Provide User Name. It can be the string `token` or the value of a `clientId`.
+- **5.** Provide the password. It can be the value for your _starting with AstraCS:..._  or the value of a `clientSecret`.
+- **6.** Provide the URL as a single line
 
 ```
 jdbc:astra://<db>/<keyspace>?region=<region>
@@ -78,11 +78,12 @@ jdbc:astra://<db>/<keyspace>?region=<region>
 | keyspace | YES  | It is the keyspace you want to use. |
 | region | NO | Only useful if the database lives on multiple regions | 
 
-- **✅ 3g -** Test the connection you should get the following screen, apply and save.
-
-- **✅ 3h -** Validate with `Apply`
-
 <img src="https://awesome-astra.github.io/docs/img/datagrip/ds1.png" />
+
+- **7.** Test the connection you should get the following screen, apply and save.
+
+- **8.** Validate with `Apply`
+
 
 ### <span class="nosurface">4. </span>Use DataSource
 
