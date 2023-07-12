@@ -555,7 +555,7 @@ in your report).
 
 ??? tip "Further problems during data refresh"
 
-    If you the small "danger" icon next to the dataset persists,
+    If you notice the small "danger" icon next to the dataset persists,
     there is presumably something wrong with the data connection.
     Please check the above-mentioned [community blog post](https://community.fabric.microsoft.com/t5/Community-Blog/Custom-Data-Connector-How-to-Deploy-and-Test/ba-p/862678)
     as a valid starting point for your troubleshooting journey.
