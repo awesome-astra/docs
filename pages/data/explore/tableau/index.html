@@ -1176,8 +1176,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-simba-jdbc-driver-for-apache-cassandra" class="md-nav__link">
-    Install Simba JDBC Driver for Apache Cassandra
+  <a href="#install-jdbc-driver-for-apache-cassandra" class="md-nav__link">
+    Install JDBC Driver for Apache Cassandra
   </a>
   
 </li>
@@ -3035,8 +3035,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-simba-jdbc-driver-for-apache-cassandra" class="md-nav__link">
-    Install Simba JDBC Driver for Apache Cassandra
+  <a href="#install-jdbc-driver-for-apache-cassandra" class="md-nav__link">
+    Install JDBC Driver for Apache Cassandra
   </a>
   
 </li>
@@ -3120,22 +3120,45 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
 <h2 id="setup-tableau-desktop">Setup Tableau Desktop<a class="headerlink" href="#setup-tableau-desktop" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface" markdown="1">✅ </span>4. Install Tableau Desktop</strong></p>
 <p>Use an existing deployment of <em>Tableau Desktop</em> or follow <a href="https://www.tableau.com/products/desktop">the instructions</a> to download, install and register a new instance of <em>Tableau Desktop</em>.</p>
-<h2 id="install-simba-jdbc-driver-for-apache-cassandra">Install Simba JDBC Driver for Apache Cassandra<a class="headerlink" href="#install-simba-jdbc-driver-for-apache-cassandra" title="Permanent link">&para;</a></h2>
+<h2 id="install-jdbc-driver-for-apache-cassandra">Install JDBC Driver for Apache Cassandra<a class="headerlink" href="#install-jdbc-driver-for-apache-cassandra" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface" markdown="1">✅ </span>5. Download JDBC Driver</strong></p>
-<p>Go to <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">https://downloads.datastax.com/#odbc-jdbc-drivers</a> and download the latest version of Simba JDBC Driver for Apache Cassandra.</p>
-<p><strong><span class="nosurface" markdown="1">✅ </span>6. Install JDBC Driver</strong></p>
-<p>Extract the JDBC Driver <code>.zip</code> archive and move the resulting <code>.jar</code> file to:</p>
+<p>You can use the Simba driver for customers with a support contract, or the ING driver which is freely available.</p>
+<details class="info">
+<summary>Download Simba Driver</summary>
+<div class="admonition warning">
+<p class="admonition-title">Tips for <code>SecureConnectionBundlePath</code></p>
+<p>You need to be a registered customer to use those drivers. If not consider the <a href="#ing-driver">ING Driver</a> alternative. </p>
+</div>
+<p>Download the JDBC driver from the Datastax customer support website </p>
+<ol>
+<li>Authenticate to <a href="https://datastax.lightning.force.com/lightning/r/Knowledge__kav/ka06R000000BtSrQAK/view">Datastax Customer Portal</a>.</li>
+<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
+<li>Select <strong>JDBC 4.2.</strong></li>
+<li>Read the license terms and accept it <em>(click the checkbox).</em></li>
+<li>Hit the blue <strong>Download</strong> button.</li>
+<li>Once the download completes, <strong>unzip</strong> the downloaded file.</li>
+</ol>
+<p>Extract the Simba JDBC Driver <code>.zip</code> archive and move the resulting <code>.jar</code> file to:</p>
 <ul>
 <li><code>/Users/[user]/Library/Tableau/Drivers</code> on macOS</li>
 <li><code>C:\Program Files\Tableau\Drivers</code> on Windows</li>
 </ul>
+</details>
+<details class="info">
+<summary>Download ING Driver</summary>
+<p>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar">the JDBC driver shaded jar</a>  from Github</p>
+</details>
 <h2 id="connect-to-astra-db-from-tableau-desktop">Connect to Astra DB from Tableau Desktop<a class="headerlink" href="#connect-to-astra-db-from-tableau-desktop" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface" markdown="1">✅ </span>7. Restart Tableau Desktop</strong></p>
 <p>Start or restart <em>Tableau Desktop</em> for the JDBC Driver installation to take effect.</p>
 <p><strong><span class="nosurface" markdown="1">✅ </span>8. Setup a connection to Astra DB</strong></p>
+<details class="info">
+<summary>Connect with Simba Driver</summary>
 <ul>
 <li>Select <em>Other Databases (JDBC)</em> under <em>Connect</em></li>
-<li>Fill out the dialog box with the connection information:<ul>
+<li>
+<p>Fill out the dialog box with the connection information:</p>
+<ul>
 <li><strong>URL</strong> = <code>jdbc:cassandra://;AuthMech=2;UID=token;PWD=&lt;ApplicationToken&gt;;SecureConnectionBundlePath=&lt;SecureConnectBundle&gt;;TunableConsistency=1</code>, where<ul>
 <li><em>AuthMech</em> specifies whether the driver connects to a Cassandra or Astra DB database, and whether the driver authenticates the connection. It should be set to <code>2</code> to connect to an Astra database, and authenticate the connection using a user name, password, and secure connection bundle.</li>
 <li><em>UID</em> and <em>PWD</em> specify user name and password credentials. They should be set to literal <code>token</code> and the actual application token value. See <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">how to generate an application token</a> if you do not have one already.</li>
@@ -3148,9 +3171,36 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
 <li><strong>Password</strong> = <code>&lt;Client Secret&gt;</code>, where a client secret is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>. </li>
 </ul>
 </li>
-<li>Click the <em>Sign In</em> button to establish a connection.</li>
+<li>
+<p>Click the <em>Sign In</em> button to establish a connection.</p>
+</li>
 </ul>
 <p><br/><img src="https://awesome-astra.github.io/docs/img/tableau/connection-dialog.png" /><br/></p>
+</details>
+<details class="info">
+<summary>Connect with ING Driver</summary>
+<ul>
+<li>Select <em>Other Databases (JDBC)</em> under <em>Connect</em></li>
+<li>
+<p>Fill out the dialog box with the connection information:</p>
+</li>
+<li>
+<p><strong>URL</strong> = <code>jdbc:cassandra://dbaas/&lt;KEYSPACE&gt;}?
+consistency=LOCAL_QUORUM&amp;
+user=token&amp;
+password=&lt;AstraCS:... you token&gt;&amp;
+secureconnectbundle=&lt;path_to_your_bundle&gt;</code></p>
+</li>
+<li><strong>Dialect</strong> = <code>SQL92</code></li>
+<li><strong>Username</strong> = <code>&lt;Client ID&gt;</code>, where a client id value is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>.</li>
+<li>
+<p><strong>Password</strong> = <code>&lt;Client Secret&gt;</code>, where a client secret is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>. </p>
+</li>
+<li>
+<p>Click the <em>Sign In</em> button to establish a connection.</p>
+</li>
+</ul>
+</details>
 <p><strong><span class="nosurface" markdown="1">✅ </span>9. Create a data source from the banking database</strong></p>
 <ul>
 <li>Select <code>cassandra</code> under <strong>Database</strong>.</li>
@@ -3173,7 +3223,7 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
   <small>
     
       Last update:
-      2023-03-06
+      2023-07-11
     
   </small>
 </div>
