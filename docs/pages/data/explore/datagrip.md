@@ -43,7 +43,7 @@ DataGrip is a database management environment for developers. It is designed to 
 
 !!! warning "Tips for `SecureConnectionBundlePath`"
 
-    You need to be a registered customer to use those drivers. If not consider the ING Driver alternative. 
+    You need to be a registered customer to use those drivers. If not consider the [ING Driver](#using-ing-drivers) alternative. 
 
 ### <span class="nosurface">1. </span>Download JDBC Driver
 
@@ -60,7 +60,7 @@ Download the JDBC driver from the Datastax customer support website
 
 - Download the [settings.zip](https://datastax-21b7c7df5342.intercom-attachments-7.com/i/o/232268459/929cbfa881f4423cceb8b3b2/settings.zip) locally
 
-!!! warning "Think about backuping your `settings.xml`"
+!!! warning "Think about backing up your `settings.xml`"
     
     If you are already a DataGrip user, back up your existing settings because downloading `settings.zip` might override your existing settings.
 
@@ -76,7 +76,7 @@ You will see a new database connection type called Astra: _Simba Cassandra JDBC 
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic1.png" />
 
-- Go to the Driver `Advanced Settings` TAB to confirm the VM home path is set to `Default`. VM home path is set to a value named Default.
+- Go to the Driver `Advanced Settings` TAB to confirm the VM home path is set to `Default`.
 
 <img src="https://awesome-astra.github.io/docs/img/datagrip/pic2.png" />
 
@@ -96,7 +96,7 @@ TunableConsistency=6
 
 !!! info "Tips for `SecureConnectionBundlePath`"
 
-    - Even on Windows operating systems you should use `/` as a path separator. 
+    - You should use `/` as a path separator even on Windows.
 
     - The use of quotes for the path is not supported, please try to provide a path with no spaces.
 
@@ -114,7 +114,7 @@ URL in the screenshot shows the format described in the previous sentence.
 
 ### <span class="nosurface">1. </span>Download JDBC Driver
 
-1. Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar) for from Github
+1. Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar)  from Github
 
 ### <span class="nosurface">2. </span>Configure the Driver
 
