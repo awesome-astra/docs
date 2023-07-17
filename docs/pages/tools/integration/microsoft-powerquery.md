@@ -39,6 +39,7 @@ You have two options to connect Power Query to Astra:
 Keep reading to find out which one is best suited to your needs.
 
 !!! note
+
   Power Query and the related data products run only on Microsoft Windows.
 
   In the following, out of several [products and services](https://learn.microsoft.com/en-us/power-query/power-query-what-is-power-query#where-can-you-use-power-query), usage with Microsoft Power BI (Desktop and Service) is assumed.
