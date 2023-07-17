@@ -3095,7 +3095,7 @@
 <li><span class="nosurface">ℹ️ </span><a href="https://dbschema.com/features.html">Introduction to DBSchema</a></li>
 <li><span class="nosurface">📥 </span><a href="https://dbschema.com/download.html">DBSchema Installation</a></li>
 </ul>
-<p>DBSchema uses the <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
+<p>DBSchema uses the <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar">Astra JDBC Driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
@@ -3107,15 +3107,7 @@
 <p>This article assumes you have installed the latest version of DBSchema on your laptop or PC.</p>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <h3 id="step-1-jdbc-driver"><span class="nosurface">✅ Step 1: </span> JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
-<p>Download the JDBC driver from the DataStax website:</p>
-<ol>
-<li>Go to https://downloads.datastax.com/#odbc-jdbc-drivers.</li>
-<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
-<li>Select <strong>JDBC 4.2.</strong></li>
-<li>Read the license terms and accept it (click the checkbox).</li>
-<li>Hit the blue <strong>Download</strong> button.</li>
-<li>Once the download completes, unzip the downloaded file.</li>
-</ol>
+<p>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar">Astra JDBC connector jar</a>  from Github</p>
 <h3 id="step-2-establish-the-connection"><span class="nosurface">✅ Step 2: </span> Establish the Connection<a class="headerlink" href="#step-2-establish-the-connection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open <a href="https://dbschema.com/">DB Schema</a></li>
@@ -3132,7 +3124,7 @@
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-cass-sel.png" /></p>
 </li>
 <li>
-<p>Select <strong>JDBC Driver</strong> edit option.
+<p>Select <strong>JDBC Driver</strong> edit option.  This is the button on the right hand side of the JDBC driver line, with the key icon.
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection-d.png" /></p>
 </li>
 <li>
@@ -3147,26 +3139,25 @@
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection.png" /></p>
 </li>
 <li>
-<p>Upload the Simba JDBC Driver.</p>
+<p>Upload the Astra JDBC Driver.</p>
 </li>
+<li>Select <strong>Open</strong></li>
+<li>Once you upload the Astra JDBC Driver, you will see <strong>Astra</strong> in the <strong>Choose your Database</strong> window. Select <strong>Next</strong>.</li>
+</ol>
+<p><img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra-config.png" height="500px" /></p>
+<ol>
 <li>
-<p>Select <strong>Open</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-simba-driver.png" /></p>
-</li>
-<li>
-<p>Once you upload the Simba JDBC Driver, you will see <strong>Astra</strong> in the <strong>Choose your Database</strong> window. Select <strong>Next</strong>.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra.png" height="500px" /></p>
+<p>In the connection window, select the JDBC Driver "astra-jdbc-connector-5.0.jar com.datastax.astra.jdbc.AstraJdbcDriver.  Under JDBC URL select "Edit Manually".</p>
 </li>
 <li>
 <p>In the Astra Connection Dialog, add JDBC URL as
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jdbc:cassandra://<span class="p">;</span><span class="nv">AuthMech</span><span class="o">=</span>&lt;<span class="m">2</span>&gt;<span class="p">;</span><span class="nv">UID</span><span class="o">=</span>token<span class="p">;</span><span class="nv">PWD</span><span class="o">=</span>&lt;ApplicationToken&gt;<span class="p">;</span><span class="nv">SecureConnectionBundlePath</span><span class="o">=</span>&lt;PATH<span class="w"> </span>TO<span class="w"> </span>YOUR<span class="w"> </span>SECURE<span class="w"> </span>CONNECT<span class="w"> </span>BUNDLE&gt;<span class="p">;</span><span class="nv">TunableConsistency</span><span class="o">=</span>&lt;<span class="m">6</span>&gt;
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jdbc:astra://&lt;database_name&gt;/&lt;keyspace_name&gt;?token<span class="o">=</span>&lt;application_token&gt;
 </code></pre></div>
     with the following variables:</p>
 <ul>
-<li><strong>AuthMech:</strong> Specifies whether the driver connects to a Cassandra or Astra DB database and whether the driver authenticates the connection.</li>
-<li><strong>ApplicationToken:</strong> Generated from Astra DB console. See <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Manage application tokens.</a></li>
-<li><strong>SecureConnectionBundlePath:</strong> Path to where your downloaded Secure Connect Bundle is located. See <a href="https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html">Get secure connect bundle.</a></li>
-<li><strong>TunableConsistency:</strong> Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.</li>
+<li><strong>database_name:</strong> The name or ID for the database you want to connect to</li>
+<li><strong>keyspace_name:</strong> The keyspace you want to use</li>
+<li><strong>application_token:</strong> Generated from Astra DB console. See <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Manage application tokens.</a></li>
 </ul>
 </li>
 <li>
@@ -3191,7 +3182,7 @@
   <small>
     
       Last update:
-      2022-10-27
+      2023-07-17
     
   </small>
 </div>

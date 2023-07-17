@@ -1187,6 +1187,19 @@
     Connect to Astra DB from Tableau Desktop
   </a>
   
+    <nav class="md-nav" aria-label="Connect to Astra DB from Tableau Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-the-jdbc-driver" class="md-nav__link">
+    Connect with the JDBC Driver
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3046,6 +3059,19 @@
     Connect to Astra DB from Tableau Desktop
   </a>
   
+    <nav class="md-nav" aria-label="Connect to Astra DB from Tableau Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-the-jdbc-driver" class="md-nav__link">
+    Connect with the JDBC Driver
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3122,76 +3148,40 @@ We use <a href="https://downloads.datastax.com/#odbc-jdbc-drivers">Simba JDBC Dr
 <p>Use an existing deployment of <em>Tableau Desktop</em> or follow <a href="https://www.tableau.com/products/desktop">the instructions</a> to download, install and register a new instance of <em>Tableau Desktop</em>.</p>
 <h2 id="install-jdbc-driver-for-apache-cassandra">Install JDBC Driver for Apache Cassandra<a class="headerlink" href="#install-jdbc-driver-for-apache-cassandra" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface" markdown="1">✅ </span>5. Download JDBC Driver</strong></p>
-<p>You can use the Simba driver for customers with a support contract, or the ING driver which is freely available.</p>
-<details class="info">
-<summary>Download Simba Driver</summary>
-<div class="admonition warning">
-<p class="admonition-title">Tips for <code>SecureConnectionBundlePath</code></p>
-<p>You need to be a registered customer to use those drivers. If not consider the <a href="#ing-driver">ING Driver</a> alternative. </p>
-</div>
-<p>Download the JDBC driver from the Datastax customer support website </p>
 <ol>
-<li>Authenticate to <a href="https://datastax.lightning.force.com/lightning/r/Knowledge__kav/ka06R000000BtSrQAK/view">Datastax Customer Portal</a>.</li>
-<li>Select <strong>Simba JDBC Driver for Apache Cassandra.</strong></li>
-<li>Select <strong>JDBC 4.2.</strong></li>
-<li>Read the license terms and accept it <em>(click the checkbox).</em></li>
-<li>Hit the blue <strong>Download</strong> button.</li>
-<li>Once the download completes, <strong>unzip</strong> the downloaded file.</li>
-</ol>
-<p>Extract the Simba JDBC Driver <code>.zip</code> archive and move the resulting <code>.jar</code> file to:</p>
+<li>
+<p>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar">Astra JDBC connector jar</a>  from Github</p>
+</li>
+<li>
+<p>Move the resulting <code>.jar</code> file to:</p>
 <ul>
 <li><code>/Users/[user]/Library/Tableau/Drivers</code> on macOS</li>
 <li><code>C:\Program Files\Tableau\Drivers</code> on Windows</li>
 </ul>
-</details>
-<details class="info">
-<summary>Download ING Driver</summary>
-<p>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar">the JDBC driver shaded jar</a>  from Github</p>
-</details>
+</li>
+</ol>
 <h2 id="connect-to-astra-db-from-tableau-desktop">Connect to Astra DB from Tableau Desktop<a class="headerlink" href="#connect-to-astra-db-from-tableau-desktop" title="Permanent link">&para;</a></h2>
 <p><strong><span class="nosurface" markdown="1">✅ </span>7. Restart Tableau Desktop</strong></p>
 <p>Start or restart <em>Tableau Desktop</em> for the JDBC Driver installation to take effect.</p>
 <p><strong><span class="nosurface" markdown="1">✅ </span>8. Setup a connection to Astra DB</strong></p>
-<details class="info">
-<summary>Connect with Simba Driver</summary>
+<h3 id="connect-with-the-jdbc-driver">Connect with the JDBC Driver<a class="headerlink" href="#connect-with-the-jdbc-driver" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Select <em>Other Databases (JDBC)</em> under <em>Connect</em></li>
 <li>
 <p>Fill out the dialog box with the connection information:</p>
 <ul>
-<li><strong>URL</strong> = <code>jdbc:cassandra://;AuthMech=2;UID=token;PWD=&lt;ApplicationToken&gt;;SecureConnectionBundlePath=&lt;SecureConnectBundle&gt;;TunableConsistency=1</code>, where<ul>
-<li><em>AuthMech</em> specifies whether the driver connects to a Cassandra or Astra DB database, and whether the driver authenticates the connection. It should be set to <code>2</code> to connect to an Astra database, and authenticate the connection using a user name, password, and secure connection bundle.</li>
-<li><em>UID</em> and <em>PWD</em> specify user name and password credentials. They should be set to literal <code>token</code> and the actual application token value. See <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">how to generate an application token</a> if you do not have one already.</li>
-<li><em>SecureConnectionBundlePath</em> specifies the full path and name of the secure connection bundle associated with your Astra database. <em>On Windows, the path should still be written using forward-slashes and not escape spaces in any particular way, as in: <code>c:/Users/Joan Reed/my-bundle.zip</code>.</em> See <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">how to download a secure connect bundle for your database</a>.</li>
-<li><em>TunableConsistency</em> specifies the consistency level for requests to the database. The supported values are <code>0</code> for <code>ANY</code>, <code>1</code> for <code>ONE</code>, <code>2</code> for <code>TWO</code>, <code>3</code> for <code>THREE</code>, <code>4</code> for <code>QUORUM</code>, <code>5</code> for <code>ALL</code>, <code>6</code> for <code>LOCAL_QUORUM</code>, <code>7</code> for <code>EACH_QUORUM</code>, and <code>10</code> for <code>LOCAL_ONE</code>. Set it to <code>6</code> for this example.</li>
-</ul>
-</li>
-<li><strong>Dialect</strong> = <code>SQL92</code></li>
-<li><strong>Username</strong> = <code>&lt;Client ID&gt;</code>, where a client id value is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>.</li>
-<li><strong>Password</strong> = <code>&lt;Client Secret&gt;</code>, where a client secret is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>. </li>
-</ul>
-</li>
 <li>
-<p>Click the <em>Sign In</em> button to establish a connection.</p>
-</li>
-</ul>
-<p><br/><img src="https://awesome-astra.github.io/docs/img/tableau/connection-dialog.png" /><br/></p>
-</details>
-<details class="info">
-<summary>Connect with ING Driver</summary>
+<p><strong>URL</strong> = <code>jdbc:astra://&lt;db&gt;/&lt;keyspace&gt;?region=&lt;region&gt;</code><br />
+Fields are as follows:</p>
 <ul>
-<li>Select <em>Other Databases (JDBC)</em> under <em>Connect</em></li>
-<li>
-<p>Fill out the dialog box with the connection information:</p>
+<li>db (required) Your database identifier.  It can be a name (then it must be unique) or a database identifier (UUID)</li>
+<li>keyspace (required) The keyspace you want to use.</li>
+<li>region (optional) Only useful if the database lives in multiple regions</li>
+</ul>
 </li>
 <li>
-<p><strong>URL</strong> = <code>jdbc:cassandra://dbaas/&lt;KEYSPACE&gt;}?
-consistency=LOCAL_QUORUM&amp;
-user=token&amp;
-password=&lt;AstraCS:... you token&gt;&amp;
-secureconnectbundle=&lt;path_to_your_bundle&gt;</code></p>
+<p><strong>Dialect</strong> = <code>SQL92</code></p>
 </li>
-<li><strong>Dialect</strong> = <code>SQL92</code></li>
 <li><strong>Username</strong> = <code>&lt;Client ID&gt;</code>, where a client id value is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>.</li>
 <li>
 <p><strong>Password</strong> = <code>&lt;Client Secret&gt;</code>, where a client secret is <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">generated with your application token</a>. </p>
@@ -3200,7 +3190,8 @@ secureconnectbundle=&lt;path_to_your_bundle&gt;</code></p>
 <p>Click the <em>Sign In</em> button to establish a connection.</p>
 </li>
 </ul>
-</details>
+</li>
+</ul>
 <p><strong><span class="nosurface" markdown="1">✅ </span>9. Create a data source from the banking database</strong></p>
 <ul>
 <li>Select <code>cassandra</code> under <strong>Database</strong>.</li>
@@ -3223,7 +3214,7 @@ secureconnectbundle=&lt;path_to_your_bundle&gt;</code></p>
   <small>
     
       Last update:
-      2023-07-11
+      2023-07-17
     
   </small>
 </div>
