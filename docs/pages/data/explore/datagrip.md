@@ -39,7 +39,7 @@ DataGrip is a database management environment for developers. It is designed to 
 - [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
-## Astra Jdbc Connector
+## Astra JDBC Connector
 
 ### <span class="nosurface">1. </span>Download JDBC Driver
 
@@ -47,9 +47,9 @@ DataGrip is a database management environment for developers. It is designed to 
 
 ### <span class="nosurface">2. </span>Configure the Connection
 
-1. Select `Drivers` Tab
+1. Select `Drivers` Tab 
 2. Click the plus `+` symbol to create a new _User Driver_
-3. Populate the name as you like, in the screenshot we picked `Astra Jdbc Driver`
+3. Populate the name as you like, in the screenshot we picked `Astra JDBC Driver`
 4. Add the shaded jar by clicking the plus `+` symbol in the `Driver Files` panel.
 5. Select following class name for the driver 
 
@@ -62,8 +62,8 @@ com.datastax.astra.jdbc.AstraJdbcDriver
 ### <span class="nosurface">3. </span>Create the DataSource
 
 - **1.** Select `Data Source` tabs.Using the `+` add a new Data source pick the driver we just created from the list
-- **2.** Define a name for your datasource on the screenshot we picked `Astra Jdbc DataSource`
-- **3.** Validate that you are using the driver define above, for us `Astra Jdbc Driver` 
+- **2.** Define a name for your datasource on the screenshot we picked `Astra JDBC DataSource`
+- **3.** Validate that you are using the driver define above, for us `Astra JDBC Driver` 
 - **4.** Provide User Name. It can be the string `token` or the value of a `clientId`.
 - **5.** Provide the password. It can be the value for your _starting with AstraCS:..._  or the value of a `clientSecret`.
 - **6.** Provide the URL as a single line
