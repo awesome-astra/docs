@@ -40,7 +40,7 @@ This article assumes you have a running installation of Tableplus on your laptop
 ## Installation and Setup
 
 !!! note "Note" 
-  For simplicity, the secure connect bundle has been placed in `/path/to/scb`
+    For simplicity, the secure connect bundle has been placed in `/path/to/scb`
 
 ### <span class="nosurface">✅ Step 1:</span> DB Information
 
