@@ -32,7 +32,7 @@ DbSchema is a universal database designer for out-of-the-box schema management a
 - <span class="nosurface">ℹ️ </span>[Introduction to DBSchema](https://dbschema.com/features.html)
 - <span class="nosurface">📥 </span>[DBSchema Installation](https://dbschema.com/download.html)
 
-DBSchema uses the [Simba JDBC driver](https://downloads.datastax.com/#odbc-jdbc-drivers) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.
+DBSchema uses the [Astra JDBC Driver](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.
 
 ## Prerequisites
 <ul class="prerequisites">
@@ -48,14 +48,7 @@ This article assumes you have installed the latest version of DBSchema on your l
 
 ### <span class="nosurface">✅ Step 1: </span> JDBC Driver
 
-Download the JDBC driver from the DataStax website:
-
-1. Go to https://downloads.datastax.com/#odbc-jdbc-drivers.
-2. Select **Simba JDBC Driver for Apache Cassandra.**
-3. Select **JDBC 4.2.**
-4. Read the license terms and accept it (click the checkbox).
-5. Hit the blue **Download** button.
-6. Once the download completes, unzip the downloaded file.
+Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar)  from Github
 
 ### <span class="nosurface">✅ Step 2: </span> Establish the Connection
 
@@ -69,7 +62,7 @@ Download the JDBC driver from the DataStax website:
 5. Select **Next.**
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-cass-sel.png" />
 
-6. Select **JDBC Driver** edit option.
+6. Select **JDBC Driver** edit option.  This is the button on the right hand side of the JDBC driver line, with the key icon.
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection-d.png" />
 
 7. In the JDBC Driver Manager, select **New**.
@@ -79,23 +72,24 @@ Download the JDBC driver from the DataStax website:
 9. Select **OK** in the confirmation message.
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection.png" />
 
-10. Upload the Simba JDBC Driver.
+10. Upload the Astra JDBC Driver.
 11. Select **Open**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-simba-driver.png" />
+12. Once you upload the Astra JDBC Driver, you will see **Astra** in the **Choose your Database** window. Select **Next**.
 
-12. Once you upload the Simba JDBC Driver, you will see **Astra** in the **Choose your Database** window. Select **Next**.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra.png" height="500px" />
+<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra-config.png" height="500px" />
 
-13. In the Astra Connection Dialog, add JDBC URL as
+13. In the connection window, select the JDBC Driver "astra-jdbc-connector-5.0.jar com.datastax.astra.jdbc.AstraJdbcDriver.  Under JDBC URL select "Edit Manually".
+ 
+14. In the Astra Connection Dialog, add JDBC URL as
     ```bash
-    jdbc:cassandra://;AuthMech=<2>;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<PATH TO YOUR SECURE CONNECT BUNDLE>;TunableConsistency=<6>
+    jdbc:astra://<database_name>/<keyspace_name>?token=<application_token>
     ```
     with the following variables:
 
-    - **AuthMech:** Specifies whether the driver connects to a Cassandra or Astra DB database and whether the driver authenticates the connection.
-    - **ApplicationToken:** Generated from Astra DB console. See [Manage application tokens.](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html)
-    - **SecureConnectionBundlePath:** Path to where your downloaded Secure Connect Bundle is located. See [Get secure connect bundle.](https://docs.datastax.com/en/astra/docs/obtaining-database-credentials.html)
-    - **TunableConsistency:** Specifies Cassandra replica or the number of Cassandra replicas that must process a query for the query to be considered successful.
+       - **database_name:** The name or ID for the database you want to connect to
+       - **keyspace_name:** The keyspace you want to use
+       - **application_token:** Generated from Astra DB console. See [Manage application tokens.](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html)
+    
 
 14. Select **Connect**
 <img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-url.png" height="500px" />

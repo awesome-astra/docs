@@ -88,31 +88,12 @@ Use an existing deployment of _Tableau Desktop_ or follow [the instructions](htt
 
 **<span class="nosurface" markdown="1">✅ </span>5. Download JDBC Driver**
 
-You can use the Simba driver for customers with a support contract, or the ING driver which is freely available.
+  1. Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar)  from Github
 
-??? info "Download Simba Driver"
-
-    !!! warning "Tips for `SecureConnectionBundlePath`"
-
-        You need to be a registered customer to use those drivers. If not consider the [ING Driver](#ing-driver) alternative. 
-
-    Download the JDBC driver from the Datastax customer support website 
-
-    1. Authenticate to [Datastax Customer Portal](https://datastax.lightning.force.com/lightning/r/Knowledge__kav/ka06R000000BtSrQAK/view).
-    2. Select **Simba JDBC Driver for Apache Cassandra.**
-    3. Select **JDBC 4.2.**
-    4. Read the license terms and accept it _(click the checkbox)._
-    5. Hit the blue **Download** button.
-    6. Once the download completes, **unzip** the downloaded file.
-
-    Extract the Simba JDBC Driver `.zip` archive and move the resulting `.jar` file to:
+  2. Move the resulting `.jar` file to:
 
     - `/Users/[user]/Library/Tableau/Drivers` on macOS
     - `C:\Program Files\Tableau\Drivers` on Windows
-
-??? info "Download ING Driver"
-
-    Download [the JDBC driver shaded jar](https://github.com/DataStax-Examples/astra-jdbc-wrapper/releases/download/4.9.0/ing-jdbc-wrapper-shaded-4.9.0.jar)  from Github
 
 ## Connect to Astra DB from Tableau Desktop
 
@@ -122,33 +103,18 @@ Start or restart _Tableau Desktop_ for the JDBC Driver installation to take effe
 
 **<span class="nosurface" markdown="1">✅ </span>8. Setup a connection to Astra DB**
 
-??? info "Connect with Simba Driver"
 
-      - Select _Other Databases (JDBC)_ under _Connect_
-      - Fill out the dialog box with the connection information:
-          - **URL** = `jdbc:cassandra://;AuthMech=2;UID=token;PWD=<ApplicationToken>;SecureConnectionBundlePath=<SecureConnectBundle>;TunableConsistency=1`, where
-              - _AuthMech_ specifies whether the driver connects to a Cassandra or Astra DB database, and whether the driver authenticates the connection. It should be set to `2` to connect to an Astra database, and authenticate the connection using a user name, password, and secure connection bundle.
-              - _UID_ and _PWD_ specify user name and password credentials. They should be set to literal `token` and the actual application token value. See [how to generate an application token](https://awesome-astra.github.io/docs/pages/astra/create-token/) if you do not have one already.
-              - _SecureConnectionBundlePath_ specifies the full path and name of the secure connection bundle associated with your Astra database. _On Windows, the path should still be written using forward-slashes and not escape spaces in any particular way, as in: `c:/Users/Joan Reed/my-bundle.zip`._ See [how to download a secure connect bundle for your database](https://awesome-astra.github.io/docs/pages/astra/download-scb/).
-              - _TunableConsistency_ specifies the consistency level for requests to the database. The supported values are `0` for `ANY`, `1` for `ONE`, `2` for `TWO`, `3` for `THREE`, `4` for `QUORUM`, `5` for `ALL`, `6` for `LOCAL_QUORUM`, `7` for `EACH_QUORUM`, and `10` for `LOCAL_ONE`. Set it to `6` for this example.
-          - **Dialect** = `SQL92`
-          - **Username** = `<Client ID>`, where a client id value is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/).
-          - **Password** = `<Client Secret>`, where a client secret is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/). 
+### Connect with the JDBC Driver
 
-      - Click the _Sign In_ button to establish a connection.
+  - Select _Other Databases (JDBC)_ under _Connect_
+  - Fill out the dialog box with the connection information:
+    - **URL** = `jdbc:astra://<db>/<keyspace>?region=<region>`  
+    Fields are as follows:
 
-      <br/><img src="https://awesome-astra.github.io/docs/img/tableau/connection-dialog.png" /><br/>
+        - db (required) Your database identifier.  It can be a name (then it must be unique) or a database identifier (UUID)
+        - keyspace (required) The keyspace you want to use.
+        - region (optional) Only useful if the database lives in multiple regions
 
-??? info "Connect with ING Driver"
-
-    - Select _Other Databases (JDBC)_ under _Connect_
-    - Fill out the dialog box with the connection information:
-
-    - **URL** = `jdbc:cassandra://dbaas/<KEYSPACE>}?
-    consistency=LOCAL_QUORUM&
-    user=token&
-    password=<AstraCS:... you token>&
-    secureconnectbundle=<path_to_your_bundle>`
     - **Dialect** = `SQL92`
     - **Username** = `<Client ID>`, where a client id value is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/).
     - **Password** = `<Client Secret>`, where a client secret is [generated with your application token](https://awesome-astra.github.io/docs/pages/astra/create-token/). 
