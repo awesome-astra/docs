@@ -142,7 +142,7 @@ GCP DataFlow is a managed service for batch and streaming data processing pipeli
       .withEntity(LanguageCode.class);
     ```
 
-
+</div>
 
 ## Prerequisites
 
