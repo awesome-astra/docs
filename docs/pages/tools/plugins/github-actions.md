@@ -43,8 +43,10 @@ Reference documentation:
 
 ## GitHub Repository Configuration
 
+<admonition markdown="1">
 !!! note "Note"
     Getting started is simple. Ask GitHub for an ubuntu environment, install the [Astra CLI](https://awesome-astra.github.io/docs/pages/astra/astra-cli/), and use the `CLI` to create a database.
+</admonition>
 
 ### Create a secret for token
 
@@ -98,8 +100,10 @@ jobs:
 
 ```
 
+<admonition markdown="1">
 !!! note "Information Regarding the variables"
     ASTRA_DB_NAME: The name of your database. ASTRA_DB_KEYSPACE: The keyspace (if not provided defaulting to same name as db). ASTRA_DB_APPLICATION_TOKEN: The secret we defined before.
+</admonition>
 
 ### Run the action
 

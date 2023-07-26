@@ -626,8 +626,10 @@ astra db cqlsh ${ASTRA_DB} \
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" />
 
+<admonition markdown="1">
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+    We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+</admonition>
 
 - **Environment Variables**
 
@@ -672,8 +674,10 @@ pwd
 
 ### 4. AstraDb to BigQuery
 
+<admonition markdown="1">
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+    We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+</admonition>
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
@@ -769,8 +773,10 @@ bq head -n 10 ${GCP_BIGQUERY_DATASET}.${GCP_BIGQUERY_TABLE}
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" />
  
+<admonition markdown="1">
 !!! note "Note"
     We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up. We also assume that you have a bigquery table populated as describe in `#F`,
+</admonition>
 
 - **Access Folder**
 
@@ -831,8 +837,10 @@ astra db cqlsh ${ASTRA_DB} \
 
 <img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" />
 
+<admonition markdown="1">
 !!! note "Note"
-        We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+    We assume that you have already executed pipeline described in `D.1` to `D.5` and that gcloud is set up.
+</admonition>
 
 - **Access Folder**
 
