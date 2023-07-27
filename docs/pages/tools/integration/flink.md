@@ -38,8 +38,10 @@ This code is intended as a fairly simple demonstration of how to enable an Apach
 <li>You should have <a href="https://flink.apache.org/downloads.html">Apache Flink</a>, <a href="https://gradle.org/install/">Gradle</a>, and <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> installed in your system. </li>
 </ul>
 
+<admonition markdown="1">
 !!! note "Note"
     For this tutorial, you will need either Java 8 or Java 11 to run it. Any other version might run into an exception and cause build failure.
+</admonition>
 
 ## Installation and Setup
 Now that you have gathered all of your prerequisites, you are ready to configure and setup for this example.

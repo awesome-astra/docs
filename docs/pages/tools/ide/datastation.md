@@ -57,12 +57,15 @@ Once you have completed all of the **Prerequisites** and confirmed CQL Proxy is 
         <img src="https://awesome-astra.github.io/docs/img/datastation/3_enter_credentials.png" width="300"/>
 
 4. Once you've entered your credentials, click *Add Panel* and select *Database* under **IMPORT FROM**. This will allow DataStation to connect with the database you are trying to view through the credentials you had just entered in the previous step. 
-???+ tip "Note"
 
+<admonition markdown="1">
+???+ tip "Note"
     DataStation IDE currently doesn't show a success message after the credentials have been entered. The Password field will also show up blank once you've minimized the credentials panel on the sidebar, but this does not necessarily mean you have to re-enter your password.
-5. You will know your database has been added once your display looks like this. You can name this Panel what you'd like. In this example, it is titled *Test Panel*. 
+</admonition>
+
+1. You will know your database has been added once your display looks like this. You can name this Panel what you'd like. In this example, it is titled *Test Panel*. 
     <img src="https://awesome-astra.github.io/docs/img/datastation/5_ready_to_run.png" />
-6. To test and validate, you can run a quick query to one of the tables that are present in the Keyspace that you provided in Step 3. 
+2. To test and validate, you can run a quick query to one of the tables that are present in the Keyspace that you provided in Step 3. 
     <img src="https://awesome-astra.github.io/docs/img/datastation/6_run_query.png" />
 
 ...and you're done! This tutorial quickly shows you how you can easily integrate your Astra DB with the DataStation IDE to run queries, build tables, and further enhance how you interact with your data. 

@@ -67,12 +67,14 @@ Keep the token information and the bundle file location ready: these will be soo
 
 ## Quickstart
 
+<admonition markdown="1">
 !!! note "Note"
     In this minimal quickstart, modeled after the one found in the [Feast documentation](https://docs.feast.dev/getting-started/quickstart), you will be providing the store configuration file by hand.
 
     Alternatively, an **interactive command-line procedure** to help you set up your store is available by launching `feast init REPO_NAME -t cassandra`.
     
     All credits for the sample code given here goes to the Feast documentation.
+</admonition>
 
 A new feature store is created and configured to use Astra DB as online store;
 next, a few sample features will be materialized to database;
@@ -113,6 +115,7 @@ online_store:
     keyspace: feastks
 ```
 
+<admonition markdown="1">
 !!! note "Settings in 'feature_store.yaml' for usage with Cassandra"
     If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
     ```
@@ -127,6 +130,7 @@ online_store:
         username: user    # optional
         password: 123456  # optional
     ```
+</admonition>
 
 Additional settings are available when configuring your Cassandra/Astra DB
 online store: check out [the full examples](https://docs.feast.dev/reference/online-stores/cassandra#getting-started)

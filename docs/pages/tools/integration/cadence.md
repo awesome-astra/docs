@@ -32,8 +32,10 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
+<admonition markdown="1">
 !!! note "Note" 
     This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.
+</admonition>
 
 ## Installation and Setup
 
@@ -43,9 +45,11 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
 2. Make sure to create an Astra token with **Admin Role**
 3. Get your **Database ID**
 
+<admonition markdown="1">
 ??? tip "Find your Database ID in one of two ways"
-     1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-     2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+</admonition>
 
 ### <span class="nosurface">✅ 2. </span> Cadence Pre-setup
 
@@ -93,9 +97,11 @@ Once the process is completed, you should see a message similar to this:
 
 Great! Your schemas have been migrated with Astra DB.
 
+<admonition markdown="1">
 !!! info "Confirm your tables exist in Astra"
     You can double-check to make sure the correct tables have been created by querying your database in Astra DB’s CQL Console.
     Run `DESC tables;` in both your `cadence` and `cadence_visibility` keyspaces. You should see there are tables loaded in that were created by the schema migration with `cadence-cassandra-tool`.
+</admonition>
   
 ```bash
 token@cqlsh> use cadence;

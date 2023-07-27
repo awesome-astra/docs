@@ -93,16 +93,20 @@ Successful output should look like this:
 ==> Vault server started! Log data will stream in below:
 ```
 
+<admonition markdown="1">
 !!! info "Note"
     If you get a warning message about mlock not being supported, that is okay. However, for maximum security you should run Vault on a system that supports mlock.
+</admonition>
 
 ## Test and Validate
 1. Once you see the above message that you successfully started Vault server, open a new terminal window.
 2. Run `vault operator init`. This will give you 5 Unseal Keys and a Root Token. Vault needs 3 Unseal Keys to properly unseal. 
    
+<admonition markdown="1">   
 !!! info "Note"
     You may get an error that looks like this: <code>Error initializing: Put "https://127.0.0.1:8200/v1/sys/init": http: server gave HTTP response to HTTPS client</code>
     This is because Vault runs on localhost, but the default address is HTTPS. Instead, you might need to specify the explicit address with the follow command: <code>vault operator init -address=http://127.0.0.1:8200</code>
+</admonition>
 
 Once Vault is initialized, it should give you an output of your Unseal Keys:
 
@@ -125,8 +129,10 @@ Vault does not store the generated root key. Without at least 3 keys to
 reconstruct the root key, Vault will remain permanently sealed!
 ```
 
+<admonition markdown="1">
 !!! danger "Note"
     Make sure to save these keys somewhere safe. This is the only time that Vault will generate these keys. 
+</admonition>
     
     
 1. Run the Vault UI at [http://127.0.0.1:8200](http://127.0.0.1:8200)

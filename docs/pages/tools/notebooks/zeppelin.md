@@ -12,10 +12,9 @@ links:
   url: "https://zeppelin.apache.org/download.html"
 ---
 -->
-s
+
 <div class="nosurface" markdown="1">
 <img src="https://awesome-astra.github.io/docs/img/apachezeplogo.png" height="100px" />
 !!! note "Check back soon"
-
     Nothing to see here yet! Check back for updates! 
 </div>
