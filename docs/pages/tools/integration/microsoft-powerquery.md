@@ -106,9 +106,11 @@ from Power Query (e.g. from Power BI). Let's see how this works.
 <admonition markdown="1">
 ??? note "Minimal token permissions"
     While you can certainly use a standard "Database Administrator" token, you may want to use a least-privilege token for this data connection through the ODBC connector. These are the specifications for a minimal Custom Role for this purpose:
-    - The token must have, in Table Permissions, (1) _Select Table_ and (2) _Describe Table_; and (3) in API Access it needs _CQL_;
-    - It is OK if the token is scoped to just the one DB that is being used;
-    - If the token is disallowed on certain keyspaces, you will still be able to list the tables they contain, but **you will get a permission error if trying to read data from them**.
+    
+    <ul><li>The token must have, in Table Permissions, (1) _Select Table_ and (2) _Describe Table_; and (3) in API Access it needs _CQL_;</li>
+    <li>It is OK if the token is scoped to just the one DB that is being used;</li>
+    <li>If the token is disallowed on certain keyspaces, you will still be able to list the tables they contain, but **you will get a permission error if trying to read data from them**.</li>
+
     <img src="https://awesome-astra.github.io/docs/img/microsoft-powerquery/power-query-howto-tk-1-odbcminimalpermissions.png" width="70%" />
 </admonition>
 
