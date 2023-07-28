@@ -118,6 +118,7 @@ online_store:
 <admonition markdown="1">
 !!! note "Settings in 'feature_store.yaml' for usage with Cassandra"
     If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
+
     ```
     online_store:
         type: cassandra
@@ -144,7 +145,7 @@ With the `apply` command, features defined in Python modules (in this case,
 
 Run the command
 
-```
+```bash
 feast apply
 ```
 
