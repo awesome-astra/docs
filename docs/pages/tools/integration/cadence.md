@@ -47,8 +47,8 @@ Cadence is a multi-tenant orchestration framework that helps with managing workf
 
 <admonition markdown="1">
 ??? tip "Find your Database ID in one of two ways"
-    1. Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-    2. Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.
+    <ol><li>Navigate to your your database and get the last ID in the URL: `https://astra.datastax.com/org/.../database/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`</li>
+    <li>Copy and paste the **Datacenter ID** without the trailing `-1` from the **Regions** section of your Astra Dashboard.</li></ol>
 </admonition>
 
 ### <span class="nosurface">✅ 2. </span> Cadence Pre-setup
