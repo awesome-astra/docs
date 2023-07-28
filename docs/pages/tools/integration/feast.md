@@ -119,7 +119,8 @@ online_store:
 !!! note "Settings in 'feature_store.yaml' for usage with Cassandra"
     If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
 
-    <pre><code>online_store:
+    ```
+    online_store:
         type: cassandra
         hosts:
             - 192.168.1.1
@@ -128,7 +129,8 @@ online_store:
         keyspace: feastks
         port: 9042        # optional
         username: user    # optional
-        password: 123456  # optional</code></pre>
+        password: 123456  # optional
+    ```
 </admonition>
 
 Additional settings are available when configuring your Cassandra/Astra DB
