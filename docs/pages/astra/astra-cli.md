@@ -22,15 +22,18 @@ native executables for `Linux` and `osx` are available.
 <!-- Prequisite Astra DB including SCB -->
 --8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db.md"
 
-- To run the vast majority of the commands you do not need special software but some commands
-  require external tools like `dsbulk`, `cqlsh`, or `pulsar-shell`. If you want to use those commands, you need to 
-  install relevant dependencies:
+??? abstract annotate "Third-party tools Requirements"
 
-   | Command                      | Tools | Dependencies        |
-   |:-----------------------------|:-------- |:--------------------| 
-   | `db cqlsh`                   | `cqlsh` | Python version 3.6+ |
-   | `db load,unload,count`       | `dsbulk` | Java version 8+ |
-   | `streaming pulsar-shell`     | `pulsar-shell` | Java version 8+     |
+    - To run the vast majority of the commands you do not need special software but some commands
+      require external tools like `dsbulk`, `cqlsh`, or `pulsar-shell`. If you want to use those commands, you need to 
+      install relevant dependencies:
+   
+    | Command                      | Tools | Dependencies        |
+    |:-----------------------------|:-------- |:--------------------| 
+    | `db cqlsh`                   | `cqlsh` | Python version 3.6+ |
+    | `db load,unload,count`       | `dsbulk` | Java version 8+ |
+    | `streaming pulsar-shell`     | `pulsar-shell` | Java version 8+  |
+
 
 ### **1.2. Installation on `Linux`**
 
