@@ -125,18 +125,82 @@ native executables for `Linux` and `osx` are available.
 
 ### **1.4. Installation on `Windows`**
 
+???+ success annotate "Installation"
 
+     To install the CLI on `Windows` you will leverage the WSL or Windows Subsystem for Linux. 
+     Enable the windows subsystem for Linux option in settings.
 
+    - [X] **Go to Start. Search for "Turn Windows features on or off.**
+     
+    - [X] **Check the option Windows Subsystem for Linux.**
+
+     <img src="../../../img/astra/enable-wsl.png" />
+
+    - [X] **Open a terminal and run the linux command**
+
+    ```bash
+    curl -Ls "https://dtsx.io/get-astra-cli" | bash
+    ```
+
+### **1.5. Installation with `Java`**
+
+???+ success annotate "Installation"
+
+      - [X] **Download the latest version of the CLI from the [release page](https://github.com/datastax/astra-cli/releases)**. 
+           For example for the version `0.4` you can download the file `astra-cli-0.4.zip` from:
+      ```
+      https://github.com/datastax/astra-cli/releases/download/0.4/astra-cli-0.4.zip
+      ```
+     
+      - [X] **Validate that Java 17 is installed.If not, download and install it from [Oracle](https://www.oracle.com/java/technologies/downloads/)**
+      
+      ```bash
+      java -version
+      ```
+
+      - [X] **Unzip the archive in destination folder**. 
+
+      You should find a file called `astra-cli.jar`. It is a fat jar with all the dependencies.
+      
+      - [X] **Run the CLI with the following command**.
+
+      ```
+      java -jar ./astra-cli.jar
+      ```
+
+      - [X] **You can use all options as suffix on this command.**
+
+      ```bash
+      java -jar ./astra-cli.jar db list --token AstraCS:...
+      ```
+
+### **1.6. Docker Image**
+
+???+ success annotate "Execution"
+
+     **Prerequisite**: you need to have docker installed on your machine. If not, please follow the [instructions on docker website](https://docs.docker.com/engine/install/)
+
+     - [X] **Run the CLI with the command `docker run` and the image `clunven/astra-cli`**.
+
+     ```bash
+     docker run clunven/astra-cli ?
+     ```
+
+    - [X] **Run a command  to a organization**: As the container is stateless you need to provide a token as an input 
+
+     ```bash
+     docker run clunven/astra-cli db list --token AstraCS:...
+     ```
+     
+    - [X] **You can also mount a volume to store the configuration file**.
+
+    ```bash
+    docker run -v ~/.astrarc:/work/?/.astrarc clunven/astra-cli db list
+    ```
 
 ## **2. Getting Started**
 
-### **2.1. Astra Setup**
-
-✅ Create an account on Astra Platform: **[SIGN IN](https://astra.datastax.com)**
-
-✅ Create a security token with `Organization Administration` role **[HOW TO](/docs/pages/astra/create-token/)**. Your token should start with `AstraCS:...`.
-
-### **2.2. Local Configuration**
+### **2.1. Setup**
 
 ???+ tip "Make sur to have `astra` in your path"
 
@@ -199,7 +263,7 @@ You can work with multiple organizations and swap from one to another. Creating 
 
     The security tokens are created for an organization only. If you need to work with multiple organizations then multiple tokens are required. You limit the scope of a token to a single database.
 
-### **2.3. Autocompletion**
+### **2.2. Autocompletion**
 
 The cli provides bash autocompletion for `bash` and `zsh` shells. Use `TAB` key twice to get a list of available options.
 
@@ -215,7 +279,7 @@ astra <TAB> <TAB>
     --no-color  config      db          help        role        setup       shell       user  
     ```
 
-### **2.4. Documentation**
+### **2.3. Documentation**
 
 The better documentation of the code is the code itself. This page will provide you samples but where you are not sure use the `astra help <my_command>`
 
@@ -292,7 +356,7 @@ astra help db list
                 Verbose mode with log in console
     ```
 
-### **2.5. Important Options**
+### **2.4. Important Options**
 
 Each commands has some specific parameters but all commands share have the following options.
 
@@ -306,7 +370,7 @@ Each commands has some specific parameters but all commands share have the follo
 | **override config** | `--config ...` | Change section use in `~/.astrarc` for the command| 
 | **override config-file** | `--config-file ...` | Do not use `~/.astrarc` for the command | 
 
-### 2.6 Configuration
+### 2.5 Configuration
 
 If you work with multiple organizations, it could be useful to switch from one configuration to another, one token to another. The CLI provides a configuration management solution to handle this use case.
 
