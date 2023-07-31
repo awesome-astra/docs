@@ -1,28 +1,27 @@
 ## **Overview**
 
-> CLI Latest version : ![0.3](https://img.shields.io/github/v/release/datastax/astra-cli)
+> CLI Latest version : ![0.4](https://img.shields.io/github/v/release/datastax/astra-cli)
 
-Astra CLI is a `command line interface` used to interact with Datastax astra resources (_create, read, update, delete_). On top of administration tasks it provides extra features like _backup, restore_ and  _migration_. It also allows native integration (downloads, setup, execution) with tools from the ecosystem  like _cqlsh, dsbulk, dsbulk-migrator_, or _pulsar-shell_.
+Astra CLI is a command-line interface (CLI) tool that enables users to interact with and manage the 
+Astra database-as-a-service platform. It provides developers with a streamlined way to create, configure, and 
+manipulate databases, making it easier to integrate Astra into their applications and workflows.
+
+Astra CLI goes beyond basic database management by facilitating the seamless integration of external tools like **dsbulk**, 
+**cqlsh**, and **pulshar-shell** or by providing useful shortcuts like **dotenv** file generation.
 
 ## **1. Installation**
 
+This software has been developed and packaged as a Java application as such it can be
+installed on any machine with a JVM. But it has also been compiled as native executables  with GraalVM and 
+provides native executable for `Linux` and `osx`.
+
 ### **1.1. Installation on `Linux`**
 
-This software has been built with Java and compiled as native executables for each platform. The [installation script](https://dtsx.io/get-astra-cli) will download the archives and extract all files in `~/.astra`, it is inspired from `sdkman`. 
-
-| Information | Path |
-|-----------|---------|
-| **Installation Folder**: Contains archive and third-party tools | `~/.astra` |
-| **Configuration File**: Hold configs and credentials, will not be lost when updating | `~/.astrarc` |
-
-Your `bash_profile, bashrc, zhrc` will be amended to add `astra` in the path and run the bash autocompletion file at startup.
-
-
-✅ **Installation**
-
-```bash
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
-```
+> **Install command**
+>
+> ```bash
+> curl -Ls "https://dtsx.io/get-astra-cli" | bash
+> ```
 
 ✅ **Upgrade**
 

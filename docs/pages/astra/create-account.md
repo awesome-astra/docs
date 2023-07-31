@@ -1,10 +1,14 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 ## A - Overview
 
 ASTRA DB is the simplest way to run Cassandra with zero operations. **No credit card required** and $25.00 USD credit every month (_roughly 20M reads/writes, 80GB storage monthly_) which is sufficient to run small production workloads.
 
-[https://astra.datastax.com](https://astra.datastax.com/) is the URL create an account and get started with the solution.
+[https://astra.datastax.com](https://astra.dev/3B7HcYo) is the URL create an account and get started with the solution.
 
-[![](https://dabuttonfactory.com/button.png?t=Go+to+Astra&f=Open+Sans-Bold&ts=18&tc=fff&hp=40&vp=18&c=11&bgt=gradient&bgc=4052b5&ebgc=073763)](https://astra.datastax.com){target=blank}
+<a href="https://astra.datastax.com" class="md-button">
+  <i class="fa fa-sign-in" ></i>&nbsp;Sign Up to Astra
+</a>
 
 ## B - Sign Up
 
@@ -12,7 +16,7 @@ You can use your `Github`, `Google` accounts or register with an `email`.
 
 ### 1. Sign In with Github
 
-??? note "Click the `[Sign In with Github]` button"
+???+ note "Click the `[Sign In with Github]` button"
 
     <img src="../../../img/astra/astra-signin-github-0.png" />
 
@@ -86,7 +90,8 @@ When you create an account your personal **Organization** is created, **this is 
 
 ```mermaid
   graph TD
-    User(User) -->|1..n| ORG(Organization)
+    User(User) -->|n..m| ORG(Organization)
+    ORG(Organization) --> User(User) 
     ORG(Organization) -->|0..n| DB(Databases)
     ORG(Organization) -->|0..n| ST(Streaming Tenants)
     ORG(Organization) -->|0..n| ROLE(Roles)
@@ -94,7 +99,8 @@ When you create an account your personal **Organization** is created, **this is 
     TOK(Security Tokens) -->|1..1| ROLE
     DB(Databases) -->|1..n| KEY(Keyspaces)
     KEY(Keyspaces) -->|0..n| TABLE(Tables)
-    ST(Streaming Tenants) -->|0..n| TOPIC(Topics)
+    ST(Streaming Tenants) -->|1..n| NAMESPACES(Namespaces)
+    NAMESPACES(Namespaces) -->|0..n| TOPICS(Topics)
 ```
 
 <img src="../../../img/astra/organization-3.png" />

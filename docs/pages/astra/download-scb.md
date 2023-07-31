@@ -12,7 +12,7 @@ To initialize a **secured** 2-way TLS connection between clients and Astra x509 
 
 The configuration and required certificates are provided to the user through a zip file called the **secure connect bundle** which can be downloaded for each **DATABASE REGION**. This means that a database deployed across multiple regions will have one secure connect bundle per region. _(1 region = 1 underlying Apache Cassandra™ datacenter)_
 
-<img src="../../../img/astra/secureconnectbundle-doc.png" height="300px" />
+> <img src="../../../img/astra/secureconnectbundle-doc.png" height="300px" />
 
 ## B - Prerequisites
 
@@ -20,6 +20,13 @@ The configuration and required certificates are provided to the user through a z
 - You should [Create an Astra Database](/docs/pages/astra/create-instance/)
 
 ## C - Procedure
+
+???+ info "Not a fan of user interfaces ?"
+
+    The procedure on this page describes how to download the secure connect bundle 
+    through the user interface. If you have the CLI installed you can
+    also go with a `astra db download-scb my_db`. More information on the
+    [CLI page](../astra-cli/#310-download-secure-bundle)
 
 **✅ Step 1 : Go to your database's Connect Quick Start**
 

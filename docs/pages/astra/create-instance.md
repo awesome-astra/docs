@@ -16,32 +16,41 @@
 
 ## C - Procedure
 
+???+ info "Not a fan of user interfaces ?"
+
+    The procedure on this page describes how to create a database 
+    through the user interface. If you have the CLI installed you can
+    also go with a `astra db create my_db`. More information on the
+    [CLI page](../astra-cli/#33-create-database)
+
 **✅ Step 1: Click the `Create Account` button to login or register.**
 
 You can use your `Github`, `Google` accounts or register with an `email`. Make sure to chose a password with a minimum of 8 characters, containing upper and lowercase letters, and at least one number and special character.
 
 > If you already have an Astra account, you can skip this step. Locate the "Create Database" button, as shown in the next step, and read on.
-
-<img src="../../../img/astra/astra-login.png" />
+> 
+> <img src="../../../img/astra/astra-signup-2.png" />
 
 **✅ Step 2: Complete the creation form**
 
 _If you are creating a new account, you will be brought to the DB-creation form directly._
 
-Otherwise, get to the databases dashboard (by clicking on "Databases" in the left-hand navigation bar,
-expanding it if necessary), and click the "Create Database" button on the right.
+Otherwise, get to the databases dashboard (by clicking on `Databases` in the left-hand navigation bar,
+expanding it if necessary), and click the `[Create Database]` button on the right.
 
-<img src="../../../img/astra/astra-create-db-1.png" />
+> <p/>
+> <img src="../../../img/astra/astra-create-db-1.png" />
 
 Take a moment to fill the form:
 
 - **ℹ️ Fields Description**
 
-| Field              | Description                                                                                                                                                                                                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **database name**  | It does not need to be unique, is not used to initialize a connection, and is only a label (keep it between 2 and 50 characters). It is recommended to have a database for each of your applications. The free tier is limited to 5 databases. |
-| **keyspace**       | It is a logical grouping of your tables (keep it between 2 and 48 characters). Prefer lower case or `snake_case`, and avoid spaces.                                                                                                                  |
-| **Cloud Provider** | Choose whatever you like. Click a cloud provider logo, pick an Area in the list and finally pick a region. We recommend choosing a region that is closest to you to reduce latency. In free tier, there is very little difference.                      |
+| Field                                      | Description                                                                                                                                                                                                                                    |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Vector Database vs Serverless Database** | In june 2023, Cassandra introduced the support of vector search to enable Generative AI use cases. You might consume your credit faster with a vector database.                                                                                |
+| **database name**                          | It does not need to be unique, is not used to initialize a connection, and is only a label (keep it between 2 and 50 characters). It is recommended to have a database for each of your applications. The free tier is limited to 5 databases. |
+| **keyspace**                               | It is a logical grouping of your tables (keep it between 2 and 48 characters). Prefer lower case or `snake_case`, and avoid spaces.                                                                                                            |
+| **Cloud Provider**                         | Choose whatever you like. Click a cloud provider logo, pick an Area in the list and finally pick a region. We recommend choosing a region that is closest to you to reduce latency. In free tier, there is very little difference.             |
 
 If all fields are filled properly, clicking the "Create Database" button will start the process. It should take a couple of minutes for your database to become `Active`.
 
