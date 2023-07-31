@@ -22,7 +22,7 @@
         <link rel="next" href="../astra-cli/">
       
       <link rel="icon" href="../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3024,38 +3024,46 @@
   <h1>‣ Create Token</h1>
 
 <p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"></p>
-<div class="admonition abstract">
-<p class="admonition-title">Reference Documentation and resources</p>
-<p><ol>
-    <li><i class="fa fa-book" ></i>&nbsp;<a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html"><b>Astra Docs</b> - The Astra token creation procedure</a>
-    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://www.youtube.com/watch?v=TUTCLsBuUd4"><b>Youtube Video</b> - Walk through token creation</a>
-    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://youtu.be/k5b5TiafAAM?list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&t=81"><b>Youtube Video</b> - More about token and roles in Astra</a>
-</ol></p>
-</div>
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
-<p>As stated in the <a href="/docs/pages/astra/create-account/">Create Account</a> page, the security token is associated to one and only one organization and only one role.</p>
-<pre class="mermaid"><code>  graph TD
-    USER(Users) --&gt;|n...m|ORG(Organizations)
-    ORG --&gt;|0..n|DB(Dabatases)
-    ORG --&gt;|0..n|TOKEN(Tokens)
-    ORG --&gt;|0..n|STR(Streaming Tenants)
-    TOKEN--&gt;|1:1|ROLE(role)
-    ROLE--&gt;|1..n|PERMISSIONS(permissions)</code></pre>
-<p>There are a set of predefined roles within an organization which are associated with some default permissions. The full list of permissions and roles is available in the <a href="https://docs.datastax.com/en/astra/docs/user-permissions.html">Astra Documentation</a>.</p>
-<p><center>
-<img src="../../../img/astra/roles-1.png" />
-<br/><i>Figure 1: Default Roles</i></p>
-<p>
-<img src="../../../img/astra/roles-11.png" />
-<br/><i>Figure 2: Permissions for a selected role (here, "Database Administrator")</i>
-</p>
-<p></center></p>
+<blockquote>
+<p><i class="fa fa-book"></i> A page also exists in the <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Astra Reference Documentation</a></p>
+</blockquote>
+<p>As stated in the <a href="/docs/pages/astra/create-account/">Create Account</a> page, the security token is associated to one and 
+only one organization and only one role. There are a set of predefined roles within an organization which are associated 
+with some default permissions. The full list of permissions and roles is available in the 
+<a href="https://docs.datastax.com/en/astra/docs/user-permissions.html">Astra Documentation</a>.</p>
+<p><strong>Default roles available for a token:</strong></p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Administrator User
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Organization Administrator
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Billing Administrator
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Database Administrator
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>UI View Only
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Administrator Service Account
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Read/Write Service Account
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Read Only Service Account
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Read/Write User
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Read Only User
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>API Administrator User
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>API Read Only Service Account
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>API Read/Write User
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>API Administrator Service Account
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>API Read/Write Service Account
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>API Read Only User
+</code></pre></div>
+</blockquote>
+<p><strong>Permissions for a role</strong> <em>(here Organization Administrator got access to everything)</em></p>
+<blockquote>
+<p><p/>
+<img src="../../../img/astra/roles-11.png" /></p>
+</blockquote>
+<p><strong>Custom Roles</strong></p>
 <p>It is possible to manually create custom roles and tune the corresponding permissions in a fine-grained fashion (<code>Settings / Role Management</code>), to later create tokens based on them.
 For example, each time <a href="/docs/pages/astra/create-instance/">a database is created</a>, it comes with an autogenerated brand-new token, backed by an ad-hoc custom role essentially scoped to that database only.</p>
-<p><center>
-<img src="../../../img/astra/roles-2.png" />
-<br/><i>Figure 3: Custom Roles screen</i>
-</center></p>
+<blockquote>
+<p><p/>
+<img src="../../../img/astra/roles-2.png" /></p>
+</blockquote>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <p><strong>To create a new token:</strong></p>
 <ul>
@@ -3066,7 +3074,7 @@ For example, each time <a href="/docs/pages/astra/create-instance/">a database i
 <em>automatically for you as <a href="/docs/pages/astra/create-instance/">a database is created</a>. In many cases, however, you need</em>
 <em>to manually issue tokens, and here is explained how to do that.</em></p>
 <p>1️⃣ First go to the Organization settings panel in one of the following ways:</p>
-<details class="note">
+<details class="note" open="open">
 <summary>Settings page</summary>
 <p>On the bottom-right corner of the Astra UI, in the navigation bar, click on "Settings" next to the cog icon. (The navigation bar might be collapsed to the left). Then, select the "Token management" entry in the Settings menu.</p>
 <p><img src="../../../img/astra/astra-settings-1.png" /></p>
@@ -3082,9 +3090,15 @@ For example, each time <a href="/docs/pages/astra/create-instance/">a database i
 <p><img src="../../../img/astra/astra-settings-3.png" /></p>
 </details>
 <p>2️⃣ Pick the desired role for the token in the drop-down list and click "Generate".</p>
-<p><img src="../../../img/astra/astra-create-token-A.png" /></p>
+<blockquote>
+<p><p/>
+<img src="../../../img/astra/astra-create-token-A.png" /></p>
+</blockquote>
 <p>3️⃣ A new token is generated for you. Make sure to copy/download the values before leaving the page, since the secrets will not be shown anymore. You can copy the individual secrets with the button next to the text fields, or directly download the whole token as a file and store it safely.</p>
-<p><img src="../../../img/astra/astra-create-token-B.png" /></p>
+<blockquote>
+<p><p/>
+<img src="../../../img/astra/astra-create-token-B.png" /></p>
+</blockquote>
 <details class="tip">
 <summary>Anatomy of a Token</summary>
 <p>The Token is in fact three separate strings: a <em>Client ID</em>, a <em>Client Secret</em> and
@@ -3096,14 +3110,25 @@ it to a Git repository) as it grants access to your databases.</p>
 <p><img src="../../../img/astra/astra-create-token-Z.png" /></p>
 </details>
 <p>4️⃣ The token will not expire, unless you decide to revoke (i.e. delete) it, for example in case it is compromised. To do so, in the "Token Management" page, click on the "..." menu next to the token you want to delete.</p>
-<p><img src="../../../img/astra/astra-create-token-C.png" /></p>
+<blockquote>
+<p><p/>
+<img src="../../../img/astra/astra-create-token-C.png" /></p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">Reference Documentation and resources</p>
+<p><ol>
+    <li><i class="fa fa-book" ></i>&nbsp;<a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html"><b>Astra Docs</b> - The Astra token creation procedure</a>
+    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://www.youtube.com/watch?v=TUTCLsBuUd4"><b>Youtube Video</b> - Walk through token creation</a>
+    <li><i class="fa fa-youtube-play" ></i>&nbsp;<a href="https://youtu.be/k5b5TiafAAM?list=PL2g2h-wyI4SpWK1G3UaxXhzZc6aUFXbvL&t=81"><b>Youtube Video</b> - More about token and roles in Astra</a>
+</ol></p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-03-08
+      2023-07-31
     
   </small>
 </div>

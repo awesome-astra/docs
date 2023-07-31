@@ -22,7 +22,7 @@
         <link rel="next" href="../../../gallery/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3114,10 +3114,12 @@ is a continuous integration and continuous delivery (CI/CD) platform that allows
 </ul>
 
 <h2 id="github-repository-configuration">GitHub Repository Configuration<a class="headerlink" href="#github-repository-configuration" title="Permanent link">&para;</a></h2>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Getting started is simple. Ask GitHub for an ubuntu environment, install the <a href="https://awesome-astra.github.io/docs/pages/astra/astra-cli/">Astra CLI</a>, and use the <code>CLI</code> to create a database.</p>
 </div>
+<p></admonition></p>
 <h3 id="create-a-secret-for-token">Create a secret for token<a class="headerlink" href="#create-a-secret-for-token" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open your github Repository and locate the tabs <code>Settings</code></li>
@@ -3169,10 +3171,12 @@ is a continuous integration and continuous delivery (CI/CD) platform that allows
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">          </span><span class="no">echo $ASTRA_DB_NAME</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">          </span><span class="no">/home/runner/.astra/cli/astra db create $ASTRA_DB_NAME -k $ASTRA_DB_KEYSPACE --token $ASTRA_DB_APPLICATION_TOKEN --if-not-exists </span>
 </code></pre></div>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Information Regarding the variables</p>
 <p>ASTRA_DB_NAME: The name of your database. ASTRA_DB_KEYSPACE: The keyspace (if not provided defaulting to same name as db). ASTRA_DB_APPLICATION_TOKEN: The secret we defined before.</p>
 </div>
+<p></admonition></p>
 <h3 id="run-the-action">Run the action<a class="headerlink" href="#run-the-action" title="Permanent link">&para;</a></h3>
 <p>With the configuration above the CLI is triggered at each commit. As we provided the options <code>--if-not-exists</code> in the command line, it is not harmful.</p>
 <ul>
@@ -3255,7 +3259,7 @@ is a continuous integration and continuous delivery (CI/CD) platform that allows
   <small>
     
       Last update:
-      2023-06-01
+      2023-07-26
     
   </small>
 </div>

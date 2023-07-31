@@ -22,7 +22,7 @@
         <link rel="next" href="../../plugins/astradb-vault-plugin/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3127,10 +3127,12 @@
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
 </ul>
 
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such.  </p>
+<p>This runbook was written using Mac OS Monterey but it will also work with Windows. Any Windows-specific instructions will be noted as such. </p>
 </div>
+<p></admonition> </p>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <h3 id="step-1-setup-astra"><span class="nosurface">✅ Step 1: </span>Setup Astra<a class="headerlink" href="#step-1-setup-astra" title="Permanent link">&para;</a></h3>
 <ol>
@@ -3138,6 +3140,7 @@
 <li>Make sure to create an Astra token with <strong>Admin Role</strong></li>
 <li>Get your <strong>Database ID</strong></li>
 </ol>
+<p><admonition markdown="1"></p>
 <details class="tip" open="open">
 <summary>Find your Database ID in one of two ways:</summary>
 <ol>
@@ -3145,6 +3148,7 @@
 <li>Copy and paste the <strong>Datacenter ID</strong> without the trailing <code>-1</code> from the <strong>Regions</strong> section of your Astra Dashboard. </li>
 </ol>
 </details>
+<p></admonition></p>
 <h3 id="step-2-temporal-pre-setup"><span class="nosurface">✅ Step 2: </span>Temporal Pre-setup<a class="headerlink" href="#step-2-temporal-pre-setup" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Clone this GitHub <a href="https://github.com/mpenick/temporal-astra-cql-proxy">repository</a></li>
@@ -3178,6 +3182,7 @@
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">2022</span>-03-02T22:42:54.120Z<span class="w">    </span>INFO<span class="w">    </span>Schema<span class="w"> </span>setup<span class="w"> </span><span class="nb">complete</span><span class="w">   </span><span class="o">{</span><span class="s2">&quot;logging-call-at&quot;</span>:<span class="w"> </span><span class="s2">&quot;setuptask.go:131&quot;</span><span class="o">}</span>
 </code></pre></div>
 <p>Great! Your schemas have been migrated with Astra DB. </p>
+<p><admonition markdown="1"></p>
 <details class="info" open="open">
 <summary>Confirm your tables exist in Astra</summary>
 <ul>
@@ -3185,6 +3190,7 @@
 <li>Run <code>DESC tables;</code> in both your <code>temporal</code> and <code>temporal_visibility</code> keyspaces. You should see there are tables loaded in that were created by the schema migration with <code>temporal-cassandra-tool</code>. </li>
 </ul>
 </details>
+<p></admonition></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>token@cqlsh&gt;<span class="w"> </span>use<span class="w"> </span>temporal<span class="p">;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>token@cqlsh:temporal&gt;<span class="w"> </span>desc<span class="w"> </span>tables<span class="p">;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -3236,7 +3242,7 @@
   <small>
     
       Last update:
-      2023-06-01
+      2023-07-26
     
   </small>
 </div>

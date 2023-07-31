@@ -22,7 +22,7 @@
         <link rel="next" href="../vault/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3341,6 +3341,7 @@
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">.</span><span class="na">withEntity</span><span class="p">(</span><span class="n">LanguageCode</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 </code></pre></div>
 </details>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul class="prerequisites">
     <li class="nosurface">You should have Java11+, Maven, and Git installed</li>
@@ -3350,6 +3351,7 @@
     <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure Connect Bundle</a></li>
 
 </ul>
+
 <div class="nosurface">
 <!-- Prequisites for Java And Maven -->
 <details class="abstract">
@@ -3813,10 +3815,12 @@
 </code></pre></div>
 <h3 id="3-astradb-to-gcs">3. AstraDb to GCS<a class="headerlink" href="#3-astradb-to-gcs" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-gcs.png" /></p>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
-</p>
+<p class="admonition-title">Note</p>
+<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </div>
+<p></admonition></p>
 <ul>
 <li><strong>Environment Variables</strong></li>
 </ul>
@@ -3855,10 +3859,12 @@
 <a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="s2"> --region=us-central1&quot;</span>
 </code></pre></div>
 <h3 id="4-astradb-to-bigquery">4. AstraDb to BigQuery<a class="headerlink" href="#4-astradb-to-bigquery" title="Permanent link">&para;</a></h3>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
-</p>
+<p class="admonition-title">Note</p>
+<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </div>
+<p></admonition></p>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
 <ul>
 <li><strong>Access Folder</strong></li>
@@ -3947,10 +3953,12 @@
 </code></pre></div>
 <h3 id="5-bigquery-to-astradb">5. BigQuery to AstraDb<a class="headerlink" href="#5-bigquery-to-astradb" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/bigquery-to-astra.png" /></p>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up. We also assume that you have a bigquery table populated as describe in <code>#F</code>,</p>
 </div>
+<p></admonition></p>
 <ul>
 <li><strong>Access Folder</strong></li>
 </ul>
@@ -4002,10 +4010,12 @@ The destination table has been created in flow <code>3.3</code></em></p>
 </code></pre></div>
 <h3 id="6-bigquery-dynamic-mapping">6. BigQuery Dynamic Mapping<a class="headerlink" href="#6-bigquery-dynamic-mapping" title="Permanent link">&para;</a></h3>
 <p><img src="https://awesome-astra.github.io/docs/img/google-cloud-dataflow/astra-to-bigquery.png" /></p>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
-</p>
+<p class="admonition-title">Note</p>
+<p>We assume that you have already executed pipeline described in <code>D.1</code> to <code>D.5</code> and that gcloud is set up.</p>
 </div>
+<p></admonition></p>
 <ul>
 <li><strong>Access Folder</strong></li>
 </ul>
@@ -4044,14 +4054,13 @@ The destination table has been created in flow <code>3.3</code></em></p>
 with the table name have been created in BigQuery.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>bq<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="si">${</span><span class="nv">ASTRA_KEYSPACE</span><span class="si">}</span>.<span class="si">${</span><span class="nv">ASTRA_TABLE</span><span class="si">}</span>
 </code></pre></div>
-</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-06-24
+      2023-07-26
     
   </small>
 </div>

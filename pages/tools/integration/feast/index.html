@@ -22,7 +22,7 @@
         <link rel="next" href="../apache-beam-google-dataflow/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3200,12 +3200,14 @@ contribution flexibly supports both Cassandra and Astra DB, as will be explained
 
 <p>Keep the token information and the bundle file location ready: these will be soon provided in the Feast configuration.</p>
 <h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In this minimal quickstart, modeled after the one found in the <a href="https://docs.feast.dev/getting-started/quickstart">Feast documentation</a>, you will be providing the store configuration file by hand.</p>
 <p>Alternatively, an <strong>interactive command-line procedure</strong> to help you set up your store is available by launching <code>feast init REPO_NAME -t cassandra</code>.</p>
 <p>All credits for the sample code given here goes to the Feast documentation.</p>
 </div>
+<p></admonition></p>
 <p>A new feature store is created and configured to use Astra DB as online store;
 next, a few sample features will be materialized to database;
 finally, historical/online feature retrieval is demonstrated.</p>
@@ -3232,9 +3234,10 @@ the Client ID and Client Secret from your token and the keyspace name:</p>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    password: Client_Secret
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    keyspace: feastks
 </code></pre></div>
+<p><admonition markdown="1"></p>
 <div class="admonition note">
 <p class="admonition-title">Settings in 'feature_store.yaml' for usage with Cassandra</p>
-<p>If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:
+<p>If using regular Cassandra as opposed to Astra DB, the "online_store" portion might look like:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>online_store:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    type: cassandra
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    hosts:
@@ -3245,8 +3248,9 @@ the Client ID and Client Secret from your token and the keyspace name:</p>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    port: 9042        # optional
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    username: user    # optional
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    password: 123456  # optional
-</code></pre></div></p>
+</code></pre></div>
 </div>
+<p></admonition></p>
 <p>Additional settings are available when configuring your Cassandra/Astra DB
 online store: check out <a href="https://docs.feast.dev/reference/online-stores/cassandra#getting-started">the full examples</a>
 on the Feast documentation.</p>
@@ -3254,7 +3258,7 @@ on the Feast documentation.</p>
 <p>With the <code>apply</code> command, features defined in Python modules (in this case,
 <code>example.py</code>) are scanned and used for actual deployment of the infrastructure.</p>
 <p>Run the command</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>feast apply
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>feast<span class="w"> </span>apply
 </code></pre></div>
 <blockquote>
 <p>This is the step that actually accesses the database. After running it,
@@ -3356,7 +3360,7 @@ to find out what you can do with your newly-deployed feature store.</p>
   <small>
     
       Last update:
-      2022-11-17
+      2023-07-28
     
   </small>
 </div>

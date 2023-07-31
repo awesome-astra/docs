@@ -22,7 +22,7 @@
         <link rel="next" href="../resume-db/">
       
       <link rel="icon" href="../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3060,13 +3060,22 @@
 <h2 id="a-overview">A - Overview<a class="headerlink" href="#a-overview" title="Permanent link">&para;</a></h2>
 <p>To initialize a <strong>secured</strong> 2-way TLS connection between clients and Astra x509 certificates are needed. The strong authentication is key for maximum security and still benefits from robust driver features (health-check, load-balancing, fail-over). Under the hood the protocol SNI over TCP is used to contact each node independently.</p>
 <p>The configuration and required certificates are provided to the user through a zip file called the <strong>secure connect bundle</strong> which can be downloaded for each <strong>DATABASE REGION</strong>. This means that a database deployed across multiple regions will have one secure connect bundle per region. <em>(1 region = 1 underlying Apache Cassandra™ datacenter)</em></p>
+<blockquote>
 <p><img src="../../../img/astra/secureconnectbundle-doc.png" height="300px" /></p>
+</blockquote>
 <h2 id="b-prerequisites">B - Prerequisites<a class="headerlink" href="#b-prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
 <li>You should <a href="/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
 </ul>
 <h2 id="c-procedure">C - Procedure<a class="headerlink" href="#c-procedure" title="Permanent link">&para;</a></h2>
+<details class="info" open="open">
+<summary>Not a fan of user interfaces ?</summary>
+<p>The procedure on this page describes how to download the secure connect bundle 
+through the user interface. If you have the CLI installed you can
+also go with a <code>astra db download-scb my_db</code>. More information on the
+<a href="../astra-cli/#310-download-secure-bundle">CLI page</a></p>
+</details>
 <p><strong>✅ Step 1 : Go to your database's Connect Quick Start</strong></p>
 <p>Once you sign in and land on your Astra Home, reach the Quick Start page for
 the database whose Secure Connect Bundle you want to obtain.
@@ -3124,7 +3133,7 @@ to download the file:</p>
   <small>
     
       Last update:
-      2023-04-12
+      2023-07-31
     
   </small>
 </div>

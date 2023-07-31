@@ -22,7 +22,7 @@
         <link rel="next" href="../../ide/datastation/">
       
       <link rel="icon" href="../../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -3148,10 +3148,12 @@
 
 <p>This article assumes you have a running installation of JanusGraph server. This was written and tested on JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-062-release-date-may-31-2022"><code>v0.6.2</code></a>. If JanusGraph <a href="https://docs.janusgraph.org/changelog/#version-060-release-date-september-3-2021"><code>v0.6.0</code></a> is used instead, refer to <a href="https://community.datastax.com/articles/12264/how-to-connect-to-astra-db-from-janusgraph.html">this article</a>. It has not been tested on older versions of JanusGraph. </p>
 <p>You will need to choose which keyspace to use to store your graph. If it doesn't exist, you will need to <a href="https://docs.datastax.com/en/astra/docs/managing-keyspaces.html">create the keyspace</a> on the Astra UI. For simplicity, the keyspace is created as <code>janusgraph</code>.</p>
+<p><admonition markdown="1"></p>
 <div class="admonition info">
 <p class="admonition-title">IMPORTANT</p>
 <p>If you want to connect JanusGraph server to <a href="https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html">ZDM</a>, it is recommended to use the <a href="http://localhost:8000/pages/tools/databases/janusgraph/?h=janus#step-2b-internal-file-configuration">Internal Configuration File</a> to avoid any credentials issues. Just comment out the secure bundle path part from the external file.</p>
 </div>
+<p></admonition></p>
 <h2 id="installation-and-setup">Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> For simplicity, the secure connect bundle has been placed in <code>/path/to/scb</code></p>
 <h3 id="step-1-db-information"><span class="nosurface">✅ Step 1:</span> DB Information<a class="headerlink" href="#step-1-db-information" title="Permanent link">&para;</a></h3>
@@ -3209,10 +3211,12 @@ externalize the astra connection related properties to a separate file and speci
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  }
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>}
 </code></pre></div></p>
+<p><admonition markdown="1"></p>
 <div class="admonition info">
 <p class="admonition-title">IMPORTANT</p>
 <p>The <strong>ClientID</strong> and <strong>ClientSecret</strong> are from the token you generated in the <strong>Prerequisites</strong> section above.</p>
 </div>
+<p></admonition></p>
 <h3 id="step-3-final-test"><span class="nosurface">✅ Step 3:</span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
 <p>Start a Gremlin console:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ bin/gremlin.sh
@@ -3226,10 +3230,12 @@ Load a graph using Astra as the storage backend with:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gremlin&gt; graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql.properties&#39;)
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>==&gt;standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
 </code></pre></div></p>
+<p><admonition markdown="1"></p>
 <div class="admonition abstract">
 <p class="admonition-title">Note</p>
 <p>It is normal to see some warnings on the Gremlin console. I have attached a <a href="https://awesome-astra.github.io/docs/img/janusgraph/gremlin-console-output.txt">text file</a> with a sample output so you know what to expect.</p>
 </div>
+<p></admonition></p>
 <p>In the <a href="https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html">Astra CQL Console</a>, I can see JanusGraph created the following tables in the <code>janusgraph</code> keyspace:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>token@cqlsh&gt; USE janusgraph;
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>token@cqlsh:janusgraph&gt; DESCRIBE TABLES;
@@ -3247,7 +3253,7 @@ Load a graph using Astra as the storage backend with:
   <small>
     
       Last update:
-      2023-05-12
+      2023-07-26
     
   </small>
 </div>
