@@ -11,78 +11,118 @@ Astra CLI goes beyond basic database management by facilitating the seamless int
 
 ## **1. Installation**
 
-This software has been developed and packaged as a Java application as such it can be
-installed on any machine with a JVM. But it has also been compiled as native executables  with GraalVM and 
-provides native executable for `Linux` and `osx`.
+This software has been developed and packaged as a Java application. As such, it can be
+installed on any machine with a JVM. 
 
-### **1.1. Installation on `Linux`**
+But it has also been compiled as native executables with GraalVM and 
+native executables for `Linux` and `osx` are available.
 
-> **Install command**
->
-> ```bash
-> curl -Ls "https://dtsx.io/get-astra-cli" | bash
-> ```
+### **1.1. Prerequisites**
 
-✅ **Upgrade**
+<!-- Prequisite Astra DB including SCB -->
+--8<-- "https://raw.githubusercontent.com/awesome-astra/docs/main/docs/templates/prerequisites-astra-db.md"
 
-```bash
-curl -Ls "https://dtsx.io/get-astra-cli" | bash
-```
+- To run the vast majority of the commands you do not need special software but some commands
+  require external tools like `dsbulk`, `cqlsh`, or `pulsar-shell`. If you want to use those commands, you need to 
+  install relevant dependencies:
 
-✅ **Uninstall**
+   | Command                      | Tools | Dependencies        |
+   |:-----------------------------|:-------- |:--------------------| 
+   | `db cqlsh`                   | `cqlsh` | Python version 3.6+ |
+   | `db load,unload,count`       | `dsbulk` | Java version 8+ |
+   | `streaming pulsar-shell`     | `pulsar-shell` | Java version 8+     |
 
-```bash
-rm -R ~/.astra
-rm ~/.astrarc
-```
+### **1.2. Installation on `Linux`**
 
-### **1.2. Installation on `osx`**
+???+ success annotate "Installation or update"
+    
+    - [x] **Installation and update use the same procedure.**   
 
-> Homebrew is a package manager for OSX [install homebrew](#)
+    ```bash
+    curl -Ls "https://dtsx.io/get-astra-cli" | bash
+    ```
+        
+    - The CLI is installed in `~/.astra` and the binary is in `~/.astra/bin/astra`. 
 
-Homebrew is the recommended solution to manage Astra CLI. It provides convenient ways to install, update, and uninstall. It will install tools required for external components as well like proper Java and python versions.
+    - The `~/.astra/bin` folder is added to the `PATH` environment variable. The folder contains the 
+    script allowing bash auto-completion.
 
-???+ info "Do not want to use homebrew ?"
+    - The configuration of the CLI is stored in `~/.astrarc` - **It is not lost on updates.**
 
-    `osx` is based on a linux kernel and can run shell scripts. 
+??? abstract annotate "Uninstall"
+
+    - [x] **Remove folder where the files are installed.**
+
+    ```bash
+    rm -R ~/.astra
+    ```
+    
+    - [x] **Remove the configuration file.**
+
+    ```bash
+    rm ~/.astrarc
+    ```
+
+    - [x] **Edit `~/.bash_profile` or `~/.zhrc` to remove reference to CLI**
+
+    ```bash
+    #THIS MUST BE AT THE END OF THE FILE FOR ASTRA_CLI TO WORK!!!
+    export ASTRADIR="/Users/<your_user>/.astra/cli"
+    [[ -s "/Users/<your_user>/.astra/cli/astra-init.sh" ]] && source "/Users/<your_user>/.astra/cli/astra-init.sh"
+    ```
+
+
+### **1.3. Installation on MAC `osx`**
+
+???+ success annotate "Installation or update"
+
+    Homebrew is the recommended solution to manage Astra CLI on `osX`. It provides convenient
+    ways to install, update, and uninstall. It will install tools required for external
+    components as well like proper Java and python versions.
+
+    - [X] **Install with**
+
+    ```bash
+    brew install datastax/astra-cli/astra-cli
+    ```
+
+    - `osx` is based on a linux kernel and can run shell scripts. 
     The [Linux installation](#2-install-on-linux) procedure also work on mac machines.
 
-✅ **Installation**
+    - Files are installed in `/usr/local/Cellar/astra-cli/<version>` and linked with a symbolic
+    link to `/usr/local/bin/astra`.
 
-```bash
-brew install datastax/astra-cli/astra-cli
-```
+    - The configuration of the CLI is stored in `~/.astrarc` - **It is not lost on updates
 
-✅ **Update**
+    - :warning: **LinuxBrew is not supported**: The binary installed by the brew fomulae is a native executable for `osx` 
+    and will not work on `Linux`. To install on linux please use the 
+    [Linux installation](#2-install-on-linux) procedure.
 
-```
-brew upgrade datastax/astra-cli/astra-cli
-```
+??? abstract annotate "Updates"
 
-✅ **Uninstall**
+    - [X] **Update with**
+    
+    ```bash
+    brew upgrade datastax/astra-cli/astra-cli
+    ```
 
-```
-brew uninstall datastax/astra-cli/astra-cli
-```
+??? abstract annotate "Uninstall"
 
-### **1.3. Installation on `Windows`**
+     - [X] **Remove CLI files with:**
+     
+     ```bash
+     brew uninstall datastax/astra-cli/astra-cli
+     ```
 
-!!! warning "Limited features of `astra.exe`"
+     - [x] **Remove the configuration file.**
 
-    This software has been built with Java and compiled as native executables for each platform. As such we provide a windows executable `astra.exe`. Unfortunately, it does not support execution of external components like `DSBULK`, `CQLSH` or `PULSAR-SHELL`. We recommend to use the `Linux` procecure in `WSL`.
+    ```bash
+    rm ~/.astrarc
+    ```
+
+### **1.4. Installation on `Windows`**
 
 
-✅ **Installation**
-
-Download a Windows archive [astra-cli-${version}-windows.zip](https://github.com/datastax/astra-cli/releases/download/0.1/astra-cli-0.1-windows.zip). Unzip the archive into a folder of your choice, for instance `C:/Programs/astra-cli` and add `C:/Programs/astra-cli/astra.exe` to your path using [this tutorial](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/).
-
-✅ **Update**
-
-No special command, remove the folder `C:/Programs/astra-cli/` and reinstall.
-
-✅ **Uninstall**
-
-Remove folder `C:/Programs/astra-cli/` and `.astrarc` file in your user home.
 
 
 ## **2. Getting Started**
