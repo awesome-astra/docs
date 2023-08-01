@@ -3134,7 +3134,7 @@
   <h1>• Celery</h1>
 
 <div class="nosurface">
-<p><img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" /></p>
+<p><img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" style="height: 180px;" /></p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Celery is a (BSD-licensed) open source, simple and flexible distributed task queue for asynchronous processing of messages.
@@ -3149,20 +3149,14 @@ Communication between these two parts happens through a message bus (such as Rab
 back to the caller through a backend (de/serialization is transparently handled by the Celery infrastructure).</p>
 <p>Celery supports several backends for storing and exposing task results.
 Among the supported backends are Cassandra and (starting with <code>v5.3</code>) Astra DB.</p>
-<p><admonition markdown="1"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Support for Astra DB starts with version <code>v5.3</code>. At the time of writing, the latest stable is still <code>5.2</code>: in order to use Astra DB you must <a href="https://github.com/celery/celery#using-the-development-version">install the development version</a>. Likewise, the documentation links below refer to the "development docs".</p>
-</div>
-<p></admonition></p>
 <p>In the following we assume familiarity with the <code>celeryconfig</code> configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:</p>
 <div class="nosurface">
 <ul>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/index.html">Celery documentation</a></li>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/getting-started/first-steps-with-celery.html#configuration">The <code>celeryconfig</code> object</a></li>
-<li>ℹ️ <a href="https://docs.celeryq.dev/en/master/userguide/configuration.html#cassandra-astradb-backend-settings">Cassandra/AstraDB backend configuration guide</a> (which covers the instructions on this page as well)</li>
-<li>📥 <a href="https://github.com/celery/celery#using-the-development-version">Celery installation instructions</a> (dev version to support Astra DB)</li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/index.html">Celery documentation</a></li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration">The <code>celeryconfig</code> object</a></li>
+<li>ℹ️ <a href="https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings">Cassandra/AstraDB backend configuration guide</a> (which covers the instructions on this page as well)</li>
+<li>📥 <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation">Celery installation instructions</a></li>
 </ul>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
@@ -3249,7 +3243,7 @@ For this example to work, a message bus is needed - here, in line with a <a href
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># Returns:     &#39;ANOTHER DAY IN LAND OF THE WIZARDS&#39;</span>
 </code></pre></div>
 <h3 id="6-optional-look-at-the-database"><span class="nosurface"> 6. </span> (Optional) Look at the database<a class="headerlink" href="#6-optional-look-at-the-database" title="Permanent link">&para;</a></h3>
-<p>Check the corresponding data stored on Astra DB. Navigate to the CQL Console for the database you created and enter the following commands:</p>
+<p>Check the corresponding data stored on Astra DB. Navigate to the <a href="../../../astra/faq/#how-to-open-the-web-cql-console">CQL Console</a> for the database you created and enter the following commands:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>USE celeryks;               // &lt;== enter your keyspace name here
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>DESCRIBE TABLES;            // the output, e.g. &quot;celery_tasks&quot;, lists the tables
@@ -3270,7 +3264,7 @@ section in the Celery documentation for a more comprehensive setup.</p>
   <small>
     
       Last update:
-      2023-07-26
+      2023-08-01
     
   </small>
 </div>
