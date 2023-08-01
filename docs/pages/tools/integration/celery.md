@@ -7,14 +7,14 @@ developer_title: "The Celery Collective"
 developer_url: "https://docs.celeryq.dev/en/stable/index.html"
 links:
 - title: "Install Celery"
-  url: "https://github.com/celery/celery#using-the-development-version"
+  url: "https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation"
 - title: "Celery on Github"
   url: "https://github.com/celery/celery"
 ---
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" height="60px" />
+<img src="https://awesome-astra.github.io/docs/img/celery/celery_logo.png" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -33,20 +33,15 @@ back to the caller through a backend (de/serialization is transparently handled 
 Celery supports several backends for storing and exposing task results.
 Among the supported backends are Cassandra and (starting with `v5.3`) Astra DB.
 
-<admonition markdown="1">
-!!! note "Note"
-    Support for Astra DB starts with version `v5.3`. At the time of writing, the latest stable is still `5.2`: in order to use Astra DB you must [install the development version](https://github.com/celery/celery#using-the-development-version). Likewise, the documentation links below refer to the "development docs".
-</admonition>
-
 In the following we assume familiarity with the `celeryconfig` configuration object for Celery and with the usage of Cassandra
 as backend. See the Celery documentation for more details:
 
 <div class="nosurface" markdown="1">
 
-- ℹ️ [Celery documentation](https://docs.celeryq.dev/en/master/index.html)
-- ℹ️ [The `celeryconfig` object](https://docs.celeryq.dev/en/master/getting-started/first-steps-with-celery.html#configuration)
-- ℹ️ [Cassandra/AstraDB backend configuration guide](https://docs.celeryq.dev/en/master/userguide/configuration.html#cassandra-astradb-backend-settings) (which covers the instructions on this page as well)
-- 📥 [Celery installation instructions](https://github.com/celery/celery#using-the-development-version) (dev version to support Astra DB)
+- ℹ️ [Celery documentation](https://docs.celeryq.dev/en/stable/index.html)
+- ℹ️ [The `celeryconfig` object](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#configuration)
+- ℹ️ [Cassandra/AstraDB backend configuration guide](https://docs.celeryq.dev/en/stable/userguide/configuration.html#cassandra-astradb-backend-settings) (which covers the instructions on this page as well)
+- 📥 [Celery installation instructions](https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation)
 
 </div>
 
@@ -158,7 +153,7 @@ sorted2.get()
 
 ### <span class="nosurface"> 6. </span> (Optional) Look at the database
 
-Check the corresponding data stored on Astra DB. Navigate to the CQL Console for the database you created and enter the following commands:
+Check the corresponding data stored on Astra DB. Navigate to the [CQL Console](../../../astra/faq/#how-to-open-the-web-cql-console) for the database you created and enter the following commands:
 
 ```
 USE celeryks;               // <== enter your keyspace name here
