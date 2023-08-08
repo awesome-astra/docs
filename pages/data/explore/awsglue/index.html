@@ -2947,23 +2947,37 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-11-create-role-in-iam" class="md-nav__link">
-    ✅ Step 1.1:  Create Role in IAM
+  <a href="#step-11-put-data-in-database" class="md-nav__link">
+    ✅ Step 1.1:  Put data in database
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-s3" class="md-nav__link">
-    1.2 - S3
+  <a href="#step-12-create-role-in-iam" class="md-nav__link">
+    ✅ Step 1.2:  Create Role in IAM
   </a>
   
-    <nav class="md-nav" aria-label="1.2 - S3">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-setup-jdbc-driver-in-s3" class="md-nav__link">
+    ✅ Step 1.3:  Setup JDBC Driver in S3
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Step 1.3: Setup JDBC Driver in S3">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-jdbc-driver" class="md-nav__link">
-    ✅ Step 1:  JDBC Driver
+  <a href="#step-1-download-jdbc-driver" class="md-nav__link">
+    ✅ Step 1:  Download JDBC Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-put-driver-in-s3" class="md-nav__link">
+    ✅ Step 2:  Put Driver in S3
   </a>
   
 </li>
@@ -2974,8 +2988,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-secrets-manager" class="md-nav__link">
-    1.3 - Secrets Manager
+  <a href="#step-14-secrets-manager" class="md-nav__link">
+    Step 1.4:  Secrets Manager
   </a>
   
 </li>
@@ -3149,22 +3163,33 @@
 <p>This tutorial will take you through the process of connecting your Astra database to Glue.  This process is somewhat extensive, so please take care to read all of the instructions carefully.</p>
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a></li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>(Database: astraglue_db, keyspace: astraglue_ks)</li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
-  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/download-scb/">Download your Secure bundle</a></li>
   <li class="nosurface">You need an <a href="https://console.aws.amazon.com">AWS account with permissions for S3, IAM, and the AWS Secrets Manager</a>
 </ul>
 
 <h1 id="step-1-setup">Step 1 - Setup<a class="headerlink" href="#step-1-setup" title="Permanent link">&para;</a></h1>
-<h2 id="step-11-create-role-in-iam"><span class="nosurface">✅ Step 1.1: </span> Create Role in IAM<a class="headerlink" href="#step-11-create-role-in-iam" title="Permanent link">&para;</a></h2>
+<h2 id="step-11-put-data-in-database"><span class="nosurface>✅ Step 1.1: </span> Put data in database<a class="headerlink" href="#step-11-put-data-in-database" title="Permanent link">&para;</a></h2>
+<ol>
+<li>From the Astra homepage, select your database from the list on the left hand side.</li>
+<li>Click the white <strong>Load Data</strong> button at the top of the page.</li>
+<li>Click "Load a sample dataset"</li>
+<li>Click "Movies and TV Shows" and then click the black <strong>Next</strong> button</li>
+<li>Scroll to the bottom and choose a partition key (show_id)</li>
+<li>For "Target Keyspace" use the astraglue_ks you created earlier</li>
+<li>Click "Finish"</li>
+<li>Move on to the next steps, the upload should be done before we need the data.</li>
+</ol>
+<h2 id="step-12-create-role-in-iam"><span class="nosurface">✅ Step 1.2: </span> Create Role in IAM<a class="headerlink" href="#step-12-create-role-in-iam" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Open <a href="https://us-east-1.console.aws.amazon.com/iamv2/home">AWS Identity and Access Management</a></li>
 <li>
 <p>In the left hand column, select Select <strong>Roles</strong></p>
-<p><img src="https://awesome-astra.github.io/docs/img/awsglue/IAMLeftBar.png" /></p>
-</li>
-<li>
-<p>On the right hand side, click the large blue <strong>Create Role</strong> button</p>
+<p><details>
+    <summary>Show me!</summary>
+    <img src="https://awesome-astra.github.io/docs/img/awsglue/IAMLeftBar.png" />
+</details>
+3. On the right hand side, click the large blue <strong>Create Role</strong> button</p>
 </li>
 <li>
 <p>For your Trusted entity type, choose  <strong>AWS service</strong>.  In the "Use cases for other AWS Services" type and select "Glue".</p>
@@ -3178,18 +3203,48 @@
 <li>AmazonS3FullAccess</li>
 <li>AWSGlueServiceRole</li>
 <li>AWSGlueConsoleFullAccess</li>
-<li>SecretsManagerReadWrite</li>
+<li>SecretsManagerReadWrite
+<details>
+    <summary>Show me!</summary>
+    <img src="https://awesome-astra.github.io/docs/img/awsglue/IAMPermissions.png" />
+</details></li>
 </ul>
-<p><img src="https://awesome-astra.github.io/docs/img/awsglue/IAMLeftBar.png" /></p>
 </li>
 <li>
-<p>On the Name, review, and create page, choose a name for your role (For example purposes I will use AstraGlueRole), then scroll to the bottom of the page and click the blue <strong>Create role</strong> button.</p>
+<p>On the Name, review, and create page, choose a name for your role (For example purposes I will use <strong>AstraGlueRole</strong>), then scroll to the bottom of the page and click the blue <strong>Create role</strong> button.</p>
 </li>
 </ol>
-<h2 id="12-s3">1.2 - S3<a class="headerlink" href="#12-s3" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-jdbc-driver"><span class="nosurface">✅ Step 1: </span> JDBC Driver<a class="headerlink" href="#step-1-jdbc-driver" title="Permanent link">&para;</a></h3>
+<h2 id="step-13-setup-jdbc-driver-in-s3"><span class="nosurface">✅ Step 1.3: </span> Setup JDBC Driver in S3<a class="headerlink" href="#step-13-setup-jdbc-driver-in-s3" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-download-jdbc-driver"><span class="nosurface">✅ Step 1: </span> Download JDBC Driver<a class="headerlink" href="#step-1-download-jdbc-driver" title="Permanent link">&para;</a></h3>
 <p>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar">Astra JDBC connector jar</a>  from Github</p>
-<h2 id="13-secrets-manager">1.3 - Secrets Manager<a class="headerlink" href="#13-secrets-manager" title="Permanent link">&para;</a></h2>
+<h3 id="step-2-put-driver-in-s3"><span class="nosurface">✅ Step 2: </span> Put Driver in S3<a class="headerlink" href="#step-2-put-driver-in-s3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a></li>
+<li>Click the orange <strong>Create bucket</strong> button on the right hand side</li>
+<li>Choose a bucket name - this must be unique across all accounts so you will need to pick something unique to you.</li>
+<li>Choose which type of permission model to use.  I chose here to use ACLs as they are easier for managing access to buckets and their contents.
+    <details>
+        <summary>Show me!</summary>
+        <img src="https://awesome-astra.github.io/docs/img/awsglue/s3configuration.png" />
+    </details></li>
+<li>Scroll to the bottom and click the orange <strong>Create bucket</strong> button.</li>
+<li>Open the bucket by clicking its name on the bucket listings.</li>
+<li>Click the orange <strong>Upload</strong> button and follow the steps to upload the driver you just downloaded.</li>
+<li>Once that's done, from the <strong>Objects</strong> page for your bucket in S3, click on the driver.</li>
+<li>From here you can copy the S3 URI, which you will need later, or you can get it when it's needed.</li>
+</ol>
+<h2 id="step-14-secrets-manager">Step 1.4: </span> Secrets Manager<a class="headerlink" href="#step-14-secrets-manager" title="Permanent link">&para;</a></h2>
+<p>This assumes that you have gone through the process of getting an Astra token for your database.</p>
+<ol>
+<li>Open the <a href="https://us-west-1.console.aws.amazon.com/secretsmanager/listsecrets">AWS Secrets Manager</a></li>
+<li>Click the orange <strong>Store a new secret</strong> button on the right hand side.</li>
+<li>Choose <strong>Other type of secret</strong></li>
+<li>Add two key/value pairs:<ul>
+<li>user: 'token'</li>
+<li>password: Your AstraCS token here</li>
+</ul>
+</li>
+</ol>
 <h1 id="step-2-glue-connector">Step 2 - Glue Connector<a class="headerlink" href="#step-2-glue-connector" title="Permanent link">&para;</a></h1>
 <h2 id="21-connector">2.1 - Connector<a class="headerlink" href="#21-connector" title="Permanent link">&para;</a></h2>
 <h2 id="22-connection">2.2 - Connection<a class="headerlink" href="#22-connection" title="Permanent link">&para;</a></h2>
