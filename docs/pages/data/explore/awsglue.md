@@ -47,9 +47,9 @@ This tutorial will take you through the process of connecting your Astra databas
 ## <span class="nosurface">✅ Step 1.1: </span> Put data in your database
 1. From the Astra homepage, select your **astraglue_db** database from the list on the left hand side.
 2. Click the white **Load Data** button at the top of the page.
-3. Click "Load a sample dataset"
-4. Click "Movies and TV Shows" and then click the black **Next** button
-5. Scroll to the bottom and choose a partition key (**show_id**)
+3. Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/demographics.csv">CSV file</a>
+4. Drag the CSV file onto the file drop area and then click the black **Next** button
+5. Scroll to the bottom and choose a partition key (**country_name**)
 6. For "Target Keyspace" use the **astraglue_ks** you created as a prerequisite
 7. Click "Finish"
 8. Move on to the next steps, the upload should be done before we need the data.
@@ -118,13 +118,46 @@ Ok, that was a lot of steps, great job getting things set up. Feel free to take 
 
 # Step 2 - Glue Connector
 
-## 2.1 - Connector
+Now that all of the pieces have been put in place, it's time to create the connector and connection from Astra to Glue.
 
-## 2.2 - Connection
+## <span class="nosurface">✅ Step 2.1: </span> Create Glue Connector
+
+1. Open the [AWS Glue Studio](https://us-west-1.console.aws.amazon.com/gluestudio/home)
+2. In the left hand column, click on **Data connections**
+3. Click on **Create custom connector** in the "Custom connectors" section
+4. Paste the S3 URI for your JDBC driver under **Connector S3 URL**
+5. Choose a **Name** for your connector
+6. For the **Class name** enter **com.datastax.astra.jdbc.AstraJdbcDriver**
+7. The JDBC URL base is composed of the following pieces
+    - jdbc:astra://<databasename>/<keyspace>?user=token&password=<YourAstraCSToken>
+    - If you followed the instructions on naming your db and keyspace it will be:
+        - jdbc:astra://astraglue_db/astraglue_ks?user=token&password=AstraCS:YourTokenHere
+    - (yes, this is the same username/password you used in the secrets manager, just go with it)
+8. For the URL parameter enter '&'
+    <details>
+        <summary>Show me!</summary>
+        <img src="https://awesome-astra.github.io/docs/img/awsglue/connectorProperties.png" />
+    </details>
+
+## <span class="nosurface">✅ Step 2.2: </span> Create Connection
+
+From the **Connectors** page (**Data connections** in the left panel):
+1. Click on your connector name in the central **Connectors** section
+2. Click the orange **Create connection** button
+3. Enter a **Name** for your connection
+4. Under **Connection credential type** select "default"
+5. Under **AWS Secret - optional** choose the secret you created during setup
+6. Click the orange **Create connection** button at the bottom of the page
 
 # Step 3 - Job setup
 
 ## 3.1 - Job details
+From the **Connectors** page (**Data connections** in the left panel):
+1. Click on your connection name in the central **Connections** section
+2. Click the orange **Create job** button
+3. Click on the box with your connection name in the visual editor
+4. Under **Table name** enter 
+
 
 ## 3.2 - Source
 
