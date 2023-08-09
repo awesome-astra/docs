@@ -155,80 +155,64 @@ From the **Connectors** page (**Data connections** in the left panel):
 From the **Connectors** page (**Data connections** in the left panel):
 1. Click on your connection name in the central **Connections** section
 2. Click the orange **Create job** button
-3. Click on the box with your connection name in the visual editor
-4. Under **Table name** enter 
-
-
-## 3.2 - Source
+3. Enter a name for the job at the top of the console
+4. Click on the node with your connection name in the visual editor
+5. Under **Table name** enter "demographics"
+6. Click the **Data preview** tab on the right hand side of the page.
+7. Click **Start data preview session** to start the data transfer.
+8. Wait for it to complete.  You should see the data from the original Astra database here.  This indicates that the extraction of the data from Astra has successfully completed.
+9. Click the **Output schema** tab on the right side of the page.  Choose **Use datapreview schema**
 
 ## 3.3 - Transform
+1. Click the **ApplyMapping** node in the visual editor
+2. Under **Transform** you will see the fields from the Connection node
+3. **Output schema** shows the schema it will send forward
+4. **Data preview** shows the data
 
-## 3.4 - Test
+Click **Save** at the upper right of the page to save your work for later
 
 # Step 4 - Load into Glue Tables 
 
+At this point your data has been loaded into the system and you can use any load node going forward; if you wish to load your data into a Glue database and table, move on to the next step
+
 ## 4.1 - Create buckets
+A Glue database requires a separate S3 bucket for storing your data.
+
+1. Open the [S3 Console](https://s3.console.aws.amazon.com/s3/home)
+2. Create a new empty bucket for Glue to use (see the steps above during setup for details)
 
 ## 4.2 - Create database and table
+1. In the **AWS Glue** console, choose **Databases** from the left column
+2. Click the orange **Add database** button at the top right
+3. Name your database and click the orange **Create database** button at the bottom
+4. Click on **Tables** in the left hand panel
+5. Click **Add table** 
+    - Name your table
+    - Choose the database you just created
+    - **Data store** is S3
+        - Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry)
+    - **Data format** is 'CSV' with ',' as the delimiter
+    - Click **Next**
+6. Next is **Choose or define schema**
+    - Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/schema.txt">Schema</a>
+    - Click **Edit schema as JSON**
+    - Click **Choose file** and pick the schema.txt file you downloaded
+    - Click **Save** then **Next**
+    - Review the entry and then click **Create**
 
 ## 4.3 - Add Glue Database target
+1. Open your job from the list of ETL entries
+2. Select the **ApplyMapping** node
+3. Click the big plus circle to add a new node to the flow
+4. Click **Data** then collapse Sources and expand Targets
+5. Choose the Glue Data Catalog target
+6. For the Glue Data Catalog:
+    - Make sure the parent node is ApplyMapping
+    - Choose your database and table
+    - Save your job and click **Run**
 
-## 4.4 - Run and test (requires Athena)
-
-### <span class="nosurface">✅ Step 2: </span> Establish the Connection
-
-1. Open [DB Schema](https://dbschema.com/)
-2. Select **Connect to the Database**
-3. Select **Start**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-start.png"/>
-
-4. In the **Choose your database** menu, select Cassandra.
-
-5. Select **Next.**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-cass-sel.png" />
-
-6. Select **JDBC Driver** edit option.  This is the button on the right hand side of the JDBC driver line, with the key icon.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection-d.png" />
-
-7. In the JDBC Driver Manager, select **New**.
-8. In the Add RDBMS window, enter **Astra** and select **OK**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-driver-manager.png" />
-
-9. Select **OK** in the confirmation message.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection.png" />
-
-10. Upload the Astra JDBC Driver.
-11. Select **Open**
-12. Once you upload the Astra JDBC Driver, you will see **Astra** in the **Choose your Database** window. Select **Next**.
-
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra-config.png" height="500px" />
-
-13. In the connection window, select the JDBC Driver "astra-jdbc-connector-5.0.jar com.datastax.astra.jdbc.AstraJdbcDriver.  Under JDBC URL select "Edit Manually".
- 
-14. In the Astra Connection Dialog, add JDBC URL as
-    ```bash
-    jdbc:astra://<database_name>/<keyspace_name>?token=<application_token>
-    ```
-    with the following variables:
-
-       - **database_name:** The name or ID for the database you want to connect to
-       - **keyspace_name:** The keyspace you want to use
-       - **application_token:** Generated from Astra DB console. See [Manage application tokens.](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html)
-    
-
-14. Select **Connect**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-url.png" height="500px" />
-
-15. In the **Select Schemas/Catalogs**, select the keyspace to which you want to connect.
-16. Select **OK.**
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connetion-established.png" height="500px" />
-
-### <span class="nosurface">✅ Step 3: </span> Final Test
-
-Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.
-
-To learn more about DBSchema, see [Quick start with DBSchema](https://dbschema.com/tutorials.html)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) 
-</div>
+## 4.4 - View table (requires Athena)
+1. Click on **Tables** in the left hand column
+2. Click **Table data** for the table you created/populated
+3. Acknowledge the charges for Athena
+4. Check out the resulting data
