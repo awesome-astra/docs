@@ -84,7 +84,7 @@ This tutorial will take you through the process of connecting your Astra databas
 
 ## <span class="nosurface">✅ Step 1.3: </span> Setup JDBC Driver in S3 
 
-1. Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar)  from Github
+1. Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0-jdk8.jar)  from Github
 2. Open the [S3 Console](https://s3.console.aws.amazon.com/s3/home)
 3. Click the orange **Create bucket** button on the right hand side
 4. Choose a bucket name - this must be unique across all accounts so you will need to pick something unique to you.
