@@ -3022,22 +3022,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-source" class="md-nav__link">
-    3.2 - Source
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#33-transform" class="md-nav__link">
     3.3 - Transform
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-test" class="md-nav__link">
-    3.4 - Test
   </a>
   
 </li>
@@ -3077,29 +3063,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#44-run-and-test-requires-athena" class="md-nav__link">
-    4.4 - Run and test (requires Athena)
+  <a href="#44-view-table-requires-athena" class="md-nav__link">
+    4.4 - View table (requires Athena)
   </a>
-  
-    <nav class="md-nav" aria-label="4.4 - Run and test (requires Athena)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-2-establish-the-connection" class="md-nav__link">
-    ✅ Step 2:  Establish the Connection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-final-test" class="md-nav__link">
-    ✅ Step 3:  Final Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3268,84 +3234,76 @@
 <p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):
 1. Click on your connection name in the central <strong>Connections</strong> section
 2. Click the orange <strong>Create job</strong> button
-3. Click on the box with your connection name in the visual editor
-4. Under <strong>Table name</strong> enter </p>
-<h2 id="32-source">3.2 - Source<a class="headerlink" href="#32-source" title="Permanent link">&para;</a></h2>
+3. Enter a name for the job at the top of the console
+4. Click on the node with your connection name in the visual editor
+5. Under <strong>Table name</strong> enter "demographics"
+6. Click the <strong>Data preview</strong> tab on the right hand side of the page.
+7. Click <strong>Start data preview session</strong> to start the data transfer.
+8. Wait for it to complete.  You should see the data from the original Astra database here.  This indicates that the extraction of the data from Astra has successfully completed.
+9. Click the <strong>Output schema</strong> tab on the right side of the page.  Choose <strong>Use datapreview schema</strong></p>
 <h2 id="33-transform">3.3 - Transform<a class="headerlink" href="#33-transform" title="Permanent link">&para;</a></h2>
-<h2 id="34-test">3.4 - Test<a class="headerlink" href="#34-test" title="Permanent link">&para;</a></h2>
-<h1 id="step-4-load-into-glue-tables">Step 4 - Load into Glue Tables<a class="headerlink" href="#step-4-load-into-glue-tables" title="Permanent link">&para;</a></h1>
-<h2 id="41-create-buckets">4.1 - Create buckets<a class="headerlink" href="#41-create-buckets" title="Permanent link">&para;</a></h2>
-<h2 id="42-create-database-and-table">4.2 - Create database and table<a class="headerlink" href="#42-create-database-and-table" title="Permanent link">&para;</a></h2>
-<h2 id="43-add-glue-database-target">4.3 - Add Glue Database target<a class="headerlink" href="#43-add-glue-database-target" title="Permanent link">&para;</a></h2>
-<h2 id="44-run-and-test-requires-athena">4.4 - Run and test (requires Athena)<a class="headerlink" href="#44-run-and-test-requires-athena" title="Permanent link">&para;</a></h2>
-<h3 id="step-2-establish-the-connection"><span class="nosurface">✅ Step 2: </span> Establish the Connection<a class="headerlink" href="#step-2-establish-the-connection" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Open <a href="https://dbschema.com/">DB Schema</a></li>
-<li>Select <strong>Connect to the Database</strong></li>
-<li>
-<p>Select <strong>Start</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-start.png"/></p>
-</li>
-<li>
-<p>In the <strong>Choose your database</strong> menu, select Cassandra.</p>
-</li>
-<li>
-<p>Select <strong>Next.</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-cass-sel.png" /></p>
-</li>
-<li>
-<p>Select <strong>JDBC Driver</strong> edit option.  This is the button on the right hand side of the JDBC driver line, with the key icon.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection-d.png" /></p>
-</li>
-<li>
-<p>In the JDBC Driver Manager, select <strong>New</strong>.</p>
-</li>
-<li>
-<p>In the Add RDBMS window, enter <strong>Astra</strong> and select <strong>OK</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-driver-manager.png" /></p>
-</li>
-<li>
-<p>Select <strong>OK</strong> in the confirmation message.
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connection.png" /></p>
-</li>
-<li>
-<p>Upload the Astra JDBC Driver.</p>
-</li>
-<li>Select <strong>Open</strong></li>
-<li>Once you upload the Astra JDBC Driver, you will see <strong>Astra</strong> in the <strong>Choose your Database</strong> window. Select <strong>Next</strong>.</li>
+<li>Click the <strong>ApplyMapping</strong> node in the visual editor</li>
+<li>Under <strong>Transform</strong> you will see the fields from the Connection node</li>
+<li><strong>Output schema</strong> shows the schema it will send forward</li>
+<li><strong>Data preview</strong> shows the data</li>
 </ol>
-<p><img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-astra-config.png" height="500px" /></p>
+<p>Click <strong>Save</strong> at the upper right of the page to save your work for later</p>
+<h1 id="step-4-load-into-glue-tables">Step 4 - Load into Glue Tables<a class="headerlink" href="#step-4-load-into-glue-tables" title="Permanent link">&para;</a></h1>
+<p>At this point your data has been loaded into the system and you can use any load node going forward; if you wish to load your data into a Glue database and table, move on to the next step</p>
+<h2 id="41-create-buckets">4.1 - Create buckets<a class="headerlink" href="#41-create-buckets" title="Permanent link">&para;</a></h2>
+<p>A Glue database requires a separate S3 bucket for storing your data.</p>
 <ol>
-<li>
-<p>In the connection window, select the JDBC Driver "astra-jdbc-connector-5.0.jar com.datastax.astra.jdbc.AstraJdbcDriver.  Under JDBC URL select "Edit Manually".</p>
-</li>
-<li>
-<p>In the Astra Connection Dialog, add JDBC URL as
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jdbc:astra://&lt;database_name&gt;/&lt;keyspace_name&gt;?token<span class="o">=</span>&lt;application_token&gt;
-</code></pre></div>
-    with the following variables:</p>
-<ul>
-<li><strong>database_name:</strong> The name or ID for the database you want to connect to</li>
-<li><strong>keyspace_name:</strong> The keyspace you want to use</li>
-<li><strong>application_token:</strong> Generated from Astra DB console. See <a href="https://docs.datastax.com/en/astra/docs/manage-application-tokens.html">Manage application tokens.</a></li>
+<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a></li>
+<li>Create a new empty bucket for Glue to use (see the steps above during setup for details)</li>
+</ol>
+<h2 id="42-create-database-and-table">4.2 - Create database and table<a class="headerlink" href="#42-create-database-and-table" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In the <strong>AWS Glue</strong> console, choose <strong>Databases</strong> from the left column</li>
+<li>Click the orange <strong>Add database</strong> button at the top right</li>
+<li>Name your database and click the orange <strong>Create database</strong> button at the bottom</li>
+<li>Click on <strong>Tables</strong> in the left hand panel</li>
+<li>Click <strong>Add table</strong> <ul>
+<li>Name your table</li>
+<li>Choose the database you just created</li>
+<li><strong>Data store</strong> is S3<ul>
+<li>Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry)</li>
 </ul>
 </li>
-<li>
-<p>Select <strong>Connect</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-url.png" height="500px" /></p>
+<li><strong>Data format</strong> is 'CSV' with ',' as the delimiter</li>
+<li>Click <strong>Next</strong></li>
+</ul>
 </li>
-<li>
-<p>In the <strong>Select Schemas/Catalogs</strong>, select the keyspace to which you want to connect.</p>
+<li>Next is <strong>Choose or define schema</strong><ul>
+<li>Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/schema.txt">Schema</a></li>
+<li>Click <strong>Edit schema as JSON</strong></li>
+<li>Click <strong>Choose file</strong> and pick the schema.txt file you downloaded</li>
+<li>Click <strong>Save</strong> then <strong>Next</strong></li>
+<li>Review the entry and then click <strong>Create</strong></li>
+</ul>
 </li>
-<li>Select <strong>OK.</strong>
-<img src="https://awesome-astra.github.io/docs/img/dbschema/dbschema-connetion-established.png" height="500px" /></li>
 </ol>
-<h3 id="step-3-final-test"><span class="nosurface">✅ Step 3: </span> Final Test<a class="headerlink" href="#step-3-final-test" title="Permanent link">&para;</a></h3>
-<p>Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.</p>
-<p>To learn more about DBSchema, see <a href="https://dbschema.com/tutorials.html">Quick start with DBSchema</a></p>
-<div class="nosurface">
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to HOME</a> </p>
-</div>
+<h2 id="43-add-glue-database-target">4.3 - Add Glue Database target<a class="headerlink" href="#43-add-glue-database-target" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open your job from the list of ETL entries</li>
+<li>Select the <strong>ApplyMapping</strong> node</li>
+<li>Click the big plus circle to add a new node to the flow</li>
+<li>Click <strong>Data</strong> then collapse Sources and expand Targets</li>
+<li>Choose the Glue Data Catalog target</li>
+<li>For the Glue Data Catalog:<ul>
+<li>Make sure the parent node is ApplyMapping</li>
+<li>Choose your database and table</li>
+<li>Save your job and click <strong>Run</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="44-view-table-requires-athena">4.4 - View table (requires Athena)<a class="headerlink" href="#44-view-table-requires-athena" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Click on <strong>Tables</strong> in the left hand column</li>
+<li>Click <strong>Table data</strong> for the table you created/populated</li>
+<li>Acknowledge the charges for Athena</li>
+<li>Check out the resulting data</li>
+</ol>
 
   <hr>
 <div class="md-source-file">

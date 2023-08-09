@@ -1,0 +1,11 @@
+[
+    {
+      "Name": "country_name",
+      "Type": "string",
+      "Comment": ""
+    },
+    {
+      "Name": "regional_indicator",
+      "Type": "string",
+      "Comment": ""
+    } ]
