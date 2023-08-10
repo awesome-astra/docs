@@ -3099,17 +3099,23 @@
 </details>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>AWS Glue is a serverless data integration service that makes it easy for analytics users to discover, prepare, move, and integrate data from multiple sources. You can use it for analytics, machine learning, and application development. It also includes additional productivity and data ops tooling for authoring, running jobs, and implementing business workflows.</p>
+<p>AWS Glue is a serverless data integration service that makes it easy for analytics users to discover, prepare, move, and integrate data from multiple sources. You can use it for analytics, machine learning, and application development. It also includes additional productivity and dataOps tooling for authoring, running jobs, and implementing business workflows.</p>
 <p>With AWS Glue, you can discover and connect to more than 70 diverse data sources and manage your data in a centralized data catalog. You can visually create, run, and monitor extract, transform, and load (ETL) pipelines to load data into your data lakes. Also, you can immediately search and query cataloged data using Amazon Athena, Amazon EMR, and Amazon Redshift Spectrum.</p>
 <ul>
 <li><span class="nosurface">ℹ️ </span><a href="https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html">What is Glue?</a></li>
 </ul>
-<p>DBSchema uses the <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar">Astra JDBC Driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
+<p>AWS Glue uses the <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0-jdk8.jar">Astra JDBC Driver</a> to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>This tutorial will take you through the process of connecting your Astra database to Glue.  This process is somewhat extensive, so please take care to read all of the instructions carefully.</p>
 <ul class="prerequisites">
   <li class="nosurface">You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
-  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>(Database: astraglue_db, keyspace: astraglue_ks)</li>
+  <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-instance/">Create an Astra Database</a>
+    <ul>
+      <li>Type: serverless</li>
+      <li>Database: <b>astraglue_db</b></li>
+      <li>keyspace: <b>astraglue_ks</b></li>
+    </ul>
+    </li>
   <li class="nosurface">You should <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Have an Astra Token</a></li>
   <li class="nosurface">You need an <a href="https://console.aws.amazon.com">AWS account with permissions for Glue, S3, IAM, and the AWS Secrets Manager</a>
 </ul>
@@ -3118,32 +3124,32 @@
 <h2 id="step-11-put-data-in-your-database"><span class="nosurface">✅ Step 1.1: </span> Put data in your database<a class="headerlink" href="#step-11-put-data-in-your-database" title="Permanent link">&para;</a></h2>
 <ol>
 <li>From the Astra homepage, select your <strong>astraglue_db</strong> database from the list on the left hand side.</li>
-<li>Click the white <strong>Load Data</strong> button at the top of the page.</li>
-<li>Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/demographics.csv">CSV file</a></li>
-<li>Drag the CSV file onto the file drop area and then click the black <strong>Next</strong> button</li>
-<li>Scroll to the bottom and choose a partition key (<strong>country_name</strong>)</li>
-<li>For "Target Keyspace" use the <strong>astraglue_ks</strong> you created as a prerequisite</li>
-<li>Click "Finish"</li>
-<li>Move on to the next steps, the upload should be done before we need the data.</li>
+<li>Click the <strong>Load Data</strong> button at the top of the page.</li>
+<li>Download this sample <a href="https://awesome-astra.github.io/docs/assets/attachments/demographics.csv">CSV file</a>.</li>
+<li>Drag the CSV file onto the file drop area and then click the <strong>Next</strong> button.</li>
+<li>Scroll to the bottom and choose a partition key (<strong>country_name</strong>).</li>
+<li>For "Target Keyspace" use the <strong>astraglue_ks</strong> you created as a prerequisite.</li>
+<li>Click "Finish".</li>
+<li>Move on to the next steps, the upload should be done before you need the data.</li>
 </ol>
 <h2 id="step-12-create-role-in-iam"><span class="nosurface">✅ Step 1.2: </span> Create Role in IAM<a class="headerlink" href="#step-12-create-role-in-iam" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Open <a href="https://us-east-1.console.aws.amazon.com/iamv2/home">AWS Identity and Access Management</a></li>
+<li>Open the <a href="https://console.aws.amazon.com/iamv2/home">AWS Identity and Access Management</a> console.</li>
 <li>
-<p>In the left hand column, select Select <strong>Roles</strong></p>
+<p>In the left hand column, select Select <strong>Roles</strong>.</p>
 <p><details>
     <summary>Show me!</summary>
     <img src="https://awesome-astra.github.io/docs/img/awsglue/IAMLeftBar.png" />
 </details></p>
 </li>
 <li>
-<p>On the right hand side, click the large blue <strong>Create Role</strong> button</p>
+<p>On the right hand side, click the <strong>Create Role</strong> button.</p>
 </li>
 <li>
 <p>For your Trusted entity type, choose  <strong>AWS service</strong>.  In the "Use cases for other AWS Services" type and select "Glue".</p>
 </li>
 <li>
-<p>Select <strong>Next.</strong></p>
+<p>Select <strong>Next</strong>.</p>
 </li>
 <li>
 <p>On the <strong>Add permissions</strong> page you will need to search for a few different permissions.  You should select the following:</p>
@@ -3164,9 +3170,9 @@
 </ol>
 <h2 id="step-13-setup-jdbc-driver-in-s3"><span class="nosurface">✅ Step 1.3: </span> Setup JDBC Driver in S3<a class="headerlink" href="#step-13-setup-jdbc-driver-in-s3" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0-jdk8.jar">Astra JDBC connector jar</a>  from Github</li>
-<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a></li>
-<li>Click the orange <strong>Create bucket</strong> button on the right hand side</li>
+<li>Download <a href="https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0-jdk8.jar">Astra JDBC connector jar</a> from Github.</li>
+<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a>.</li>
+<li>Click the <strong>Create bucket</strong> button on the right hand side.</li>
 <li>Choose a bucket name - this must be unique across all accounts so you will need to pick something unique to you.</li>
 <li>Choose which type of permission model to use.  I chose here to use ACLs as they are easier for managing access to buckets and their contents.
     <details>
@@ -3175,37 +3181,41 @@
     </details></li>
 <li>Scroll to the bottom and click the orange <strong>Create bucket</strong> button.</li>
 <li>Open the bucket by clicking its name on the bucket listings.</li>
-<li>Click the orange <strong>Upload</strong> button and follow the steps to upload the driver you just downloaded.</li>
+<li>Click the <strong>Upload</strong> button and follow the steps to upload the driver you just downloaded.</li>
 <li>Once that's done, from the <strong>Objects</strong> page for your bucket in S3, click on the driver.</li>
 <li>From here you can copy the S3 URI, which you will need later, or you can get it when it's needed.</li>
 </ol>
 <h2 id="step-14-secrets-manager"><span class="nosurface">✅ Step 1.4: </span> Secrets Manager<a class="headerlink" href="#step-14-secrets-manager" title="Permanent link">&para;</a></h2>
 <p>This assumes that you have gone through the process of getting an Astra token for your database.</p>
 <ol>
-<li>Open the <a href="https://us-west-1.console.aws.amazon.com/secretsmanager/listsecrets">AWS Secrets Manager</a></li>
+<li>Open the <a href="https://us-west-1.console.aws.amazon.com/secretsmanager/listsecrets">AWS Secrets Manager</a> console.</li>
 <li>Click the orange <strong>Store a new secret</strong> button on the right hand side.</li>
-<li>Choose <strong>Other type of secret</strong></li>
-<li>Add two key/value pairs:<ul>
-<li>user: 'token'</li>
-<li>password: Your AstraCS token here</li>
+<li>Choose <strong>Other type of secret</strong>.</li>
+<li>Add key/value pairs for user and password:<ul>
+<li>user: <code>token</code></li>
+<li>password: Your AstraCS token here
+<details>
+    <summary>Show me!</summary>
+    <img src="https://awesome-astra.github.io/docs/img/awsglue/secrettype.png" />
+</details></li>
 </ul>
 </li>
-<li>Click the orange <strong>Next</strong> button at the bottom of the page</li>
-<li>Choose a secret name like "AstraGlueCreds"</li>
-<li>On the "Configure Rotation" screen just click <strong>Next</strong></li>
-<li>Review the entries then click <strong>Store</strong></li>
+<li>Click the orange <strong>Next</strong> button at the bottom of the page.</li>
+<li>Choose a secret name like "AstraGlueCreds".</li>
+<li>On the "Configure Rotation" screen just click <strong>Next</strong>.</li>
+<li>Review the entries then click <strong>Store</strong>.</li>
 </ol>
 <p>Ok, that was a lot of steps, great job getting things set up. Feel free to take a moment before moving on to the next section.</p>
 <h1 id="step-2-glue-connector">Step 2 - Glue Connector<a class="headerlink" href="#step-2-glue-connector" title="Permanent link">&para;</a></h1>
 <p>Now that all of the pieces have been put in place, it's time to create the connector and connection from Astra to Glue.</p>
 <h2 id="step-21-create-glue-connector"><span class="nosurface">✅ Step 2.1: </span> Create Glue Connector<a class="headerlink" href="#step-21-create-glue-connector" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Open the <a href="https://us-west-1.console.aws.amazon.com/gluestudio/home">AWS Glue Studio</a></li>
-<li>In the left hand column, click on <strong>Data connections</strong></li>
-<li>Click on <strong>Create custom connector</strong> in the "Custom connectors" section</li>
-<li>Paste the S3 URI for your JDBC driver under <strong>Connector S3 URL</strong></li>
-<li>Choose a <strong>Name</strong> for your connector</li>
-<li>For the <strong>Class name</strong> enter <strong>com.datastax.astra.jdbc.AstraJdbcDriver</strong></li>
+<li>Open the <a href="https://us-west-1.console.aws.amazon.com/gluestudio/home">AWS Glue Studio</a> console.</li>
+<li>In the left hand column, click on <strong>Data connections</strong>.</li>
+<li>Click on <strong>Create custom connector</strong> in the "Custom connectors" section.</li>
+<li>Paste the S3 URI for your JDBC driver under <strong>Connector S3 URL</strong>.  If you need to retrieve this URI you can find it by browsing from the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a>.</li>
+<li>Choose a <strong>Name</strong> for your connector.</li>
+<li>For the <strong>Class name</strong> enter <strong>com.datastax.astra.jdbc.AstraJdbcDriver</strong>.</li>
 <li>The JDBC URL base is composed of the following pieces<ul>
 <li>jdbc:astra://<databasename>/<keyspace>?user=token&amp;password=<YourAstraCSToken></li>
 <li>If you followed the instructions on naming your db and keyspace it will be:<ul>
@@ -3215,94 +3225,98 @@
 <li>(yes, this is the same username/password you used in the secrets manager, just go with it)</li>
 </ul>
 </li>
-<li>For the URL parameter enter '&amp;'
+<li>For the URL parameter delimiter enter '&amp;'
     <details>
         <summary>Show me!</summary>
         <img src="https://awesome-astra.github.io/docs/img/awsglue/connectorProperties.png" />
     </details></li>
 </ol>
 <h2 id="step-22-create-connection"><span class="nosurface">✅ Step 2.2: </span> Create Connection<a class="headerlink" href="#step-22-create-connection" title="Permanent link">&para;</a></h2>
-<p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):
-1. Click on your connector name in the central <strong>Connectors</strong> section
-2. Click the orange <strong>Create connection</strong> button
-3. Enter a <strong>Name</strong> for your connection
-4. Under <strong>Connection credential type</strong> select "default"
-5. Under <strong>AWS Secret - optional</strong> choose the secret you created during setup
-6. Click the orange <strong>Create connection</strong> button at the bottom of the page</p>
+<p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):</p>
+<ol>
+<li>Click on your connector name in the central <strong>Connectors</strong> section.</li>
+<li>Click the <strong>Create connection</strong> button.</li>
+<li>Enter a <strong>Name</strong> for your connection.</li>
+<li>Under <strong>Connection credential type</strong> select "default".</li>
+<li>Under <strong>AWS Secret - optional</strong> choose the secret you created during setup.</li>
+<li>Click the <strong>Create connection</strong> button at the bottom of the page.</li>
+</ol>
 <h1 id="step-3-job-setup">Step 3 - Job setup<a class="headerlink" href="#step-3-job-setup" title="Permanent link">&para;</a></h1>
 <h2 id="31-job-details">3.1 - Job details<a class="headerlink" href="#31-job-details" title="Permanent link">&para;</a></h2>
-<p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):
-1. Click on your connection name in the central <strong>Connections</strong> section
-2. Click the orange <strong>Create job</strong> button
-3. Enter a name for the job at the top of the console
-4. Click on the node with your connection name in the visual editor
-5. Under <strong>Table name</strong> enter "demographics"
-6. Click the <strong>Data preview</strong> tab on the right hand side of the page.
-7. Click <strong>Start data preview session</strong> to start the data transfer.
-8. Wait for it to complete.  You should see the data from the original Astra database here.  This indicates that the extraction of the data from Astra has successfully completed.
-9. Click the <strong>Output schema</strong> tab on the right side of the page.  Choose <strong>Use datapreview schema</strong></p>
+<p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):</p>
+<ol>
+<li>Click on your connection name in the central <strong>Connections</strong> section.</li>
+<li>Click the orange <strong>Create job</strong> button.</li>
+<li>Enter a name for the job at the top of the console</li>
+<li>Click on the node with your connection name in the visual editor.</li>
+<li>Under <strong>Table name</strong> enter "demographics".</li>
+<li>Click the <strong>Data preview</strong> tab on the right hand side of the page.</li>
+<li>Click <strong>Start data preview session</strong> to start the data transfer.</li>
+<li>Wait for it to complete.  You should see the data from the original Astra database here.  This indicates that the extraction of the data from Astra has successfully completed.</li>
+<li>Click the <strong>Output schema</strong> tab on the right side of the page.  Choose <strong>Use datapreview schema</strong>.</li>
+</ol>
 <h2 id="33-transform">3.3 - Transform<a class="headerlink" href="#33-transform" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Click the <strong>ApplyMapping</strong> node in the visual editor</li>
-<li>Under <strong>Transform</strong> you will see the fields from the Connection node</li>
-<li><strong>Output schema</strong> shows the schema it will send forward</li>
-<li><strong>Data preview</strong> shows the data</li>
+<li>Click the <strong>ApplyMapping</strong> node in the visual editor.</li>
+<li>Under <strong>Transform</strong> you will see the fields from the Connection node.</li>
+<li><strong>Output schema</strong> shows the schema it will send forward.</li>
+<li><strong>Data preview</strong> shows the data.</li>
 </ol>
-<p>Click <strong>Save</strong> at the upper right of the page to save your work for later</p>
+<p>Click <strong>Save</strong> at the upper right of the page to save your work for later.</p>
 <h1 id="step-4-load-into-glue-tables">Step 4 - Load into Glue Tables<a class="headerlink" href="#step-4-load-into-glue-tables" title="Permanent link">&para;</a></h1>
 <p>At this point your data has been loaded into the system and you can use any load node going forward; if you wish to load your data into a Glue database and table, move on to the next step</p>
 <h2 id="41-create-buckets">4.1 - Create buckets<a class="headerlink" href="#41-create-buckets" title="Permanent link">&para;</a></h2>
 <p>A Glue database requires a separate S3 bucket for storing your data.</p>
 <ol>
-<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a></li>
-<li>Create a new empty bucket for Glue to use (see the steps above during setup for details)</li>
+<li>Open the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a>.</li>
+<li>Create a new empty bucket for Glue to use (see the steps above during setup for details).  Name it something memorable for you, like <code>astradatabase</code>.</li>
 </ol>
 <h2 id="42-create-database-and-table">4.2 - Create database and table<a class="headerlink" href="#42-create-database-and-table" title="Permanent link">&para;</a></h2>
 <ol>
-<li>In the <strong>AWS Glue</strong> console, choose <strong>Databases</strong> from the left column</li>
+<li>In the <strong>AWS Glue</strong> console, choose <strong>Databases</strong> from the left column.</li>
 <li>Click the orange <strong>Add database</strong> button at the top right</li>
-<li>Name your database and click the orange <strong>Create database</strong> button at the bottom</li>
-<li>Click on <strong>Tables</strong> in the left hand panel</li>
-<li>Click <strong>Add table</strong> <ul>
-<li>Name your table</li>
-<li>Choose the database you just created</li>
-<li><strong>Data store</strong> is S3<ul>
-<li>Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry)</li>
+<li>Name your database and click the orange <strong>Create database</strong> button at the bottom.</li>
+<li>Click on <strong>Tables</strong> in the left hand panel.</li>
+<li>Click <strong>Add table</strong>.<ul>
+<li>Name your table whatever you like.</li>
+<li>Choose the database you just created.</li>
+<li><strong>Data store</strong> is S3:<ul>
+<li>Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry).</li>
 </ul>
 </li>
-<li><strong>Data format</strong> is 'CSV' with ',' as the delimiter</li>
-<li>Click <strong>Next</strong></li>
+<li><strong>Data format</strong> is 'CSV' with ',' (comma) as the delimiter.</li>
+<li>Click <strong>Next</strong>.</li>
 </ul>
 </li>
-<li>Next is <strong>Choose or define schema</strong><ul>
+<li>Next is <strong>Choose or define schema</strong>.<ul>
 <li>Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/schema.txt">Schema</a></li>
-<li>Click <strong>Edit schema as JSON</strong></li>
-<li>Click <strong>Choose file</strong> and pick the schema.txt file you downloaded</li>
-<li>Click <strong>Save</strong> then <strong>Next</strong></li>
-<li>Review the entry and then click <strong>Create</strong></li>
+<li>Click <strong>Edit schema as JSON</strong>.</li>
+<li>Click <strong>Choose file</strong> and pick the schema.txt file you downloaded.</li>
+<li>Click <strong>Save</strong> then <strong>Next</strong>.</li>
+<li>Review the entry and then click <strong>Create</strong>.</li>
 </ul>
 </li>
 </ol>
 <h2 id="43-add-glue-database-target">4.3 - Add Glue Database target<a class="headerlink" href="#43-add-glue-database-target" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Open your job from the list of ETL entries</li>
-<li>Select the <strong>ApplyMapping</strong> node</li>
-<li>Click the big plus circle to add a new node to the flow</li>
-<li>Click <strong>Data</strong> then collapse Sources and expand Targets</li>
-<li>Choose the Glue Data Catalog target</li>
-<li>For the Glue Data Catalog:<ul>
-<li>Make sure the parent node is ApplyMapping</li>
-<li>Choose your database and table</li>
-<li>Save your job and click <strong>Run</strong></li>
+<li>Open your job from the list of ETL entries.</li>
+<li>Select the <strong>ApplyMapping</strong> node.</li>
+<li>Click the big plus circle to add a new node to the flow.</li>
+<li>Click <strong>Data</strong> then collapse Sources and expand Targets.</li>
+<li>Choose the Glue Data Catalog target.</li>
+<li>For the Glue Data Catalog configure it in the right panel:<ul>
+<li>Make sure the parent node is ApplyMapping.</li>
+<li>Choose your database and table.</li>
+<li>Save your job and click <strong>Run</strong>.</li>
 </ul>
 </li>
 </ol>
 <h2 id="44-view-table-requires-athena">4.4 - View table (requires Athena)<a class="headerlink" href="#44-view-table-requires-athena" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Click on <strong>Tables</strong> in the left hand column</li>
-<li>Click <strong>Table data</strong> for the table you created/populated</li>
-<li>Acknowledge the charges for Athena</li>
-<li>Check out the resulting data</li>
+<li>Click on <strong>Tables</strong> in the left hand column.</li>
+<li>Click <strong>Table data</strong> for the table you created/populated.</li>
+<li>Acknowledge the charges for Athena.</li>
+<li>Check out the resulting data.</li>
 </ol>
 
   <hr>
@@ -3310,7 +3324,7 @@
   <small>
     
       Last update:
-      2023-08-09
+      2023-08-10
     
   </small>
 </div>
