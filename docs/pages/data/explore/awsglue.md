@@ -120,7 +120,7 @@ This assumes that you have gone through the process of getting an Astra token fo
         <img src="https://awesome-astra.github.io/docs/img/awsglue/secrettype.png" />
     </details>
 5. Click the orange **Next** button at the bottom of the page.
-6. Choose a secret name like "AstraGlueCreds".
+6. Choose a secret name like "AstraGlueCreds" and click **Next**.
 7. On the "Configure Rotation" screen just click **Next**.
 8. Review the entries then click **Store**.
 
@@ -137,17 +137,19 @@ Now that all of the pieces have been put in place, it's time to create the conne
 3. Click on **Create custom connector** in the "Custom connectors" section.
 4. Paste the S3 URI for your JDBC driver under **Connector S3 URL**.  If you need to retrieve this URI you can find it by browsing from the [S3 Console](https://s3.console.aws.amazon.com/s3/home).
 5. Choose a **Name** for your connector.
-6. For the **Class name** enter **com.datastax.astra.jdbc.AstraJdbcDriver**.
-7. The JDBC URL base is composed of the following pieces
+6. Select *JDBC* as the connector type.
+7. For the **Class name** enter **com.datastax.astra.jdbc.AstraJdbcDriver**.
+8. The JDBC URL base is composed of the following pieces
     - jdbc:astra://<databasename>/<keyspace>?user=token&password=<YourAstraCSToken>
     - If you followed the instructions on naming your db and keyspace it will be:
         - jdbc:astra://astraglue_db/astraglue_ks?user=token&password=AstraCS:YourTokenHere
     - (yes, this is the same username/password you used in the secrets manager, just go with it)
-8. For the URL parameter delimiter enter '&'
+9. For the URL parameter delimiter enter '&'.
     <details>
         <summary>Show me!</summary>
         <img src="https://awesome-astra.github.io/docs/img/awsglue/connectorProperties.png" />
     </details>
+10. Click **Create connector**.
 
 ## <span class="nosurface">✅ Step 2.2: </span> Create Connection
 
@@ -194,7 +196,7 @@ A Glue database requires a separate S3 bucket for storing your data.
 2. Create a new empty bucket for Glue to use (see the steps above during setup for details).  Name it something memorable for you, like `astradatabase`.
 
 ## 4.2 - Create database and table
-1. In the **AWS Glue** console, choose **Databases** from the left column.
+1. In the **AWS Glue** console, choose **Data Catalog/Databases** from the left column.
 2. Click the orange **Add database** button at the top right
 3. Name your database and click the orange **Create database** button at the bottom.
 4. Click on **Tables** in the left hand panel.
@@ -202,8 +204,8 @@ A Glue database requires a separate S3 bucket for storing your data.
     - Name your table whatever you like.
     - Choose the database you just created.
     - **Data store** is S3:
-        - Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry).
-    - **Data format** is 'CSV' with ',' (comma) as the delimiter.
+        - Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry). The prefix is not needed for this entry.
+    - **Data format** is 'CSV' with Comma(,) as the delimiter.
     - Click **Next**.
 6. Next is **Choose or define schema**.
     - Download the <a href="https://awesome-astra.github.io/docs/assets/attachments/schema.txt">Schema</a>
@@ -214,7 +216,7 @@ A Glue database requires a separate S3 bucket for storing your data.
 
 ## 4.3 - Add Glue Database target
 
-1. Open your job from the list of ETL entries.
+1. Open your job from the list of ETL entries(**ETL Jobs** on the Glue navbar).
 2. Select the **ApplyMapping** node.
 3. Click the big plus circle to add a new node to the flow.
 4. Click **Data** then collapse Sources and expand Targets.
@@ -225,7 +227,13 @@ A Glue database requires a separate S3 bucket for storing your data.
     - Save your job and click **Run**.
 
 ## 4.4 - View table (requires Athena)
-1. Click on **Tables** in the left hand column.
+1. Click on **Tables** in the left hand column, under Data Catalog/Databases.
 2. Click **Table data** for the table you created/populated.
 3. Acknowledge the charges for Athena.
-4. Check out the resulting data.
+4. You will be taken to the Athena console.
+5. If the **Run** button is not active:
+    - Go to the **Settings** tab in the editor.
+    - Click the **Manage** button.
+    - Click **Browse S3** next to "Location of query result", locate the bucket you created earlier to store the Glue data, and click "Choose" to confirm.
+    - Click **Save** to leave the settings management and go back to the Editor tab of Athena.
+4. Check out the resulting data by clicking the **Run** button.
