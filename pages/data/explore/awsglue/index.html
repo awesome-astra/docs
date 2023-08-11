@@ -3201,7 +3201,7 @@
 </ul>
 </li>
 <li>Click the orange <strong>Next</strong> button at the bottom of the page.</li>
-<li>Choose a secret name like "AstraGlueCreds".</li>
+<li>Choose a secret name like "AstraGlueCreds" and click <strong>Next</strong>.</li>
 <li>On the "Configure Rotation" screen just click <strong>Next</strong>.</li>
 <li>Review the entries then click <strong>Store</strong>.</li>
 </ol>
@@ -3215,6 +3215,7 @@
 <li>Click on <strong>Create custom connector</strong> in the "Custom connectors" section.</li>
 <li>Paste the S3 URI for your JDBC driver under <strong>Connector S3 URL</strong>.  If you need to retrieve this URI you can find it by browsing from the <a href="https://s3.console.aws.amazon.com/s3/home">S3 Console</a>.</li>
 <li>Choose a <strong>Name</strong> for your connector.</li>
+<li>Select <em>JDBC</em> as the connector type.</li>
 <li>For the <strong>Class name</strong> enter <strong>com.datastax.astra.jdbc.AstraJdbcDriver</strong>.</li>
 <li>The JDBC URL base is composed of the following pieces<ul>
 <li>jdbc:astra://<databasename>/<keyspace>?user=token&amp;password=<YourAstraCSToken></li>
@@ -3225,11 +3226,12 @@
 <li>(yes, this is the same username/password you used in the secrets manager, just go with it)</li>
 </ul>
 </li>
-<li>For the URL parameter delimiter enter '&amp;'
+<li>For the URL parameter delimiter enter '&amp;'.
     <details>
         <summary>Show me!</summary>
         <img src="https://awesome-astra.github.io/docs/img/awsglue/connectorProperties.png" />
     </details></li>
+<li>Click <strong>Create connector</strong>.</li>
 </ol>
 <h2 id="step-22-create-connection"><span class="nosurface">✅ Step 2.2: </span> Create Connection<a class="headerlink" href="#step-22-create-connection" title="Permanent link">&para;</a></h2>
 <p>From the <strong>Connectors</strong> page (<strong>Data connections</strong> in the left panel):</p>
@@ -3273,7 +3275,7 @@
 </ol>
 <h2 id="42-create-database-and-table">4.2 - Create database and table<a class="headerlink" href="#42-create-database-and-table" title="Permanent link">&para;</a></h2>
 <ol>
-<li>In the <strong>AWS Glue</strong> console, choose <strong>Databases</strong> from the left column.</li>
+<li>In the <strong>AWS Glue</strong> console, choose <strong>Data Catalog/Databases</strong> from the left column.</li>
 <li>Click the orange <strong>Add database</strong> button at the top right</li>
 <li>Name your database and click the orange <strong>Create database</strong> button at the bottom.</li>
 <li>Click on <strong>Tables</strong> in the left hand panel.</li>
@@ -3281,10 +3283,10 @@
 <li>Name your table whatever you like.</li>
 <li>Choose the database you just created.</li>
 <li><strong>Data store</strong> is S3:<ul>
-<li>Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry).</li>
+<li>Browse and select the S3 bucket you created, with a slash at the end (you may need to click outside the box for it to accept your entry). The prefix is not needed for this entry.</li>
 </ul>
 </li>
-<li><strong>Data format</strong> is 'CSV' with ',' (comma) as the delimiter.</li>
+<li><strong>Data format</strong> is 'CSV' with Comma(,) as the delimiter.</li>
 <li>Click <strong>Next</strong>.</li>
 </ul>
 </li>
@@ -3299,7 +3301,7 @@
 </ol>
 <h2 id="43-add-glue-database-target">4.3 - Add Glue Database target<a class="headerlink" href="#43-add-glue-database-target" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Open your job from the list of ETL entries.</li>
+<li>Open your job from the list of ETL entries(<strong>ETL Jobs</strong> on the Glue navbar).</li>
 <li>Select the <strong>ApplyMapping</strong> node.</li>
 <li>Click the big plus circle to add a new node to the flow.</li>
 <li>Click <strong>Data</strong> then collapse Sources and expand Targets.</li>
@@ -3313,10 +3315,18 @@
 </ol>
 <h2 id="44-view-table-requires-athena">4.4 - View table (requires Athena)<a class="headerlink" href="#44-view-table-requires-athena" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Click on <strong>Tables</strong> in the left hand column.</li>
+<li>Click on <strong>Tables</strong> in the left hand column, under Data Catalog/Databases.</li>
 <li>Click <strong>Table data</strong> for the table you created/populated.</li>
 <li>Acknowledge the charges for Athena.</li>
-<li>Check out the resulting data.</li>
+<li>You will be taken to the Athena console.</li>
+<li>If the <strong>Run</strong> button is not active:<ul>
+<li>Go to the <strong>Settings</strong> tab in the editor.</li>
+<li>Click the <strong>Manage</strong> button.</li>
+<li>Click <strong>Browse S3</strong> next to "Location of query result", locate the bucket you created earlier to store the Glue data, and click "Choose" to confirm.</li>
+<li>Click <strong>Save</strong> to leave the settings management and go back to the Editor tab of Athena.</li>
+</ul>
+</li>
+<li>Check out the resulting data by clicking the <strong>Run</strong> button.</li>
 </ol>
 
   <hr>
@@ -3324,7 +3334,7 @@
   <small>
     
       Last update:
-      2023-08-10
+      2023-08-11
     
   </small>
 </div>
