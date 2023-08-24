@@ -1,7 +1,7 @@
 ---
 title: "LangChain"
 description: "LangChain is an open-source framework to automate usage of Large Language Models (LLMs)."
-tags: "python, third party tools, genai, llm, prompt, gpt"
+tags: "python, third party tools, genai, llm, vector, vectors, prompt, gpt"
 icon: "https://awesome-astra.github.io/docs/img/langchain/langchain.svg"
 recommended: "true"
 developer_title: "Harrison Chase"
@@ -12,12 +12,12 @@ links:
 - title: "LangChain Python docs"
   url: "https://python.langchain.com/"
 - title: "CassIO"
-  url: "https://cassio.org"
+  url: "https://cassio.org/frameworks/langchain/about/"
 ---
 
 <div class="nosurface" markdown="1">
 
-<img src="../../../../img/langchain/langchain_logo.png" height="100px" />
+<img src="../../../../img/langchain/langchain_logo.png"  style="height: 180px;" />
 </div>
 
 ## Overview
@@ -35,7 +35,7 @@ Reference documentation:
 
 - ℹ️ [LangChain documentation](https://docs.langchain.com/docs/)
 - ℹ️ [LangChain Python docs](https://python.langchain.com/)
-- ℹ️ [CassIO](https://cassio.org)
+- ℹ️ [CassIO](https://cassio.org/frameworks/langchain/about/)
 
 </div>
 

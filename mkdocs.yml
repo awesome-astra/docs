@@ -68,7 +68,7 @@ nav:
       - • FastAPI: pages/develop/frameworks/fastapi.md
       - • Flask: pages/develop/frameworks/flask.md
       - • Django: pages/develop/frameworks/django.md
-    - Platform:
+    - Platforms:
       - • AWS GameSparks: pages/develop/platform/aws-gamesparks.md
       - • AWS Lambda Functions: pages/develop/platform/aws-lambda-function.md
       - • Google Cloud Functions: pages/develop/platform/google-cloud-function.md
@@ -80,7 +80,9 @@ nav:
     - Topics:
       - LLM/GenAI:
         - LangChain: pages/aiml/llm/langchain.md
+        - LlamaIndex: pages/aiml/llm/llamaindex.md
       - ML Workloads:
+        - CassIO: pages/aiml/llm/cassio.md
         - Feast (↪): pages/tools/integration/feast.md
 
   - Tools/Integrations:
