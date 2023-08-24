@@ -1,9 +1,8 @@
 ---
 title: "Astra Data Loader"
 description: "Astra DB conveniently has its own data loader built in to the user interface. Use this DataStax Astra DB Data Loader to load your own data into your database or try one of our sample datasets."
-tags: "data management"
-icon: "https://awesome-astra.github.io/docs/img/favicon.svg"
-developer_title: "Astra"
+tags: "notebook"
+developer_title: "DataStax"
 developer_url: "https://www.datastax.com/products/datastax-astra"
 links:
   - title: "DataStax Astra"
