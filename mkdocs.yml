@@ -85,44 +85,50 @@ nav:
         - CassIO: pages/aiml/llm/cassio.md
         - Feast (↪): pages/tools/integration/feast.md
 
-  - Tools/Integrations:
+  - Integration Ecosystem:
     - Tools List: pages/tools/index.md
-    - Databases:
-      - • JanusGraph : pages/tools/databases/janusgraph.md
-    - Developers IDE:
-      - • DataStation :  pages/tools/ide/datastation.md
-      - • Eclipse :  pages/tools/ide/eclipse.md
-      - • Gitpod :  pages/tools/ide/gitpod.md
-      - • IntelliJ : pages/tools/ide/intellij.md
-      - • VSCode :  pages/tools/ide/vscode.md
-    - Notebooks:
-      - • Jupyter Notebooks :  pages/tools/notebooks/jupyter.md
-      - • DataStax Studio : pages/tools/notebooks/datastax-studio.md
-      - • Apache Zeppelin : pages/tools/notebooks/zeppelin.md
-    - Data Visualization:
-      - • Grafana: pages/tools/integration/grafana.md
-    - Integration Middlewares:
-      - • Apache Airflow : pages/tools/integration/apache-airflow.md
-      - • Apache Beam : pages/tools/integration/apache-beam-google-dataflow.md
-      - • Apache Flink : pages/tools/integration/flink.md
-      - • Apache Nifi : pages/tools/integration/apache-nifi.md
-      - • Apache Spark : pages/tools/integration/apache-spark.md
-      - • Authorizer : pages/tools/integration/authorizer.md
-      - • Cadence : pages/tools/integration/cadence.md
-      - • Celery : pages/tools/integration/celery.md
-      - • Feast : pages/tools/integration/feast.md
-      - • Google Dataflow : pages/tools/integration/apache-beam-google-dataflow.md
-      - • HashiCorp Vault : pages/tools/integration/vault.md
-      - • Liquibase : pages/tools/integration/liquibase.md
-      - • Pentaho Data Integration : pages/tools/integration/pentaho.md
-      - • Power Query : pages/tools/integration/microsoft-powerquery.md      
-      - • Quine : pages/tools/integration/quine.io.md
-      - • StepZen : pages/tools/integration/stepzen.md
-      - • Strapi : pages/tools/integration/strapi.md
-      - • Temporal : pages/tools/integration/temporal.md
-    - Plugins:
-      - • HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
-      - • Github Actions : pages/tools/plugins/github-actions.md
+    - Cloud Providers:
+      - Amazon (AWS):
+        - Lambda Functions: pages/develop/platform/aws-lambda-function.md
+        - Aws GameSparks: pages/develop/platform/aws-gamesparks.md
+        - Aws Glue: pages/data/explore/awsglue.md
+      - Google (GCP):
+        - Cloud Functions: pages/develop/platform/google-cloud-function.md
+        - Dataflow: pages/tools/cloud-providers/google-dataflow.md
+      - Microsoft (Azure):
+        - Azure Functions: pages/develop/platform/azure-function.md
+        - Power Query: pages/tools/integration/microsoft-powerquery.md
+    - Tools:
+      - Middlewares:
+        - Apache Airflow: pages/tools/integration/apache-airflow.md
+        - Apache Beam: pages/tools/integration/apache-beam.md
+        - Apache Flink: pages/tools/integration/flink.md
+        - Apache Nifi: pages/tools/integration/apache-nifi.md
+        - Apache Spark: pages/tools/integration/apache-spark.md
+        - Authorizer: pages/tools/integration/authorizer.md
+        - Cadence: pages/tools/integration/cadence.md
+        - Celery: pages/tools/integration/celery.md
+        - Feast: pages/tools/integration/feast.md
+        - HashiCorp Vault: pages/tools/integration/vault.md
+        - Liquibase: pages/tools/integration/liquibase.md
+        - Pentaho Data Integration: pages/tools/integration/pentaho.md
+        - Quine: pages/tools/integration/quine.io.md
+        - StepZen: pages/tools/integration/stepzen.md
+        - Strapi: pages/tools/integration/strapi.md
+        - Temporal: pages/tools/integration/temporal.md
+      - Developers IDE:
+        - DataStation :  pages/tools/ide/datastation.md
+        - Eclipse :  pages/tools/ide/eclipse.md
+        - IntelliJ : pages/tools/ide/intellij.md
+        - VSCode :  pages/tools/ide/vscode.md
+      - Notebooks:
+        - Jupyter Notebooks :  pages/tools/notebooks/jupyter.md
+        - DataStax Studio : pages/tools/notebooks/datastax-studio.md
+      - Databases:
+        - JanusGraph: pages/tools/databases/janusgraph.md
+      - Plugins:
+        - HashiCorp Vault : pages/tools/plugins/astradb-vault-plugin.md
+        - Github Actions : pages/tools/plugins/github-actions.md
   - Sample App Gallery:
     - • Sample Application Gallery : pages/gallery/index.md
   - Contact Us:
