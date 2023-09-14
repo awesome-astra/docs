@@ -1628,21 +1628,21 @@
       
         <li class="md-nav__item">
   <a href="#5-stargate-rest-api" class="md-nav__link">
-    5 Stargate REST API
+    5. Stargate REST API
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-stargate-graphql-api" class="md-nav__link">
-    6 Stargate GraphQL API
+    6. Stargate GraphQL API
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-stargate-document-api" class="md-nav__link">
-    7 Stargate Document API
+    7. Stargate Document API
   </a>
   
 </li>
@@ -3363,21 +3363,21 @@
       
         <li class="md-nav__item">
   <a href="#5-stargate-rest-api" class="md-nav__link">
-    5 Stargate REST API
+    5. Stargate REST API
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-stargate-graphql-api" class="md-nav__link">
-    6 Stargate GraphQL API
+    6. Stargate GraphQL API
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-stargate-document-api" class="md-nav__link">
-    7 Stargate Document API
+    7. Stargate Document API
   </a>
   
 </li>
@@ -3424,7 +3424,7 @@
 <p>Astra provides <strong>multiple services</strong> such as; Database and Streaming, with <strong>multiple Apis and interfaces</strong>. There are different frameworks and tools to connect to Astra depending on the Api interface you choose.</p>
 <p>Pick the interface below to get relevant instructions. In most cases, you will download a working sample. There are standalone examples designed to be as simple as possible. </p>
 <p>If you have issues or requests about these code samples, please open a ticket under <a href="https://github.com/awesome-astra/">Awesome-Astra</a>.</p>
-<p><a name="prerequisites"> <strong><em>📦 Prerequisites [ASTRA]</em></strong></a></p>
+<p><a name="prerequisites"></a><strong><em>📦 Prerequisites [ASTRA]</em></strong></p>
 <ul>
 <li>You should have an <a href="https://astra.dev/3B7HcYo">Astra account</a></li>
 <li>You should <a href="/docs/pages/astra/create-token/">Have an Astra Token</a> with "Database Administrator" permissions</li>
@@ -3457,7 +3457,7 @@
 <a href="#8-api-grpc">
 <img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;</p>
-<h2 id="3-cql">3. <a name="3-cql">CQL</a><a class="headerlink" href="#3-cql" title="Permanent link">&para;</a></h2>
+<h2 id="3-cql">3. <a name="3-cql"></a>CQL<a class="headerlink" href="#3-cql" title="Permanent link">&para;</a></h2>
 <h3 id="31-the-gocql-astra-driver">3.1 The gocql-astra driver<a class="headerlink" href="#31-the-gocql-astra-driver" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
 <p>These instructions are aimed at helping people connect to Astra DB programmatically using the custom Astra Gocql driver.  </p>
@@ -3513,7 +3513,7 @@ then the <code>HostDialer</code> provides a host ID from the metadata service wh
 <p>To use this library with environment variables, you can follow these steps.</p>
 <p><strong><em>🖥️ Sample Code</em></strong></p>
 <p>The best way to use this sample is to clone it from the repository.</p>
-<p>Follow the <a href="#prerequisites">prerequisites above</p>
+<p>Follow the <a href="#prerequisites">prerequisites above.</p>
 <p>Clone the  <a href="https://github.com/awesome-astra/go-sample-code">repository</a> and change into the 'gocql-astra' directory in that repository.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git clone https://github.com/awesome-astra/go-sample-code
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cd go-sample-code/gocql-astra/envvars
@@ -3653,7 +3653,7 @@ then the <code>HostDialer</code> provides a host ID from the metadata service wh
 </code></pre></div></td></tr></table></div>
 <details>
 <summary>Sample code details</summary>
-<p>"If you want to use this sample without cloning the repository, you will need to have the following:"</p>
+<p>If you want to use this sample without cloning the repository, you will need to have the following:</p>
 <ul>
 <li>github.com/datastax/astra-client-go/v2 v2.2.9</li>
 <li>github.com/datastax/cql-proxy v0.1.3</li>
@@ -3737,125 +3737,129 @@ then the <code>HostDialer</code> provides a host ID from the metadata service wh
 <p>These instructions are aimed at helping people connect to Astra DB programmatically using Stargate's API interface</p>
 <p><strong>🖥️ Sample Code</strong></p>
 <p>To use the signing library, you simply include it in your code and then create a client for making calls.</p>
-<p>package main</p>
-<p>import (
-    "fmt"
-    "log"
-    "os"
-    "time"</p>
-<div class="highlight"><pre><span></span><code>gocqlastra &quot;github.com/datastax/gocql-astra&quot;
-&quot;github.com/gocql/gocql&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>package main
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>import (
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    &quot;fmt&quot;
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    &quot;log&quot;
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    &quot;os&quot;
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    &quot;time&quot;
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    gocqlastra &quot;github.com/datastax/gocql-astra&quot;
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    &quot;github.com/gocql/gocql&quot;
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>)
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>func main() {
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    var err error
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    var cluster *gocql.ClusterConfig
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>    if len(os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;)) &gt; 0 {
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>        if len(os.Getenv(&quot;ASTRA_DB_ID&quot;)) == 0 {
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>            panic(&quot;database ID is required when using a token&quot;)
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>        }
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>    }
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>    fmt.Println(&quot;Creating the cluster now&quot;)
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>    fmt.Println(os.Getenv(&quot;ASTRA_DB_ID&quot;))
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>    fmt.Print(os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;))
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>    fmt.Println(os.Getenv(&quot;ASTRA_DB_REGION&quot;))
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>    fmt.Println(cluster)
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>    cluster, err = gocqlastra.NewClusterFromURL(&quot;https://api.astra.datastax.com&quot;, os.Getenv(&quot;ASTRA_DB_ID&quot;), os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;), 10*time.Second)
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>    fmt.Println(cluster)
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>    if err != nil {
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>        fmt.Errorf(&quot;unable to load cluster %s from astra: %v&quot;, os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;), err)
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>    }
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>    start := time.Now()
+<a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>    session, err := gocql.NewSession(*cluster)
+<a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>    elapsed := time.Now().Sub(start)
+<a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>
+<a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>    if err != nil {
+<a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>        log.Fatalf(&quot;unable to connect session: %v&quot;, err)
+<a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>    }
+<a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>
+<a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>    fmt.Println(&quot;Making the query now&quot;)
+<a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>
+<a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>    iter := session.Query(&quot;SELECT release_version FROM system.local&quot;).Iter()
+<a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>
+<a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a>    var version string
+<a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a>
+<a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a>    for iter.Scan(&amp;version) {
+<a id="__codelineno-12-53" name="__codelineno-12-53" href="#__codelineno-12-53"></a>        fmt.Println(version)
+<a id="__codelineno-12-54" name="__codelineno-12-54" href="#__codelineno-12-54"></a>    }
+<a id="__codelineno-12-55" name="__codelineno-12-55" href="#__codelineno-12-55"></a>
+<a id="__codelineno-12-56" name="__codelineno-12-56" href="#__codelineno-12-56"></a>    if err = iter.Close(); err != nil {
+<a id="__codelineno-12-57" name="__codelineno-12-57" href="#__codelineno-12-57"></a>        log.Printf(&quot;error running query: %v&quot;, err)
+<a id="__codelineno-12-58" name="__codelineno-12-58" href="#__codelineno-12-58"></a>    }
+<a id="__codelineno-12-59" name="__codelineno-12-59" href="#__codelineno-12-59"></a>
+<a id="__codelineno-12-60" name="__codelineno-12-60" href="#__codelineno-12-60"></a>    fmt.Printf(&quot;Connection process took %s\n&quot;, elapsed)
+<a id="__codelineno-12-61" name="__codelineno-12-61" href="#__codelineno-12-61"></a>
+<a id="__codelineno-12-62" name="__codelineno-12-62" href="#__codelineno-12-62"></a>}
 </code></pre></div>
-<p>)</p>
-<p>func main() {</p>
-<div class="highlight"><pre><span></span><code>var err error
-
-var cluster *gocql.ClusterConfig
-
-if len(os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;)) &gt; 0 {
-    if len(os.Getenv(&quot;ASTRA_DB_ID&quot;)) == 0 {
-        panic(&quot;database ID is required when using a token&quot;)
-    }
-}
-
-fmt.Println(&quot;Creating the cluster now&quot;)
-fmt.Println(os.Getenv(&quot;ASTRA_DB_ID&quot;))
-fmt.Print(os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;))
-fmt.Println(os.Getenv(&quot;ASTRA_DB_REGION&quot;))
-fmt.Println(cluster)
-
-cluster, err = gocqlastra.NewClusterFromURL(&quot;https://api.astra.datastax.com&quot;, os.Getenv(&quot;ASTRA_DB_ID&quot;), os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;), 10*time.Second)
-fmt.Println(cluster)
-
-if err != nil {
-    fmt.Errorf(&quot;unable to load cluster %s from astra: %v&quot;, os.Getenv(&quot;ASTRA_DB_APPLICATION_TOKEN&quot;), err)
-}
-
-start := time.Now()
-session, err := gocql.NewSession(*cluster)
-elapsed := time.Now().Sub(start)
-
-if err != nil {
-    log.Fatalf(&quot;unable to connect session: %v&quot;, err)
-}
-
-fmt.Println(&quot;Making the query now&quot;)
-
-iter := session.Query(&quot;SELECT release_version FROM system.local&quot;).Iter()
-
-var version string
-
-for iter.Scan(&amp;version) {
-    fmt.Println(version)
-}
-
-if err = iter.Close(); err != nil {
-    log.Printf(&quot;error running query: %v&quot;, err)
-}
-
-fmt.Printf(&quot;Connection process took %s\n&quot;, elapsed)
-</code></pre></div>
-<p>}</p>
-<h2 id="5-stargate-rest-api">5 <a name="5-api-rest">Stargate REST API</a><a class="headerlink" href="#5-stargate-rest-api" title="Permanent link">&para;</a></h2>
+<h2 id="5-stargate-rest-api">5. <a name="5-api-rest"></a>Stargate REST API<a class="headerlink" href="#5-stargate-rest-api" title="Permanent link">&para;</a></h2>
 <p>While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.</p>
-<p>Follow the <a href="#prerequisites">prerequisites</a> above</p>
+<p>Follow the <a href="#prerequisites">prerequisites</a> above.</p>
 <p>Clone the  <a href="https://github.com/awesome-astra/go-sample-code">repository</a> and change into the 'gocql-astra' directory in that repository.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git clone https://github.com/awesome-astra/go-sample-code
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>cd go-sample-code/gocql-astra/astra_stargate_rest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git clone https://github.com/awesome-astra/go-sample-code
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>cd go-sample-code/gocql-astra/astra_stargate_rest
 </code></pre></div>
 <p>Create .env with astra CLI</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>astra db create-dotenv workshops -k gotest 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>astra db create-dotenv workshops -k gotest 
 </code></pre></div>
 <p>Run the code in your environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>go build astra_stargate_rest_example.go
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>./astra_stargate_rest_example
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>go build astra_stargate_rest_example.go
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>./astra_stargate_rest_example
 </code></pre></div>
-<h2 id="6-stargate-graphql-api">6 <a name="6-api-graphql">Stargate GraphQL API</a><a class="headerlink" href="#6-stargate-graphql-api" title="Permanent link">&para;</a></h2>
+<h2 id="6-stargate-graphql-api">6. <a name="6-api-graphql"></a>Stargate GraphQL API<a class="headerlink" href="#6-stargate-graphql-api" title="Permanent link">&para;</a></h2>
 <p>While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.</p>
-<p>Follow the <a href="#prerequisites">prerequisites</a> above</p>
+<p>Follow the <a href="#prerequisites">prerequisites</a> above.</p>
 <p>Clone the <a href="https://github.com/awesome-astra/go-sample-code">repository</a> into your directory, then change into the astra_stargate_rest directory.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git clone https://github.com/awesome-astra/go-sample-code
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>cd astra_stargate_graphql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git clone https://github.com/awesome-astra/go-sample-code
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>cd astra_stargate_graphql
 </code></pre></div>
 <p>Create .env with astra CLI</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>astra db create-dotenv workshops -k library 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>astra db create-dotenv workshops -k library 
 </code></pre></div>
 <p>Run the code in your environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>go build astra_stargate_graphql.go
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>./astra_stargate_graphql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>go build astra_stargate_graphql.go
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>./astra_stargate_graphql
 </code></pre></div>
-<h2 id="7-stargate-document-api">7 <a name="7-api-document">Stargate Document API</a><a class="headerlink" href="#7-stargate-document-api" title="Permanent link">&para;</a></h2>
+<h2 id="7-stargate-document-api">7. <a name="7-api-document"></a>Stargate Document API<a class="headerlink" href="#7-stargate-document-api" title="Permanent link">&para;</a></h2>
 <p>While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.</p>
 <p><strong>📦 Prerequisites [Development Environment]</strong></p>
 <p>To get started you need to <a href="/docs/pages/astra/astra-cli/">Install the Astra CLI</a>. Create a directory you want to use and change into that directory. </p>
-<p>Follow the <a href="#prerequisites">prerequisites</a> above</p>
+<p>Follow the <a href="#prerequisites">prerequisites</a> above.</p>
 <p>Clone the <a href="https://github.com/awesome-astra/go-sample-code">repository</a> into your directory, then change into the astra_stargate_rest directory.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git clone https://github.com/awesome-astra/go-sample-code
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>cd astra_stargate_document
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git clone https://github.com/awesome-astra/go-sample-code
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>cd astra_stargate_document
 </code></pre></div>
 <p>Create .env with astra CLI</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>astra db create-dotenv workshops -k library 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>astra db create-dotenv workshops -k library 
 </code></pre></div>
 <p>Run the code in your environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>go build astra_stargate_document.go
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>./astra_stargate_document
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>go build astra_stargate_document.go
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>./astra_stargate_document
 </code></pre></div>
-<h2 id="8-cql-api-grpc">8. <a name="8-api-grpc">CQL API GRPC</a><a class="headerlink" href="#8-cql-api-grpc" title="Permanent link">&para;</a></h2>
+<h2 id="8-cql-api-grpc">8. <a name="8-api-grpc"></a>CQL API GRPC<a class="headerlink" href="#8-cql-api-grpc" title="Permanent link">&para;</a></h2>
 <h3 id="81-the-gocql-grpc-cassandra-astra-driver">8.1 The Gocql GRPC Cassandra Astra Driver<a class="headerlink" href="#81-the-gocql-grpc-cassandra-astra-driver" title="Permanent link">&para;</a></h3>
 <p><strong>ℹ️ Overview</strong></p>
 <p>These instructions are aimed at helping people connect to Astra DB programmatically using the Astra specific Golang driver  </p>
-<p>Follow the <a href="#prerequisites">prerequisites</a> above</p>
+<p>Follow the <a href="#prerequisites">prerequisites</a> above.</p>
 <p><strong>🖥️ Sample Code</strong></p>
 <p>Clone the <a href="https://github.com/awesome-astra/go-sample-code">repository</a> into your directory, then change into the astra-gprc directory.</p>
 <p>Create .env with astra CLI</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>astra db create-dotenv workshops -k library 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>astra db create-dotenv workshops -k library 
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git clone https://github.com/awesome-astra/go-sample-code
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>cd astra-grpc
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git clone https://github.com/awesome-astra/go-sample-code
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>cd astra-grpc
 </code></pre></div>
 <p>Run the code in your environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>go build AstraGRPCQuickStart.go
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>./AstraGRPCQuickStart
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>go build AstraGRPCQuickStart.go
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>./AstraGRPCQuickStart
 </code></pre></div>
 
   <hr>
@@ -3863,7 +3867,7 @@ fmt.Printf(&quot;Connection process took %s\n&quot;, elapsed)
   <small>
     
       Last update:
-      2023-04-21
+      2023-09-13
     
   </small>
 </div>
