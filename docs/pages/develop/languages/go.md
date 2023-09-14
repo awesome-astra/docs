@@ -8,7 +8,7 @@ Pick the interface below to get relevant instructions. In most cases, you will d
 
 If you have issues or requests about these code samples, please open a ticket under [Awesome-Astra](https://github.com/awesome-astra/).
 
-<a name="prerequisites"> ***📦 Prerequisites [ASTRA]***</a>
+<a name="prerequisites"></a>***📦 Prerequisites [ASTRA]***
 
 - You should have an [Astra account](https://astra.dev/3B7HcYo)
 - You should [Have an Astra Token](/docs/pages/astra/create-token/) with "Database Administrator" permissions
@@ -57,7 +57,7 @@ astra db create workshops -k library --if-not-exist
 <img src="../../../../img/tile-api-grpc.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
 
-## 3. <a name="3-cql">CQL</a> 
+## 3. <a name="3-cql"></a>CQL
 
 ### 3.1 The gocql-astra driver
 
@@ -128,7 +128,7 @@ To use this library with environment variables, you can follow these steps.
 
 The best way to use this sample is to clone it from the repository.
 
-Follow the <a href="#prerequisites">prerequisites</> above
+Follow the <a href="#prerequisites">prerequisites</> above.
 
 Clone the  [repository](https://github.com/awesome-astra/go-sample-code) and change into the 'gocql-astra' directory in that repository.
 
@@ -161,7 +161,7 @@ Run the code in your environment.
 
 ??? "Sample code details"
 
-	"If you want to use this sample without cloning the repository, you will need to have the following:"
+	If you want to use this sample without cloning the repository, you will need to have the following:
 
 	- github.com/datastax/astra-client-go/v2 v2.2.9
 	- github.com/datastax/cql-proxy v0.1.3
@@ -256,13 +256,15 @@ These instructions are aimed at helping people connect to Astra DB programmatica
 
 To use the signing library, you simply include it in your code and then create a client for making calls.
 
+```
 --8<-- "https://raw.githubusercontent.com/awesome-astra/go-sample-code/main/gocql-astra/envvars/envvars.go"
+```
 
-## 5 <a name="5-api-rest">Stargate REST API</a>
+## 5. <a name="5-api-rest"></a>Stargate REST API
 
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
-Follow the <a href="#prerequisites">prerequisites</a> above
+Follow the <a href="#prerequisites">prerequisites</a> above.
 
 Clone the  [repository](https://github.com/awesome-astra/go-sample-code) and change into the 'gocql-astra' directory in that repository.
 
@@ -284,11 +286,11 @@ go build astra_stargate_rest_example.go
 ./astra_stargate_rest_example
 ```
 
-## 6 <a name="6-api-graphql">Stargate GraphQL API</a>
+## 6. <a name="6-api-graphql"></a>Stargate GraphQL API
 
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
-Follow the <a href="#prerequisites">prerequisites</a> above
+Follow the <a href="#prerequisites">prerequisites</a> above.
 
 Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
 
@@ -310,7 +312,7 @@ go build astra_stargate_graphql.go
 ./astra_stargate_graphql
 ```
 
-## 7 <a name="7-api-document">Stargate Document API</a>
+## 7. <a name="7-api-document"></a>Stargate Document API
 
 While the basic code is shown above, you can interact with a more extensive REST example by following these instructions.
 
@@ -318,7 +320,7 @@ While the basic code is shown above, you can interact with a more extensive REST
 
 To get started you need to [Install the Astra CLI](/docs/pages/astra/astra-cli/). Create a directory you want to use and change into that directory. 
 
-Follow the <a href="#prerequisites">prerequisites</a> above
+Follow the <a href="#prerequisites">prerequisites</a> above.
 
 Clone the [repository](https://github.com/awesome-astra/go-sample-code) into your directory, then change into the astra_stargate_rest directory.
 
@@ -341,7 +343,7 @@ go build astra_stargate_document.go
 ```
 
 
-## 8. <a name="8-api-grpc">CQL API GRPC</a>
+## 8. <a name="8-api-grpc"></a>CQL API GRPC
 
 ### 8.1 The Gocql GRPC Cassandra Astra Driver
 
@@ -349,7 +351,7 @@ go build astra_stargate_document.go
 
 These instructions are aimed at helping people connect to Astra DB programmatically using the Astra specific Golang driver  
 
-Follow the <a href="#prerequisites">prerequisites</a> above
+Follow the <a href="#prerequisites">prerequisites</a> above.
 
 
 **🖥️ Sample Code**
