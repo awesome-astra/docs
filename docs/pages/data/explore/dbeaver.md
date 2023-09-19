@@ -38,9 +38,73 @@ DBeaver is a universal database management tool for everyone who needs to work w
 
 This article assumes you have installed DBeaver Community Edition on your laptop or PC. It was written for version 21.2.0 on MacOS but it should also work for the Windows version.
 
-## Installation and Setup
+## Astra Community JDBC Drivers
 
-### <span class="nosurface">✅ Step 1: </span> JDBC Driver
+### <span class="nosurface">1. </span>Download JDBC Driver
+
+Download latest archive [astra-jdbc-driver-x.y.jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/tag/5.1)  from Github Release page
+
+### <span class="nosurface">2. </span>Configure the Connection
+
+_The following screenshot are done with Dbeaver lite on MACOS_
+
+Go the [DBeaver download page](https://dbeaver.io/download/) and download the version associated
+with your laptop.
+
+- Open DBeaver application
+
+- In the menu go `Database > Driver manager`
+
+- The Panel Click `new` without selecting anything
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/02.png" />
+
+- (1) Choose the TAB `libraries` 
+- (2) Select `Add File`, look for the jar we just downloaded.
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/03.png" />
+
+- (1) Go back to the tab `Settings` and enter the following values:
+- (2) Driver Name: `Astra JDBC Driver` and driver Type: `Generic`
+- (3) Class Name: `com.datastax.astra.jdbc.AstraJdbcDriver`
+- (4) Username is `token`
+- (5) Save your modifications with `[OK]`
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/04.png" />
+
+- You have new entry in the list of drivers called `Astra JDBC Driver`
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/05.png" />
+
+### <span class="nosurface">3. </span>Create the DataSource
+
+- In the menu now select `Database > New Database Collection`
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/06.png" />
+
+- Pick the driver `Astra JDBC Driver` and click `Next`
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/07.png" />
+
+- Populate the URL as follow: `jdbc:astra://<db>/<keyspace>?region=<region>`
+
+- Populate your token value (it should start by `AstraCS:...`)
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/08.png" />
+
+- Click on `Test Connection` and validate with `Finish`
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/09.png" />
+
+### <span class="nosurface">4. </span>Use DataSource
+
+- On the left panel you can now see your data
+
+<img src="https://awesome-astra.github.io/docs/img/dbeaver/10.png" />
+
+## Using JDBC Simba Drivers
+
+### <span class="nosurface">1. </span>Download JDBC Driver
 
 Download the JDBC driver from the DataStax website:
 
@@ -51,7 +115,7 @@ Download the JDBC driver from the DataStax website:
 5. Hit the blue **Download** button.
 6. Once the download completes, unzip the downloaded file.
 
-### <span class="nosurface">✅ Step 2: </span> Import Driver
+### <span class="nosurface">2. </span> Import Driver
 
 1. Go to the **Driver Manager.**
 2. Click the **New** button.
@@ -73,7 +137,7 @@ At this point, you should see **Astra DB** as one of the drivers on the list:
 <br /><br />
 
 
-### <span class="nosurface">✅ Step 3: </span> Create New Connection
+### <span class="nosurface">3. </span> Create New Connection
 
 Connect to your Astra DB in DBeaver:
 
@@ -96,7 +160,7 @@ Connect to your Astra DB in DBeaver:
 <br /><br />
 
 
-### <span class="nosurface">✅ Step 4: </span> Final Test
+### <span class="nosurface">4. </span> Final Test
 
 Connect to your Astra DB. If the connection was successful, you should be able to explore the keyspaces and tables in your DB on the left-hand side of the UI.
 

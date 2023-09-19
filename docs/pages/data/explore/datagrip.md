@@ -39,11 +39,11 @@ DataGrip is a database management environment for developers. It is designed to 
 - [Download your secure connect bundle ZIP](https://awesome-astra.github.io/docs/pages/astra/download-scb/)
 - [Download and install DataGrip](https://www.jetbrains.com/datagrip/download/)
 
-## Astra JDBC Connector
+## Astra Community JDBC Drivers
 
 ### <span class="nosurface">1. </span>Download JDBC Driver
 
-1. Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/download/5.0/astra-jdbc-connector-5.0.jar)  from Github
+Download latest archive [astra-jdbc-driver-x.y.jar](https://github.com/DataStax-Examples/astra-jdbc-connector/releases/tag/5.1)  from Github Release page
 
 ### <span class="nosurface">2. </span>Configure the Connection
 
@@ -51,7 +51,7 @@ DataGrip is a database management environment for developers. It is designed to 
 2. Click the plus `+` symbol to create a new _User Driver_
 3. Populate the name as you like, in the screenshot we picked `Astra JDBC Driver`
 4. Add the shaded jar by clicking the plus `+` symbol in the `Driver Files` panel.
-5. Select following class name for the driver 
+5. For the `Class` field, select the following (the list has been build by scanner the library we just imported)
 
 ```java
 com.datastax.astra.jdbc.AstraJdbcDriver
@@ -83,7 +83,6 @@ jdbc:astra://<db>/<keyspace>?region=<region>
 - **7.** Test the connection you should get the following screen, apply and save.
 
 - **8.** Validate with `Apply`
-
 
 ### <span class="nosurface">4. </span>Use DataSource
 
