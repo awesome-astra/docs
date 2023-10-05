@@ -75,7 +75,7 @@ nav:
       - • Microsoft Azure Functions: pages/develop/platform/azure-function.md
       - • CircleCI: pages/develop/platform/circleci.md
 
-  - AI/ML 🆕:
+  - AI/ML:
     - Overview: pages/aiml/index.md
     - Topics:
       - LLM/GenAI:
