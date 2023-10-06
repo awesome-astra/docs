@@ -13,4 +13,4 @@ powering integration with third-party LLM-oriented frameworks, such as LangChain
 To find out more, stay up to date, and get plenty of code examples and demos, please
 head over to [cassio.org](httos://cassio.org).
 
-![Architectural sketch](../../../../img/cassio/cassio_sketch.png)
+<img src="../../../../img/cassio/cassio_sketch.png" />
