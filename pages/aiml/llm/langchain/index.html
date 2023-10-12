@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://awesome-astra.github.io/pages/aiml/llm/langchain/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../vector_demos/">
       
       
         <link rel="next" href="../llamaindex/">
@@ -1920,6 +1920,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1938,36 +1944,15 @@
               
   
   
-    
   
+    <li class="md-nav__item">
+      <a href="../vector_demos/" class="md-nav__link">
+        Vector Demos
+      </a>
+    </li>
   
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" checked>
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
-          LLM/GenAI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          LLM/GenAI
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+
+            
           
             
               
@@ -2035,15 +2020,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#caching" class="md-nav__link">
-    Caching
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prompt-management" class="md-nav__link">
-    Prompt management
+  <a href="#question-answering" class="md-nav__link">
+    Question answering
   </a>
   
 </li>
@@ -2056,8 +2034,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#question-answering" class="md-nav__link">
-    Question answering
+  <a href="#caching" class="md-nav__link">
+    Caching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-management" class="md-nav__link">
+    Prompt management
   </a>
   
 </li>
@@ -2102,46 +2087,6 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
-          ML Workloads
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          ML Workloads
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
   
@@ -2165,13 +2110,6 @@
       <a href="../../../tools/integration/feast/" class="md-nav__link">
         Feast (↪)
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -3280,15 +3218,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#caching" class="md-nav__link">
-    Caching
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prompt-management" class="md-nav__link">
-    Prompt management
+  <a href="#question-answering" class="md-nav__link">
+    Question answering
   </a>
   
 </li>
@@ -3301,8 +3232,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#question-answering" class="md-nav__link">
-    Question answering
+  <a href="#caching" class="md-nav__link">
+    Caching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-management" class="md-nav__link">
+    Prompt management
   </a>
   
 </li>
@@ -3392,149 +3330,151 @@ without leaving your Astra DB storage backend.</p>
 section of the <code>cassIO</code> website, with complete tutorials and sample applications.</p>
 <p>Have a look at what this integration enables ... and to learn more, and stay up
 to date, check out the <code>cassIO</code> homepage!</p>
+<h4 id="question-answering">Question answering<a class="headerlink" href="#question-answering" title="Permanent link">&para;</a></h4>
+<p>With the help of Vector Search, applications such as natural-language
+question answering over documents are made easy. Once the input
+documents are loaded and indexed,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">index_creator</span> <span class="o">=</span> <span class="n">VectorstoreIndexCreator</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">vectorstore_cls</span><span class="o">=</span><span class="n">Cassandra</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">vectorstore_kwargs</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="s1">&#39;session&#39;</span><span class="p">:</span> <span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="s1">&#39;keyspace&#39;</span><span class="p">:</span> <span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">},</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">loader</span> <span class="o">=</span> <span class="o">...</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">index</span> <span class="o">=</span> <span class="n">index_creator</span><span class="o">.</span><span class="n">from_loaders</span><span class="p">([</span><span class="n">loader</span><span class="p">])</span>
+</code></pre></div>
+<p>a Q&amp;A session is just a single line of code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;How do I restore a deleted file?&quot;</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+</code></pre></div>
+<p>Vector Store document retrieval from Astra DB in LangChain also support
+<strong>metadata filtering</strong>. Check out <a href="https://cassio.org/frameworks/langchain/qa-vector-metadata/">cassio.org</a> for more details.</p>
+<h4 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h4>
+<p>Give LLMs a memory of past interactions stored in an Astra table and
+leave it to LangChain to retrieve previous exchanges and store the new ones
+as the conversation proceeds:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">message_history</span> <span class="o">=</span> <span class="n">CassandraChatMessageHistory</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">session_id</span><span class="o">=</span><span class="s1">&#39;my-session-id&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">cassBuffMemory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">chat_memory</span><span class="o">=</span><span class="n">message_history</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">cassBuffMemory</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;Hello, what can you tell me about rainforests?&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The base <code>CassandraChatMessageHistory</code> works as well when you ask LangChain
+to keep a separate "summary" of the whole past conversation, which is automatically
+updated and injected into each new interaction:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationSummaryBufferMemory</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">chat_memory</span><span class="o">=</span><span class="n">message_history</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">max_token_limit</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">summaryConversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">)</span>
+</code></pre></div>
+<p>Alternatively, you can have a semantically aware memory element, able to
+pick the most relevant exchanges occurred and make the LLM aware of them
+regardless of how far back they took place:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">cassVStore</span> <span class="o">=</span> <span class="n">Cassandra</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">retriever</span> <span class="o">=</span> <span class="n">cassVStore</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">semanticMemory</span> <span class="o">=</span> <span class="n">VectorStoreRetrieverMemory</span><span class="p">(</span><span class="n">retriever</span><span class="o">=</span><span class="n">retriever</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">semanticMemoryTemplateString</span> <span class="o">=</span> <span class="o">...</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">memoryPrompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;history&quot;</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">],</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">template</span><span class="o">=</span><span class="n">semanticMemoryTemplateString</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">conversationWithVectorRetrieval</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">prompt</span><span class="o">=</span><span class="n">memoryPrompt</span><span class="p">,</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">semanticMemory</span><span class="p">,</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">conversationWithVectorRetrieval</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;Do you remember what I told you about rainforests?&quot;</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">)</span>
+</code></pre></div>
 <h4 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h4>
 <p>Save on latencies and token costs by using Astra DB as a cache
 for the responses to frequently-used prompts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">langchain</span><span class="o">.</span><span class="n">llm_cache</span> <span class="o">=</span> <span class="n">CassandraCache</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># 1-2 seconds</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="o">...</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># milliseconds</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">langchain</span><span class="o">.</span><span class="n">llm_cache</span> <span class="o">=</span> <span class="n">CassandraCache</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># 1-2 seconds</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="o">...</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># milliseconds</span>
 </code></pre></div>
 <p>You can make the cache semantically-aware as well:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">langchain</span><span class="o">.</span><span class="n">llm_cache</span> <span class="o">=</span> <span class="n">CassandraSemanticCache</span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># 1-2 seconds</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="o">...</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;Tell me how do I best peel tomatoes.&quot;</span><span class="p">)</span>         <span class="c1"># milliseconds</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">langchain</span><span class="o">.</span><span class="n">llm_cache</span> <span class="o">=</span> <span class="n">CassandraSemanticCache</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;What is the best way to peel a tomato?&quot;</span><span class="p">)</span>       <span class="c1"># 1-2 seconds</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="o">...</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;Tell me how do I best peel tomatoes.&quot;</span><span class="p">)</span>         <span class="c1"># milliseconds</span>
 </code></pre></div>
 <h4 id="prompt-management">Prompt management<a class="headerlink" href="#prompt-management" title="Permanent link">&para;</a></h4>
 <p>You can attach one or more Astra DB tables to a prompt template, so that
 at "rendering time" the DB is queried and the relevant values are injected
 into the prompt with minimal boilerplate:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ctemplate0</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">You are helpful a tech support chatbot providing assistance to a human user.</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">The user&#39;s name is </span><span class="si">{user_name}</span><span class="s2">, from this city: </span><span class="si">{user_city}</span><span class="s2">.</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">Please provide an answer to the user&#39;s question below.</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">USER: </span><span class="si">{user_question}</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s2">YOUR ANSWER:&quot;&quot;&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">cassPrompt</span> <span class="o">=</span> <span class="n">createCassandraPromptTemplate</span><span class="p">(</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">template</span><span class="o">=</span><span class="n">ctemplate0</span><span class="p">,</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;user_question&#39;</span><span class="p">],</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">field_mapper</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="c1"># template-variable: (table-name, column-name)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="s1">&#39;user_name&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;u_name&#39;</span><span class="p">),</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="s1">&#39;user_city&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;u_city&#39;</span><span class="p">),</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="p">},</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">)</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="o">...</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">finalPrompt</span> <span class="o">=</span> <span class="n">cassPrompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="n">user_id</span><span class="o">=</span><span class="s1">&#39;fc4ab05&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    <span class="n">user_question</span><span class="o">=</span><span class="s1">&#39;How do I ...&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">)</span>
-</code></pre></div>
-<h4 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h4>
-<p>Give LLMs a memory of past interactions stored in an Astra table and
-leave it to LangChain to retrieve previous exchanges and store the new ones
-as the conversation proceeds:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">message_history</span> <span class="o">=</span> <span class="n">CassandraChatMessageHistory</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">session_id</span><span class="o">=</span><span class="s1">&#39;my-session-id&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">cassBuffMemory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">chat_memory</span><span class="o">=</span><span class="n">message_history</span><span class="p">,</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">cassBuffMemory</span><span class="p">,</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">)</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;Hello, what can you tell me about rainforests?&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The base <code>CassandraChatMessageHistory</code> works as well when you ask LangChain
-to keep a separate "summary" of the whole past conversation, which is automatically
-updated and injected into each new interaction:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationSummaryBufferMemory</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">chat_memory</span><span class="o">=</span><span class="n">message_history</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">max_token_limit</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">summaryConversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">)</span>
-</code></pre></div>
-<p>Alternatively, you can have a semantically aware memory element, able to
-pick the most relevant exchanges occurred and make the LLM aware of them
-regardless of how far back they took place:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">cassVStore</span> <span class="o">=</span> <span class="n">Cassandra</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">retriever</span> <span class="o">=</span> <span class="n">cassVStore</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">semanticMemory</span> <span class="o">=</span> <span class="n">VectorStoreRetrieverMemory</span><span class="p">(</span><span class="n">retriever</span><span class="o">=</span><span class="n">retriever</span><span class="p">)</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">semanticMemoryTemplateString</span> <span class="o">=</span> <span class="o">...</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">memoryPrompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;history&quot;</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">],</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="n">template</span><span class="o">=</span><span class="n">semanticMemoryTemplateString</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">)</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="n">conversationWithVectorRetrieval</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> 
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">prompt</span><span class="o">=</span><span class="n">memoryPrompt</span><span class="p">,</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="n">memory</span><span class="o">=</span><span class="n">semanticMemory</span><span class="p">,</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">)</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="n">conversationWithVectorRetrieval</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;Do you remember what I told you about rainforests?&quot;</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">)</span>
-</code></pre></div>
-<h4 id="question-answering">Question answering<a class="headerlink" href="#question-answering" title="Permanent link">&para;</a></h4>
-<p>With the help of Vector Search, applications such as natural-language
-question answering over documents are made easy. Once the input
-documents are loaded and indexed,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">index_creator</span> <span class="o">=</span> <span class="n">VectorstoreIndexCreator</span><span class="p">(</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">vectorstore_cls</span><span class="o">=</span><span class="n">Cassandra</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">embedding</span><span class="o">=</span><span class="n">myEmbedding</span><span class="p">,</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">vectorstore_kwargs</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="s1">&#39;session&#39;</span><span class="p">:</span> <span class="n">session</span><span class="p">,</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="s1">&#39;keyspace&#39;</span><span class="p">:</span> <span class="n">keyspace</span><span class="p">,</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="p">},</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">)</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">loader</span> <span class="o">=</span> <span class="o">...</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">index</span> <span class="o">=</span> <span class="n">index_creator</span><span class="o">.</span><span class="n">from_loaders</span><span class="p">([</span><span class="n">loader</span><span class="p">])</span>
-</code></pre></div>
-<p>a Q&amp;A session is just a single line of code:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;How do I restore a deleted file?&quot;</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">ctemplate0</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">You are helpful a tech support chatbot providing assistance to a human user.</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">The user&#39;s name is </span><span class="si">{user_name}</span><span class="s2">, from this city: </span><span class="si">{user_city}</span><span class="s2">.</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">Please provide an answer to the user&#39;s question below.</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="s2">USER: </span><span class="si">{user_question}</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="s2">YOUR ANSWER:&quot;&quot;&quot;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">cassPrompt</span> <span class="o">=</span> <span class="n">createCassandraPromptTemplate</span><span class="p">(</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">keyspace</span><span class="o">=</span><span class="n">keyspace</span><span class="p">,</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">template</span><span class="o">=</span><span class="n">ctemplate0</span><span class="p">,</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;user_question&#39;</span><span class="p">],</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">field_mapper</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="c1"># template-variable: (table-name, column-name)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="s1">&#39;user_name&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;u_name&#39;</span><span class="p">),</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="s1">&#39;user_city&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;u_city&#39;</span><span class="p">),</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="p">},</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="p">)</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="o">...</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="n">finalPrompt</span> <span class="o">=</span> <span class="n">cassPrompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>    <span class="n">user_id</span><span class="o">=</span><span class="s1">&#39;fc4ab05&#39;</span><span class="p">,</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="n">user_question</span><span class="o">=</span><span class="s1">&#39;How do I ...&#39;</span><span class="p">,</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="p">)</span>
 </code></pre></div>
 <h2 id="find-out-more">Find out more!<a class="headerlink" href="#find-out-more" title="Permanent link">&para;</a></h2>
 <p>You just caught a glimpse of what is possible with LangChain and Astra DB.</p>
@@ -3546,7 +3486,7 @@ setup guides and other resources.</p>
   <small>
     
       Last update:
-      2023-08-24
+      2023-10-13
     
   </small>
 </div>

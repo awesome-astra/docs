@@ -1916,6 +1916,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1935,33 +1941,14 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
-          LLM/GenAI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          LLM/GenAI
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+    <li class="md-nav__item">
+      <a href="../../../aiml/llm/vector_demos/" class="md-nav__link">
+        Vector Demos
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1991,46 +1978,6 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
-          ML Workloads
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          ML Workloads
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
   
@@ -2054,13 +2001,6 @@
       <a href="../../integration/feast/" class="md-nav__link">
         Feast (↪)
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -3249,6 +3189,8 @@ links:
 </ul>
 </div>
 <h2 id="get-started">Get Started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
+<p><strong>Note</strong>: for notebooks specific to Vector Search functionalities, please
+head over to the dedicated <a href="/docs/pages/aiml/llm/vector_demos/">Vector Demos</a> page.</p>
 <table>
 <thead>
 <tr>
@@ -3268,27 +3210,8 @@ links:
 <td>None</td>
 <td><a href="https://colab.research.google.com/github/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Astra_Kaskada_Customer_Retention_AwesomeAstra.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a> Or, <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Astra_Kaskada_Customer_Retention_AwesomeAstra.ipynb">download the notebook</a>.</td>
 </tr>
-<tr>
-<td>Learn about how to use the new vector similarity search functionality to find content related to a query, and then pass that to an LLM to see understand the RAG pattern works for AI powered chatbots.</td>
-<td>You will need an Astra account and a new database that supports vector similarity search.</td>
-<td><a href="https://colab.research.google.com/github/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Retrieval_Augmented_Generation_(for_AI_Chatbots).ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a> Or, <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Retrieval_Augmented_Generation_(for_AI_Chatbots).ipynb">download the notebook</a>.</td>
-</tr>
-<tr>
-<td>Learn about how to use the new vector similarity search functionality to find images based on natural language descriptions using CLIP.</td>
-<td>You will need an Astra account and a new database that supports vector similarity search.</td>
-<td><a href="https://colab.research.google.com/github/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/astra_vsearch_image.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a> Or, <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/astra_vsearch_image.ipynb">download the notebook</a>.</td>
-</tr>
-<tr>
-<td>Try a simple Question-Answering demo powered by a vector-capable Astra DB instance. You will use the Astra integration for LangChain and OpenAI for the embeddings and the LLM (Large-Language-Model).</td>
-<td>You will need an <strong>Astra account</strong> with a <strong>Serverless Cassandra with Vector Search</strong> database. Moreover, an <strong>OpenAI API Key</strong> is required.</td>
-<td><a href="https://colab.research.google.com/github/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Quickstart_QA_Search_with_LangChain.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a> Or, <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/tools/notebooks/Quickstart_QA_Search_with_LangChain.ipynb">download the notebook</a>.</td>
-</tr>
 </tbody>
 </table>
-<p>If you open the notebook in Colab, and would like to make changes to it, choose "Save a copy in Drive" from the File menu in Colab. Have fun!</p>
-</div>
-<div class="nosurface">
-<p><a href="https://awesome-astra.github.io/docs/">🏠 Back to home</a> </p>
 </div>
 
   <hr>
@@ -3296,7 +3219,7 @@ links:
   <small>
     
       Last update:
-      2023-10-07
+      2023-10-13
     
   </small>
 </div>
