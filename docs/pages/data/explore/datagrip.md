@@ -16,7 +16,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/datagrip/logo-datagrip.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/datagrip/logo-datagrip.png" style="height: 180px;" />
 
 </div>
 

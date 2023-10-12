@@ -98,7 +98,3 @@ select * from <YOUR_TABLE>;
 
 Once you have received the correct results back, that's it! You have successfully connected DataStax Studio to Astra DB and can use this as a tool to help model your queries. You may also scroll down within the **Getting Started with Astra** notebook for more examples and recommendations. 
 
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
-</div>
-

@@ -79,7 +79,7 @@ vector_store = CassandraVectorStore(
 You can then use the store within most LlamaIndex native higher-level abstractions,
 such as `VectorStoreIndex`, and within complex LLM-based pipelines, such as
 the "query engines" to run question-answering interactions, in just a few lines
-of code.
+of code. **Metadata filtering** is also supported for vector-based document retrieval.
 
 For full working examples, and more, please head over to the
 [CassIO pages](https://cassio.org/frameworks/llamaindex/about/)

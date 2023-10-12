@@ -198,7 +198,3 @@ Note the options for `keyspace-autocreate` and `tables-autocreate` are shown set
 - Keyspaces must be created before connecting a Lagom microservice to Astra DB.
 - Lagom's attempts to create keyspaces will fail (due to a permissions error).
 - Table creation should function appropriately, assuming the required keyspaces already exist.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

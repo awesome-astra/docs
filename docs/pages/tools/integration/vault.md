@@ -160,9 +160,3 @@ token@cqlsh:vault> select * from "entries" limit 1;     //Select statement from 
 
 (1 rows)
 ```
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>
-
-

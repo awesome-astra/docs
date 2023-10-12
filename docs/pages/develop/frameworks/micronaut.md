@@ -151,7 +151,3 @@ public class TodoRestController {
 ```
 
 Happy coding.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

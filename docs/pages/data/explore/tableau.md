@@ -12,7 +12,7 @@ links:
   url: "https://downloads.datastax.com/#odbc-jdbc-drivers"
 ---
 
-<img src="https://awesome-astra.github.io/docs/img/tableau/logo-tableau.svg" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/tableau/logo-tableau.svg" style="height: 180px;" />
 
 ## Overview
 

@@ -167,7 +167,3 @@ Connect to your Astra DB. If the connection was successful, you should be able t
 Here's an example output:
 
 <img src="https://awesome-astra.github.io/docs/img/dbeaver/2396-dbeaver-06-explore.png" height="350px" />
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

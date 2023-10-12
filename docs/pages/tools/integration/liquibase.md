@@ -12,7 +12,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="../../../../img/liquibase/logo.png" height="100px" />
+<img src="../../../../img/liquibase/logo.png" style="height: 180px;" />
 </div>
 
 ## Overview

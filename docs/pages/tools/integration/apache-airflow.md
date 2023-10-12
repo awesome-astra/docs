@@ -12,7 +12,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/airflow/airflow-image.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/airflow/airflow-image.png" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -134,7 +134,3 @@ INFO - Marking task as SUCCESS. dag_id=cass_hooks_tutorial, task_id=check_table_
 ## Acknowledgements
 
 Special thanks goes out to Obioma Anomnachi of Anant. Obi’s [video](https://www.youtube.com/watch?v=h2OCveciEIA) and [GitHub repo](https://github.com/anomnaco/AirflowCassandra) proved quite helpful in building out this tutorial.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

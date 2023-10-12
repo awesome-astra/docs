@@ -84,75 +84,36 @@ section of the `cassIO` website, with complete tutorials and sample applications
 Have a look at what this integration enables ... and to learn more, and stay up
 to date, check out the `cassIO` homepage!
 
-#### Caching
+#### Question answering
 
-Save on latencies and token costs by using Astra DB as a cache
-for the responses to frequently-used prompts:
-
-```python
-langchain.llm_cache = CassandraCache(
-    session=session,
-    keyspace=keyspace,
-)
-
-llm("What is the best way to peel a tomato?")       # 1-2 seconds
-
-...
-
-llm("What is the best way to peel a tomato?")       # milliseconds
-```
-
-You can make the cache semantically-aware as well:
+With the help of Vector Search, applications such as natural-language
+question answering over documents are made easy. Once the input
+documents are loaded and indexed,
 
 ```python
-langchain.llm_cache = CassandraSemanticCache(
-    session=session,
-    keyspace=keyspace,
+index_creator = VectorstoreIndexCreator(
+    vectorstore_cls=Cassandra,
     embedding=myEmbedding,
-)
-
-llm("What is the best way to peel a tomato?")       # 1-2 seconds
-
-...
-
-llm("Tell me how do I best peel tomatoes.")         # milliseconds
-```
-
-#### Prompt management
-
-You can attach one or more Astra DB tables to a prompt template, so that
-at "rendering time" the DB is queried and the relevant values are injected
-into the prompt with minimal boilerplate:
-
-```python
-ctemplate0 = """
-You are helpful a tech support chatbot providing assistance to a human user.
-The user's name is {user_name}, from this city: {user_city}.
-
-Please provide an answer to the user's question below.
-
-USER: {user_question}
-YOUR ANSWER:"""
-
-cassPrompt = createCassandraPromptTemplate(
-    session=session,
-    keyspace=keyspace,
-    template=ctemplate0,
-    input_variables=['user_id', 'user_question'],
-    field_mapper={
-        # template-variable: (table-name, column-name)
-        'user_name': ('users', 'u_name'),
-        'user_city': ('users', 'u_city'),
+    vectorstore_kwargs={
+        'session': session,
+        'keyspace': keyspace,
     },
 )
 
-...
+loader = ...
 
-finalPrompt = cassPrompt.format(
-    user_id='fc4ab05',
-    user_question='How do I ...',
-)
+index = index_creator.from_loaders([loader])
 ```
+
+a Q&A session is just a single line of code:
+
+```python
+index.query("How do I restore a deleted file?", llm=llm)
+```
+
+Vector Store document retrieval from Astra DB in LangChain also support
+**metadata filtering**. Check out [cassio.org](https://cassio.org/frameworks/langchain/qa-vector-metadata/) for more details.
+
 
 #### Memory
 
@@ -229,31 +190,74 @@ conversationWithVectorRetrieval.predict(
 )
 ```
 
-#### Question answering
+#### Caching
 
-With the help of Vector Search, applications such as natural-language
-question answering over documents are made easy. Once the input
-documents are loaded and indexed,
+Save on latencies and token costs by using Astra DB as a cache
+for the responses to frequently-used prompts:
 
 ```python
-index_creator = VectorstoreIndexCreator(
-    vectorstore_cls=Cassandra,
+langchain.llm_cache = CassandraCache(
+    session=session,
+    keyspace=keyspace,
+)
+
+llm("What is the best way to peel a tomato?")       # 1-2 seconds
+
+...
+
+llm("What is the best way to peel a tomato?")       # milliseconds
+```
+
+You can make the cache semantically-aware as well:
+
+```python
+langchain.llm_cache = CassandraSemanticCache(
+    session=session,
+    keyspace=keyspace,
     embedding=myEmbedding,
-    vectorstore_kwargs={
-        'session': session,
-        'keyspace': keyspace,
+)
+
+llm("What is the best way to peel a tomato?")       # 1-2 seconds
+
+...
+
+llm("Tell me how do I best peel tomatoes.")         # milliseconds
+```
+
+#### Prompt management
+
+You can attach one or more Astra DB tables to a prompt template, so that
+at "rendering time" the DB is queried and the relevant values are injected
+into the prompt with minimal boilerplate:
+
+```python
+ctemplate0 = """
+You are helpful a tech support chatbot providing assistance to a human user.
+The user's name is {user_name}, from this city: {user_city}.
+
+Please provide an answer to the user's question below.
+
+USER: {user_question}
+YOUR ANSWER:"""
+
+cassPrompt = createCassandraPromptTemplate(
+    session=session,
+    keyspace=keyspace,
+    template=ctemplate0,
+    input_variables=['user_id', 'user_question'],
+    field_mapper={
+        # template-variable: (table-name, column-name)
+        'user_name': ('users', 'u_name'),
+        'user_city': ('users', 'u_city'),
     },
 )
 
-loader = ...
+...
 
-index = index_creator.from_loaders([loader])
-```
-
-a Q&A session is just a single line of code:
-
-```python
-index.query("How do I restore a deleted file?", llm=llm)
+finalPrompt = cassPrompt.format(
+    user_id='fc4ab05',
+    user_question='How do I ...',
+)
 ```
 
 ## Find out more!

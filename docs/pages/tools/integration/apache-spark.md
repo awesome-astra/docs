@@ -16,7 +16,7 @@ links:
 
 - _This article includes information that was originally written by **Arpan Patel** on [Anant Github](https://github.com/Anant/example-Apache-Spark-and-DataStax-Astra/blob/main/Connect/README.md) and Astra DataStax_
 
-<img src="https://awesome-astra.github.io/docs/img/apache-spark/Apache_Spark_logo.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/apache-spark/Apache_Spark_logo.png" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -98,7 +98,3 @@ res0: Long = 25
 
 scala> :quit
 ```
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

@@ -216,7 +216,3 @@ CREATE TABLE quine.snapshots (
 ## Acknowledgements
 
 Special thanks goes out to Ryan Wright and Leif Warner of [thatDot](https://www.thatdot.com/) for their help with getting Quine running and connected.
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

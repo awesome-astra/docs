@@ -14,7 +14,7 @@ links:
   url: "https://trino.io/docs/current/client/cli.html"
 ---
 
-<img src="https://awesome-astra.github.io/docs/img/trino/logo-trino.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/trino/logo-trino.png" style="height: 180px;" />
 
 ## Overview
 

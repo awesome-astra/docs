@@ -103,7 +103,3 @@ default = "AstraCS:XXXX"
 - Et voila! You can now list databases on your Astra organization and for each you can see the different keyspaces
 
 ![my-pic](https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

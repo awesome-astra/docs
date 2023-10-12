@@ -11,7 +11,7 @@ links:
 ---
 
 <div class="nosurface" markdown="1">
-<img src="https://awesome-astra.github.io/docs/img/authorizer/authorizer.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/authorizer/authorizer.png" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -98,7 +98,3 @@ Verify that it is running by bringing up the Authorizer dashboard in a browser: 
 Special thanks goes out to Lakhan Samani of Authorizer.
 [YouTube channel](https://www.youtube.com/c/LakhanSamani/featured)
 [GitHub repo](https://github.com/authorizerdev/authorizer)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

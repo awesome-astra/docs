@@ -120,8 +120,3 @@ You could even package it as a native app and realize the full power of the Quar
 - [A complete Todo Application with Quarkus](https://github.com/datastaxdevs/quarkus-astra-intro-demo)
 - [Workshop outlining a step-by-step approach to run the application] (https://github.com/datastaxdevs/workshop-intro-quarkus-cassandra)
 - [Recording of the workshop](https://www.youtube.com/watch?v=iz9MGczDA_U)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/)
-
-</div>

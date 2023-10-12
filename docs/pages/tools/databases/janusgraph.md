@@ -170,7 +170,3 @@ edgestore_lock_  graphindex_lock_         janusgraph_ids
 txlog            systemlog                graphindex       
 edgestore        system_properties_lock_  system_properties
 ```
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

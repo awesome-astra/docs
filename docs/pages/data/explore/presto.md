@@ -14,7 +14,7 @@ links:
   url: "https://prestodb.io/docs/current/installation/cli.html"
 ---
 
-<img src="https://awesome-astra.github.io/docs/img/presto/logo-presto.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/presto/logo-presto.png" style="height: 180px;" />
 
 ## Overview
 
