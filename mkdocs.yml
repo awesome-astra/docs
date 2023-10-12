@@ -78,12 +78,11 @@ nav:
   - AI/ML:
     - Overview: pages/aiml/index.md
     - Topics:
-      - LLM/GenAI:
-        - LangChain: pages/aiml/llm/langchain.md
-        - LlamaIndex: pages/aiml/llm/llamaindex.md
-      - ML Workloads:
-        - CassIO: pages/aiml/llm/cassio.md
-        - Feast (↪): pages/tools/integration/feast.md
+      - Vector Demos: pages/aiml/llm/vector_demos.md
+      - LangChain: pages/aiml/llm/langchain.md
+      - LlamaIndex: pages/aiml/llm/llamaindex.md
+      - CassIO: pages/aiml/llm/cassio.md
+      - Feast (↪): pages/tools/integration/feast.md
 
   - Integration Ecosystem:
     - Tools List: pages/tools/index.md

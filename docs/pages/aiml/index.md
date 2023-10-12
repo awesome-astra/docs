@@ -51,6 +51,12 @@ GenAI-oriented frameworks. Pick the tile corresponding to your stack to learn mo
 <a href="llm/langchain">
  <img src="../../img/langchain/tile-langchain.png" height="130px" width="130px"/>
 </a>&nbsp;&nbsp;
+<a href="llm/llamaindex">
+ <img src="../../img/llamaindex/tile-llamaindex.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
+<a href="llm/cassio">
+ <img src="../../img/cassio/tile-cassio.png" height="130px" width="130px"/>
+</a>&nbsp;&nbsp;
 
 ## Traditional ML workloads
 
