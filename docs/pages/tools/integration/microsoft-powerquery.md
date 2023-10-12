@@ -3,7 +3,6 @@ title: "Microsoft Power Query"
 description: "Microsoft Power Query ..."
 tags: "microsoft, third party tools, etl, workflow, powerbi"
 icon: "https://awesome-astra.github.io/docs/img/microsoft-powerquery/microsoft-powerquery.svg"
-recommended: "true"
 developer_title: "Microsoft"
 developer_url: "https://powerquery.microsoft.com/en-us/"
 links:
