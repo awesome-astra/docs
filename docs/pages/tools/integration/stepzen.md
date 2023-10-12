@@ -14,7 +14,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/stepzen/stepzen_logo.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/stepzen/stepzen_logo.png" style="height: 180px;" />
 </div>
 
 ## Overview

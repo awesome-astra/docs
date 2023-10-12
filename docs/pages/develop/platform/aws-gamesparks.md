@@ -222,7 +222,3 @@ Great! Setup is now complete!
 
 ## Finish
 Congratulations! You have completed the ***Astra Block with AWS GameSparks, AWS Lambda, and Unity*** tutorial! This is only the beginning as you can connect your AWS Lambda to any table given within Astra Block, query for different values, etc. 
-
-<span class="nosurface">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
-</span>

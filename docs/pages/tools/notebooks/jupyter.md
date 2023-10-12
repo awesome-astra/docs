@@ -39,7 +39,3 @@ head over to the dedicated [Vector Demos](/docs/pages/aiml/llm/vector_demos/) pa
 
 
 </div>
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

@@ -69,7 +69,3 @@ Once you have completed all of the **Prerequisites** and confirmed CQL Proxy is 
     <img src="https://awesome-astra.github.io/docs/img/datastation/6_run_query.png" />
 
 ...and you're done! This tutorial quickly shows you how you can easily integrate your Astra DB with the DataStation IDE to run queries, build tables, and further enhance how you interact with your data. 
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

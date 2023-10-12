@@ -112,7 +112,3 @@ yarn start
 <img src="https://awesome-astra.github.io/docs/img/netflix-data-explorer/import-bundle.png" />
 
 - Import your secure connect bundle (see Prerequisite section above)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

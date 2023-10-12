@@ -103,7 +103,3 @@ Download [Astra JDBC connector jar](https://github.com/DataStax-Examples/astra-j
 Now that your connection is working, you can create tables, introspect your keyspaces, view your data in the DBSchema GUI, and more.
 
 To learn more about DBSchema, see [Quick start with DBSchema](https://dbschema.com/tutorials.html)
-
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/) 
-</div>

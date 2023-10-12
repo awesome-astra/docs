@@ -14,7 +14,7 @@ links:
 -->
 
 <div class="nosurface" markdown="1">
-<img src="https://awesome-astra.github.io/docs/img/vscode/Visual_Studio_Code_1.35_icon.svg.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/vscode/Visual_Studio_Code_1.35_icon.svg.png" style="height: 180px;" />
 
 <admonition markdown="1">
 !!! note "Check back soon"

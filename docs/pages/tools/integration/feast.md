@@ -17,7 +17,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="../../../../img/feast/feast_logo.png" height="100px" />
+<img src="../../../../img/feast/feast_logo.png" style="height: 180px;" />
 </div>
 
 ## Overview

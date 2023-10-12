@@ -14,7 +14,7 @@ links:
 -->
 
 <div class="nosurface" markdown="1">
-<img src="https://awesome-astra.github.io/docs/img/eclipse/Eclipse-Luna-Logo.svg.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/eclipse/Eclipse-Luna-Logo.svg.png" style="height: 180px;" />
 
 !!! note "Check back soon"
 

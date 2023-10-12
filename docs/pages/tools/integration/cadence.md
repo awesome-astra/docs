@@ -14,7 +14,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/cadence/cadence-logo.png" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -158,7 +158,3 @@ Domain samples-domain successfully registered.
 Once you have this all running, you should be able to see your workflows reflect on both the Cadence UI and Astra UI. You can see the domain on the top left is samples-domain, the domain we created, as well as the Status of each workflow as “Completed”.
 
 <img src="https://awesome-astra.github.io/docs/img/cadence/cadence-testui.png"  />
-
-<div class="nosurface" markdown="1">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
-</div>

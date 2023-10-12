@@ -9,7 +9,7 @@ developer_url: "https://grafana.com"
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/grafana/grafana_logo.svg" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -145,7 +145,3 @@ All other properties will be ignored
 ### Contacts
 
 We hope it works well for you! In case of any questions please contact developers using [GitHub Discussions](https://github.com/HadesArchitect/GrafanaCassandraDatasource/discussions).
-
-<div class="nosurface" markdown="1">
-[🏠 Back to home](https://awesome-astra.github.io/docs/) 
-</div>

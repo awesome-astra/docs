@@ -14,7 +14,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/strapi/logo-strapi.png" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/strapi/logo-strapi.png" style="height: 180px;" />
 </div>
 
 ## Overview

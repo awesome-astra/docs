@@ -14,7 +14,7 @@ links:
 
 <div class="nosurface" markdown="1">
 
-<img src="https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/temporal/temporal-logo-dark.svg" style="height: 180px;" />
 </div>
 
 ## Overview
@@ -156,7 +156,3 @@ c, err := client.NewClient(client.Options{HostPort: "127.0.0.1:7233", Namespace:
 Once you have this all running, you should be able to see your workflows reflect on both the Temporal UI and Astra UI.
 
 <img src="https://awesome-astra.github.io/docs/img/temporal/temporal-06-test-validate.png"  />
-
-<span class="nosurface">
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)
-</span>

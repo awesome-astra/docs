@@ -10,17 +10,12 @@ links:
   url: "https://link"
 -->
 
-<img src="https://awesome-astra.github.io/docs/img/postman/postman.svg" height="100px" />
+<img src="https://awesome-astra.github.io/docs/img/postman/postman.png" style="height: 180px;" />
 
 
 ## Overview
 
 Overview of Postman. What is it? Why is it important and useful with Astra?
-
-
-- 📥 [Temporal Quick Install](https://docs.temporal.io/docs/clusters/quick-install/)
-- ℹ️ [Introduction to Temporal](https://docs.temporal.io/docs/temporal-explained/introduction)
-- ℹ️ [Part 1: Introduction to Temporal and Cassandra, Astra DB](https://medium.com/building-the-open-data-stack/easily-manage-workflows-at-scale-with-temporal-io-and-astra-db-144f93a21ff3)
 
 
 ## Prerequisites
@@ -35,6 +30,3 @@ Overview of Postman. What is it? Why is it important and useful with Astra?
 
 ### ✅ Step 1:
 ### ✅ Step 2:
-
-
-[🏠 Back to HOME](https://awesome-astra.github.io/docs/)

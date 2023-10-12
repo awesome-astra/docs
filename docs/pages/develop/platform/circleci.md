@@ -12,8 +12,6 @@ links:
 
 # CircleCI
 
-[🏠 Back to HOME](../README>MD)
-
 ## Overview
 
 CircleCI is a popular CICD (continuous integration continuous delivery) tool which integrates with your application's GitHub repository.  With CircleCI you can quickly spin-up resources to run your application's unit tests under production environment conditions.
