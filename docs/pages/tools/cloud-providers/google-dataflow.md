@@ -710,7 +710,7 @@ bq ls --format=pretty
 
 - **Create BigQuery Schema**
 
-- Create a json `schema_language_codes.json` file with the schema of the table** We have created it for you [here](samples-dataflow/src/main/resources/schema_language_codes.json)
+- Create a json `schema_language_codes.json` file with the schema of the table** We have created it for you [here](https://github.com/DataStax-Examples/astra-dataflow-starter/blob/main/samples-dataflow/src/main/resources/schema_language_codes.json)
  
 ```json
 [
