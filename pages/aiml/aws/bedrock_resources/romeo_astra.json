@@ -1,0 +1,2570 @@
+[
+    {
+        "Dataline": 88242,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.1",
+        "Player": "PARIS",
+        "PlayerLine": "Give me thy torch, boy: hence, and stand aloof:"
+    },
+    {
+        "Dataline": 88243,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.2",
+        "Player": "PARIS",
+        "PlayerLine": "Yet put it out, for I would not be seen."
+    },
+    {
+        "Dataline": 88244,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.3",
+        "Player": "PARIS",
+        "PlayerLine": "Under yond yew-trees lay thee all along,"
+    },
+    {
+        "Dataline": 88245,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.4",
+        "Player": "PARIS",
+        "PlayerLine": "Holding thine ear close to the hollow ground,"
+    },
+    {
+        "Dataline": 88246,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.5",
+        "Player": "PARIS",
+        "PlayerLine": "So shall no foot upon the churchyard tread,"
+    },
+    {
+        "Dataline": 88247,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.6",
+        "Player": "PARIS",
+        "PlayerLine": "Being loose, unfirm, with digging up of graves,"
+    },
+    {
+        "Dataline": 88248,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.7",
+        "Player": "PARIS",
+        "PlayerLine": "But thou shalt hear it: whistle then to me,"
+    },
+    {
+        "Dataline": 88249,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.8",
+        "Player": "PARIS",
+        "PlayerLine": "As signal that thou hear'st something approach."
+    },
+    {
+        "Dataline": 88250,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 1,
+        "ActSceneLine": "5.3.9",
+        "Player": "PARIS",
+        "PlayerLine": "Give me those flowers. Do as I bid thee, go."
+    },
+    {
+        "Dataline": 88251,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 2,
+        "ActSceneLine": "5.3.10",
+        "Player": "PAGE",
+        "PlayerLine": "[Aside]  I am almost afraid to stand alone"
+    },
+    {
+        "Dataline": 88252,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 2,
+        "ActSceneLine": "5.3.11",
+        "Player": "PAGE",
+        "PlayerLine": "Here in the churchyard, yet I will adventure."
+    },
+    {
+        "Dataline": 88254,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.12",
+        "Player": "PARIS",
+        "PlayerLine": "Sweet flower, with flowers thy bridal bed I strew,--"
+    },
+    {
+        "Dataline": 88255,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.13",
+        "Player": "PARIS",
+        "PlayerLine": "O woe! thy canopy is dust and stones,--"
+    },
+    {
+        "Dataline": 88256,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.14",
+        "Player": "PARIS",
+        "PlayerLine": "Which with sweet water nightly I will dew,"
+    },
+    {
+        "Dataline": 88257,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.15",
+        "Player": "PARIS",
+        "PlayerLine": "Or, wanting that, with tears distill'd by moans:"
+    },
+    {
+        "Dataline": 88258,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.16",
+        "Player": "PARIS",
+        "PlayerLine": "The obsequies that I for thee will keep"
+    },
+    {
+        "Dataline": 88259,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.17",
+        "Player": "PARIS",
+        "PlayerLine": "Nightly shall be to strew thy grave and weep."
+    },
+    {
+        "Dataline": 88261,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.18",
+        "Player": "PARIS",
+        "PlayerLine": "The boy gives warning something doth approach."
+    },
+    {
+        "Dataline": 88262,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.19",
+        "Player": "PARIS",
+        "PlayerLine": "What cursed foot wanders this way to-night,"
+    },
+    {
+        "Dataline": 88263,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.20",
+        "Player": "PARIS",
+        "PlayerLine": "To cross my obsequies and true love's rite?"
+    },
+    {
+        "Dataline": 88264,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 3,
+        "ActSceneLine": "5.3.21",
+        "Player": "PARIS",
+        "PlayerLine": "What with a torch! muffle me, night, awhile."
+    },
+    {
+        "Dataline": 88267,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.22",
+        "Player": "ROMEO",
+        "PlayerLine": "Give me that mattock and the wrenching iron."
+    },
+    {
+        "Dataline": 88268,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.23",
+        "Player": "ROMEO",
+        "PlayerLine": "Hold, take this letter, early in the morning"
+    },
+    {
+        "Dataline": 88269,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.24",
+        "Player": "ROMEO",
+        "PlayerLine": "See thou deliver it to my lord and father."
+    },
+    {
+        "Dataline": 88270,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.25",
+        "Player": "ROMEO",
+        "PlayerLine": "Give me the light: upon thy life, I charge thee,"
+    },
+    {
+        "Dataline": 88271,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.26",
+        "Player": "ROMEO",
+        "PlayerLine": "Whate'er thou hear'st or seest, stand all aloof,"
+    },
+    {
+        "Dataline": 88272,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.27",
+        "Player": "ROMEO",
+        "PlayerLine": "And do not interrupt me in my course."
+    },
+    {
+        "Dataline": 88273,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.28",
+        "Player": "ROMEO",
+        "PlayerLine": "Why I descend into this bed of death,"
+    },
+    {
+        "Dataline": 88274,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.29",
+        "Player": "ROMEO",
+        "PlayerLine": "Is partly to behold my lady's face,"
+    },
+    {
+        "Dataline": 88275,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.30",
+        "Player": "ROMEO",
+        "PlayerLine": "But chiefly to take thence from her dead finger"
+    },
+    {
+        "Dataline": 88276,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.31",
+        "Player": "ROMEO",
+        "PlayerLine": "A precious ring, a ring that I must use"
+    },
+    {
+        "Dataline": 88277,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.32",
+        "Player": "ROMEO",
+        "PlayerLine": "In dear employment: therefore hence, be gone:"
+    },
+    {
+        "Dataline": 88278,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.33",
+        "Player": "ROMEO",
+        "PlayerLine": "But if thou, jealous, dost return to pry"
+    },
+    {
+        "Dataline": 88279,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.34",
+        "Player": "ROMEO",
+        "PlayerLine": "In what I further shall intend to do,"
+    },
+    {
+        "Dataline": 88280,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.35",
+        "Player": "ROMEO",
+        "PlayerLine": "By heaven, I will tear thee joint by joint"
+    },
+    {
+        "Dataline": 88281,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.36",
+        "Player": "ROMEO",
+        "PlayerLine": "And strew this hungry churchyard with thy limbs:"
+    },
+    {
+        "Dataline": 88282,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.37",
+        "Player": "ROMEO",
+        "PlayerLine": "The time and my intents are savage-wild,"
+    },
+    {
+        "Dataline": 88283,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.38",
+        "Player": "ROMEO",
+        "PlayerLine": "More fierce and more inexorable far"
+    },
+    {
+        "Dataline": 88284,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 4,
+        "ActSceneLine": "5.3.39",
+        "Player": "ROMEO",
+        "PlayerLine": "Than empty tigers or the roaring sea."
+    },
+    {
+        "Dataline": 88285,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 5,
+        "ActSceneLine": "5.3.40",
+        "Player": "BALTHASAR",
+        "PlayerLine": "I will be gone, sir, and not trouble you."
+    },
+    {
+        "Dataline": 88286,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 6,
+        "ActSceneLine": "5.3.41",
+        "Player": "ROMEO",
+        "PlayerLine": "So shalt thou show me friendship. Take thou that:"
+    },
+    {
+        "Dataline": 88287,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 6,
+        "ActSceneLine": "5.3.42",
+        "Player": "ROMEO",
+        "PlayerLine": "Live, and be prosperous: and farewell, good fellow."
+    },
+    {
+        "Dataline": 88288,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 7,
+        "ActSceneLine": "5.3.43",
+        "Player": "BALTHASAR",
+        "PlayerLine": "[Aside]  For all this same, I'll hide me hereabout:"
+    },
+    {
+        "Dataline": 88289,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 7,
+        "ActSceneLine": "5.3.44",
+        "Player": "BALTHASAR",
+        "PlayerLine": "His looks I fear, and his intents I doubt."
+    },
+    {
+        "Dataline": 88291,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 8,
+        "ActSceneLine": "5.3.45",
+        "Player": "ROMEO",
+        "PlayerLine": "Thou detestable maw, thou womb of death,"
+    },
+    {
+        "Dataline": 88292,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 8,
+        "ActSceneLine": "5.3.46",
+        "Player": "ROMEO",
+        "PlayerLine": "Gorged with the dearest morsel of the earth,"
+    },
+    {
+        "Dataline": 88293,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 8,
+        "ActSceneLine": "5.3.47",
+        "Player": "ROMEO",
+        "PlayerLine": "Thus I enforce thy rotten jaws to open,"
+    },
+    {
+        "Dataline": 88294,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 8,
+        "ActSceneLine": "5.3.48",
+        "Player": "ROMEO",
+        "PlayerLine": "And, in despite, I'll cram thee with more food!"
+    },
+    {
+        "Dataline": 88296,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.49",
+        "Player": "PARIS",
+        "PlayerLine": "This is that banish'd haughty Montague,"
+    },
+    {
+        "Dataline": 88297,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.50",
+        "Player": "PARIS",
+        "PlayerLine": "That murder'd my love's cousin, with which grief,"
+    },
+    {
+        "Dataline": 88298,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.51",
+        "Player": "PARIS",
+        "PlayerLine": "It is supposed, the fair creature died,"
+    },
+    {
+        "Dataline": 88299,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.52",
+        "Player": "PARIS",
+        "PlayerLine": "And here is come to do some villanous shame"
+    },
+    {
+        "Dataline": 88300,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.53",
+        "Player": "PARIS",
+        "PlayerLine": "To the dead bodies: I will apprehend him."
+    },
+    {
+        "Dataline": 88302,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.54",
+        "Player": "PARIS",
+        "PlayerLine": "Stop thy unhallow'd toil, vile Montague!"
+    },
+    {
+        "Dataline": 88303,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.55",
+        "Player": "PARIS",
+        "PlayerLine": "Can vengeance be pursued further than death?"
+    },
+    {
+        "Dataline": 88304,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.56",
+        "Player": "PARIS",
+        "PlayerLine": "Condemned villain, I do apprehend thee:"
+    },
+    {
+        "Dataline": 88305,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 9,
+        "ActSceneLine": "5.3.57",
+        "Player": "PARIS",
+        "PlayerLine": "Obey, and go with me, for thou must die."
+    },
+    {
+        "Dataline": 88306,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.58",
+        "Player": "ROMEO",
+        "PlayerLine": "I must indeed, and therefore came I hither."
+    },
+    {
+        "Dataline": 88307,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.59",
+        "Player": "ROMEO",
+        "PlayerLine": "Good gentle youth, tempt not a desperate man,"
+    },
+    {
+        "Dataline": 88308,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.60",
+        "Player": "ROMEO",
+        "PlayerLine": "Fly hence, and leave me: think upon these gone,"
+    },
+    {
+        "Dataline": 88309,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.61",
+        "Player": "ROMEO",
+        "PlayerLine": "Let them affright thee. I beseech thee, youth,"
+    },
+    {
+        "Dataline": 88310,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.62",
+        "Player": "ROMEO",
+        "PlayerLine": "Put not another sin upon my head,"
+    },
+    {
+        "Dataline": 88311,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.63",
+        "Player": "ROMEO",
+        "PlayerLine": "By urging me to fury: O, be gone!"
+    },
+    {
+        "Dataline": 88312,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.64",
+        "Player": "ROMEO",
+        "PlayerLine": "By heaven, I love thee better than myself,"
+    },
+    {
+        "Dataline": 88313,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.65",
+        "Player": "ROMEO",
+        "PlayerLine": "For I come hither arm'd against myself:"
+    },
+    {
+        "Dataline": 88314,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.66",
+        "Player": "ROMEO",
+        "PlayerLine": "Stay not, be gone, live, and hereafter say,"
+    },
+    {
+        "Dataline": 88315,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 10,
+        "ActSceneLine": "5.3.67",
+        "Player": "ROMEO",
+        "PlayerLine": "A madman's mercy bade thee run away."
+    },
+    {
+        "Dataline": 88316,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 11,
+        "ActSceneLine": "5.3.68",
+        "Player": "PARIS",
+        "PlayerLine": "I do defy thy conjurations,"
+    },
+    {
+        "Dataline": 88317,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 11,
+        "ActSceneLine": "5.3.69",
+        "Player": "PARIS",
+        "PlayerLine": "And apprehend thee for a felon here."
+    },
+    {
+        "Dataline": 88318,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 12,
+        "ActSceneLine": "5.3.70",
+        "Player": "ROMEO",
+        "PlayerLine": "Wilt thou provoke me? then have at thee, boy!"
+    },
+    {
+        "Dataline": 88320,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 13,
+        "ActSceneLine": "5.3.71",
+        "Player": "PAGE",
+        "PlayerLine": "O Lord, they fight! I will go call the watch."
+    },
+    {
+        "Dataline": 88322,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 14,
+        "ActSceneLine": "5.3.72",
+        "Player": "PARIS",
+        "PlayerLine": "O, I am slain!"
+    },
+    {
+        "Dataline": 88324,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 14,
+        "ActSceneLine": "5.3.73",
+        "Player": "PARIS",
+        "PlayerLine": "If thou be merciful,"
+    },
+    {
+        "Dataline": 88325,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 14,
+        "ActSceneLine": "5.3.74",
+        "Player": "PARIS",
+        "PlayerLine": "Open the tomb, lay me with Astra."
+    },
+    {
+        "Dataline": 88327,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.75",
+        "Player": "ROMEO",
+        "PlayerLine": "In faith, I will. Let me peruse this face."
+    },
+    {
+        "Dataline": 88328,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.76",
+        "Player": "ROMEO",
+        "PlayerLine": "Mercutio's kinsman, noble County Paris!"
+    },
+    {
+        "Dataline": 88329,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.77",
+        "Player": "ROMEO",
+        "PlayerLine": "What said my man, when my betossed soul"
+    },
+    {
+        "Dataline": 88330,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.78",
+        "Player": "ROMEO",
+        "PlayerLine": "Did not attend him as we rode? I think"
+    },
+    {
+        "Dataline": 88331,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.79",
+        "Player": "ROMEO",
+        "PlayerLine": "He told me Paris should have married Astra:"
+    },
+    {
+        "Dataline": 88332,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.80",
+        "Player": "ROMEO",
+        "PlayerLine": "Said he not so? or did I dream it so?"
+    },
+    {
+        "Dataline": 88333,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.81",
+        "Player": "ROMEO",
+        "PlayerLine": "Or am I mad, hearing him talk of Astra,"
+    },
+    {
+        "Dataline": 88334,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.82",
+        "Player": "ROMEO",
+        "PlayerLine": "To think it was so? O, give me thy hand,"
+    },
+    {
+        "Dataline": 88335,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.83",
+        "Player": "ROMEO",
+        "PlayerLine": "One writ with me in sour misfortune's book!"
+    },
+    {
+        "Dataline": 88336,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.84",
+        "Player": "ROMEO",
+        "PlayerLine": "I'll bury thee in a triumphant grave,"
+    },
+    {
+        "Dataline": 88337,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.85",
+        "Player": "ROMEO",
+        "PlayerLine": "A grave? O no! a lantern, slaughter'd youth,"
+    },
+    {
+        "Dataline": 88338,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.86",
+        "Player": "ROMEO",
+        "PlayerLine": "For here lies Astra, and her beauty makes"
+    },
+    {
+        "Dataline": 88339,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.87",
+        "Player": "ROMEO",
+        "PlayerLine": "This vault a feasting presence full of light."
+    },
+    {
+        "Dataline": 88340,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.88",
+        "Player": "ROMEO",
+        "PlayerLine": "Death, lie thou there, by a dead man interr'd."
+    },
+    {
+        "Dataline": 88342,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.89",
+        "Player": "ROMEO",
+        "PlayerLine": "How oft when men are at the point of death"
+    },
+    {
+        "Dataline": 88343,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.90",
+        "Player": "ROMEO",
+        "PlayerLine": "Have they been merry! which their keepers call"
+    },
+    {
+        "Dataline": 88344,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.91",
+        "Player": "ROMEO",
+        "PlayerLine": "A lightning before death: O, how may I"
+    },
+    {
+        "Dataline": 88345,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.92",
+        "Player": "ROMEO",
+        "PlayerLine": "Call this a lightning? O my love! my wife!"
+    },
+    {
+        "Dataline": 88346,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.93",
+        "Player": "ROMEO",
+        "PlayerLine": "Death, that hath suck'd the honey of thy breath,"
+    },
+    {
+        "Dataline": 88347,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.94",
+        "Player": "ROMEO",
+        "PlayerLine": "Hath had no power yet upon thy beauty:"
+    },
+    {
+        "Dataline": 88348,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.95",
+        "Player": "ROMEO",
+        "PlayerLine": "Thou art not conquer'd, beauty's ensign yet"
+    },
+    {
+        "Dataline": 88349,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.96",
+        "Player": "ROMEO",
+        "PlayerLine": "Is crimson in thy lips and in thy cheeks,"
+    },
+    {
+        "Dataline": 88350,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.97",
+        "Player": "ROMEO",
+        "PlayerLine": "And death's pale flag is not advanced there."
+    },
+    {
+        "Dataline": 88351,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.98",
+        "Player": "ROMEO",
+        "PlayerLine": "Tybalt, liest thou there in thy bloody sheet?"
+    },
+    {
+        "Dataline": 88352,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.99",
+        "Player": "ROMEO",
+        "PlayerLine": "O, what more favour can I do to thee,"
+    },
+    {
+        "Dataline": 88353,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.100",
+        "Player": "ROMEO",
+        "PlayerLine": "Than with that hand that cut thy youth in twain"
+    },
+    {
+        "Dataline": 88354,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.101",
+        "Player": "ROMEO",
+        "PlayerLine": "To sunder his that was thine enemy?"
+    },
+    {
+        "Dataline": 88355,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.102",
+        "Player": "ROMEO",
+        "PlayerLine": "Forgive me, cousin! Ah, dear Astra,"
+    },
+    {
+        "Dataline": 88356,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.103",
+        "Player": "ROMEO",
+        "PlayerLine": "Why art thou yet so fair? shall I believe"
+    },
+    {
+        "Dataline": 88357,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.104",
+        "Player": "ROMEO",
+        "PlayerLine": "That unsubstantial death is amorous,"
+    },
+    {
+        "Dataline": 88358,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.105",
+        "Player": "ROMEO",
+        "PlayerLine": "And that the lean abhorred monster keeps"
+    },
+    {
+        "Dataline": 88359,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.106",
+        "Player": "ROMEO",
+        "PlayerLine": "Thee here in dark to be his paramour?"
+    },
+    {
+        "Dataline": 88360,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.107",
+        "Player": "ROMEO",
+        "PlayerLine": "For fear of that, I still will stay with thee,"
+    },
+    {
+        "Dataline": 88361,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.108",
+        "Player": "ROMEO",
+        "PlayerLine": "And never from this palace of dim night"
+    },
+    {
+        "Dataline": 88362,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.109",
+        "Player": "ROMEO",
+        "PlayerLine": "Depart again: here, here will I remain"
+    },
+    {
+        "Dataline": 88363,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.110",
+        "Player": "ROMEO",
+        "PlayerLine": "With worms that are thy chamber-maids, O, here"
+    },
+    {
+        "Dataline": 88364,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.111",
+        "Player": "ROMEO",
+        "PlayerLine": "Will I set up my everlasting rest,"
+    },
+    {
+        "Dataline": 88365,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.112",
+        "Player": "ROMEO",
+        "PlayerLine": "And shake the yoke of inauspicious stars"
+    },
+    {
+        "Dataline": 88366,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.113",
+        "Player": "ROMEO",
+        "PlayerLine": "From this world-wearied flesh. Eyes, look your last!"
+    },
+    {
+        "Dataline": 88367,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.114",
+        "Player": "ROMEO",
+        "PlayerLine": "Arms, take your last embrace! and, lips, O you"
+    },
+    {
+        "Dataline": 88368,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.115",
+        "Player": "ROMEO",
+        "PlayerLine": "The doors of breath, seal with a righteous kiss"
+    },
+    {
+        "Dataline": 88369,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.116",
+        "Player": "ROMEO",
+        "PlayerLine": "A dateless bargain to engrossing death!"
+    },
+    {
+        "Dataline": 88370,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.117",
+        "Player": "ROMEO",
+        "PlayerLine": "Come, bitter conduct, come, unsavoury guide!"
+    },
+    {
+        "Dataline": 88371,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.118",
+        "Player": "ROMEO",
+        "PlayerLine": "Thou desperate pilot, now at once run on"
+    },
+    {
+        "Dataline": 88372,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.119",
+        "Player": "ROMEO",
+        "PlayerLine": "The dashing rocks thy sea-sick weary bark!"
+    },
+    {
+        "Dataline": 88373,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.120",
+        "Player": "ROMEO",
+        "PlayerLine": "Here's to my love!"
+    },
+    {
+        "Dataline": 88375,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.121",
+        "Player": "ROMEO",
+        "PlayerLine": "O true apothecary!"
+    },
+    {
+        "Dataline": 88376,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 15,
+        "ActSceneLine": "5.3.122",
+        "Player": "ROMEO",
+        "PlayerLine": "Thy drugs are quick. Thus with a kiss I die."
+    },
+    {
+        "Dataline": 88379,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 16,
+        "ActSceneLine": "5.3.123",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Saint Francis be my speed! how oft to-night"
+    },
+    {
+        "Dataline": 88380,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 16,
+        "ActSceneLine": "5.3.124",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Have my old feet stumbled at graves! Who's there?"
+    },
+    {
+        "Dataline": 88381,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 17,
+        "ActSceneLine": "5.3.125",
+        "Player": "BALTHASAR",
+        "PlayerLine": "Here's one, a friend, and one that knows you well."
+    },
+    {
+        "Dataline": 88382,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 18,
+        "ActSceneLine": "5.3.126",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Bliss be upon you! Tell me, good my friend,"
+    },
+    {
+        "Dataline": 88383,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 18,
+        "ActSceneLine": "5.3.127",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "What torch is yond, that vainly lends his light"
+    },
+    {
+        "Dataline": 88384,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 18,
+        "ActSceneLine": "5.3.128",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "To grubs and eyeless skulls? as I discern,"
+    },
+    {
+        "Dataline": 88385,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 18,
+        "ActSceneLine": "5.3.129",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "It burneth in the Capel's monument."
+    },
+    {
+        "Dataline": 88386,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 19,
+        "ActSceneLine": "5.3.130",
+        "Player": "BALTHASAR",
+        "PlayerLine": "It doth so, holy sir, and there's my master,"
+    },
+    {
+        "Dataline": 88387,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 19,
+        "ActSceneLine": "5.3.131",
+        "Player": "BALTHASAR",
+        "PlayerLine": "One that you love."
+    },
+    {
+        "Dataline": 88388,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 20,
+        "ActSceneLine": "5.3.132",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Who is it?"
+    },
+    {
+        "Dataline": 88389,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 21,
+        "ActSceneLine": "5.3.133",
+        "Player": "BALTHASAR",
+        "PlayerLine": "Romeo."
+    },
+    {
+        "Dataline": 88390,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 22,
+        "ActSceneLine": "5.3.134",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "How long hath he been there?"
+    },
+    {
+        "Dataline": 88391,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 23,
+        "ActSceneLine": "5.3.135",
+        "Player": "BALTHASAR",
+        "PlayerLine": "Full half an hour."
+    },
+    {
+        "Dataline": 88392,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 24,
+        "ActSceneLine": "5.3.136",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Go with me to the vault."
+    },
+    {
+        "Dataline": 88393,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 25,
+        "ActSceneLine": "5.3.137",
+        "Player": "BALTHASAR",
+        "PlayerLine": "I dare not, sir"
+    },
+    {
+        "Dataline": 88394,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 25,
+        "ActSceneLine": "5.3.138",
+        "Player": "BALTHASAR",
+        "PlayerLine": "My master knows not but I am gone hence,"
+    },
+    {
+        "Dataline": 88395,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 25,
+        "ActSceneLine": "5.3.139",
+        "Player": "BALTHASAR",
+        "PlayerLine": "And fearfully did menace me with death,"
+    },
+    {
+        "Dataline": 88396,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 25,
+        "ActSceneLine": "5.3.140",
+        "Player": "BALTHASAR",
+        "PlayerLine": "If I did stay to look on his intents."
+    },
+    {
+        "Dataline": 88397,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 26,
+        "ActSceneLine": "5.3.141",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Stay, then, I'll go alone. Fear comes upon me:"
+    },
+    {
+        "Dataline": 88398,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 26,
+        "ActSceneLine": "5.3.142",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "O, much I fear some ill unlucky thing."
+    },
+    {
+        "Dataline": 88399,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 27,
+        "ActSceneLine": "5.3.143",
+        "Player": "BALTHASAR",
+        "PlayerLine": "As I did sleep under this yew-tree here,"
+    },
+    {
+        "Dataline": 88400,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 27,
+        "ActSceneLine": "5.3.144",
+        "Player": "BALTHASAR",
+        "PlayerLine": "I dreamt my master and another fought,"
+    },
+    {
+        "Dataline": 88401,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 27,
+        "ActSceneLine": "5.3.145",
+        "Player": "BALTHASAR",
+        "PlayerLine": "And that my master slew him."
+    },
+    {
+        "Dataline": 88402,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.146",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Romeo!"
+    },
+    {
+        "Dataline": 88404,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.147",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Alack, alack, what blood is this, which stains"
+    },
+    {
+        "Dataline": 88405,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.148",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "The stony entrance of this sepulchre?"
+    },
+    {
+        "Dataline": 88406,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.149",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "What mean these masterless and gory swords"
+    },
+    {
+        "Dataline": 88407,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.150",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "To lie discolour'd by this place of peace?"
+    },
+    {
+        "Dataline": 88409,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.151",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Romeo! O, pale! Who else? what, Paris too?"
+    },
+    {
+        "Dataline": 88410,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.152",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And steep'd in blood? Ah, what an unkind hour"
+    },
+    {
+        "Dataline": 88411,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.153",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Is guilty of this lamentable chance!"
+    },
+    {
+        "Dataline": 88412,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 28,
+        "ActSceneLine": "5.3.154",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "The lady stirs."
+    },
+    {
+        "Dataline": 88414,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 29,
+        "ActSceneLine": "5.3.155",
+        "Player": "ASTRA",
+        "PlayerLine": "O comfortable friar! where is my lord?"
+    },
+    {
+        "Dataline": 88415,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 29,
+        "ActSceneLine": "5.3.156",
+        "Player": "ASTRA",
+        "PlayerLine": "I do remember well where I should be,"
+    },
+    {
+        "Dataline": 88416,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 29,
+        "ActSceneLine": "5.3.157",
+        "Player": "ASTRA",
+        "PlayerLine": "And there I am. Where is my Romeo?"
+    },
+    {
+        "Dataline": 88418,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.158",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "I hear some noise. Lady, come from that nest"
+    },
+    {
+        "Dataline": 88419,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.159",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Of death, contagion, and unnatural sleep:"
+    },
+    {
+        "Dataline": 88420,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.160",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "A greater power than we can contradict"
+    },
+    {
+        "Dataline": 88421,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.161",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Hath thwarted our intents. Come, come away."
+    },
+    {
+        "Dataline": 88422,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.162",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Thy husband in thy bosom there lies dead,"
+    },
+    {
+        "Dataline": 88423,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.163",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And Paris too. Come, I'll dispose of thee"
+    },
+    {
+        "Dataline": 88424,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.164",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Among a sisterhood of holy nuns:"
+    },
+    {
+        "Dataline": 88425,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.165",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Stay not to question, for the watch is coming,"
+    },
+    {
+        "Dataline": 88426,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.166",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Come, go, good Astra,"
+    },
+    {
+        "Dataline": 88428,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 30,
+        "ActSceneLine": "5.3.167",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "I dare no longer stay."
+    },
+    {
+        "Dataline": 88429,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.168",
+        "Player": "ASTRA",
+        "PlayerLine": "Go, get thee hence, for I will not away."
+    },
+    {
+        "Dataline": 88431,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.169",
+        "Player": "ASTRA",
+        "PlayerLine": "What's here? a cup, closed in my true love's hand?"
+    },
+    {
+        "Dataline": 88432,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.170",
+        "Player": "ASTRA",
+        "PlayerLine": "Poison, I see, hath been his timeless end:"
+    },
+    {
+        "Dataline": 88433,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.171",
+        "Player": "ASTRA",
+        "PlayerLine": "O churl! drunk all, and left no friendly drop"
+    },
+    {
+        "Dataline": 88434,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.172",
+        "Player": "ASTRA",
+        "PlayerLine": "To help me after? I will kiss thy lips,"
+    },
+    {
+        "Dataline": 88435,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.173",
+        "Player": "ASTRA",
+        "PlayerLine": "Haply some poison yet doth hang on them,"
+    },
+    {
+        "Dataline": 88436,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.174",
+        "Player": "ASTRA",
+        "PlayerLine": "To make die with a restorative."
+    },
+    {
+        "Dataline": 88438,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 31,
+        "ActSceneLine": "5.3.175",
+        "Player": "ASTRA",
+        "PlayerLine": "Thy lips are warm."
+    },
+    {
+        "Dataline": 88439,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 32,
+        "ActSceneLine": "5.3.176",
+        "Player": "First Watchman",
+        "PlayerLine": "[Within]  Lead, boy: which way?"
+    },
+    {
+        "Dataline": 88440,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 33,
+        "ActSceneLine": "5.3.177",
+        "Player": "ASTRA",
+        "PlayerLine": "Yea, noise? then I'll be brief. O happy dagger!"
+    },
+    {
+        "Dataline": 88442,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 33,
+        "ActSceneLine": "5.3.178",
+        "Player": "ASTRA",
+        "PlayerLine": "This is thy sheath,"
+    },
+    {
+        "Dataline": 88444,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 33,
+        "ActSceneLine": "5.3.179",
+        "Player": "ASTRA",
+        "PlayerLine": "there rust, and let me die."
+    },
+    {
+        "Dataline": 88447,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 34,
+        "ActSceneLine": "5.3.180",
+        "Player": "PAGE",
+        "PlayerLine": "This is the place, there, where the torch doth burn."
+    },
+    {
+        "Dataline": 88448,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.181",
+        "Player": "First Watchman",
+        "PlayerLine": "The ground is bloody, search about the churchyard:"
+    },
+    {
+        "Dataline": 88449,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.182",
+        "Player": "First Watchman",
+        "PlayerLine": "Go, some of you, whoe'er you find attach."
+    },
+    {
+        "Dataline": 88450,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.183",
+        "Player": "First Watchman",
+        "PlayerLine": "Pitiful sight! here lies the county slain,"
+    },
+    {
+        "Dataline": 88451,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.184",
+        "Player": "First Watchman",
+        "PlayerLine": "And Astra bleeding, warm, and newly dead,"
+    },
+    {
+        "Dataline": 88452,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.185",
+        "Player": "First Watchman",
+        "PlayerLine": "Who here hath lain these two days buried."
+    },
+    {
+        "Dataline": 88453,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.186",
+        "Player": "First Watchman",
+        "PlayerLine": "Go, tell the prince: run to the Capulets:"
+    },
+    {
+        "Dataline": 88454,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.187",
+        "Player": "First Watchman",
+        "PlayerLine": "Raise up the Montagues: some others search:"
+    },
+    {
+        "Dataline": 88455,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.188",
+        "Player": "First Watchman",
+        "PlayerLine": "We see the ground whereon these woes do lie,"
+    },
+    {
+        "Dataline": 88456,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.189",
+        "Player": "First Watchman",
+        "PlayerLine": "But the true ground of all these piteous woes"
+    },
+    {
+        "Dataline": 88457,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 35,
+        "ActSceneLine": "5.3.190",
+        "Player": "First Watchman",
+        "PlayerLine": "We cannot without circumstance descry."
+    },
+    {
+        "Dataline": 88459,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 36,
+        "ActSceneLine": "5.3.191",
+        "Player": "Second Watchman",
+        "PlayerLine": "Here's Romeo's man, we found him in the churchyard."
+    },
+    {
+        "Dataline": 88460,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 37,
+        "ActSceneLine": "5.3.192",
+        "Player": "First Watchman",
+        "PlayerLine": "Hold him in safety, till the prince come hither."
+    },
+    {
+        "Dataline": 88462,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 38,
+        "ActSceneLine": "5.3.193",
+        "Player": "Third Watchman",
+        "PlayerLine": "Here is a friar, that trembles, sighs and weeps:"
+    },
+    {
+        "Dataline": 88463,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 38,
+        "ActSceneLine": "5.3.194",
+        "Player": "Third Watchman",
+        "PlayerLine": "We took this mattock and this spade from him,"
+    },
+    {
+        "Dataline": 88464,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 38,
+        "ActSceneLine": "5.3.195",
+        "Player": "Third Watchman",
+        "PlayerLine": "As he was coming from this churchyard side."
+    },
+    {
+        "Dataline": 88465,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 39,
+        "ActSceneLine": "5.3.196",
+        "Player": "First Watchman",
+        "PlayerLine": "A great suspicion: stay the friar too."
+    },
+    {
+        "Dataline": 88467,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 40,
+        "ActSceneLine": "5.3.197",
+        "Player": "PRINCE",
+        "PlayerLine": "What misadventure is so early up,"
+    },
+    {
+        "Dataline": 88468,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 40,
+        "ActSceneLine": "5.3.198",
+        "Player": "PRINCE",
+        "PlayerLine": "That calls our person from our morning's rest?"
+    },
+    {
+        "Dataline": 88470,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 41,
+        "ActSceneLine": "5.3.199",
+        "Player": "CAPULET",
+        "PlayerLine": "What should it be, that they so shriek abroad?"
+    },
+    {
+        "Dataline": 88471,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 42,
+        "ActSceneLine": "5.3.200",
+        "Player": "LADY CAPULET",
+        "PlayerLine": "The people in the street cry Romeo,"
+    },
+    {
+        "Dataline": 88472,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 42,
+        "ActSceneLine": "5.3.201",
+        "Player": "LADY CAPULET",
+        "PlayerLine": "Some Astra, and some Paris, and all run,"
+    },
+    {
+        "Dataline": 88473,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 42,
+        "ActSceneLine": "5.3.202",
+        "Player": "LADY CAPULET",
+        "PlayerLine": "With open outcry toward our monument."
+    },
+    {
+        "Dataline": 88474,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 43,
+        "ActSceneLine": "5.3.203",
+        "Player": "PRINCE",
+        "PlayerLine": "What fear is this which startles in our ears?"
+    },
+    {
+        "Dataline": 88475,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 44,
+        "ActSceneLine": "5.3.204",
+        "Player": "First Watchman",
+        "PlayerLine": "Sovereign, here lies the County Paris slain,"
+    },
+    {
+        "Dataline": 88476,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 44,
+        "ActSceneLine": "5.3.205",
+        "Player": "First Watchman",
+        "PlayerLine": "And Romeo dead, and Astra, dead before,"
+    },
+    {
+        "Dataline": 88477,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 44,
+        "ActSceneLine": "5.3.206",
+        "Player": "First Watchman",
+        "PlayerLine": "Warm and new kill'd."
+    },
+    {
+        "Dataline": 88478,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 45,
+        "ActSceneLine": "5.3.207",
+        "Player": "PRINCE",
+        "PlayerLine": "Search, seek, and know how this foul murder comes."
+    },
+    {
+        "Dataline": 88479,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 46,
+        "ActSceneLine": "5.3.208",
+        "Player": "First Watchman",
+        "PlayerLine": "Here is a friar, and slaughter'd Romeo's man,"
+    },
+    {
+        "Dataline": 88480,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 46,
+        "ActSceneLine": "5.3.209",
+        "Player": "First Watchman",
+        "PlayerLine": "With instruments upon them, fit to open"
+    },
+    {
+        "Dataline": 88481,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 46,
+        "ActSceneLine": "5.3.210",
+        "Player": "First Watchman",
+        "PlayerLine": "These dead men's tombs."
+    },
+    {
+        "Dataline": 88482,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 47,
+        "ActSceneLine": "5.3.211",
+        "Player": "CAPULET",
+        "PlayerLine": "O heavens! O wife, look how our daughter bleeds!"
+    },
+    {
+        "Dataline": 88483,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 47,
+        "ActSceneLine": "5.3.212",
+        "Player": "CAPULET",
+        "PlayerLine": "This dagger hath mista'en--for, lo, his house"
+    },
+    {
+        "Dataline": 88484,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 47,
+        "ActSceneLine": "5.3.213",
+        "Player": "CAPULET",
+        "PlayerLine": "Is empty on the back of Montague,--"
+    },
+    {
+        "Dataline": 88485,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 47,
+        "ActSceneLine": "5.3.214",
+        "Player": "CAPULET",
+        "PlayerLine": "And it mis-sheathed in my daughter's bosom!"
+    },
+    {
+        "Dataline": 88486,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 48,
+        "ActSceneLine": "5.3.215",
+        "Player": "LADY CAPULET",
+        "PlayerLine": "O me! this sight of death is as a bell,"
+    },
+    {
+        "Dataline": 88487,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 48,
+        "ActSceneLine": "5.3.216",
+        "Player": "LADY CAPULET",
+        "PlayerLine": "That warns my old age to a sepulchre."
+    },
+    {
+        "Dataline": 88489,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 49,
+        "ActSceneLine": "5.3.217",
+        "Player": "PRINCE",
+        "PlayerLine": "Come, Montague, for thou art early up,"
+    },
+    {
+        "Dataline": 88490,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 49,
+        "ActSceneLine": "5.3.218",
+        "Player": "PRINCE",
+        "PlayerLine": "To see thy son and heir more early down."
+    },
+    {
+        "Dataline": 88491,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 50,
+        "ActSceneLine": "5.3.219",
+        "Player": "MONTAGUE",
+        "PlayerLine": "Alas, my liege, my wife is dead to-night,"
+    },
+    {
+        "Dataline": 88492,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 50,
+        "ActSceneLine": "5.3.220",
+        "Player": "MONTAGUE",
+        "PlayerLine": "Grief of my son's exile hath stopp'd her breath:"
+    },
+    {
+        "Dataline": 88493,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 50,
+        "ActSceneLine": "5.3.221",
+        "Player": "MONTAGUE",
+        "PlayerLine": "What further woe conspires against mine age?"
+    },
+    {
+        "Dataline": 88494,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 51,
+        "ActSceneLine": "5.3.222",
+        "Player": "PRINCE",
+        "PlayerLine": "Look, and thou shalt see."
+    },
+    {
+        "Dataline": 88495,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 52,
+        "ActSceneLine": "5.3.223",
+        "Player": "MONTAGUE",
+        "PlayerLine": "O thou untaught! what manners is in this?"
+    },
+    {
+        "Dataline": 88496,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 52,
+        "ActSceneLine": "5.3.224",
+        "Player": "MONTAGUE",
+        "PlayerLine": "To press before thy father to a grave?"
+    },
+    {
+        "Dataline": 88497,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.225",
+        "Player": "PRINCE",
+        "PlayerLine": "Seal up the mouth of outrage for a while,"
+    },
+    {
+        "Dataline": 88498,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.226",
+        "Player": "PRINCE",
+        "PlayerLine": "Till we can clear these ambiguities,"
+    },
+    {
+        "Dataline": 88499,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.227",
+        "Player": "PRINCE",
+        "PlayerLine": "And know their spring, their head, their"
+    },
+    {
+        "Dataline": 88500,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.228",
+        "Player": "PRINCE",
+        "PlayerLine": "true descent,"
+    },
+    {
+        "Dataline": 88501,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.229",
+        "Player": "PRINCE",
+        "PlayerLine": "And then will I be general of your woes,"
+    },
+    {
+        "Dataline": 88502,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.230",
+        "Player": "PRINCE",
+        "PlayerLine": "And lead you even to death: meantime forbear,"
+    },
+    {
+        "Dataline": 88503,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.231",
+        "Player": "PRINCE",
+        "PlayerLine": "And let mischance be slave to patience."
+    },
+    {
+        "Dataline": 88504,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 53,
+        "ActSceneLine": "5.3.232",
+        "Player": "PRINCE",
+        "PlayerLine": "Bring forth the parties of suspicion."
+    },
+    {
+        "Dataline": 88505,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 54,
+        "ActSceneLine": "5.3.233",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "I am the greatest, able to do least,"
+    },
+    {
+        "Dataline": 88506,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 54,
+        "ActSceneLine": "5.3.234",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Yet most suspected, as the time and place"
+    },
+    {
+        "Dataline": 88507,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 54,
+        "ActSceneLine": "5.3.235",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Doth make against me of this direful murder,"
+    },
+    {
+        "Dataline": 88508,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 54,
+        "ActSceneLine": "5.3.236",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And here I stand, both to impeach and purge"
+    },
+    {
+        "Dataline": 88509,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 54,
+        "ActSceneLine": "5.3.237",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Myself condemned and myself excused."
+    },
+    {
+        "Dataline": 88510,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 55,
+        "ActSceneLine": "5.3.238",
+        "Player": "PRINCE",
+        "PlayerLine": "Then say at once what thou dost know in this."
+    },
+    {
+        "Dataline": 88511,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.239",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "I will be brief, for my short date of breath"
+    },
+    {
+        "Dataline": 88512,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.240",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Is not so long as is a tedious tale."
+    },
+    {
+        "Dataline": 88513,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.241",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Romeo, there dead, was husband to that Astra,"
+    },
+    {
+        "Dataline": 88514,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.242",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And she, there dead, that Romeo's faithful wife:"
+    },
+    {
+        "Dataline": 88515,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.243",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "I married them, and their stol'n marriage-day"
+    },
+    {
+        "Dataline": 88516,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.244",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Was Tybalt's dooms-day, whose untimely death"
+    },
+    {
+        "Dataline": 88517,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.245",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Banish'd the new-made bridegroom from the city,"
+    },
+    {
+        "Dataline": 88518,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.246",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "For whom, and not for Tybalt, Astra pined."
+    },
+    {
+        "Dataline": 88519,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.247",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "You, to remove that siege of grief from her,"
+    },
+    {
+        "Dataline": 88520,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.248",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Betroth'd and would have married her perforce"
+    },
+    {
+        "Dataline": 88521,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.249",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "To County Paris: then comes she to me,"
+    },
+    {
+        "Dataline": 88522,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.250",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And, with wild looks, bid me devise some mean"
+    },
+    {
+        "Dataline": 88523,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.251",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "To rid her from this second marriage,"
+    },
+    {
+        "Dataline": 88524,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.252",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Or in my cell there would she kill herself."
+    },
+    {
+        "Dataline": 88525,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.253",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Then gave I her, so tutor'd by my art,"
+    },
+    {
+        "Dataline": 88526,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.254",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "A sleeping potion, which so took effect"
+    },
+    {
+        "Dataline": 88527,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.255",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "As I intended, for it wrought on her"
+    },
+    {
+        "Dataline": 88528,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.256",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "The form of death: meantime I writ to Romeo,"
+    },
+    {
+        "Dataline": 88529,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.257",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "That he should hither come as this dire night,"
+    },
+    {
+        "Dataline": 88530,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.258",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "To help to take her from her borrow'd grave,"
+    },
+    {
+        "Dataline": 88531,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.259",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Being the time the potion's force should cease."
+    },
+    {
+        "Dataline": 88532,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.260",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "But he which bore my letter, Friar John,"
+    },
+    {
+        "Dataline": 88533,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.261",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Was stay'd by accident, and yesternight"
+    },
+    {
+        "Dataline": 88534,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.262",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Return'd my letter back. Then all alone"
+    },
+    {
+        "Dataline": 88535,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.263",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "At the prefixed hour of her waking,"
+    },
+    {
+        "Dataline": 88536,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.264",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Came I to take her from her kindred's vault,"
+    },
+    {
+        "Dataline": 88537,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.265",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Meaning to keep her closely at my cell,"
+    },
+    {
+        "Dataline": 88538,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.266",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Till I conveniently could send to Romeo:"
+    },
+    {
+        "Dataline": 88539,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.267",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "But when I came, some minute ere the time"
+    },
+    {
+        "Dataline": 88540,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.268",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Of her awaking, here untimely lay"
+    },
+    {
+        "Dataline": 88541,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.269",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "The noble Paris and true Romeo dead."
+    },
+    {
+        "Dataline": 88542,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.270",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "She wakes, and I entreated her come forth,"
+    },
+    {
+        "Dataline": 88543,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.271",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And bear this work of heaven with patience:"
+    },
+    {
+        "Dataline": 88544,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.272",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "But then a noise did scare me from the tomb,"
+    },
+    {
+        "Dataline": 88545,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.273",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "And she, too desperate, would not go with me,"
+    },
+    {
+        "Dataline": 88546,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.274",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "But, as it seems, did violence on herself."
+    },
+    {
+        "Dataline": 88547,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.275",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "All this I know, and to the marriage"
+    },
+    {
+        "Dataline": 88548,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.276",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Her nurse is privy: and, if aught in this"
+    },
+    {
+        "Dataline": 88549,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.277",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Miscarried by my fault, let my old life"
+    },
+    {
+        "Dataline": 88550,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.278",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Be sacrificed, some hour before his time,"
+    },
+    {
+        "Dataline": 88551,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 56,
+        "ActSceneLine": "5.3.279",
+        "Player": "FRIAR LAURENCE",
+        "PlayerLine": "Unto the rigour of severest law."
+    },
+    {
+        "Dataline": 88552,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 57,
+        "ActSceneLine": "5.3.280",
+        "Player": "PRINCE",
+        "PlayerLine": "We still have known thee for a holy man."
+    },
+    {
+        "Dataline": 88553,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 57,
+        "ActSceneLine": "5.3.281",
+        "Player": "PRINCE",
+        "PlayerLine": "Where's Romeo's man? what can he say in this?"
+    },
+    {
+        "Dataline": 88554,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.282",
+        "Player": "BALTHASAR",
+        "PlayerLine": "I brought my master news of Astra's death,"
+    },
+    {
+        "Dataline": 88555,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.283",
+        "Player": "BALTHASAR",
+        "PlayerLine": "And then in post he came from Mantua"
+    },
+    {
+        "Dataline": 88556,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.284",
+        "Player": "BALTHASAR",
+        "PlayerLine": "To this same place, to this same monument."
+    },
+    {
+        "Dataline": 88557,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.285",
+        "Player": "BALTHASAR",
+        "PlayerLine": "This letter he early bid me give his father,"
+    },
+    {
+        "Dataline": 88558,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.286",
+        "Player": "BALTHASAR",
+        "PlayerLine": "And threatened me with death, going in the vault,"
+    },
+    {
+        "Dataline": 88559,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 58,
+        "ActSceneLine": "5.3.287",
+        "Player": "BALTHASAR",
+        "PlayerLine": "I departed not and left him there."
+    },
+    {
+        "Dataline": 88560,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 59,
+        "ActSceneLine": "5.3.288",
+        "Player": "PRINCE",
+        "PlayerLine": "Give me the letter, I will look on it."
+    },
+    {
+        "Dataline": 88561,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 59,
+        "ActSceneLine": "5.3.289",
+        "Player": "PRINCE",
+        "PlayerLine": "Where is the county's page, that raised the watch?"
+    },
+    {
+        "Dataline": 88562,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 59,
+        "ActSceneLine": "5.3.290",
+        "Player": "PRINCE",
+        "PlayerLine": "Sirrah, what made your master in this place?"
+    },
+    {
+        "Dataline": 88563,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 60,
+        "ActSceneLine": "5.3.291",
+        "Player": "PAGE",
+        "PlayerLine": "He came with flowers to strew his lady's grave,"
+    },
+    {
+        "Dataline": 88564,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 60,
+        "ActSceneLine": "5.3.292",
+        "Player": "PAGE",
+        "PlayerLine": "And bid me stand aloof, and so I did:"
+    },
+    {
+        "Dataline": 88565,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 60,
+        "ActSceneLine": "5.3.293",
+        "Player": "PAGE",
+        "PlayerLine": "Anon comes one with light to ope the tomb,"
+    },
+    {
+        "Dataline": 88566,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 60,
+        "ActSceneLine": "5.3.294",
+        "Player": "PAGE",
+        "PlayerLine": "And by and by my master drew on him,"
+    },
+    {
+        "Dataline": 88567,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 60,
+        "ActSceneLine": "5.3.295",
+        "Player": "PAGE",
+        "PlayerLine": "And then I ran away to call the watch."
+    },
+    {
+        "Dataline": 88568,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.296",
+        "Player": "PRINCE",
+        "PlayerLine": "This letter doth make good the friar's words,"
+    },
+    {
+        "Dataline": 88569,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.297",
+        "Player": "PRINCE",
+        "PlayerLine": "Their course of love, the tidings of her death:"
+    },
+    {
+        "Dataline": 88570,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.298",
+        "Player": "PRINCE",
+        "PlayerLine": "And here he writes that he did buy a poison"
+    },
+    {
+        "Dataline": 88571,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.299",
+        "Player": "PRINCE",
+        "PlayerLine": "Of a poor 'pothecary, and therewithal"
+    },
+    {
+        "Dataline": 88572,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.300",
+        "Player": "PRINCE",
+        "PlayerLine": "Came to this vault to die, and lie with Astra."
+    },
+    {
+        "Dataline": 88573,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.301",
+        "Player": "PRINCE",
+        "PlayerLine": "Where be these enemies? Capulet! Montague!"
+    },
+    {
+        "Dataline": 88574,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.302",
+        "Player": "PRINCE",
+        "PlayerLine": "See, what a scourge is laid upon your hate,"
+    },
+    {
+        "Dataline": 88575,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.303",
+        "Player": "PRINCE",
+        "PlayerLine": "That heaven finds means to kill your joys with love."
+    },
+    {
+        "Dataline": 88576,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.304",
+        "Player": "PRINCE",
+        "PlayerLine": "And I for winking at your discords too"
+    },
+    {
+        "Dataline": 88577,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 61,
+        "ActSceneLine": "5.3.305",
+        "Player": "PRINCE",
+        "PlayerLine": "Have lost a brace of kinsmen: all are punish'd."
+    },
+    {
+        "Dataline": 88578,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 62,
+        "ActSceneLine": "5.3.306",
+        "Player": "CAPULET",
+        "PlayerLine": "O brother Montague, give me thy hand:"
+    },
+    {
+        "Dataline": 88579,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 62,
+        "ActSceneLine": "5.3.307",
+        "Player": "CAPULET",
+        "PlayerLine": "This is my daughter's jointure, for no more"
+    },
+    {
+        "Dataline": 88580,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 62,
+        "ActSceneLine": "5.3.308",
+        "Player": "CAPULET",
+        "PlayerLine": "Can I demand."
+    },
+    {
+        "Dataline": 88581,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 63,
+        "ActSceneLine": "5.3.309",
+        "Player": "MONTAGUE",
+        "PlayerLine": "But I can give thee more:"
+    },
+    {
+        "Dataline": 88582,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 63,
+        "ActSceneLine": "5.3.310",
+        "Player": "MONTAGUE",
+        "PlayerLine": "For I will raise her statue in pure gold,"
+    },
+    {
+        "Dataline": 88583,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 63,
+        "ActSceneLine": "5.3.311",
+        "Player": "MONTAGUE",
+        "PlayerLine": "That while Verona by that name is known,"
+    },
+    {
+        "Dataline": 88584,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 63,
+        "ActSceneLine": "5.3.312",
+        "Player": "MONTAGUE",
+        "PlayerLine": "There shall no figure at such rate be set"
+    },
+    {
+        "Dataline": 88585,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 63,
+        "ActSceneLine": "5.3.313",
+        "Player": "MONTAGUE",
+        "PlayerLine": "As that of true and faithful Astra."
+    },
+    {
+        "Dataline": 88586,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 64,
+        "ActSceneLine": "5.3.314",
+        "Player": "CAPULET",
+        "PlayerLine": "As rich shall Romeo's by his lady's lie,"
+    },
+    {
+        "Dataline": 88587,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 64,
+        "ActSceneLine": "5.3.315",
+        "Player": "CAPULET",
+        "PlayerLine": "Poor sacrifices of our enmity!"
+    },
+    {
+        "Dataline": 88588,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.316",
+        "Player": "PRINCE",
+        "PlayerLine": "A glooming peace this morning with it brings,"
+    },
+    {
+        "Dataline": 88589,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.317",
+        "Player": "PRINCE",
+        "PlayerLine": "The sun, for sorrow, will not show his head:"
+    },
+    {
+        "Dataline": 88590,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.318",
+        "Player": "PRINCE",
+        "PlayerLine": "Go hence, to have more talk of these sad things,"
+    },
+    {
+        "Dataline": 88591,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.319",
+        "Player": "PRINCE",
+        "PlayerLine": "Some shall be pardon'd, and some punished:"
+    },
+    {
+        "Dataline": 88592,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.320",
+        "Player": "PRINCE",
+        "PlayerLine": "For never was a story of more woe"
+    },
+    {
+        "Dataline": 88593,
+        "Play": "Romeo and Astra",
+        "PlayerLinenumber": 65,
+        "ActSceneLine": "5.3.321",
+        "Player": "PRINCE",
+        "PlayerLine": "Than this of Astra and her Romeo."
+    }
+]
