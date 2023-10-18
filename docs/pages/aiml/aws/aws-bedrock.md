@@ -56,27 +56,27 @@ the notebook in your Amazon SageMaker Studio environment and run it from there.
 **Step 1.** Download the notebook from this repository at [this link](https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb) and save it to your local computer.
 (You can also view it [on your browser](https://github.com/awesome-astra/docs/blob/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb).)
 
-![Bedrock, go to SageMaker](../../../../img/bedrock/screenshots/bedrock_open-sagemaker.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_open-sagemaker.png" />
 
 **Step 2.** Open your Amazon SageMaker console and click the "Studio" item in the left navbar. _Do not choose "Studio Lab", which is a different thing._
 
-![Bedrock, open SageMaker Studio](../../../../img/bedrock/screenshots/bedrock_open-studio.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_open-studio.png" />
 
 **Step 3.** Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. _You may need to create a Studio instance if you don't have one already._
 
-![Bedrock, upload a notebook to SageMaker Studio](../../../../img/bedrock/screenshots/bedrock_upload.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_upload.png" />
 
 **Step 4.** In the left toolbox of Sagemaker Studio, make sure you select the "File Browser" view and locate the "Upload" button: use it to upload the notebook file you previously saved. The notebook will be shown in the file browser.
 
-![Bedrock, launch a notebook in SageMaker Studio](../../../../img/bedrock/screenshots/bedrock_launch-notebook.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_launch-notebook.png" />
 
 **Step 5.** If you click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".
 
-![Bedrock, start the environment for a notebook](../../../../img/bedrock/screenshots/bedrock_start-environment.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_start-environment.png" />
 
 **Step 6.** Once the kernel has fully started, you can run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets during execution.
 
-![Bedrock, the kernel is starting](../../../../img/bedrock/screenshots/bedrock_kernel-starting.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_kernel-starting.png" />
 
 #### Cleanup
 
@@ -86,7 +86,7 @@ cleanly dispose of after you are done.
 These have been started to run the notebook itself. You can shut them down from within SageMaker Studio:
 select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.
 
-![Bedrock, delete notebook-related resources](../../../../img/bedrock/screenshots/bedrock_cleanup.png)
+<img src="../../../../img/bedrock/screenshots/bedrock_cleanup.png" />
 
 ## Additional information
 
