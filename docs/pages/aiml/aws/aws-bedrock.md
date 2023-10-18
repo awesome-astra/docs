@@ -80,11 +80,11 @@ the notebook in your Amazon SageMaker Studio environment and run it from there.
 
 #### Cleanup
 
-During the above steps, several resources are created, which you may want to
-cleanly dispose of after you are done. These are:
+During the above steps, some resources are created, which you may want to
+cleanly dispose of after you are done.
 
-- deployed "endpoints" in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Inference / Endpoints" entry in SageMaker's left-hand navbar;
-- resources started to run the notebook itself. These can be shut down from within SageMaker Studio: select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.
+These have been started to run the notebook itself. You can shut them down from within SageMaker Studio:
+select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.
 
 ![Bedrock, delete notebook-related resources](../../../../img/bedrock/screenshots/bedrock_cleanup.png)
 

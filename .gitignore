@@ -4,3 +4,5 @@ site/
 
 .ipynb_checkpoints
 
+# specific locations in the repo:
+docs/pages/aiml/aws/notebooks/texts/
