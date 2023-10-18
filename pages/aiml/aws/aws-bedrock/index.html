@@ -3219,12 +3219,10 @@ the notebook in your Amazon SageMaker Studio environment and run it from there.<
 <p><strong>Step 6.</strong> Once the kernel has fully started, you can run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets during execution.</p>
 <p><img alt="Bedrock, the kernel is starting" src="../../../../img/bedrock/screenshots/bedrock_kernel-starting.png" /></p>
 <h4 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h4>
-<p>During the above steps, several resources are created, which you may want to
-cleanly dispose of after you are done. These are:</p>
-<ul>
-<li>deployed "endpoints" in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Inference / Endpoints" entry in SageMaker's left-hand navbar;</li>
-<li>resources started to run the notebook itself. These can be shut down from within SageMaker Studio: select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.</li>
-</ul>
+<p>During the above steps, some resources are created, which you may want to
+cleanly dispose of after you are done.</p>
+<p>These have been started to run the notebook itself. You can shut them down from within SageMaker Studio:
+select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.</p>
 <p><img alt="Bedrock, delete notebook-related resources" src="../../../../img/bedrock/screenshots/bedrock_cleanup.png" /></p>
 <h2 id="additional-information">Additional information<a class="headerlink" href="#additional-information" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">More info on Amazon Bedrock</a></p>
@@ -3236,7 +3234,7 @@ cleanly dispose of after you are done. These are:</p>
   <small>
     
       Last update:
-      2023-10-17
+      2023-10-18
     
   </small>
 </div>
