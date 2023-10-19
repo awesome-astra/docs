@@ -62,7 +62,7 @@ the notebook in your Amazon SageMaker Studio environment and run it from there.
 
 <img src="../../../../img/bedrock/screenshots/bedrock_open-studio.png" />
 
-**Step 3.** Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. _You may need to create a Studio instance if you don't have one already._
+**Step 3.** Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. _You may need to create a Studio instance ("SageMaker domain") if you don't have one already._
 
 <img src="../../../../img/bedrock/screenshots/bedrock_upload.png" />
 
@@ -70,7 +70,7 @@ the notebook in your Amazon SageMaker Studio environment and run it from there.
 
 <img src="../../../../img/bedrock/screenshots/bedrock_launch-notebook.png" />
 
-**Step 5.** If you click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".
+**Step 5.** If you double-click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".
 
 <img src="../../../../img/bedrock/screenshots/bedrock_start-environment.png" />
 
