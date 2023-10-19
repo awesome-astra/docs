@@ -13,7 +13,7 @@
         <meta name="author" content="Cedrick Lunven">
       
       
-        <link rel="canonical" href="https://awesome-astra.github.io/pages/aiml/aws/aws-bedrock/">
+        <link rel="canonical" href="https://awesome-astra.github.io/pages/aiml/aws/aws-sagemaker/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Amazon Bedrock - Awesome-Astra</title>
+        <title>Amazon SageMaker - Awesome-Astra</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amazon-bedrock" class="md-skip">
+        <a href="#amazon-sagemaker" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Amazon Bedrock
+              Amazon SageMaker
             
           </span>
         </div>
@@ -3121,6 +3121,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-models-programmatically" class="md-nav__link">
+    Deploy models programmatically
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-models-from-sagemaker-ui" class="md-nav__link">
+    Deploy models from SageMaker UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run-the-example" class="md-nav__link">
     Run the example
   </a>
@@ -3145,6 +3172,19 @@
     Additional information
   </a>
   
+    <nav class="md-nav" aria-label="Additional information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-app-from-outside-of-sagemaker-studio" class="md-nav__link">
+    Running the app from outside of SageMaker Studio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3162,72 +3202,194 @@
                   
 
 
-<h1 id="amazon-bedrock">Amazon Bedrock<a class="headerlink" href="#amazon-bedrock" title="Permanent link">&para;</a></h1>
+<h1 id="amazon-sagemaker">Amazon SageMaker<a class="headerlink" href="#amazon-sagemaker" title="Permanent link">&para;</a></h1>
 <div class="nosurface">
-<p><img src="../../../../img/bedrock/bedrock.png"  style="height: 180px;" /></p>
+<p><img src="../../../../img/sagemaker/sagemaker.png"  style="height: 180px;" /></p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Amazon Bedrock is a fully managed, fully serverless service offering access to
-foundation models from various AI companies in a single API, together with
-additional capabilities such as facilities for fine-tuning and agent frameworks.</p>
-<p>Amazon Bedrock aims at simplifying development, especially for Generative AI,
-while maintaining privacy and security. Experimenting with foundation models
-is easy, and models can be further customized in a privacy-aware fashion
-within Bedrock.</p>
-<p>Foundation models from Amazon Bedrock can be easily <strong>integrated with Astra DB</strong>,
-most notably with its Vector capabilities, thereby providing a solid framework for
-developing Generative AI and other ML-centered applications.</p>
-<p>In the following example, you will be able to run a standard RAG
-(retrieval-augmented generation) application
-that makes use of AI models from Amazon Bedrock and uses Astra DB as a Vector Store.</p>
-<p>The integration is built with the LangChain framework, which conveniently offers
-native support for Amazon Bedrock as well as Astra DB. Using LangChain is a popular
-and well-established choice -- but certainly not the only one. See the references at
-the end of the page for further options.</p>
+<p>Amazon SageMaker is a managed service to deploy and use Machine Learning models
+for a variety of purposes. Its offering includes infrastructure provisioning,
+tooling and end-to-end workflow setup.</p>
+<p>With Amazon SageMaker it is possible not only to deploy ready-made models, but
+also to manage training data and perform custom training or fine-tuning steps.
+The easiest way to begin using SageMaker is to deploy and use many well-established
+foundation models that are made available through "SageMaker JumpStart".</p>
+<p>Models deployed within Amazon SageMaker can be <strong>integrated with Astra DB</strong>,
+making it possible to build enterprise-grade Generative AI applications with
+minimal infrastructural effort, while retaining desirable features such
+as the usage of secure, dedicated instances.</p>
+<p>In the following example, you will provision and execute a simple end-to-end
+application implementing the RAG (retrieval-augmented generation) flow,
+with AI models from Amazon SageMaker JumpStart
+and Astra DB as the backend for the Vector Store.</p>
+<p>The example makes use of the LangChain framework (which has great support
+for both SageMaker and Astra DB); however, other, lower-level ways to interact
+programmatically with SageMaker are available -- as a matter of fact you will
+get a chance to experiment with them in an Appendix at the end of the integration
+example.</p>
+<p>For more information and other options to interface with SageMaker, please
+consult the suggested readings at the end of this page.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>To run the integration demo notebook, you need:</p>
 <ul>
-<li>An <strong>Amazon account</strong> with access to Amazon Bedrock and Amazon SageMaker Studio. In particular, you will be asked to provide a set of credentials for programmatic access (i.e. <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code> and <code>AWS_SESSION_TOKEN</code>);</li>
+<li>An <strong>Amazon account</strong> with access to Amazon SageMaker. In particular, you will need to acces SageMaker Studio and run the example in there: besides ensuring a standardized runtime and environment, SageMaker Studio provides automated access to a ready-made set of Amazon IAM roles that grant your account all necessary permissions to deploy the "JumpStart" models in SageMaker (see below for details);</li>
 <li>An <strong>Astra account</strong> with a <strong>Serverless Cassandra with Vector Search</strong> database. You will need the <a href="https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier">Database ID</a> and an <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Access Token</a> with role "Database Administrator".</li>
 </ul>
-<h2 id="run-the-example">Run the example<a class="headerlink" href="#run-the-example" title="Permanent link">&para;</a></h2>
-<p>The integration example is a Python 3.8+ runnable notebook. The suggested method is to import
-the notebook in your Amazon SageMaker Studio environment and run it from there.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>The sample application needs an embedding model and a large language model
+(LLM), both in SageMaker.</p>
+<p>The models can be deployed either through the SageMaker UI or programmatically
+with the Python SageMaker SDK. You can choose your preferred method: the integration
+example will adapt to your choice.</p>
+<h3 id="deploy-models-programmatically">Deploy models programmatically<a class="headerlink" href="#deploy-models-programmatically" title="Permanent link">&para;</a></h3>
+<p>The code for automated deployment of the models is included in the example:
+you can skip to <a href="#run-the-example">"Run the example"</a> below and start with the code.</p>
+<h3 id="deploy-models-from-sagemaker-ui">Deploy models from SageMaker UI<a class="headerlink" href="#deploy-models-from-sagemaker-ui" title="Permanent link">&para;</a></h3>
+<p>If you prefer to use the SageMaker UI to deploy the models, here are all steps.</p>
 <p><admonition markdown="1"></p>
 <div class="admonition note">
-<p class="admonition-title">Other options to run the example</p>
-<p>The notebook runs in a local Jupyter environment and on Google Colab as well.</p>
+<p class="admonition-title">Choice of the models</p>
+<p>This example is tailored to run using exactly the models we suggest in the following.</p>
+<p>Please <em>pay attention to deploying the right models</em> for a smooth
+quickstart experience. Changes could
+impact the performance or the results or even not work altogether,
+since the signature of the inputs and outputs varies between models.</p>
+<p>On the other hand, the reason why this method is described in some details
+is precisely because it is what you may need when using your own models -- possibly
+created, trained or fine-tuned outside of the JumpStart experience.</p>
+<p>If you plan on using other models, remember that you will have to adapt
+parts of the code (such as the signature of the input parameters,
+the serializers/deserializers and the "context handlers" passed to the
+LangChain SageMaker objects) your model's specific needs.</p>
 </div>
 <p></admonition></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_open-sagemaker.png" /></p>
+<p><strong>Step 1.</strong> Open your Amazon SageMaker console and click the "Studio" item in the left navbar. <em>Do not choose "Studio Lab", which is a different thing.</em></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_open-studio.png" /></p>
+<p><strong>Step 2.</strong> Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. <em>You may need to create a Studio instance ("SageMaker domain") if you don't have one already.</em></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_open-jumpstart.png" /></p>
+<p><strong>Step 3.</strong> Click the "Home" icon on the left toolbox of Studio and scroll to the "JumpStart / Models, notebooks, solution" entry. Clicking on it will open the "SageMaker JumpStart" tab in the main view. <em>(Note: we will mostly refer to "tabs within the Studio UI" simply as "tabs" in the following. These, however, are not meant to be separate tabs in your browser.)</em></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding_1.png" /></p>
+<p><strong>Step 4.</strong> Search for the embedding model <code>GPT-J 6B Embedding</code> with the search box of the JumpStart tab. Click on it in the search results: a tab will open with this model's details. Make sure you are on the "Deploy" tab and expand the "Deployment Configuration" section.</p>
+<p><strong>Step 5.</strong> Give the endpoint a specific name (it must be unique) and select <code>ml.g5.24xlarge</code> as the instance type that will host the model. <em>(Note: you might need
+to check with your <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to make sure you have capacity to deploy this instance.)</em></p>
+<p><strong>Step 6.</strong> Click "Deploy" to start the process. This might take between <em>five and ten minutes</em>, during which a newly-opened tab will report progress. As you can see on this tab, the final endpoint you are going to use has been given a final name made by prepending <code>"jumpstart-dft-"</code> to the endpoint name you chose earlier. <strong>Keep this endpoint name handy: you will be asked to provide it later when running the example code.</strong></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding_2.gif" /></p>
+<p><strong>Step 7.</strong> While you wait, you can check the status of the deploy in two ways: (a) from the Amazon SageMaker UI, choosing the "Inference / Endpoints" entry in the left navbar, and then refreshing periodically;
+or (b) from within SageMaker Studio, by selecting the "Home" icon and then choosing "Deployments / Endpoints" in the left-hand toolbox.</p>
+<p><admonition markdown="1"></p>
+<details class="note">
+<summary>Checking deploy status, screenshots</summary>
+<p>From the SageMaker UI:
+<img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding-monitor-aws.png" />
+From within SageMaker Studio:
+<img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding-monitor-studio.png" /></p>
+</details>
+<p></admonition></p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding-playground.png" /></p>
+<p><strong>Step 8.</strong> When the deploy has finished, you will see its status being reported as "In Service". You can run a quick test with a handy Playground-like interface available in SageMaker Studio: click on the endpoint name in the "Endpoints" tab to open it. Try with a JSON payload such as <code>{"text_inputs": ["I am here!", "So do I."]}</code> and hit "Send Request": the endpoint response should resemble the one shown in the screenshot, with the two embedding vectors under the <code>body =&gt; embedding</code> list-of-lists entry. _The embedding model is deployed and ready to be used in the example code.</p>
+<p><strong>Step 9.</strong> Repeat steps 4 through 7, this time <em>to deploy the LLM</em>: search in JumpStart for the model named "Llama-2-70b-chat" and choose <code>ml.g5.48xlarge</code> as instance type. <em>(Note: this model, made available by Meta, requires acceptance of its "End User License Agreement" and "Acceptable Use Policy" prior to use: you will be presented with a dialog to do so at deploy time, and for each model invocation as well. Also, keep in mind that the deploy time for this model can well exceed twenty minutes in some cases.)</em></p>
+<p><admonition markdown="1"></p>
+<div class="admonition failure">
+<p class="admonition-title">This LLM cannot be currently tested in the playground</p>
+<p>The custom header required to properly pass the EULA acceptance when issuing
+invocations from the playground in SageMaker Studio is not working in the playground.
+Without this header, invocations would return with this error:
+<code>Need to pass custom_attributes='accept_eula=true' as part of header. This means ...</code>.
+Unfortunately, for the time being, this model can be tested only through the code,
+in the ways that will be demonstrated in the example.</p>
+</div>
+<p></admonition></p>
+<p><strong>Deploys are now complete.</strong> You can now start the example notebook
+as outlined in the next section.</p>
+<h2 id="run-the-example">Run the example<a class="headerlink" href="#run-the-example" title="Permanent link">&para;</a></h2>
+<p>The integration example is a Python 3.8+ runnable notebook. The notebook is designed to run
+within Amazon SageMaker Studio, so as to receive, through its usage of
+the AWS <code>boto3</code> library, an AWS identity equipped with the special permissions required
+to programmatically deploy the SageMaker JumpStart models.</p>
+<p><admonition markdown="1"></p>
+<details class="note">
+<summary>Running the app from other environments</summary>
+<p>Strictly speaking, the permission limitation only apply to the
+task of <em>deploying the JumpStart models</em>.</p>
+<p>That means, if the models are deployed already (e.g. through the UI),
+the rest of the notebook will still work on other environments
+such as your local Jupyter, or Google Colab, provided you slightly
+change the cell that deals with authentication of your AWS client.</p>
+<p>Please refer to the notes at the end of this page for more details.</p>
+</details>
+<p></admonition></p>
+<p>As mentioned earlier, you will be able to either supply the endpoint names for the AI models
+(in case you went for UI-based deploys as outlined earlier), or have the SageMaker SDK
+take care of them programmatically.</p>
+<p>The main flow of the notebook features usage of the models through the corresponding
+SageMaker-specific LangChain plugins: however, the model endpoints can be accessed
+in other ways - something that is demonstrated in an Appendix at the end of the notebook.</p>
 <p align="center">
-    <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb" target="blank;">
-        <img src="../../../../img/bedrock/download_notebook_button.png"  style="width: 20%;" />
+    <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb" target="blank;">
+        <img src="../../../../img/sagemaker/download_notebook_button.png"  style="width: 20%;" />
     </a>
 </p>
 
-<p><strong>Step 1.</strong> Download the notebook from this repository at <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb">this link</a> and save it to your local computer.
-(You can also view it <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb">on your browser</a>.)</p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_open-sagemaker.png" /></p>
-<p><strong>Step 2.</strong> Open your Amazon SageMaker console and click the "Studio" item in the left navbar. <em>Do not choose "Studio Lab", which is a different thing.</em></p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_open-studio.png" /></p>
-<p><strong>Step 3.</strong> Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. <em>You may need to create a Studio instance ("SageMaker domain") if you don't have one already.</em></p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_upload.png" /></p>
-<p><strong>Step 4.</strong> In the left toolbox of Sagemaker Studio, make sure you select the "File Browser" view and locate the "Upload" button: use it to upload the notebook file you previously saved. The notebook will be shown in the file browser.</p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_launch-notebook.png" /></p>
-<p><strong>Step 5.</strong> If you double-click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".</p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_start-environment.png" /></p>
-<p><strong>Step 6.</strong> Once the kernel has fully started, you can run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets during execution.</p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_kernel-starting.png" /></p>
+<p><strong>Step 1.</strong> Download the notebook from this repository at <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb">this link</a> and save it to your local computer.
+(You can also view it <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb">on your browser</a>.)</p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_upload.png" /></p>
+<p><strong>Step 2.</strong> In the left toolbox of SageMaker Studio, make sure you select the "File Browser" view and locate the "Upload" button: use it to upload the notebook file you previously saved. The notebook will be shown in the file browser.</p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_launch-notebook.png" /></p>
+<p><strong>Step 3.</strong> If you double-click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".</p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_start-environment.png" /></p>
+<p><strong>Step 4.</strong> Once the kernel has fully started, you can run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets during execution.</p>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_kernel-starting.png" /></p>
 <h4 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h4>
 <p>During the above steps, some resources are created, which you may want to
-cleanly dispose of after you are done.</p>
-<p>These have been started to run the notebook itself. You can shut them down from within SageMaker Studio:
-select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.</p>
-<p><img src="../../../../img/bedrock/screenshots/bedrock_cleanup.png" /></p>
+cleanly dispose of after you are done:</p>
+<ul>
+<li>endpoints deployed in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Inference / Endpoints" entry in SageMaker's left-hand navbar (once deleted, you can click the Refresh icon in SageMaker Studio's "Endpoints" tab to make sure they are not listed anymore);</li>
+<li>resources started to run the notebook itself. These can be shut down from within SageMaker Studio: select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.</li>
+</ul>
+<p><img src="../../../../img/sagemaker/screenshots/sagemaker_cleanup.png" /></p>
 <h2 id="additional-information">Additional information<a class="headerlink" href="#additional-information" title="Permanent link">&para;</a></h2>
-<p><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">More info on Amazon Bedrock</a></p>
-<p><a href="https://github.com/aws-samples/amazon-bedrock-samples/tree/main/introduction-to-bedrock">Accessing Amazon Bedrock from Python</a></p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">What is Amazon SageMaker?</a></p>
+<p><a href="https://sagemaker.readthedocs.io/en/stable/index.html">Documentation for the Python SageMaker SDK</a></p>
 <p><a href="https://awesome-astra.github.io/docs/pages/aiml/">Using Astra DB for your Generative AI applications</a></p>
+<p><a href="https://aws.amazon.com/sagemaker/jumpstart/getting-started">Getting Started with SageMaker JumpStart</a></p>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/">Llama 2 foundation models from Meta available in SageMaker JumpStart</a></p>
+<p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html">Accessing SageMaker from boto3 with Python</a></p>
+<h3 id="running-the-app-from-outside-of-sagemaker-studio">Running the app from outside of SageMaker Studio<a class="headerlink" href="#running-the-app-from-outside-of-sagemaker-studio" title="Permanent link">&para;</a></h3>
+<p>As mentioned earlier, you can still run this app from other environments than SageMaker Studio,
+provided the models are already deployed, i.e. if you do not need to execute the deployment
+itself in the code.</p>
+<p>To do so, you will have to slightly adjust the cell that handles authentication of your AWS identity
+(besides of course providing ready-made endpoint names for both embedding and LLM when prompted).</p>
+<p>Replace the cell in the notebook that defines variables <code>boto3_sm_client</code>, <code>region_name</code>, <code>sagemaker_session</code> and <code>aws_role</code> with the following, where
+the first three lines are needed to enter your AWS access credentials:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>from getpass import getpass
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># Input your AWS secrets:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>AWS_ACCESS_KEY_ID = getpass(&quot;Please enter secret &#39;AWS_ACCESS_KEY_ID&#39;:&quot;)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>AWS_SECRET_ACCESS_KEY = getpass(&quot;Please enter secret &#39;AWS_SECRET_ACCESS_KEY&#39;:&quot;)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>AWS_SESSION_TOKEN = getpass(&quot;Please enter secret &#39;AWS_SESSION_TOKEN&#39;:&quot;)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a># Create the AWS clients with these credentials:
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>boto_session = boto3.Session(
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    aws_access_key_id=AWS_ACCESS_KEY_ID,
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    aws_session_token=AWS_SESSION_TOKEN
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>boto3_sm_client = boto3.client(
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    &#39;runtime.sagemaker&#39;,
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    aws_access_key_id=AWS_ACCESS_KEY_ID,
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    aws_session_token=AWS_SESSION_TOKEN
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>region_name = boto3.Session().region_name
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>sagemaker_session = Session(boto_session=boto_session)
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>aws_role = sagemaker_session.get_caller_identity_arn()
+</code></pre></div>
+<p>Now, the rest of the notebook should run just like in SageMaker Studio.</p>
 
   <hr>
 <div class="md-source-file">
