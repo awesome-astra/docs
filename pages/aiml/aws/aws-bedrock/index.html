@@ -3188,6 +3188,7 @@ the end of the page for further options.</p>
 <p>To run the integration demo notebook, you need:</p>
 <ul>
 <li>An <strong>Amazon account</strong> with access to Amazon Bedrock and Amazon SageMaker Studio. In particular, you will be asked to provide a set of credentials for programmatic access (i.e. <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code> and <code>AWS_SESSION_TOKEN</code>);</li>
+<li>Alternatively, if you run the notebook from within SageMaker Studio, it is sufficient to add the Bedrock policy to your SageMaker role instead of explicitly providing the above secrets. Please refer to <a href="https://github.com/aws-samples/amazon-bedrock-workshop#enable-aws-iam-permissions-for-bedrock">this link</a> for details.</li>
 <li>An <strong>Astra account</strong> with a <strong>Serverless Cassandra with Vector Search</strong> database. You will need the <a href="https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier">Database ID</a> and an <a href="https://awesome-astra.github.io/docs/pages/astra/create-token/">Access Token</a> with role "Database Administrator".</li>
 </ul>
 <h2 id="run-the-example">Run the example<a class="headerlink" href="#run-the-example" title="Permanent link">&para;</a></h2>
@@ -3234,7 +3235,7 @@ select the "Running Terminals and Kernels" view on the left toolbar (see picture
   <small>
     
       Last update:
-      2023-10-19
+      2023-10-20
     
   </small>
 </div>
