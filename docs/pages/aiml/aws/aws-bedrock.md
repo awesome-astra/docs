@@ -40,13 +40,10 @@ To run the integration demo notebook, you need:
 
 ## Run the example
 
-The integration example is a Python 3.8+ runnable notebook. The suggested method is to import
-the notebook in your Amazon SageMaker Studio environment and run it from there.
-
-<admonition markdown="1">
-!!! note "Other options to run the example"
-    The notebook runs in a local Jupyter environment and on Google Colab as well.
-</admonition>
+The integration example is a Python 3.8+ runnable notebook. The **suggested method** is to import
+the notebook in your **Amazon SageMaker Studio** and run it from there on a standardized environment,
+which also makes the necessary AWS access credentials readily available.
+_As a side note, however, the code can be executed on any environment able to run Python notebooks._
 
 <p align="center">
     <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/bedrock.ipynb" target="blank;">
