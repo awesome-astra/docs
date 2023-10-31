@@ -1,3 +1,20 @@
+---
+title: "AWS Bedrock"
+description: "AWS Bedrock is a managed, serverless service offering access to foundation models from various AI companies, plus additional ML/GenAI tooling, in a single API."
+tags: "llm, genai, generative-ai, embedding, embeddings, vector"
+icon: "https://awesome-astra.github.io/docs/img/bedrock/bedrock.svg"
+developer_title: "AWSBedrock"
+developer_url: "https://aws.amazon.com/bedrock/"
+links:
+- title: "What is Amazon Bedrock"
+  url: "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+- title: "AWS Bedrock Docs"
+  url: "https://docs.aws.amazon.com/bedrock/"
+- title: "Using AWS Bedrock from Python"
+  url: "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/introduction-to-bedrock"
+---
+
+
 # Amazon Bedrock
 
 <div class="nosurface" markdown="1">
@@ -81,7 +98,7 @@ _As a side note, however, the code can be executed on any environment able to ru
 During the above steps, some resources are created, which you may want to
 cleanly dispose of after you are done.
 
-These have been started to run the notebook itself. You can shut them down from within SageMaker Studio:
+These have been stared to run the notebook itself. You can shut them down from within SageMaker Studio:
 select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.
 
 <img src="../../../../img/bedrock/screenshots/bedrock_cleanup.png" />
