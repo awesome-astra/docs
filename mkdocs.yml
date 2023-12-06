@@ -46,9 +46,9 @@ nav:
   - Developers:
     - List: pages/develop/index.md
     - SDK:
+      - • Astra DB Client : pages/develop/sdk/astra-db-client-java.md
+      - • AstraPy : pages/develop/sdk/astra-vector-client-python.md
       - • Astra SDK Java: pages/develop/sdk/astra-sdk-java.md
-      - • Vector Client Java : pages/develop/sdk/astra-vector-client-java.md
-      - • Vector Client Python (astraPy) : pages/develop/sdk/astra-vector-client-python.md
     - Stargate Apis:
       - • Document: pages/develop/api/document.md
       - • REST: pages/develop/api/rest.md
