@@ -91,14 +91,12 @@ import java.util.List;
 void quickStart() {}
 
   // Initialization
-  String token = "<replace_by_token>";
-  String apiEndpoint = "https://<replace_by_db_id>-<replace_by_db_region>.db.astra.datastax.com/api/json";
-  AstraDB myDb = new AstraDB(token, apiEndpoint);
+  AstraDB myDb = new AstraDB("<token>", "<api_endpoint>");
 
   // Create a collection (if needed)
-  CollectionClient demoCollection = db.createCollection("demo",14);
+  AstraDBCollection demoCollection = db.createCollection("demo",14);
   
-  // Insert a few vectors
+  // Insert vectors
   demoCollection.insertOne(new JsonDocument()
     .id("doc1") // generated if not set
     .vector(new float[]{1f, 0f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
@@ -125,7 +123,7 @@ void quickStart() {}
   float[] embeddings     = new float[] {1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
   Filter  metadataFilter = new Filter().where("product_price").isEqualsTo(9.99);
   int maxRecord = 10;
-  List<JsonResult> resultsSet = demoCollection.similaritySearch(embeddings, metadataFilter, maxRecord);
+  List<JsonResult> resultsSet = demoCollection.findVector(embeddings, metadataFilter, maxRecord);
 ```
 
 ## 5. Reference Guide
@@ -150,21 +148,17 @@ import java.util.UUID;
 // [...]
 void connection() {
   // Given valid tokens and api_endpoint
-  String token = "<replace_with_token>";
-  String apiEndpoint = "https://<database_id>-<database_region>.db.astra.datastax.com";
-
-  // (1) Default Initialization
-  AstraDB db = new AstraDB(token, apiEndpoint);
+  AstraDB db = new AstraDB("<token>", "<api_endpoint>");
 
   // --- Other Initialization options ---
 
   // (2a) if keyspace is different from default_keyspace
   String keyspace =  "custom_keyspace";
-  AstraDB db1 = new AstraDB(token, apiEndpoint, keyspace);
+  AstraDB db1 = new AstraDB("<token>", "<api_endpoint>", keyspace);
 
   // (2b) With a database identifier
   UUID databaseID = UUID.fromString("<database_id>");
-  AstraDB db2 = new AstraDB(token, databaseID);
+  AstraDB db2 = new AstraDB("<token>", databaseID);
 }
 ```
 
@@ -192,9 +186,7 @@ import io.stargate.sdk.json.domain.CollectionDefinition;
 // [...]
 public void listCollections() {
   // Given an active db
-  String token = "<token>";
-  String apiEndpoint = "<api_endpoint>";
-  AstraDB db = new AstraDB(token, apiEndpoint);
+  AstraDB db = new AstraDB("<token>", "<api_endpoint>");
 
   db.findAllCollections().forEach(col -> {
     System.out.println("name=" + col.getName());
@@ -211,20 +203,30 @@ public void listCollections() {
  
 - [x] **Create Collection with `createCollection` with vector**
 
-A collection can hold a vector of `float[]` representing the embeddings. The vector has a dimension and a metric. If the metric is not provided the default one is `cosine`.
+A collection can hold a vector of `float[]` representing the embeddings. The vector has a dimension and a metric. Once the dimension has been set it cannot be changed. The vector metric can be of type `cosine` or `euclidean`.
+If the metric is not provided the default one is `cosine`.
 
 ```java
 import com.dtsx.astra.sdk.AstraDB;
+import com.dtsx.astra.sdk.AstraDBCollection;
+import io.stargate.sdk.json.domain.SimilarityMetric;
 
 // [...]
-public void createSimpleCollections() {
-// Create a collection with vector
-CollectionClient col2 = db.createCollection("vector_store", 1536);
+public void createCollectionsWithVector() {
 
-// More information with the usage of the defintion
-CollectionClient col3 = db.createCollection(CollectionDefinition.builder()
-        .name("tmp_collection")
-        .vector(14, cosine));
+    // Given an active db
+    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
+
+    // Create a collection with vector
+    AstraDBCollection collection1 = db.createCollection("collection1", 1536, SimilarityMetric.cosine);
+
+    // Create another collection from builder
+    AstraDBCollection collection2 = db.createCollection(CollectionDefinition
+            .builder()
+            .name("collection2")
+            .vector(1536, SimilarityMetric.cosine)
+            .build());
+}
 ```
 
 - [x] **Create Collection with `createCollection` and NO vector**
@@ -232,14 +234,19 @@ CollectionClient col3 = db.createCollection(CollectionDefinition.builder()
 A collection can hold a vector of `float[]` representing the embeddings but this field is optional. A collection with no vector cannot be used for similarity search.
 
 ```java
-// Create a collection without vector
-CollectionClient col1 = db.createCollection("store_name");
+import com.dtsx.astra.sdk.AstraDB;
+import com.dtsx.astra.sdk.AstraDBCollection;
+
+// [...]
+public void createCollectionSimple() {
+
+    // Given an active db
+    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
+
+    // Create a collection with no vector.
+    AstraDBCollection collection1 = db.createCollection("collection1");
+}
 ```
-
-
-A vector has a **dimension** that cannot be changed once it has be defined. The dimension is the number of elements in the vector.
-The vector metric can be of type `cosine` or `euclidean`. The default type is `cosine`.
-
 
 
 #### Find Collection
@@ -247,13 +254,32 @@ The vector metric can be of type `cosine` or `euclidean`. The default type is `c
 - [x] **Does a collection exists**
 
 ```java
-boolean demo  = db.isCollectionExists("collection1");
+import com.dtsx.astra.sdk.AstraDB;
+
+// [...]
+public void isCollectionExists() {
+
+    // Given an active db
+    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
+    
+    boolean demo  = db.isCollectionExists("collection1");    
+}
 ```
 
 - [x] **Find a collection from its name**
 
 ```java
-Optional<CollectionDefinition> collection  = db.findCollection("collection1");
+import com.dtsx.astra.sdk.AstraDB;
+import io.stargate.sdk.json.domain.CollectionDefinition;
+import java.util.Optional;
+
+// [...]
+public void findCollection() {
+    // Given an active db
+    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
+    
+    Optional<CollectionDefinition> collection = db.findCollection("collection1");
+}
 ```
 
 #### Delete Collection
@@ -261,40 +287,16 @@ Optional<CollectionDefinition> collection  = db.findCollection("collection1");
 - [x] **Delete a collection from its name**
 
 ```java
-db.deleteCollection("collection1");
-```
+import com.dtsx.astra.sdk.AstraDB;
 
-- [x] **Use same method providing a bean you get `CollectionRepository`**
+// [...]
+public void deleteCollection() {
 
+    // Given an active db
+    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
 
-```java
-// Create a collection without vector
-CollectionRepository<Product> col1 = db
-   .createCollection("store_name", Product.class);
-
-// Create a collection with vector
-CollectionRepository<Product> col2 = db
-   .createCollection("vector_store", 1536, Product.class);
-
-// More information with the usage of the defintion
-CollectionRepository<Product>  col3 = db
-   .createCollection(CollectionDefinition
-     .builder()
-     .name("tmp_collection")
-     .vector(14, cosine), 
-    Product.class);
-```
-
-- [x] **If collection already exist**
-
-```java
-// Accessing CollectionClient
-CollectionClient col1 = db
-    .collection(name)
-        
-// Accessing CollectionRepository
-CollectionRepository<Product> repo = db
-   .collectionRepository("demo", Product.class);
+    db.deleteCollection("collection1");
+}
 ```
 
 
@@ -302,41 +304,6 @@ CollectionRepository<Product> repo = db
 
 #### Insert One
 
-#### Insert Many
-
-#### Find One
-
-```java
-Boolean isDocumentExists(id)
-
-Optional<JsonResult> findOne(SelectQuery)
-Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
-Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
-
-Optional<JsonResult>  findById(id)
-Optional<Result<DOC>> findById(id, Class<T>)
-Optional<Result<DOC>> findById(id, ResultMapper<T>)
-
-Optional<JsonResult> findOneByVector(float[] vector)
-Optional<Result<DOC>> findOneByVector(float[] vector, Class<T>)
-Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T>)
-```
-
-#### Queries
-
-#### Paging
-
-#### Update One
-
-#### Update Many
-
-#### Delete One
-
-#### Delete Many
-
-#### Clear
-
-        
 - [x] **Insertions**
 
 - If no id is provide when inserting the system will generate on for you
@@ -375,7 +342,28 @@ col1.insert("{"
     + "}");
 ```
 
-You can retrieve vector documents from their `id` of their `vector`. It is not really a search 
+#### Insert Many
+
+#### Find One
+
+```java
+Boolean isDocumentExists(id)
+
+Optional<JsonResult> findOne(SelectQuery)
+Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
+Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
+
+Optional<JsonResult>  findById(id)
+Optional<Result<DOC>> findById(id, Class<T>)
+Optional<Result<DOC>> findById(id, ResultMapper<T>)
+
+Optional<JsonResult> findOneByVector(float[] vector)
+Optional<Result<DOC>> findOneByVector(float[] vector, Class<T>)
+Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T>)
+```
+
+
+You can retrieve vector documents from their `id` of their `vector`. It is not really a search
 but rather a `findById`.
 
 - [x] **Find By Id**
@@ -406,7 +394,7 @@ Optional<JsonResult> result = col1
 
 - [x] **Find all**
 
-You can retrieve all vectors from your store but it might be slow and consume a lot of memory, 
+You can retrieve all vectors from your store but it might be slow and consume a lot of memory,
 prefered paed request except when in development.
 
 ```java
@@ -442,9 +430,11 @@ page1.getPageState().ifPresent(pagingState -> {
 });
 ```
 
+#### Queries
+
 In the query ou can then add filter with the builder.
 
-A similarity search is a query that will find records where vectors are the closest to a given vector. 
+A similarity search is a query that will find records where vectors are the closest to a given vector.
 It is done by providing a vector and a number of results to return. The result is a list of `JsonResult` that contains the payload and the distance.
 
 - [x] **Simple Search**
@@ -470,6 +460,21 @@ List<JsonDocument> results = col1
 - When a limit is provided the service return a list of Results.
 - When no limit is provided the service return a Page of results and paging is enabled.
 - The limit must be between 1 and 20.
+
+
+#### Paging
+
+#### Update One
+
+#### Update Many
+
+#### Delete One
+
+#### Delete Many
+
+#### Clear
+
+
 
 ### Object Mapping
 
@@ -524,6 +529,27 @@ List<Result<Product>> results = productRepository
 
 #### Insert One
 
+
+- [x] **Use same method providing a bean you get `CollectionRepository`**
+
+
+```java
+// Create a collection without vector
+CollectionRepository<Product> col1 = db
+   .createCollection("store_name", Product.class);
+
+// Create a collection with vector
+CollectionRepository<Product> col2 = db
+   .createCollection("vector_store", 1536, Product.class);
+
+// More information with the usage of the defintion
+CollectionRepository<Product>  col3 = db
+   .createCollection(CollectionDefinition
+     .builder()
+     .name("tmp_collection")
+     .vector(14, cosine), 
+    Product.class);
+```
 #### Insert Many
 
 #### Find One
