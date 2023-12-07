@@ -164,6 +164,7 @@ theme:
 
  features:
     - content.code.annotate
+    - content.code.copy
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
