@@ -80,135 +80,144 @@ dependencies {
 With a valid token, you can create an `AstraDBClient` object and start using the library.
 
 ```java
+import com.dtsx.astra.sdk.AstraDB;
+import io.stargate.sdk.json.CollectionClient;
+import io.stargate.sdk.json.domain.JsonDocument;
+import io.stargate.sdk.json.domain.JsonResult;
 
-import com.dtsx.astra.sdk.AstraDBClient;
+import java.util.List;
 
 // [...]
 void quickStart() {}
 
-  // Database exists, is active and token is valid.
+  // Initialization
   String token = "<replace_by_token>";
   String apiEndpoint = "https://<replace_by_db_id>-<replace_by_db_region>.db.astra.datastax.com/api/json";
-
-  // Default Initialization
   AstraDB myDb = new AstraDB(token, apiEndpoint);
 
-// 4) Create or select collection
-CollectionClient demoCollection;
-if (!db.isCollectionExists("demo")) {
-  demoCollection = db.createCollection("demo",14);
-} else {
-  demoCollection = db.collection("demo");
-}
-
-// 5) Insert a few vectors
-
-// 5a. Insert One (attributes as key/value)
-demoCollection.insertOne(new JsonDocument()
-  .id("doc1") // generated if not set
-  .vector(new float[]{1f, 0f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-  .put("product_name", "HealthyFresh - Beef raw dog food")
-  .put("product_price", 12.99));
-// 5b. Insert One (attributes as JSON)
-demoCollection.insertOne(new JsonDocument()
-  .id("doc2")
-  .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-  .data("{"
-  +"   \"product_name\": \"HealthyFresh - Chicken raw dog food\", "
-  + "  \"product_price\": 9.99"
-  + "}")
-);
-// 5c. Insert One (attributes as a MAP)
-demoCollection.insertOne(new JsonDocument()
-  .id("doc3")
-  .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-  .data(Map.of("product_name", "HealthyFresh - Chicken raw dog food"))
-);
-// 5d. Insert as a single Big JSON
-demoCollection.insertOne(new JsonDocument()
-  .id("doc4")
-  .vector(new float[]{1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f})
-  .put("product_name", "HealthyFresh - Chicken raw dog food")
-  .put("product_price", 9.99)
-);
-
-// 6) Similarity Search
-float[] embeddings     = new float[] {1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
-Filter  metadataFilter = new Filter().where("product_price").isEqualsTo(9.99);
-int maxRecord = 10;
-List<JsonResult> resultsSet = demoCollection
-        .similaritySearch(embeddings, metadataFilter, maxRecord);
+  // Create a collection (if needed)
+  CollectionClient demoCollection = db.createCollection("demo",14);
+  
+  // Insert a few vectors
+  demoCollection.insertOne(new JsonDocument()
+    .id("doc1") // generated if not set
+    .vector(new float[]{1f, 0f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
+    .put("product_name", "HealthyFresh - Beef raw dog food")
+    .put("product_price", 12.99));
+  demoCollection.insertOne(new JsonDocument()
+    .id("doc2")
+    .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
+    .data("{"
+     + "   \"product_name\": \"HealthyFresh - Chicken raw dog food\", "
+     + "  \"product_price\": 9.99"
+     + "}"));
+  demoCollection.insertOne(new JsonDocument()
+    .id("doc3")
+    .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
+    .data(Map.of("product_name", "HealthyFresh - Chicken raw dog food")));
+  demoCollection.insertOne(new JsonDocument()
+    .id("doc4")
+    .vector(new float[]{1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f})
+    .put("product_name", "HealthyFresh - Chicken raw dog food")
+    .put("product_price", 9.99));
+  
+  // Semantic/Vector Search
+  float[] embeddings     = new float[] {1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
+  Filter  metadataFilter = new Filter().where("product_price").isEqualsTo(9.99);
+  int maxRecord = 10;
+  List<JsonResult> resultsSet = demoCollection.similaritySearch(embeddings, metadataFilter, maxRecord);
 ```
 
 ## 5. Reference Guide
 
 ### Connection
 
+`AstraDB` class is the entry point of the SDK. It enables interactions with one particular database within your Astra environment. The initialization can be achieved in multiple ways:
 
-**Direct database-level connection**
+- Using a `token` along with the `api_endpoint`. Both are retrieved from the Astra user interface.
+- Using a `token` with the database identifier and eventually the region.
 
-In this example, the AstraDB class is instantiated to enable interactions specifically with a designated database. This approach focuses the operations and management on one particular database within the Astra environment.
+To establish this connection, you can generate a token via the user interface. This token will be assigned the `Database Administrator` permission level, which grants sufficient privileges for interacting with a specific database.
 
-The class instantiation can be achieved in multiple ways:
-
-- Directly using a `token` along with the `api_endpoint`. This method directly configures the client with the necessary credentials and endpoint information.
-- Utilizing the database identifier. This approach targets a specific database for operations.
-
-To establish this connection, you can generate a token via the user interface. This token should be assigned the `Database Administrator` permission level, which grants sufficient privileges for interacting with a specific database. This ensures secure and authorized access to database functionalities.
-
-The `api_endpoint` required for the connection is obtained from the user interface. It adheres to the following pattern: `https://{database-identifier}-{database-region}.apps.astra.datastax.com.` This format includes the unique database identifier and the database's regional deployment, ensuring a direct and secure connection to the specific Astra database instance.
+The `api_endpoint` is obtained from the user interface. It adheres to the following pattern: `https://{database-identifier}-{database-region}.apps.astra.datastax.com.`
 
 <img src="../../../../img/sdk/jsonapi-endpoint.png" />
 
-- Additionally, the class can be retrieved from the higher-level `AstraDBClient` object by providing either a database name or a database identifier, offering flexibility in how you choose to establish the connection.
-
 ```java
 import com.dtsx.astra.sdk.AstraDB;
-import com.dtsx.astra.sdk.AstraDBClient;
 import java.util.UUID;
 
 // [...]
-void connectionToDatabase() {
- // Given valid tokens and api_endpoint
- String token = "<replace_by_token>";
- String apiEndpoint = "https://<replace_by_db_id>-<replace_by_db_region>.db.astra.datastax.com/api/json"; 
+void connection() {
+  // Given valid tokens and api_endpoint
+  String token = "<replace_with_token>";
+  String apiEndpoint = "https://<database_id>-<database_region>.db.astra.datastax.com";
 
- // Default Initialization
- AstraDB db1 = new AstraDB(token, apiEndpoint);
+  // (1) Default Initialization
+  AstraDB db = new AstraDB(token, apiEndpoint);
 
- // Initialization providing a database identifier
- UUID databaseID = UUID.fromString("<replace_by_db_id>");
- AstraDB db2 = new AstraDB(token, databaseID);
+  // --- Other Initialization options ---
 
- // Initialization coming from  `AstraDBClient`
- AstraDB db3 = new AstraDBClient(token).database(databaseID);
+  // (2a) if keyspace is different from default_keyspace
+  String keyspace =  "custom_keyspace";
+  AstraDB db1 = new AstraDB(token, apiEndpoint, keyspace);
 
- String databaseName = "<replace_by_db_name>";
- AstraDB db4 = new AstraDBClient(token).database(databaseName);
+  // (2b) With a database identifier
+  UUID databaseID = UUID.fromString("<database_id>");
+  AstraDB db2 = new AstraDB(token, databaseID);
 }
 ```
 
 ### Working with Collections
 
+#### Overview
+
+AstraDB is a vector database. It stores documents in collections. A collection is a group of documents that have the same fields. Documents in a collection can have different fields. The fields determine the structure of the documents in a collection. A collection is the equivalent of a table in a relational database.
+
+There are 2 optional specialized fields :
+
+- **$vector** : a vector field that contains the vector of the document. It is a required field.
+- **$id** : a string field that contains the id of the document. It is a required field.
+
 #### List Collections
 
-- [x] **Find all collections**
+A database can hold multiple collections. You can list all collections in a database using the `findAllCollections` method.
+
+- [x] **List Collections with `findAllCollections`**
 
 ```java
-// assuming you have vectorDatabase
-Stream<CollectionDefinition> collections = db.findAllCollections();
+import com.dtsx.astra.sdk.AstraDB;
+import io.stargate.sdk.json.domain.CollectionDefinition;
+
+// [...]
+public void listCollections() {
+  // Given an active db
+  String token = "<token>";
+  String apiEndpoint = "<api_endpoint>";
+  AstraDB db = new AstraDB(token, apiEndpoint);
+
+  db.findAllCollections().forEach(col -> {
+    System.out.println("name=" + col.getName());
+    if (col.getOptions() != null && col.getOptions().getVector() != null) {
+      CollectionDefinition.Options.Vector vector = col.getOptions().getVector();
+      System.out.println("dim=" + vector.getDimension());
+      System.out.println("metric=" + vector.getMetric());
+    }
+  });
+}
 ```
 
 #### Create Collection
- - Vector collection
- - Normal collection 
+ 
+- [x] **Create Collection with `createCollection` with vector**
 
-- [x] **Create Collection with `createCollection`**
+A collection can hold a vector of `float[]` representing the embeddings. The vector has a dimension and a metric. If the metric is not provided the default one is `cosine`.
 
 ```java
-// Create a collection without vector
-CollectionClient col1 = db.createCollection("store_name");
+import com.dtsx.astra.sdk.AstraDB;
 
+// [...]
+public void createSimpleCollections() {
 // Create a collection with vector
 CollectionClient col2 = db.createCollection("vector_store", 1536);
 
@@ -217,6 +226,21 @@ CollectionClient col3 = db.createCollection(CollectionDefinition.builder()
         .name("tmp_collection")
         .vector(14, cosine));
 ```
+
+- [x] **Create Collection with `createCollection` and NO vector**
+
+A collection can hold a vector of `float[]` representing the embeddings but this field is optional. A collection with no vector cannot be used for similarity search.
+
+```java
+// Create a collection without vector
+CollectionClient col1 = db.createCollection("store_name");
+```
+
+
+A vector has a **dimension** that cannot be changed once it has be defined. The dimension is the number of elements in the vector.
+The vector metric can be of type `cosine` or `euclidean`. The default type is `cosine`.
+
+
 
 #### Find Collection
 
