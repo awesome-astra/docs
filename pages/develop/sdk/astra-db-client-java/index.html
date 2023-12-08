@@ -4087,24 +4087,44 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>List Collections with <code>findAllCollections</code></strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.dtsx.astra.sdk.AstraDB</span><span class="p">;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.stargate.sdk.json.domain.CollectionDefinition</span><span class="p">;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// [...]</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listCollections</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="c1">// Given an active db</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="n">AstraDB</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AstraDB</span><span class="p">(</span><span class="s">&quot;&lt;token&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&lt;api_endpoint&gt;&quot;</span><span class="p">);</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="n">db</span><span class="p">.</span><span class="na">findAllCollections</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;name=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">().</span><span class="na">getVector</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="n">CollectionDefinition</span><span class="p">.</span><span class="na">Options</span><span class="p">.</span><span class="na">Vector</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">().</span><span class="na">getVector</span><span class="p">();</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;dim=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="na">getDimension</span><span class="p">());</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;metric=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="na">getMetric</span><span class="p">());</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ListCollections.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.dtsx.astra.sdk.documentation</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.dtsx.astra.sdk.AstraDB</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.stargate.sdk.json.domain.CollectionDefinition</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListCollections</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// Given an active db</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="n">AstraDB</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AstraDB</span><span class="p">(</span><span class="s">&quot;&lt;token&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&lt;api_endpoint&gt;&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// Iterate over all collections</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="n">db</span><span class="p">.</span><span class="na">findAllCollections</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;name=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">().</span><span class="na">getVector</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="n">CollectionDefinition</span><span class="p">.</span><span class="na">Options</span><span class="p">.</span><span class="na">Vector</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="na">getOptions</span><span class="p">().</span><span class="na">getVector</span><span class="p">();</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;dim=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="na">getDimension</span><span class="p">());</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;metric=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="na">getMetric</span><span class="p">());</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="create-collection">Create Collection<a class="headerlink" href="#create-collection" title="Permanent link">&para;</a></h4>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Create Collection with <code>createCollection</code> with vector</strong></li>
@@ -4602,7 +4622,7 @@ This approach enables a broader scope of management and control across the organ
   <small>
     
       Last update:
-      2023-12-07
+      2023-12-08
     
   </small>
 </div>
