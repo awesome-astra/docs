@@ -179,24 +179,8 @@ A database can hold multiple collections. You can list all collections in a data
 
 - [x] **List Collections with `findAllCollections`**
 
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import io.stargate.sdk.json.domain.CollectionDefinition;
-
-// [...]
-public void listCollections() {
-  // Given an active db
-  AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-
-  db.findAllCollections().forEach(col -> {
-    System.out.println("name=" + col.getName());
-    if (col.getOptions() != null && col.getOptions().getVector() != null) {
-      CollectionDefinition.Options.Vector vector = col.getOptions().getVector();
-      System.out.println("dim=" + vector.getDimension());
-      System.out.println("metric=" + vector.getMetric());
-    }
-  });
-}
+``` java title="ListCollections.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ListCollections.java"
 ```
 
 #### Create Collection
