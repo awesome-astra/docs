@@ -173,157 +173,60 @@ There are 2 optional specialized fields :
 - **$vector** : a vector field that contains the vector of the document. It is a required field.
 - **$id** : a string field that contains the id of the document. It is a required field.
 
-#### List Collections
-
-A database can hold multiple collections. You can list all collections in a database using the `findAllCollections` method.
-
-- [x] **List Collections with `findAllCollections`**
-
-``` java title="ListCollections.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ListCollections.java"
-```
-
 #### Create Collection
- 
-- [x] **Create Collection with `createCollection` with vector**
 
 A collection can hold a vector of `float[]` representing the embeddings. The vector has a dimension and a metric. Once the dimension has been set it cannot be changed. The vector metric can be of type `cosine` or `euclidean`.
 If the metric is not provided the default one is `cosine`.
 
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import com.dtsx.astra.sdk.AstraDBCollection;
-import io.stargate.sdk.json.domain.SimilarityMetric;
+- [x] **To create collection use `createCollection()`**
 
-// [...]
-public void createCollectionsWithVector() {
 
-    // Given an active db
-    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-
-    // Create a collection with vector
-    AstraDBCollection collection1 = db.createCollection("collection1", 1536, SimilarityMetric.cosine);
-
-    // Create another collection from builder
-    AstraDBCollection collection2 = db.createCollection(CollectionDefinition
-            .builder()
-            .name("collection2")
-            .vector(1536, SimilarityMetric.cosine)
-            .build());
-}
+``` java title="CreateCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateCollection.java"
 ```
 
-- [x] **Create Collection with `createCollection` and NO vector**
+#### List Collections
 
-A collection can hold a vector of `float[]` representing the embeddings but this field is optional. A collection with no vector cannot be used for similarity search.
+A database is capable of containing multiple collections. These collections can be listed along with their detailed attributes. It is important to remember the specifications of the vector dimension and the metric used, as these parameters cannot be altered after the creation of the collection.
 
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import com.dtsx.astra.sdk.AstraDBCollection;
+- [x] **To list Collections use `findAllCollections()`**
 
-// [...]
-public void createCollectionSimple() {
-
-    // Given an active db
-    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-
-    // Create a collection with no vector.
-    AstraDBCollection collection1 = db.createCollection("collection1");
-}
+``` java title="FindAllCollections.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllCollections.java"
 ```
-
 
 #### Find Collection
 
-- [x] **Does a collection exists**
+To get detailed information about a specific collection, you can use the `findCollection()` method. 
+This method takes the name of the collection as input and returns a `CollectionDefinition` object.
 
-```java
-import com.dtsx.astra.sdk.AstraDB;
+- [x] **To retrieve a single collections use `findCollection()`**
 
-// [...]
-public void isCollectionExists() {
-
-    // Given an active db
-    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-    
-    boolean demo  = db.isCollectionExists("collection1");    
-}
-```
-
-- [x] **Find a collection from its name**
-
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import io.stargate.sdk.json.domain.CollectionDefinition;
-import java.util.Optional;
-
-// [...]
-public void findCollection() {
-    // Given an active db
-    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-    
-    Optional<CollectionDefinition> collection = db.findCollection("collection1");
-}
+``` java title="FindCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindCollection.java"
 ```
 
 #### Delete Collection
 
-- [x] **Delete a collection from its name**
+To delete a collection, you can use the `deleteCollection()` method. If the collection does not exist, the method will not fail.
 
-```java
-import com.dtsx.astra.sdk.AstraDB;
+- [x] **To delete a single collections use `deleteCollection()`**
 
-// [...]
-public void deleteCollection() {
-
-    // Given an active db
-    AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-
-    db.deleteCollection("collection1");
-}
+``` java title="DeleteCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteCollection.java"
 ```
-
 
 ### Working with Documents
 
 #### Insert One
 
-- [x] **Insertions**
+You can insert unitary record with the function
 
-- If no id is provide when inserting the system will generate on for you
+- [x] **To an unitary vector use `insertOne()`**
 
-```java
-// Insert with key/values
-col1.insert(new JsonDocument()
-  .id("doc1") // generated if not set
-  .vector(new float[]{1f, 0f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-  .put("product_name", "HealthyFresh - Beef raw dog food")
-  .put("product_price", 12.99));
- 
-// Insert with payload as Json
-col1.insert(new JsonDocument()
-  .id("doc2")
-  .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-  .data("{"
-       +"   \"product_name\": \"HealthyFresh - Chicken raw dog food\", "
-       + "  \"product_price\": 9.99"
-       + "}")
-);
 
-// Insert with payload as a Map
-col1.insert(new JsonDocument()
-   .id("doc3")
-   .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-   .data(Map.of("product_name", "HealthyFresh - Chicken raw dog food"))
-);
-
-// Insert as a Json
-col1.insert("{"
-    + "   \"_id\":\"doc4\","
-    + "   \"$vector\":[1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],"
-    + "   \"product_name\": \"HealthyFresh - Chicken raw dog food\", "
-    + "   \"product_price\": 9.99"
-    + "}");
+``` java title="InertOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java"
 ```
 
 #### Insert Many
