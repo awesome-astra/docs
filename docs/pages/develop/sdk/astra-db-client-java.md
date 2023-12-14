@@ -3,183 +3,142 @@
 
 ## 1. Overview
 
+
 The Astra DB Client, as the name suggests, is a client library that interacts with the various APIs of the Astra DataStax Platform. It enables users to connect to, utilize, and administer the Astra Vector product. The library encompasses two distinct clients working in tandem:
 
-- **AstraDBClient**: This is the primary entry point to the library and serves as the initial object to access all its features. The client supports both **schema operations** (such as adding and deleting vector stores and collections) and **data operations** (including insert, update, and delete functions). It notably offers advanced search capabilities, which encompass **similarity search, text-based search, and metadata filtering**.
+- **AstraDB**: This is the primary endpoint, connecting exclusively to a single database to perform all operations for your applications. It requires initialization with a database administrator token and also necessitates the API endpoint of your database.
 
-- **AstraDBOpsClient**: This class is specifically designed for the **administration** of the Astra Vector platform. It facilitates the creation, deletion, and management of various **databases** within your tenant. Authentication is done via a token that is scoped to your tenant.
+- **AstraDBAmin**: This class is initialized exclusively using an organization administrator token and enables the creation and deletion of databases via the DevOps API (`AstraDBOpsClient`). It facilitates automation and administration within your organization's tenant.
 
-<img src="../../../../img/sdk/astra-vector-client.png" />
+???+ info annotate "Reference Architecture"
+
+    <img src="../../../../img/sdk/reference-architecture.png" />
 
 ## 2. Prerequisites
 
-- [x] **Install Java Development Kit (JDK) 11++**
+???+ success annotate "Installation"
 
-Use the [java reference documentation](https://www.oracle.com/java/technologies/downloads/)  to install a Java Development Kit (JDK) tailored for your operating system. After installation, you can validate your setup with the following command:
+    - [x] **Install Java Development Kit (JDK) 11++**
+        
+    Use the [java reference documentation](https://www.oracle.com/java/technologies/downloads/)  to install a Java Development Kit (JDK) tailored for your operating system. After installation, you can validate your setup with the following command:
+        
+    ```bash
+    java --version
+    ```
+        
+    - [x] **Install Apache Maven (3.9+) or Gradle**
+        
+    Samples and tutorials are designed to be used with `Apache Maven`. Follow the instructions in the [reference documentation](https://maven.apache.org/install.html) to install Maven. To validate your installation, use the following command:
+        
+    ```bash
+    mvn -version
+    ```
 
-```bash
-java --version
-```
+???+ info annotate "Astra Environment Setup"
 
-- [x] **Install Apache Maven (3.9+) or Gradle**
+    - [x] **Create your DataStax Astra account**:
+        
+    <a href="https://astra.dev/3B7HcYo" class=md-button>Sign Up to Datastax Astra</a>
+        
+    - [x] **Create an Astra Token**
+        
+    Once logged into the user interface, select settings from the left menu and then click on the tokens tab to create a new token.
+        
+    <img src="../../../../img/astra/astra-settings-1.png" />
 
-Samples and tutorials are designed to be used with `Apache Maven`. Follow the instructions in the [reference documentation](https://maven.apache.org/install.html) to install Maven. To validate your installation, use the following command:
+    You want to pick the following role:
+    
+    | Properties     | Values                       |
+    |----------------|------------------------------|
+    | **Token Role** | `Organization Administrator` |
+    
+    The Token contains properties `Client ID`, `Client Secret` and the `token`. You will only need the third (starting with `AstraCS:`)
+    
+    ```
+    {
+      "ClientId": "ROkiiDZdvPOvHRSgoZtyAapp",
+      "ClientSecret": "fakedfaked",
+      "Token":"AstraCS:fake" <========== use this field
+    }
+    ```
 
-```bash
-mvn -version
-```
+## 3. Getting Started
 
-- [x] **Create your DataStax Astra account**:
+???+ info annotate "Setup Project"
 
-<a href="https://astra.dev/3B7HcYo" class=md-button>Sign Up to Datastax Astra</a>
+    - [x] **If you are using `Maven` Update your `pom.xml` file with the latest version of the Vector SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-db-client)**
+    
+    ```xml
+    <dependency>
+      <groupId>com.datastax.astra</groupId>
+      <artifactId>astra-db-client</artifactId>
+      <version>${latest}</version>
+    </dependency>
+    ```
+    
+    - [x] **If you are using gradle change the `build.dgradle` with**
+    
+    ```typesafe
+    dependencies {
+        compile 'com.datastax.astra:astra-db-client-1.0'
+    }
+    ```
 
-- [x] **Create an Astra Token**
-
-Once logged into the user interface, select settings from the left menu and then click on the tokens tab to create a new token.
-
-<img src="../../../../img/astra/astra-settings-1.png" />
-
-You want to pick the following role:
-
-| Properties     | Values                       |
-|----------------|------------------------------|
-| **Token Role** | `Organization Administrator` |
-
-The Token contains properties `Client ID`, `Client Secret` and the `token`. You will only need the third (starting with `AstraCS:`)
-
-```
-{
-  "ClientId": "ROkiiDZdvPOvHRSgoZtyAapp",
-  "ClientSecret": "fakedfaked",
-  "Token":"AstraCS:fake" <========== use this field
-}
-```
-
-## 3. Setup project
-
-- [x] **If you are using `Maven` Update your `pom.xml` file with the latest version of the Vector SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-db-client)**
-
-```xml
-<dependency>
-  <groupId>com.datastax.astra</groupId>
-  <artifactId>astra-db-client</artifactId>
-  <version>${latest}</version>
-</dependency>
-```
-
-- [x] **If you are using gradle change the `build.dgradle` with**
-
-```typesafe
-dependencies {
-    compile 'com.datastax.astra:astra-db-client-1.0'
-}
-```
-
-## 4. Getting Started
-
-With a valid token, you can create an `AstraDBClient` object and start using the library.
-
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import io.stargate.sdk.json.CollectionClient;
-import io.stargate.sdk.json.domain.JsonDocument;
-import io.stargate.sdk.json.domain.JsonResult;
-
-import java.util.List;
-
-// [...]
-void quickStart() {}
-
-  // Initialization
-  AstraDB myDb = new AstraDB("<token>", "<api_endpoint>");
-
-  // Create a collection (if needed)
-  AstraDBCollection demoCollection = db.createCollection("demo",14);
-  
-  // Insert vectors
-  demoCollection.insertOne(new JsonDocument()
-    .id("doc1") // generated if not set
-    .vector(new float[]{1f, 0f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-    .put("product_name", "HealthyFresh - Beef raw dog food")
-    .put("product_price", 12.99));
-  demoCollection.insertOne(new JsonDocument()
-    .id("doc2")
-    .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-    .data("{"
-     + "   \"product_name\": \"HealthyFresh - Chicken raw dog food\", "
-     + "  \"product_price\": 9.99"
-     + "}"));
-  demoCollection.insertOne(new JsonDocument()
-    .id("doc3")
-    .vector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f})
-    .data(Map.of("product_name", "HealthyFresh - Chicken raw dog food")));
-  demoCollection.insertOne(new JsonDocument()
-    .id("doc4")
-    .vector(new float[]{1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f})
-    .put("product_name", "HealthyFresh - Chicken raw dog food")
-    .put("product_price", 9.99));
-  
-  // Semantic/Vector Search
-  float[] embeddings     = new float[] {1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
-  Filter  metadataFilter = new Filter().where("product_price").isEqualsTo(9.99);
-  int maxRecord = 10;
-  List<JsonResult> resultsSet = demoCollection.findVector(embeddings, metadataFilter, maxRecord);
+``` java title="Quickstart.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/QuickStart.java"
 ```
 
 ## 5. Reference Guide
 
 ### Connection
 
-`AstraDB` class is the entry point of the SDK. It enables interactions with one particular database within your Astra environment. The initialization can be achieved in multiple ways:
+???+ info annotate "Getting your token and Api Endpoint"
 
-- Using a `token` along with the `api_endpoint`. Both are retrieved from the Astra user interface.
-- Using a `token` with the database identifier and eventually the region.
+    `AstraDB` class is the entry point of the SDK. It enables interactions with one particular database within your Astra environment. The initialization can be achieved in multiple ways:
+    
+    - Using a `token` along with the `api_endpoint`. Both are retrieved from the Astra user interface.
+    - Using a `token` with the database identifier and eventually the region.
+    
+    To establish this connection, you can generate a token via the user interface. This token will be assigned the `Database Administrator` permission level, which grants sufficient privileges for interacting with a specific database.
+    
+    The `api_endpoint` is obtained from the user interface. It adheres to the following pattern: `https://{database-identifier}-{database-region}.apps.astra.datastax.com.`
+    
+    <img src="../../../../img/sdk/jsonapi-endpoint.png" />
 
-To establish this connection, you can generate a token via the user interface. This token will be assigned the `Database Administrator` permission level, which grants sufficient privileges for interacting with a specific database.
+Please find below how to initialize the `AstraDB` class and connect.
 
-The `api_endpoint` is obtained from the user interface. It adheres to the following pattern: `https://{database-identifier}-{database-region}.apps.astra.datastax.com.`
-
-<img src="../../../../img/sdk/jsonapi-endpoint.png" />
-
-```java
-import com.dtsx.astra.sdk.AstraDB;
-import java.util.UUID;
-
-// [...]
-void connection() {
-  // Given valid tokens and api_endpoint
-  AstraDB db = new AstraDB("<token>", "<api_endpoint>");
-
-  // --- Other Initialization options ---
-
-  // (2a) if keyspace is different from default_keyspace
-  String keyspace =  "custom_keyspace";
-  AstraDB db1 = new AstraDB("<token>", "<api_endpoint>", keyspace);
-
-  // (2b) With a database identifier
-  UUID databaseID = UUID.fromString("<database_id>");
-  AstraDB db2 = new AstraDB("<token>", databaseID);
-}
+``` java title="Connection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Connecting.java"
 ```
 
 ### Working with Collections
 
 #### Overview
 
-AstraDB is a vector database. It stores documents in collections. A collection is a group of documents that have the same fields. Documents in a collection can have different fields. The fields determine the structure of the documents in a collection. A collection is the equivalent of a table in a relational database.
+???+ info annotate "Overview"
 
-There are 2 optional specialized fields :
+    AstraDB is a vector database that manages multiple collections. Each collection (AstraDBCollection) is identified by a name and stores schema-less documents. It is capable of holding any JSON document, each uniquely identified by an _id. Additionally, a JSON document within AstraDB can contain a vector. It is important to note that all documents within the same collection should utilize vectors of the same type, characterized by consistent dimensions and metrics.
 
-- **$vector** : a vector field that contains the vector of the document. It is a required field.
-- **$id** : a string field that contains the id of the document. It is a required field.
+    <img src="../../../../img/sdk/uml-collection.png" />
 
 #### Create Collection
 
-A collection can hold a vector of `float[]` representing the embeddings. The vector has a dimension and a metric. Once the dimension has been set it cannot be changed. The vector metric can be of type `cosine` or `euclidean`.
-If the metric is not provided the default one is `cosine`.
+A collection can hold a vector of `float[]` representing the embeddings.  
 
+The vector metric can be of type `cosine` , `euclidean` or `dot_product`. If the metric is not provided the default one is `cosine`.
+
+???+ info annotate "Rules"
+
+    - The collection name is its unique identifier
+    - Your collection name should match `[A-Za-z_]`
+    - The `createCollection()` method returns an instance of `AstraDBCollection`
+    - The collection will be created if not exists
+    - If collection exists method is checking for vector dimension and metric
+    - There are a maximum of 5 collections per database
+    - If not provided the default metric is `cosine`
+    - The vector `dimension` and a `metric` are set at creation and cannot be changed after
+    
 - [x] **To create collection use `createCollection()`**
-
 
 ``` java title="CreateCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateCollection.java"
@@ -220,40 +179,104 @@ To delete a collection, you can use the `deleteCollection()` method. If the coll
 
 #### Insert One
 
-You can insert unitary record with the function
+You can insert unitary record with the function `insertOne()`. Multiple signatures are available to insert a document.
 
-- [x] **To an unitary vector use `insertOne()`**
+???+ info annotate "Rules"
 
+    - If not provided, the identifier is generated as a java UUID
+    - The method always return the document identifier.
+    - All attributes are optional (schemaless)
+    - You attribute names should match `[A-Za-z_]`
+    - All Java simple standard types are supported
+    - Nested object are supported
+    - A field value should not exceed 5Kb
+    - Each attribute is indexed and searchable
+    - A vector cannot be filled only with 0s, it would lead to division by 0
 
-``` java title="InertOne.java" linenums="1"
+- [x] **To insert an unitary vector use `insertOne()`**
+
+``` java title="InsertOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java"
 ```
 
 #### Insert Many
 
+To insert multiple documents, utilize the insertMany() method. This method accepts a list of JsonDocument objects as input and returns a corresponding list of identifiers. 
+The insertions are batched in groups of 20, aligning with the maximum number of documents permitted for insertion in a single request.
+
+- [x] **To insert multiple vectors use `insertMany()`**
+
+``` java title="InsertMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertMany.java"
+```
+
 #### Find One
 
+???+ info annotate "`JsonResult` and `Result<T>`"
+
+    You can retrieve documents from their `id`. It will return a `JsonResult` which is like `JsonDocument` enriched with the `similariry` field.
+    
+    <img src="../../../../img/sdk/jsonresult.png" />
+
+    In java you might me interested in getting back your own object instead of a `JsonResult`. For this you can use the `Result<T>` class. It is a generic class that will hold your object and the `similarity` field. If you provide a Class<T> 
+    the payload will be automatically mapped to your object. If you provide a `ResultMapper<T>` you can map the payload to your object as you like.
+
+    <img src="../../../../img/sdk/result.png" />
+
+
+- [x] **Find By Id**
+
+You can retrieve a document from its `id` if it exists. You will get the following methods
+
 ```java
-Boolean isDocumentExists(id)
+Optional<JsonResult>  findById(String id);
+Optional<Result<DOC>> findById(Stringid, Class<T> clazz);
+Optional<Result<DOC>> findById(Stringid, ResultMapper<T> mapper);
 
-Optional<JsonResult> findOne(SelectQuery)
-Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
-Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
+boolean isDocumentExists(String id)
+```
 
-Optional<JsonResult>  findById(id)
-Optional<Result<DOC>> findById(id, Class<T>)
-Optional<Result<DOC>> findById(id, ResultMapper<T>)
 
+``` java title="FindById.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java"
+```
+
+If the document hold a vector you can also retrieve it from its `vector`.
+
+``` java title="FindByVector.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindByVector.java"
+```
+
+```java
 Optional<JsonResult> findOneByVector(float[] vector)
 Optional<Result<DOC>> findOneByVector(float[] vector, Class<T>)
 Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T>)
 ```
 
 
+
+Optional<JsonResult> findOne(SelectQuery)
+Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
+Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
+
+
+
+```
+
+``` java title="InsertMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java"
+```
+
+<img src="../../../../img/sdk/sql-query.png" />
+
+
+
+
+
 You can retrieve vector documents from their `id` of their `vector`. It is not really a search
 but rather a `findById`.
 
-- [x] **Find By Id**
+
 
 Retrieve a document from its id (if exists)
 
@@ -367,6 +390,9 @@ List<JsonDocument> results = col1
 
 Instead of interacting with the database with key/values you may want to
 associate an object to each record in the collection for this you can use `CollectionRepository`. If we reproduce the sample before
+
+
+<img src="../../../../img/sdk/uml-repository.png" />
 
 #### Overview
 
