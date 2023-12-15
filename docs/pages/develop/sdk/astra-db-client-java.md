@@ -214,15 +214,47 @@ The insertions are batched in groups of 20, aligning with the maximum number of 
 
 ???+ info annotate "`JsonResult` and `Result<T>`"
 
-    You can retrieve documents from their `id`. It will return a `JsonResult` which is like `JsonDocument` enriched with the `similariry` field.
-    
+    You can retrieve documents with multiple type of filters. Each time it will return a `JsonResult` which is similar to `JsonDocument` 
+    enriched with the `similariry` field.
+
+    ```java
+    Optional<JsonResult> findById(String id);
+    ```
+ 
+    This is what the classes look like:
+
     <img src="../../../../img/sdk/jsonresult.png" />
 
-    In java you might me interested in getting back your own object instead of a `JsonResult`. For this you can use the `Result<T>` class. It is a generic class that will hold your object and the `similarity` field. If you provide a Class<T> 
-    the payload will be automatically mapped to your object. If you provide a `ResultMapper<T>` you can map the payload to your object as you like.
+    In java you might me interested in getting back your OWN OBJECT of a `JsonResult`. For this you can use the generic `Result<T>` class. 
+    It is a generic class that will hold your object and the `similarity` field. 
 
-    <img src="../../../../img/sdk/result.png" />
+    - If you provide a Class<T> the payload will be automatically mapped to your object. 
+    - If you provide a `ResultMapper<T>` you can map the payload to your object as you like.
 
+    ```java
+    Optional<Result<T>> findById(String id, Class<T> clazz);
+    Optional<Result<T>> findById(String id, ResultMapper<T> mapper);
+    ```
+
+    This is what the classes look like:
+
+    ```mermaid
+    classDiagram
+    class ResultMapper~T~ {
+        Result&lt;T&gt; map(JsonResult)
+    }
+    <<interface>> ResultMapper
+
+    class Result~T~ {
+       float similarity
+    }
+    class Document~T~ {
+       String id
+       T data
+       float[] vector
+    }
+    Document~T~ <|-- Result~T~
+    ```
 
 - [x] **Find By Id**
 
@@ -236,83 +268,79 @@ Optional<Result<DOC>> findById(Stringid, ResultMapper<T> mapper);
 boolean isDocumentExists(String id)
 ```
 
+Here is a sample class detailing the usage of the `findById` method.
 
 ``` java title="FindById.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java"
 ```
 
-If the document hold a vector you can also retrieve it from its `vector`.
+- [x] **Find By Vector**
+
+If the document hold a vector you can retrieve it from its `vector`. You will get the following methods
+
+```java
+Optional<JsonResult> findOneByVector(float[] vector);
+Optional<Result<DOC>> findOneByVector(float[] vector, Class<T> clazz);
+Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T> mapper);
+```
+
+Here is a sample class detailing the usage of the `findById` method.
 
 ``` java title="FindByVector.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindByVector.java"
 ```
 
+- [x] **Find One**
+
+???+ info annotate "Introducing `SelectQuery`"
+
+    Under the hood every search against the REST Api is done by providing 4 parameters:
+
+    - **`$filter`**: which are your criteria (where clause)
+    - **`$projection`**: which list the fields you want to retrieve (select)
+    - **`$sort`**: which order the results in memory (order by) or the vector search (order by ANN)
+    - **`$options`**: that will contains all information like paging, limit, etc.
+
+    The `SelectQuery` class is a builder that will help you to build the query. It is a fluent API that will help you to build the query.
+
+    ```java
+     SelectQuery.builder()
+     .where("product_price")
+     .isEqualsTo(9.99)
+     .build();
+    ```
+
+    <img src="../../../../img/sdk/select-query.png" />
+
+As for `findById` and `findByVector` there are 3 methods available to retrieve a document. If the `SelectQuery` has multiple
+matches objects only the first will be returned. In doubt use `find()` or even better `findPage()` not to exhaust all the
+collection.
+
 ```java
-Optional<JsonResult> findOneByVector(float[] vector)
-Optional<Result<DOC>> findOneByVector(float[] vector, Class<T>)
-Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T>)
+Optional<JsonResult> findOne(SelectQuery query);
+Optional<Result<DOC>> findOne(SelectQuery query, Class<T> clazz);
+Optional<Result<DOC>> findOne(SelectQuery query, ResultMapper<T> mapper);
 ```
 
+Here is a sample class detailing the usage of the `findOne` method.
 
-
-Optional<JsonResult> findOne(SelectQuery)
-Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
-Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
-
-
-
-```
-
-``` java title="InsertMany.java" linenums="1"
+``` java title="FindOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java"
 ```
 
-<img src="../../../../img/sdk/sql-query.png" />
-
-
-
-
-
-You can retrieve vector documents from their `id` of their `vector`. It is not really a search
-but rather a `findById`.
-
-
-
-Retrieve a document from its id (if exists)
-
-```java
-// Assuming you have a VectorStore<MyBean>
-Optional<MyBean> result = col1.findById("doc1");
-
-// When working with JsonVectorStore to returned raw 'JsonResult'
-Optional<JsonResult> result = col1.findByIdJson("doc1");
-```
-
-- [x] **Find By Vector**
-
-Retrieve a document from its vector (if exists)
-
-```java
-// Assuming you have a VectorStore<MyBean>
-Optional<MyBean> result = col1
-        .findByVector(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f});
-
-// When working with JsonVectorStore to returned raw 'JsonResult'
-Optional<JsonResult> result = col1
-        .findByVectorJson(new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f});
-```
+#### Find
 
 - [x] **Find all**
 
 You can retrieve all vectors from your store but it might be slow and consume a lot of memory,
-prefered paed request except when in development.
+preferred paging request except when in development.
 
 ```java
 // Find All for VectorStore<MyBean>
 Stream<JsonResult> all = col1.findAll();
 ```
 
-- [x] **Find with a query**
+- [x] **Find with a `SQLQuery`**
 
 You can search on any field of the document. All fields are indexed. Using a `SelectQuery` populated through
 builder you can get some precise results.
@@ -322,6 +350,11 @@ Stream<JsonResult> all = col1.findAll(SelectQuery.builder()
   .where("product_price")
   .isEqualsTo(9.99)
   .build());
+```
+More examples in the following class:
+
+``` java title="FindOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java"
 ```
 
 - [x] **Find Page**
@@ -340,7 +373,7 @@ page1.getPageState().ifPresent(pagingState -> {
 });
 ```
 
-#### Queries
+
 
 In the query ou can then add filter with the builder.
 
