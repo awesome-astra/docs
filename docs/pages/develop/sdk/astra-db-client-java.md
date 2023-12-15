@@ -330,17 +330,40 @@ Here is a sample class detailing the usage of the `findOne` method.
 
 #### Find
 
-- [x] **Find all**
+???+ info annotate "Reminders on `SelectQuery`"
 
-You can retrieve all vectors from your store but it might be slow and consume a lot of memory,
-preferred paging request except when in development.
+    Under the hood every search against the REST Api is done by providing 4 parameters:
+
+    - **`$filter`**: which are your criteria (where clause)
+    - **`$projection`**: which list the fields you want to retrieve (select)
+    - **`$sort`**: which order the results in memory (order by) or the vector search (order by ANN)
+    - **`$options`**: that will contains all information like paging, limit, etc.
+
+    The `SelectQuery` class is a builder that will help you to build the query. It is a fluent API that will help you to build the query.
+
+    ```java
+     SelectQuery.builder()
+     .where("product_price")
+     .isEqualsTo(9.99)
+     .build();
+    ```
+
+    <img src="../../../../img/sdk/select-query.png" />
+
+
+???+ warning annotate "Important"
+
+    With the Json API all queries are paged. The maximum page size is 20. The method findAll() and find() will fetch the
+    pages one after the other until `pagingState` is null. Use those functions with caution. 
+
+- [x] **To retrieve every document of a collection use `findAll()`**
 
 ```java
 // Find All for VectorStore<MyBean>
 Stream<JsonResult> all = col1.findAll();
 ```
 
-- [x] **Find with a `SQLQuery`**
+- [x] **Find with a `ResultQuery`**
 
 You can search on any field of the document. All fields are indexed. Using a `SelectQuery` populated through
 builder you can get some precise results.
@@ -353,77 +376,76 @@ Stream<JsonResult> all = col1.findAll(SelectQuery.builder()
 ```
 More examples in the following class:
 
-``` java title="FindOne.java" linenums="1"
+``` java title="Find.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java"
 ```
 
+#### Paging
+
+Every request is paged with the Json API and the maximum page size is 20. The methods return Page<JsonResult> that contains the data but also a field called `pagingState
+
 - [x] **Find Page**
 
-Find Page works the same as `findAll(Query)` where you can pass a `SelectQuery` as input. In the object `Page` the field `pagingState` should be provided from page to another.
+The signature are close to the `find()`. Reason is that `find()` is using findPage under the hood. The difference is that it will exhaust all the pages 
+and return a `Stream<JsonResult>`.
+
 
 ```java
-
-// VectorStore<MyBean>
-// JsonVectorStore
-Page<JsonResult> page1 = vectorStore.findPage(SelectQuery.builder().build());
-page1.getPageState().ifPresent(pagingState -> {
-  Page<JsonResult> page2 = vectorStore
-    .findPageJson(SelectQuery
-    .builder().withPagingState(pagingState).build());
-});
+Page<JsonResult> jsonResult = findPage(SelectQuery query);
+Page<Result<T>> jsonResult2 = findPage(SelectQuery query, Class<T> clazz);
+Page<Result<T>> jsonResult3 = findPage(SelectQuery query, ResultMapper<T> clazz);
 ```
 
-
-
-In the query ou can then add filter with the builder.
-
-A similarity search is a query that will find records where vectors are the closest to a given vector.
-It is done by providing a vector and a number of results to return. The result is a list of `JsonResult` that contains the payload and the distance.
-
-- [x] **Simple Search**
-
-```java
-float[] embeddings = 
-   new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
-int limit = 2;
-List<JsonDocument> results = col1.similaritySearch(embeddings, limit);
+``` java title="FindPage.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindPage.java"
 ```
-
-- [x] **Search with filter**
-
-```java
-float[] embeddings = 
-   new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
-int limit = 2;
-Filter  metadataFilter = new Filter().where("product_price").isEqualsTo(9.99);
-List<JsonDocument> results = col1
-        .similaritySearch(embeddings, metadataFilter, limit);
-```
-
-- When a limit is provided the service return a list of Results.
-- When no limit is provided the service return a Page of results and paging is enabled.
-- The limit must be between 1 and 20.
-
-
-#### Paging
 
 #### Update One
 
+Allow to update an existing document:
+
+``` java title="UpdateOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateOne.java"
+```
+
 #### Update Many
+
+Allow to update a set of document matching a request.
+
+``` java title="UpdateMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateMany.java"
+```
 
 #### Delete One
 
+Use to delete an existing document.
+
+``` java title="DeleteOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteOne.java"
+```
+
+
 #### Delete Many
+
+Used to delete a set of document matching a request.
+
+``` java title="DeleteMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteMany.java"
+```
+
 
 #### Clear
 
+Used to empty a collection
 
+``` java title="ClearCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ClearCollection.java"
+```
 
 ### Object Mapping
 
 Instead of interacting with the database with key/values you may want to
 associate an object to each record in the collection for this you can use `CollectionRepository`. If we reproduce the sample before
-
 
 <img src="../../../../img/sdk/uml-repository.png" />
 
@@ -446,198 +468,114 @@ static class Product {
 
 - [x] **Similarity Search**
 
-```java
-// 1) Initialization
-AstraDB db = new AstraDBClient("AstraCS:....")
-        .database("getting_started");
-
-// 2) Create or select collection
-CollectionRepository<Product> productRepository = db
-        .collectionRepository(collectionName, Product.class);
-
-// 3) Insert a few vectors
-productRepository.insert(new Document<>("doc5",
-        new Product("HealthyFresh - Beef raw dog food", 12.99),
-        new float[]{1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f}));
-productRepository.insert(new Document<>("doc6",
-        new Product("Another Product", 9.99),
-        new float[]{1f, 1f, 1f, 0f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f}));
-
-// 4) Similarity Search
-float[] embeddings     = 
-        new float[] {1f, 1f, 1f, 1f, 1f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f};
-Filter  metadataFilter = 
-        new Filter().where("product_price").isEqualsTo(9.99);
-int maxRecord = 10;
-List<Result<Product>> results = productRepository
-        .similaritySearch(embeddings, metadataFilter, maxRecord);
+``` java title="ObjectMappingCreateCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingCreateCollection.java"
 ```
 
 #### Insert One
 
-
-- [x] **Use same method providing a bean you get `CollectionRepository`**
-
-
-```java
-// Create a collection without vector
-CollectionRepository<Product> col1 = db
-   .createCollection("store_name", Product.class);
-
-// Create a collection with vector
-CollectionRepository<Product> col2 = db
-   .createCollection("vector_store", 1536, Product.class);
-
-// More information with the usage of the defintion
-CollectionRepository<Product>  col3 = db
-   .createCollection(CollectionDefinition
-     .builder()
-     .name("tmp_collection")
-     .vector(14, cosine), 
-    Product.class);
+``` java title="ObjectMappingInsertOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertOne.java"
 ```
+
 #### Insert Many
+
+``` java title="ObjectMappingInsertMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertMany.java"
+```
 
 #### Find One
 
-```java
-Boolean isDocumentExists(id)
-
-Optional<JsonResult> findOne(SelectQuery)
-Optional<Result<DOC>> findOne(SelectQuery, Class<T>)
-Optional<Result<DOC>> findOne(SelectQuery, ResultMapper<T>)
-
-Optional<JsonResult>  findById(id)
-Optional<Result<DOC>> findById(id, Class<T>)
-Optional<Result<DOC>> findById(id, ResultMapper<T>)
-
-Optional<JsonResult> findOneByVector(float[] vector)
-Optional<Result<DOC>> findOneByVector(float[] vector, Class<T>)
-Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T>)
+``` java title="ObjectMappingFindOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindOne.java"
 ```
 
-#### Queries
+#### Find
 
-#### Paging
+``` java title="ObjectMappingFind.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFind.java"
+```
 
 #### Update One
 
+``` java title="ObjectMappingUpdateOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateOne.java"
+```
+
 #### Update Many
+
+``` java title="ObjectMappingUpdateMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateMany.java"
+```
 
 #### Delete One
 
+``` java title="ObjectMappingDeleteOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteOne.java"
+```
+
 #### Delete Many
+
+``` java title="ObjectMappingDeleteMany.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteMany.java"
+```
 
 #### Clear
 
+``` java title="ObjectMappingClearCollection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingClearCollection.java"
+```
 
 ### Working with databases
 
 #### Connection
 
-To work with Databases you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
 
-To establish a connection with AstraDB using the client SDK, you are required to supply a token. This token enables two primary connection modes:
+???+ info annotate "About token permissions"
 
-- **Direct database-level connection**, facilitating access to a specific database. It is the one decribe above and primay way of working with the SDK.
+    To work with Databases you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
+    
+    To establish a connection with AstraDB using the client SDK, you are required to supply a token. This token enables two primary connection modes:
+    
+    - **Direct database-level connection**, facilitating access to a specific database. It is the one decribe above and primay way of working with the SDK.
+    
+    - **Organization-level connection**, which allows interaction with multiple databases under your organization. This is what we will detailed now
+    
+    `AstraDBClient` class is used to facilitate interactions with all components within your Astra organization, rather than limiting operations to a single database.
+    This approach enables a broader scope of management and control across the organization's databases. The token used for this connection must be scoped to the organization with
+    
+    | Properties     | Values                       |
+    |----------------|------------------------------|
+    | **Token Role** | `Organization Administrator` |
 
-- **Organization-level connection**, which allows interaction with multiple databases under your organization. This is what we will detailed now
-
-`AstraDBClient` class is used to facilitate interactions with all components within your Astra organization, rather than limiting operations to a single database.
-This approach enables a broader scope of management and control across the organization's databases. The token used for this connection must be scoped to the organization with
-
-| Properties     | Values                       |
-|----------------|------------------------------|
-| **Token Role** | `Organization Administrator` |
-
-
-```java
-import com.dtsx.astra.sdk.AstraDBClient;
-
-// [...]
-
-public void connectionToOrganization() {
-  // Given a valid token 'AstraCS:...'
-  String token="<replace_by_token>";
-
-  // Initialization with a token
-  AstraDBClient client=new AstraDBClient(token);
-
-  /*
-    * You can omit the token if you defined the environment variable
-    * `ASTRA_DB_APPLICATION_TOKEN` or you if are using the Astra CLI.
-    */
-  AstraDBClient defaultClient=new AstraDBClient();
-}
+``` java title="ConnectingAdmin.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ConnectingAdmin.java"
 ```
 
 #### List databases
 
-
-```java
-import com.dtsx.astra.sdk.AstraDBClient;
-import com.dtsx.astra.sdk.db.domain.Database;
-
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Stream;
-
-// [...]
-public void listDatabases() {
-    
- AstraDBClient client = new AstraDBClient("<replace_by_token>");
-
- // list all databases in your organization
- Stream<Database> allDbs = client.findAllDatabases();
-
- // find a database from its unique identifier
- UUID databaseID = UUID.fromString("<replace_by_db_id>");
- Optional<Database> oneDb = client.findDatabaseById(databaseID);
-        
- // Find databases from a name (unicity is not garantees)
- String databaseName = "<replace_by_db_name>";
- Stream<Database> result = client.findDatabaseByName(databaseName);
-}
+``` java title="FindAllDatabases.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllDatabases.java"
 ```
 
 #### Create database
 
 To create a database you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
 
-```java
-import com.dtsx.astra.sdk.AstraDBClient;
-import com.dtsx.astra.sdk.db.domain.CloudProviderType;
-import java.util.UUID;
-// [...]
-
-public void createDatabase() {
-
-  AstraDBClient client = new AstraDBClient("<replace_with_token>");
-
-  String databaseName = "<replace_with_db_name>";
-  CloudProviderType cloudProvider = CloudProviderType.GCP; // GCP, AZURE or AWS
-  String cloudRegion = "us-east1"; // list of region provided below
-  UUID newDbId = client.createDatabase(databaseName, cloudProvider, cloudRegion);
-  
-  // If not provide cloudProvider and cloudRegion are defaulted to GCP and us-east1 (free tier)
-  String databaseName2 = "<replace_with_db_name>";
-  UUID newDbId2 = client.createDatabase(databaseName2);
-  
-}
+``` java title="CreateDatabase.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateDatabase.java"
 ```
 
 #### Find database
 
-To create a database you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
+``` java title="FindDatabase.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindDatabase.java"
+```
 
+- [x] **Accessing object `AstraDB`**
 
 ```java
-// Retrieve from an id
-UUID id = UUID.randomUUID();
-Optional<Database> db2 = findDatabaseById(id);
-
-// Retrieve from  its name
-Optional<Database> db2 = findDatabaseByName(name)
+AstraDB myDB = client.database("getting_started");
 ```
 
 #### Delete database
@@ -646,30 +584,9 @@ Optional<Database> db2 = findDatabaseByName(name)
 - [x] **Delete Databases with `deleteDatabase`**
 
 The function can take a database identifier (uuid) or the database name.
-```java
-client.deleteDatabase("db1");
-```
 
-- [x] **Access database from its `name` or `id`**
-
-
-
-- [x] **Check a database exists**
-
-```java
-boolean isDatabaseExists(id)
-```
-
-- [x] **Accessing devops API**
-
-```java
-AstraDBOpsClient devops = clientgetAstraDbOps();
-```
-
-- [x] **Accessing object `AstraDB`**
-
-```java
-AstraDB myDB = client.database("getting_started");
+``` java title="DeleteDatabase.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteDatabase.java"
 ```
 
 ## 6. Class Diagram
