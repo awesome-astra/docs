@@ -169,7 +169,7 @@ This method takes the name of the collection as input and returns a `CollectionD
 
 To delete a collection, you can use the `deleteCollection()` method. If the collection does not exist, the method will not fail.
 
-- [x] **To delete a single collections use `deleteCollection()`**
+- [x] **To delete a collection use `deleteCollection()`**
 
 ``` java title="DeleteCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteCollection.java"
@@ -380,6 +380,12 @@ More examples in the following class:
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java"
 ```
 
+- [x] **To perform semantic search use `findVector()`**
+
+``` java title="FindOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindVector.java"
+```
+
 #### Paging
 
 Every request is paged with the Json API and the maximum page size is 20. The methods return Page<JsonResult> that contains the data but also a field called `pagingState
@@ -444,24 +450,31 @@ Used to empty a collection
 
 ### Object Mapping
 
-Instead of interacting with the database with key/values you may want to
-associate an object to each record in the collection for this you can use `CollectionRepository`. If we reproduce the sample before
+???+ info annotate "Overview"
 
-<img src="../../../../img/sdk/uml-repository.png" />
+    Instead of interacting with the database with key/values you may want to
+    associate an object to each record in the collection for this you can use `CollectionRepository`. If we reproduce the sample before
+    
+    <img src="../../../../img/sdk/uml-repository.png" />
 
-#### Overview
+#### Repository Pattern
 
+Instead of working with raw `JsonDocument` you can work with your own object. The object will be serialized to JSON and stored in the database. You do not want to provide a `ResultMapper` each time but rather use the repository pattern.
+We will follow the [signature of the `CrudRepository` from Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html). 
+ 
 ```java
-static class Product {
-  
-  @JsonProperty("product_name")
-  private String name;
-  
-  @JsonProperty("product_price")
-  private Double price;
-  
-  // getters and setters
-}
+long count();
+void delete(T entity);
+void deleteAll();
+void deleteAll(Iterable<? extends T> entities);
+void deleteAllById(Iterable<? extends ID> ids);
+void deleteById(ID id);
+boolean existsById(ID id);
+Iterable<T> findAll();
+Iterable<T> findAllById(Iterable<ID> ids);
+Optional<T> findById(ID id);
+<S extends T> S  save(S entity);
+Iterable<S> saveAll(Iterable<S> entities);
 ```
 
 #### Create collection
@@ -486,14 +499,24 @@ static class Product {
 
 #### Find One
 
+- [x] **To get a single document use `findById()` or `findByVector()`**
+
 ``` java title="ObjectMappingFindOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindOne.java"
 ```
 
 #### Find
 
+- [x] **To perform search use `find()`**
+
 ``` java title="ObjectMappingFind.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFind.java"
+```
+
+- [x] **To perform semantic search use `findVector()`**
+
+``` java title="ObjectMappingFindVector.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindVector.java"
 ```
 
 #### Update One
