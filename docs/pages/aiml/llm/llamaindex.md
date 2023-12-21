@@ -93,7 +93,7 @@ ecosystem.
 
 ## Find out more!
 
-You just caught a glimpse of what is possible with LangChain and Astra DB.
+You just caught a glimpse of what is possible with LlamaIndex and Astra DB.
 
 Do you want to know more? Visit [cassio.org](https://cassio.org) for full tutorials,
 setup guides and other resources.
