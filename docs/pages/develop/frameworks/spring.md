@@ -342,5 +342,69 @@ public class SpringDataCassandraApplication {
 }
 ```
 
+## <span class="nosurface">4.</span> Delegation Pattern
+You can use the delegation pattern to create a customized `CqlSession` to get access to the `Statement` and `ResultSet` objects, which are usually not accessible with Spring `Repository`. This is a good way to execute custom queries.
+
+```java
+public class CustomizedCqlSession implements CqlSession {
+
+    private final CqlSession delegate;
+
+    public CustomizedCqlSession(CqlSession delegate) {
+        this.delegate = delegate;
+    }
+
+    @Override
+    public ResultSet execute(Statement<?> statement) {
+        Statement<?> injected = doSomethingToStatement(statement);
+        ResultSet rs = delegate.execute(injected);
+        doSomethingToResultSet(rs);
+        return rs;
+    }
+
+    @Override
+    public String getName() {
+        return delegate.getName();
+    }
+
+    @Override
+    public Metadata getMetadata() {
+        return delegate.getMetadata();
+    }
+
+    // Other methods omitted
+}
+```
+
+You can then inject the customized `CqlSession` into the `CqlSession` bean.
+
+```java
+@Configuration
+public class CassandraConfig  {
+    @Bean
+    CqlSession cassandraSession() {
+        CqlSession delegate = CqlSession.builder().withKeyspace(keyspace)
+        .withLocalDatacenter(localDatacenter).build();
+        return new CustomizedCqlSession(delegate);
+    }
+}
+```
+You can find a sample project [here](https://github.com/SiyaoIsHiding/spring-query-trace-example), which customizes the `CqlSession` to access the query trace. The following code enables query tracing, retrieves the query trace information from the `ResultSet` object, and adds the `QueryTrace` object into a cache for later use.
+
+```java
+    @Override
+    public ResultSet execute(Statement<?> statement) {
+        Statement<?> injected = statement.setTracing(true);
+        ResultSet rs = delegate.execute(injected);
+        if (injected.isTracing()) {
+            ExecutionInfo info = rs.getExecutionInfo();
+            QueryTrace queryTrace = info.getQueryTrace();
+            traceCache.cache.put(info.getTracingId(), queryTrace);
+        }
+        return rs;
+    } 
+```
+
+
 
 [![dl](https://dabuttonfactory.com/button.png?t=Download+Project&f=Open+Sans-Bold&ts=14&tc=fff&hp=15&vp=15&w=180&h=50&c=11&bgt=pyramid&bgc=666&ebgc=000&bs=1&bc=444)](https://github.com/awesome-astra/sample-java-spring-data/archive/refs/heads/master.zip)
