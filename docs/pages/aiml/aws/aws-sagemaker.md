@@ -88,7 +88,7 @@ If you prefer to use the SageMaker UI to deploy the models, here are all steps.
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_open-studio.png" />
 
-**Step 2.** Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. _You may need to create a Studio instance ("SageMaker domain") if you don't have one already._
+**Step 2.** Click the "Open Studio" button after choosing a user profile: this will bring you to the Studio interface. _You may need to create a Studio instance ("SageMaker domain") if you don't have one already. Creation of a new domain may take about five minutes._
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_open-jumpstart.png" />
 
@@ -101,7 +101,7 @@ If you prefer to use the SageMaker UI to deploy the models, here are all steps.
 **Step 5.** Give the endpoint a specific name (it must be unique) and select `ml.g5.24xlarge` as the instance type that will host the model. _(Note: you might need
 to check with your [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) to make sure you have capacity to deploy this instance.)_
 
-**Step 6.** Click "Deploy" to start the process. This might take between _five and ten minutes_, during which a newly-opened tab will report progress. As you can see on this tab, the final endpoint you are going to use has been given a final name made by prepending `"jumpstart-dft-"` to the endpoint name you chose earlier. **Keep this endpoint name handy: you will be asked to provide it later when running the example code.**
+**Step 6.** Click "Deploy" to start the process. This might take between _five and ten minutes_, during which a newly-opened tab will report progress. As you can see on this tab, the endpoint you are going to use has been given a final name made by prepending `"jumpstart-dft-"` to the endpoint name you chose earlier. **Keep this endpoint name handy: you will be asked to provide it later when running the example code.**
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding_2.gif" />
 
@@ -118,9 +118,11 @@ or (b) from within SageMaker Studio, by selecting the "Home" icon and then choos
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_deploy-embedding-playground.png" />
 
-**Step 8.** When the deploy has finished, you will see its status being reported as "In Service". You can run a quick test with a handy Playground-like interface available in SageMaker Studio: click on the endpoint name in the "Endpoints" tab to open it. Try with a JSON payload such as `{"text_inputs": ["I am here!", "So do I."]}` and hit "Send Request": the endpoint response should resemble the one shown in the screenshot, with the two embedding vectors under the `body => embedding` list-of-lists entry. _The embedding model is deployed and ready to be used in the example code.
+**Step 8.** When the deploy has finished, you will see its status being reported as "In Service". You can run a quick test with a handy Playground-like interface available in SageMaker Studio: click on the endpoint name in the endpoint list, then select the "Test inference" tab to open it. Try with a JSON payload such as `{"text_inputs": ["I am here!", "So do I."]}` and hit "Send Request" (bottom right): the endpoint response should resemble the one shown in the screenshot, with the two embedding vectors under the `body => embedding` list-of-lists entry. _The embedding model is deployed and ready to be used in the example code._
 
-**Step 9.** Repeat steps 4 through 7, this time _to deploy the LLM_: search in JumpStart for the model named "Llama-2-70b-chat" and choose `ml.g5.48xlarge` as instance type. _(Note: this model, made available by Meta, requires acceptance of its "End User License Agreement" and "Acceptable Use Policy" prior to use: you will be presented with a dialog to do so at deploy time, and for each model invocation as well. Also, keep in mind that the deploy time for this model can well exceed twenty minutes in some cases.)_
+**Step 9.** Repeat steps 4 through 7, this time _to deploy the LLM_: search in JumpStart for the model named "Llama 2 70B Chat" and choose `ml.g5.48xlarge` as instance type. _(Note: this model, made available by Meta, requires acceptance of its "End User License Agreement" and "Acceptable Use Policy" prior to use: you will be presented with a dialog to do so at deploy time. Also, keep in mind that the deploy time for this model can well exceed twenty minutes in some cases.)_
+
+**Step 10.** Similarly as for the embedding model, you can test the LLM in the UI through the model's "Test inference" tab. Try with a payload like the following: `{"inputs": "Write a short poem about the late Paleocene.", "parameters": {"max_new_tokens": 256, "temperature": 0.6, "top_p": 0.9}}`. Hit the "Send Request" button (bottom right), then check the results in the right-hand panel. _(Note: the "Test inference" tab can also show Python code to use that particular endpoint through `boto3` invocations. This may come handy, as in most cases exemplifies more advanced usages such as how to encode a past exchange between system/assistant/user roles in the text generation request.)_
 
 <admonition markdown="1">
 !!! failure "This LLM cannot be currently tested in the playground"
@@ -179,15 +181,19 @@ in other ways - something that is demonstrated in an Appendix at the end of the 
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_upload.png" />
 
-**Step 2.** In the left toolbox of SageMaker Studio, make sure you select the "File Browser" view and locate the "Upload" button: use it to upload the notebook file you previously saved. The notebook will be shown in the file browser.
+**Step 2.** You need a "JupyterLab space", i.e. a filesystem with compute resources on top of it, ready to run Jupyter kernels and effectively execute your notebooks. You find JupyterLab in the "Applications" icon group at the top of the left-hand sidebar; then, if you don't have one yet, click the "Create JupyterLab space" button, give it a name, hit "Create" and wait one minute or so. (You can use a `ml.t3.medium` instance for what comes next.)
+
+**Step 3.** Once the JupyterLab space is _Running_, you can click "Open JupyterLab": a new browser tab will be brought up. There is a toolbox on the left, where you are about to upload the notebook you downloaded earlier. _(Note: you can stop and re-start the space whenever you want, in order to optimize your resource usage. The notebooks stored in the space's file system will be persisted.)_
+
+**Step 4.** In the left toolbox of your JupyterLab space, make sure you select the "File Browser" view and locate the "Upload" button: use it to upload the notebook file you previously saved. The notebook will be shown in the file browser.
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_launch-notebook.png" />
 
-**Step 3.** If you double-click on it, the notebook will be opened in Studio. In order to run it, you will be asked to start a "notebook environment" (essentially, a Python runtime). Choose the "Data Science 3.0" image and a "Python 3" kernel and hit "Select".
+**Step 5.** If you double-click on it, the notebook will be opened in Studio, with a Jupyter kernel behind id, ready to execute its code.
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_start-environment.png" />
 
-**Step 4.** Once the kernel has fully started, you can run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets during execution.
+**Step 6.** You can now run each cell in sequence by clicking on them and pressing Shift+Enter. You will be asked for the secrets and the connection details during execution.
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_kernel-starting.png" />
 
@@ -198,7 +204,9 @@ During the above steps, some resources are created, which you may want to
 cleanly dispose of after you are done:
 
 - endpoints deployed in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Inference / Endpoints" entry in SageMaker's left-hand navbar (once deleted, you can click the Refresh icon in SageMaker Studio's "Endpoints" tab to make sure they are not listed anymore);
-- resources started to run the notebook itself. These can be shut down from within SageMaker Studio: select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran.
+- resources started to run the notebook itself. These can be shut down from within SageMaker Studio: select the "Running Terminals and Kernels" view on the left toolbar (see picture below) and click the "shut down" icon next to all instances, apps and sessions associated to the notebook you just ran;
+- you may want to even delete entirely the "SageMaker domain" your created. This requires several steps, outlined [here](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html). Do not forget you will have to manually destroy an associated S3 bucket as well;
+- a Collection in your Astra DB instance. The notebook provides a way to delete it programmatically.
 
 <img src="../../../../img/sagemaker/screenshots/sagemaker_cleanup.png" />
 
