@@ -3351,12 +3351,12 @@ in other ways - something that is demonstrated in an Appendix at the end of the 
 </p>
 
 <p><strong>Step 1.</strong> Download the notebook from this repository at <a href="https://raw.githubusercontent.com/awesome-astra/docs/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb">this link</a> and save it to your local computer.
-(You can also view it <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb">on your browser</a>.)</p>
+(You can also view it <a href="https://github.com/awesome-astra/docs/blob/main/docs/pages/aiml/aws/notebooks/sagemaker.ipynb">on your browser</a>.) Make sure you are in SageMaker Studio <em>(check out steps 1 and 2 of the UI deploy steps above for how to open it)</em>.</p>
 <p><img src="../../../../img/sagemaker/screenshots/sagemaker_createspace.png" /></p>
 <p><img src="../../../../img/sagemaker/screenshots/sagemaker_createspace-1.png" /></p>
 <p><strong>Step 2.</strong> You need a "JupyterLab space", i.e. an Amazon-provided filesystem with compute resources on top of it, ready to run Jupyter kernels and effectively execute your notebooks. You find JupyterLab in the "Applications" icon group at the top of the left-hand sidebar; then, if you don't have one yet, click the "Create JupyterLab space" button, give it a name and hit "Create space". You should now see the space's dashboard -- and notice that it has been <em>created</em>, but it is not running yet.</p>
 <p><img src="../../../../img/sagemaker/screenshots/sagemaker_runspace.png" /></p>
-<p><strong>Step 3.</strong> Check the compute instance type that will support the execution of your code (you can stick with a <code>ml.t3.medium</code> instance for this example) and click "Run space" to actually get your space running. Wait a minute or so until you see the space's status change from "Starting" to "Running".</p>
+<p><strong>Step 3.</strong> Check the compute instance type that will support the execution of your code (you can stick with a <code>ml.t3.medium</code> instance for this example) and click "Run space" to get your space actually running. Wait a minute or so until you see the space's status change from "Starting" to "Running".</p>
 <p><strong>Step 4.</strong> Once the JupyterLab space is <em>Running</em>, you can click "Open JupyterLab": a new browser tab will be brought up. There is a toolbox on the left, which you will momentarily use to upload the notebook file. <em>(Note: you can stop and re-start the space whenever you want, in order to optimize your resource usage. The notebooks stored in the space's file system will be persisted.)</em></p>
 <p><img src="../../../../img/sagemaker/screenshots/sagemaker_jupyterlab-opened.png" /></p>
 <p><strong>Step 5.</strong> In the left toolbox of your JupyterLab space, make sure you select the "File Browser" view and locate the "Upload" button: click on it and pick the notebook file from your computer. The notebook will be shown in the file browser.</p>
@@ -3428,7 +3428,7 @@ Now, the rest of the notebook should run just like in SageMaker Studio.
   <small>
     
       Last update:
-      2024-02-05
+      2024-02-06
     
   </small>
 </div>
