@@ -14,6 +14,10 @@ In the free tier _(serverless)_, after `48 hours` of inactivity, your database w
 
 > <img src="../../../img/astra/exit-hibernation-1.png" />
 
+- For **Vector Enabled Database** the user interface is a little different but the process is the same.
+
+> <img src="../../../img/astra/resume-vector-db.png" />
+
 - Once the database is selected, on any tab you will get the `Resume Database` button available at top.
 
 > <img src="../../../img/astra/exit-hibernation-2.png" />
