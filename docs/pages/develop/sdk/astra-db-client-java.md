@@ -6,9 +6,13 @@
 
 The Astra DB Client, as the name suggests, is a client library that interacts with the various APIs of the Astra DataStax Platform. It enables users to connect to, utilize, and administer the Astra Vector product. The library encompasses two distinct clients working in tandem:
 
+- **AstraDBAmin**: This class is initialized exclusively using an organization administrator token and enables the creation and deletion of databases via the DevOps API. It facilitates automation and administration within your organization's tenant.
+
 - **AstraDB**: This is the primary endpoint, connecting exclusively to a single database to perform all operations for your applications. It requires initialization with a database administrator token and also necessitates the API endpoint of your database.
 
-- **AstraDBAmin**: This class is initialized exclusively using an organization administrator token and enables the creation and deletion of databases via the DevOps API (`AstraDBOpsClient`). It facilitates automation and administration within your organization's tenant.
+- **AstraDBCollection**: This client class facilitates all operations at the collection level, including find(), insert(), and delete(). It is instantiated through the AstraDB class and accommodates operations on both vector and non-vector collections.
+
+- **AstraDBRepository<T>**:  This class represents a specialized form of AstraDBCollection designed for use with Java beans (T). It embodies the repository pattern, streamlining the management and access of domain entities.
 
 ???+ info annotate "Reference Architecture"
 
@@ -16,7 +20,7 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
 
 ## 2. Prerequisites
 
-???+ success annotate "Installation"
+???+ success annotate "Java and Apache Maven/Gradle Setup"
 
     - [x] **Install Java Development Kit (JDK) 11++**
         
@@ -40,7 +44,7 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
         
     <a href="https://astra.dev/3B7HcYo" class=md-button>Sign Up to Datastax Astra</a>
         
-    - [x] **Create an Astra Token**
+    - [x] **Create an organization level Astra Token**
         
     Once logged into the user interface, select settings from the left menu and then click on the tokens tab to create a new token.
         
@@ -62,9 +66,13 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
     }
     ```
 
+    To operate with `AstraDBAdmin`, this specific organization-level token is required. For tasks involving AstraDB at the database level, a database-level token suffices. The procedure for creating such a token is detailed in subsequent sections.
+
 ## 3. Getting Started
 
-???+ info annotate "Setup Project"
+### Project Setup
+
+???+ info annotate "Project Setup"
 
     - [x] **If you are using `Maven` Update your `pom.xml` file with the latest version of the Vector SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.datastax.astra/astra-db-client)**
     
@@ -84,13 +92,7 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
     }
     ```
 
-``` java title="Quickstart.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/QuickStart.java"
-```
-
-## 5. Reference Guide
-
-### Connection
+### Quickstart
 
 ???+ info annotate "Getting your token and Api Endpoint"
 
@@ -105,7 +107,35 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
     
     <img src="../../../../img/sdk/jsonapi-endpoint.png" />
 
-Please find below how to initialize the `AstraDB` class and connect.
+``` java title="Quickstart.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/QuickStart.java"
+```
+
+## 4. Reference Guide
+
+### Connection
+
+Connect to AstraDB Vector by instantiating `AstraDB` class.
+
+???+ abstract annotate "General Information"
+
+    - Connection is stateless and thread safe, we initialize an HTTP client.
+    - At initialization a check is performed to ensure enpoint and token are valid.
+    - If not provided default keyspace is `default_keyspace`.
+    - Database UUID and region are part of the endpoint URL.
+
+- [x] **Signatures and [JavaDoc](https://datastaxdevs.github.io/astra-db-client/1.2.4/com/dtsx/astra/sdk/AstraDB.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String))**
+
+```java
+AstraDB(String token, String apiEndpoint);
+AstraDB(String token, String apiEndpoint, String keyspace);
+AstraDB(String token, UUID databaseId);
+AstraDB(String token, UUID databaseId, String keyspace);
+AstraDB(String token, UUID databaseId, String region, String keyspace);
+AstraDB(String token, UUID databaseId, String region, AstraEnvironment env, String keyspace);
+```
+
+- [x] **Sample Code**
 
 ``` java title="Connection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Connecting.java"
@@ -123,56 +153,155 @@ Please find below how to initialize the `AstraDB` class and connect.
 
 #### Create Collection
 
-A collection can hold a vector of `float[]` representing the embeddings.  
+Create a collection in the current database.
 
-The vector metric can be of type `cosine` , `euclidean` or `dot_product`. If the metric is not provided the default one is `cosine`.
+???+ abstract annotate "General Information"
 
-???+ info annotate "Rules"
-
-    - The collection name is its unique identifier
-    - Your collection name should match `[A-Za-z_]`
-    - The `createCollection()` method returns an instance of `AstraDBCollection`
-    - The collection will be created if not exists
-    - If collection exists method is checking for vector dimension and metric
+    - A collection name is unique for a database
+    - A collection name should match `[A-Za-z_]`
+    - Method `createCollection()` method returns an instance of `AstraDBCollection`
+    - Collection is created only if it does not exist
+    - If collection exists, a check is performed for vector dimension and metric
     - There are a maximum of 5 collections per database
-    - If not provided the default metric is `cosine`
-    - The vector `dimension` and a `metric` are set at creation and cannot be changed after
-    
-- [x] **To create collection use `createCollection()`**
+    - If not provided, default metric is `cosine`
+    - Vector `dimension` and a `metric` are set at creation and cannot be changed later
+    - The `dimension` is the size of the vector
+    - The `metric` is the way the vector will be compared. It can be `cosine`, `euclidean` or `dot_product`
+
+- [x] **Signature and [Javadoc 🔗](https://datastaxdevs.github.io/astra-db-client/latest/com/dtsx/astra/sdk/AstraDB.html#createCollection(io.stargate.sdk.data.domain.CollectionDefinition))**
+
+```java
+AstraDBCollection createCollection(String name);
+AstraDBCollection createCollection(String name, int vectorDimension);
+AstraDBCollection createCollection(String name, int vectorDimension, SimilarityMetric metric);
+AstraDBCollection createCollection(CollectionDefinition def);
+```
+
+- [x] **Sample Code**
 
 ``` java title="CreateCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateCollection.java"
 ```
 
+- [x] **Data API**
+
+Below is the associated REST API payload
+
+```json
+{
+  "createCollection": {
+    "name": "collection_vector",
+    "options": {
+      "vector": {
+        "dimension": 14,
+        "metric": "cosine"
+      }
+    }
+  }
+}
+```
+
 #### List Collections
 
-A database is capable of containing multiple collections. These collections can be listed along with their detailed attributes. It is important to remember the specifications of the vector dimension and the metric used, as these parameters cannot be altered after the creation of the collection.
+List collections in the current database with their attributes. _(similarity, dimension, indexing...)_
 
-- [x] **To list Collections use `findAllCollections()`**
+???+ abstract annotate "General Information"
+
+    - A database can have up to 5 collections.
+    - A collection with a vector has a set of options like dimension, similarity and indexing.
+
+- [x] **Signature and [Javadoc 🔗](https://datastaxdevs.github.io/astra-db-client/1.2.4/com/dtsx/astra/sdk/AstraDB.html#findAllCollections())**
+
+```java
+Stream<String> findAllCollectionNames();
+Stream<CollectionDefinition> findAllCollections();
+```
+
+- [x] **Sample Code**
 
 ``` java title="FindAllCollections.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllCollections.java"
 ```
 
+- [x] **Data API**
+
+Below is the associated REST API payload
+
+```json
+{
+  "findCollections": {
+    "options": {
+      "explain": true
+    }
+  }
+}
+```
+
 #### Find Collection
 
-To get detailed information about a specific collection, you can use the `findCollection()` method. 
-This method takes the name of the collection as input and returns a `CollectionDefinition` object.
+Retrieve collection definition from its name.
 
-- [x] **To retrieve a single collections use `findCollection()`**
+???+ abstract annotate "General Information"
+
+    - name is the identifier of the collection.
+
+- [x] **Signature and [Javadoc 🔗](https://datastaxdevs.github.io/astra-db-client/1.2.4/com/dtsx/astra/sdk/AstraDB.html#isCollectionExists(java.lang.String))**
+
+```java
+Optional<CollectionDefinition> findCollectionByName(String name);
+boolean isCollectionExists(String name);
+```
+
+- [x] **Sample Code**
 
 ``` java title="FindCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindCollection.java"
 ```
 
+- [x] **Data API**
+
+Below is the associated REST API payload.
+
+```json
+{
+  "findCollections": {
+    "options": {
+      "explain": true
+    }
+  }
+}
+```
+
 #### Delete Collection
 
-To delete a collection, you can use the `deleteCollection()` method. If the collection does not exist, the method will not fail.
+Delete a collection from its name
 
-- [x] **To delete a collection use `deleteCollection()`**
+???+ abstract annotate "General Information"
+
+    - If the collection does not exist, the method will not return any error.
+
+- [x] **Signature and [Javadoc 🔗](https://datastaxdevs.github.io/astra-db-client/1.2.4/com/dtsx/astra/sdk/AstraDB.html#deleteCollection(java.lang.String))**
+
+```java
+void deleteCollection(String name);
+```
+
+- [x] **Sample Code**
 
 ``` java title="DeleteCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteCollection.java"
+```
+
+- [x] **Data API**
+
+Below is the associated REST API payload.
+
+```json
+{
+  "deleteCollection": {
+    "name": "collection_vector2"
+  }
+}
 ```
 
 ### Working with Documents
@@ -181,7 +310,7 @@ To delete a collection, you can use the `deleteCollection()` method. If the coll
 
 You can insert unitary record with the function `insertOne()`. Multiple signatures are available to insert a document.
 
-???+ info annotate "Rules"
+???+ abstract annotate "General Informations"
 
     - If not provided, the identifier is generated as a java UUID
     - The method always return the document identifier.
@@ -193,104 +322,182 @@ You can insert unitary record with the function `insertOne()`. Multiple signatur
     - Each attribute is indexed and searchable
     - A vector cannot be filled only with 0s, it would lead to division by 0
 
-- [x] **To insert an unitary vector use `insertOne()`**
+- [x] **Signature**
+
+```java
+JsonDocumentMutationResult 
+  insertOne(JsonDocument doc);
+
+CompletableFuture<JsonDocumentMutationResult> 
+  insertOneASync(JsonDocument doc);
+
+DocumentMutationResult<DOC> 
+  insertOne(Document<DOC> document);
+
+CompletableFuture<DocumentMutationResult<DOC>> 
+  insertOneASync(Document<DOC> document);
+```
+
+- [x] **Sample Code**
 
 ``` java title="InsertOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java"
 ```
 
+#### Upsert One
+
+???+ abstract annotate "General Informations"
+
+    - `insert*` will give you an error when id that already exist in the collection is provided.
+    - `upsert*` will update the document if it exists or insert it if it does not.
+    
+- [x] **Signatures**
+
+```java
+JsonDocumentMutationResult 
+  upsertOne(JsonDocument doc);
+
+CompletableFuture<JsonDocumentMutationResult>  
+  upsertOneASync(JsonDocument doc);
+
+DocumentMutationResult<DOC>  
+  upsertOne(Document<DOC> document);
+
+CompletableFuture<DocumentMutationResult<DOC>>  
+  upsertOneASync(Document<DOC> document);
+```
+
+- [x] **Sample Code**
+
+``` java title="InsertOne.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpsertOne.java"
+```
+
 #### Insert Many
 
-To insert multiple documents, utilize the insertMany() method. This method accepts a list of JsonDocument objects as input and returns a corresponding list of identifiers. 
-The insertions are batched in groups of 20, aligning with the maximum number of documents permitted for insertion in a single request.
+???+ abstract annotate "General Informations"
 
-- [x] **To insert multiple vectors use `insertMany()`**
+    - The underlying REST API is paged. The maximum page size is 20.
+    - To perform bulk loading, distribution of the workload is recommended
+    - `insertMany**Chunked**` are a helper to distribute the workload
+    - If more than 20 documents are provided chunking is applied under the hood
+
+- [x] **Signatures**
+
+```java
+// Use a json String
+List<JsonDocumentMutationResult> 
+   insertMany(String json);
+CompletableFuture<List<JsonDocumentMutationResult>> 
+   insertManyASync(String json);
+
+// Use an Array of JsonDocuments
+List<JsonDocumentMutationResult>
+   insertMany(JsonDocument... documents);
+CompletableFuture<List<JsonDocumentMutationResult>>
+   insertManyASync(JsonDocument... documents);
+
+// Use a list of JsonDocument
+List<JsonDocumentMutationResult> 
+   insertManyJsonDocuments(List<JsonDocument> documents);
+CompletableFuture<List<JsonDocumentMutationResult>> 
+   insertManyJsonDocumentsASync(List<JsonDocument> documents);
+
+// Use an Array of Document<T>
+List<DocumentMutationResult<DOC>> 
+   insertMany(Document<DOC>... documents);
+CompletableFuture<List<DocumentMutationResult<DOC>>>
+   insertManyASync(Document<DOC>... documents);
+
+// Use a list of Document<T>
+List<DocumentMutationResult<DOC>> 
+   insertMany(List<Document<DOC>> documents);
+CompletableFuture<List<DocumentMutationResult<DOC>>>
+    insertManyASync(List<Document<DOC>> documents);
+```
+
+- [x] **Sample Code**
 
 ``` java title="InsertMany.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertMany.java"
 ```
 
-#### Find One
+#### Insert Many Chunked
 
-???+ info annotate "`JsonResult` and `Result<T>`"
-
-    You can retrieve documents with multiple type of filters. Each time it will return a `JsonResult` which is similar to `JsonDocument` 
-    enriched with the `similariry` field.
-
-    ```java
-    Optional<JsonResult> findById(String id);
-    ```
- 
-    This is what the classes look like:
-
-    <img src="../../../../img/sdk/jsonresult.png" />
-
-    In java you might me interested in getting back your OWN OBJECT of a `JsonResult`. For this you can use the generic `Result<T>` class. 
-    It is a generic class that will hold your object and the `similarity` field. 
-
-    - If you provide a Class<T> the payload will be automatically mapped to your object. 
-    - If you provide a `ResultMapper<T>` you can map the payload to your object as you like.
-
-    ```java
-    Optional<Result<T>> findById(String id, Class<T> clazz);
-    Optional<Result<T>> findById(String id, ResultMapper<T> mapper);
-    ```
-
-    This is what the classes look like:
-
-    ```mermaid
-    classDiagram
-    class ResultMapper~T~ {
-        Result&lt;T&gt; map(JsonResult)
-    }
-    <<interface>> ResultMapper
-
-    class Result~T~ {
-       float similarity
-    }
-    class Document~T~ {
-       String id
-       T data
-       float[] vector
-    }
-    Document~T~ <|-- Result~T~
-    ```
-
-- [x] **Find By Id**
-
-You can retrieve a document from its `id` if it exists. You will get the following methods
+- [x] **Signatures**
 
 ```java
-Optional<JsonResult>  findById(String id);
-Optional<Result<DOC>> findById(Stringid, Class<T> clazz);
-Optional<Result<DOC>> findById(Stringid, ResultMapper<T> mapper);
+// Insert a list of json documents
+List<JsonDocumentMutationResult> 
+  insertManyChunkedJsonDocuments(List<JsonDocument> documents, int chunkSize, int concurrency);
+CompletableFuture<List<JsonDocumentMutationResult>> 
+  insertManyChunkedJsonDocumentsAsync(List<JsonDocument> documents, int chunkSize, int concurrency);
 
-boolean isDocumentExists(String id)
+// Insert a list of documents
+List<DocumentMutationResult<DOC>> 
+  insertManyChunked(List<Document<DOC>> documents, int chunkSize, int concurrency);
+CompletableFuture<List<DocumentMutationResult<DOC>>> 
+  insertManyChunkedASync(List<Document<DOC>> documents, int chunkSize, int concurrency);
 ```
 
-Here is a sample class detailing the usage of the `findById` method.
+#### Upsert Many
+
+- [x] **Signatures**
+
+```java
+// Use a json String
+List<JsonDocumentMutationResult>
+   upsertMany(String json);
+CompletableFuture<List<JsonDocumentMutationResult>>
+   upsertManyASync(String json);
+
+// Use a list of JsonDocument
+List<JsonDocumentMutationResult>
+   upsertManyJsonDocuments(List<JsonDocument> documents);
+CompletableFuture<List<JsonDocumentMutationResult>>
+   upsertManyJsonDocumentsASync(List<JsonDocument> documents);
+
+// Use a list of Document<T>
+List<DocumentMutationResult<DOC>>
+   upsertMany(List<Document<DOC>> documents);
+CompletableFuture<List<DocumentMutationResult<DOC>>>
+   upsertManyASync(List<Document<DOC>> documents);
+```
+
+#### Find By Id
+
+- [x] **Signatures**
+
+```java
+Optional<JsonDocumentResult> findById(String id);
+Optional<DocumentResult<T>> findById(String id, Class<T> bean);
+Optional<DocumentResult<T>> findById(String id, DocumentResultMapper<T> mapper);
+boolean isDocumentExists(String id);
+```
+
+- [x] **Sample Code**
 
 ``` java title="FindById.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java"
 ```
 
-- [x] **Find By Vector**
+#### Find By Vector
 
-If the document hold a vector you can retrieve it from its `vector`. You will get the following methods
+- [x] **Signatures**
 
 ```java
-Optional<JsonResult> findOneByVector(float[] vector);
-Optional<Result<DOC>> findOneByVector(float[] vector, Class<T> clazz);
-Optional<Result<DOC>> findOneByVector(float[] vector, ResultMapper<T> mapper);
+Optional<JsonDocumentResult> findOneByVector(float[] vector);
+Optional<DocumentResult<T>> findOneByVector(float[] vector, Class<T> bean);
+Optional<DocumentResult<T>> findOneByVector(float[] vector, DocumentResultMapper<T> mapper);
 ```
 
-Here is a sample class detailing the usage of the `findById` method.
+- [x] **Sample Code**
 
 ``` java title="FindByVector.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindByVector.java"
 ```
 
-- [x] **Find One**
+#### Find One
 
 ???+ info annotate "Introducing `SelectQuery`"
 
@@ -303,23 +510,14 @@ Here is a sample class detailing the usage of the `findById` method.
 
     The `SelectQuery` class is a builder that will help you to build the query. It is a fluent API that will help you to build the query.
 
-    ```java
-     SelectQuery.builder()
-     .where("product_price")
-     .isEqualsTo(9.99)
-     .build();
-    ```
-
-    <img src="../../../../img/sdk/select-query.png" />
-
 As for `findById` and `findByVector` there are 3 methods available to retrieve a document. If the `SelectQuery` has multiple
 matches objects only the first will be returned. In doubt use `find()` or even better `findPage()` not to exhaust all the
 collection.
 
 ```java
-Optional<JsonResult> findOne(SelectQuery query);
-Optional<Result<DOC>> findOne(SelectQuery query, Class<T> clazz);
-Optional<Result<DOC>> findOne(SelectQuery query, ResultMapper<T> mapper);
+Optional<JsonDocumentResult> findOne(SelectQuery query);
+Optional<DocumentResult<DOC>> findOne(SelectQuery query, Class<T> clazz);
+Optional<DocumentResult<DOC>> findOne(SelectQuery query, ResultMapper<T> mapper);
 ```
 
 Here is a sample class detailing the usage of the `findOne` method.
@@ -327,6 +525,10 @@ Here is a sample class detailing the usage of the `findOne` method.
 ``` java title="FindOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java"
 ```
+
+#### Find Filters
+
+
 
 #### Find
 
@@ -479,7 +681,6 @@ Iterable<S> saveAll(Iterable<S> entities);
 
 #### Create collection
 
-- [x] **Similarity Search**
 
 ``` java title="ObjectMappingCreateCollection.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingCreateCollection.java"
@@ -553,7 +754,6 @@ Iterable<S> saveAll(Iterable<S> entities);
 
 #### Connection
 
-
 ???+ info annotate "About token permissions"
 
     To work with Databases you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
@@ -612,51 +812,156 @@ The function can take a database identifier (uuid) or the database name.
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteDatabase.java"
 ```
 
+### Working with Keyspaces
+
+#### Create Keyspace
+
+Create a keyspace in the current database with the given name.
+
+???+ abstract annotate "General Information"
+
+    - Default keyspace is `default_keyspace`
+    - If the keyspace already exist, the method will return 'KeyspaceAlreadyExistException'
+
+- [x] **Signature and [Javadoc 🔗](#)**
+
+```java
+void createKeyspace(String databaseName, String keyspaceName);
+void createKeyspace(UUID databaseId, String keyspaceName);
+```
+
+- [x] **Sample Code**
+
+``` java title="CreateKeyspace.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateKeyspace.java"
+```
+
+#### Delete Keyspace
+
+Delete a keyspace in the current database from its name.
+
+???+ abstract annotate "General Information"
+
+    - Default keyspace is `default_keyspace`
+    - If the keyspace does not exist, the method will return 'KeyspaceNotFoundException'
+
+- [x] **Signature and [Javadoc 🔗](#)**
+
+```java
+void deleteKeyspace(String databaseName, String keyspaceName);
+void deleteKeyspace(UUID databaseId, String keyspaceName);
+```
+
+- [x] **Sample Code**
+
+``` java title="DeleteKeyspace.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java"
+```
+
+#### Find Keyspace
+
+???+ abstract annotate "General Information"
+
+    - A database is not limited in number of keyspaces.
+    - A keyspace is a logical grouping of collections.
+    - Default keyspace name is `default_keyspace`
+
+- [x] **Signature and [Javadoc 🔗](#)**
+
+```java
+boolean isKeyspaceExists(String keyspaceName);
+Stream<String> findAllKeyspaceNames();
+String getCurrentKeyspace(String keyspaceName);
+void changeKeyspace(String keyspaceName);
+```
+
+- [x] **Sample Code**
+
+``` java title="FindKeyspace.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java"
+```
+
 ## 6. Class Diagram
 
 <img src="../../../../img/sdk/astra-vector-client-classes.png" />
 
+## 7. Working with CassIO
 
-## 7. Troubleshooting
+[Cassio](cassio.org) is framework originally implement in Python to use Open Source Cassandra as a Vector Store.
+It has been partially ported in Java. Idea is java to use the same table created by CassIO.
 
-- [x] Common Errors and Solutions
+### Connection
 
-List typical issues users might face and their resolutions.
+???+ abstract annotate "General Information"
 
-- [x] 6.2. FAQ
+    - CassIO is a framework to use Open Source Cassandra as a Vector Store.
+    - Java portage is only 2 tables `metadata_vector` and `clustered_metadata_vector`
+    - The tables are created with a specific schema to store vectors and metadata
+    - The indices are created to perform efficient search on the vector
 
-Address frequently asked questions.
+- [x] **Signature and [Javadoc 🔗](#)**
 
-## 8. Best Practices
+```java
+CqlSession init(String token, UUID databaseId, String databaseRegion, String keyspace);
+```
 
-- [x]  7.1. Performance Tips
+- [x] **Sample Code**
 
-Offer guidance on optimizing usage for better performance.
+``` java title="CassIOConnection.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOConnection.java"
+```
 
-- [x]  7.2. Security Recommendations
+### MetadataVectorTable
 
-Share advice on secure practices when using the library.
+???+ abstract annotate "General Information"
 
-## 9. Contribution Guide
+    - Creating a Cassandra table with the following schema and associated indices
 
-- [x] 8.1. Code of Conduct
+    ```sql
+    CREATE TABLE vector_store (
+     row_id          timeuuid,
+     attributes_blob text,
+     body_blob       text,
+     metadata_s      map<text, text>,
+     vector          vector<float, 1536>,
+     PRIMARY KEY (row_id)
+    );
+    ```
 
-Outline the behavior expected from contributors.
+- [x] **Sample Code**
 
-- [x] 8.2. Contribution Steps
+``` java title="CassIOMetadataVectorTable.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOMetadataVectorTable.java"
+```
 
-Describe how one can contribute to the library, e.g., via pull requests.
 
-## 10. Release Notes/Changelog
+### ClusteredMetadataVectorTable
 
-Track changes made in each version of the library.
+???+ abstract annotate "General Information"
 
-## 11. Contact and Support
+    - Creating a Cassandra table
 
-- [x] 10.1. Reporting Bugs
+    ```sql
+    CREATE TABLE goodbards.vector_store_openai_by_tenant (
+    partition_id text,
+    row_id timeuuid,
+    attributes_blob text,
+    body_blob text,
+    metadata_s map<text, text>,
+    vector vector<float, 1536>,
+    PRIMARY KEY (partition_id, row_id)
+    ) WITH CLUSTERING ORDER BY (row_id DESC)
+    ```
 
-Provide a link or method for users to report issues.
+- [x] **Sample Code**
 
-- [x] 10.2. Getting Help
+``` java title="CassIOClusteredMetadataVectorTable.java" linenums="1"
+--8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOClusteredMetadataVectorTable.java"
+```
 
-Point users to forums, support channels, or other resources.
+## 8. Working with Langchain4j
+
+
+```java
+
+```
