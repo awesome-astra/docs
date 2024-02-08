@@ -34,10 +34,23 @@ astra db resume <my_db>
 
 Invoking and Stargate endpoints associated with your database will also trigger resuming. You would have to replace the `dbId`, `dbRegion` and `token` below with values for your environment.
 
+- **NON VECTOR-ENABLED DATABASES**
+
 ```bash
 curl --location \
      --request GET 'https://{dbId}-{dbRegion}.apps.astra.datastax.com/api/rest/v2/schemas/keyspaces/' \
      --header 'X-Cassandra-Token: {token}'
+```
+
+- **VECTOR-ENABLED DATABASES**
+
+```bash
+curl --location 'https://{dbId}-{dbRegion}.apps.astra.datastax.com/api/json/v1/default_keyspace' \
+--header 'x-cassandra-token: {token}' \
+--header 'Content-Type: application/json' \
+--data '{
+  "findCollections": {}
+}'
 ```
 
 You will get a `503` error with the following payload.
@@ -55,3 +68,4 @@ You will get a `503` error with the following payload.
 - After a few seconds the database will be active.
 
 > <img src="../../../img/astra/db-hibernate-active.png" />
+
