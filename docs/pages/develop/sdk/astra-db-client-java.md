@@ -187,6 +187,16 @@ AstraDBCollection createCollection(CollectionDefinition def);
 
 Below is the associated REST API payload
 
+_Create a collection with no vector_
+```json
+{
+  "createCollection": {
+    "name": "collection_simple"
+  }
+}
+```
+
+_Create a collection with a vector_
 ```json
 {
   "createCollection": {
@@ -195,6 +205,26 @@ Below is the associated REST API payload
       "vector": {
         "dimension": 14,
         "metric": "cosine"
+      }
+    }
+  }
+}
+```
+
+_Create a collection with a vector and indexing options_
+```json
+{
+  "createCollection": {
+    "name": "collection_deny",
+    "options": {
+      "vector": {
+        "dimension": 14,
+        "metric": "cosine"
+      },
+      "indexing": {
+        "deny": [
+          "blob_body"
+        ]
       }
     }
   }
@@ -260,8 +290,7 @@ boolean isCollectionExists(String name);
 
 - [x] **Data API**
 
-Below is the associated REST API payload.
-
+_list collections_
 ```json
 {
   "findCollections": {
@@ -294,8 +323,8 @@ void deleteCollection(String name);
 
 - [x] **Data API**
 
-Below is the associated REST API payload.
 
+_delete a collection from its name_
 ```json
 {
   "deleteCollection": {
@@ -344,6 +373,25 @@ CompletableFuture<DocumentMutationResult<DOC>>
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java"
 ```
 
+- [x] **Data API Payload**
+
+```json
+{
+  "insertOne": {
+    "document": {
+      "product_name": "HealthyFresh - Chicken raw dog food",
+      "product_price": 9.99,
+      "_id": "f2472946-cc9f-4ad1-801d-f1cf21d8cb38",
+      "$vector": [
+        0.3, 0.3, 0.3, 0.3, 0.3,
+        0.3, 0.3, 0.3, 0.3, 0.3,
+        0.3, 0.3, 0.3, 0.3
+      ]
+    }
+  }
+}
+```
+
 #### Upsert One
 
 ???+ abstract annotate "General Informations"
@@ -371,6 +419,26 @@ CompletableFuture<DocumentMutationResult<DOC>>
 
 ``` java title="InsertOne.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpsertOne.java"
+```
+
+- [x] **Data API Payload**
+
+```json
+{
+  "findOneAndReplace": {
+    "filter": {
+      "_id": "1"
+    },
+    "options": {
+      "upsert": true
+    },
+    "replacement": {
+      "a": "a",
+      "b": "updated",
+      "_id": "1"
+    }
+  }
+}
 ```
 
 #### Insert Many
@@ -420,6 +488,90 @@ CompletableFuture<List<DocumentMutationResult<DOC>>>
 
 ``` java title="InsertMany.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertMany.java"
+```
+
+- [x] **Data API**
+
+_Insert Many with ordered true_
+```json
+{
+  "insertMany": {
+    "options": {
+      "ordered": false
+    },
+    "documents": [
+      {
+        "product_name": "test1",
+        "product_price": 12.99,
+        "_id": "doc1"
+      },
+      {
+        "product_name": "test2",
+        "product_price": 2.99,
+        "_id": "doc2"
+      }
+    ]
+  }
+}
+```
+
+_Insert Many with ordered false_
+
+```json
+{
+  "insertMany": {
+    "options": {
+      "ordered": true
+    },
+    "documents": [
+      {
+        "firstName": "Lucas",
+        "lastName": "Hernandez",
+        "_id": "1"
+      },
+      {
+        "firstName": "Antoine",
+        "lastName": "Griezmann",
+        "_id": "2"
+      },
+      {
+        "firstName": "N'Golo",
+        "lastName": "Kanté",
+        "_id": "3"
+      },
+      {
+        "firstName": "Paul",
+        "lastName": "Pogba",
+        "_id": "4"
+      },
+      {
+        "firstName": "Raphaël",
+        "lastName": "Varane",
+        "_id": "5"
+      },
+      {
+        "firstName": "Hugo",
+        "lastName": "Lloris",
+        "_id": "6"
+      },
+      {
+        "firstName": "Olivier",
+        "lastName": "Giroud",
+        "_id": "7"
+      },
+      {
+        "firstName": "Benjamin",
+        "lastName": "Pavard",
+        "_id": "8"
+      },
+      {
+        "firstName": "Kylian",
+        "lastName": "Mbappé",
+        "_id": "9"
+      }
+    ]
+  }
+}
 ```
 
 #### Insert Many Chunked
@@ -481,6 +633,18 @@ boolean isDocumentExists(String id);
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java"
 ```
 
+- [x] **Data API**
+
+```json
+{
+  "findOne": {
+    "filter": {
+      "_id": "p1"
+    }
+  }
+}
+```
+
 #### Find By Vector
 
 - [x] **Signatures**
@@ -526,9 +690,177 @@ Here is a sample class detailing the usage of the `findOne` method.
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java"
 ```
 
-#### Find Filters
 
+- [x] **Data API**
 
+_Find with a Greater Than or Equals_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": {
+        "$gte": 12.99
+      }
+    }
+  }
+}
+```
+
+_Find with a Less Than_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": {
+        "$lt": 10
+      }
+    }
+  }
+}
+```
+
+_Find with a Less Than or Equals_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": {
+        "$lte": 9.99
+      }
+    }
+  }
+}
+```
+
+_Find with a Equals_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": 9.99
+    }
+  }
+}
+```
+
+_Find with a Not Equals_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": {
+        "$ne": 9.99
+      }
+    }
+  }
+}
+```
+
+_Find with a Exists_
+
+```json
+{
+  "find": {
+    "filter": {
+      "product_price": {
+        "$exists": true
+      }
+    }
+  }
+}
+```
+
+_Find with a And_
+
+```json
+{
+  "find": {
+    "filter": {
+      "$and": [
+        {
+          "product_price": {
+            "$exists": true
+          }
+        },
+        {
+          "product_price": {
+            "$ne": 9.99
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+_Find with a In_
+
+```json
+{
+  "find": {
+    "filter": {
+      "metadata_string": {
+        "$in": [
+          "hello",
+          "world"
+        ]
+      }
+    }
+  }
+}
+```
+
+_Find with a Not In_
+
+```json
+{
+  "find": {
+    "filter": {
+      "metadata_string": {
+        "$nin": [
+          "Hallo",
+          "Welt"
+        ]
+      }
+    }
+  }
+}
+```
+
+_Find with a Size_
+
+```json
+{
+  "find": {
+    "filter": {
+      "metadata_boolean_array": {
+        "$size": 3
+      }
+    }
+  }
+}
+```
+
+_Find with a Less Than Instant_
+
+```json
+{
+  "find": {
+    "filter": {
+      "metadata_instant": {
+        "$lt": {
+          "$date": 1707483540638
+        }
+      }
+    }
+  }
+}
+```
 
 #### Find
 
@@ -550,9 +882,6 @@ Here is a sample class detailing the usage of the `findOne` method.
      .build();
     ```
 
-    <img src="../../../../img/sdk/select-query.png" />
-
-
 ???+ warning annotate "Important"
 
     With the Json API all queries are paged. The maximum page size is 20. The method findAll() and find() will fetch the
@@ -565,18 +894,7 @@ Here is a sample class detailing the usage of the `findOne` method.
 Stream<JsonResult> all = col1.findAll();
 ```
 
-- [x] **Find with a `ResultQuery`**
-
-You can search on any field of the document. All fields are indexed. Using a `SelectQuery` populated through
-builder you can get some precise results.
-
-```java
-Stream<JsonResult> all = col1.findAll(SelectQuery.builder()
-  .where("product_price")
-  .isEqualsTo(9.99)
-  .build());
-```
-More examples in the following class:
+- [x] **Find with a `Query`**
 
 ``` java title="Find.java" linenums="1"
 --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java"
