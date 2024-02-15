@@ -206,38 +206,31 @@ native executables for `Linux` and `osx` are available.
 
     After installation you need to open a new terminal for `astra` to be in your path.
 
-✅ Issue `setup` command and provide your token when prompted. It must start by `AstraCS:...`. Make sure to have the `Organization Administrator` role to avoid any permission limitations later on.
+✅ Issue `setup` command and provide your token as an input. It must start by `AstraCS:...`. Make sure to have the `Organization Administrator` role to avoid any permission limitations later on.
 
 ```
-astra setup
+astra setup --token <your_token>
 ```
 
-???+ abstract "🖥️ `astra setup` command output"
+???+ warning "Interactive mode"
+
+    An interactive command `astra setup` is also available but latest version of the JDK have some issues with the interactive mode. As of today use the command providing your token.
 
     ```
-     _____            __                  
+        _____            __                  
     /  _  \   _______/  |_____________    
     /  /_\  \ /  ___/\   __\_  __ \__  \  
-    /    |    \\___ \  |  |  |  | \ //__ \_ 
+    /    |    \\___ \  |  |  |  | \ //__ \_
     \____|__  /____  > |__|  |__|  (____  /
-            \/     \/                   \/ 
-
-                            Version: 0.2.2
-
+    \/     \/                   \/
+    
+                                Version: 0.5
+    
     -----------------------
     ---      SETUP      ---
     -----------------------
 
     $ Enter an Astra token:
-    ```
-
-
-???+ tip "Skip interactive mode"
-
-    This can also be done non-interactively (for example, using a script) by providing token as a flag. Do do it, run:
-    
-    ```
-    astra setup --token AstraCS:******
     ```
 
 ✅ Display your local configuration list, validating setup is complete. 
@@ -423,8 +416,6 @@ astra config delete dev
 astra config list
 ```
 
-
-
 ## **3. Astra DB**
 
 ???+ info "Synchronous/Asynchronous"
@@ -442,35 +433,35 @@ astra help db
 ```
 Still, for ease of use here is a glossary of the commands:
 
-| Command | Purpose |
-|-----------|---------|
-| **[`count <DB>`](#)** | [Count records in a table](#) |
+| Command | Purpose                                                              |
+|-----------|----------------------------------------------------------------------|
+| **[`count <DB>`](#)** | [Count records in a table](#)                                        |
 | **[`cqlsh <DB>`](#)** | [Setup and run `cqlsh`: interactive, `-e` and `-f` all supported](#) |
-| **[`create <DB>`](#)** | [Create a database](#) |
-| **[`create-cdc <DB>`](#)** | [Create Change Data Capture to Pulsar](#) |
-| **[`create-dotenv <DB>`](#)** | [Create environment file `.env`](#) |
-| **[`create-keyspace <DB>`](#)** | [Create a keyspace](#) |
-| **[`create-region <DB>`](#)** | [Expand database to a rew region (multi-region)](#) |
-| **[`delete <DB>`](#)** | [Delete a database](#) |
-| **[`delete-cdc <DB>`](#)** | [Delete a change data capture](#)|
-| **[`delete-keyspace <DB>`](#)** | [Delete a keyspace](#)|
-| **[`delete-region <DB>`](#)** | [Remove a region from a database](#) |
-| **[`describe <DB>`](#)** | [Describe metadata of a database](#) |
-| **[`download-scb <DB>`](#)** | [Download the secure connect bundle for database region](#) |
-| **[`get <DB>`](#)** | [Describe metadata of a database](#)|
-| **[`list`](#)** | [List databases in the organization](#) |
-| **[`list-cdc <DB>`](#)** | [List Change Data Captures](#) |
-| **[`list-clouds`](#)** |[List clouds available to deploy db](#) |
-| **[`list-keyspaces <DB>`](#)** | [List keyspaces for a DB](#) |
-| **[`list-regions <DB>`](#)** | [List regions (datacenters) for a DB](#)|
-| **[`list-regions-classic`](#)** | [List available regions for classic](#) |
-| **[`list-regions-serverless`](#)** | [List available regions for serverless](#)|
-| **[`load <DB>`](#)** |[Load a CSV into a table](#) |
-| **[`playground <DB>`](#)** | [Show GraphQL Playground URL](#)|
-| **[`resume <DB>`](#)** | [Resume DB that was hibernated](#) |
-| **[`status <DB>`](#)** | [Show DB Status](#) |
-| **[`swagger <DB>`](#)** | [Show swagger url](#) |
-| **[`unload <DB>`](#)**   | [Leverage DSbulk to dump data](#) |
+| **[`create <DB>`](#)** | [Create a database](#)                                               |
+| **[`create-cdc <DB>`](#)** | [Create Change Data Capture to Pulsar](#)                            |
+| **[`create-dotenv <DB>`](#)** | [Create environment file `.env`](#)                                  |
+| **[`create-keyspace <DB>`](#)** | [Create a keyspace](#)                                               |
+| **[`create-region <DB>`](#)** | [Expand database to a rew region (multi-region)](#)                  |
+| **[`delete <DB>`](#)** | [Delete a database](#)                                               |
+| **[`delete-cdc <DB>`](#)** | [Delete a change data capture](#)                                    |
+| **[`delete-keyspace <DB>`](#)** | [Delete a keyspace](#)                                               |
+| **[`delete-region <DB>`](#)** | [Remove a region from a database](#)                                 |
+| **[`describe <DB>`](#)** | [Describe metadata of a database](#)                                 |
+| **[`download-scb <DB>`](#)** | [Download the secure connect bundle for database region](#)          |
+| **[`get <DB>`](#)** | [Describe metadata of a database](#)                                 |
+| **[`get-endpoint-playground <DB>`](#)** | [Show the url of graphql playground (non-vector db)](#)              |
+| **[`get-endpoint-swagger <DB>`](#)** | [Show the url of swagger UI](#)           |
+| **[`list`](#)** | [List databases in the organization](#)                              |
+| **[`list-cdc <DB>`](#)** | [List Change Data Captures](#)                                       |
+| **[`list-clouds`](#)** | [List clouds available to deploy db](#)                              |
+| **[`list-keyspaces <DB>`](#)** | [List keyspaces for a DB](#)                                         |
+| **[`list-regions <DB>`](#)** | [List regions (datacenters) for a DB](#)                             |
+| **[`list-regions-classic`](#)** | [List available regions for classic](#)                              |
+| **[`list-regions-serverless`](#)** | [List available regions for serverless](#)                           |
+| **[`load <DB>`](#)** | [Load a CSV into a table](#)                                         |
+| **[`resume <DB>`](#)** | [Resume DB that was hibernated](#)                                   |
+| **[`status <DB>`](#)** | [Show DB Status](#)                                                  |
+| **[`unload <DB>`](#)**   | [Leverage DSbulk to dump data](#)                                    |
 
 ### **3.2. List**
 
@@ -1116,11 +1107,256 @@ astra db list-regions-serverless -c aws
 astra db list-regions-classic
 ```
 
-## 4. Astra STREAMING
+## 4. Astra DB Vector
 
-### 4.1. List tenants
+### 4.1. Shared Commands
 
-**✅ 4.1.a - list**
+Most of the commands are shared with Astra DB, AstraDB vector is a specialization with the support of type to use cassandra as a vector database
+
+✅ **4.1.a - List Databases**
+
+The `list` command now returns a columns `V` checked if the database is a AstraDB Vector db
+
+```
+astra db list
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    | Name                      | id                                   | Regions   | Cloud | V | Status       |
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    | workshop_rag              | 92fb9ab9-7121-4694-b1b9-32f742286509 | us-east1  | gcp   | ■ | ACTIVE       |
+    | test_java_astra_db_client | 37e6cc3c-b114-44f3-8153-b722d1c873db | us-east1  | gcp   | ■ | ACTIVE       |
+    | demo                      | d3b5d71c-3960-46b6-8054-7ce5816ffeef | us-east1  | gcp   |   | INITIALIZING |
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    ```
+
+- The `list` command now returns a columns `V` checked if the database is a AstraDB Vector db
+
+- A flag `--vector` filter the list to only display vector databases.
+
+```
+astra db list --vector
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    | Name                      | id                                   | Regions   | Cloud | V | Status       |
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    | workshop_rag              | 92fb9ab9-7121-4694-b1b9-32f742286509 | us-east1  | gcp   | ■ | ACTIVE       |
+    | test_java_astra_db_client | 37e6cc3c-b114-44f3-8153-b722d1c873db | us-east1  | gcp   | ■ | ACTIVE       |
+    +---------------------------+--------------------------------------+-----------+-------+---+--------------+
+    ```
+
+✅ **4.1.b - Create Database**
+
+Create Database is a reuse of the `db create` command for AstraDB but the flag `--vector` is added to specify the type of database.
+
+```
+astra db create sample --vector
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    astra db create sample --vector
+    REGION OK
+    [INFO]  Database 'sample' does not exist. Creating database 'sample' with keyspace 'default_keyspace'
+    get CLoud provider
+    [INFO]  Enabling vector search for database sample
+    [INFO]  Database 'sample' and keyspace 'default_keyspace' are being created.
+    [INFO]  Database 'sample' has status 'PENDING' waiting to be 'ACTIVE' ...
+    [INFO]  Database 'sample' has status 'ACTIVE' (took 113658 millis)
+    [OK]    Database 'sample' is ready.
+    ```
+
+✅ **4.1.c - List Keyspaces/Namespaces**
+
+With AstraDB Vector keyspaces are renamed `namespaces` but it is the same entity. 
+When nothing is specified, the default namespace is `default_keyspace`.
+
+- List keyspaces
+
+```
+astra db list-keyspaces workshop_rag
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +----------------------------+
+    | Name                       |
+    +----------------------------+
+    | default_keyspace (default) |
+    +----------------------------+
+    ```
+
+✅ **4.1.d - Create Keyspace**
+
+Create a keyspace/namespaces with the command `create-keyspace`. The flag `-k` is used to specify the name of the keyspace.
+
+```
+astra db create-keyspace workshop_rag -k ks2
+```
+
+✅ **4.1.e - Delete Keyspace**
+
+Delete a keyspace/namespaces with the command `delete-keyspace`. The flag `-k` is used to specify the name of the keyspace.
+
+```
+astra db delete-keyspace workshop_rag -k ks2
+```
+
+### 4.2. List vector regions
+
+Astra provides a lot of regions to deploy your database. The vector enabled db can be deployed on a subset of them.
+The command `list-regions-vector` will provide the list of regions available for AstraDB Vector.
+
+```
+astra db list-regions-vector
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +-----------------+---------------------+-------------------------------+
+    | Cloud Provider  | Region              | Full Name                     |
+    +-----------------+---------------------+-------------------------------+
+    | aws             | ap-south-1          | Asia Pacific (Mumbai)         |
+    | aws             | eu-west-1           | Europe (Ireland)              |
+    | aws             | us-east-1           | US East (N. Virginia)         |
+    | aws             | us-east-2           | US East (Ohio)                |
+    | azure           | centralindia        | Central India (Pune)          |
+    | azure           | westus3             | US West 3                     |
+    | gcp (free-tier) | us-east1            | Moncks Corner, South Carolina |
+    +-----------------+---------------------+-------------------------------+
+    ```
+
+### 4.3. Working with Collections
+
+**✅ 4.3.a. List Collections**
+
+```
+astra db list-collections workshop_rag
+```
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +---------------------+-----------+-----------+
+    | Name                | Dimension | Metric    |
+    +---------------------+-----------+-----------+
+    | my_store            | 1536      | cosine    |
+    +---------------------+-----------+-----------+
+    ```
+
+**✅ 4.3.b. Create a collection**
+
+To create a collection, you need to specify the name of the collection.
+- By adding a dimension you add a vector field
+- The vector field required is metric, if not provided cosine is pick.
+
+Options to allow or deny index fields are not supported by the CLI
+
+```json
+NAME
+        astra db create-collection - Create a new collection
+
+SYNOPSIS
+        astra db create-collection {-c | --collection} <COLLECTION>
+                [ {-cf | --config-file} <CONFIG_FILE> ]
+                [ {-conf | --config} <CONFIG_SECTION> ]
+                [ {-d | --dimension} <DIMENSION> ] [ --env <Environment> ]
+                [ {-m | --metric} <METRIC> ] [ --no-color ]
+                [ {-o | --output} <FORMAT> ] [ --token <AUTH_TOKEN> ]
+                [ {-v | --verbose} ] [--] <DB>
+
+OPTIONS
+        -c <COLLECTION>, --collection <COLLECTION>
+            Name of the collection to create
+
+        -cf <CONFIG_FILE>, --config-file <CONFIG_FILE>
+            Configuration file (default = ~/.astrarc)
+
+        -conf <CONFIG_SECTION>, --config <CONFIG_SECTION>
+            Section in configuration file (default = ~/.astrarc)
+
+        -d <DIMENSION>, --dimension <DIMENSION>
+            Name of the collection to create
+
+        --env <Environment>
+            Astra Environment to use
+
+        -m <METRIC>, --metric <METRIC>
+            Name of the collection to create
+
+        --no-color
+            Remove all colors in output
+
+        -o <FORMAT>, --output <FORMAT>
+            Output format, valid values are: human,json,csv
+
+        --token <AUTH_TOKEN>
+            Key to use authenticate each call.
+
+        -v, --verbose
+            Verbose mode with log in console
+
+        --
+            This option can be used to separate command-line options from the
+            list of arguments (useful when arguments might be mistaken for
+            command-line options)
+
+        <DB>
+            Database name (if unique) or Database identifier
+```
+
+Here are 3 sample commands:
+
+```json
+astra db create-collection workshop_rag \
+  --collection collection_simple
+          
+astra db create-collection workshop_rag \
+  --collection collection_vector_openai \
+  -d 1536 -m cosine
+          
+astra db create-collection workshop_rag \
+  --collection collection_vector_vertexai \
+  -d 768
+``` 
+
+will end up with 3 collections
+
+???+ abstract "🖥️ Sample output"
+
+    ```
+    +----------------------------+-----------+-----------+
+    | Name                       | Dimension | Metric    |
+    +----------------------------+-----------+-----------+
+    | collection_simple          |           |           |
+    | collection_vector_openai   | 1536      | cosine    |
+    | collection_vector_vertexai | 768       | cosine    |
+    +----------------------------+-----------+-----------+
+    ```
+
+**✅ 4.3.c. Delete a collection**
+
+- To delete an existing collection use `delete-collection`:
+
+```json
+astra db delete-collection workshop_rag --collection collection_vector_vertexai
+```
+
+## 5. Astra STREAMING
+
+### 5.1. List tenants
+
+**✅ 5.1.a - list**
 
 To get the list of tenants in your organization, use the command `list` in the group `streaming`.
 
@@ -1139,7 +1375,7 @@ astra streaming list
     +---------------------+-----------+----------------+----------------+
     ```
 
-**✅ 4.1.b - Change output as `csv` amd `json`**
+**✅ 5.1.b - Change output as `csv` amd `json`**
 
 ```
 astra streaming list -o csv
@@ -1177,7 +1413,7 @@ astra streaming list -o json
     }
     ```
 
-### 4.2. Create tenant
+### 5.2. Create tenant
 
 **✅ 4.2.a - Check tenant existence with `exist`** 
 
@@ -1193,7 +1429,7 @@ astra streaming exist new_tenant_from_cli
     [ INFO ] - Tenant 'new_tenant_from_cli' does not exist.
     ```
 
-**✅ 4.2.b - Create tenant** 
+**✅ 5.2.b - Create tenant** 
 
 To create a tenant with default cloud (`aws`), default region (`useast2`), plan (`free`) and namespace (`default`):
 
@@ -1207,9 +1443,9 @@ To view all supported options, please use:
 astra help streaming create
 ```
 
-### 4.3. Get tenant details
+### 5.3. Get tenant details
 
-**✅ 4.3.a - To get i nformation or details on an entity use the command `get`.**
+**✅ 5.3.a - To get i nformation or details on an entity use the command `get`.**
 
 ```
 astra streaming get trollsquad-2022
@@ -1237,7 +1473,7 @@ The pulsar token is not displayed in this view as it is too long, but there are 
     +------------------+-------------------------------------------------------------+
     ```
 
-**✅ 4.3.b. To get a special property you can add the option `--key`. Multiple keys are available: `status`, `cloud`, `pulsar_token`. Notice that the output is raw. This command is expected to be used in scripts**
+**✅ 5.3.b. To get a special property you can add the option `--key`. Multiple keys are available: `status`, `cloud`, `pulsar_token`. Notice that the output is raw. This command is expected to be used in scripts**
 
 ```
 astra streaming get trollsquad-2022 --key cloud
@@ -1249,7 +1485,7 @@ astra streaming get trollsquad-2022 --key cloud
     aws
     ```
 
-**✅ 4.3.c. To get tenant pulsar-token please use ` pulsar-token` command**
+**✅ 5.3.c. To get tenant pulsar-token please use ` pulsar-token` command**
 
 ```
 astra streaming pulsar-token trollsquad-2022
@@ -1261,7 +1497,7 @@ astra streaming pulsar-token trollsquad-2022
     eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjI5NzcyNzksImlzcyI6ImRhdGFzdGF4Iiwic3ViIjoiY2xpZW50O2Y5NDYwZjE0LTk4NzktNGViZS04M2YyLTQ4ZDNmM2RjZTEzYztkSEp2Ykd4emNYVmhaQzB5TURJeTsxOTZlYjg0YTMzIiwidG9rZW5pZCI6IjE5NmViODRhMzMifQ.rjJYDG_nJu0YpgATfjeKeUUAqwJGyVlvzpA5iP-d5-bReQf1FPaDlGxo40ADHHn2kx2NOdgMsm-Ys4K...
     ```
 
-**✅ 4.3.d. To get tenant status in a human readble for use `status` command**
+**✅ 5.3.d. To get tenant status in a human readble for use `status` command**
 
 ```
 astra streaming status trollsquad-2022
@@ -1273,21 +1509,21 @@ astra streaming status trollsquad-2022
     [ INFO ] - Tenant 'trollsquad-2022' has status 'active'
     ```
 
-### 4.4. Delete Tenant
+### 5.4. Delete Tenant
 
-**✅ 4.4.a. To delete a tenant simply use the command `delete`**
+**✅ 5.4.a. To delete a tenant simply use the command `delete`**
 
 ```
 astra streaming delete trollsquad
 ```
 
-### 4.5. Pulsar-Shell
+### 5.5. Pulsar-Shell
 
 [Pulsar-Shell](https://pulsar.apache.org/ja/docs/next/administration-pulsar-shell/) is a standalone shell to work with Apache Pulsar. It is compliant with Astra but requires a few extra steps of configuration. The purpose of the CLI is to integrate with `pulsar-shell` and do the integration and setup for you.
 
 Astra CLI will **download**, **install**, **setup** and **wrap** `pulsar-shell` for you to interact with Astra.
 
-**✅ 4.5.a - Interactive mode** 
+**✅ 5.5.a - Interactive mode** 
 
 If no options are provided,  you enter `pulsar-shell` interactive mode
 
@@ -1313,7 +1549,7 @@ astra streaming pulsar-shell trollsquad-2022
 
 You can quit with exit.
 
-**✅ 4.5.b - Execute Pulsar Shell command** 
+**✅ 5.5.b - Execute Pulsar Shell command** 
 
 To execute command with `pushar-shell` use the flag `-e`.
 
@@ -1331,7 +1567,7 @@ astra streaming pulsar-shell trollsquad-2022 -e "admin namespaces list trollsqua
     [1/1] ✔ admin namespaces list trollsquad-2022
     ```
 
-**✅ 4.5.c - Execute Pulsar Shell files** 
+**✅ 5.5.c - Execute Pulsar Shell files** 
 
 To execute CQL Files with  `pushar-shell` use the flag `-e`.
 
@@ -1339,11 +1575,11 @@ To execute CQL Files with  `pushar-shell` use the flag `-e`.
 astra streaming pulsar-shell trollsquad-2022 -f create_topics.txt
 ```
 
-### 4.6. Pulsar-client and Admin
+### 5.6. Pulsar-client and Admin
 
 Pulsar client and admin are provided within pulsar-shell. This section simply provides some examples to write and read in a topic with a client.
 
-**✅ 4.6.a - Create a topic `demo`**.
+**✅ 5.6.a - Create a topic `demo`**.
 
 
 - First start the pulsar-shell on 2 different terminals
@@ -1405,7 +1641,7 @@ client produce persistent://trollsquad-2022/default/demo -m "hello,world" -n 20
     key:[null], properties:[], content:hello
     ```
 
-### 4.7. List Regions
+### 5.7. List Regions
 
 ```
 astra streaming list-regions
@@ -1418,13 +1654,13 @@ astra streaming list-regions
 - `-t` to provide token of organization if not default selected
 
 
-### 4.8. Create `.env` file
+### 5.8. Create `.env` file
 
 ```
 astra streaming create-dot-env <tenant> [-d <destination_folder>]
 ```
 
-### 4.9. Change Data Capture
+### 5.9. Change Data Capture
 
 - Create a DB
 
@@ -1476,9 +1712,9 @@ quit;
  ```
 
  
-## 5. User and Roles
+## 6. User and Roles
 
-### 5.1. List users
+### 6.1. List users
 
 ```
 astra user list
@@ -1494,7 +1730,7 @@ astra user list
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 5.2. Invite User
+### 6.2. Invite User
 
 ```
 astra user invite cedrick.lunven@gmail.com
@@ -1517,7 +1753,7 @@ astra user list
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 5.3. Revoke User
+### 6.3. Revoke User
 
 ```
 astra user delete cedrick.lunven@gmail.com
@@ -1533,13 +1769,13 @@ astra user delete cedrick.lunven@gmail.com
     +--------------------------------------+-----------------------------+---------------------+
     ```
 
-### 5.4. List roles
+### 6.4. List roles
 
 ```
 astra role list
 ```
 
-### 5.5. Get role infos
+### 6.5. Get role infos
 
 ```
 astra role get "Database Administrator"
