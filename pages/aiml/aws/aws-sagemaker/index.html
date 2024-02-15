@@ -3368,8 +3368,9 @@ in other ways - something that is demonstrated in an Appendix at the end of the 
 <p>During the above steps, some resources are created, which you may want to
 cleanly dispose of after you are done:</p>
 <ul>
-<li>endpoints deployed in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Deployments/Endpoints" entry in SageMaker's left-hand navbar (once deleted, you can click the Refresh button in the listing, to make sure they are not displayed anymore); <em>(Please note some endpoints can be deleted only after having manually deleted the Models that are part of the endpoint. The SageMaker UI would guide you through the process.)</em></li>
+<li>endpoints deployed in SageMaker (i.e. the Embedding and the LLM models). You can delete them from the "Endpoints" view, reachable through the "Deployments/Endpoints" entry in SageMaker Studio's left-hand navbar (once deleted, you can click the Refresh button in the listing, to make sure they are not displayed anymore); <em>(Please note some endpoints can be deleted only after having manually deleted the Models that are part of the endpoint. The SageMaker UI would guide you through the process.)</em></li>
 <li>to delete the JupyterLab you created earlier, navigate to "Applications/JupyterLab" and select the JupyterLab space. First you need to hit "Stop space" and acknowledge the warning about additional resources (endpoints, buckets); wait until the space is "Stopped" (about 10 seconds), then you can open the "..." menu on the upper right and pick the "Delete space" menu entry.</li>
+<li>During the exercise, you may have launched "Running instances" you want to delete. Check the "Running instances" entry in SageMaker Studio's left-hand navbar. To remove items in that list, simply hitting the "Stop" button is enough.</li>
 <li>Deletion of a JupyterLab space will not delete the associated S3 bucket created with it (called something like <code>sagemaker-studio-01234567890-9abc8defg7h</code>) automatically: you need to navigate to S3, identify the bucket and delete it separately;</li>
 <li>you may want to even delete entirely the "SageMaker domain" you created. This requires several steps, outlined <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html">here</a>. Do not forget you will have to manually destroy an associated S3 bucket as well;</li>
 <li>a Collection in your Astra DB instance. The notebook provides a way to delete it programmatically; alternatively, you can do so through the "Data Explorer" tab in the Astra DB dashboard for the database.</li>
@@ -3428,7 +3429,7 @@ Now, the rest of the notebook should run just like in SageMaker Studio.
   <small>
     
       Last update:
-      2024-02-06
+      2024-02-15
     
   </small>
 </div>
