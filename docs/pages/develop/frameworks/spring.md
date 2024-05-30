@@ -41,7 +41,7 @@ The configuration of `spring-data-cassandra` in `Spring-Boot` applications is si
 
 ### <span class="nosurface">1.2</span> Compatibility Matrix
 
-In January 2019, the native Cassandra Drivers got an important, not backward compatible, upgrade. To get informations regarding Apache Cassandra™ support here is the [Cassandra compatibility matrix](https://docs.datastax.com/en/driver-matrix/doc/java-drivers.html).
+In January 2019, the native Cassandra Drivers got an important, not backward compatible, upgrade. To get informations regarding Apache Cassandra™ support here is the [Cassandra compatibility matrix](https://docs.datastax.com/en/driver-matrix/java-drivers.html).
 
 Spring Data copes with the new generation of drivers starting with Spring data 3.x. Support of Astra was introduced in 2020 for all native versions (4.x and 3.x). This leads to the following table for **minimal library versions for Astra Support**:
 
