@@ -30,6 +30,7 @@ JanusGraph is designed to support the processing of graphs so large that they re
 </div>
 
 JanusGraph uses the [Java driver](https://docs.janusgraph.org/changelog/#datastax-cassandra-driver-upgrade-from-390-to-4130) to connect to Cassandra as the storage backend. The Java driver itself supports connections to Astra DB natively. For example:
+
 ```
 CqlSession session = CqlSession.builder()
   .withCloudSecureConnectBundle(Paths.get("/path/to/secure-connect-db_name.zip"))
@@ -61,6 +62,7 @@ You will need to choose which keyspace to use to store your graph. If it doesn't
 ### <span class="nosurface">✅ Step 1:</span> DB Information
 
 On the JanusGraph server, move your secure bundle using secure copy or other techniques. For example:
+
 ```
 $ cd /path/to/scb
 $ ls -l secure-connect-janusgraph.zip
@@ -75,6 +77,7 @@ as-is without extracting it. There are multiple ways in which a secure connect b
 the JanusGraph configuration to connect to Astra DB using the DataStax driver.
 
 On the JanusGraph server, modify the CQL storage configuration file:
+
 ```
 $ cd janusgraph-0.6.2
 $ vi conf/janusgraph-cql.properties
@@ -87,6 +90,7 @@ Set the property `storage.cql.internal.string-configuration` to `datastax-java-d
 and set the username, password and keyspace details.
 
 For example:
+
 ```properties
 gremlin.graph=org.janusgraph.core.JanusGraphFactory
 storage.backend=cql
@@ -109,6 +113,7 @@ Set the property `storage.cql.internal.file-configuration` to an external config
 externalize the astra connection related properties to a separate file and specify the secure bundle and credentials information on that file.
 
 For example:
+
 ```properties
 gremlin.graph=org.janusgraph.core.JanusGraphFactory
 storage.backend=cql
@@ -118,6 +123,7 @@ storage.cql.internal.file-configuration=/path/to/scb/astra.conf
 ```
 
 `astra.conf` (external file) to contain:
+
 ```
 datastax-java-driver {
   basic.cloud {
@@ -141,7 +147,9 @@ datastax-java-driver {
 
 
 ### <span class="nosurface">✅ Step 3:</span> Final Test
+
 Start a Gremlin console:
+
 ```
 $ bin/gremlin.sh
  
@@ -150,7 +158,9 @@ $ bin/gremlin.sh
 -----oOOo-(3)-oOOo-----
 gremlin>
 ```
+
 Load a graph using Astra as the storage backend with:
+
 ```
 gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 ==>standardjanusgraph[cql:[70bf8560-105f-11ec-a3ea-0800200c9a66-us-west1.db.astra.datastax.com]]
@@ -162,6 +172,7 @@ gremlin> graph = JanusGraphFactory.open('conf/janusgraph-cql.properties')
 </admonition>
 
 In the [Astra CQL Console](https://docs.datastax.com/en/astra/docs/connecting-to-astra-databases-using-cqlsh.html), I can see JanusGraph created the following tables in the `janusgraph` keyspace:
+
 ```
 token@cqlsh> USE janusgraph;
 token@cqlsh:janusgraph> DESCRIBE TABLES;
