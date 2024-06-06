@@ -1,6 +1,6 @@
 ---
-title: "AWS Bedrock"
-description: "AWS Bedrock is a managed, serverless service offering access to foundation models from various AI companies, plus additional ML/GenAI tooling, in a single API."
+title: "Amazon Bedrock"
+description: "Amazon Bedrock is a managed, serverless service offering access to foundation models from various AI companies, plus additional ML/GenAI tooling, in a single API."
 tags: "llm, genai, generative-ai, embedding, embeddings, vector"
 icon: "https://awesome-astra.github.io/docs/img/bedrock/bedrock.svg"
 developer_title: "AWSBedrock"
@@ -8,9 +8,9 @@ developer_url: "https://aws.amazon.com/bedrock/"
 links:
 - title: "What is Amazon Bedrock"
   url: "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
-- title: "AWS Bedrock Docs"
+- title: "Amazon Bedrock Docs"
   url: "https://docs.aws.amazon.com/bedrock/"
-- title: "Using AWS Bedrock from Python"
+- title: "Using Amazon Bedrock from Python"
   url: "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/introduction-to-bedrock"
 ---
 
