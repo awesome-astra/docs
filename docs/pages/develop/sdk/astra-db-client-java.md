@@ -107,9 +107,9 @@ The Astra DB Client, as the name suggests, is a client library that interacts wi
     
     <img src="../../../../img/sdk/jsonapi-endpoint.png" />
 
-``` java title="Quickstart.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/QuickStart.java"
-```
+<!-- ``` java title="Quickstart.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/QuickStart.java" -->
+<!-- ``` -->
 
 ## 4. Reference Guide
 
@@ -137,9 +137,9 @@ AstraDB(String token, UUID databaseId, String region, AstraEnvironment env, Stri
 
 - [x] **Sample Code**
 
-``` java title="Connection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Connecting.java"
-```
+<!-- ``` java title="Connection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Connecting.java" -->
+<!-- ``` -->
 
 ### Working with Collections
 
@@ -179,9 +179,9 @@ AstraDBCollection createCollection(CollectionDefinition def);
 
 - [x] **Sample Code**
 
-``` java title="CreateCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateCollection.java"
-```
+<!-- ``` java title="CreateCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateCollection.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -249,9 +249,9 @@ Stream<CollectionDefinition> findAllCollections();
 
 - [x] **Sample Code**
 
-``` java title="FindAllCollections.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllCollections.java"
-```
+<!-- ``` java title="FindAllCollections.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllCollections.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -284,9 +284,9 @@ boolean isCollectionExists(String name);
 
 - [x] **Sample Code**
 
-``` java title="FindCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindCollection.java"
-```
+<!-- ``` java title="FindCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindCollection.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -317,9 +317,9 @@ void deleteCollection(String name);
 
 - [x] **Sample Code**
 
-``` java title="DeleteCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteCollection.java"
-```
+<!-- ``` java title="DeleteCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteCollection.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -369,9 +369,9 @@ CompletableFuture<DocumentMutationResult<DOC>>
 
 - [x] **Sample Code**
 
-``` java title="InsertOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java"
-```
+<!-- ``` java title="InsertOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertOne.java" -->
+<!-- ``` -->
 
 - [x] **Data API Payload**
 
@@ -417,9 +417,9 @@ CompletableFuture<DocumentMutationResult<DOC>>
 
 - [x] **Sample Code**
 
-``` java title="InsertOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpsertOne.java"
-```
+<!-- ``` java title="InsertOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpsertOne.java" -->
+<!-- ``` -->
 
 - [x] **Data API Payload**
 
@@ -486,9 +486,9 @@ CompletableFuture<List<DocumentMutationResult<DOC>>>
 
 - [x] **Sample Code**
 
-``` java title="InsertMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertMany.java"
-```
+<!-- ``` java title="InsertMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/InsertMany.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -629,9 +629,9 @@ boolean isDocumentExists(String id);
 
 - [x] **Sample Code**
 
-``` java title="FindById.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java"
-```
+<!-- ``` java title="FindById.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindById.java" -->
+<!-- ``` -->
 
 - [x] **Data API**
 
@@ -657,9 +657,9 @@ Optional<DocumentResult<T>> findOneByVector(float[] vector, DocumentResultMapper
 
 - [x] **Sample Code**
 
-``` java title="FindByVector.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindByVector.java"
-```
+<!-- ``` java title="FindByVector.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindByVector.java" -->
+<!-- ``` -->
 
 #### Find One
 
@@ -686,9 +686,9 @@ Optional<DocumentResult<DOC>> findOne(SelectQuery query, ResultMapper<T> mapper)
 
 Here is a sample class detailing the usage of the `findOne` method.
 
-``` java title="FindOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java"
-```
+<!-- ``` java title="FindOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindOne.java" -->
+<!-- ``` -->
 
 
 - [x] **Data API**
@@ -896,15 +896,15 @@ Stream<JsonResult> all = col1.findAll();
 
 - [x] **Find with a `Query`**
 
-``` java title="Find.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java"
-```
+<!-- ``` java title="Find.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/Find.java" -->
+<!-- ``` -->
 
 - [x] **To perform semantic search use `findVector()`**
 
-``` java title="FindOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindVector.java"
-```
+<!-- ``` java title="FindOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindVector.java" -->
+<!-- ``` -->
 
 #### Paging
 
@@ -922,51 +922,51 @@ Page<Result<T>> jsonResult2 = findPage(SelectQuery query, Class<T> clazz);
 Page<Result<T>> jsonResult3 = findPage(SelectQuery query, ResultMapper<T> clazz);
 ```
 
-``` java title="FindPage.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindPage.java"
-```
+<!-- ``` java title="FindPage.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindPage.java" -->
+<!-- ``` -->
 
 #### Update One
 
 Allow to update an existing document:
 
-``` java title="UpdateOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateOne.java"
-```
+<!-- ``` java title="UpdateOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateOne.java" -->
+<!-- ``` -->
 
 #### Update Many
 
 Allow to update a set of document matching a request.
 
-``` java title="UpdateMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateMany.java"
-```
+<!-- ``` java title="UpdateMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/UpdateMany.java" -->
+<!-- ``` -->
 
 #### Delete One
 
 Use to delete an existing document.
 
-``` java title="DeleteOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteOne.java"
-```
+<!-- ``` java title="DeleteOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteOne.java" -->
+<!-- ``` -->
 
 
 #### Delete Many
 
 Used to delete a set of document matching a request.
 
-``` java title="DeleteMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteMany.java"
-```
+<!-- ``` java title="DeleteMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteMany.java" -->
+<!-- ``` -->
 
 
 #### Clear
 
 Used to empty a collection
 
-``` java title="ClearCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ClearCollection.java"
-```
+<!-- ``` java title="ClearCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ClearCollection.java" -->
+<!-- ``` -->
 
 ### Object Mapping
 
@@ -1000,73 +1000,73 @@ Iterable<S> saveAll(Iterable<S> entities);
 #### Create collection
 
 
-``` java title="ObjectMappingCreateCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingCreateCollection.java"
-```
+<!-- ``` java title="ObjectMappingCreateCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingCreateCollection.java" -->
+<!-- ``` -->
 
 #### Insert One
 
-``` java title="ObjectMappingInsertOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertOne.java"
-```
+<!-- ``` java title="ObjectMappingInsertOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertOne.java" -->
+<!-- ``` -->
 
 #### Insert Many
 
-``` java title="ObjectMappingInsertMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertMany.java"
-```
+<!-- ``` java title="ObjectMappingInsertMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingInsertMany.java" -->
+<!-- ``` -->
 
 #### Find One
 
 - [x] **To get a single document use `findById()` or `findByVector()`**
 
-``` java title="ObjectMappingFindOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindOne.java"
-```
+<!-- ``` java title="ObjectMappingFindOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindOne.java" -->
+<!-- ``` -->
 
 #### Find
 
 - [x] **To perform search use `find()`**
 
-``` java title="ObjectMappingFind.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFind.java"
-```
+<!-- ``` java title="ObjectMappingFind.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFind.java" -->
+<!-- ``` -->
 
 - [x] **To perform semantic search use `findVector()`**
 
-``` java title="ObjectMappingFindVector.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindVector.java"
-```
+<!-- ``` java title="ObjectMappingFindVector.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingFindVector.java" -->
+<!-- ``` -->
 
 #### Update One
 
-``` java title="ObjectMappingUpdateOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateOne.java"
-```
+<!-- ``` java title="ObjectMappingUpdateOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateOne.java" -->
+<!-- ``` -->
 
 #### Update Many
 
-``` java title="ObjectMappingUpdateMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateMany.java"
-```
+<!-- ``` java title="ObjectMappingUpdateMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingUpdateMany.java" -->
+<!-- ``` -->
 
 #### Delete One
 
-``` java title="ObjectMappingDeleteOne.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteOne.java"
-```
+<!-- ``` java title="ObjectMappingDeleteOne.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteOne.java" -->
+<!-- ``` -->
 
 #### Delete Many
 
-``` java title="ObjectMappingDeleteMany.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteMany.java"
-```
+<!-- ``` java title="ObjectMappingDeleteMany.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingDeleteMany.java" -->
+<!-- ``` -->
 
 #### Clear
 
-``` java title="ObjectMappingClearCollection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingClearCollection.java"
-```
+<!-- ``` java title="ObjectMappingClearCollection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ObjectMappingClearCollection.java" -->
+<!-- ``` -->
 
 ### Working with databases
 
@@ -1089,29 +1089,29 @@ Iterable<S> saveAll(Iterable<S> entities);
     |----------------|------------------------------|
     | **Token Role** | `Organization Administrator` |
 
-``` java title="ConnectingAdmin.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ConnectingAdmin.java"
-```
+<!-- ``` java title="ConnectingAdmin.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/ConnectingAdmin.java" -->
+<!-- ``` -->
 
 #### List databases
 
-``` java title="FindAllDatabases.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllDatabases.java"
-```
+<!-- ``` java title="FindAllDatabases.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindAllDatabases.java" -->
+<!-- ``` -->
 
 #### Create database
 
 To create a database you need to use a token with organization level permissions. You will work with the class `AstraDBClient`
 
-``` java title="CreateDatabase.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateDatabase.java"
-```
+<!-- ``` java title="CreateDatabase.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateDatabase.java" -->
+<!-- ``` -->
 
 #### Find database
 
-``` java title="FindDatabase.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindDatabase.java"
-```
+<!-- ``` java title="FindDatabase.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/FindDatabase.java" -->
+<!-- ``` -->
 
 - [x] **Accessing object `AstraDB`**
 
@@ -1126,9 +1126,9 @@ AstraDB myDB = client.database("getting_started");
 
 The function can take a database identifier (uuid) or the database name.
 
-``` java title="DeleteDatabase.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteDatabase.java"
-```
+<!-- ``` java title="DeleteDatabase.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteDatabase.java" -->
+<!-- ``` -->
 
 ### Working with Keyspaces
 
@@ -1150,9 +1150,9 @@ void createKeyspace(UUID databaseId, String keyspaceName);
 
 - [x] **Sample Code**
 
-``` java title="CreateKeyspace.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateKeyspace.java"
-```
+<!-- ``` java title="CreateKeyspace.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CreateKeyspace.java" -->
+<!-- ``` -->
 
 #### Delete Keyspace
 
@@ -1172,9 +1172,9 @@ void deleteKeyspace(UUID databaseId, String keyspaceName);
 
 - [x] **Sample Code**
 
-``` java title="DeleteKeyspace.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java"
-```
+<!-- ``` java title="DeleteKeyspace.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java" -->
+<!-- ``` -->
 
 #### Find Keyspace
 
@@ -1195,9 +1195,9 @@ void changeKeyspace(String keyspaceName);
 
 - [x] **Sample Code**
 
-``` java title="FindKeyspace.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java"
-```
+<!-- ``` java title="FindKeyspace.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/DeleteKeyspace.java" -->
+<!-- ``` -->
 
 ## 6. Class Diagram
 
@@ -1225,9 +1225,9 @@ CqlSession init(String token, UUID databaseId, String databaseRegion, String key
 
 - [x] **Sample Code**
 
-``` java title="CassIOConnection.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOConnection.java"
-```
+<!-- ``` java title="CassIOConnection.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOConnection.java" -->
+<!-- ``` -->
 
 ### MetadataVectorTable
 
@@ -1248,9 +1248,9 @@ CqlSession init(String token, UUID databaseId, String databaseRegion, String key
 
 - [x] **Sample Code**
 
-``` java title="CassIOMetadataVectorTable.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOMetadataVectorTable.java"
-```
+<!-- ``` java title="CassIOMetadataVectorTable.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOMetadataVectorTable.java" -->
+<!-- ``` -->
 
 
 ### ClusteredMetadataVectorTable
@@ -1273,9 +1273,9 @@ CqlSession init(String token, UUID databaseId, String databaseRegion, String key
 
 - [x] **Sample Code**
 
-``` java title="CassIOClusteredMetadataVectorTable.java" linenums="1"
---8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOClusteredMetadataVectorTable.java"
-```
+<!-- ``` java title="CassIOClusteredMetadataVectorTable.java" linenums="1" -->
+<!-- --8<-- "https://raw.githubusercontent.com/datastax/astra-sdk-java/main/astra-db-client/src/test/java/com/dtsx/astra/sdk/documentation/CassIOClusteredMetadataVectorTable.java" -->
+<!-- ``` -->
 
 ## 8. Working with Langchain4j
 

@@ -213,6 +213,13 @@
     .md-footer-social {
         padding-top: 20px;
     }
+
+    .deprecation-notice {
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 10px;
+        color: var(--md-code-hl-number-color);
+    }
 </style>
 
 <!-- Main site Entry button descriptions -->
@@ -223,6 +230,7 @@
           <img src="img/astra.webp" draggable="false">
         </div>
         <div class="tx-hero__content">
+          <h3 class="deprecation-notice"><b>NOTICE:</b> this website is not maintained anymore. Use at your own discretion.</h3>
           <h1><i class="fa fa-rocket"></i> Awesome-Astra</h1>
           <p><b>Tutorials</b>, <b>documentation</b> and <b>learning materials</b> to build great applications or connect external tools to Astra.</p>
           <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
