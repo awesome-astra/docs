@@ -97,6 +97,20 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <div>
+        <b>WARNING:</b> As of January 2025, the Awesome Astra initiative is not actively maintained anymore.
+        Information on these pages, while still kept public and mostly valid, may well be outdated and feature broken   links.
+        Use at your own discretion and judgement.
+    </div>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
     
@@ -3392,13 +3406,13 @@ For this example to work, a message bus is needed - here, in line with a <a href
 <p>Make sure you have a RabbitMQ instance running in Docker with <code>docker run -d -p 5672:5672 rabbitmq</code> (it might take a while for the image to be downloaded and complete startup).</p>
 <h3 id="2-define-a-task"><span class="nosurface"> 2. </span> Define a task<a class="headerlink" href="#2-define-a-task" title="Permanent link">&para;</a></h3>
 <p>Create a <code>tasks.py</code> module with the definition of a task, to be later executed through Celery:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">celery</span><span class="w"> </span><span class="kn">import</span> <span class="n">Celery</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">app</span><span class="o">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s1">&#39;celeryconfig&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span> <span class="nf">sortWords</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">capitalize</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">sortWords</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">capitalize</span><span class="p">):</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="c1"># Rearrange the text so that words are in alphabetical order.</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">sortedWords</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
@@ -3443,7 +3457,7 @@ For this example to work, a message bus is needed - here, in line with a <a href
 </code></pre></div>
 <h3 id="5-run-and-check-a-task"><span class="nosurface"> 5. </span> Run and check a task<a class="headerlink" href="#5-run-and-check-a-task" title="Permanent link">&para;</a></h3>
 <p>In a different shell, open a Python REPL and type the following commands to run a couple of tasks and retrieve their result:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">tasks</span> <span class="kn">import</span> <span class="n">sortWords</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">sortWords</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">sorted1</span> <span class="o">=</span> <span class="n">sortWords</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="s1">&#39;storage yay my DB is powerful results Astra&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">sorted1</span><span class="o">.</span><span class="n">ready</span><span class="p">()</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Returns:     True</span>

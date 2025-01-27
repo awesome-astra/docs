@@ -97,6 +97,20 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <div>
+        <b>WARNING:</b> As of January 2025, the Awesome Astra initiative is not actively maintained anymore.
+        Information on these pages, while still kept public and mostly valid, may well be outdated and feature broken   links.
+        Use at your own discretion and judgement.
+    </div>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
     
@@ -3408,14 +3422,14 @@ the easiest way is to use Flask's application-context
 will find a reference to the session.
 Once the pre-request hook is set up with
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">before_request</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span> <span class="nf">get_db_session</span><span class="p">():</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_db_session</span><span class="p">():</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">g</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">get_session</span><span class="p">()</span>
 </code></pre></div>
 all endpoints will be able to read and use <code>g.session</code> as they need.
 Remember that <code>get_session()</code> does not create a new Cassandra <code>Session</code> object
 at each invocation!</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/animal/&lt;genus&gt;&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span> <span class="nf">get_animals</span><span class="p">(</span><span class="n">genus</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_animals</span><span class="p">(</span><span class="n">genus</span><span class="p">):</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">animals</span> <span class="o">=</span> <span class="n">retrieve_animals_by_genus</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">genus</span><span class="p">)</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">([</span><span class="n">animal</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">])</span>
 </code></pre></div>

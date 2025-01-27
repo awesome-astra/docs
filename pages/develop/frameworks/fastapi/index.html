@@ -97,6 +97,20 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <div>
+        <b>WARNING:</b> As of January 2025, the Awesome Astra initiative is not actively maintained anymore.
+        Information on these pages, while still kept public and mostly valid, may well be outdated and feature broken   links.
+        Use at your own discretion and judgement.
+    </div>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
     
@@ -3391,14 +3405,14 @@ one can add a <code>Depends</code> parameter to the <a href="https://github.com/
 be automatically resolved when the function gets executed. This makes the
 session available to the function:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/animal/</span><span class="si">{genus}</span><span class="s1">&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">get_animals</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">g_get_session</span><span class="p">)):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_animals</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">g_get_session</span><span class="p">)):</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># etc, etc ...</span>
 </code></pre></div>
 <p>The argument of <code>Depends</code> is a function itself, more precisely an async
 generator, which must <code>yield</code> the session object. For this reason
 there is a thin <a href="https://github.com/awesome-astra/sample-astra-fastapi-app/blob/594784cbcc7c459cd2a65eb60be7d706606c94df/utils/db_dependency.py">wrapper function</a> that, in practice, promotes the ordinary
 function <code>get_session</code> to a generator with the desired signature:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">g_get_session</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">g_get_session</span><span class="p">():</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">yield</span> <span class="n">get_session</span><span class="p">()</span>
 </code></pre></div>
 <p>At this point, FastAPI takes care of the wiring. What is still missing

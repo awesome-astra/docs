@@ -97,6 +97,20 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <div>
+        <b>WARNING:</b> As of January 2025, the Awesome Astra initiative is not actively maintained anymore.
+        Information on these pages, while still kept public and mostly valid, may well be outdated and feature broken   links.
+        Use at your own discretion and judgement.
+    </div>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
     
@@ -3701,9 +3715,9 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mv ~/Downloads/secure-connect-bundle.zip .
 </code></pre></div>
 <p>Open up your favorite editor or IDE, and add 3 imports:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">cassandra.auth</span> <span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cassandra.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cluster</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cassandra.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlainTextAuthProvider</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 </code></pre></div>
 <p>Next we will inject the connection parameters into the code.  This can be done either by reading them as environment variables or passing them as command line arguments.</p>
 <p>This example will be done using command line arguments:</p>
